@@ -13,7 +13,7 @@ html_meta:
 ## Semantic UI
 
 For styling our website in Volto we use Semantic UI.
-Semantic UI uses LESS as the underlaying technology.
+Semantic UI uses LESS as the underlying technology.
 By default Volto uses the Pastanaga theme but any theme can be used.
 A theme has the following folder structure:
 
