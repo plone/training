@@ -33,14 +33,14 @@ CMS
     Content Management System
 
 CSS
-    Cascading Style Sheets (CSS) is a stylesheet language used for describing the (most of the times visual) representation of web pages.
+    Cascading Style Sheets (CSS) is a style sheet language used for describing the (most of the times visual) representation of web pages.
 
 Grunt
     The JavaScript Task Runner.
     Automates the creation and manipulation of static assets for the theme.
 
 Less
-    A dynamic stylesheet language that can be compiled into {term}`CSS` (Cascading Style Sheets).
+    A dynamic style sheet language that can be compiled into {term}`CSS` (Cascading Style Sheets).
 
 NPM
     npm is a package manager for the JavaScript programming language.
@@ -106,7 +106,7 @@ XML
     The Extensible Markup Language.
 
 XSLT
-    The Extensible Stylesheet Language Transformations.
+    The Extensible style sheet language Transformations.
     A language which defines elements to describe transformations to be applied on a document.
 
 XPath

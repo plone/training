@@ -41,7 +41,7 @@ ng new training --style=scss
 ```
 
 ```{note}
-`--style=scss` indicates we will use SCSS for stylesheets.
+`--style=scss` indicates we will use SCSS for style sheets.
 ```
 
 If we inspect our newly created `./training`, we see a default Angular project structure:

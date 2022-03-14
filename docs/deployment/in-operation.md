@@ -217,7 +217,7 @@ Typical virtual hosting error.
 ```
 
 You're seeing a virtual-hosting setup error.
-The requested *page* is being returned, but all the resource URLs in the page -- images, stylesheets and JavaScript resources -- are pointing to the hostname supplied in the inventory.
+The requested *page* is being returned, but all the resource URLs in the page -- images, style sheets and JavaScript resources -- are pointing to the hostname supplied in the inventory.
 
 You may fix that by supplying a DNS-valid hostname, or by setting up specific virtual hosting.
 That's detailed below.

@@ -23,7 +23,7 @@ $blue: #50c0e9;
 $lightgrey: #f9f9f9;
 ```
 
-Import Bootstrap in our main stylesheet `src/styles.scss`
+Import Bootstrap in our main style sheet`src/styles.scss`
 
 ```scss
 @import "variables.scss";

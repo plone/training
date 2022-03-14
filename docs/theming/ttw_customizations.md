@@ -50,7 +50,7 @@ Your panel should now look like this:
 :alt: Custom Styles Field
 ```
 
-The contents of this text field are added after all other stylesheets and is similar to the `custom.css` that you maybe know from Plone 4.
+The contents of this text field are added after all other style sheets and is similar to the `custom.css` that you maybe know from Plone 4.
 
 
 ```{code-block} scss
