@@ -228,7 +228,7 @@ what exactly is an add-on, many new add-ons were published and can now be
 integrated with unmodified Volto projects.
 
 The [collective/awesome-volto](https://github.com/collective/awesome-volto)
-repo tracks most of them (submit PRs if anything is missing!).
+repository tracks most of them (submit PRs if anything is missing!).
 
 An add-on can be almost anything that a Volto project can be. They can:
 

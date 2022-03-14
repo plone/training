@@ -47,12 +47,12 @@ Because `collective` and `plone` repositories are on `GitHub`, the most commonly
 
 Let's see how to enable our testing package on Travis.
 
-First, we need to create a repo on GitHub. We don't need to push code to it yet.
+First, we need to create a repository on GitHub. We don't need to push code to it yet.
 
 Then we need a Travis CI account: go to [https://travis-ci.org](https://travis-ci.org) and signup with your GitHub credentials.
 
 If we go to the settings control panel, we can see a list of organizations and repositories for which we can enable Travis.
-We could also see our newly created repo and we can enable it.
+We could also see our newly created repository and we can enable it.
 
 ```{note}
 The repository list is periodically synced. If you don't see new repos, click the `refresh` button.
@@ -64,7 +64,7 @@ The repository list is periodically synced. If you don't see new repos, click th
 
 By default, Travis CI will run tests automatically for each push to the repository, including pull requests, and can also be manually triggered (but only for the `master` branch).
 
-For this reason, to trigger the first test run, we make our first commit to the repo:
+For this reason, to trigger the first test run, we make our first commit to the repository:
 
 ```shell
 git remote add origin git@github.com:your-username/plonetraining.testing.git
