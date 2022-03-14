@@ -96,13 +96,13 @@ sample-medium.yml
 > Uses load balancer to manage the queue to the ZEO clients.
 > Varnish cache is memory-based.
 
-sample-multiserver.yml
+`sample-multiserver.yml`
 
 > A configuration that demonstrates how to run multiple Zope/Plone installs with different versions and virtual hosting.
 
 The first four samples are meant to be immediately useful.
 Copy and customize.
-The multiserver sample is a demonstration of several customization techniques.
+The `multiserver` sample is a demonstration of several customization techniques.
 Read it for examples, but don't expect to use it without substantial customization.
 
 Why no `sample-large.yml`?
