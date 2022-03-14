@@ -57,7 +57,7 @@ python-check-interval 1000
 - verbose-security off
 - default-zpublisher-encoding utf-8
 - python-check-interval
-- pid-filename
+- `pid-filename`
 
 ## Exercises
 
