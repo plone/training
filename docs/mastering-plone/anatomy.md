@@ -89,7 +89,7 @@ class Account(persistent.Persistent):
 
 - Zope is a web application framework that Plone runs on top of.
 - The majority of Zope's code is written in Python, like everything else written on top of it.
-- It serves applications that communicate with users via http.
+- It serves applications that communicate with users via `http`.
 
 ```{note}
 **The great Version-Confusion**

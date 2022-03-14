@@ -206,7 +206,7 @@ We use Nginx for the outer web server, depending on it to do efficient URL rewri
 We'll have much more to say about virtual hosting later when we talk about how to customize it.
 What you need to know now is that simple virtual hosting is automatically set up between the hostname you supply in the inventory and the `/Plone` site in the ZODB.
 
-You should be able to immediately ask for your server via http and get a Plone welcome page.
+You should be able to immediately ask for your server via `http` and get a Plone welcome page.
 
 If your inventory hostname does not have a matching DNS host record, you're going to see something like:
 
