@@ -24,7 +24,7 @@ HTTPS is mandatory.
 
 ## SEO And Server-side Rendering
 
-robots.txt
+`robots.txt`
 
 Title and meta tags
 
