@@ -604,7 +604,7 @@ Again, `npm watch` will build our CSS after you save the file. Check out your br
 
 ## Replace Editbar
 
-If you are not happy with Plone's editbar there are alternatives available. `collective.sidebar` is a drop in replacement and brings edit features and navigation together.
+If you are not happy with Plone's edit bar there are alternatives available. `collective.sidebar` is a drop in replacement and brings edit features and navigation together.
 
 ```{image} _static/scratch/sidebar.png
 :alt: collective.sidebar
