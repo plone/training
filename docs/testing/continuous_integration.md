@@ -142,7 +142,7 @@ anything that can evaluate the quality of our add-on and can fail.
 
 In our case, we are running two tests:
 
-- `bin/code-analysis`: a script that checks if all Python code in our repository follows some coding styleguides (see later in this chapter).
+- `bin/code-analysis`: a script that checks if all Python code in our repository follows some coding style guides (see later in this chapter).
 - `bin/test --all`: the same script that we run in our local tests (this is the same as running `plonecli test --all`).
 
 ```{literalinclude} _snippets/.travis.yml
