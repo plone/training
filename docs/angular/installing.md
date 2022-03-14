@@ -59,7 +59,7 @@ ng serve
 
 The result can be seen on <http://localhost:4200>.
 
-This development server offers the different features we can expect for a convenient frontend developement environment
+This development server offers the different features we can expect for a convenient frontend development environment
 like autoreload and sourcemaps.
 
 The CLI also allows to run the tests:
