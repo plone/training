@@ -62,7 +62,7 @@ This will tell Plone that there is a new content type defined in file {file}`tal
 
 Plone will now expect a file {file}`profiles/default/types/talk.xml` and will register that as a new content type.
 
-## The fti
+## The FTI
 
 Add the file `ploneconf/site/profiles/default/types/talk.xml`.
 Note that there is a file _types_ and a folder _types_.
@@ -130,7 +130,7 @@ But the type is not yet complete since the schema (`ploneconf.site.content.talk.
 
 The schema holds the definition of the fields that the content type will offer to store data.
 
-In the fti we referenced the python-path `ploneconf.site.content.talk.ITalk`.
+In the FTI we referenced the python-path `ploneconf.site.content.talk.ITalk`.
 
 The module {py:mod}`content` does not exist. Create a folder {file}`content` and add a empty {file}`__init__.py` in it.
 
@@ -289,8 +289,8 @@ Adding a talk in the backend
 - Compare all the fields you see to the code in the schema.
 - You can also make changes in the schema. After restarting the backend these changes are effective immediatley
 - Find the tool `portal_types` in the ZMI
-- Look at the fti for `talk` and inspect the configuration taken from the fti.
-- You can make changes to the fti here. Some of the configuration are also available in plone control panels where it makes sense. For example the dexterity-controlpanel `http://localhost:3000/controlpanel/dexterity-types` can modify the behaviors (defined in `<property name="behaviors">`) and <http://localhost:8080/@@content-controlpanel> has a checkbox for the setting `<property name="global_allow">`.
+- Look at the FTI for `talk` and inspect the configuration taken from the FTI.
+- You can make changes to the FTI here. Some of the configuration are also available in plone control panels where it makes sense. For example the dexterity-controlpanel `http://localhost:3000/controlpanel/dexterity-types` can modify the behaviors (defined in `<property name="behaviors">`) and <http://localhost:8080/@@content-controlpanel> has a checkbox for the setting `<property name="global_allow">`.
 
 ## Summary
 
