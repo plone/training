@@ -21,7 +21,7 @@ Support
 
 If you are having issues, please let us know by opening an issue in our 
 `Issue Tracker <https://github.com/plone/training/issues>`_ 
-or asking a question on our `Community Forum <https://community.plone.org/c/training/46>`_.
+or asking a question on our `Community Forum /Training <https://community.plone.org/c/training/46>`_.
 
 
 License
