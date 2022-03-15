@@ -197,5 +197,10 @@ test: clean linkcheck spellcheck  ## Run linkcheck, spellcheck
 .PHONY: deploy
 deploy: clean html
 
+.PHONY: netlify
+netlify:
+	pip install -r requirements.txt
+	cd $(DOCS_DIR) && $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+
 .PHONY: all
 all: clean spellcheck linkcheck html ## Run checks and build html
