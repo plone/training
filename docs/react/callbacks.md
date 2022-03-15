@@ -162,7 +162,7 @@ Make sure to pass the index and the callback to the `FaqItem` component to wire 
 :class: toggle
 
 ```{code-block} jsx
-:emphasize-lines: 17-20,23-29
+:emphasize-lines: 17-20,23-30
 :linenos: true
 
 import { useState } from "react";
@@ -189,6 +189,7 @@ function App() {
     <ul>
       {faqList.map((item, index) => (
         <FaqItem
+          key={index}
           question={item.question}
           answer={item.answer}
           index={index}
@@ -205,7 +206,7 @@ export default App;
 ```dpatch
 --- a/src/App.js
 +++ b/src/App.js
-@@ -14,10 +14,19 @@ function App() {
+@@ -14,10 +14,20 @@ function App() {
      },
    ]);
 
@@ -215,10 +216,10 @@ export default App;
 +
    return (
      <ul>
--      {faqList.map((item) => (
--        <FaqItem question={item.question} answer={item.answer} />
-+      {faqList.map((item, index) => (
+       {faqList.map((item, index) => (
+-        <FaqItem key={index} question={item.question} answer={item.answer} />
 +        <FaqItem
++          key={index}   
 +          question={item.question}
 +          answer={item.answer}
 +          index={index}

@@ -321,7 +321,7 @@ export default FaqItem;
 :class: toggle
 
 ```{code-block} jsx
-:emphasize-lines: 34-38,56
+:emphasize-lines: 34-38,57
 :linenos: true
 
 import { useState } from "react";
@@ -375,6 +375,7 @@ function App() {
       <ul>
         {faqList.map((item, index) => (
           <FaqItem
+            key={index}
             question={item.question}
             answer={item.answer}
             index={index}
@@ -423,7 +424,7 @@ export default App;
    const onSubmit = (e) => {
      e.preventDefault();
      setFaqList([...faqList, { question, answer }]);
-@@ -47,6 +53,7 @@ function App() {
+@@ -48,6 +54,7 @@ function App() {
              answer={item.answer}
              index={index}
              onDelete={onDelete}
