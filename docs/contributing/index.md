@@ -56,9 +56,22 @@ Tap, click, or hover over the GitHub Octocat icon for options.
 You can use this menu to quickly navigate to the source repository, open an issue, or suggest an edit to the current document.
 Of course, you can use whichever tools you like.
 
-Next edit files, commit your changes, push them to the remote repository, and submit a pull request to resolve the issue.
+Filing an issue is a valuable contribution to the trainings. If you want to propose a solution and you have already put the topic up for discussion and clarified that the topic needs a solution, then please follow the next steps to propose your solution via a pull request.
 
-Members who subscribe to the repository will receive a notification and review your request.
+- Build the trainings like described in the next chapter.
+- Create a branch.
+- Make your changes.
+- Run `make test`. 
+- If tests are OK: commit your changes. 
+- If tests are not OK and you are not sure if it depends on your changes, please contact the community by opening an issue.
+- Submit a pull request or
+- If you want to expose your work for a discussion but are not ready for a pull request, you can create a draft (pull request is work in progress) instead of a pull request.
+
+Members who subscribe to the repository will receive a notification and review your request. 
+
+```{note}
+Reviewers do not have to build the training on a local machine. A pull request dedicated preview is available and linked in the pull request comments.
+```
 
 
 (contributing-roles-label)=
