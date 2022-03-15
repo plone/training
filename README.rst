@@ -2,7 +2,7 @@
 Training
 ========
 
-https://training.plone.org is a collection of different trainings,
+`training.plone.org <https://training.plone.org>`_ is a collection of different trainings,
 developed and created by the Plone Community.
 
 
