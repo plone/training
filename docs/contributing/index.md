@@ -64,7 +64,8 @@ Filing an issue is a valuable contribution to the trainings. If you want to prop
 - Run `make test`. 
 - If tests are OK: commit your changes. 
 - If tests are not OK and you are not sure if it depends on your changes, please contact the community by opening an issue.
-- Submit a pull request.
+- Submit a pull request or
+- If you want to expose your work for a discussion but are not ready for a pull request, you can create a draft (pull request is work in progress) instead of a pull request.
 
 Members who subscribe to the repository will receive a notification and review your request. 
 
