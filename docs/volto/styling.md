@@ -48,7 +48,7 @@ When we want to change the base font, we add the following:
 ```
 
 ```{warning}
-Make sure you have the 'Comic Sans MS' font installed. This is the 'ttf-mscorefonts-installer' package for the Debian linux distribution.
+Make sure you have the 'Comic Sans MS' font installed. This is the `ttf-mscorefonts-installer` package for the Debian linux distribution.
 ```
 
 ## Changing The Breadcrumbs
