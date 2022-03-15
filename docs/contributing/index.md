@@ -66,7 +66,11 @@ Filing an issue is a valuable contribution to the trainings. If you want to prop
 - If tests are not OK and you are not sure if it depends on your changes, please contact the community by opening an issue.
 - Submit a pull request.
 
-Members who subscribe to the repository will receive a notification and review your request.
+Members who subscribe to the repository will receive a notification and review your request. 
+
+```{note}
+Reviewers do not have to build the training on a local machine. A pull request dedicated preview is available and linked in the pull request comments.
+```
 
 
 (contributing-roles-label)=
