@@ -16,7 +16,6 @@ backlinked
 backlinks
 backticks
 balancer
-bar
 Barceloneta
 Barebone
 blobstorage
@@ -45,7 +44,6 @@ Conectivo
 configuration
 contenttype
 contenttypes
-control
 Covantec
 coveragerc
 crockfort
@@ -61,7 +59,6 @@ Demostorage
 demostorage
 demoview
 dev
-development
 Diazo
 diff
 diffs
@@ -74,7 +71,6 @@ dockerfile
 Dropdown
 dropdown
 dropdowns
-edit
 eea
 Einsteigerkurs
 eventhandlers
@@ -172,10 +168,7 @@ online
 Online
 org
 outlier
-overridden 
 pageview
-panel
-panels
 Pastanaga
 pattern
 Patternslib
