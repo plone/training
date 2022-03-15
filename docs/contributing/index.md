@@ -58,7 +58,7 @@ Of course, you can use whichever tools you like.
 
 Filing an issue is a valuable contribution to the trainings. If you want to propose a solution and you have already put the topic up for discussion and clarified that the topic needs a solution, then please follow the next steps to propose your solution via a pull request.
 
-- Clone the trainings repository.
+- Build the trainings like described in the next chapter.
 - Create a branch.
 - Make your changes.
 - Run `make test`. 
