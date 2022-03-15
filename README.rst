@@ -1,31 +1,19 @@
+.. image:: https://github.com/plone/training/actions/workflows/test.yml/badge.svg?branch=main
+:target: https://github.com/plone/training/actions/workflows/test.yml
+
+
 ========
 Training
 ========
 
-`training.plone.org <https://training.plone.org>`_ is a collection of different trainings,
+`training.plone.org <https://training.plone.org/5/>`_ is a collection of different trainings,
 developed and created by the Plone Community.
 
 
-Overview
-========
+Contribute
+==========
 
-Beside the trainings you can find information on `Plone documentation <https://docs.plone.org/>`_
-
-`How to work with content and manage site settings in Plone. <https://docs.plone.org/working-with-content/>`_
-
-
-Plone Trainings:
-
-- How to get your Plone site up and running: `Installation <https://training.plone.org/5/mastering-plone/installation.html>`_
-- How to style your Plone site: `Theming <https://training.plone.org/5/theming/>`_
-- How to develop customized solutions with Plone: `Mastering Plone Development <https://training.plone.org/5/mastering-plone/>`_
-- `and more trainings <https://training.plone.org/5/>`_
-
-
-Contribute to trainings documentation
-=====================================
-
-A guide on how to contribute to the trainings can be found in `Contributing to Plone Trainings Documentation <https://training.plone.org/5/contributing/>`_ .
+A guide on how to contribute to the trainings can be found in `Contributing to Plone Trainings Documentation <https://training.plone.org/5/contributing/>`_.
 
 
 Support
@@ -33,13 +21,13 @@ Support
 
 If you are having issues, please let us know by opening an issue in our 
 `Issue Tracker <https://github.com/plone/training/issues>`_ 
-or asking a question on our `Community Space <https://community.plone.org>`_.
+or asking a question on our `Community Forum <https://community.plone.org/c/training/46>`_.
 
 
 License
 =======
 
-The project is licensed under the `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`_ by the `Plone Foundation <https://plone.org>`_.
+The project is licensed under the GPLv2.
 
 
 The landing page
