@@ -134,7 +134,7 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 ```
 
 ```{seealso}
-- <https://www.zope.org/world.html>
+- <https://www.zope.dev/world.html>
 - <https://zope.readthedocs.io/en/latest/zopebook/>
 ```
 ````

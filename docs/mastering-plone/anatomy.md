@@ -162,7 +162,7 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 ```
 
 ```{seealso}
-- <https://www.zope.org/world.html>
+- <https://www.zope.dev/world.html>
 - <https://zope.readthedocs.io/en/latest/zopebook/>
 ```
 ````
@@ -171,7 +171,7 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 
 ## Content Management Framework
 
-- [CMF (Content Management Framework)](https://old.zope.org/Products/CMF/index.html/) is add-on for Zope to build Content Management Systems (like Plone).
+- [CMF (Content Management Framework)](https://old.zope.dev/Products/CMF/index.html/) is add-on for Zope to build Content Management Systems (like Plone).
 
 ```{only} not presentation
 After many websites were successfully created using Zope, a number of recurring requirements emerged,

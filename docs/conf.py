@@ -97,6 +97,7 @@ linkcheck_ignore = [
 ]
 linkcheck_anchors = False
 linkcheck_timeout = 10
+linkcheck_retries = 2
 
 # This is our wordlist with known words, like Github or Plone ...
 spelling_word_list_filename = "spelling_wordlist.txt"
@@ -181,6 +182,7 @@ myst_enable_extensions = [
 #
 intersphinx_mapping = {
     "plonedocs": ("https://docs.plone.org/", None),
+    "plone6docs": ("https://6.dev-docs.plone.org/", None),
     "python": ("https://docs.python.org/3/", None),
 }
 
