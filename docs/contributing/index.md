@@ -1,6 +1,8 @@
 ---
 html_meta:
-  "description": "Contributing to Plone Trainings Documentation."
+  "description": "Contributing to Plone Trainings Documentation"
+  "property=og:description": "Contributing to Plone Trainings Documentation"
+  "property=og:title": "Contributing to Plone Trainings Documentation"
   "keywords": "Plone, Trainings, Plone Contributor Agreement, License, Code of Conduct"
 ---
 
@@ -43,7 +45,7 @@ Any method below is acceptable, but are listed in order of most likely to get a 
 - [Search for open issues](https://github.com/plone/training/issues) and comment on them.
 - [Create a new issue](https://github.com/plone/training/issues/new/choose).
 - Discuss during conferences, trainings, and other Plone events.
-- Ask on the [Plone Community Forum, Documentation topic](https://community.plone.org/c/documentation/13).
+- Ask on the [Plone Community Forum, Training topic](https://community.plone.org/c/training/46).
 - Ask in the [Plone chat on Discord](https://discord.com/invite/zFY3EBbjaj).
 
 As a convenience, at the top right of every page, there is a GitHub navigation menu.
@@ -56,21 +58,23 @@ Tap, click, or hover over the GitHub Octocat icon for options.
 You can use this menu to quickly navigate to the source repository, open an issue, or suggest an edit to the current document.
 Of course, you can use whichever tools you like.
 
-Filing an issue is a valuable contribution to the trainings. If you want to propose a solution and you have already put the topic up for discussion and clarified that the topic needs a solution, then please follow the next steps to propose your solution via a pull request.
+Filing an issue is a valuable contribution to the trainings.
+If you want to propose a solution, and you have already put the topic up for discussion and clarified that the topic needs a solution, then please follow the next steps to propose your solution via a pull request.
 
-- Build the trainings like described in the next chapter.
+- Build the trainings as described in :doc:`contributing/setup-build`.
 - Create a branch.
 - Make your changes.
 - Run `make test`. 
 - If tests are OK: commit your changes. 
 - If tests are not OK and you are not sure if it depends on your changes, please contact the community by opening an issue.
-- Submit a pull request or
-- If you want to expose your work for a discussion but are not ready for a pull request, you can create a draft (pull request is work in progress) instead of a pull request.
+- Submit a pull request.
+  Optionally, if you want to mark your pull request as a "work in progress" that is not ready to merge or should be discussed further, you can convert it to a draft.
 
 Members who subscribe to the repository will receive a notification and review your request. 
 
 ```{note}
-Reviewers do not have to build the training on a local machine. A pull request dedicated preview is available and linked in the pull request comments.
+Reviewers do not have to build the training on a local machine.
+A preview of all pull requests is attempted to be built, and if successful, is available and linked in the pull request comments.
 ```
 
 

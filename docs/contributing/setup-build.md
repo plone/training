@@ -19,6 +19,10 @@ This document covers how to build the Training documentation and check it for qu
 
 Install [Enchant](https://abiword.github.io/enchant/) to check spelling.
 
+```{seealso}
+[Installation of Enchant from the PyEnchant documentation](https://pyenchant.github.io/pyenchant/install.html).
+```
+
 **macOS**
 
 ```shell
