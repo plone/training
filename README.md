@@ -17,7 +17,7 @@ If you have issues, please open an issue in our [Issue Tracker](https://github.c
 
 ## License
 
-The project is licensed under the `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`_ by the `Plone Foundation <https://plone.org>`_.
+The project is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) by the [Plone Foundation](https://plone.org).
 
 
 ## The landing page
