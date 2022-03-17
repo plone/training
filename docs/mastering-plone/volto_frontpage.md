@@ -124,5 +124,4 @@ You will gain a new block and sidebar looking like this:
 
 ## Outlook: block variations
 
-The listing block comes with default variations for the display. The editor can choose from these vaiations to change the template for the listing: with thumbnail image or without, etc.. Your project maybe needs a custom template. The way to go would be to create an additional variation of the listing block. See [block variations](https://docs.voltocms.com/blocks/extensions/#block-variations) for more information.
-
+The listing block comes with default variations for the display. The editor can choose from these vaiations to change the template for the listing: with thumbnail image or without, etc.. Your project maybe needs a custom template. The way to go would be to create an additional variation of the listing block. See {ref}`plone6docs:extensions-block-variations` for more information.
