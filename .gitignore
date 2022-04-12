@@ -32,3 +32,5 @@ docs/pyvenv.cfg
 /.vale
 .vale.ini
 .vscode
+.*project
+/.settings/
