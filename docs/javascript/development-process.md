@@ -10,7 +10,7 @@ html_meta:
 
 ## Code Style
 
-Together with [plone.api](https://github.com/plone/plone.api) we developed [code style guidelines](https://github.com/plone/plone.api/blob/master/docs/contribute/conventions.rst), which we are enforcing now for core Plone development.
+Together with [plone.api](https://github.com/plone/plone.api) we developed [Styleguides](https://docs.plone.org/develop/styleguide/), which we are enforcing now for core Plone development.
 
 This makes code so much more readable.
 
@@ -24,7 +24,7 @@ Out of that he developed the code linter [JSLint](https://www.jslint.com/).
 
 Because this one was too strict, some other people wrote [JSHint](https://jshint.com/).
 
-Mockup uses JSHint with the following [.jshintrc configuration file](https://github.com/plone/mockup/blob/master/mockup/.jshintrc):
+Mockup uses JSHint with the following [.jshintrc configuration file](https://github.com/plone/mockup/blob/c3b64843f913131836a09d6fde50263358d4ec3b/mockup/.jshintrc):
 
 ```javascript
 {
