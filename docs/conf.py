@@ -98,7 +98,7 @@ linkcheck_ignore = [
 ]
 linkcheck_allowed_redirects = {
     # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
-    r'https://chrome\.google\.com/webstore/detail/.*': r'https://consent\.google\.com/.*'
+    r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*"
 }
 linkcheck_anchors = False
 linkcheck_timeout = 10
