@@ -10,7 +10,7 @@ html_meta:
 
 ## Code Style
 
-Together with [plone.api](https://github.com/plone/plone.api) we developed [Styleguides](https://docs.plone.org/develop/styleguide/), which we are enforcing now for core Plone development.
+Together with [plone.api](https://github.com/plone/plone.api) we developed [Plone style guides](https://docs.plone.org/develop/styleguide/), which we are enforcing now for core Plone development.
 
 This makes code so much more readable.
 
