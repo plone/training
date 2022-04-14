@@ -94,6 +94,7 @@ linkcheck_ignore = [
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
     r"https://www.virtualbox.org",  # times out often
+    r"https://docs.github.com/en/get-started/quickstart/set-up-git"
 ]
 linkcheck_allowed_redirects = {
     # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
