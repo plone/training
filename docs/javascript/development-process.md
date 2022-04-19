@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": "Contributing to code and documentation"
-  "property=og:description": "Contributing to code and documentation"
+  "description": "Contributing to JavaScript code and documentation in Plone 5"
+  "property=og:description": "Contributing to JavaScript code and documentation in Plone 5"
   "property=og:title": "JavaScript Development Process"
-  "keywords": "GitHub, lint"
+  "keywords": "Plone, JavaScript, development, code, style, lint, mockup, documentation"
 ---
 
 # JavaScript Development Process
@@ -32,7 +32,7 @@ The link to **.jshintrc configuration file** is broken and needs to be updated.
 
 Mockup uses JSHint with the following [.jshintrc configuration file](https://github.com/plone/mockup/blob/master/mockup/.jshintrc):
 
-```javascript
+```json
 {
    "bitwise": true,
    "curly": true,
