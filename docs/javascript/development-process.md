@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Contributing to code and documentation"
+  "property=og:description": "Contributing to code and documentation"
+  "property=og:title": "JavaScript Development Process"
+  "keywords": "GitHub, lint"
 ---
 
 # JavaScript Development Process
