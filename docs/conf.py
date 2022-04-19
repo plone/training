@@ -79,7 +79,7 @@ myst_enable_extensions = [
 # to convert quotes and dashes to typographically correct entities.
 # Note to maintainers: setting this to `True` will cause contractions and
 # hyphenated words to be marked as misspelled by spellchecker.
-smartquotes=False
+smartquotes = False
 
 # The name of the Pygments (syntax highlighting) style to use.
 # pygments_style = "sphinx.pygments_styles.PyramidStyle"
@@ -101,7 +101,7 @@ linkcheck_ignore = [
 ]
 linkcheck_allowed_redirects = {
     # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
-    r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*"
+    r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*",
 }
 linkcheck_anchors = False
 linkcheck_timeout = 10
@@ -165,16 +165,6 @@ html_theme_options = {
                 <img src="/5/_static/logo.svg" alt="plone.org" /> plone.org</a>
         </p>""",
 }
-
-
-# -- Options for myST markdown conversion to html -----------------------------
-
-myst_enable_extensions = [
-    "deflist",
-    "linkify",
-    "colon_fence"
-]
-
 
 # -- Intersphinx configuration ----------------------------------
 
