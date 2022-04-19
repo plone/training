@@ -103,6 +103,13 @@ div.section {
   font-weight: bold;
 }
 
+/* search */
+/* Show search form. It is hidden by default. */
+#search-documentation,
+#search-documentation~form,
+#search-documentation~p {
+ display:block;
+}
 #search-form {
   display: flex;
   flex-direction: row;
