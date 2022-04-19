@@ -28,6 +28,7 @@ Because this one was too strict, some other people wrote [JSHint](https://jshint
 `Mockup` got an overhaul.
 The following content regarding JSHint is valid up to [`mockup` 2.7.7](https://github.com/plone/mockup/releases/tag/2.7.7).
 The link to **.jshintrc configuration file** is broken and needs to be updated.
+See https://github.com/plone/training/issues/611
 ```
 
 Mockup uses JSHint with the following [.jshintrc configuration file](https://github.com/plone/mockup/blob/master/mockup/.jshintrc):
