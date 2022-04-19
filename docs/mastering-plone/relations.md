@@ -444,7 +444,7 @@ from plone import api
 api.relation.delete(source=portal["bob"])
 ```
 
-See the [plone.api documentation](https://6.dev-docs.plone.org/plone.api/relation.html) for more details.
+See {ref}`plone6docs:chapter-relation` for more details.
 
 ### Plone 5.2 and older
 
