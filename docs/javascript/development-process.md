@@ -24,8 +24,10 @@ Out of that he developed the code linter [JSLint](https://www.jslint.com/).
 
 Because this one was too strict, some other people wrote [JSHint](https://jshint.com/).
 
-```{admonition} TODO
-`Mockup` got an overhaul. The following is valid up to mockup 2.7.7 https://github.com/plone/mockup/releases/tag/2.7.7  
+```{todo}
+`Mockup` got an overhaul.
+The following content regarding JSHint is valid up to [`mockup` 2.7.7](https://github.com/plone/mockup/releases/tag/2.7.7).
+The link to **.jshintrc configuration file** is broken and needs to be updated.
 ```
 
 Mockup uses JSHint with the following [.jshintrc configuration file](https://github.com/plone/mockup/blob/master/mockup/.jshintrc):
