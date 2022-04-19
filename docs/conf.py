@@ -96,7 +96,6 @@ linkcheck_ignore = [
     r"https://www.virtualbox.org",  # times out often
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
-    r"https://github.com/plone/plone.staticresources/blob/master/src/plone/staticresources/static/plone.js",  # TODO: See https://github.com/plone/plone.staticresources/issues/213
     r"https://marketplace.visualstudio.com/items.*",  # training 'Theming'. Target exists but with timeout.
 ]
 linkcheck_allowed_redirects = {
