@@ -12,7 +12,8 @@ html_meta:
 
 ```{note}
 This training is for Plone 5 only.  
-A rewritten training for JavaScript in Plone 6 Classic UI will follow later on. In the meantime [Plone 6 documentation](https://6.dev-docs.plone.org/classic-ui/static-resources.html) is your primary source of information for Plone 6 Classic UI.
+A rewritten training for JavaScript in Plone 6 Classic UI will follow later on.
+In the meantime [Plone 6 documentation](https://6.dev-docs.plone.org/classic-ui/static-resources.html) is your primary source of information for JavaScript in Plone 6 Classic UI.
 ```
 
 About
