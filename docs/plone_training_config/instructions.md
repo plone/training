@@ -305,7 +305,7 @@ You can stop the Volto app anytime using {kbd}`ctrl + c`.
 
 #### Option 2. Start with existing training project `volto-ploneconf` with all code for the training
 
-Prepare the pre-requisites: {ref}`instructions-install-frontend-prerequisites-label`
+Prepare the [pre-requisites](instructions-install-frontend-prerequisites-label).
 
 
 Get the finished code for the frontend from github and install:
