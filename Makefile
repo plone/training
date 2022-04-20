@@ -42,7 +42,7 @@ html: bin/python  ## Build html
 
 .PHONY: livehtml
 livehtml: bin/python  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
-	cd "$(DOCS_DIR)" && sphinx-autobuild \
+	cd "$(DOCS_DIR)" && $(SPHINXAUTOBUILD) \
 		--ignore "*.swp" \
 		-b html . "$(BUILDDIR)/html" $(SPHINXOPTS) $(O)
 
@@ -199,7 +199,7 @@ deploy: clean html
 .PHONY: netlify
 netlify:
 	pip install -r requirements.txt
-	cd $(DOCS_DIR) && $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	cd $(DOCS_DIR) && sphinx-build -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 
 .PHONY: all
 all: clean spellcheck linkcheck html ## Run checks and build html
