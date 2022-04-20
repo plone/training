@@ -79,7 +79,7 @@ myst_enable_extensions = [
 # to convert quotes and dashes to typographically correct entities.
 # Note to maintainers: setting this to `True` will cause contractions and
 # hyphenated words to be marked as misspelled by spellchecker.
-smartquotes=False
+smartquotes = False
 
 # The name of the Pygments (syntax highlighting) style to use.
 # pygments_style = "sphinx.pygments_styles.PyramidStyle"
@@ -94,7 +94,14 @@ linkcheck_ignore = [
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
     r"https://www.virtualbox.org",  # times out often
+    r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
+    r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
+    r"https://marketplace.visualstudio.com/items.*",  # training 'Theming'. Target exists but with timeout.
 ]
+linkcheck_allowed_redirects = {
+    # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
+    r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*",
+}
 linkcheck_anchors = False
 linkcheck_timeout = 10
 linkcheck_retries = 2
@@ -157,16 +164,6 @@ html_theme_options = {
                 <img src="/5/_static/logo.svg" alt="plone.org" /> plone.org</a>
         </p>""",
 }
-
-
-# -- Options for myST markdown conversion to html -----------------------------
-
-myst_enable_extensions = [
-    "deflist",
-    "linkify",
-    "colon_fence"
-]
-
 
 # -- Intersphinx configuration ----------------------------------
 
