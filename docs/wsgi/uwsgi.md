@@ -129,7 +129,7 @@ As you can see the uWSGI output is pretty verbose.
 
 ### Exercise 1
 
-Benchmark the front page of your setup with two different tools: [siege](https://www.joedog.org/) and [wrk](https://github.com/wg/wrk).
+Benchmark the front page of your setup with two different tools: [siege](https://github.com/JoeDog/siege/) and [wrk](https://github.com/wg/wrk).
 You will probably find a package for your Linux distribution for at least siege.
 If so, use the distribution package, otherwise follow the official installation instructions.
 
