@@ -15,7 +15,7 @@ html_meta:
 To be able to add FAQ items to the list, we will start by adding an add form:
 
 ```{code-block} jsx
-:emphasize-lines: 2,13-22
+:emphasize-lines: 2,14-23
 :lineno-start: 23
 :linenos: true
 
@@ -24,6 +24,7 @@ return (
       <ul>
         {faqList.map((item, index) => (
           <FaqItem
+            key={index}
             question={item.question}
             answer={item.answer}
             index={index}
@@ -50,13 +51,14 @@ return (
 ```dpatch
 --- a/src/App.js
 +++ b/src/App.js
-@@ -21,16 +21,27 @@ function App() {
+@@ -21,17 +21,28 @@ function App() {
    };
 
    return (
 -    <ul>
 -      {faqList.map((item, index) => (
 -        <FaqItem
+-          key={index}
 -          question={item.question}
 -          answer={item.answer}
 -          index={index}
@@ -68,6 +70,7 @@ return (
 +      <ul>
 +        {faqList.map((item, index) => (
 +          <FaqItem
++            key={index}
 +            question={item.question}
 +            answer={item.answer}
 +            index={index}
@@ -101,7 +104,7 @@ This pattern is called "controlled inputs".
 :class: toggle
 
 ```{code-block} jsx
-:emphasize-lines: 17-18,26-32,48-54,57-58
+:emphasize-lines: 17-18,26-32,49-55,58-59
 :linenos: true
 
 import { useState } from "react";
@@ -142,6 +145,7 @@ function App() {
       <ul>
         {faqList.map((item, index) => (
           <FaqItem
+            key={index}
             question={item.question}
             answer={item.answer}
             index={index}
@@ -200,7 +204,7 @@ export default App;
    return (
      <div>
        <ul>
-@@ -34,10 +45,17 @@ function App() {
+@@ -35,10 +46,17 @@ function App() {
        </ul>
        <form>
          <label>
@@ -236,7 +240,7 @@ After the item is added, the inputs should also reset to empty values.
 And add this to the body of the function.
 
 ```{code-block} jsx
-:emphasize-lines: 1-6,20
+:emphasize-lines: 1-6,21
 :lineno-start: 34
 :linenos: true
 
@@ -252,6 +256,7 @@ And add this to the body of the function.
       <ul>
         {faqList.map((item, index) => (
           <FaqItem
+            key={index}
             question={item.question}
             answer={item.answer}
             index={index}
@@ -297,7 +302,7 @@ And add this to the body of the function.
    return (
      <div>
        <ul>
-@@ -43,7 +50,7 @@ function App() {
+@@ -44,7 +51,7 @@ function App() {
            />
          ))}
        </ul>

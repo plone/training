@@ -39,8 +39,8 @@ function App() {
 
   return (
     <ul>
-      {faqList.map((item) => (
-        <FaqItem question={item.question} answer={item.answer} />
+      {faqList.map((item, index) => (
+        <FaqItem key={index} question={item.question} answer={item.answer} />
       ))}
     </ul>
   );
@@ -95,8 +95,9 @@ export default App;
 -          field, to preserve what is good about Plone as new participants
 -          arrive."
 -      />
-+      {faqList.map((item) => (
-+        <FaqItem question={item.question} answer={item.answer} />
++      {faqList.map((item, index) => (
++        <FaqItem key={key} question={item.question} answer={item.answer}
++       />
 +      ))}
      </ul>
    );
