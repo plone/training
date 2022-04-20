@@ -17,7 +17,7 @@ The first step is to factor out the `Faq` component into a separate file called 
 It is almost an exact copy of {file}`App.js`:
 
 ```{code-block} jsx
-:emphasize-lines: 4,79
+:emphasize-lines: 4,80
 :linenos: true
 
 import { useState } from "react";
@@ -70,6 +70,7 @@ function Faq() {
       <ul>
         {faqList.map((item, index) => (
           <FaqItem
+            key={index}
             question={item.question}
             answer={item.answer}
             index={index}
@@ -134,7 +135,7 @@ export default App;
 ```dpatch
 --- a/src/App.js
 +++ b/src/App.js
-@@ -1,80 +1,19 @@
+@@ -1,81 +1,19 @@
 -import { useState } from "react";
 -import "./App.css";
 -import FaqItem from "./components/FaqItem";
@@ -193,6 +194,7 @@ export default App;
 -      <ul>
 -        {faqList.map((item, index) => (
 -          <FaqItem
+-            key={index}
 -            question={item.question}
 -            answer={item.answer}
 -            index={index}
@@ -285,6 +287,7 @@ function Faq() {
       <ul>
         {faqList.map((item, index) => (
           <FaqItem
+            key={index}
             question={item.question}
             answer={item.answer}
             index={index}
