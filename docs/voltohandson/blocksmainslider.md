@@ -243,7 +243,7 @@ body.has-toolbar-collapsed:not(.has-sidebar):not(.has-sidebar-collapsed)
 
 By default, `plone.voltodemo` sets a homepage by default with a title and a description block.
 Notice that the title block can't be removed.
-This is by design, but it can be overriden in the applyConfig function:
+This is by design, but it can be overridden in the applyConfig function:
 
 ```js
 config.blocks.requiredBlocks = [];

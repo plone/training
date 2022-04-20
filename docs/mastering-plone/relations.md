@@ -359,7 +359,7 @@ This returns the related items so that you will able to render them anyhow you l
 
 ## Inspecting relations
 
-You Plone 6 Classic you can inspect all relations and backrelations in your site using the controlpanel `/@@inspect-relations`.
+You Plone 6 Classic you can inspect all relations and backrelations in your site using the control panel `/@@inspect-relations`.
 
 ```{figure} _static/inspect-relations.png
 :alt: The relations controlpanel
@@ -444,7 +444,7 @@ from plone import api
 api.relation.delete(source=portal["bob"])
 ```
 
-See the [plone.api documentation](https://github.com/plone/plone.api/blob/master/docs/relation.rst) for more details.
+See {ref}`plone6docs:chapter-relation` for more details.
 
 ### Plone 5.2 and older
 
@@ -499,7 +499,7 @@ directives.widget(
 ```
 
 ```{note}
-For controlpanels this is the best way to store relations since you cannot store `RelationValue` objects in the registry.
+For control panels this is the best way to store relations since you cannot store `RelationValue` objects in the registry.
 ```
 
 ## The stack

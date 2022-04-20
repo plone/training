@@ -46,7 +46,7 @@ For more information, take a look at the [official docs](https://docs.plone.org/
 
 Your panel should now look like this:
 
-```{image} ../theming/_static/theming-dev_mode_on.png
+```{image} ./_static/theming-dev_mode_on.png
 :align: center
 ```
 
@@ -56,7 +56,7 @@ Now we can play with some Less variables:
 
 2. Find the variable `plone-left-toolbar-expanded` and set it to 400px.
 
-   ```{image} ../theming/_static/theming-less_var_hack.png
+   ```{image} ./_static/theming-less_var_hack.png
    :align: center
    ```
 

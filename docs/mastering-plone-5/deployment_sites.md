@@ -86,5 +86,5 @@ There are plenty of tools that make developing and managing sites much easier. H
 - Nagios, Zabbix (server monitoring)
 - jenkins, gitlab-ci, travis, [drone.io](https://www.drone.io/) (Continuous Integration)
 - piwik (statistics)
-- gitlab (code repo and code review)
+- gitlab (code repository and code review)
 - redmine, taiga, assembla (project-management and ticket-system)

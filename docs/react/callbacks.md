@@ -76,7 +76,7 @@ export default FaqItem;
 ```
 ````
 
-## Write The onDelete Handler
+## Write The `onDelete` Handler
 
 Now that we have our dummy handler ready, we need to add functionality to the handler.
 Since the list of FAQ items is managed by our `App` component, we cannot directly remove the item.

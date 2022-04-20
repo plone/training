@@ -103,6 +103,13 @@ div.section {
   font-weight: bold;
 }
 
+/* search */
+/* Show search form. It is hidden by default. */
+#search-documentation,
+#search-documentation~form,
+#search-documentation~p {
+ display:block;
+}
 #search-form {
   display: flex;
   flex-direction: row;
@@ -132,6 +139,20 @@ p.search-summary {
 }
 #search-results ul li {
   margin-bottom: 1em;
+}
+
+/* topbar */
+.topbar .topbar-main {
+  display: flex;
+  align-items: center;
+}
+.topbar .topbar-main div.training_title {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 0 1em;
+  font-size: 80%;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* submenu */

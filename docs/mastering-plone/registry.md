@@ -42,7 +42,7 @@ git checkout registry
 In this part you will:
 
 - Store custom settings in the registry
-- Create a controlpanel to manage custom settings
+- Create a control panel to manage custom settings
 - Create options in fields as vocabularies
 - Training story: Assign talks to rooms
 
@@ -64,7 +64,7 @@ Since the conference next year will have different room names, these values need
 
 And while we're at it: It would be much better to have the options for `audience` and `type_of_talk` editable by admins as well, e.g. to be able to add _Lightning Talks_!
 
-By combining the registry, a controlpanel and vocabularies you can allow rooms to be editable options.
+By combining the registry, a control panel and vocabularies you can allow rooms to be editable options.
 
 To be able to to so you first need to get to know the registry.
 
@@ -379,7 +379,7 @@ See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/pro
 
 Now you will add a custom control panel to edit all settings related to our package with a nice UI.
 
-To register a controlpanel for the frontend and Plone Classic you need quite a bit of boiler-plate:
+To register a control panel for the frontend and Plone Classic you need quite a bit of boiler-plate:
 
 ```{code-block} python
 :emphasize-lines: 1-2, 4, 156-175
@@ -991,5 +991,5 @@ By the way: When using a vocabulary you can also drop the annoying `item.title |
 
 ## Summary
 
-- You successfully combined the registry, a controlpanel and vocabularies to allow managing field options by admins.
-- It seems like a lot but you will certainly use dynamic vocabularies, controlpanels and the registry in all of your future Plone projects in one way or another.
+- You successfully combined the registry, a control panel and vocabularies to allow managing field options by admins.
+- It seems like a lot but you will certainly use dynamic vocabularies, control panels and the registry in all of your future Plone projects in one way or another.

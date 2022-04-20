@@ -762,7 +762,7 @@ export default function applyConfig(config) {
 }
 ```
 
-Please be sure to use plone.restapi version >= 7.3.0. If you cannot upgrade plone.restapi then a registration per field id instead of a registration per field widget name is needed.
+Please be sure to use `plone.restapi` version >= 7.3.0. If you cannot upgrade `plone.restapi` then a registration per field id instead of a registration per field widget name is needed.
 
 ```js
 export default function applyConfig(config) {

@@ -1,14 +1,20 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "Plone's JavaScript and Resource Registries"
+  "property=og:description": "Plone's JavaScript and Resource Registries"
+  "property=og:title": "JavaScript For Plone Developers (up to Plone 5)"
+  "keywords": "Plone, JavaScript, resource registry, bundle, mockup"
 ---
 
 (javascript-label)=
 
-# JavaScript For Plone Developers
+# JavaScript For Plone Developers (up to Plone 5)
+
+```{note}
+This training is for Plone 5 only.  
+A rewritten training for JavaScript in Plone 6 Classic UI will follow later on.
+In the meantime [Plone 6 documentation](plone6docs:classic-ui/static-resources) is your primary source of information for JavaScript in Plone 6 Classic UI.
+```
 
 About
 : JavaScript For Plone Developers

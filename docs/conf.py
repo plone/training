@@ -80,7 +80,7 @@ myst_enable_extensions = [
 # to convert quotes and dashes to typographically correct entities.
 # Note to maintainers: setting this to `True` will cause contractions and
 # hyphenated words to be marked as misspelled by spellchecker.
-smartquotes=False
+smartquotes = False
 
 # The name of the Pygments (syntax highlighting) style to use.
 # pygments_style = "sphinx.pygments_styles.PyramidStyle"
@@ -89,15 +89,23 @@ pygments_style = "sphinx"
 # Options for the linkcheck builder
 # Ignore localhost
 linkcheck_ignore = [
-    r"http://localhost:\d+",
-    r"http://127.0.0.1:8080",
+    r"http://localhost",
+    r"http://127.0.0.1",
     r"http://example.com",
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
     r"https://www.virtualbox.org",  # times out often
+    r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
+    r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
+    r"https://marketplace.visualstudio.com/items.*",  # training 'Theming'. Target exists but with timeout.
 ]
+linkcheck_allowed_redirects = {
+    # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
+    r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*",
+}
 linkcheck_anchors = False
 linkcheck_timeout = 10
+linkcheck_retries = 2
 
 # This is our wordlist with known words, like Github or Plone ...
 spelling_word_list_filename = "spelling_wordlist.txt"
@@ -161,16 +169,6 @@ html_theme_options = {
 # Used by sphinx_sitemap to generate a sitemap
 html_baseurl = "https://training.plone.org"
 
-
-# -- Options for myST markdown conversion to html -----------------------------
-
-myst_enable_extensions = [
-    "deflist",
-    "linkify",
-    "colon_fence"
-]
-
-
 # -- Intersphinx configuration ----------------------------------
 
 # This extension can generate automatic links to the documentation of objects
@@ -185,6 +183,7 @@ myst_enable_extensions = [
 #
 intersphinx_mapping = {
     "plonedocs": ("https://docs.plone.org/", None),
+    "plone6docs": ("https://6.dev-docs.plone.org/", None),
     "python": ("https://docs.python.org/3/", None),
 }
 

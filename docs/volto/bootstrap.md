@@ -16,7 +16,7 @@ On order to run Volto you need a backend.
 This can be either Plone or Guillotina.
 For this course we will use Plone, you can download Plone at <https://plone.org/download>.
 We need plone.restapi, so make sure you have that installed and configured correctly.
-For an example look into the api folder of the Volto repostory: <https://github.com/plone/volto/tree/master/api>
+For an example look into the api folder of the Volto repository: <https://github.com/plone/volto/tree/master/api>
 
 ```{warning}
 Make sure you set a CORS policy or things tend to magically go wrong. See <https://github.com/plone/volto/blob/master/api/buildout.cfg> for an example.

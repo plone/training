@@ -104,11 +104,11 @@ On the host machine, that's mapped by ssh tunnel to 2080.
 
 We may see the HAProxy monitor at `http://localhost:2080/admin`.
 
-The guest's http port (80) is reached via the host machine's port 1080 --
+The guest's `http` port (80) is reached via the host machine's port 1080 --
 but that isn't actually useful due to URL rewriting for virtual hosting.
 
 If you take a look at `http://localhost:1080` from your host machine, you'll see the default Plone site,
-but stylesheets, JavaScript and images will all be missing.
+but style sheets, JavaScript and images will all be missing.
 
 Instead, look at the load-balancer port (8080 on the guest, 9080 on the host) to see your ZODB root.
 

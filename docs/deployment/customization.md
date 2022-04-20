@@ -163,7 +163,7 @@ webserver_virtualhosts:
     key_file: /thiscomputer/path/mycert.key
 ```
 
-Here we're setting up two separate hosts, one for http and one for https.
+Here we're setting up two separate hosts, one for `http` and one for `https`.
 Both point to the same ZODB path, though they don't have to.
 
 The https host item also refers to a key/certificate file pair on the Ansible host machine.

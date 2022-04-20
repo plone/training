@@ -536,6 +536,6 @@ That's why we have to escape the batch (\_sequence) and the contentlisting (\_ba
 Now we have a fully functional Plone search with faceting, autocompletion, suggestion and term highlighting.
 You can find the complete example on [GitHub](https://github.com/collective/plonetraining.solr_example).
 
-## Excercise
+## Exercise
 
 Have a custom search page with autocomplete, suggest, highlighting and faceting working.

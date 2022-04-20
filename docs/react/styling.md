@@ -10,9 +10,9 @@ html_meta:
 
 # Styling Your Component
 
-## Add stylesheet
+## Add style sheet
 
-To add a stylesheet, we import the CSS file:
+To add a style sheet, we import the CSS file:
 
 ```jsx
 import "./App.css";

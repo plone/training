@@ -141,10 +141,10 @@ which compiles the configured Less files into CSS and afterwards transforms the 
 ```console
 $ grunt
 Running "less:dist" (less) task
->> 1 stylesheet created.
+>> 1 style sheet created.
 
 Running "postcss:dist" (postcss) task
->> 1 processed stylesheet created.
+>> 1 processed style sheet created.
 
 Done, without errors.
 ```
@@ -160,10 +160,10 @@ Running "watch" task
 Waiting...
 >> File "less/custom.less" changed.
 Running "less:dist" (less) task
->> 1 stylesheet created.
+>> 1 style sheet created.
 
 Running "postcss:dist" (postcss) task
->> 1 processed stylesheet created.
+>> 1 processed style sheet created.
 
 Done, without errors.
 ```
@@ -220,10 +220,10 @@ Waiting...
 [Browsersync] Reloading Browsers...
 >> File "less/custom.less" changed.
 Running "less:dist" (less) task
->> 1 stylesheet created.
+>> 1 style sheet created.
 
 Running "postcss:dist" (postcss) task
->> 1 processed stylesheet created.
+>> 1 processed style sheet created.
 
 Done, without errors.
 Completed in 2.149s at Tue Sep 26 2017 12:56:21 GMT+0200 (CEST) - Waiting...

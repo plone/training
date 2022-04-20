@@ -10,7 +10,7 @@ html_meta:
 
 ## Maintenance Task
 
-All the maintenance tasks are accessible through the Solr controlpanel in Plone since version 6.0 of `collective.solr`.
+All the maintenance tasks are accessible through the Solr control panel in Plone since version 6.0 of `collective.solr`.
 It is good to know the direct URLs sometimes.
 
 Another goodie of accessing the URLs directly is they support GET parameters to limit and change their behavior.

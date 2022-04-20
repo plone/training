@@ -26,19 +26,26 @@ help: ## This help message
 clean: ## Clean build directory
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/*
 
-bin/python bin/pip: ## Create virtual Python environment
-	python3 -m venv . || virtualenv --clear --python=python3 .
-
 .PHONY: build
 build:  ## Set up training: Install requirements
+	python3 -m venv . || virtualenv --clear --python=python3 .
 	bin/python -m pip install --upgrade pip
 	bin/pip install -r requirements.txt
+	@echo
+	@echo "Please activate your Python virtual environment with"
+	@echo "source bin/activate"
 
 .PHONY: html
 html: ## Build html
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+
+.PHONY: livehtml
+livehtml:  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
+	cd "$(DOCS_DIR)" && sphinx-autobuild \
+		--ignore "*.swp" \
+		-b html . "$(BUILDDIR)/html" $(SPHINXOPTS) $(O)
 
 .PHONY: manual
 manual:
@@ -174,7 +181,6 @@ spellcheck: ## Run spellcheck
 	@echo "Spellcheck is finished; look for any errors in the above output " \
 		" or in $(BUILDDIR)/spellcheck/ ."
 
-
 .PHONY: html_meta
 html_meta:
 	python ./docs/addMetaData.py
@@ -190,6 +196,11 @@ test: clean linkcheck spellcheck  ## Run linkcheck, spellcheck
 
 .PHONY: deploy
 deploy: clean html
+
+.PHONY: netlify
+netlify:
+	pip install -r requirements.txt
+	cd $(DOCS_DIR) && $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 
 .PHONY: all
 all: clean spellcheck linkcheck html ## Run checks and build html

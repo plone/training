@@ -89,7 +89,7 @@ class Account(persistent.Persistent):
 
 - Zope is a web application framework that Plone runs on top of.
 - The majority of Zope's code is written in Python, like everything else written on top of it.
-- It serves applications that communicate with users via http.
+- It serves applications that communicate with users via `http`.
 
 ```{note}
 **The great Version-Confusion**
@@ -162,7 +162,7 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 ```
 
 ```{seealso}
-- <https://www.zope.org/world.html>
+- <https://www.zope.dev/world.html>
 - <https://zope.readthedocs.io/en/latest/zopebook/>
 ```
 ````
@@ -171,7 +171,7 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 
 ## Content Management Framework
 
-- [CMF (Content Management Framework)](https://old.zope.org/Products/CMF/index.html/) is add-on for Zope to build Content Management Systems (like Plone).
+- [CMF (Content Management Framework)](https://old.zope.dev/Products/CMF/index.html/) is add-on for Zope to build Content Management Systems (like Plone).
 
 ```{only} not presentation
 After many websites were successfully created using Zope, a number of recurring requirements emerged,

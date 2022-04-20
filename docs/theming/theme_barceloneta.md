@@ -581,7 +581,7 @@ $h2-font-size:                $font-size-base * 2.5;
 
 ## CSS variables
 
-Bootstrap 5 added support for [CSS custom properties (variables)](https://getbootstrap.com/docs/5.1/customize/css-variables/). If you want to change any of the `:root` variables of Bootstrap directly, best thing is to add them at the bottom of your Stylesheet, since browsers interpret them natively.
+Bootstrap 5 added support for [CSS custom properties (variables)](https://getbootstrap.com/docs/5.1/customize/css-variables/). If you want to change any of the `:root` variables of Bootstrap directly, best thing is to add them at the bottom of your style sheet, since browsers interpret them natively.
 
 
 ```{code-block} scss

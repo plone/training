@@ -342,7 +342,7 @@ With our theme generated from {py:mod}`bobtemplates.plone` we already got a full
     <!-- Don't use Plone icons, use the theme's -->
     <drop css:content="head link[rel='apple-touch-icon']" />
     <drop css:content="head link[rel='shortcut icon']" />
-    <!-- drop the theme stylesheets -->
+    <!-- drop the theme style sheets-->
     <drop theme="/html/head/link[rel='stylesheet']" />
     <!-- CSS -->
     <after css:theme-children="head" css:content="head link" />

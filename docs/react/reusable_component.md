@@ -152,9 +152,9 @@ import PropTypes from "prop-types";
 And the following static property to the function to validate the properties:
 
 ```jsx
-static propTypes = {
+FaqItem.propTypes = {
   question: PropTypes.string.isRequired,
-  answer: PropTypes.string.isRequired
+  answer: PropTypes.string.isRequired,
 };
 ```
 

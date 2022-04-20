@@ -38,7 +38,7 @@ It also is very flexible in its project structure allowing you to choose the way
 
 The last component is Webpack: a module bundler.
 
-It is a tool that takes all the resources (pages, stylesheets, images and other dependencies), combines them together, and generates a set of static pages that will be the final GatsbyJS site.
+It is a tool that takes all the resources (pages, style sheets, images and other dependencies), combines them together, and generates a set of static pages that will be the final GatsbyJS site.
 
 In development mode, it exposes the built site to a certain HTTP port (to see what we are developing) and rebuild it every time we create/edit/delete a file in the source code.
 

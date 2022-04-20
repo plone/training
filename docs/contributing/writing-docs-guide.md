@@ -232,7 +232,7 @@ Using {term}`React` makes frontends fun again!
 
 
 
-## Abridged Plone Documentation Styleguide
+## Abridged Plone Documentation Style Guide
 
 Guides should be informational, but friendly.
 

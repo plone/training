@@ -140,7 +140,7 @@ Copy the required resources `highlights-plone.png` and `highlights-news.png` fro
 ## Recent launches behavior
 
 We will provide behavior to this column, by querying Plone about the recents `Success Story`.
-We will use the plone.restapi `@search` endpoint for that.
+We will use the `plone.restapi` `@search` endpoint for that.
 This is a static behavior, so we can implement it in the view component.
 We don't want to bloat the view component, so we will create a specific component for it called `RecentSuccessStories.jsx` in the block directory:
 
