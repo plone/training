@@ -155,8 +155,8 @@ Here we first get the Plone view and then the method {py:meth}`toLocalizedTime`
 and we use `nocall` to prevent the method {py:meth}`toLocalizedTime` from being called, since we want to make it available for later use.
 
 We could also leave the formatting to the frontend.
-Plone 5 comes with the [moment pattern](http://plone.github.io/mockup/dev/#pattern/moment)
-that uses the library [moment.js](http://plone.github.io/mockup/dev/#pattern/moment) to format dates in the browser with JavaScript.
+Plone 5 comes with the [moment pattern](https://plone.github.io/mockup/dev/#pattern/moment)
+that uses the library [moment.js](https://plone.github.io/mockup/dev/#pattern/moment) to format dates in the browser with JavaScript.
 
 Try the relative calendar format:
 

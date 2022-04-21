@@ -214,14 +214,14 @@ Alternatively you also select which upgrade steps to run like this:
 - Run the upgrade step.
 
 ```{seealso}
-<https://docs.plone.org/develop/addons/components/genericsetup.html#id1>
+<https://docs.plone.org/develop/addons/components/genericsetup.html#upgrade-steps>
 ```
 
 ```{note}
 Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package {py:mod}`plone.app.upgrade`.
 You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
 
-Find the upgrade steps in <https://github.com/plone/plone.app.upgrade/tree/master/plone/app/upgrade>
+Find the upgrade steps in <https://github.com/plone/plone.app.upgrade/tree/master/plone/app/upgrade/>
 ```
 
 (upgrade-steps-browserlayer-label)=

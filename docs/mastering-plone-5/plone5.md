@@ -29,7 +29,7 @@ It is a Diazo theme, meaning it uses {py:mod}`plone.app.theming` to insert the o
 It uses html5, so it uses `<header>`, `<nav>`, `<aside>`, `<section>`, `<article>` and `<footer>` for semantic html.
 
 The theme is mostly built with [LESS](https://lesscss.org/) (lots of it!)
-and uses the same grid system as [Bootstrap](https://getbootstrap.com/css/#grid).
+and uses the same grid system as [Bootstrap](https://getbootstrap.com/docs/4.4/layout/grid/).
 This means you can use CSS classes like `col-xs-12 col-sm-9` to control the width of elements for different screen sizes.
 If you prefer a different grid system (like [Foundation](https://get.foundation/sites/docs/grid.html)) over Bootstrap you can adapt the theme to use that.
 
