@@ -248,7 +248,7 @@ The first class {py:class}`ITalk` is the schema for talks and defines quite a lo
     * As a first step use a simplified schema without directives or vocabularies
     * Then add some simple widget-directives
     * In the sponsors-chapter discuss all fields, directives, permissions, defaults.
-    * Extend to the final version like https://github.com/collective/ploneconf.site/pull/1/files#diff-943838c7d121f1043c9db05635b96930 in a later chapter
+    * Extend to the final version like https://github.com/collective/ploneconf.site/pull/1/files in a later chapter
 
 ```
 

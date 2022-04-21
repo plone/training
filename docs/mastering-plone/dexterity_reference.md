@@ -1004,6 +1004,6 @@ To learn more about directives, validators and default values, refer to the foll
 
 - [Form schema hints and directives](https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html)
 - [Validation](https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html) (this documentation unfortunately still uses the obsolete grok technology)
-- [z3c.form documentation](https://pypi.org/project/z3c.form#validators)
+- [z3c.form documentation](https://z3cform.readthedocs.io/en/latest/advanced/validator.html)
 - [Default values for fields on add forms](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html)
 ```
