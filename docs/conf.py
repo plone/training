@@ -167,7 +167,8 @@ html_theme_options = {
 }
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org"
+html_baseurl = "https://training.plone.org/5"
+sitemap_url_scheme = "{link}"
 
 # -- Intersphinx configuration ----------------------------------
 
