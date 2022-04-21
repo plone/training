@@ -97,13 +97,34 @@ linkcheck_ignore = [
     r"https://www.virtualbox.org",  # times out often
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
-    r"https://marketplace.visualstudio.com/items.*",  # training 'Theming'. Target exists but with timeout.
+    ### Start of list of anchored links
+    # Prior to each PloneConf, uncomment these lines to verify that the links work,
+    # although the anchor cannot be found.
+    # GitHub rewrites anchors with JavaScript.
+    # See https://github.com/plone/training/issues/598#issuecomment-1105168109
+    "https://github.com/collective/awesome-volto#addons",
+    "https://github.com/collective/collective.easyform#collectivez3cformnorobots-support",
+    "https://github.com/collective/collective.easyform#recaptcha-support",
+    "https://github.com/collective/collective.recipe.solrinstance/blob/master/README.rst#multi-core-solr",
+    "https://github.com/nvm-sh/nvm#install-script",
+    "https://github.com/plone/plone.app.contentlisting/#methods-of-contentlistingobjects",
+    "https://github.com/plone/plone.app.contenttypes#changing-the-base-class-for-existing-objects",
+    "https://github.com/plone/plone.recipe.zope2instance#advanced-logging-options-for-wsgi",
+    "https://github.com/repoze/repoze.catalog/blob/master/docs/usage.rst#query-objects",
+    "https://plone.github.io/mockup/dev/#pattern/autotoc",
+    "https://plone.github.io/mockup/dev/#pattern/modal",
+    "https://plone.github.io/mockup/dev/#pattern/moment",
+    # These anchors are probably rewritten by JavaScript
+    "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
+    "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
+    "https://www.npmjs.com/package/axios#example",
+    ### End of list of anchored links
 ]
 linkcheck_allowed_redirects = {
     # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
     r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*",
 }
-linkcheck_anchors = False
+linkcheck_anchors = True
 linkcheck_timeout = 10
 linkcheck_retries = 2
 
@@ -167,7 +188,8 @@ html_theme_options = {
 }
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org"
+html_baseurl = "https://training.plone.org/5"
+sitemap_url_scheme = "{link}"
 
 # -- Intersphinx configuration ----------------------------------
 

@@ -24,7 +24,7 @@ Then in the Fields tab, we add a new textline field named 'icon'.
 
 Now we can go back to the Plone site home, add a new folder named `Quicklinks`, and add few links.
 
-For each of them, we will choose an icon name from <https://getbootstrap.com/docs/3.3/components/#glyphicons-glyphs>
+For each of them, we will choose an icon name from <https://getbootstrap.com/docs/3.4/components/#glyphicons-glyphs>
 
 And we will exclude the `Quicklinks` folder from navigation.
 

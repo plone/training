@@ -157,7 +157,7 @@ Let's go through this step by step.
 3. We mark our schema as a class that also provides the {py:class}`IFormFieldProvider` interface using a decorator.
    The schema class itself provides the interface, not its instance!
 4. We also add a `fieldset` so that our fields are not mixed with the normal fields of the object.
-5. We add a normal [Bool](https://zopeschema.readthedocs.io/en/latest/fields.html#bool) schema field to control if a item should be displayed on the frontpage.
+5. We add a normal [Bool](https://zopeschema.readthedocs.io/en/latest/api.html#zope.schema.interfaces.IBool) schema field to control if a item should be displayed on the frontpage.
 
 ````{only} not presentation
 ```{note}
