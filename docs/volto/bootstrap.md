@@ -24,25 +24,18 @@ Make sure you set a CORS policy or things tend to magically go wrong. See <https
 
 (install-deps-volto-label)=
 
-## Installing Dependencies
+## Installing Prerequisites
 
-First step is to install the correct Node version using `nvm`:
+First [install the correct Node version using `nvm`](https://6.dev-docs.plone.org/volto/getting-started/install.html#install-nvm-nodejs-version-manager).
 
-```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-```
 
-Then you can install the latest LTS version of node:
+[Install Yarn](https://6.dev-docs.plone.org/volto/getting-started/install.html#yarn-nodejs-package-manager).
 
-```shell
-nvm install lts/fermium
-nvm use lts/fermium
-```
 
-We use the package manager {file}`yarn`, to install do:
+Install `@plone/generator-volto`:
 
 ```shell
-curl -o- -L https://yarnpkg.com/install.sh | bash
+npm install -g yo @plone/generator-volto
 ```
 
 ## Bootstrapping A Project
@@ -50,37 +43,66 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 To create a new volto project type the following:
 
 ```shell
-npx @plone/create-volto-app my-volto-app
+yo @plone/volto
 ```
+
+Follow the prompts' questions, providing `my-volto-app` as the project name.
 
 It will create a folder called `my-volto-app` inside the current folder with the following structure:
 
 ```console
-my-volto-app
-├── README.md
-├── node_modules
-├── package.json
-├── .babelrc
-├── .eslintrc
+my-volto-app/
+├── babel.config.js
+├── build
+├── create-sentry-release.sh
+├── cypress
+│   ├── fixtures
+│   ├── .gitkeep
+│   ├── integration
+│   ├── plugins
+│   └── support
+├── .eslintignore
+├── .eslintrc.js
 ├── .gitignore
-├── .yarnrc
+├── jsconfig.json
 ├── locales
+├── Makefile
+├── mrs.developer.json
+├── node_modules
+├── omelette -> node_modules/@plone/volto/
+├── package.json
+├── patches
 ├── public
-│   ├── favicon.ico
-│   └── robots.txt
+│   ├── android-chrome-192x192.png
+│   ├── android-chrome-512x512.png
+│   ├── apple-touch-icon.png
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
+│   ├── favicon.ico
+│   ├── icon.svg
+│   ├── index.html.spa
+│   ├── robots.txt
+│   └── site.webmanifest
+├── razzle.config.js
+├── README.md
+├── src
+│   ├── actions
+│   ├── addons
+│   ├── client.js
+│   ├── components
+│   ├── config.js
+│   ├── constants
+│   ├── customizations
+│   ├── helpers
+│   ├── index.js
+│   ├── reducers
+│   ├── routes.js
+│   └── theme.js
+├── .storybook
 ├── theme
-│   └── theme.config
-└── src
-    ├── actions
-    ├── components
-    ├── constants
-    ├── customizations
-    ├── helpers
-    ├── reducers
-    ├── client.js
-    ├── config.js
-    ├── index.js
-    └── routes.js
+│   └── theme.config
+├── yarn.lock
+└── .yarnrc
 ```
 
 ## Running The Project
