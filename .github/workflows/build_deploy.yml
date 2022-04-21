@@ -25,8 +25,8 @@ jobs:
       - name: Run spellcheck
         run: make spellcheck
 
-      - name: Run linkcheck
-        run: make linkcheck
+#      - name: Run linkcheck
+#        run: make linkcheck
 
       - name: Prepare deploy
         run: make deploy
