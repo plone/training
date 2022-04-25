@@ -223,89 +223,12 @@ You have two options:
 
 (instructions-install-frontend-prerequisites-label)=
 
-**Install pre-requisites:**
-
-1. Install `nvm` (Node Version Manager) to manage `NodeJS` versions.
-
-   ```shell
-   # macOS
-   brew install nvm
-
-   #Linux
-   apt-get install nvm
-   ```
-
-2. Install `NodeJS` 
-
-   ```shell
-   nvm install 14 --latest-npm
-   nvm use 14
-   ```
-
-   Test NodeJS: 
-
-   ```shell
-   node -v
-   ```
-
-   The version of the current 14 NodeJS is printed.
-   At the time of writing:
-
-   ```console
-   v14.18.2
-   ```
-   
-
-3. Install package manager `yarn`.
-
-   ```shell
-   npm install --global yarn
-   ```
-
-   
-4. Install {term}`Yeoman` and the Volto generator for apps and add-ons.
-
-   ```shell
-   npm install -g yo @plone/generator-volto
-   ```
-
-   Run `npm update` to be sure to have the current version.
-   
-
-**Create your Volto project:**
-
-1. Generate a project with {term}`Yeoman` and the Volto generator:
-
-   ```shell
-   yo @plone/volto
-   ```
-
-   It will take a while to install all dependencies.
-   `yo` will ask a series of questions.
-
-2. Start up the project **myprojectname** with
-
-   ```shell
-   cd myprojectname
-   yarn start
-   ```
-
-If successful, you get:
-
-```console
-🎭 Volto started at <http://localhost:3000> 🚀
-```
-
-Create a Plone site object **Plone** on <http://localhost:8080>
-
-Point your browser to <http://localhost:3000> and see that Plone is up and running.
-
-You can stop the Volto app anytime using {kbd}`ctrl + c`.
+{ref}`installation-volto-label`
 
 
 #### Option 2. Start with existing training project `volto-ploneconf` with all code for the training
 
-Prepare the [pre-requisites](instructions-install-frontend-prerequisites-label).
+Prepare the [pre-requisites](installation-volto-prerequisites-label).
 
 
 Get the finished code for the frontend from github and install:

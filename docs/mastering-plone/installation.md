@@ -99,79 +99,115 @@ For a Plone 6 installation by now two installations are needed: Plone backend an
 The former section is describing the options for a Plone backend installation.
 This section is about setting up a Volto project.
 
-**Install pre-requisites:**
+(installation-volto-prerequisites-label)=
 
-1. Install `nvm` (Node Version Manager) to manage `NodeJS` versions.
+### Installing Prerequisites
 
-   ```shell
-   # macOS
-   brew install nvm
+First {ref}`plone6docs:frontend-getting-started-install-nvm-label`.
 
-   #Linux
-   apt-get install nvm
-   ```
+{ref}`Install Yarn (JavaScript package manager) <plone6docs:frontend-getting-started-yarn-label>`.
 
-2. Install `NodeJS`
 
-   ```shell
-   nvm install 14 --latest-npm
-   nvm use 14
-   ```
+Install `@plone/generator-volto`, the Yeoman Volto App Generator:
 
-   Test NodeJS: 
-
-   ```shell
-   node -v
-   ```
-
-   The version of the current 14 NodeJS is printed.
-   At the time of writing:
-
-   ```console
-   v14.18.2
-   ```
-   
-
-3. Install package manager `yarn`.
-
-   ```shell
-   npm install --global yarn
-   ```
-
-   
-4. Install {term}`Yeoman` and the Volto generator for apps and add-ons.
-
-   ```shell
-   npm install -g yo @plone/generator-volto
-   ```
-
-   Run `npm update` to be sure to have the current version.
-   
-
-**Create your Volto project:**
-
-1. Generate a project with {term}`Yeoman` and the Volto generator:
-
-   ```shell
-   yo @plone/volto
-   ```
-
-   It will take a while to install all dependencies.
-   `yo` will ask a series of questions.
-
-2. Start up the project **myprojectname** with
-
-   ```shell
-   cd myprojectname
-   yarn start
-   ```
-
-If successful, you get:
-
-```console
-🎭 Volto started at <http://localhost:3000> 🚀
+```shell
+npm install -g yo @plone/generator-volto
 ```
 
+### Bootstrapping A Project
+
+To create a new volto project type the following:
+
+```shell
+yo @plone/volto
+```
+
+Follow the prompts' questions, providing `my-volto-app` as the project name.
+
+It will create a folder called `my-volto-app` inside the current folder with the following structure:
+
+```console
+my-volto-app/
+├── babel.config.js
+├── build
+├── create-sentry-release.sh
+├── cypress
+│   ├── fixtures
+│   ├── .gitkeep
+│   ├── integration
+│   ├── plugins
+│   └── support
+├── .eslintignore
+├── .eslintrc.js
+├── .gitignore
+├── jsconfig.json
+├── locales
+├── Makefile
+├── mrs.developer.json
+├── node_modules
+├── omelette -> node_modules/@plone/volto/
+├── package.json
+├── patches
+├── public
+│   ├── android-chrome-192x192.png
+│   ├── android-chrome-512x512.png
+│   ├── apple-touch-icon.png
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
+│   ├── favicon.ico
+│   ├── icon.svg
+│   ├── index.html.spa
+│   ├── robots.txt
+│   └── site.webmanifest
+├── razzle.config.js
+├── README.md
+├── src
+│   ├── actions
+│   ├── addons
+│   ├── client.js
+│   ├── components
+│   ├── config.js
+│   ├── constants
+│   ├── customizations
+│   ├── helpers
+│   ├── index.js
+│   ├── reducers
+│   ├── routes.js
+│   └── theme.js
+├── .storybook
+├── theme
+│   └── theme.config
+├── yarn.lock
+└── .yarnrc
+```
+
+### Running The Project
+
+To run the project you can type:
+
+```shell
+cd my-volto-app
+yarn start
+```
+
+This will start the server on port 3000.
+
+You can change the port and/or hostname for the frontend by specifying PORT and/or HOST:
+
+```shell
+HOST=my_hostname PORT=1234 yarn start
+```
+
+If your backend runs on a different port and/or uses a different hostname you can specify the full url:
+
+```shell
+RAZZLE_API_PATH=http://localhost:55001/plone yarn start
+```
+
+
+## Creating a Plone Website
+
+Now, that you have a backend and a frontend up and running, you can create your concrete website for a project.
 
 Create a Plone site object **Plone** on <http://localhost:8080>
 
