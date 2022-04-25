@@ -198,7 +198,7 @@ You can change the port and/or hostname for the frontend by specifying `PORT` an
 HOST=my_hostname PORT=1234 yarn start
 ```
 
-If your backend runs on a different port and/or uses a different hostname you can specify the full url:
+If your backend runs on a different port and/or uses a different hostname you can specify the full URL:
 
 ```shell
 RAZZLE_API_PATH=http://localhost:55001/plone yarn start
