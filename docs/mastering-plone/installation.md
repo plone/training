@@ -207,7 +207,7 @@ RAZZLE_API_PATH=http://localhost:55001/plone yarn start
 
 ## Creating a Plone Website
 
-Now, that you have a backend and a frontend up and running, you can create your concrete website for a project.
+Now that you have a backend and a frontend up and running, you can create your concrete website for a project.
 
 Create a Plone site object **Plone** on <http://localhost:8080>
 
