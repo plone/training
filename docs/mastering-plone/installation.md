@@ -116,7 +116,7 @@ npm install -g yo @plone/generator-volto
 
 ### Bootstrapping A Project
 
-To create a new volto project type the following:
+To create a new Volto project type the following:
 
 ```shell
 yo @plone/volto
