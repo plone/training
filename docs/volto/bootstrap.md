@@ -26,11 +26,9 @@ Make sure you set a CORS policy or things tend to magically go wrong. See <https
 
 ## Installing Prerequisites
 
-First [install the correct Node version using `nvm`](https://6.dev-docs.plone.org/volto/getting-started/install.html#install-nvm-nodejs-version-manager).
+First {ref}`plone6docs:frontend-getting-started-install-nvm-label`.
 
-
-[Install Yarn](https://6.dev-docs.plone.org/volto/getting-started/install.html#yarn-nodejs-package-manager).
-
+{ref}`Install Yarn <plone6docs:frontend-getting-started-yarn-label>`.
 
 Install `@plone/generator-volto`:
 
