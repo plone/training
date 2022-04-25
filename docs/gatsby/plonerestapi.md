@@ -26,26 +26,26 @@ This header tells the endpoint to return JSON data in the response for us to pro
 
 ## Exploring The Plone REST.API
 
-We will use <https://plonedemo.kitconcept.com/en> as our source Plone site, since it's already been configured with the `plone.restapi` and is all ready for our usage.
+We will use <https://6.dev-docs.plone.org> as our source Plone site, since it's already been configured with the `plone.restapi` and is all ready for our usage.
 
 Let us start with the root itself.
-Send a GET request to <https://plonedemo.kitconcept.com/en>.
+Send a GET request to <https://6.dev-docs.plone.org>.
 This returns the JSON data for the root of the Plone site.
 
 ```json
 {
   "@components": {
       "breadcrumbs": {
-          "@id": "https://plonedemo.kitconcept.com/en/@breadcrumbs"
+          "@id": "https://6.dev-docs.plone.org/@breadcrumbs"
       },
       "navigation": {
-          "@id": "https://plonedemo.kitconcept.com/en/@navigation"
+          "@id": "https://6.dev-docs.plone.org/@navigation"
       },
       "workflow": {
-          "@id": "https://plonedemo.kitconcept.com/en/@workflow"
+          "@id": "https://6.dev-docs.plone.org/@workflow"
       }
   },
-  "@id": "https://plonedemo.kitconcept.com/en",
+  "@id": "https://6.dev-docs.plone.org",
   "@type": "LRF",
   "UID": "7306e5d778be477f8b40bccaad1ecae7",
   "contributors": [],
@@ -61,21 +61,21 @@ This returns the JSON data for the root of the Plone site.
   "is_folderish": true,
   "items": [
       {
-          "@id": "https://plonedemo.kitconcept.com/en/media",
+          "@id": "https://6.dev-docs.plone.org/media",
           "@type": "LIF",
           "description": "",
           "review_state": "published",
           "title": "Media"
       },
       {
-          "@id": "https://plonedemo.kitconcept.com/en/frontpage",
+          "@id": "https://6.dev-docs.plone.org/frontpage",
           "@type": "Document",
           "description": "The ultimate Open Source Enterprise CMS",
           "review_state": "published",
           "title": "Welcome to Plone 5"
       },
       {
-          "@id": "https://plonedemo.kitconcept.com/en/demo",
+          "@id": "https://6.dev-docs.plone.org/demo",
           "@type": "Folder",
           "description": "Vestibulum dignissim erat id eros mollis vitae tempus leo ultricies. Cras dapibus suscipit consectetur. Integer tincidunt feugiat tristique. Sed et arcu risus. Nam venenatis, tortor ac tincidunt amet.",
           "review_state": "published",
@@ -100,13 +100,13 @@ This returns the JSON data for the root of the Plone site.
 }
 ```
 
-Let us explore the `items` array from the response and click on <https://plonedemo.kitconcept.com/en/frontpage>.
+Let us explore the `items` array from the response and click on <https://6.dev-docs.plone.org/frontpage>.
 We see that it gives a similar response as we got for the root.
 This way all the content objects have equivalent JSON data which our plugin can process and use to create nodes.
 
 ### Exercise
 
-Create a node for the Plone document at <https://plonedemo.kitconcept.com/en/demo/a-page>.
+Create a node for the Plone document at <https://6.dev-docs.plone.org/demo/a-page>.
 Test the node created from the retrieved data by displaying some data in the `index` or any other page.
 
 Hints: Use Postman to check the data from the endpoint.
@@ -129,7 +129,7 @@ Read more about GET requests with Axios in the [official docs](https://www.npmjs
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
-  const { data } = await axios.get('https://plonedemo.kitconcept.com/en/demo/a-page', {
+  const { data } = await axios.get('https://6.dev-docs.plone.org/demo/a-page', {
     headers: {
       accept: "application/json",
     }

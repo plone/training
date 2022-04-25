@@ -88,7 +88,7 @@ plugins: [
   {
     resolve: 'gatsby-source-plone',
     options: {
-      baseUrl: 'https://plonedemo.kitconcept.com/en',
+      baseUrl: 'https://6.dev-docs.plone.org',
     },
   }
 ]

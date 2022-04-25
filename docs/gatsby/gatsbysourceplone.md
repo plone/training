@@ -27,7 +27,7 @@ All of the settings for the `gatsby-source-plone` plugin is in the `gatsby-node.
 {
   resolve: 'gatsby-source-plone',
   options: {
-    baseUrl: 'https://plonedemo.kitconcept.com/en'
+    baseUrl: 'https://6.dev-docs.plone.org'
   },
 },
 ```
@@ -45,8 +45,19 @@ This is used in some Plone sites that require authentication to query data.
 For configuring authentication with `JWT` and [dotenv](https://github.com/motdotla/dotenv), read the full [documentation](https://collective.github.io/gatsby-source-plone/reference/authentication/) for a step by step reference.
 
 ```{note}
-<https://plonedemo.kitconcept.com/en> which was earlier used in the examples requires no authentication to query for data.
-Hence we can skip the `token` setting here.
+<https://6.dev-docs.plone.org> which was earlier used in the examples requires authentication to query for data.
+```
+
+```{warning}
+This tutorial previously used `https://plonedemo.kitconcept.com/en` in its examples because it did not require authorization.
+The Plone Foundation now actively maintains a [Plone 6 demo](https://6.dev-docs.plone.org).
+Browsing its API requires a basic authorization token.
+We have updated all references to use the Plone 6 demo.
+All that means the examples might not work. 
+```
+
+```{todo}
+Update this training to use a site that does not require a basic authorization token.
 ```
 
 Once configured with basic settings, all the data of the Plone Site specified will be available for query via GraphQL.
@@ -55,7 +66,7 @@ To test the plugin you could use the sample configuration mentioned above.
 
 ## Exercise
 
-Run the development server with `gatsby develop` and navigate to GraphiQL explorer at <http://localhost:8000/___graphql>.
+Run the development server with `gatsby develop` and navigate to GraphQL explorer at <http://localhost:8000/___graphql>.
 
 Explore different content object types and also take a look at the breadcrumbs data.
 
