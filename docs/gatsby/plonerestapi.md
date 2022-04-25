@@ -36,13 +36,13 @@ This returns the JSON data for the root of the Plone site.
 {
   "@components": {
       "breadcrumbs": {
-          "@id": "https://6.dev-docs.plone.org/@breadcrumbs"
+          "@id": "https://6.demo.plone.org/@breadcrumbs"
       },
       "navigation": {
-          "@id": "https://6.dev-docs.plone.org/@navigation"
+          "@id": "https://6.demo.plone.org/@navigation"
       },
       "workflow": {
-          "@id": "https://6.dev-docs.plone.org/@workflow"
+          "@id": "https://6.demo.plone.org/@workflow"
       }
   },
   "@id": "https://6.dev-docs.plone.org",
@@ -61,21 +61,21 @@ This returns the JSON data for the root of the Plone site.
   "is_folderish": true,
   "items": [
       {
-          "@id": "https://6.dev-docs.plone.org/media",
+          "@id": "https://6.demo.plone.org/media",
           "@type": "LIF",
           "description": "",
           "review_state": "published",
           "title": "Media"
       },
       {
-          "@id": "https://6.dev-docs.plone.org/frontpage",
+          "@id": "https://6.demo.plone.org/frontpage",
           "@type": "Document",
           "description": "The ultimate Open Source Enterprise CMS",
           "review_state": "published",
           "title": "Welcome to Plone 5"
       },
       {
-          "@id": "https://6.dev-docs.plone.org/demo",
+          "@id": "https://6.demo.plone.org/demo",
           "@type": "Folder",
           "description": "Vestibulum dignissim erat id eros mollis vitae tempus leo ultricies. Cras dapibus suscipit consectetur. Integer tincidunt feugiat tristique. Sed et arcu risus. Nam venenatis, tortor ac tincidunt amet.",
           "review_state": "published",
@@ -100,13 +100,13 @@ This returns the JSON data for the root of the Plone site.
 }
 ```
 
-Let us explore the `items` array from the response and click on `https://6.dev-docs.plone.org/frontpage`.
+Let us explore the `items` array from the response and click on `https://6.demo.plone.org/frontpage`.
 We see that it gives a similar response as we got for the root.
 This way all the content objects have equivalent JSON data which our plugin can process and use to create nodes.
 
 ### Exercise
 
-Create a node for the Plone document at `https://6.dev-docs.plone.org/demo/a-page`.
+Create a node for the Plone document at `https://6.demo.plone.org/demo/a-page`.
 Test the node created from the retrieved data by displaying some data in the `index` or any other page.
 
 Hints: Use Postman to check the data from the endpoint.
@@ -129,7 +129,7 @@ Read more about GET requests with Axios in the [official docs](https://www.npmjs
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
-  const { data } = await axios.get('https://6.dev-docs.plone.org/demo/a-page', {
+  const { data } = await axios.get('https://6.demo.plone.org/demo/a-page', {
     headers: {
       accept: "application/json",
     }

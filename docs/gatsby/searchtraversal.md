@@ -15,11 +15,11 @@ One of the strategies that we experimented with and adopted for the source-plugi
 
 ## Getting The Full List Of Content
 
-Make a GET request to `https://6.dev-docs.plone.org/@search`.
+Make a GET request to `https://6.demo.plone.org/@search`.
 
 ```json
 {
-  "@id": "https://6.dev-docs.plone.org/@search",
+  "@id": "https://6.demo.plone.org/@search",
   "items": [
       {
           "@id": "https://6.dev-docs.plone.org",
@@ -29,14 +29,14 @@ Make a GET request to `https://6.dev-docs.plone.org/@search`.
           "title": "English"
       },
       {
-          "@id": "https://6.dev-docs.plone.org/media",
+          "@id": "https://6.demo.plone.org/media",
           "@type": "LIF",
           "description": "",
           "review_state": "published",
           "title": "Media"
       },
       {
-          "@id": "https://6.dev-docs.plone.org/frontpage",
+          "@id": "https://6.demo.plone.org/frontpage",
           "@type": "Document",
           "description": "The ultimate Open Source Enterprise CMS",
           "review_state": "published",
@@ -52,22 +52,22 @@ There is limited information here.
 To build a node we need more data.
 We could try calling the `@id` endpoint and see what it returns.
 
-Send a GET request to the `id` of one of these objects, say `https://6.dev-docs.plone.org/frontpage`.
+Send a GET request to the `id` of one of these objects, say `https://6.demo.plone.org/frontpage`.
 
 ```json
 {
   "@components": {
       "breadcrumbs": {
-          "@id": "https://6.dev-docs.plone.org/frontpage/@breadcrumbs"
+          "@id": "https://6.demo.plone.org/frontpage/@breadcrumbs"
       },
       "navigation": {
-          "@id": "https://6.dev-docs.plone.org/frontpage/@navigation"
+          "@id": "https://6.demo.plone.org/frontpage/@navigation"
       },
       "workflow": {
-          "@id": "https://6.dev-docs.plone.org/frontpage/@workflow"
+          "@id": "https://6.demo.plone.org/frontpage/@workflow"
       }
   },
-  "@id": "https://6.dev-docs.plone.org/frontpage",
+  "@id": "https://6.demo.plone.org/frontpage",
   "@type": "Document",
   "UID": "5938b3c2c0e147b18fbf20d32842eb06",
   "allow_discussion": null,
@@ -216,7 +216,7 @@ Now that you have the search traversal method implemented, all the data form the
 
 Run the development server with `gatsby develop` and navigate to GraphiQL explorer at <http://localhost:8000/___graphql>.
 
-Try to get data for a particular page with id `https://6.dev-docs.plone.org/demo/a-news-item`.
+Try to get data for a particular page with id `https://6.demo.plone.org/demo/a-news-item`.
 
 ````{admonition} Solution
 :class: toggle
@@ -225,7 +225,7 @@ Since it is a News Item, we can directly use GraphQL to query for `ploneNewsItem
 
 ```text
 {
-  ploneNewsItem (id: {eq: "https://6.dev-docs.plone.org/demo/a-news-item"}) {
+  ploneNewsItem (id: {eq: "https://6.demo.plone.org/demo/a-news-item"}) {
     id
     title
     description
