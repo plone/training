@@ -26,10 +26,10 @@ This header tells the endpoint to return JSON data in the response for us to pro
 
 ## Exploring The Plone REST.API
 
-We will use <https://6.dev-docs.plone.org> as our source Plone site, since it's already been configured with the `plone.restapi` and is all ready for our usage.
+We will use <https://6.demo.plone.org> as our source Plone site, since it's already been configured with the `plone.restapi` and is all ready for our usage.
 
 Let us start with the root itself.
-Send a GET request to <https://6.dev-docs.plone.org>.
+Send a GET request to <https://6.demo.plone.org>.
 This returns the JSON data for the root of the Plone site.
 
 ```json
@@ -45,7 +45,7 @@ This returns the JSON data for the root of the Plone site.
           "@id": "https://6.demo.plone.org/@workflow"
       }
   },
-  "@id": "https://6.dev-docs.plone.org",
+  "@id": "https://6.demo.plone.org",
   "@type": "LRF",
   "UID": "7306e5d778be477f8b40bccaad1ecae7",
   "contributors": [],

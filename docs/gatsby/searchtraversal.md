@@ -22,7 +22,7 @@ Make a GET request to `https://6.demo.plone.org/@search`.
   "@id": "https://6.demo.plone.org/@search",
   "items": [
       {
-          "@id": "https://6.dev-docs.plone.org",
+          "@id": "https://6.demo.plone.org",
           "@type": "LRF",
           "description": "",
           "review_state": "published",
@@ -87,7 +87,7 @@ Send a GET request to the `id` of one of these objects, say `https://6.demo.plon
   "layout": "document_view",
   "modified": "2018-10-13T13:25:31+00:00",
   "parent": {
-      "@id": "https://6.dev-docs.plone.org",
+      "@id": "https://6.demo.plone.org",
       "@type": "LRF",
       "description": "",
       "review_state": "published",
@@ -144,7 +144,7 @@ const fetchData = async url => {
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
-  const baseUrl = 'https://6.dev-docs.plone.org';
+  const baseUrl = 'https://6.demo.plone.org';
 
   console.log('Fetching items list');
   const data = await fetchData(baseUrl + '/@search');
@@ -193,12 +193,12 @@ We prepend `Plone` to the type and remove spaces for it to automatically handle 
 ```
 
 ```{note}
-We use the <https://6.dev-docs.plone.org> here directly for development purposes but in a real-world case, use the `baseUrl` passed in from plugin options in `gatsby-config.js`.
+We use the <https://6.demo.plone.org> here directly for development purposes but in a real-world case, use the `baseUrl` passed in from plugin options in `gatsby-config.js`.
 ```
 
 ```{warning}
 This tutorial previously used `https://plonedemo.kitconcept.com/en` in its examples because it did not require authorization.
-The Plone Foundation now actively maintains a [Plone 6 demo](https://6.dev-docs.plone.org).
+The Plone Foundation now actively maintains a [Plone 6 demo](https://6.demo.plone.org).
 Browsing its API requires a basic authorization token.
 We have updated all references to use the Plone 6 demo.
 All that means the examples might not work. 
