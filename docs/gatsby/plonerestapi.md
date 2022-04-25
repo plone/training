@@ -100,13 +100,13 @@ This returns the JSON data for the root of the Plone site.
 }
 ```
 
-Let us explore the `items` array from the response and click on <https://6.dev-docs.plone.org/frontpage>.
+Let us explore the `items` array from the response and click on `https://6.dev-docs.plone.org/frontpage`.
 We see that it gives a similar response as we got for the root.
 This way all the content objects have equivalent JSON data which our plugin can process and use to create nodes.
 
 ### Exercise
 
-Create a node for the Plone document at <https://6.dev-docs.plone.org/demo/a-page>.
+Create a node for the Plone document at `https://6.dev-docs.plone.org/demo/a-page`.
 Test the node created from the retrieved data by displaying some data in the `index` or any other page.
 
 Hints: Use Postman to check the data from the endpoint.

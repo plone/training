@@ -52,7 +52,7 @@ There is limited information here.
 To build a node we need more data.
 We could try calling the `@id` endpoint and see what it returns.
 
-Send a GET request to the `id` of one of these objects, say <https://6.dev-docs.plone.org/frontpage>.
+Send a GET request to the `id` of one of these objects, say `https://6.dev-docs.plone.org/frontpage`.
 
 ```json
 {
@@ -216,7 +216,7 @@ Now that you have the search traversal method implemented, all the data form the
 
 Run the development server with `gatsby develop` and navigate to GraphiQL explorer at <http://localhost:8000/___graphql>.
 
-Try to get data for a particular page with id <https://6.dev-docs.plone.org/demo/a-news-item>.
+Try to get data for a particular page with id `https://6.dev-docs.plone.org/demo/a-news-item`.
 
 ````{admonition} Solution
 :class: toggle
