@@ -192,7 +192,7 @@ yarn start
 
 This will start the server on port 3000.
 
-You can change the port and/or hostname for the frontend by specifying PORT and/or HOST:
+You can change the port and/or hostname for the frontend by specifying `PORT` and/or `HOST`:
 
 ```shell
 HOST=my_hostname PORT=1234 yarn start
