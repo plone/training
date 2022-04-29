@@ -168,13 +168,8 @@ p.search-summary {
   margin-bottom: 1em;
 }
 
-/* topbar */
-.topbar .topbar-main {
-  display: flex;
-  align-items: center;
-}
-
-.topbar .topbar-main div.training_title {
+/* header-article */
+div.header-article__label {
   display: flex;
   align-items: center;
   margin: 0 auto 0 1em;
