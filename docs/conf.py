@@ -174,6 +174,7 @@ html_extra_path = [
 html_static_path = ["_static"]
 
 html_theme_options = {
+    "google_analytics_id": "G-P8NCTB796E",
     "repository_url": "https://github.com/plone/training",
     "repository_branch": "main",
     "path_to_docs": "docs",
