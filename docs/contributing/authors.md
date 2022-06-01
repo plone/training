@@ -99,7 +99,7 @@ We use a custom JavaScript in {file}`docs/_templates/page.html` to hide and show
 This makes use of the unique docutils [`admonition` directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#generic-admonition) which allows a custom title.
 We also use a special `:class: toggle` option for the directive.
 
-Note that the markup uses [MyST nested directives](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#nesting-directives).
+Note that the markup uses [MyST nested directives](https://myst-parser.readthedocs.io/en/latest/syntax/roles-and-directives.html#nesting-directives).
 
 `````md
 ````{admonition} This is a title
