@@ -12,7 +12,7 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :align: left
 :class: logo
 ```
@@ -21,9 +21,11 @@ For Volto add-ons see chapter {ref}`volto-addon-label`
 ````
 
 - There are more than 2,000 add-ons for Plone.
+- A curated list of awesome add-ons for Plone Classic and the backend can be found at <https://github.com/collective/awesome-plone#readme>
+- A curated list of awesome add-ons for Volto can be found at <https://github.com/collective/awesome-volto#readme>
 - Using them saves a lot of development time.
 - Their target, complexity and configurability varies a lot.
-- Add-ons that do not fit the projects needs exactly can be customized by an additonal self-written add-on.
+- Add-ons that do not fit your projects needs exactly can be customized by an additonal self-written add-on.
 
 Plone 6 plays with two groups of add-ons: Add-ons for Plone and such for the frontend Volto.
 
@@ -95,7 +97,8 @@ It can be very hard to find the right add-on for your requirements. Here are som
 
 - Then search using the follwing links below.
 
-  - <https://plone.org/download/add-ons>
+  - <https://github.com/collective/awesome-plone#readme>
+  - <https://github.com/collective/awesome-volto#readme>
   - <https://pypi.org/search/?c=Framework+%3A%3A+Plone> >3400 Plone related packages - use the search form!
   - <https://github.com/collective> >1500 repos
   - <https://github.com/plone> >310 repos
