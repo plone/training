@@ -13,7 +13,6 @@ html_meta:
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend
-:align: left
 :class: logo
 ```
 

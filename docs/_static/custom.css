@@ -184,7 +184,7 @@ div.header-article__label {
 }
 
 /* extra sidebar */
-div.sidebar:not(.margin) {
+aside.sidebar:not(.margin) {
   width: 40%;
   float: right;
   clear: right;
@@ -197,47 +197,49 @@ div.sidebar:not(.margin) {
   box-shadow: 0 .2rem .5rem rgba(0, 0, 0, .05), 0 0 .0625rem rgba(0, 0, 0, .1);
 }
 
-div.sidebar:not(.margin) .figure {
+
+aside.sidebar:not(.margin) figure {
   margin-top: 0;
   padding-top: 0;
   margin-left: 0;
   padding-left: 0;
+  text-align: initial;
 }
 
-div.sidebar:not(.margin) img.logo {
+aside.sidebar:not(.margin) img.logo {
   margin-top: 0;
   margin-bottom: .3rem;
 }
 
-div.sidebar:not(.margin) p {
+aside.sidebar:not(.margin) p {
   margin-bottom: 0;
 }
 
-div.sidebar:not(.margin) p.sidebar-title {
+aside.sidebar:not(.margin) p.sidebar-title {
   display: none;
 }
 
-div.sidebar:not(.margin) div.topic {
+aside.sidebar:not(.margin) div.topic {
   padding: .5em 0;
   background-color: transparent;
   border: none;
 }
 
-div.sidebar:not(.margin) pre {
+aside.sidebar:not(.margin) pre {
   margin: .5em 0 1.5em 0;
 }
 
-div.sidebar:not(.margin) div[class*="highlight-"] {
+aside.sidebar:not(.margin) div[class*="highlight-"] {
   margin-right: .5em;
 }
 
-div.sidebar:not(.margin) .admonition {
+aside.sidebar:not(.margin) .admonition {
   margin-right: .5em;
   background-color: #ffffff;
 }
 
 @media (min-width:768px) {
-  div.sidebar:not(.margin) {
+  aside.sidebar:not(.margin) {
     width: 50%;
     margin-left: 1.5em;
     margin-right: -28%;
