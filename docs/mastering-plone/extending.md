@@ -13,11 +13,10 @@ html_meta:
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
 :alt: Plone backend 
-:align: left
 :class: logo
 ```
 
-For extending Volto frontend see chapters
+Extending Volto frontend:
 
 - {ref}`volto-richtexteditor-label`
 - {ref}`volto-custom-block-label`

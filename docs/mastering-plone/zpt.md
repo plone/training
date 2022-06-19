@@ -13,7 +13,6 @@ html_meta:
 ````{sidebar} Plone Classic UI Chapter
 ```{figure} _static/plone-training-logo-for-classicui.svg
 :alt: Plone Classic UI
-:align: left
 :class: logo
 ```
 
