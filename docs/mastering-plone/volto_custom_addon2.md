@@ -31,7 +31,7 @@ Let's start with our fresh add-on we created in the last chapter {doc}`volto_cus
 :alt: Editing Volto add-on volto-accordion-block
 ```
 
-We need a view and an edit form for the block. Create a {file}`src/FAQ/BlockView.jsx` {file}`src/FAQ/BlockEdit.jsx`.
+We need a view and an edit form for the block. Create a {file}`src/FAQ/BlockView.jsx` and {file}`src/FAQ/BlockEdit.jsx`.
 
 The BlockView is a simple function component that displays a FAQ component with the data stored on the block.
 
@@ -301,9 +301,8 @@ import { defineMessages, injectIntl } from 'react-intl';
 import { v4 as uuid } from 'uuid';
 import { omit, without } from 'lodash';
 import move from 'lodash-move';
-import { Icon, FormFieldWrapper } from '@plone/volto/components';
+import { FormFieldWrapper, DragDropList, Icon } from '@plone/volto/components';
 import { Form as VoltoForm } from '@plone/volto/components';
-import { DragDropList } from '@eeacms/volto-blocks-form/components';
 
 import dragSVG from '@plone/volto/icons/drag.svg';
 import trashSVG from '@plone/volto/icons/delete.svg';
@@ -458,6 +457,7 @@ const FAQListEditWidget = (props) => {
 
 export default injectIntl(FAQListEditWidget);
 ```
+
 ````
 
 The form is fructified by the schema QuestionAnswerPairSchema. It's simple, just a string field with a textarea widget for the question and a such for the answer, but with a richtext widget to have some editing and styling tools available.
@@ -549,41 +549,6 @@ Run
 
 ```shell
 yarn start
-```
-
-You see
-
-```text
-Module not found: Can't resolve '@eeacms/volto-blocks-form/components'
-```
-
-Why is this? We want the accordion to be reorderable and use the `DragDropList` component of another add-on: `@eeacms/volto-blocks-form`. Add it to the dependencies of your add-on.
-
-{file}`package.json`
-
-```json
-"dependencies": {
-  "@eeacms/volto-blocks-form": "@eeacms/volto-blocks-form"
-},
-```
-
-The following might change the next time:
-
-Add to your **apps** {file}`package.json`:
-
-```json
-"addons": ["@greenthumb/volto-custom-addon", "@eeacms/volto-blocks-form"],
-```
-
-Compile and start your project's app:
-
-```shell
-yarn
-yarn start
-```
-
-```{figure} _static/volto_addon_accordion_add.png
-:alt: "@rohberg/volto-accordion-block"
 ```
 
 See the complete add-on code @rohberg/volto-accordion-block [^id3]
