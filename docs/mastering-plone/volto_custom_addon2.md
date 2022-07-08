@@ -293,7 +293,7 @@ You see the Volto `Form` component with its onSubmit event, the form data and th
 :class: toggle
 
 ```{code-block} jsx
-:emphasize-lines: 113-125
+:emphasize-lines: 112-124
 :linenos:
 
 import React from 'react';
