@@ -168,7 +168,7 @@ linkcheck: bin/python  ## Run linkcheck
 
 .PHONY: linkcheckbroken
 linkcheckbroken: bin/python  ## Run linkcheck and show only broken links
-	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck | GREP_COLORS='0;31' grep -wi "broken\|redirect" --color=auto
+	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck | GREP_COLORS='0;31' grep -wi "broken\|redirect" --color=auto || test $$? = 1
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
 		"or in $(BUILDDIR)/linkcheck/ ."
@@ -191,7 +191,7 @@ doctest: bin/python
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
 .PHONY: test
-test: clean linkcheck spellcheck  ## Run linkcheck, spellcheck
+test: clean linkcheckbroken spellcheck  ## Run linkcheckbroken, spellcheck
 
 .PHONY: deploy
 deploy: clean html
