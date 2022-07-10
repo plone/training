@@ -49,7 +49,7 @@ Let's see how to enable our testing package on Travis.
 
 First, we need to create a repository on GitHub. We don't need to push code to it yet.
 
-Then we need a Travis CI account: go to [https://travis-ci.org](https://travis-ci.org) and signup with your GitHub credentials.
+Then we need a Travis CI account: go to https://www.travis-ci.com/ and signup with your GitHub credentials.
 
 If we go to the settings control panel, we can see a list of organizations and repositories for which we can enable Travis.
 We could also see our newly created repository and we can enable it.
