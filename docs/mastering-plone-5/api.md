@@ -171,7 +171,7 @@ A video of the talk [Debug like a pro. How to become a better programmer through
 - Only managers should be able to use the view (the permission is called **cmf.ManagePortal**).
 - Reload the frontpage after calling the view.
 - Display a message about the results (<https://docs.plone.org/develop/plone.api/docs/portal.html#show-notification-message>).
-- For extra credits use the library [requests](https://requests.readthedocs.io/) and [icndb](http://www.icndb.com/api/) to populate the talks with jokes.
+- For extra credits use the library [requests](https://requests.readthedocs.io/en/latest/) and [icndb](http://www.icndb.com/api/) to populate the talks with jokes.
 - Use the utility methods `cropText` from `Producs.CMFPlone.browser.ploneview.Plone` to crop the title after 20 characters.
 
 ```{note}
