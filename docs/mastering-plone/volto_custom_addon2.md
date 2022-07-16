@@ -551,6 +551,10 @@ Run
 yarn start
 ```
 
+```{figure} _static/volto_addon_accordion_add.png
+:alt: "@rohberg/volto-accordion-block"
+```
+
 See the complete add-on code @rohberg/volto-accordion-block [^id3]
 
 ## Save your work to Github
