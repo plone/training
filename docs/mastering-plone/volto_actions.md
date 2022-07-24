@@ -49,7 +49,6 @@ Topics covered:
 
 ```{figure} _static/volto_voting1.png
 :alt: Volto Voting
-:align: left
 :scale: 50%
 
 Voting
@@ -57,7 +56,6 @@ Voting
 
 ```{figure} _static/volto_voting2.png
 :alt: Volto Voting
-:align: left
 :scale: 50%
 
 Voting component, user has already voted
@@ -255,7 +253,6 @@ const TalkView = ({ content }) => {
 
 ```{figure} _static/volto_voting3.png
 :alt: 'Volto Voting: displaying votes'
-:align: left
 :scale: 50%
 ```
 
@@ -356,7 +353,6 @@ The authorized user can now vote:
 
 ```{figure} _static/volto_voting1.png
 :alt: Volto Voting
-:align: left
 :scale: 50%
 ```
 

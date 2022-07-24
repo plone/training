@@ -115,20 +115,20 @@ The current model uses only one branch of commits and maintains the integrity th
 
 It goes like this:
 
-- Only one one branch (master)
+- Only one branch (main)
 
-- Write the code for chapter 1 and commit
+- Write the code for chapter 1 and commit.
 
-- Write the code for chapter 2 and commit
+- Write the code for chapter 2 and commit.
 
-- Add the code for chapter 3 and commit
+- Add the code for chapter 3 and commit.
 
-- You realize that something or wrong in chapter 1
+- You realize that something is wrong in chapter 1.
 
-- You branch off at the commit id for chapter 1
+- You branch off at the commit id for chapter 1.
   `git checkout -b temp 123456`
 
-- You cange the code and do a commit.
+- You change the code and do a commit.
   `git commit -am 'Changed foo to also do bar'`
 
 - Switch to master and rebase on the branch holding the fix which will inject the new commit into master at the right place:

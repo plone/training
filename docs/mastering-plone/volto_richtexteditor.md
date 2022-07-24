@@ -19,23 +19,7 @@ html_meta:
 This chapter is about customizing the rich text editor.
 
 ```{topic} Description
-Add a button / feature to the rich text editor.
-```
-
----
-
-Get the code! ({doc}`More info <code>`)
-
-Code for the beginning of this chapter:
-
-```shell
-git checkout TODO tag to checkout
-```
-
-Code for the end of this chapter:
-
-```shell
-git checkout TODO tag to checkout
+Add a button and feature to the rich text editor DraftJS.
 ```
 ````
 
@@ -61,7 +45,6 @@ Topics covered:
 
 ```{figure} _static/volto_richtexteditor.jpg
 :alt: text marked as discreet
-:align: left
 ```
 
 The `settings` in {file}`/src/config.js` is the place to modify the general configuration of your Volto app. Here we add info about the additional button, what to display in the editor bar and what to do when the button is clicked.

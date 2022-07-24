@@ -29,13 +29,13 @@ Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```shell
-git checkout TODO tag to checkout
+git checkout testing
 ```
 
 Code for the end of this chapter:
 
 ```shell
-git checkout TODO tag to checkout
+git checkout sponsors
 ```
 ````
 
@@ -58,7 +58,6 @@ Topics covered:
 
 ```{figure} _static/volto_component_sponsors.png
 :alt: Sponsors component
-:align: left
 ```
 
 ```{only} not presentation
