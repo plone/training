@@ -30,6 +30,9 @@ maxdepth: 3
 about_effective_volto
 architecture
 backend
+addons
+development
+testing
 ```
 
 Please note that this document is *not complete* without the spoken word of a trainer.

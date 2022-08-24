@@ -1,0 +1,1 @@
+# Husky and lint-staged

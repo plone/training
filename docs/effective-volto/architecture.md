@@ -17,6 +17,8 @@ architecture/babel
 architecture/webpack-loaders
 architecture/bootstrap-volto
 architecture/anatomy
+architecture/configuration
 architecture/redux
 architecture/CORS
+architecture/multilingual
 ```

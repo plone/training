@@ -1,0 +1,3 @@
+# Shortcuts
+
+## `@root` / `package`
