@@ -10,10 +10,6 @@ html_meta:
 
 # Installing Plone for the Training
 
-TODO the following text does instruct how to install Plone training code, but is too short. I am not an author but developer. Feel free to nurish with narrative, context, ….
-
-TODO Use present not future. Here and now.
-
 We install the `Plone` backend and its `React`-based frontend `Volto`.
 This starts with the following folder structure:
 
