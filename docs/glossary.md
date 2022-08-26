@@ -263,4 +263,9 @@ fence
 Open Graph
     The [Open Graph protocol](https://ogp.me/) enables any web page to become a rich object in a social graph.
     For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.
-```
+    
+
+mxdev
+    [mxdev](https://github.com/mxstack/mxdev) [mɪks dɛv] is a utility that makes it easy to work with Python projects containing lots of packages, of which you only want to develop some.
+    It is designed for developers who use stable version constraints, then layer their customizations on top of that base while using a version control system.
+    This design allows developers to override their base package constraints with a customized or newer version.

@@ -41,7 +41,7 @@ intro
 case
 what_is_plone
 installation
-../plone_training_config/instructions.md
+instructions.md
 features
 anatomy
 plone_versions
@@ -90,6 +90,7 @@ restapi
 future_of_plone
 optional
 code
+trainer
 ```
 
 Please note that this document is *not complete* without the spoken word of a trainer.
