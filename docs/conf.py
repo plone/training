@@ -69,10 +69,10 @@ extensions = [
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
 myst_enable_extensions = [
     "deflist",  # You will be able to utilise definition lists
-                # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#definition-lists
+    # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#definition-lists
     "linkify",  # Identify “bare” web URLs and add hyperlinks.
     "colon_fence",  # You can also use ::: delimiters to denote code fences,\
-                    #  instead of ```.
+    #  instead of ```.
 ]
 
 # If true, the Docutils Smart Quotes transform, originally based on SmartyPants
@@ -98,7 +98,8 @@ linkcheck_ignore = [
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
     r"https://www.chef.io/products/chef-infra/",  # Site works but creates SSLError
-    ### Start of list of anchored links
+    r"https://plonedemo.kitconcept.com",  # Did Not Connect: Potential Security Issue
+    # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
     # GitHub rewrites anchors with JavaScript.
@@ -119,7 +120,7 @@ linkcheck_ignore = [
     "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
     "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
     "https://www.npmjs.com/package/axios#example",
-    ### End of list of anchored links
+    # ### End of list of anchored links
 ]
 linkcheck_allowed_redirects = {
     # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
@@ -162,8 +163,7 @@ html_theme = "sphinx_book_theme"
 html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
-html_css_files = ["custom.css",
-                  ("print.css", {"media": "print"})]
+html_css_files = ["custom.css", ("print.css", {"media": "print"})]
 
 html_extra_path = [
     "robots.txt",
