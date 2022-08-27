@@ -33,6 +33,10 @@ Topics covered:
 
 ## plone.api
 
+```{todo}
+- Update links to plone.api documentation
+```
+
 The most important tool nowadays for plone developers is the add-on [plone.api](https://docs.plone.org/develop/plone.api/docs/index.html) that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
 
 The API is divided in five sections. Here is one example from each:

@@ -107,6 +107,7 @@ These are the tags for which there is code:
 | {doc}`deployment_code`         |                          |
 | {doc}`deployment_sites`        |                          |
 
+
 ## Updating the code-package
 
 This section is for trainers who want to update the code in {py:mod}`ploneconf.site` after changing something in the training documentation.

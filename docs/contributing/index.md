@@ -90,7 +90,7 @@ Contributors to the Training docs may perform one or many roles.
 - **Authors** create the Training documentation.
   They should read {doc}`setup-build` and {doc}`writing-docs-guide`.
   They should also read {doc}`authors` for guidance and tips for writing good Training documentation.
-- **Trainers** should read {doc}`setup-build`, and the trainings in {doc}`/plone_training_config/instructions` and {doc}`/teaching/index`.
+- **Trainers** should read {doc}`setup-build` and {doc}`/teaching/index`.
   These documents help trainers prepare for a successful training experience.
 
 
