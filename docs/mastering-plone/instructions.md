@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "How to install Plone 6 for the training"
-  "property=og:description": "How to install Plone 6 for the training"
-  "property=og:title": ""
-  "keywords": "Installation and Setup of Plone 6 for the training 'Mastering Plone Development'"
+myst:
+  html_meta:
+    "description": "How to install Plone 6 for the training"
+    "property=og:description": "How to install Plone 6 for the training"
+    "property=og:title": ""
+    "keywords": "Installation and Setup of Plone 6 for the training 'Mastering Plone Development'"
 ---
 
 (instructions-label)=

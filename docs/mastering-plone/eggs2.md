@@ -1,10 +1,17 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
+
+
+
+```{todo}
+- Switch from mrbob to plonecli
+```
 
 (eggs2-label)=
 
@@ -15,6 +22,7 @@ We already created the package {py:mod}`ploneconf.site`  much earlier.
 In this part you will:
 
 - Build your own standalone egg.
+
 
 Topics covered:
 

@@ -43,7 +43,6 @@ In this part you will:
 
 - Write the viewlet template
 - Add jQuery include statements
-- Save the vote on the object using annotations
 
 Topics covered:
 
@@ -57,6 +56,11 @@ Since we want to use the UI on more than one page (not only the talk view but al
 
 - To handle the user input we don't use a form but links and ajax.
 - The voting itself is a fact handled by another view
+```
+
+
+```{figure} _static/voting_viewlet.png
+:align: center
 ```
 
 We register the viewlet in {file}`browser/configure.zcml`.
