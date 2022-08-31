@@ -32,7 +32,6 @@ We encourage you to install and run `Plone` on your own machine, as you will hav
 
 - You can work with your favorite editor.
 - You have all the code of Plone at your fingertips in `site-packages` tree.
-- TODO Find out the original intention of the following sentence: "You do not have to switch between different operating systems during the training."
 
 
 ### Prerequisites
@@ -147,22 +146,21 @@ Ready to create a `Plone` instance
 You have two options:
 
 > 1. Create the frontend from scratch using the Volto generator.
-> 2. Use the existing Volto project for this training [volto-ploneconf](https://github.com/collective/volto-ploneconf) with all the code for the training.
+> 2. Use the prepared Volto project [volto-ploneconf](https://github.com/collective/volto-ploneconf) with all the code for the training.
 
 
 ### Option 1: Frontend from scratch with Volto generator
 
-(instructions-install-frontend-prerequisites-label)=
 
-{ref}`installation-volto-label`
-
-
-### Option 2. Start with existing training project `volto-ploneconf` with all code for the training
-
-Prepare the [pre-requisites](installation-volto-prerequisites-label).
+{ref}`plone6docs:install-source-volto-frontend-label`
 
 
-Get the finished code for the frontend from github and install:
+### Option 2. Start with prepared training project `volto-ploneconf` with all code for the training
+
+Prepare the pre-requisites explained in {ref}`plone6docs:install-source-volto-frontend-label`.
+
+
+Get the code for the frontend from github and install:
 
 ```shell
 git clone https://github.com/collective/volto-ploneconf.git frontend
