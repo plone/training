@@ -113,6 +113,8 @@ Starting server in PID 93572.
 2022-08-24 00:45:39,085 INFO    [waitress:486][MainThread] Serving on http://127.0.0.1:8080
 ```
 
+Troubleshooting: We are here to help: Please file an issue in [training repo](https://github.com/plone/training/issues). 
+
 
 Point your browser to <http://localhost:8080> to see `Plone` running.
 
