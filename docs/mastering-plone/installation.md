@@ -12,4 +12,4 @@ myst:
 The next chapter provides instructions on how to install Plone with the training code.
 
 For installation, deployment and hosting of Plone in general see documentation on `docs.plone.org`:
-{ref}`plone6docs:install-index-label` .
+{ref}`plone6docs:install-index-label`.
