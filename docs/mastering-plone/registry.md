@@ -373,6 +373,7 @@ The following creates a new entry `ploneconf.talk_submission_open` with Generic 
 
 When creating a new vanilla Plone instance, a lot of default settings are created that way.
 See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml to see how {py:mod}`Products.CMFPlone` registers values.
+`````
 
 
 ## Add a custom control panel
@@ -625,13 +626,13 @@ Thus no widget registration in the frontend app is needed.
 
 ```python
 directives.widget(
-    'types_of_talk',
+    "types_of_talk",
     frontendOptions={
-        "widget": 'vocabularyterms',
-    })
+        "widget": "vocabularyterms",
+    },
+)
 ```
-`````
-
+````
 ## Vocabularies
 
 Now the custom settings are stored in the registry and we can modify them in a nice way as site administrators.
