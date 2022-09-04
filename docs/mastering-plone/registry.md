@@ -376,6 +376,8 @@ See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/pro
 `````
 
 
+(controlpanel-label)=
+
 ## Add a custom control panel
 
 Now you will add a custom control panel to edit all settings related to our package with a nice UI.
@@ -633,6 +635,9 @@ directives.widget(
 )
 ```
 ````
+
+(vocabularies-label)=
+
 ## Vocabularies
 
 Now the custom settings are stored in the registry and we can modify them in a nice way as site administrators.
