@@ -120,6 +120,7 @@ linkcheck_ignore = [
     "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
     "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
     "https://www.npmjs.com/package/axios#example",
+    "https://2021.ploneconf.org",
     # ### End of list of anchored links
 ]
 linkcheck_allowed_redirects = {
