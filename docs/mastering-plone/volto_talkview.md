@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": Display content type""
-  "property=og:description": "Display content type"
-  "property=og:title": "Volto View Component: A Default View for a "Talk"
-  "keywords": "view, content type"
+myst:
+  html_meta:
+    "description": Display content type""
+    "property=og:description": "Display content type"
+    "property=og:title": "Volto View Component: A Default View for a "Talk"
+    "keywords": "view, content type"
 ---
 
 (volto-talkview-label)=

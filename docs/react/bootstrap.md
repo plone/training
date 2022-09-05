@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Bootstrap a react project using create-react-app."
-  "property=og:description": "Bootstrap a react project using create-react-app."
-  "property=og:title": "Bootstrap React Project"
-  "keywords": "Plone, trainings, SEO, yarn, nvm, create-react-app"
+myst:
+  html_meta:
+    "description": "Bootstrap a react project using create-react-app."
+    "property=og:description": "Bootstrap a react project using create-react-app."
+    "property=og:title": "Bootstrap React Project"
+    "keywords": "Plone, trainings, SEO, yarn, nvm, create-react-app"
 ---
 
 (bootstrap-react-label)=

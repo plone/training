@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Define what the page you are creating should look like in the end of the training"
-  "property=og:description": "Define what the page you are creating should look like in the end of the training"
-  "property=og:title": "Project requirements"
-  "keywords": "Plone, Volto, Training, Requirements"
+myst:
+  html_meta:
+    "description": "Define what the page you are creating should look like in the end of the training"
+    "property=og:description": "Define what the page you are creating should look like in the end of the training"
+    "property=og:title": "Project requirements"
+    "keywords": "Plone, Volto, Training, Requirements"
 ---
 
 (voltohandson-customcss-label)=

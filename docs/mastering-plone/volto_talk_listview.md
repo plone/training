@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "How to fetch data from backend"
-  "property=og:description": "How to fetch data from backend"
-  "property=og:title": "Volto View Components: A Listing View for Talks"
-  "keywords": "action, Redux, store, REST API"
+myst:
+  html_meta:
+    "description": "How to fetch data from backend"
+    "property=og:description": "How to fetch data from backend"
+    "property=og:title": "Volto View Components: A Listing View for Talks"
+    "keywords": "action, Redux, store, REST API"
 ---
 
 (volto-talk-listview-label)=

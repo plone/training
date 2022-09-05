@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Get started with the React training."
-  "property=og:description": "Get started with the React training."
-  "property=og:title": "Introduction"
-  "keywords": "Plone, training"
+myst:
+  html_meta:
+    "description": "Get started with the React training."
+    "property=og:description": "Get started with the React training."
+    "property=og:title": "Introduction"
+    "keywords": "Plone, training"
 ---
 
 (react-intro-label)=
