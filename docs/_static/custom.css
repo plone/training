@@ -49,6 +49,11 @@ figure img,
   box-shadow: 0 6px 24px 0 rgba(153, 153, 153, 0.3);
 }
 
+section {
+  clear: both;
+}
+
+
 .sidebar img.logo {
   box-shadow: none;
   width: 200px;
