@@ -1,3 +1,8 @@
+:root {
+  --highlight-searchresult-color: #b9ee9e;
+  --codeblock-color: #aad993;
+}
+
 .visuallyhidden {
   display: none;
 }
@@ -28,6 +33,11 @@ ul li>p {
 
 ol li>p {
   margin-bottom: 0.3rem;
+}
+
+dt:target,
+span.highlighted {
+  background-color: var(--highlight-searchresult-color);
 }
 
 img {
@@ -166,6 +176,10 @@ p.search-summary {
 
 #search-results ul li {
   margin-bottom: 1em;
+}
+
+ul.search li span.highlighted {
+  background-color: var(--highlight-searchresult-color);
 }
 
 /* header-article */
