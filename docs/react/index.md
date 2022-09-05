@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Learn the basics of React, Redux, and React-Router."
-  "property=og:description": "Learn the basics of React, Redux, and React-Router."
-  "property=og:title": "Details of React training"
-  "keywords": "Plone, training, exercise, solution, React, Redux"
+myst:
+  html_meta:
+    "description": "Learn the basics of React, Redux, and React-Router."
+    "property=og:description": "Learn the basics of React, Redux, and React-Router."
+    "property=og:title": "Details of React training"
+    "keywords": "Plone, training, exercise, solution, React, Redux"
 ---
 
 (react-volto-label)=

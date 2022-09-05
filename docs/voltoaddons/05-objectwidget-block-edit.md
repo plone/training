@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training module 5, object widget block edit"
-  "property=og:description": "Volto add-ons development training module 5"
-  "property=og:title": "Volto add-ons development object widget block edit"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training module 5, object widget block edit"
+    "property=og:description": "Volto add-ons development training module 5"
+    "property=og:title": "Volto add-ons development object widget block edit"
+    "keywords": "Volto"
 ---
 
 # Customizable columns

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add the Edit mode so that the user can edit the question and answer list."
-  "property=og:description": "Add the Edit mode so that the user can edit the question and answer list."
-  "property=og:title": "Use Initial Form Data To Edit An Item"
-  "keywords": "Plone, training, exercise, solution, React"
+myst:
+  html_meta:
+    "description": "Add the Edit mode so that the user can edit the question and answer list."
+    "property=og:description": "Add the Edit mode so that the user can edit the question and answer list."
+    "property=og:title": "Use Initial Form Data To Edit An Item"
+    "keywords": "Plone, training, exercise, solution, React"
 ---
 
 (initial-form-data-label)=

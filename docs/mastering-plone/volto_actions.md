@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Actions: fetch data from backend and write data to backend"
-  "property=og:description": "Actions: fetch data from backend and write data to backend"
-  "property=og:title": "Volto Actions and Component State"
-  "keywords": "hooks, functional component, component state"
+myst:
+  html_meta:
+    "description": "Actions: fetch data from backend and write data to backend"
+    "property=og:description": "Actions: fetch data from backend and write data to backend"
+    "property=og:title": "Volto Actions and Component State"
+    "keywords": "hooks, functional component, component state"
 ---
 
 (volto-actions)=

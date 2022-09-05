@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "What's new in Plone 6 React frontend? Should I adapt to it now?"
-  "property=og:description": "What's new in Plone 6 React frontend? Should I adapt to it now?"
-  "property=og:title": "Plone 6 Basics"
-  "keywords": "overview, Plone6"
+myst:
+  html_meta:
+    "description": "What's new in Plone 6 React frontend? Should I adapt to it now?"
+    "property=og:description": "What's new in Plone 6 React frontend? Should I adapt to it now?"
+    "property=og:title": "Plone 6 Basics"
+    "keywords": "overview, Plone6"
 ---
 
 (volto-basics-label)=

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "How to fetch data from the backend"
-  "property=og:description": "How to fetch data from the backend"
-  "property=og:title": ""
-  "keywords": "REST API, Semantic UI"
+myst:
+  html_meta:
+    "description": "How to fetch data from the backend"
+    "property=og:description": "How to fetch data from the backend"
+    "property=og:title": ""
+    "keywords": "REST API, Semantic UI"
 ---
 
 (volto-sponsors-component-label)=

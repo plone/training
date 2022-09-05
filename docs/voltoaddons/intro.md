@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training intro"
-  "property=og:description": "Volto add-ons development training"
-  "property=og:title": "Volto add-ons development intro"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training intro"
+    "property=og:description": "Volto add-ons development training"
+    "property=og:title": "Volto add-ons development intro"
+    "keywords": "Volto"
 ---
 
 (voltoaddons-intro-label)=

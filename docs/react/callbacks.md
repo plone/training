@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add a delete button and onDelete handler to remove the question from the list."
-  "property=og:description": "Add a delete button and onDelete handler to remove the question from the list."
-  "property=og:title": "Use Callbacks To Delete An Item"
-  "keywords": "Plone, training, SEO, exercise, solution, React"
+myst:
+  html_meta:
+    "description": "Add a delete button and onDelete handler to remove the question from the list."
+    "property=og:description": "Add a delete button and onDelete handler to remove the question from the list."
+    "property=og:title": "Use Callbacks To Delete An Item"
+    "keywords": "Plone, training, SEO, exercise, solution, React"
 ---
 
 (callbacks-label)=

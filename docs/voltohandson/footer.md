@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Learn How to customize the Footer of the page"
-  "property=og:description": "Learn How to customize the Footer of the page"
-  "property=og:title": "Footer customization"
-  "keywords": "Plone, Volto, Training, Theme, Footer"
+myst:
+  html_meta:
+    "description": "Learn How to customize the Footer of the page"
+    "property=og:description": "Learn How to customize the Footer of the page"
+    "property=og:title": "Footer customization"
+    "keywords": "Plone, Volto, Training, Theme, Footer"
 ---
 
 (voltohandson-footer-label)=
