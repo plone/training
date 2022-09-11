@@ -11,6 +11,7 @@ numbered: true
 ---
 
 addons/bootstrap
+addons/i18n
 addons/blockdataform
 addons/block-extensions
 addons/block-styling
