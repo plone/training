@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add links to our App for navigating around the App."
-  "property=og:description": "Add links to our App for navigating around the App."
-  "property=og:title": "Using Link To Navigate"
-  "keywords": "Plone, training, exercise, solution, React, link"
+myst:
+  html_meta:
+    "description": "Add links to our App for navigating around the App."
+    "property=og:description": "Add links to our App for navigating around the App."
+    "property=og:title": "Using Link To Navigate"
+    "keywords": "Plone, training, exercise, solution, React, link"
 ---
 
 (links-label)=

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "How to install Plone 6"
-  "property=og:description": "How to install Plone 6"
-  "property=og:title": "Installation and Setup of Plone 6"
-  "keywords": "installation, Plone 6"
+myst:
+  html_meta:
+    "description": "How to install Plone 6"
+    "property=og:description": "How to install Plone 6"
+    "property=og:title": "Installation and Setup of Plone 6"
+    "keywords": "installation, Plone 6"
 ---
 
 # Set up Plone

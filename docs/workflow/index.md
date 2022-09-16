@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Controlling security with workflow"
-  "property=og:description": "Controlling security with workflow"
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "Controlling security with workflow"
+    "property=og:description": "Controlling security with workflow"
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (workflow-label)=

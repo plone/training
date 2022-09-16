@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Contributing to JavaScript code and documentation in Plone 5"
-  "property=og:description": "Contributing to JavaScript code and documentation in Plone 5"
-  "property=og:title": "JavaScript Development Process"
-  "keywords": "Plone, JavaScript, development, code, style, lint, mockup, documentation"
+myst:
+  html_meta:
+    "description": "Contributing to JavaScript code and documentation in Plone 5"
+    "property=og:description": "Contributing to JavaScript code and documentation in Plone 5"
+    "property=og:title": "JavaScript Development Process"
+    "keywords": "Plone, JavaScript, development, code, style, lint, mockup, documentation"
 ---
 
 # JavaScript Development Process

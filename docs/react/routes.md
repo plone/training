@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add routes to our App. Create a view for the individual FAQ entries."
-  "property=og:description": "Add routes to our App. Create a view for the individual FAQ entries."
-  "property=og:title": "Routing"
-  "keywords": "Plone, training, exercise, solution, React, react-router-dom"
+myst:
+  html_meta:
+    "description": "Add routes to our App. Create a view for the individual FAQ entries."
+    "property=og:description": "Add routes to our App. Create a view for the individual FAQ entries."
+    "property=og:title": "Routing"
+    "keywords": "Plone, training, exercise, solution, React, react-router-dom"
 ---
 
 (routes-label)=

@@ -99,6 +99,7 @@ linkcheck_ignore = [
     r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
     r"https://www.chef.io/products/chef-infra/",  # Site works but creates SSLError
     r"https://plonedemo.kitconcept.com",  # Did Not Connect: Potential Security Issue
+    r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.

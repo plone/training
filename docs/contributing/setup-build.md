@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "How to set up the training locally"
-  "property=og:description": "How to set up the training locally"
-  "property=og:title": "Building and Checking the Quality of Documentation"
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "How to set up the training locally"
+    "property=og:description": "How to set up the training locally"
+    "property=og:title": "Building and Checking the Quality of Documentation"
+    "keywords": ""
 ---
 
 (setup-build-label)=

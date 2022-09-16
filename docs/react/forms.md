@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add form to add new question and answer."
-  "property=og:description": "Add form to add new question and answer."
-  "property=og:title": "Use Forms To Add An Item"
-  "keywords": "Plone, training, exercise, solution, React"
+myst:
+  html_meta:
+    "description": "Add form to add new question and answer."
+    "property=og:description": "Add form to add new question and answer."
+    "property=og:title": "Use Forms To Add An Item"
+    "keywords": "Plone, training, exercise, solution, React"
 ---
 
 (forms-label)=

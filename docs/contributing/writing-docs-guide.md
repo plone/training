@@ -1,7 +1,10 @@
 ---
-html_meta:
-  "description": "General Guide to Writing Documentation"
-  "keywords": "Documentation, Plone, Sphinx, MyST, reStructuredText, Markdown"
+myst:
+  html_meta:
+    "description": "General Guide to Writing Documentation"
+    "property=og:description": "General Guide to Writing Documentation"
+    "property=og:title": "General Guide to Writing Documentation"
+    "keywords": "Documentation, Plone, Sphinx, MyST, reStructuredText, Markdown"
 ---
 
 # General Guide to Writing Documentation

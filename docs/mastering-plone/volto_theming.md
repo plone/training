@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "How to make simple customizations"
-  "property=og:description": "How to make simple customizations"
-  "property=og:title": "Theming in Plone 6"
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "How to make simple customizations"
+    "property=og:description": "How to make simple customizations"
+    "property=og:title": "Theming in Plone 6"
+    "keywords": ""
 ---
 
 (volto-theming-label)=

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training module 1, add-ons basics"
-  "property=og:description": "Volto add-ons development training"
-  "property=og:title": "Volto add-ons development"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training module 1, add-ons basics"
+    "property=og:description": "Volto add-ons development training"
+    "property=og:title": "Volto add-ons development"
+    "keywords": "Volto"
 ---
 
 # Volto add-ons development

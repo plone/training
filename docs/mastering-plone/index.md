@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (mastering-plone-label)=
@@ -43,9 +44,7 @@ what_is_plone
 installation
 instructions.md
 features
-anatomy
 plone_versions
-volto_basics
 configuring_customizing
 volto_overrides
 volto_semantic_ui

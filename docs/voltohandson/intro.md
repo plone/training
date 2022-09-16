@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Introduction to the Volto Hands-On Training Documentation"
-  "property=og:description": "Introduction to the Volto Hands-On Training Documentation"
-  "property=og:title": "Volto Handson Training"
-  "keywords": "Volto, Training, Hands-On"
+myst:
+  html_meta:
+    "description": "Introduction to the Volto Hands-On Training Documentation"
+    "property=og:description": "Introduction to the Volto Hands-On Training Documentation"
+    "property=og:title": "Volto Handson Training"
+    "keywords": "Volto, Training, Hands-On"
 ---
 
 (voltohandson-intro-label)=

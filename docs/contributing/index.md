@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Contributing to Plone Trainings Documentation"
-  "property=og:description": "Contributing to Plone Trainings Documentation"
-  "property=og:title": "Contributing to Plone Trainings Documentation"
-  "keywords": "Plone, Trainings, Plone Contributor Agreement, License, Code of Conduct"
+myst:
+  html_meta:
+    "description": "Contributing to Plone Trainings Documentation"
+    "property=og:description": "Contributing to Plone Trainings Documentation"
+    "property=og:title": "Contributing to Plone Trainings Documentation"
+    "keywords": "Plone, Trainings, Plone Contributor Agreement, License, Code of Conduct"
 ---
 
 (contributing-index-label)=
