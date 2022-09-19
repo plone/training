@@ -385,8 +385,8 @@ Edit the front page:
 Create a site structure:
 
 - Add a Page "Training"
-- Add a Folder "Schedule"
-- Add a Folder "Location"
+- Add a Page "Schedule"
+- Add a Page "Location"
 - Add a Page "Sponsors"
 - Add a Page "Sprint"
 - Add a Page "Contact"
@@ -427,7 +427,7 @@ Page
 : A Page is the most flexible content type.
   You can use the editor to create, edit and arrange blocks on a page.
   You can choose from blocks for Text, Image, Video, List of existing content and many more.
-  Pages - like folders - can also contain other content. This means you can use them to structure your site.
+  Pages - like folders - can also contain other content. This means you can use them to structure your site. In Plone 6 Classic pages are not *folderish*!
 
   ```{figure} _static/features_add_a_page.png
   ```
@@ -437,6 +437,8 @@ Folder
 : Folders are used to structure content like in a file-system.
   They can display a listing of its content.
   Pages can also contain other content.
+  When you use Volto you usually don't use folders to create a structure since pages are also folders.
+  For some cases (e.g. lists of documents) using folders can be usefull though.
 
   ```{figure} _static/features_add_a_folder.png
   ```
@@ -485,16 +487,16 @@ Collection
   :alt: Editing a collection
   ```
 
-(features-folders-label)=
+(features-containers-label)=
 
-## Folders
+## Containers
 
 - Go to 'schedule'
 - explain the difference between title, ID, and URL
-- explain /folder_contents
+- explain `/contents`
 - change the order of items
 - explain bulk actions
-- dropdown "display"
+- Display Menu
 - Explain default pages (in classic Plone)
 - Explain Folderish Pages (in Plone6 and Volto)
 
