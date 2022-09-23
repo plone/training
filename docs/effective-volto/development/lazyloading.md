@@ -138,3 +138,6 @@ beforeAll(
 
 This ensures that all libraries are loaded and injected into a mock before any
 test is run.
+
+To understand how Volto packages all these libraries in static JS files, see
+the [Bundle Analyzing](./bundle-analyzing) chapter.

@@ -7,7 +7,8 @@ load, parse and execute a lot of Javascript code.
 One of the key techniques to avoid loading all Volto code at once is to use the
 [Webpack code splitting](https://webpack.js.org/guides/code-splitting/) feature,
 which allows the big Javascript files to be split and load "on demand", as soon
-as new components require it. See more about this in the Lazy Loading chapter.
+as new components require it. See more about this in the
+[Lazy Loading](./lazyloading) chapter.
 
 To understand how much of an impact, and how to further optimize the chunking
 process, Volto includes integration with the [Webpack Bundle Analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer).
