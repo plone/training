@@ -1,10 +1,8 @@
 # vim and neovim integration
 
 For code linting and formatting, Volto relies on a working configuration of
-ESLint and Prettier (as an ESlint plugin).
-
-This makes it possible to integrate automated code linting and formatting in
-any compatible editor.
+ESLint and Prettier (as an ESlint plugin). This makes it possible to integrate
+automated code linting and formatting in any compatible editor.
 
 One possible way to integrate these features with Vim and NeoVim is to use the
 [ALE](https://github.com/dense-analysis/ale).
@@ -14,6 +12,8 @@ A working Vim setup might look like this:
 ```vim
 
 Plug 'w0rp/ale'
+
+"...
 
 let g:ale_fixers = {
       \   'python': [
