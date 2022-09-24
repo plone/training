@@ -29,7 +29,7 @@ Example:
 
 `npx -p @plone/scripts addon clone https://github.com/kitconcept/volto-blocks-grid.git --branch my_new_branch --canary`
 
-This will create a directory named `addon-testing-project` and will bootstrap a new project using Volto's standard project generator.
+This will create a directory named `addon-testing-project` (this is a sensible default, but you can specify a custom one) and will bootstrap a new project using Volto's standard project generator.
 It will adjust the configuration of this project to setup the add-on in the project using `mrs-developer` and the git URL given to fetch the add-on contents.
 You can specify the branch to be used, if the project should use the latest alpha available.
 There is an option for private repos as well, in that case, it will use the `GITHUB_TOKEN` present in your environment variables to fetch it.
