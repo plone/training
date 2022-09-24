@@ -3,6 +3,8 @@
 Testing an add-on in isolation as you would do when you develop a Plone Python backend add-on can be a bit challenging, since an add-on needs a working project in order to bootstrap itself.
 There are some utilities available in order to help bootstrap a testing environment for isolated add-ons.
 
+(plone-scripts-label)=
+
 ## `@plone/scripts`
 
 This library adds some useful command line utilities that come in handy when testing add-ons in isolation.
