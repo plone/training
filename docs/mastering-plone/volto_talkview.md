@@ -108,7 +108,7 @@ export default function applyConfig(config) {
 ```
 
 - This extends the Volto default setting `config.views.contentTypesViews` with the key/value pair `talk: TalkView`.
-- It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to take the default settings and override what needs to be overrridden.
+- It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to take the default settings and override what needs to be overridden.
 
 When Volto is running (with `yarn start`) it picks up these changes and displays the placeholder in place of the previously used default view.
 
@@ -202,7 +202,7 @@ This has multiple benefits:
   The speaker portrait is picked up by the DefaultView because the fields name is `image`, which is the same as the image from the behavior `plone.leadimage`.
 
 With this changes we do discard the title tag in the HTML head though.
-This will change the name occuring in the browser tab or browser head to the current site url.
+This will change the name occurring in the browser tab or browser head to the current site url.
 To use the content title instead, you'll have to import the `Helmet` component, which allows to overwrite all meta tags for the HTML head like the page-title.
 
 ```{code-block} jsx

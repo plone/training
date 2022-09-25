@@ -9,20 +9,21 @@ myst:
 
 (behaviors2-label)=
 
-# More Complex Behaviors
+# Complex Behaviors
 
 We want a group of reviewers to vote on the talks that are accepted for the conference.
 
 In this part you will:
 
 - Write a behavior that enables voting on content
-- Use annotations to store the votes on a object
+- Use annotations to store the votes on an object
 
 Topics covered:
 
 - Behaviors with a factory class
 - Marker Interfaces
 - Using Annotations as storage-layer
+
 
 (behaviors2-annotations-label)=
 
