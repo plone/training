@@ -9,10 +9,10 @@ conformist application.
 To list some of the things that Volto is:
 
 - A Single Page Application, based on React that runs in client browsers
-- A Express-powered HTTP server that can completely generate full HTML pages
+- An Express-powered HTTP server that can completely generate full HTML pages
   server-side. See the [Server Side Rendering](./client-ssr) chapter for more.
 - A CMS UI to interact with Plone, the backend
-- A extensive, extensible development API to easily develop custom websites and
+- An extensive, extensible development API to easily develop custom websites and
   capabilities for the CMS UI
 
 There are two ways of running Volto:
@@ -52,10 +52,13 @@ But to enable a greater modularity and reusability of code, you can create new
 Javascript packages that are deeply integrated with Volto, the so-called "Volto
 addons".
 
-## What happens when you start Volto?
+## Deep dive into Volto
 
-To start Volto, we do `yarn start`. If you peek inside [Volto's
+To start Volto in development mode, we do `yarn start`. If you peek inside [Volto's
 package.json](https://github.com/plone/volto/blob/d7b6db3db239d09ceafee61dacf14fa7acec9b4b/package.json#L33) at
 the script that's executed for that, you'll notice it simply says `razzle
 start`. So, when we start Volto, we actually start Razzle. See the
 [Razzle chapter](./razzle) for more details.
+
+Running in development mode provides automatic reload of changed code
+(hot reloading) and better debugging (unminified source code maps, etc).
