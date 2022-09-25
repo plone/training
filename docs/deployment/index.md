@@ -3,7 +3,7 @@ html_meta:
   description: Deploying Plone with Ansible and OpsWorks
 ---
 
-(deployment-label)=
+(automating-deployment-label)=
 
 # Automating Plone Deployment
 
