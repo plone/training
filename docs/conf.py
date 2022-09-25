@@ -241,3 +241,24 @@ copybutton_prompt_is_regexp = True
 
 # -- sphinx.ext.todo -----------------------
 # todo_include_todos = True  # Uncomment to show todos.
+
+
+# An extension that allows replacements for code blocks that
+# are not supported in `rst_epilog` or other substitutions.
+# https://stackoverflow.com/a/56328457/2214933
+def source_replace(app, docname, source):
+    result = source[0]
+    for key in app.config.source_replacements:
+        result = result.replace(key, app.config.source_replacements[key])
+    source[0] = result
+
+
+# Dict of replacements.
+source_replacements = {
+    "{PLONE_BACKEND_VERSION}": "6.0.0b2",
+}
+
+
+def setup(app):
+    app.add_config_value("source_replacements", {}, True)
+    app.connect("source-read", source_replace)
