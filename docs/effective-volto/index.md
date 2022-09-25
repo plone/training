@@ -28,6 +28,7 @@ maxdepth: 3
 ---
 
 about_effective_volto
+getting-started
 architecture
 backend
 addons
