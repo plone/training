@@ -33,6 +33,7 @@ backend
 addons
 development
 testing
+deployment
 ```
 
 Please note that this document is *not complete* without the spoken word of a trainer.
