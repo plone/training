@@ -173,6 +173,10 @@ html_extra_path = [
     "robots.txt",
 ]
 
+# Used by sphinx_sitemap to generate a sitemap
+html_baseurl = "https://training.plone.org/5"
+sitemap_url_scheme = "{link}"
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
@@ -186,16 +190,13 @@ html_theme_options = {
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,
-    "extra_navbar": """
+    "extra_navbar": f"""
         <p class="ploneorglink">
             <a href="https://plone.org">
-                <img src="/5/_static/logo.svg" alt="plone.org" /> plone.org</a>
+                <img src="{html_baseurl}/_static/logo.svg" alt="plone.org" /> plone.org</a>
         </p>""",
 }
 
-# Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org/5"
-sitemap_url_scheme = "{link}"
 
 # -- Intersphinx configuration ----------------------------------
 
