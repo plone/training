@@ -1,12 +1,3 @@
----
-myst:
-  html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
----
-
 # TODOs documentation Mastering Plone
 
 ```{toctree}
@@ -28,4 +19,14 @@ views_2
 views_3
 zpt
 zpt_2
+```
+
+- fill in meta data
+- distinction: build for training.plone.org and presentation during training
+- Replace mr.bob with plonecli
+- 
+
+
+```{todolist}
+
 ```
