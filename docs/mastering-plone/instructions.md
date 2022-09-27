@@ -12,7 +12,7 @@ myst:
 # Installing Plone for the Training
 
 We install the `Plone` backend and its `React`-based frontend `Volto`.
-This starts with the following folder structure:
+We start with the following folder structure:
 
 ```text
 training
@@ -36,12 +36,12 @@ We encourage you to install and run `Plone` on your own machine, as you will hav
 
 ### Prerequisites
 
-Please see [official installation instructions](https://6.dev-docs.plone.org/install/).
+- `make`. We recommend upgrading to at least make 4. 
 
 
 ### Installation
 
-Set up Plone with the training code: `ploneconf.site` add-on and `training.votable` add-on.
+Set up the backend with the training code: add-ons `ploneconf.site`  and `training.votable`.
 
 ```shell
 mkdir training
@@ -56,65 +56,37 @@ Until Mastering Plone 6 version is released, please checkout the branch `plone6`
 git checkout plone6
 ```
 
-Create a Python virtual environment.
-Install prerequisites.
-Run {term}`mxdev` to be prepared to install Plone packages with pip.
+Build your backend with:
 
 ```shell
-python -m venv venv
-source venv/bin/activate
-pip install -U pip wheel mxdev
-mxdev -c mx.ini
+make build
 ```
 
-For more info about the fancy tool {term}`mxdev`, see [official installation instructions](https://6.dev-docs.plone.org/install/source.html#installation-backend).
+This build executes multiple tasks. They will be explained in detail in chapter {doc}`setup_explained`. The build
+- creates a Python virtual environment and installs prerequisites
+- generates a file structure to be prepared to install Plone packages with pip
+- generates Zope configuration with cookiecutter
 
-Install your Plone packages, core and add-ons:
-
-```shell
-pip install -r requirements-mxdev.txt
-```
-
-Generate your Zope configuration with cookiecutter.
-This is also necessary after changes of `instance.yaml`.
+Start the backend with:
 
 ```shell
-cookiecutter -f --no-input --config-file instance.yaml https://github.com/plone/cookiecutter-zope-instance
-```
-
-Run Zope:
-
-```shell
-runwsgi instance/etc/zope.ini
+make start
 ```
 
 Voilà, your Plone is up and running on http://localhost:8080.
 
-
-````{note}
-Troubleshooting
-
-If you encounter bug "The 'Paste' distribution was not found and is required by the application": Be sure that you have activated your virtual Python environment and are running its runwsgi and not another one.
-
-```shell
-source venv/bin/activate
-runwsgi instance/etc/zope.ini
-```
-````
-
 The output should be similar to:
 
 ```shell
+katjasuss@purpur training % make start
 
-me@here backend % runwsgi instance/etc/zope.ini
-2022-08-24 00:45:39,083 INFO    [Zope:42][MainThread] Ready to handle requests
-Starting server in PID 93572.
-2022-08-24 00:45:39,085 INFO    [waitress:486][MainThread] Serving on http://[::1]:8080
-2022-08-24 00:45:39,085 INFO    [waitress:486][MainThread] Serving on http://127.0.0.1:8080
+2022-09-27 08:57:23,961 INFO    [Zope:42][MainThread] Ready to handle requests
+Starting server in PID 28745.
+2022-09-27 08:57:23,963 INFO    [waitress:486][MainThread] Serving on http://[::1]:8080
+2022-09-27 08:57:23,963 INFO    [waitress:486][MainThread] Serving on http://127.0.0.1:8080
 ```
 
 Troubleshooting: We are here to help: Please file an issue in [training repo](https://github.com/plone/training/issues). 
-
 
 Point your browser to <http://localhost:8080> to see `Plone` running.
 
@@ -129,6 +101,8 @@ There is no Plone site yet.
 We will create one in the next chapter.
 
 You can stop the running instance anytime using {kbd}`ctrl + c`.
+
+
 
 ```{figure} _static/instructions_create_instance.png
 :alt: Ready to create a `Plone` instance.
