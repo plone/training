@@ -50,6 +50,7 @@ Topics covered:
 
 ```{figure} _static/volto_voting1.png
 :alt: Volto Voting
+:align: left
 :scale: 50%
 
 Voting
@@ -57,10 +58,15 @@ Voting
 
 ```{figure} _static/volto_voting2.png
 :alt: Volto Voting
+:align: left
 :scale: 50%
 
 Voting component, user has already voted
 ```
+
+
+
+(volto-actions-fetching-label)=
 
 ## Fetching data from backend and displaying
 
@@ -225,7 +231,7 @@ votes: {
 }
 ```
 
-This data written by the reducer is the response of the request to \<backend>/<mailto:api/@votes>: `http://greenthumb.ch/api/@votes`, if your backend is available at `http://greenthumb.ch`.
+This data written by the reducer is the response of the request to `http://localhost:3000/++api++/talks/python-in-arts/@votes` which is proxied to `http://localhost:8080/Plone/talks/python-in-arts/@votes`, if your backend is available at `http://localhost:8080/Plone`.
 It is the data that the adapter `Vote` from `starzel.votable_behavior` `behavior/voting.py` provides and exposes via the REST API endpoint `@votes`.
 
 The component gets access to this store entry by `const votes = useSelector((store) => store.votes);`
