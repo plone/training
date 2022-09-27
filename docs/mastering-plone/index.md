@@ -42,7 +42,8 @@ intro
 case
 what_is_plone
 installation
-instructions.md
+instructions
+setup_explained
 features
 plone_versions
 configuring_customizing
@@ -51,7 +52,6 @@ volto_semantic_ui
 volto_theming
 extending
 add-ons
-buildout_1
 eggs1
 dexterity
 dexterity_2_talk
