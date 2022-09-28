@@ -1,5 +1,28 @@
 # Bootstrapping an Add-on
 
+(bootstrapping-an-add-on)=
+
+## Use the generator
+
+Volto addon packages are just CommonJS packages. The only requirement is that
+they point the `main` key of their `package.json` to a module that exports, as
+a default function that acts as a Volto configuration loader.
+
+Although you could simply use `npm init` to generate an addon initial code,
+we now have a nice
+[Yeoman-based generator](https://github.com/plone/generator-volto) that you can use:
+
+```shell
+npm install -g @plone/generator-volto
+yo @plone/volto:addon [<addonName>] [options]
+```
+
+Volto will automatically provide aliases for your (unreleased) package, so that
+once you've released it, you don't need to change import paths, since you can
+use the final ones from the very beginning. This means that you can use imports
+such as `import { Something } from '@plone/my-volto-addon'` without any extra
+configuration.
+
 ## Developing in isolation with a vanilla Volto project
 
 You can develop an add-on in isolation using the `@plone/scripts` `addon` command line.
