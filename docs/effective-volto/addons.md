@@ -12,6 +12,8 @@ numbered: true
 
 addons/bootstrap
 addons/how-an-add-on-works
+addons/use-released-addon
+addons/use-repo-addon
 addons/i18n
 addons/blockdataform
 addons/block-extensions
