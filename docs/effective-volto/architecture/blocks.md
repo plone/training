@@ -19,8 +19,8 @@ but typically they integrate with several Volto pieces:
 
 - The `SidebarPortal`, which allows edit components to place things inside the
   Sidebar
-- The `BlockDataForm` which provides schema-based for JSON data, so it can be
-  placed in the sidebar
+- The `BlockDataForm` which provides variations-aware [schema-based forms](../addons/blockdataform)
+  for JSON data, so it can be placed in the sidebar
 - [Variations](../addons/block-extensions) and [Styling
   extensions](../addons/block-styling), which open schema-powered blocks to
   "third-party" extensions.

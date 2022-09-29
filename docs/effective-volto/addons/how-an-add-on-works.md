@@ -38,6 +38,12 @@ features. In Plone terminology, it is like including a Python egg to the
 `zcml` section of zc.buildout.
 ```
 
+By including the addon name in the `addons` key, the addon's default export
+function is executed, being passed the Volto configuration registry. In that
+function, the addon can customize the registry. The function needs to return
+the `config` (Volto configuration registry) object, so that it's passed further
+along to the other addons.
+
 ### Loading a Volto Add-on options configuration
 
 Some addons might choose to allow the Volto project to selectively load some of
@@ -112,3 +118,14 @@ import applyConfig, {loadOptionalBlocks,overrideSomeDefaultBlock} from './config
 export { loadOptionalBlocks, overrideSomeDefaultBlock };
 export default applyConfig;
 ```
+
+## Addon dependencies
+
+Addons can depend on any other Javascript package, but they can also depend on
+other Volto addons. To do this, specify the name of your Volto addon dependency
+in your `dependencies` key of `package.json` and create a new `addons` key in
+the `package.json` of your addon, where you specify the extra Volto addon
+dependency.
+
+By doing this, the addons can "chain-load" one another, so you don't have to
+keep track of intermediary dependencies.
