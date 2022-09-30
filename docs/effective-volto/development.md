@@ -9,6 +9,7 @@ maxdepth: 2
 numbered: true
 ---
 
+development/environmentvariables
 development/icons
 development/husky-lint-staged
 development/shortcuts
