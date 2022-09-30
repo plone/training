@@ -44,10 +44,10 @@ function, the addon can customize the registry. The function needs to return
 the `config` (Volto configuration registry) object, so that it's passed further
 along to the other addons.
 
-### Loading a Volto Add-on options configuration
+### Loading a Volto Add-on optional configuration
 
 Some addons might choose to allow the Volto project to selectively load some of
-their configuration, so they may offer additional configuration functions,
+their configuration, so they may offer additional optional configuration functions,
 which you can load by overloading the addon name in the ``addons`` package.json
 key, like so:
 
