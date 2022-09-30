@@ -11,6 +11,21 @@ Either if it's while you are in development or in production enviroments.
 
 Plone has a way to configure the CORS headers in order to allow domains to access it.
 
+```
+zcml-additional =
+  <configure xmlns="http://namespaces.zope.org/zope"
+            xmlns:plone="http://namespaces.plone.org/plone">
+  <plone:CORSPolicy
+    allow_origin="http://localhost:3000,http://127.0.0.1:3000"
+    allow_methods="DELETE,GET,OPTIONS,PATCH,POST,PUT"
+    allow_credentials="true"
+    expose_headers="Content-Length,X-My-Header"
+    allow_headers="Accept,Authorization,Content-Type,X-Custom-Header,Origin,Lock-Token"
+    max_age="3600"
+    />
+  </configure>
+```
+
 However, the recommendation is that you forget that CORS exists and "play well" to avoid the scenario where configuring and enabling CORS headers is the way to proceed.
 
 These scenarios are:

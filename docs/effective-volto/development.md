@@ -9,6 +9,7 @@ maxdepth: 2
 numbered: true
 ---
 
+development/setup
 development/environmentvariables
 development/icons
 development/husky-lint-staged
