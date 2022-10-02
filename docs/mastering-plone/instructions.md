@@ -11,8 +11,7 @@ myst:
 
 # Set up Plone for the Training
 
-We install the `Plone` backend and its `React`-based frontend `Volto`.
-We start with the following folder structure:
+We install the `Plone` backend and its `React`-based frontend `Volto`, starting with the following folder structure:
 
 ```text
 training
@@ -62,12 +61,31 @@ Build your backend with:
 make build
 ```
 
-This build executes multiple tasks. They will be explained in detail in chapter {doc}`setup_explained`. The build
+This build executes multiple tasks.
+The build
 - creates a Python virtual environment and installs prerequisites
 - generates a file structure to be prepared to install Plone packages with pip
 - generates Zope configuration with cookiecutter
 
-Start the backend with:
+By creating and working with a **Python virtual environment**, we are independent of the system Python installation. We install packages and its version according to our needs.
+
+The build generates a file structure to be prepared to install **Plone from packages** with `pip` and `mxdev`. The tool `mxdev` helps with configuration files to define which add-ons and which versions to install.
+It also allows to override Plone core package versions or force a checkout from `github`.
+The documentation {ref}`plone6docs:manage-plone-backend-packages-with-mxdev-label` provides information on common tasks.
+
+The build generates **Zope configuration** files with cookiecutter `cookiecutter-zope-instance`.
+The file we will modify to update our Zope / Plone configuration is `instance.yaml`.
+In this file we will add add-ons that are installed as Python packages and shall be loaded in our instance.
+`instance.yaml` is the one configuration file for our Zope / Plone instance.
+The documentation of [`cookiecutter-zope-instance`](https://github.com/plone/cookiecutter-zope-instance) explains a lot more that can be configured like the port or another storage. 
+
+After changes in configuration files, a re-build is necessary:
+
+```shell
+make build
+```
+
+We are now ready to start the backend with:
 
 ```shell
 make start

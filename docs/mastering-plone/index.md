@@ -43,7 +43,6 @@ case
 what_is_plone
 installation
 instructions
-setup_explained
 features
 plone_versions
 configuring_customizing
