@@ -273,3 +273,7 @@ mxdev
 
 plonecli
     A Plone CLI for creating Plone packages. [plonecli usage](https://github.com/plone/plonecli#usage)
+
+GenericSetup
+    [GenericSetup](https://docs.plone.org/develop/addons/components/genericsetup.html) is a framework to modify the Plone site during add-on package installation and uninstallation.
+    It provides XML-based rules to change the site settings.
