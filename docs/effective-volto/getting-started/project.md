@@ -1,3 +1,5 @@
+(bootstrapping-label)=
+
 # Bootstrapping a full Plone 6 project
 
 We can use the fairly new
