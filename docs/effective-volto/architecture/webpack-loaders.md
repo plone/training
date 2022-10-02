@@ -1,8 +1,46 @@
 # Webpack loaders
 
-## LESS
+In the process of "bundling" (creating the static code that gets loaded into
+the browsers, webpack needs to be instructed on how to handle various types of
+files. Javascript/JSX code gets handled by the Babel compiler, etc.
 
-## PostCSS
+Volto includes several other webpack loaders:
+
+- .less files are loaded with the LESS Loader, pipelined through PostCSS
+- .css files are loaded directly
+- .svg files, if placed in a folder called `icons`, can be loaded as React
+  elements
+- the file loader, for static resources such as images
+
+PostCSS is a pluggable framework that enables enhancements and transformations of CSS.
 
 ## Add your own Webpack loader
 
+Sometimes Razzle provides a plugin for your needed loader, which takes care of
+loading and passing the proper options to that Webpack loader. To load a Razzle
+plugin, for example, to load the razzle-plugin-scss, you need to export
+a `plugins` field in your `razzle.config.js` or `razzle.extend.js`.
+
+Here's an example `razzle.extend.js` that allows an addon to load that plugin.
+Make sure to add the `razzle-plugin-scss` as dependency of your addon.
+
+```js
+const plugins = (defaultPlugins) => {
+  return defaultPlugins.concat(['scss']);
+};
+
+const modify = (config, { target, dev }, webpack) => {
+  return config;
+};
+
+module.exports = {
+  plugins,
+  modify,
+};
+```
+
+If there's no Razzle plugin, you'll have to write your own Razzle extender
+plugin that inserts the proper rules. See the
+[Volto LESS Plugin](https://github.com/plone/volto/blob/b3b9cf0286bee1101655c8d7e234ca7dae95709e/webpack-plugins/webpack-less-plugin.js)
+for an example of how to define a new loader, with the
+[Bundle Analyzer](https://github.com/plone/volto/blob/b3b9cf0286bee1101655c8d7e234ca7dae95709e/webpack-plugins/webpack-bundle-analyze-plugin.js) as a simpler example for Volto Razzle/Webpack plugins.
