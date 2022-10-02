@@ -87,49 +87,35 @@ During the course of the training you will solve the following tasks.
 
 (intro-what-happens-label)=
 
-## What will we do?
-
-Here are the technologies and tools we will use during the training:
+## Technologies and Tools
 
 - For the beginning training:
-
-  > - [Virtualbox](https://www.virtualbox.org/)
-  > - [Vagrant](https://www.vagrantup.com/)
-  > - [Ubuntu linux](https://ubuntu.com/)
-  > - [Buildout](https://www.buildout.org/en/latest/)
-  > - XML
-  > - Python 3
-  > - React
+  
+  - [Ubuntu linux](https://ubuntu.com/)
+  - {term}`pip`
+  - Python
+  - Javascript
+  - React
 
 - For the advanced chapters:
 
-  > - [Git](https://git-scm.com/)
-  > - [GitHub](https://github.com)
-  > - [Resources to learn Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
-  > - TAL
-  > - METAL
-  > - ZCML
-  > - [Python](https://www.python.org)
-  > - Dexterity
-  > - [GenericSetup](https://docs.plone.org/develop/addons/components/genericsetup.html)
-  > - Viewlets
+  - [Git](https://git-scm.com/)
+  - [GitHub](https://github.com)
+  - [Resources to learn Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
+  - [Python](https://www.python.org)
+  - ZCML
+  - Dexterity content types
+  - [{term}`GenericSetup`](https://docs.plone.org/develop/addons/components/genericsetup.html)
+  - React
+  - Redux
 
 (intro-what-wont-happen-label)=
 
-## What will we not do?
+## Topics covered in other trainings and documentation
 
-We will not cover the following topics:
-
-- [Portlets](https://docs.plone.org/develop/plone/functionality/portlets.html)
-- [z3c.forms](https://docs.plone.org/develop/plone/forms/z3c.form.html)
-- [Theming](https://docs.plone.org/adapt-and-extend/theming/index.html)
-- [Multilingual content and Internationalization](https://docs.plone.org/develop/plone/i18n/index.html)
-- [Deployment, Hosting and Caching](https://docs.plone.org/manage/deploying/index.html)
-
-Other topics are only covered lightly:
-
-- [Zope Component Architecture](https://docs.plone.org/develop/addons/components/index.html)
-- [ZODB](https://docs.plone.org/develop/plone/persistency/index.html)
-- [Security](https://docs.plone.org/develop/plone/security/index.html)
-- [Permissions](https://docs.plone.org/develop/plone/security/permissions.html)
-- [Performance and tuning](https://docs.plone.org/manage/deploying/performance/index.html)
+- {doc}`/theming/index`
+- [Plone Classic Viewlets](https://docs.plone.org/develop/plone/views/viewlets.html)
+- [Plone Classic Portlets](https://docs.plone.org/develop/plone/functionality/portlets.html)
+- [form library z3c.form](https://docs.plone.org/develop/plone/forms/z3c.form.html)
+- [multilingual content and internationalization](https://docs.plone.org/develop/plone/i18n/index.html)
+- {doc}`/plone-deployment/index`
