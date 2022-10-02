@@ -40,6 +40,7 @@ If you want to have an on-site training or want to attend a public training plea
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
+- [Plone Conference ONLINE 2021](https://2021.ploneconf.org/)
 - [Plone Conference ONLINE 2020](https://2020.ploneconf.org/)
 - [Plone Conference 2019 in Ferrara](https://2019.ploneconf.org/)
 - [Plone Conference 2018 in Tokyo](https://2018.ploneconf.org/)
@@ -65,13 +66,17 @@ The following trainers have given trainings based on Mastering Plone:
 Philip Bauer
 
 : Philip Bauer is a web developer from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone.
-  A historian by education he drifted towards creating websites in the 90's and founded the company https://www.starzel.de/ in 2000.
+  A historian by education he drifted towards creating websites in the 90's and founded the company [Starzel](https://www.starzel.de/) in 2000.
   He is a member of the Plone foundation, loves teaching and is dedicated to Open Source.
   Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer.
 
 Katja Süss
 
-: If not gardening she is developing with Python, Svelte and ReactJS. Katja lifted the Plone Classic Training to Plone 6 level.
+: If not gardening she is developing with Python, Svelte and ReactJS.
+  Katja is active member of teams Volto, documentation and training.
+  Together with Philip, she lifted the Plone Classic Training to Plone 6 level.
+  With a background in mathematical logics she turned towards web development and runs the web agency [Rohberg](https://rohberg.ch/) in Zurich.
+  She dedicates herself especially to enthralling user experience and search assistance.
 
 Patrick Gerken
 
