@@ -9,7 +9,7 @@ myst:
 
 (instructions-label)=
 
-# Installing Plone for the Training
+# Set up Plone for the Training
 
 We install the `Plone` backend and its `React`-based frontend `Volto`.
 We start with the following folder structure:
