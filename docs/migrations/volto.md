@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Migrate to Volto"
+    "property=og:description": "Migrate to Volto"
+    "property=og:title": "Migrate to Volto"
+    "keywords": "Migration, Volto"
 ---
 
 (migrate-to-volto-label)=

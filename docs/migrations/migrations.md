@@ -104,6 +104,8 @@ Arguing for a required switch of a Python 2.7 installation of Plone 5.2.6 to Pyt
 Suddenly it's a relaunch and everyone is excited.
 ```
 
+(migrations-mayor-changes-label)=
+
 ## Dealing with Mayor Changes in Plone
 
 In the history of Plone there were so far three mayor changes:
@@ -114,53 +116,66 @@ In the history of Plone there were so far three mayor changes:
 
 Each of these mayor changes require special treatment during an upgrade that make upgrading much more complex.
 
+(migrations-plone-5.0-dexterity-replaces-archetypes-label)=
+
+### Plone 5.0: Dexterity replaces Archetypes
+
+With Plone 5.0 the default framework for content types switched from Archetypes to Dexterity.
+
+Up through Plone 5.2.x, there is a built-in migration from Archetypes to Dexterity, but it only supports Python 2.
+See [Migration](https://pypi.org/project/plone.app.contenttypes/2.2.3/#migration) in the latest stable release of `plone.app.contenttypes` for details on the migration of custom and default content types to Dexterity.
+
+Using [collective.exportimport](https://pypi.org/project/collective.exportimport/) you can export Archetypes content and import it as Dexterity content.
+
+
+(migrations-plone-5.2-support-for-python-3-label)=
+
+### Plone 5.2: Support for Python 3
+
+Plone 5.2 added support for Python 3, while Plone 6.0 dropped support for Python 2.
+This means that you can use Plone 5.2 to upgrade to Python 3.
+
+This requires that you run Plone in Python 3 and only use code that supports Python 3.
+It also requires that you migrate the database in a separate step from Python 2 to 3 while Plone is not running.
+
+See the upgrade guides {doc}`plone6docs:version-specific-migration/upgrade-to-python3` and {doc}`plone6docs:version-specific-migration/upgrade-zodb-to-python3` for detailed information on these steps.
+
+Using [collective.exportimport](https://pypi.org/project/collective.exportimport/), you can export content from Python 2 and import it in Python 3.
+
+
+(migrations-plone-6.0-volto-as-new-frontend-label)=
+
+### Plone 6.0: Volto as new frontend
+
+Plone 6.0 comes with a new default frontend called {term}`Volto`.
+It is written in React, and expects some subtle but important changes.
+
+See {ref}`backend-migrate-to-volto-label` for the specific migration steps.
+
+### Transition periods for mayor changes
+
 To make these mayor changes easier to manage Plone allows a transition period for all of these:
 
-* You can use Dexterity starting with Plone 4.3 and can use Archetypes until Plone 5.2 (as long as you use Python 2)
-* Plone 5.2 runs in Python 2 and in Python 3 so you can first upgrade to 5.2 in Python 2 and then to Python 3.
-* Volto can be used with Plone 5.2 (even 4.3, but please don't!) and Plone 6 still has the Classic frontend (which is unlikely to go away in the near future).
+* You can use Dexterity starting with Plone 4.0 and can use Archetypes until Plone 5.2 (as long as you use Python 2)
+* Plone 5.2 can run with Python 2.7 and with Python 3 so you can first upgrade to 5.2 in Python 2 and then migrate to Python 3.
+* Volto can be used with Plone 5.2 (even in 4.3 - please don't) and Plone 6 still has the Classic frontend which is unlikely to go away in the near future.
 
+
+```{note}
 Another hurdle for upgrades between mayor version is that they have different themes:
 
 * 4.x: Sunburst
 * 5.x: Barceloneta
 * 6.x: Pastanaga (Volto) / Barceloneta with Bootstrap 5 (Classic)
 
-## What is a complex migration?
+```
 
-* Whenever you need to deal with one of the mayor changes in Plone
+### What is a complex migration?
+
+* Whenever you need to deal with one or more of the mayor changes in Plone
 * When you have to make changes to custom content or code
-* When you have to deal with outdated add-ons
+* When you have to deal with outdated add-ons (e.g. LinguaPlone)
 
-## Migration Strategies
-
-### Inplace Migrations
-
-A inplace migration means the content and settings of a Plone installation are being updated while Plone is running.
-These upgrades use a builtin tool and basically run upgrade-steps that are collected in [plone.app.upgrade](https://github.com/plone/plone.app.upgrade/).
-
-This approach is recommended for all upgrades of minor version and can work fine for most mayor upgrades.
-When dealing with mayor changes in Plone or with very large or complex installations a export-import based migration (see below) is often the better solution.
-
-During in-place migrations it is advisable to **not make large leaps** in version numbers.
-A single upgrade should not try to bridge multiple major version numbers.
-
-Going from Plone 4.0 to Plone 5.1 is fine.
-
-If you are at Plone 2.5 and want to upgrade to the latest Plone 5, you should approach this in several steps:
-
-- First upgrade from Plone 2.5 to the latest Plone 3 version (3.3.6).
-- Then upgrade from Plone 3 to the latest Plone 4 version.
-- Then upgrade from Plone 4 to the latest Plone 5 version.
-
-
-### Export-import Migrations
-
-Export all content and settings that you want to keep from an old site and import it to a fresh site.
-
-This approach allows you to migrate from Plone 4 to 6, from Python 2 to 3 and from Archetypes to Dexterity in one migration-step and is recommended for large and complex migrations.
-
-The recommended tool for this is https://github.com/collective/collective.exportimport. An alternative is transmogrifier (see the training {ref}`training:transmogrifier-label`)
 
 ## Dealing with problems and bugs
 
