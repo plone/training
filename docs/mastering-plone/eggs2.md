@@ -19,8 +19,8 @@ myst:
   
   Topics covered:
   
-  - Custom `REST API` endpoint
   - Storing data in `annotations`
+  - Custom `REST API` endpoint
   - Backend package creation with {term}`plonecli`
   - Frontend package creation with Volto generator
   - Create `React` components to display voting behavior in frontend
