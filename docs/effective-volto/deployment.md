@@ -8,6 +8,7 @@ maxdepth: 2
 numbered: true
 ---
 
+deployment/seamlessmode
 deployment/simple
 deployment/docker
 deployment/releaseit
