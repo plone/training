@@ -13,15 +13,14 @@ myst:
 
 Plone is an open source Content Management System (CMS) built in Python. A CMS lets non-technical people create and maintain information for a public website or an intranet using only a web browser.
 
-- Open-Source Enterprise-CMS
-- Written in Python
-- Plone 5.1 and below support Python 2
-- Plone 5.2 supports Python 3 and 2
-- Plone 6 supports Python 3
-- [RESTful hypermedia API](https://plonerestapi.readthedocs.io/en/latest//)
-- `Volto`: React-based frontend and editor
-- Based on the Web-Framework Zope
-- Database: `Zope Object Database` ZODB or ORM & SQL/Postgres/Oracle
+- Open Source Enterprise `CMS`
+- Written in `Python`
+- `Plone` 5.2 supports `Python` 3 and 2
+- `Plone` 6 supports `Python` 3
+- [REST API](https://plonerestapi.readthedocs.io/en/latest//)
+- `Volto`: `React` based frontend and editor
+- Based on the web framework {term}`Zope`
+- Database: `Zope Object Database` {term}`ZODB` or `ORM` & `SQL`/`Postgres`/`Oracle`
 - Runs on Linux, macOS, BSD, Solaris, NixOS and Windows
 
 Plone has a multitude of powerful features, is easily accessible to editors but also fun for programmers.
@@ -30,9 +29,7 @@ Plone has a multitude of powerful features, is easily accessible to editors but 
 - Industrial Strength Security and Access-Control
 - Limitless Extensibility
 
-```{note}
 The modular and open component architecture of Plone allows you to change or extend Plone in every respect!
-```
 
 ```{seealso}
 - [What Is Plone?](https://docs.plone.org/intro/index.html)
@@ -46,7 +43,7 @@ They make Plone special and distinguish it from most other systems.
 
 ### Traversal
 
-- Plone uses [Traversal](https://docs.plone.org/develop/plone/serving/traversing.html) (portal/folder/document) instead of (URL dispatch).
+- Plone uses [Traversal](https://docs.plone.org/develop/plone/serving/traversing.html) (portal/folder/document) instead of URL dispatch.
 - Python objects exists in a object tree that looks like a huge nested dictionary:
 
 ```python
@@ -105,7 +102,7 @@ b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x01,\x01,...'
 ```
 
 Objects can have multiple schemata.
-Additional schemata are called behaviors.
+Additional schemata are called `behaviors`.
 They are meant to be used across content types to add shared functionality.
 
 ```python
@@ -122,7 +119,7 @@ They are meant to be used across content types to add shared functionality.
  <SchemaClass plone.app.versioningbehavior.behaviors.IVersionable>]
 ```
 
-Each behavior schema can define fields.
+Each `behavior` schema can define fields.
 The values of these fields are again attributes on content objects.
 Plone creates forms for all these schemata to add and edit content.
 
@@ -130,9 +127,10 @@ Plone creates forms for all these schemata to add and edit content.
 
 - Plone logic is wired together by a component architecture.
 - The Zope Component Architecture (ZCA) is a Python framework for supporting component based design and programming.
-- It allows for component pluggability and complex dispatching based on objects which implement an interface (a description of a functionality).
+- It allows component pluggability and complex dispatching based on objects which implement an interface.
 
 ```{seealso}
+- [Zope Component Architecture](https://zopecomponent.readthedocs.io/en/latest/narr.html)
 - The Keynote by Cris Ewing at PyCon 2016: <https://www.youtube.com/watch?v=eGRJbBI_H2w&feature=youtu.be&t=21m47s>
 ```
 
@@ -140,7 +138,7 @@ Plone creates forms for all these schemata to add and edit content.
 
 ## Architecture
 
-Plone started as a extension for CMF, which is a extension for Zope... wait, what?
+Plone started as an extension for CMF, which is a extension for Zope... wait, what?
 
 ```
   VOLTO
@@ -274,7 +272,7 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 
 ### CMF
 
-- [CMF (Content Management Framework)](https://old.zope.dev/Products/CMF/index.html/) is add-on for Zope to build Content Management Systems (like Plone).
+- `CMF` was an add-on for Zope to build Content Management Systems (like Plone).
 - It provides libraries for building content management applications together with the Zope Application Server.
 
 ### Plone (the backend)
@@ -297,10 +295,10 @@ It is used to connect the Volto frontend with Plone.
 [Volto](https://github.com/plone/volto) is the default frontend for Plone 6 written in ReactJS.
 It uses the Rest API to communicate with the backend and offers a modern editing experience.
 
-Here are some basic that you need to understand if you are new to Volto:
+Here are some basics that you need to understand if you are new to Volto:
 
-- All data is stored in the Plone (the backend).
-  Volto comes in to display and edit the content.
+- All data is stored in Plone backend.
+  The Volto frontend comes in to display and edit the content.
 - Volto is built in [ReactJS](https://reactjs.org), a modern Javascript Framework.
 - Volto uses [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/) to communicate with the Plone backend.
 - Volto is installed separately from the Plone backend.
@@ -320,23 +318,23 @@ Here are some basic that you need to understand if you are new to Volto:
   Not all features of Plone are implemented in Volto yet.
 - Volto provides additional functionality that Plone does not have.
 - For example Volto features the Pastanaga Editor, allowing you to visually compose a page using blocks.
-  This feature is enabled for content types that have the dexterity behavior `volto.blocks` enabled.
-- Using the Pastanaga Editor, the content you add in blocks and the arrangement of blocks is stored as JSON in the schema fields `blocks` and `blocks_layout` provided by the dexterity behavior `volto.blocks`.
+  This feature is enabled for content types that have the behavior `volto.blocks` enabled.
+- Using the `Volto` editor, the content you add in blocks and the arrangement of blocks is stored as JSON in the schema fields `blocks` and `blocks_layout` provided by the dexterity behavior `volto.blocks`.
   Additionally you can edit all fields of the content type schema in a sidebar.
-- If you do not use the behavior `volto.blocks`, the fields from a content-type schema are edited and stored exactly like previously in Plone.
+- If you do not use the behavior `volto.blocks`, the fields from a content-type schema are edited and stored exactly like previously in Plone Classic.
 
 
 ### Classic Frontend
 
-A stable alternative to the JavaScript frontend Volto is the classic frontend of Plone that uses server-side rendered HTML.
+A stable alternative to the `React` frontend Volto is the classic frontend of Plone that uses server-side rendered HTML.
 Plone ships with a default theme called Barceloneta.
 Since Plone 6 it uses [Bootstrap 5](https://getbootstrap.com/).
-The Plone Classic frontend use the template-engine [Chameleon](https://chameleon.readthedocs.io/en/latest/) to create html.
+The Plone Classic frontend uses the template-engine [Chameleon](https://chameleon.readthedocs.io/en/latest/) to create html.
 
 
 ```{admonition} Choosing the right frontend
 
-Here are some pointer that may help you decide:
+Here are some pointers that may help you decide:
 
 - The new Plone 6 frontend is recommended for new projects.
 - Existing projects that are updated to Plone 6 can decide which frontend to use.
