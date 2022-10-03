@@ -19,6 +19,13 @@ Semantic-UI-LESS has a builtin theming engine based on the following concepts:
 - which defines the theme name for each component, so that the
   [theme variable overrides](https://github.com/Semantic-Org/Semantic-UI-LESS/blob/e4395217c1b8b3227c7387284d12f2d9774d33c6/definitions/modules/tab.less#L94)
   get loaded for that component
+- a Semantic-UI theme is based on a folder structure that mirrors the
+  definition files structure, with 2 types of files for each definition file:
+  `<name>.variables` and `name.overrides`. The theme.config (which all
+  definition files import), via its [theme.less import](https://github.com/Semantic-Org/Semantic-UI-LESS/blob/e4395217c1b8b3227c7387284d12f2d9774d33c6/theme.less)
+  tries to import these variable and overrides files from the **default**
+  theme, then the **theme** folder, then the **site** folder (which acts as an
+  override for the theme). The `theme.less` is Semantic-UIs theming engine.
 
 Volto comes with its own [implementation of
 theme.config](https://github.com/plone/volto/blob/7044eca789d836786e9e789036669085cc22bee7/theme/theme.config)
@@ -30,18 +37,20 @@ the new elements and components that don't exist in Semantic-UI, the Pastanaga
 theme uses the [extras](https://github.com/plone/volto/tree/master/theme/themes/pastanaga/extras) folder, which isn't fully using the Semantic-UI theming engine.
 
 The key to success in Volto theming is to understand how Semantic-UI's theming
-engine works and how to manipulate it.
+engine works and how to manipulate it. Reading the `theme.less` and
+understanding it is a must.
 
-For example, each Volto project brings has its own `src/theme.js`, from which
-the CSS is loaded.
+Each Volto project brings its own `src/theme.js`, which is the entry point for
+Volto's CSS.
 
 ```js
 import 'semantic-ui-less/semantic.less';
 import '@plone/volto/../theme/themes/pastanaga/extras/extras.less';
 ```
 
-By simply providing your own copy of semantic.less, you can tweak which basic
-semantic-ui definitions are loaded, or even create new elements.
+By simply providing your own copy of semantic.less (and changing the above
+import), you can tweak which basic semantic-ui definitions are loaded, or even
+create new elements.
 
 ```
 & {
