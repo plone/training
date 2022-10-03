@@ -26,7 +26,9 @@ features.
 ## Volto Blocks engine
 
 Any Dexterity content type can be made compatible with Volto blocks engine by
-enabling the `Blocks` behavior.
+enabling the `Blocks` behavior. From the Content Types Control Panel it's also
+possible to define a default [blocks layout](../addons/blockslayout.md) for
+a particular content type.
 
 A Volto block is defined in the Volto Configuration Registry, the
 `config.blocks.blocksConfig` branch:
