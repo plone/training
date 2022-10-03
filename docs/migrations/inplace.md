@@ -374,7 +374,6 @@ The log of your Plone instance will show what was done during that upgrade:
 
 Now your site should work fine again and you succesfully upgraded fron Plone 5.2 to Plone 6.0.0b2
 
-
 ## Complex in-place migrations
 
 More complex migrations need to be separated into several steps that need to be developed, documented and tested individually.
@@ -385,51 +384,120 @@ In the following example we assume to migrate a Plone 4.3 with multilingual Arch
 Most of this information is also contained in the talk [Migrations! Migrations! Migrations!](https://www.youtube.com/watch?v=ZIN1qmhMHJ4) that deals with in-place migrations and the helper-package https://github.com/collective/collective.migrationhelpers
 ```
 
-## Step 1: Prepare migration
+The plan to write upgrade-steps for each step once you know what needs to be done. See the chapter {ref}`upgrade-steps-label` from the Mastering Plone Training for more info on upgrade-steps.
 
-While still runnning Plone 4.3 you need to prepare your database for the upgrade to Plone 5.2
+## Step 1: Gather information
 
-* Cleanup DB
-* remove revisions
-* remove add-ons
-* remove unused content
-* reindex
-* pack DB
-* Write all of that as upgrade-steps
+Before a migration you need to know what the databse contains:
 
-Use examples from collective.migrationhelpers
+* What add-ons are installed and what do they do?
+* How much content of what type is there?
+
+The code in https://github.com/collective/collective.migrationhelpers/blob/master/src/collective/migrationhelpers/statistics.py has code-examples to help answer these questions.
+
+(inplace-prepare-database-label)=
+
+## Step 2: Prepare the database
+
+While still runnning Plone 4.3 you should prepare your database for a smooth upgrade to Plone 5.2.
+This mostly means you remove data you no longer need or that may causes problems.
+
+Make a list of things you need to do.
+Often it will contain the following items:
+
+* Disable solr
+* Disable ldap-plugin
+* Reindex portal_catalog
+* Remove any portal_skin an portal_view_customization overrides
+* Release all WebDAV Locks
+* Delete obsolete content
+* Remove all revisions by clearing out portal_historiesstorage
+* Disable a custom diazo theme and switch to the default theme
+* Remove obsolete addons
+* Pack the database
+
+https://github.com/collective/collective.migrationhelpers has upgrade-steps for all of that that you can copy & paste.
+
+You will know what to do when you test the migration and it fail - likely because of one of the above issues.
+Migrations are an iterative process so add new tasks when you run into problems later on.
+
 
 ## Step 2: Migrate from LinguaPlone to plone.app.multilingual
 
+Since LinguaPlone does not support Plone 5 (at all) you need to migrate to plone.app.multilingual (which has support for Archetypes and Dexterity) while still in Plone 4.3
+
+There is a builtin migration in p.a.m but often you need to cleanup translations first.
+The code in https://github.com/collective/collective.migrationhelpers/blob/master/src/collective/migrationhelpers/linguaplone.py can serve as a example how to do that and run the steps provided by p.a.m.
 
 
 ## Step 3: Update installation
 
-* Change your buildout to install Plone 5.2 with Python 2.7
-
+Update your buildout to run in Plone 5.2 in Python 2.7.
+It is best to do that in another directory since you will have to switch back and forth sometimes until you get the upgrade-steps in PLone 4 right.
 
 ## Step 4: Run upgrade-steps of Plone
 
-* Run upgrade and addon steps
-* Run custom upgrade-steps
+In Plone 5.2 you first run the Plone upgrade in `/@@plone-upgrade` as describes above.
+
 
 ## Step 5: Migrate to Dexterity
+
+You need to migrate all default and custom content from Archetypes to Dexterity.
+
+```{seealso}
+Please read the [migration-docs of plone.app.contenttypes](https://github.com/plone/plone.app.contenttypes/tree/2.2.x#migration)
+```
+
+There are forms that allow you to do both (mirate default and custom types) through-the-web but again you should use upgrade-steps instead:
+
+* See https://github.com/collective/collective.migrationhelpers/blob/master/src/collective/migrationhelpers/dexterity.py for upgrade-steps that migrate default content as a upgrade-step.
+
+* See https://github.com/collective/collective.migrationhelpers/blob/master/src/collective/migrationhelpers/custom_dx_migration.py for upgrade-steps that migrate custom content as a upgrade-step.
+  The target content-types need to exist in dexterity though!
+
+* Safely remove Archetypes: https://github.com/collective/collective.migrationhelpers/blob/master/src/collective/migrationhelpers/archetypes.py
 
 
 ## Step 6: Migrate DB to Python 3
 
+Now you need to migrate your existing database.
+ZODB itself is compatible with Python 3, but a database created in Python 2.7 cannot be used in Python 3 without modifying it.
+
+Basically you only need to run one command:
+
+```shell
+./bin/zodbupdate --convert-py3 --file=var/filestorage/Data.fs --encoding utf8 --encoding-fallback latin1
+```
+
+See the chapter {ref}`plone6docs:migrate-zodb-to-python3-label` from the Plone Upgrade Guide for details.
+
+Do not forget to pack the database after you are done!
 
 ## Step 7: Find and fix issues in the Databse
 
+That would be a whole training by itself.
+In a nutshell you should do the following:
+
+* Add [zodbverify](https://github.com/plone/zodbverify) (>=1.2.0) to your buildout
+* Run it to collect all issues with objects that cannot be loaded
+* Inspect and fix each type of issues that were reported
+
+The details are discussed in https://www.starzel.de/blog/zodb-debugging
 
 ## Step 8: Upgrade to Plone 6
+
+After packing the database you can:
+
+* Update your buildout to install Plone 6
+* Run the upgrade-steps of Plone in `/@@plone-upgrade`.
+
 
 
 ## Frequent Problems
 
-* Can take a long time (AT => DX)
-* Invalid data. See [Growing pains: PosKeyErrors and other malaises](https://www.youtube.com/watch?v=SwxN3BBxAM8) and https://www.starzel.de/blog/zodb-debugging
-
+* The migration can take a long time, especially the migration from Archetypes to Dexterity can take up to 12 hours.
+  Consider using a export/import migration instead since that is much faster.
+* Your site raises errors due to invalid data. See [Growing pains: PosKeyErrors and other malaises](https://www.youtube.com/watch?v=SwxN3BBxAM8) and https://www.starzel.de/blog/zodb-debugging
 
 ## Further reading
 

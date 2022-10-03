@@ -176,9 +176,37 @@ Another hurdle for upgrades between mayor version is that they have different th
 * When you have to make changes to custom content or code
 * When you have to deal with outdated add-ons (e.g. LinguaPlone)
 
+## Migration strategies
+
+### In-place migrations
+
+A in-place migration means the content and settings of a Plone installation are being updated while Plone is running.
+
+Inplace migration can get very complex if you need to deal with multiple important changes.
+
+```{image} _static/inplace-migration.png
+:alt: The different steps of a complex inplace-migration.
+```
+
+These are discussed in the chapter {ref}`inplace-label`
+
+### Export/Import Migrations
+
+This means you export all content and settings that you want to keep from an old site and import it to a empty new site.
+
+In export-import migrations you can shortcut most of the individual steps required for complex inplace migrations:
+
+```{image} _static/exportimport-migration.png
+:alt: The shortcut of a exportimport-migration.
+```
+
+These are discussed in the chapter {ref}`exportimport-label`
+
+
 
 ## Dealing with problems and bugs
 
-* Forum
-* Chat
-* Tickets
+* Search for your issue, you are unlikely the first who encountered it.
+* Ask in the Forum: https://community.plone.org/
+* Ask in the Chat: https://discord.gg/zFY3EBbjaj
+* Create a Ticket: https://github.com/plone/Products.CMFPlone/issues/
