@@ -147,6 +147,6 @@ Plone 6 will be a long-term support (LTS) release - we anticipate it will be aro
 Plone 6 supports Python 3 only and runs on top of Zope 5.
 
 ```{seealso}
-- [Documentation Migrations](https://6.dev-docs.plone.org/upgrade/index.html)
-- [Training Migrations](https://training.plone.org/5/migrations)
+- {ref}`plone6docs:upgrade-guide-label`
+- Training Migrations @ training.plone.org/5/migrations
 ```
