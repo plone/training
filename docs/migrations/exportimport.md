@@ -162,7 +162,7 @@ Include blobs (`include_blobs=1`)
 : Choose between download urls (`0`), base-64 encoded strings (`1`) and blob paths (`2`). The best option is blob paths.
 
 Modify exported data for migrations (`migration=True`)
-: Use this if you want to import the data in a newer version of Plone or migrate from Archetypes to Dexterity. Read the documentation to learn which changes are made by this option.
+: Use this if you want to import the data in a newer version of Plone or migrate from Archetypes to Dexterity. It does a multitude of changes, including renaming some default values like `excludeFromNav` (AT) to `exclude_from_nav` (DX).
 
 Include revisions (`include_revisions=False`)
 : This exports the content-history (versioning) of each exported item. Warning: This can significantly slow down the export!
@@ -275,16 +275,16 @@ This way when you use the view `/@@export_content` your custom code will be used
     />
 ```
 
-The same true for the import.
+The same approach is used for `content_import` and for all other exports and import that you want to customize.
 
 ### Add your own extension packages
 
-To make that easier there are pre-prepared packages to override the export and import that can be used and added to your own projects.
+To make that easier there are pre-prepared packages to override the export and import that can be used and added to your own projects:
 
 * https://github.com/starzel/contentexport
 * https://github.com/starzel/contentimport
 
-For the old site:
+#### Extend the export with `contentexport`
 
 ```console
 cd src
@@ -320,7 +320,9 @@ ijson = 3.1.4
 
 After running buildout the customized export in `src/contentexport/contentexport/export_content.py` will be used.
 
-For the old site:
+#### Extend the import with `contentimport`
+
+Go to the buildout of the Plone 6 site and checkout the package in `src`:
 
 ```console
 cd src
@@ -364,9 +366,35 @@ You should obviously remove the `.git` directory from these repositories and com
 
 Now that we have that we can use the views `@@export_all` and `@@import_all` to run all exports and imports at once.
 
-First try the exports, move all exported json-files to the folder `var/instance/import/` of the Plone 6 site and run
+First try the exports using `@@export_all`.
+If all goes well this will add a bunch of json-files in `var/instance` of the old site's buildout:
 
-## Step 6: Add fixes, changs and extensions
+* `Plone.json` (the name depends on the name of the Plone site)
+* `export_defaultpages.json`
+* `export_discussion.json`
+* `export_localroles.json`
+* `export_members.json`
+* `export_ordering.json`
+* `export_portlets.json`
+* `export_redirects.json`
+* `export_relations.json`
+* `export_translations.json`
+
+Move or copy all of these to the folder `var/instance/import/` of the Plone 6 site.
+
+Now run `@@import_all`.
+If the id of the site is different from `Plone` you need to change the name of the file in the import in the view (see https://github.com/starzel/contentimport/blob/main/contentexport/views.py#L47).
+
+This should run all imports and the new site should be good to go and contain all content and configuration of the old site.
+
+## Step 6: Add fixes, changes and extensions
+
+The output from the export- and import-logs should tell you if you need to deal with any data that does not migrate smoothly.
+
+`collective.exportimport` has a couple of hooks that you can use in your own packages `contentexport` and `contentimport`.
+
+This training continues by inspecting, discussing and using the examples from the documentation of exportimport: https://github.com/collective/collective.exportimport/#faq-tips-and-tricks
+
 
 
 ## Some more advanced examples
