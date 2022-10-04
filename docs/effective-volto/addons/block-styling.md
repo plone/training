@@ -101,6 +101,76 @@ is to use
 [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties),
 and reference those variables from your stylesheets.
 
+For example, let's say we want to limit the description in the listing block to
+a fixed number of lines.
+
+We'll have the following styles schema:
+
+```js
+const StyleSchema = () => (
+  {
+    fieldsets: [
+      {
+        title: 'Styling',
+        id: 'default',
+        fields: ['maxLines'],
+      }
+    ],
+    properties: {
+      maxLines: {
+        title: 'Max lines',
+        description:
+          "Limit description to a maximum number of lines by adding trailing '...'",
+        type: 'number',
+        default: 2,
+        minimum: 0,
+        maximum: 5,
+      },
+    },
+    required: [],
+  });
+```
+
+We'll assign it to the listing block:
+
+```
+config.blocks.blocksConfig.listing.enableStyling = true;
+config.blocks.blocksConfig.listing.stylesSchema = StyleSchema;
+```
+
+Now the listing block will have classes such as: `has--maxLines--3`.
+For the CSS part, we add the following code:
+
+```less
+each(range(5), {
+  .has--maxLines-@{value} {
+    --max-lines: @value;
+  }
+});
+```
+
+This generates 5 CSS classes, such as `has--maxLines--3`, which only define
+a variable, the `--max-lines`. Having the variable applied at the "root" of our
+listing block, together with a mixin, we can now target directly those elements
+that should be affected (and, because it's a mixin, we have greater flexibility
+and centralized control):
+
+```less
+.useMaxLines() {
+  display: -webkit-box;
+  overflow: hidden;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines, 5);
+}
+
+.listing-item {
+  p {
+    .useMaxLines();
+  }
+}
+```
+
 ## Main edit wrapper class injection
 
 Under the hood, there is yet another class injection happening in the main Block Engine Wrapper.
