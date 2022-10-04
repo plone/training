@@ -54,11 +54,11 @@ Ansible
 > This training uses Ansible because it requires no preinstalled server part, it's written in Python,
 > and its configuration language is YAML, which is easy to read.
 
-Docker and Docker Compose
+Docker and Docker Swarm
 
 > Containers guarantee repeatable deployments that could run both locally and in production.
 > Docker is the most famous solution in this landscape, has good documentation and is in use by our community.
-> Docker compose is a tool that's easy to explain and setup, even for new users.
+> Docker Swarm is a toolset that's easy to explain and setup, even for new users.
 
 GitHub and GitHub actions
 

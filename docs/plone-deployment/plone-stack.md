@@ -33,6 +33,10 @@ All services running on the same server
 
 Webserver -> Plone Frontend -> Plone Backend
 
+```{note}
+This is recommended only for demo sites and trying out Plone.
+```
+
 ## With a specialized database
 
 Webserver → Plone Frontend → Plone Backend → Database

@@ -27,36 +27,41 @@ Windows with WSL could work as well but isn't supported at this moment.
 
 ### Python
 
-- Python >= 3.7
+- Python >= 3.9
 
 ### Docker & Docker Compose
 
-[Docker](https://docs.docker.com/get-docker/) should be version 20.10.9 or above (Check it with `docker --version`)
+[Docker](https://docs.docker.com/get-docker/) should be version 20.10.18 or above (Check it with `docker --version`)
 
-[Docker Compose](https://docs.docker.com/compose/install/) should be version 1.29.2 or above (Check it with `docker-compose --version`)
+[Docker Compose](https://docs.docker.com/compose/install/) should be version 2.10.2 or above (Check it with `docker compose version`)
 
 ### Node and Node tools
 
-- Node 14, latest NPM and Yarn
+- Node 16, latest NPM and Yarn
 
 ### Vagrant
 
 - [Vagrant](https://www.vagrantup.com/downloads) and VirtualBox
 
+```{note}
+We use Vagrant in this training as a replacement for an external server.
+```
+
 ## External Services
 
-### Github Account
+### GitHub Account
 
 Please make sure your computer has the correct keys to your Github account
 
-### Docker Hub
+### Container Registry
+
+During the training we will use the GitHub Container Registry, but everything explained here also applies to Docker Hub usage.
+
+If you are willing to follow the training using Docker Hub as your registry, please:
 
 - Create an account at [Docker Hub](https://hub.docker.com/).
 - Configure your local Docker to use Docker Hub credentials with `docker login`
 
-## Code Repository
+## Cookiecutter
 
-- Fork the repository at [https://github.com/collective/training-deploy-project](https://github.com/collective/training-deploy-project) to your Github account.
-- Clone the new repository to your local computer i.e.: `git clone git@github.com:plone/training-deploy-project.git`
-- Open the repository with your favorite text editor i.e.: `cd training-deploy-project && code ./`
-- Find all occurrences of **DOCKER_HUB_USER_CHANGE_ME** and replace it with your Docker Hub username
+- Install `cookiecutter` on your main Python installation with `pip install cookiecutter`

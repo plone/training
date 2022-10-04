@@ -29,6 +29,7 @@ intro
 setup
 plone-stack
 plone-docker-images
+new-project
 ```
 
 ```{seealso}

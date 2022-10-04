@@ -28,12 +28,12 @@ Installs the Plone 6 backend using a pip-based installation. This approach makes
 One example of such extension would be
 
 ```Dockerfile
-FROM plone/plone-backend:6.0.0a1
+FROM plone/plone-backend:6.0.0b2
 
 RUN ./bin/pip install "pas.plugins.authomatic --use-deprecated legacy-resolver"
 ```
 
-**Please pay attention** to the `--use-deprecated legacy-resolver` option, that is required until a upstream bug in *pip* is fixed. 
+**Please pay attention** to the `--use-deprecated legacy-resolver` option, that is required until a upstream bug in *pip* is fixed.
 
 
 ## plone/plone-zeo
