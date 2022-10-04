@@ -36,7 +36,7 @@ We encourage you to install and run `Plone` on your own machine, as you will hav
 
 ### Prerequisites
 
-Please see [official installation instructions](https://6.dev-docs.plone.org/install/source.html#installation-backend).
+Please see [official installation instructions](https://6.dev-docs.plone.org/install/).
 
 
 ### Installation
