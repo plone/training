@@ -6,7 +6,7 @@ lesscpy
 linkify-it-py
 myst-parser
 sphinx-autobuild
-sphinx-book-theme @ https://github.com/executablebooks/sphinx-book-theme/archive/refs/heads/master.zip
+sphinx-book-theme<=0.3.99
 sphinx-copybutton
 sphinx-design
 sphinx-sitemap
