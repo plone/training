@@ -114,8 +114,8 @@ During the course of the training you will solve the following tasks.
 ## Topics covered in other trainings and documentation
 
 - {doc}`/theming/index`
-- [Plone Classic Viewlets](https://docs.plone.org/develop/plone/views/viewlets.html)
-- [Plone Classic Portlets](https://docs.plone.org/develop/plone/functionality/portlets.html)
+- Plone Classic Viewlets: [Documentation](https://docs.plone.org/develop/plone/views/viewlets.html), {ref}`Training Mastering Plone 5<plone5-viewlets1-label>`
+- Plone Classic Portlets: [Documentation](https://docs.plone.org/develop/plone/functionality/portlets.html)
 - [form library z3c.form](https://docs.plone.org/develop/plone/forms/z3c.form.html)
 - [multilingual content and internationalization](https://docs.plone.org/develop/plone/i18n/index.html)
 - {doc}`/plone-deployment/index`
