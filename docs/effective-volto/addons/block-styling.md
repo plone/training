@@ -138,7 +138,6 @@ config.blocks.blocksConfig.listing.enableStyling = true;
 config.blocks.blocksConfig.listing.stylesSchema = StyleSchema;
 ```
 
-Now the listing block will have classes such as: `has--maxLines--3`.
 For the CSS part, we add the following code:
 
 ```less
