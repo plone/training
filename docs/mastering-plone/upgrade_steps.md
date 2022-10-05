@@ -375,7 +375,7 @@ def add_some_indexes(setup):
 ..  todo::
 
     1. Adapt the ``TalkListView`` in Volto to not use ``fullobjects``.
-       Instead either passs a list of metadata-fields or use ``metadata_fields=_all`` to get the euivalent of brains as documented in https://plonerestapi.readthedocs.io/en/latest/searching.html#retrieving-additional-metadata.
+       Instead either pass a list of metadata-fields or use ``metadata_fields=_all`` to get the equivalent of brains as documented in {ref}`plone6docs:retrieving-additional-metadata`.
 
     2. Adapt the colored audience-blocks in ``TalkView`` in Volto to use the custom index to find all talks for that audience.
        The Volto search needs to support all indexes dynamically for that to work!

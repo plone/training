@@ -12,7 +12,7 @@ myst:
 The [Plone Angular SDK](https://www.npmjs.com/package/@plone/restapi-angular) is an Angular
 package (named `@plone/restapi-angular` as it belongs to the Plone NPM organization).
 
-It is a high-level integration layer between Angular and the [Plone REST API](https://plonerestapi.readthedocs.io/en/latest/introduction.html).
+It is a high-level integration layer between Angular and the [Plone REST API](plone6docs:plone.restapi/docs/source/index).
 
 It provides:
 

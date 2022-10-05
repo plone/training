@@ -121,7 +121,7 @@ Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.x and runs WSG
 Plone 5.2 comes with many bug fixes and a couple of nice improvements. Here are some noteworthy changes:
 
 - New navigation with dropdown. Site-Administrators can use the navigation control panel `/@@navigation-controlpanel` to configure the dropdown-navigation.
-- Plone 5.2 ships with [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/)
+- Plone 5.2 ships with [plone.restapi](plone6docs:plone.restapi/docs/source/index).
 - New Login. The old skin-templates and skin-scripts were replaced by browser-views that are much easier to customize.
 - Merge Products.RedirectionTool into core. Site-Administrators can use the {guilabel}`URL Management` control panel (`/@@redirection-controlpanel`) to manage and add alternative URLs including bulk upload of alternative urls. As an Editor, you can see the {guilabel}`URL Management` link in the {guilabel}`actions` menu of a content item, and add or remove alternative URLs for this specific content item.
 
@@ -148,5 +148,5 @@ Plone 6 supports Python 3 only and runs on top of Zope 5.
 
 ```{seealso}
 - {ref}`plone6docs:upgrade-guide-label`
-- Training Migrations @ training.plone.org/5/migrations
+- Training Migrations
 ```

@@ -365,8 +365,8 @@ export default TalkListView;
 Possible **sort criteria** are indices of the Plone catalog.
 
 ```{seealso}
-- `Plone REST API documentation <https://plonerestapi.readthedocs.io/en/latest/searching.html>`_
-- `Plone documentation about searching and indexing <https://docs.plone.org/develop/plone/searching_and_indexing/query.html>`_
+- [Plone REST API Search](plone6docs:plone.restapi/docs/source/endpoints/searching)
+- [Plone documentation about searching and indexing](https://docs.plone.org/develop/plone/searching_and_indexing/query.html)
 ```
 
 (volto-talk-listview-exercise-label)=

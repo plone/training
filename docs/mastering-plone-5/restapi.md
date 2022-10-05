@@ -17,7 +17,7 @@ git checkout restapi
 ```
 ````
 
-In this chapter, we will have a look at the relatively new [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/index.html), which is a core package as of Plone 5.2.
+In this chapter, we will have a look at the relatively new [plone.restapi](plone6docs:plone.restapi/docs/source/index), which is a core package as of Plone 5.2.
 
 It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 

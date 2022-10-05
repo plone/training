@@ -11,14 +11,12 @@ myst:
 
 Now that we have an idea of how to create nodes, we can move on to retrieving data from a Plone site and creating nodes with that data.
 
-All the data from a Plone site is available in the JSON format using the [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/introduction.html).
+All the data from a Plone site is available in the JSON format using the [plone.restapi](plone6docs:plone.restapi/docs/source/index).
 
 We will be working a lot with this API while working on the Gatsby source-plugin.
 It is recommended that you have an API browser to explore the API.
 
-Install [Postman](https://www.postman.com/), then go through the quick guide to working with plone.restapi:
-
-<https://plonerestapi.readthedocs.io/en/latest/exploring.html#exploring-api-postman-onboarding>
+Install [Postman](https://www.postman.com/), then go through the quick guide to working with [plone.restapi](plone6docs:plone.restapi/docs/source/usage/exploring).
 
 ```{note}
 We will use the same endpoints for loading the site in a browser, but set the header `Accept: application/json`.
