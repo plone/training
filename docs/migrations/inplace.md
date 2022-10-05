@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "In-place migrations"
+    "property=og:description": "In-place migrations"
+    "property=og:title": "In-place migrations"
+    "keywords": "In-place, migrating, upgrade"
 ---
 
 (inplace-label)=

@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Migrating Plone"
+    "property=og:description": "Migrating Plone"
+    "property=og:title": "Migrating Plone"
+    "keywords": "Versions, Upgrade, Migration, Relauch, Changes"
 ---
 
 (migrations-label)=

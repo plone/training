@@ -12,7 +12,7 @@ myst:
 # Migration best practices
 
 *Migration best practices* is intended as a training to learn how to upgrade and migrate to the newest Plone Versions.
-It's both, an online course and a sketch for an on-the-spot training.
+It's both an online course and a sketch for an on-the-spot training.
 
 
 ```{toctree}
@@ -38,11 +38,9 @@ We attempt to include the most important parts of what we teach in the training.
 Relevant sections of the plone documentation
 
 * {ref}`plone6docs:plone-upgrade-guide`
-* https://docs.plone.org/manage/upgrading/index.html
-* https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_python3.html
-* https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_zodb_to_python3.html
 * {ref}`plone6docs:backend-upgrading-index-label`
 * {ref}`plone6docs:backend-migrate-to-volto-label`
 * {ref}`plone6docs:backend-upgrade-plone-v60-label`
+
 
 ```

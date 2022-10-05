@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Migrating from 3rd party systems to Plone"
+    "property=og:description": "Migrating from 3rd party systems to Plone"
+    "property=og:title": "Migrating from 3rd party systems to Plone"
+    "keywords": "Migrating, import, json"
 ---
 
 (migrate-to-plone-label)=

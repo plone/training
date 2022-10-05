@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Migrating  with collective.exportimport"
+    "property=og:description": "Migrating Plone sites with collective.exportimport"
+    "property=og:title": "Migrating with collective.exportimport"
+    "keywords": "export, import, transmogrifier"
 ---
 
 (exportimport-label)=
