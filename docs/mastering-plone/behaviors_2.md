@@ -9,20 +9,21 @@ myst:
 
 (behaviors2-label)=
 
-# More Complex Behaviors
+# Complex Behaviors
 
 We want a group of reviewers to vote on the talks that are accepted for the conference.
 
 In this part you will:
 
 - Write a behavior that enables voting on content
-- Use annotations to store the votes on a object
+- Use annotations to store the votes on an object
 
 Topics covered:
 
 - Behaviors with a factory class
 - Marker Interfaces
 - Using Annotations as storage-layer
+
 
 (behaviors2-annotations-label)=
 
@@ -56,11 +57,11 @@ The code can not know about our field, except if we provide schema information.
 
 ## Writing Code
 
-To start, we create a directory {file}`behavior` with an empty {file}`behavior/__init__.py` file.
+To start, we create a directory {file}`behaviors` with an empty {file}`behaviors/__init__.py` file.
 
-Next we must, as always, register our ZCML.
+Next we must, as always, register our `ZCML`.
 
-First, add the information that there will be another ZCML file in {file}`configure.zcml`
+First, add the information that there will be another `ZCML` file in {file}`configure.zcml`
 
 ```{code-block} xml
 :linenos:
@@ -68,39 +69,44 @@ First, add the information that there will be another ZCML file in {file}`config
 <configure xmlns="...">
 
   ...
-  <include package=".behavior" />
+  <include package=".behaviors" />
   ...
 
 </configure>
 ```
 
-Next, create {file}`behavior/configure.zcml`
+Next, create {file}`behaviors/configure.zcml`
 
 ```{code-block} xml
 :linenos:
 
 <configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:plone="http://namespaces.plone.org/plone">
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="plone">
 
-  <plone:behavior
-      title="Voting"
-      name="starzel.voting"
-      description="Allow voting for an item"
-      provides="starzel.votable_behavior.interfaces.IVoting"
-      factory=".voting.Vote"
-      marker="starzel.votable_behavior.interfaces.IVotable"
-      />
+    <include package="plone.behavior" file="meta.zcml"/>
+
+    <plone:behavior
+        name="training.votable.votable"
+        title="Votable"
+        description="Support liking and disliking of content"
+        provides=".votable.IVotable"
+        factory=".votable.Votable"
+        marker=".votable.IVotableMarker"
+        />
 
 </configure>
 ```
 
-There are some important differences to the first behavior:
+There are important differences to the first behavior:
 
-> - There is a marker interface
-> - There is a factory
+- There is a marker interface
+- There is a factory
 
-The first behavior (discussed in {ref}`behaviors1-label`) was registered using only `provides`:
+The first behavior (discussed in {ref}`behaviors1-label`) was registered  only with the `provides` attributes:
 
 ```xml
 <plone:behavior
@@ -113,65 +119,61 @@ The first behavior (discussed in {ref}`behaviors1-label`) was registered using o
 
 ```{only} not presentation
 The factory is a class that provides the behavior logic and gives access to the attributes we provide.
-Factories in Plone/Zope land are retrieved by adapting an object to an interface and are following the adapter pattern.
-If you want your behavior, you would write `voting = IVoting(object)`.
+Factories in Plone/Zope are retrieved by adapting an object to an interface and are following the adapter pattern.
+If you want to access your behavior, you would write `votable = IVotable(object)`.
 
-But in order for this to work, your object may *not* be implementing the `IVoting` interface, because if it did,  `IVoting(object)` would return the object itself!
+But in order for this to work, your object may *not* implement the `IVotable` interface, because if it did, `IVotable(object)` would return the object itself!
+
+TODO behavior forces object of ct to implement marker interface, but not IVotable. The factory / adapter is the connection betweeen object and implementation (with marker that does the connection and allows to restrict ....)
 If you need a marker interface for objects providing the new behavior, you must provide one, for this you use `marker`.
 This object now implements the marker-interface `IVotable`.
 Because of this, we can write views and viewlets just for content that use this behavior.
 ```
 
-The interfaces need to be written, in our case into a file {file}`interfaces.py`:
+The interfaces need to be written, in our case in a file {file}`/behaviors/votable.py`:
 
 ```{code-block} python
 :linenos:
 
-# encoding=utf-8
-from plone import api
-from plone.autoform import directives
-from plone.autoform.interfaces import IFormFieldProvider
-from plone.supermodel import model
-from plone.supermodel.directives import fieldset
-from zope import schema
-from zope.interface import Interface
-from zope.interface import provider
 
-class IVotableLayer(Interface):
-    """Marker interface for the Browserlayer of this addon
-    """
+class IVotableMarker(Interface):
+    """Marker interface for content types or instances that should be votable"""
 
-# IVotable is the marker interface for contenttypes who support this behavior
-class IVotable(Interface):
     pass
 
-# This is the behavior interface.
-# When doing IVoting(object), you receive an adapter
-@provider(IFormFieldProvider)
-class IVoting(model.Schema):
-    if not api.env.debug_mode():
-        directives.omitted("votes")
-        directives.omitted("voted")
 
-    fieldset(
-        'debug',
-        label=u'debug',
-        fields=('votes', 'voted'),
+@provider(IFormFieldProvider)
+class IVotable(model.Schema):
+    """Behavior interface for the votable behavior
+
+    IVotable(object) returns the adapted object with votable behavior
+    """
+
+    if not api.env.debug_mode():
+        form.omitted("votes")
+        form.omitted("voted")
+
+    directives.fieldset(
+        "debug",
+        label="debug",
+        fields=("votes", "voted"),
     )
 
-    votes = schema.Dict(title=u"Vote info",
-                        key_type=schema.TextLine(title=u"Voted number"),
-                        value_type=schema.Int(title=u"Voted so often"),
-                        required=False,
-                        default={},
-                        missing_value={},
-                        )
-    voted = schema.List(title=u"Vote hashes",
-                        value_type=schema.TextLine(),
-                        required=False,
-                        default=[],
-                        missing_value=[],
-                    )
+    votes = schema.Dict(
+        title="Vote info",
+        key_type=schema.TextLine(title="Voted number"),
+        value_type=schema.Int(title="Voted so often"),
+        default={},
+        missing_value={},
+        required=False,
+    )
+    voted = schema.List(
+        title="Vote hashes",
+        value_type=schema.TextLine(),
+        default=[],
+        missing_value=[],
+        required=False,
+    )
 
     def vote(request):
         """
@@ -199,6 +201,7 @@ class IVoting(model.Schema):
         """
         Clear the votes. Should only be called by admins
         """
+
 ```
 
 ```{only} not presentation
@@ -231,43 +234,90 @@ Later, when we implement the behavior, the `votes` and `voted` attributes are im
 Then we define the API that we are going to use in the frontend.
 ```
 
-Now the only thing that is missing is the behavior implementation, which we must put into {file}`behavior/voting.py`.
+Now the only thing that is missing is the behavior implementation, the adapter, which we add to {file}`behaviors/voting.py`.
 
 ```{code-block} python
 :linenos:
 
-# encoding=utf-8
-from starzel.votable_behavior.interfaces import IVotable, IVoting
-from hashlib import md5
-from persistent.dict import PersistentDict
-from persistent.list import PersistentList
-from zope.annotation.interfaces import IAnnotations
-from zope.component import adapter
-from zope.interface import implementer
+@implementer(IVotable)
+@adapter(IVotableMarker)
+class Votable(object):
+    """Adapter for the votable behavior
 
-KEY = "starzel.votable_behavior.behavior.voting.Vote"
+    Args:
+        object (_type_): _description_
+    """
 
-
-@implementer(IVoting)
-@adapter(IVotable)
-class Vote(object):
     def __init__(self, context):
         self.context = context
         annotations = IAnnotations(context)
         if KEY not in annotations.keys():
-            annotations[KEY] = PersistentDict({
-                "voted": PersistentList(),
-                'votes': PersistentDict()
-                })
+            # You know what happens if we don't use persistent classes here?
+            annotations[KEY] = PersistentDict(
+                {"voted": PersistentList(), "votes": PersistentDict()}
+            )
         self.annotations = annotations[KEY]
 
     @property
     def votes(self):
-        return self.annotations['votes']
+        return self.annotations["votes"]
+
+    @votes.setter
+    def votes(self, value):
+        self.annotations["votes"] = value
 
     @property
     def voted(self):
-        return self.annotations['voted']
+        return self.annotations["voted"]
+
+    @voted.setter
+    def voted(self, value):
+        self.annotations["voted"] = value
+
+    def vote(self, vote, request):
+        vote = int(vote)
+        if self.already_voted(request):
+            # Exceptions can create ugly error messages. If you or your user
+            # can't resolve the error, you should not catch it.
+            # Transactions can throw errors too.
+            # What happens if you catch them?
+            raise KeyError("You may not vote twice")
+        current_user = api.user.get_current()
+        self.annotations["voted"].append(current_user.id)
+        votes = self.annotations.get("votes", {})
+        if vote not in votes:
+            votes[vote] = 1
+        else:
+            votes[vote] += 1
+
+    def total_votes(self):
+        return sum(self.annotations.get("votes", {}).values())
+
+    def average_vote(self):
+        total_votes = sum(self.annotations.get("votes", {}).values())
+        if total_votes == 0:
+            return 0
+        total_points = sum(
+            [
+                vote * count
+                for (vote, count) in self.annotations.get("votes", {}).items()
+            ]
+        )
+        return float(total_points) / total_votes
+
+    def has_votes(self):
+        return len(self.annotations.get("votes", {})) != 0
+
+    def already_voted(self, request):
+        current_user = api.user.get_current()
+        return current_user.id in self.annotations["voted"]
+
+    def clear(self):
+        annotations = IAnnotations(self.context)
+        annotations[KEY] = PersistentDict(
+            {"voted": PersistentList(), "votes": PersistentDict()}
+        )
+        self.annotations = annotations[KEY]
 ```
 
 ````{only} not presentation

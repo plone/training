@@ -27,6 +27,11 @@ help: ## This help message
 clean: ## Clean build directory
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/*
 
+.PHONY: distclean
+distclean:  ## Clean docs build directory and Python virtual environment
+	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/
+	rm -rf ./bin/ ./lib/ ./lib64 ./include ./pyvenv.cfg
+
 bin/python:  ## Set up training: Install requirements
 	python3 -m venv . || virtualenv --clear --python=python3 .
 	bin/python -m pip install --upgrade pip

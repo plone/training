@@ -60,6 +60,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
     "sphinx_copybutton",
+    "sphinx_design",
     "sphinx_sitemap",
     "sphinxcontrib.spelling",
     "sphinxext.opengraph",
@@ -173,6 +174,10 @@ html_extra_path = [
     "robots.txt",
 ]
 
+# Used by sphinx_sitemap to generate a sitemap
+html_baseurl = "https://training.plone.org/5"
+sitemap_url_scheme = "{link}"
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
@@ -186,16 +191,13 @@ html_theme_options = {
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,
-    "extra_navbar": """
+    "extra_navbar": f"""
         <p class="ploneorglink">
             <a href="https://plone.org">
-                <img src="/5/_static/logo.svg" alt="plone.org" /> plone.org</a>
+                <img src="{html_baseurl}/_static/logo.svg" alt="plone.org" /> plone.org</a>
         </p>""",
 }
 
-# Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org/5"
-sitemap_url_scheme = "{link}"
 
 # -- Intersphinx configuration ----------------------------------
 
@@ -235,3 +237,28 @@ ogp_custom_meta_tags = [
 # -- sphinx_copybutton -----------------------
 copybutton_prompt_text = r"^ {0,2}\d{1,3}"
 copybutton_prompt_is_regexp = True
+
+
+# -- sphinx.ext.todo -----------------------
+# todo_include_todos = True  # Uncomment to show todos.
+
+
+# An extension that allows replacements for code blocks that
+# are not supported in `rst_epilog` or other substitutions.
+# https://stackoverflow.com/a/56328457/2214933
+def source_replace(app, docname, source):
+    result = source[0]
+    for key in app.config.source_replacements:
+        result = result.replace(key, app.config.source_replacements[key])
+    source[0] = result
+
+
+# Dict of replacements.
+source_replacements = {
+    "{PLONE_BACKEND_VERSION}": "6.0.0b2",
+}
+
+
+def setup(app):
+    app.add_config_value("source_replacements", {}, True)
+    app.connect("source-read", source_replace)

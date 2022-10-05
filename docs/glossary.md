@@ -270,3 +270,10 @@ mxdev
     [mxdev](https://github.com/mxstack/mxdev) [mɪks dɛv] is a utility that makes it easy to work with Python projects containing lots of packages, of which you only want to develop some.
     It is designed for developers who use stable version constraints, then layer their customizations on top of that base while using a version control system.
     This design allows developers to override their base package constraints with a customized or newer version.
+
+plonecli
+    A Plone CLI for creating Plone packages. [plonecli usage](https://github.com/plone/plonecli#usage)
+
+GenericSetup
+    [GenericSetup](https://docs.plone.org/develop/addons/components/genericsetup.html) is a framework to modify the Plone site during add-on package installation and uninstallation.
+    It provides XML-based rules to change the site settings.
