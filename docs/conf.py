@@ -115,6 +115,7 @@ linkcheck_ignore = [
     "https://github.com/plone/plone.app.contentlisting/#methods-of-contentlistingobjects",
     "https://github.com/plone/plone.app.contenttypes#changing-the-base-class-for-existing-objects",
     "https://github.com/plone/plone.recipe.zope2instance#advanced-logging-options-for-wsgi",
+    "https://github.com/plone/plonecli#usage",
     "https://github.com/repoze/repoze.catalog/blob/master/docs/usage.rst#query-objects",
     "https://plone.github.io/mockup/dev/#pattern/autotoc",
     "https://plone.github.io/mockup/dev/#pattern/modal",
