@@ -272,7 +272,7 @@ mxdev
     This design allows developers to override their base package constraints with a customized or newer version.
 
 plonecli
-    A Plone CLI for creating Plone packages. [plonecli usage](https://github.com/plone/plonecli/blob/master/README.rst#usage)
+    A Plone CLI for creating Plone packages. [plonecli usage](https://github.com/plone/plonecli)
 
 GenericSetup
     [GenericSetup](https://docs.plone.org/develop/addons/components/genericsetup.html) is a framework to modify the Plone site during add-on package installation and uninstallation.
