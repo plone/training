@@ -145,8 +145,21 @@ Products.PDBDebugMode
 
 Interactive debugger
 
-: When starting Plone using {command}`venv/bin/zconsole debug instance/etc/zope.conf` you'll end up in an interactive debugger.
-`app.Plone` is your instance that you can inspect on the command line.
+: When starting Plone using {command}`venv/bin/zconsole debug instance/etc/zope.conf`, you'll end up in an interactive debugger.
+`app.Plone` is your instance which you can inspect on the command line.
+: To list the ids of the objects in a folderish object:
+  ```shell
+  >>> app.Plone.talks.keys()
+  ['whats-new-in-python-3.10', 'plone-7', 'zope', 'betty-white', 'new-years-day', 'journey-band']
+  ```
+: To list the items of a folderish object:
+  ```shell
+  >>> from zope.component.hooks import setSite
+  >>> setSite(app.Plone)
+  >>> app.Plone.talks.contentItems()
+  [('whats-new-in-python-3.10', <Talk at /Plone/talks/whats-new-in-python-3.10>), ('plone-7', <Talk at /Plone/talks/plone-7>), ('zope', <Talk at /Plone/talks/zope>), ('betty-white', <Talk at /Plone/talks/betty-white>), ('new-years-day', <Talk at /Plone/talks/new-years-day>), ('journey-band', <Talk at /Plone/talks/journey-band>)]
+  ```
+: Stop the interactive shell with {kbd}`ctrl-d`.
 
 plone.app.debugtoolbar
 
