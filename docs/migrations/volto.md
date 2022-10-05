@@ -11,20 +11,13 @@ myst:
 
 # Migrate to Volto
 
-* When to you need to do it?
-* What does it do?
-* Dependencies: https://github.com/plone/blocks-conversion-tool
-* How to do it
-* Issues:
-  * complex html (tables) => html-blocks
-  * No migration Draftjs => Slate
+See the chapter {ref}`plone6docs:backend-migrate-to-volto-label` of the Plone Upgrade Guide.
+
+Issues:
+
+* Complex html (e.g. in tables) is transformed to html-blocks
+* There is no migration from Draftjs to Slate
+
 * Alternatives
   * Start fresh
   * Use exportimport (TODO: https://github.com/collective/collective.exportimport/issues/133)
-
-```{seealso}
-
-* Chapter {ref}`plone6docs:backend-migrate-to-volto-label` of the Plone Upgrade Guide
-* Talk: [Migrating from Classic to Volto](https://www.youtube.com/watch?v=09fg456T90s) - Talk at World Plone Day 2022 about an earlier version of it.
-
-```

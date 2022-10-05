@@ -393,35 +393,27 @@ The output from the export- and import-logs should tell you if you need to deal 
 
 `collective.exportimport` has a couple of hooks that you can use in your own packages `contentexport` and `contentimport`.
 
-This training continues by inspecting, discussing and using the examples from the documentation of exportimport: https://github.com/collective/collective.exportimport/#faq-tips-and-tricks
+This training continues by inspecting, discussing and using the [examples from the documentation of exportimport](https://github.com/collective/collective.exportimport/#faq-tips-and-tricks)
 
+Here are some of the discussed examples:
 
-
-## Some more advanced examples
-
-
-## Export from Plone 4.3
-
-* dependencies (version-pinns)
-* installation
-
-## Import to Plone 6
-
-* installation and use
-* example
-
-## Extending exportimport
-
-* Custom packages based on https://github.com/starzel/minimal
-  * contentexport
-  * contentimport
-* use `ExportAll`
-* extend `CustomExportContent`
-* extend `CustomImportContent`
-
-## Advanced use-cases
-
-* See https://github.com/collective/collective.exportimport/#faq-tips-and-tricks
+* Using global_obj_hook during export
+* Using dict-hooks during export
+* Export/Import placeful workflow policy
+* Using dict-hooks during import
+* Change workflow
+* Export/Import Annotations
+* Export/Import Marker Interfaces
+* Skip versioning during import
+* Dealing with validation errors by using a simple setter
+* Dealing with validation errors by deferring import
+* Handle LinguaPlone content
+* Alternative ways to handle items without parent
+* Export/Import registry settings
+* Export/Import Zope Users
+* Migrate PloneFormGen to Easyform
+* Export and import collective.cover content
+* Fixing invalid collection queries
 
 
 ## Further reading
