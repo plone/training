@@ -9,7 +9,7 @@ myst:
 
 # Set up Plone
 
-The next chapter provides instructions on how to install **Plone with the training code**.
+The next chapter {doc}`instructions` provides instructions on how to install **Plone with the training code**.
 
 For installation, deployment and hosting of Plone in general, see documentation on `docs.plone.org`:
 {ref}`plone6docs:install-index-label`.
