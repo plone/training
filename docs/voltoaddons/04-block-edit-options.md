@@ -71,7 +71,7 @@ Or you can set the `widget` property in a schema:
 //...
 properties: {
   headline: {
-    title: "Headline",'
+    title: "Headline",
     widget: "headline_widget",
   }
 }

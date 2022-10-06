@@ -70,10 +70,11 @@ This does two things:
 1. It deletes any files that you added and are not part of the package.
 2. It will move away changes to files that are part of the package but not delete them. You can get them back later. You should learn about the command {command}`git stash` before you try reapply stashed changes.
 
+## Tags
+
 ```{todo}
 Update list of tags in backend add-on.
-
-## Tags
+```
 
 These are the tags of the backend add-on for which there is code:
 
@@ -118,8 +119,6 @@ These are the tags of the backend add-on for which there is code:
 | {doc}`deployment_code`         |                          |
 | {doc}`deployment_sites`        |                          |
 
-
-```
 
 ## Updating the code-package
 

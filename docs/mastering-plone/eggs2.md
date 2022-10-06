@@ -87,9 +87,9 @@ Open `requirements.txt` and add your add-on to be installed as Python package.
 -e sources/training.votable
 ```
 
-Open instance.yml and add the add-on to tell Plone to load your add-on. With this the site administrator can activate the add-on per site.
+Open `instance.yml` and add the add-on to tell Plone to load your add-on. With this the site administrator can activate the add-on per site.
 
-```yml
+```yaml
     load_zcml:
         package_includes: ["training.votable"]
 ```

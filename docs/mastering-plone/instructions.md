@@ -145,10 +145,9 @@ You have two options:
 
 ### Option 2. Start with prepared training project `volto-ploneconf` with all code for the training
 
-Prepare the pre-requisites explained in {ref}`plone6docs:install-source-volto-frontend-label`.
+Prepare the pre-requisites explained in {ref}`plone6docs:install-packages-prerequisites-label`.
 
-
-Get the code for the frontend from github and install:
+Get the code for the frontend from GitHub and install:
 
 ```shell
 git clone https://github.com/collective/volto-ploneconf.git frontend

@@ -53,7 +53,7 @@ RUN: mrbob bobtemplates.plone:addon -O ./plonetheme.tokyo
 
 You're going to be asked some questions. It's good to go with defaults for now. Since there is work in progress, Plone version `5.2.2` will result in Plone 6.0. Don't bother with that.
 
-```{code-block} shell
+```{code-block} console
 --> Author's name [Your Name]:
 
 --> Author's email [yourname@example.com]:

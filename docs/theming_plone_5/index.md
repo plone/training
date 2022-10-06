@@ -3,7 +3,7 @@ html_meta:
   description: Adjusting the visual representation of Plone with {term}`Diazo`
 ---
 
-(theming-label)=
+(plone-5-theming-label)=
 
 # Plone 5 Theming
 

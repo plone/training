@@ -302,7 +302,7 @@ Here are some basics that you need to understand if you are new to Volto:
 - Volto is built in [ReactJS](https://reactjs.org), a modern Javascript Framework.
 - Volto uses [plone.restapi](plone6docs:plone.restapi/docs/source/index) to communicate with the Plone backend.
 - Volto is installed separately from the Plone backend.
-  See chapter {ref}`installation-Volto-label` for instructions.
+  See chapter {ref}`instructions-install-frontend-label` for instructions.
 - Volto runs in a different process than the Plone backend.
   By default Volto runs on port 3000. If you start Volto with `yarn start` you can see the frontend on <http://localhost:3000>.
   The Plone backend runs by default on <http://localhost:8080>
