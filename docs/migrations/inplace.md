@@ -14,8 +14,8 @@ myst:
 A inplace migration means the content and settings of a Plone installation are being updated while Plone is running.
 These upgrades use a builtin tool and basically run upgrade-steps that are collected in [plone.app.upgrade](https://github.com/plone/plone.app.upgrade/).
 
-This approach is recommended for all upgrades of minor version and can work fine for most mayor upgrades.
-When dealing with mayor changes in Plone or with very large or complex installations a export-import based migration (see below) is often the better solution.
+This approach is recommended for all minor version upgrades, and can work fine for most major upgrades.
+When dealing with major changes in Plone, or with very large or complex installations, an export-import based migration (see below) is often the better solution.
 
 During in-place migrations it is advisable to **not make large leaps** in version numbers.
 A single upgrade should not try to bridge multiple major version numbers.
@@ -66,7 +66,7 @@ It should end with *Your Plone instance is now up-to-date.*:
 :alt: A abbreviated upgrade-report
 ```
 
-A lot of things changed between Plone 5.2 and Plone 6. Inspect the log to identify some of the mayor changes for Plone 6:
+A lot of things changed between Plone 5.2 and Plone 6. Inspect the log to identify some of the major changes for Plone 6:
 
 * The Plone site-root object is changed to a Dexterity object
 * The resource registry was rewritten

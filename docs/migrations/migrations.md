@@ -87,10 +87,10 @@ Your could use the following:
 * **Hotfix-Upgrade**: Adding a Hotfix to Plone without changing anything else.
 * **Update**: Bugfix Version changes. E.g. `5.2.6` to `5.2.9` without additional changes.
 * **Upgrade**: Bugfix or Minor version change that gives you at least one new feature. E.g. `5.2.6` to `5.2.9` while adding `collective.easyform` or even `5.0.8` to `5.1.7` when you don't change anything else.
-* **Relaunch**: The design, content-structure or mayor version changes.
+* **Relaunch**: The design, content-structure or major version changes.
 * **Migration**: The process of getting a Database from one version of Plone to another version.
 
-To make it even more confusing people use *Mayor Update* or *Mayor Upgrade* when in fact they are doing a *Relaunch*.
+To make it even more confusing people use *Major Update* or *Major Upgrade* when in fact they are doing a *Relaunch*.
 
 Good communication to manage expectations and imaginations is key!
 Make sure that everyone knows what you are planning to do, no matter what you call it.
@@ -104,17 +104,17 @@ Arguing for a required switch of a Python 2.7 installation of Plone 5.2.6 to Pyt
 Suddenly it's a relaunch and everyone is excited.
 ```
 
-(migrations-mayor-changes-label)=
+(migrations-major-changes-label)=
 
-## Dealing with Mayor Changes in Plone
+## Dealing with Major Changes in Plone
 
-In the history of Plone there were so far three mayor changes:
+In the history of Plone there were so far three major changes:
 
 * Plone 5.0: Dexterity replaces Archetypes
 * Plone 5.2: Support for Python 3
 * Plone 6.0: Volto as new default frontend
 
-Each of these mayor changes require special treatment during an upgrade that make upgrading much more complex.
+Each of these major changes require special treatment during an upgrade that make upgrading much more complex.
 
 (migrations-plone-5.0-dexterity-replaces-archetypes-label)=
 
@@ -152,9 +152,9 @@ It is written in React, and expects some subtle but important changes.
 
 See {ref}`backend-migrate-to-volto-label` for the specific migration steps.
 
-### Transition periods for mayor changes
+### Transition periods for major changes
 
-To make these mayor changes easier to manage Plone allows a transition period for all of these:
+To make these major changes easier to manage Plone allows a transition period for all of these:
 
 * You can use Dexterity starting with Plone 4.0 and can use Archetypes until Plone 5.2 (as long as you use Python 2)
 * Plone 5.2 can run with Python 2.7 and with Python 3 so you can first upgrade to 5.2 in Python 2 and then migrate to Python 3.
@@ -162,7 +162,7 @@ To make these mayor changes easier to manage Plone allows a transition period fo
 
 
 ```{note}
-Another hurdle for upgrades between mayor version is that they have different themes:
+Another hurdle for upgrades between major version is that they have different themes:
 
 * 4.x: Sunburst
 * 5.x: Barceloneta
@@ -172,7 +172,7 @@ Another hurdle for upgrades between mayor version is that they have different th
 
 ### What is a complex migration?
 
-* Whenever you need to deal with one or more of the mayor changes in Plone
+* Whenever you need to deal with one or more of the major changes in Plone
 * When you have to make changes to custom content or code
 * When you have to deal with outdated add-ons (e.g. LinguaPlone)
 
