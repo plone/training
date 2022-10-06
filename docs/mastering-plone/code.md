@@ -70,13 +70,13 @@ This does two things:
 1. It deletes any files that you added and are not part of the package.
 2. It will move away changes to files that are part of the package but not delete them. You can get them back later. You should learn about the command {command}`git stash` before you try reapply stashed changes.
 
+```{todo}
+Update list of tags in backend add-on.
+
 ## Tags
 
 These are the tags of the backend add-on for which there is code:
 
-```{todo}
-Update list of tags in backend add-on.
-```
 
 | Chapter                        | Tag-Name                 |
 | ------------------------------ | ------------------------ |
@@ -119,9 +119,11 @@ Update list of tags in backend add-on.
 | {doc}`deployment_sites`        |                          |
 
 
+```
+
 ## Updating the code-package
 
-This section is for trainers who want to update the code in {py:mod}`ploneconf.site` after changing something in the training documentation.
+This section is for **trainers** who want to update the code after changing something in the training documentation.
 
 The current model uses only one branch of commits and maintains the integrity through rebases.
 
