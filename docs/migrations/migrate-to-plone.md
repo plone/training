@@ -1,34 +1,33 @@
 ---
 myst:
   html_meta:
-    "description": "Migrating from 3rd party systems to Plone"
-    "property=og:description": "Migrating from 3rd party systems to Plone"
-    "property=og:title": "Migrating from 3rd party systems to Plone"
-    "keywords": "Migrating, import, json"
+    "description": "Migrating from third party systems to Plone"
+    "property=og:description": "Migrating from third party systems to Plone"
+    "property=og:title": "Migrating from third party systems to Plone"
+    "keywords": "Migrating, import, JSON, Plone"
 ---
 
 (migrate-to-plone-label)=
 
-# Migrating from 3rd party systems to Plone
+# Migrating from third party systems to Plone
 
-For many systems it should be possible to generate data in the format required by `@@import_content`.
+For many systems, it should be possible to generate data in the format required by `@@import_content`.
 
 The minimal data required is:
 
 `@id`
-: The url of the item
+: The URL of the item.
 
 `@type`
-: A content-type that exists in Plone
+: A content type that exists in Plone.
 
 `id`
-: The id (the last part of `@id`)
+: The ID (the last part of `@id`).
 
 `@parent["@id"]`
-: The url of the container, usually the items `@id` without the last part.
+: The URL of the container, usually the items `@id` without the last part.
 
-
-Here is a minmal example for a json-file that could be imported:
+Here is a minimal example for a JSON file that could be imported:
 
 ```json
 [{
@@ -111,4 +110,4 @@ A full example (as exported from Plone) for a document inside that folder:
 }]
 ```
 
-For all other imports the forms where you can upload json-files contain examples for expected json-data.
+For all other imports, the forms where you can upload JSON files contain examples for expected JSON data.
