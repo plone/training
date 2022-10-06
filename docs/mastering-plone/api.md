@@ -167,7 +167,9 @@ plone.app.debugtoolbar
 
 plone.reload
 
-: An add-on that allows to reload code that you changed without restarting the site. It is also used by {py:mod}`plone.app.debugtoolbar`.
+: An add-on that allows to reload code that you changed without restarting the site.
+Open http://localhost:8080/@@reload in your browser for `plone.reload`s UI.
+It is also used by {py:mod}`plone.app.debugtoolbar`.
 
 Products.PrintingMailHost
 

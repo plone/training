@@ -305,7 +305,7 @@ But while the item is not yet published, that value is not yet set and you will 
 So we'll add some simple logic to use the effective date only if it exists.
 
 ```jsx
-{content.effective && (
+{content.review_state === 'published' && content.effective && (
   <p>
     <FormattedDate date={content.effective} includeTime />
   </p>
@@ -363,7 +363,7 @@ const DefaultTemplate = ({ items, linkTitle, linkHref, isEditMode }) => {
             <ConditionalLink item={item} condition={!isEditMode}>
               <div className="listing-body">
                 <h4>{item.title ? item.title : item.id}</h4>
-                {item.review_state === 'published' && (
+                {item.review_state === 'published' && item.effective && (
                   <p className="discreet">
                     <FormattedDate date={item.effective} includeTime />
                   </p>

@@ -16,9 +16,6 @@ myst:
 :alt: Plone frontend 
 :class: logo
 ```
-
-Solve the same tasks in Plone Classic UI in chapter {doc}`views_2`
-
 ---
 
 Get the code! ({doc}`More info <code>`)
@@ -39,7 +36,7 @@ git checkout talkview
 In this part we will:
 
 - Create a view to display a talk
-- Register a react view component for content type talk
+- Register a React view component for content type talk
 - Write the view component
 
 Topics covered:
@@ -48,22 +45,16 @@ Topics covered:
 - Displaying data stored in fields of a content type
 - React Basics
 
-The default visualization for our new content type `talk` only shows the title, the description and the image.
+The default visualization for our new content type `talk` lists the field values according the types schema.
 
-```{container} volto
-This paragraph might be rendered in a custom way.
-```
-
-```{note}
-In Plone the default view iterates over all fields in the schema and displays the stored data. In Volto this feature is not implemented yet.
-```
-
-Since we want to show the talk data, we write a custom view for talks.
+Since we want to show the talk data in a nice way, display the speaker portrait and add some components, we write a custom view for type talk.
 
 In the folder {file}`frontend` you need to add a new file {file}`src/components/Views/Talk.jsx`.
 Create the folder {file}`Views` first.
 
 As a first step, the file will hold only a placeholder.
+A view is a React component.
+So we write a component function that just returns the info about what it will be.
 
 ```jsx
 import React from 'react';
@@ -90,7 +81,7 @@ Now register the new component as the default view for `talks` in {file}`src/con
 ```{code-block} jsx
 :emphasize-lines: 1,9-12
 
-import { TalkListView, TalkView } from './components';
+import { TalkView } from './components';
 
 // All your imports required for the config here BEFORE this line
 import '@plone/volto/config';
@@ -108,9 +99,9 @@ export default function applyConfig(config) {
 ```
 
 - This extends the Volto default setting `config.views.contentTypesViews` with the key/value pair `talk: TalkView`.
-- It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to take the default settings and override what needs to be overridden.
+- It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to take the default settings and overrides what needs to be overridden.
 
-When Volto is running (with `yarn start`) it picks up these changes and displays the placeholder in place of the previously used default view.
+When Volto is running (with `yarn start`) it picks up these configuration modifications and displays the placeholder in place of the previously used default view.
 
 Now we will improve this view step by step.
 First we reuse the component `DefaultView.jsx` in our custom view:
@@ -147,9 +138,11 @@ const TalkView = (props) => {
 export default TalkView;
 ```
 
-- `<> </>` is a fragment. The return value of react needs to be one single element.
-
-- The variable `props` is used to receive data from the parent component. As the TalkView component is registered as a content type view, it receives the content data and some more. We will use the content part. So we introduce a constant `content` to be more explicit.
+- `<> </>` is a fragment. The return value of React needs to be one single element.
+- The variable `props` is used to receive data from the parent component.
+  As the TalkView component is registered as a content type view, it receives the content data and some more.
+  We will use the content part.
+  So we introduce a constant `content` to be more explicit.
 - `content.details` is the value of the richtext field `details` with mime type, encoding and the data:
 
   ```jsx
@@ -163,6 +156,8 @@ export default TalkView;
   See [Plone REST API Serialization](plone6docs:plone.restapi/docs/source/usage/serialization).
 
 - `content.details.data` holds the raw html. To render it properly we use `dangerouslySetInnerHTML` (see <https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml>)
+
+Please check the 'components' tab of Google developer tools to see the field values of your talk instance.
 
 The result is not really beautiful, because the text sticks to the left border of the page.
 You need to wrap it in a `Container` to get the same styling as the content of `DefaultView`:
@@ -234,7 +229,7 @@ export default TalkView;
 - `content.type_of_talk` is the json representation of the value from the choice field `type_of_talk`: `{token: "training", title: "Training"}`. We display the title.
 - The `&&` in `{content.description && (<p>...</p>)}` makes sure, that this paragraph is only rendered, if the talk actually has a description.
 
-Next we add a block with info on the speaker:
+Next we add a segment with info on the speaker:
 
 ```{code-block} jsx
 :emphasize-lines: 2,16-30

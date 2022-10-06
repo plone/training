@@ -49,12 +49,6 @@ git clone https://github.com/collective/training_buildout.git backend
 cd backend
 ```
 
-Until Mastering Plone 6 version is released, please checkout the branch `plone6`.
-
-```shell
-git checkout plone6
-```
-
 Build your backend with:
 
 ```shell
