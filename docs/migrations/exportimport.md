@@ -22,7 +22,7 @@ An alternative is transmogrifier (see the training {doc}`/transmogrifier/index`)
 With export-import migrations, you can shortcut most of the individual steps required for complex in-place migrations:
 
 ```{image} _static/exportimport-migration.png
-:alt: The shortcut of a exportimport-migration.
+:alt: The shortcut of a exportimport migration.
 ```
 
 
