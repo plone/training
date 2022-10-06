@@ -17,16 +17,15 @@ viewlets_advanced_classic
 views_1
 views_2
 views_3
+volto_richtexteditor
 zpt
-zpt_2
 ```
 
+```{todo}
+- `anatomy` is referenced in `mastering-plone/code.md:89`, but does not exist
+- `buildout_1` is referenced in `mastering-plone/code.md:95`, but does not exist
+- `zpt_2` is referenced in `mastering-plone/code.md:99`, but does not exist
 - fill in meta data
 - distinction: build for training.plone.org and presentation during training
-- Replace mr.bob with plonecli
-- 
-
-
-```{todolist}
-
+- Replace `mr.bob` with `plonecli`
 ```

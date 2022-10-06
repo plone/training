@@ -138,7 +138,7 @@ The JSON view of Plone can be called with this URL:
 And from JavaScript
 
 ```http
-GET http://localhost:8080/Plone/@@search?SearchableText=Plane
+GET http://localhost:8080/Plone/@@search?SearchableText=Plane HTTP/1.1
 Accept: application/json
 ```
 
