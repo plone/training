@@ -4,7 +4,7 @@ myst:
     "description": "Migrating Plone"
     "property=og:description": "Migrating Plone"
     "property=og:title": "Migrating Plone"
-    "keywords": "Versions, Upgrade, Migration, Relauch, Changes"
+    "keywords": "Versions, Upgrade, Migration, Relaunch, Changes"
 ---
 
 (migrations-label)=
@@ -15,80 +15,96 @@ myst:
 
 * What do you want to learn?
 * What are your experiences with migrations so far?
-* What are your next use-cases?
+* What are your next use cases?
 
 
 ## What are Migrations?
 
 ### Plone Versions
 
-Like most software Plone changes over time.
+Like most software, Plone changes over time.
 These changes are reflected in different releases of Plone.
 
-The [release-schedule](https://plone.org/download/release-schedule) specifies, which versions are supported for how long.
+The [release-schedule](https://plone.org/download/release-schedule) specifies, which versions are supported and for how long.
 
 ```{figure} https://plone.org/download/plonereleaseschedule-2022-09-12.png/@@images/image
 :alt: The Plone release schedule
 ```
 
-* **Maintenance support**: Bug fixes and small new features are added. Around the end of maintenance support, a last release will be done.
-* **Security support**: Plone security hotfixes will be made available for this series.
+Maintenance support
+: Bug fixes and small new features are added.
+  Around the end of maintenance support, a final release will be done.
+
+Security support
+: Plone security hotfixes will be made available for this series.
   For more information, see the [security update policy](https://plone.org/security/update-policy).
 
-Currently Plone 6.0.x is under maintenance support and Plone 5.2.x is under security support.
-That means new features are being developed for Plone 6.1.x and bugfixes are being developed for Plone 6.0.x
+Currently, Plone 6.0.x is under maintenance support and Plone 5.2.x is under security support.
+That means new features are being developed for Plone 6.1.x, and bugfixes are being developed for Plone 6.0.x.
 
-Plone wants to offer stable releases (e.g. 5.2.8 is a stable release of the 5.2.x series).
-Only bugfixes and changes that extend or improve a existing feature - as long as they don't break anything - make it into a bugfix-release.
+Plone intends to provide stable releases (for example, 5.2.8 is a stable release of the 5.2.x series).
+Only bugfixes and changes that extend or improve an existing feature—as long as they don't break anything—make it into a bugfix release.
 
 
 ### What's in a Plone version?
 
-In fact it is even more complicated because Plone consists of about 250 separate Python packages all of which have their own versions and history.
-A Plone-release, e.g. Plone 5.2.6 (https://dist.plone.org/release/5.2.6/) pinns all of these packages to a specific version and that alltogether is than a Plone version.
+In fact, it is even more complicated, because Plone consists of about 250 separate Python packages, all of which have their own versions and history.
+A Plone release such as Plone 5.2.6 (https://dist.plone.org/release/5.2.6/) pins all of these packages to a specific version, which altogether comprise a Plone version.
 
-Each Plone version has a detailed changelog that lists all changes that made it into that release as compared to the previous release.
-For a example see https://plone.org/download/releases/5.2.8
+Each Plone version has a detailed change log that lists all changes that made it into that release, as compared to the previous release.
+For an example see https://plone.org/download/releases/5.2.8.
 
 ```{note}
 You can overrride the version of individual packages if a newer version has a feature or bugfix that you need.
-Then you may be using Plone Version 5.2.6 but `plone.app.contenttype = 2.2.2` instead of `2.2.2` with is the version pinned for Plone 5.2.6.
-You can do that but at your own risk!
+Then you may be using Plone version 5.2.6, but `plone.app.contenttype = 2.2.2` instead of `2.2.2` with its version pinned for Plone 5.2.6.
+You can do that, but at your own risk!
 Only the officially pinned version are tested with each other.
 ```
 
+
 ### Why do we need to upgrade?
 
-If you want to use a new feature or bugfix that your Version does not yet have you need to upgrade.
+If you want to use a new feature or bugfix that your version does not yet have, then you need to upgrade.
 
-That could be as simple as changing a extends in your buildout from
+That could be as simple as changing an `extends` in your buildout.
 
 ```ini
 extends = https://dist.plone.org/release/5.2.6/versions.cfg
 ```
 
-to
+Would become the following.
 
 ```ini
 extends =  https://dist.plone.org/release/5.2.9/versions.cfg
 ```
 
-But you not only need to change the version of Plone you use but also need to update the database.
+But you not only need to change the version of Plone you use, but you also need to update the database.
 
-Since a Plone site stores content and settings in its database these may need to be modified to reflect changes in the logic or configuration of Plone.
-This is done by upgrade steps, code that runs and updates the database to fix with the new version.
+Since a Plone site stores content and settings in its database, these may need to be modified to reflect changes in the logic or configuration of Plone.
+This is done by upgrade steps, or code that runs and updates the database to work with the new version.
 
-## Update, Upgrade, Migration or Relauch?
 
-Changing from `5.2.6` to `5.2.9` is usually not a migration but a update or upgrade, more specifically a bugfix-update.
+## Update, Upgrade, Migration, or Relaunch?
+
+Changing from `5.2.6` to `5.2.9` is usually not a migration, but an update or upgrade, more specifically a bugfix update.
 
 Your could use the following:
 
-* **Hotfix-Upgrade**: Adding a Hotfix to Plone without changing anything else.
-* **Update**: Bugfix Version changes. E.g. `5.2.6` to `5.2.9` without additional changes.
-* **Upgrade**: Bugfix or Minor version change that gives you at least one new feature. E.g. `5.2.6` to `5.2.9` while adding `collective.easyform` or even `5.0.8` to `5.1.7` when you don't change anything else.
-* **Relaunch**: The design, content-structure or major version changes.
-* **Migration**: The process of getting a Database from one version of Plone to another version.
+Hotfix-Upgrade
+: Adding a Hotfix to Plone without changing anything else.
+
+Update
+: Bugfix version changes, for example, `5.2.6` to `5.2.9` without additional changes.
+
+Upgrade
+: Bugfix or minor version change that gives you at least one new feature.
+  For example, `5.2.6` to `5.2.9`, while adding `collective.easyform`, or even `5.0.8` to `5.1.7` when you don't change anything else.
+
+Relaunch
+: The design, content structure, or major version changes.
+
+Migration
+: The process of getting a database from one version of Plone to another version.
 
 To make it even more confusing people use *Major Update* or *Major Upgrade* when in fact they are doing a *Relaunch*.
 
@@ -96,7 +112,7 @@ Good communication to manage expectations and imaginations is key!
 Make sure that everyone knows what you are planning to do, no matter what you call it.
 
 It can help to approach every non-trivial upgrade as a relaunch.
-It is usually much easier to scale down expectations that up.
+It is usually much easier to scale down expectations than up.
 
 ```{note}
 Arguing for a required switch of a Python 2.7 installation of Plone 5.2.6 to Python 3 (while staying on 5.2.6) is hard without taking the opportunity to change the mobile navigation.
@@ -104,17 +120,19 @@ Arguing for a required switch of a Python 2.7 installation of Plone 5.2.6 to Pyt
 Suddenly it's a relaunch and everyone is excited.
 ```
 
+
 (migrations-major-changes-label)=
 
-## Dealing with Major Changes in Plone
+## Dealing with major changes in Plone
 
-In the history of Plone there were so far three major changes:
+In the history of Plone so far, there were three major changes:
 
 * Plone 5.0: Dexterity replaces Archetypes
 * Plone 5.2: Support for Python 3
-* Plone 6.0: Volto as new default frontend
+* Plone 6.0: Volto as the new default frontend
 
-Each of these major changes require special treatment during an upgrade that make upgrading much more complex.
+Each of these major changes requires special treatment during an upgrade that makes upgrading much more complex.
+
 
 (migrations-plone-5.0-dexterity-replaces-archetypes-label)=
 
@@ -138,9 +156,9 @@ This means that you can use Plone 5.2 to upgrade to Python 3.
 This requires that you run Plone in Python 3 and only use code that supports Python 3.
 It also requires that you migrate the database in a separate step from Python 2 to 3 while Plone is not running.
 
-See the upgrade guides {doc}`plone6docs:version-specific-migration/upgrade-to-python3` and {doc}`plone6docs:version-specific-migration/upgrade-zodb-to-python3` for detailed information on these steps.
+See the upgrade guides {doc}`plone6docs:backend/upgrading/version-specific-migration/upgrade-to-python3` and {doc}`plone6docs:backend/upgrading/version-specific-migration/upgrade-zodb-to-python3` for detailed information on these steps.
 
-Using [collective.exportimport](https://pypi.org/project/collective.exportimport/), you can export content from Python 2 and import it in Python 3.
+Using [`collective.exportimport`](https://pypi.org/project/collective.exportimport/), you can export content from Python 2 and import it in Python 3.
 
 
 (migrations-plone-6.0-volto-as-new-frontend-label)=
@@ -150,15 +168,16 @@ Using [collective.exportimport](https://pypi.org/project/collective.exportimport
 Plone 6.0 comes with a new default frontend called {term}`Volto`.
 It is written in React, and expects some subtle but important changes.
 
-See {ref}`backend-migrate-to-volto-label` for the specific migration steps.
+See {doc}`plone6docs:backend/upgrading/version-specific-migration/migrate-to-volto` for the specific migration steps.
+
 
 ### Transition periods for major changes
 
-To make these major changes easier to manage Plone allows a transition period for all of these:
+To make these major changes easier to manage, Plone provides a transition for all of these scenarios:
 
-* You can use Dexterity starting with Plone 4.0 and can use Archetypes until Plone 5.2 (as long as you use Python 2)
-* Plone 5.2 can run with Python 2.7 and with Python 3 so you can first upgrade to 5.2 in Python 2 and then migrate to Python 3.
-* Volto can be used with Plone 5.2 (even in 4.3 - please don't) and Plone 6 still has the Classic frontend which is unlikely to go away in the near future.
+* You can use Dexterity starting with Plone 4.0, and use Archetypes until Plone 5.2 (as long as you use Python 2).
+* Plone 5.2 can run with Python 2.7 and with Python 3, so you can first upgrade to 5.2 in Python 2 and then migrate to Python 3.
+* Volto can be used with Plone 5.2 (even in 4.3, but please don't) and Plone 6 still has the Classic UI frontend, which is unlikely to go away in the near future.
 
 
 ```{note}
@@ -166,35 +185,37 @@ Another hurdle for upgrades between major version is that they have different th
 
 * 4.x: Sunburst
 * 5.x: Barceloneta
-* 6.x: Pastanaga (Volto) / Barceloneta with Bootstrap 5 (Classic)
-
+* 6.x: Pastanaga (Volto) / Barceloneta with Bootstrap 5 (Classic UI)
 ```
+
 
 ### What is a complex migration?
 
-* Whenever you need to deal with one or more of the major changes in Plone
-* When you have to make changes to custom content or code
-* When you have to deal with outdated add-ons (e.g. LinguaPlone)
+* Whenever you need to deal with one or more of the major changes in Plone.
+* When you have to make changes to custom content or code.
+* When you have to deal with outdated add-ons, such as `LinguaPlone`.
+
 
 ## Migration strategies
 
 ### In-place migrations
 
-A in-place migration means the content and settings of a Plone installation are being updated while Plone is running.
+An in-place migration means the content and settings of a Plone installation are being updated while Plone is running.
 
-Inplace migration can get very complex if you need to deal with multiple important changes.
+In-place migrations can get very complex if you need to deal with multiple important changes.
 
 ```{image} _static/inplace-migration.png
 :alt: The different steps of a complex inplace-migration.
 ```
 
-These are discussed in the chapter {ref}`inplace-label`
+These are discussed in the chapter {doc}`inplace`.
+
 
 ### Export/Import Migrations
 
-This means you export all content and settings that you want to keep from an old site and import it to a empty new site.
+This means you export all content and settings that you want to keep from an old site and import it into an empty, new site.
 
-In export-import migrations you can shortcut most of the individual steps required for complex inplace migrations:
+In export-import migrations, you can shortcut most of the individual steps required for complex in-place migrations:
 
 ```{image} _static/exportimport-migration.png
 :alt: The shortcut of a exportimport-migration.
@@ -203,10 +224,9 @@ In export-import migrations you can shortcut most of the individual steps requir
 These are discussed in the chapter {ref}`exportimport-label`
 
 
-
 ## Dealing with problems and bugs
 
-* Search for your issue, you are unlikely the first who encountered it.
+* Search for your issue. It is unlikely that you are the first person to encounter it.
 * Ask in the Forum: https://community.plone.org/
 * Ask in the Chat: https://discord.gg/zFY3EBbjaj
 * Create a Ticket: https://github.com/plone/Products.CMFPlone/issues/
