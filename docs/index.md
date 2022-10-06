@@ -138,7 +138,7 @@ teaching/index
 
 {doc}`migrations/index`
 
-: Upgrading and migrating Plone sites using collective.exportimport and other methods
+: Upgrading and migrating Plone sites using `collective.exportimport` and other methods.
 
 {doc}`transmogrifier/index`
 

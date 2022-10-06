@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone migration best practices"
+    "property=og:description": "Plone migration best practices"
+    "property=og:title": "Plone migration best practices"
+    "keywords": "Plone, migration, best practices, training"
 ---
 
 (migration-best-practices-label)=
@@ -13,7 +13,6 @@ myst:
 
 *Migration best practices* is intended as a training to learn how to upgrade and migrate to the newest Plone Versions.
 It's both an online course and a sketch for an on-the-spot training.
-
 
 ```{toctree}
 ---
@@ -34,13 +33,10 @@ We attempt to include the most important parts of what we teach in the training.
 
 
 ```{seealso}
+Relevant sections of the plone documentation:
 
-Relevant sections of the plone documentation
-
-* {ref}`plone6docs:plone-upgrade-guide`
-* {ref}`plone6docs:backend-upgrading-index-label`
-* {ref}`plone6docs:backend-migrate-to-volto-label`
-* {ref}`plone6docs:backend-upgrade-plone-v60-label`
-
-
+* {doc}`plone6docs:upgrade/index`
+* {doc}`plone6docs:backend/upgrading/index`
+* {doc}`plone6docs:backend/upgrading/version-specific-migration/migrate-to-volto`
+* {doc}`plone6docs:backend/upgrading/version-specific-migration/upgrade-to-60`
 ```
