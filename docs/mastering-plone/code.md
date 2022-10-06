@@ -13,14 +13,20 @@ myst:
 - Add info and link to repository of volto package
 ```
 
-You can get the complete code for this training from [GitHub](https://github.com/collective/ploneconf.site).
+You can get the complete code for this training from GitHub.
+- The backend add-on [ploneconf.site](https://github.com/collective/ploneconf.site)
+- The frontend Volto app [volto-ploneconf](https://github.com/collective/volto-ploneconf)
 
-## The code-package
+## The code-packages
 
-The package [ploneconf.site](https://github.com/collective/ploneconf.site) contains the complete code for this training excluding exercises.
-It is automatically downloaded from GitHub when you run buildout.
+The add-on package [ploneconf.site](https://github.com/collective/ploneconf.site) contains the complete backend code for this training excluding exercises.
+It is automatically downloaded from GitHub when you run `make build` in your Plone backend set up from {doc}`instructions`.
 
-The master branch of that repository holds the code of the final chapter of this training.
+The frontend app [volto-ploneconf](https://github.com/collective/volto-ploneconf) holds the code for the frontend excluding exercises.
+As explained in {doc}`instructions`, it is to be installed side by side with the backend in a folder `/frontend/`.
+Optional frontend add-ons are configured here in `packages.json`.
+
+The default branches of these repositories hold the code of the final chapter of the training.
 Each chapter that adds code to the package has a tag that can be used to get the code for that chapter.
 
 ## Getting the code for a certain chapter
@@ -66,7 +72,11 @@ This does two things:
 
 ## Tags
 
-These are the tags for which there is code:
+These are the tags of the backend add-on for which there is code:
+
+```{todo}
+Update list of tags in backend add-on.
+```
 
 | Chapter                        | Tag-Name                 |
 | ------------------------------ | ------------------------ |
