@@ -59,6 +59,12 @@ manual: bin/python
 presentation: bin/python  ## Build html for presentation
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b html -t presentation . $(BUILDDIR)/presentation
 
+.PHONY: livepresentation
+livepresentation: bin/python  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
+	cd "$(DOCS_DIR)" && $(SPHINXAUTOBUILD) \
+		--ignore "*.swp" \
+		-b html -t presentation . "$(BUILDDIR)/presentation" $(SPHINXOPTS) $(O)
+
 .PHONY: dirhtml
 dirhtml: bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
