@@ -31,7 +31,7 @@ Some technologies and tools we use during the training:
 - Yarn https://yarnpkg.com
 - JSX
 - Redux https://redux.js.org
-- React-Router https://reactrouter.com/
+- React-Router https://reactrouter.com/en/main
 
 (react-intro-what-to-expect-label)=
 

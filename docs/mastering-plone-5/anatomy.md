@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "The Anatomy of Plone"
+    "property=og:description": "The Anatomy of Plone"
+    "property=og:title": "The Anatomy of Plone"
+    "keywords": "history, Plone, ZODB, CMF, Zope, Pyramid, Bluebream"
 ---
 
 (plone5-anatomy-label)=
@@ -23,7 +23,7 @@ Topics covered:
 - Pyramid
 - Bluebream
 
-Plone started as a extension for CMF, which is a extension for Zope. Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
+Plone started as an extension for CMF, which is a extension for Zope. Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
 
 ## Database
 

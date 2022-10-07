@@ -26,6 +26,6 @@ zpt
 - `buildout_1` is referenced in `mastering-plone/code.md:95`, but does not exist
 - `zpt_2` is referenced in `mastering-plone/code.md:99`, but does not exist
 - fill in meta data
-- distinction: build for training.plone.org and presentation during training
+- distinction: build for `training.plone.org` and presentation during training
 - Replace `mr.bob` with `plonecli`
 ```

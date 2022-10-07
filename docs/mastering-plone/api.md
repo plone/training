@@ -190,8 +190,8 @@ It aggregates tracebacks from many sources and (here comes the killer feature) e
 
 
 ```{seealso}
-- ["What You Need To Know About Python Debugging" by Philip Bauer](https://youtu.be/_OB6VlYKZkU)
-- ["PDB Like a Pro" by Philip Bauer](https://youtu.be/yOG36Ae_TJ0)
+- ["What You Need To Know About Python Debugging" by Philip Bauer](https://www.youtube.com/watch?v=_OB6VlYKZkU&feature=youtu.be)
+- ["PDB Like a Pro" by Philip Bauer](https://www.youtube.com/watch?v=yOG36Ae_TJ0&feature=youtu.be)
 ```
 
 ## Exercise
