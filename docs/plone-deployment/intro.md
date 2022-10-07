@@ -39,7 +39,9 @@ Linux
 
 Major distributions
 
-> Ubuntu LTS is supported for the server setup.
+> Ubuntu LTS is supported for the server setup and in the training.
+> Debian is very similar.
+> Other distributions with recent packages might work too.
 
 Platform packages
 
