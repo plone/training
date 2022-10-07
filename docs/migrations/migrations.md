@@ -39,7 +39,7 @@ Security support
 : Plone security hotfixes will be made available for this series.
   For more information, see the [security update policy](https://plone.org/security/update-policy).
 
-Currently, Plone 6.0.x is under maintenance support and Plone 5.2.x is under security support.
+From the moment Plone 6 is released, Plone 6.0.x will be under maintenance support and Plone 5.2.x under security support.
 That means new features are being developed for Plone 6.1.x, and bugfixes are being developed for Plone 6.0.x.
 
 Plone intends to provide stable releases (for example, 5.2.8 is a stable release of the 5.2.x series).
@@ -49,6 +49,7 @@ Only bugfixes and changes that extend or improve an existing feature—as long a
 ### What's in a Plone version?
 
 In fact, it is even more complicated, because Plone consists of about 250 separate Python packages, all of which have their own versions and history.
+Many of these python packages are developed and released 'inside' the Plone and Zope projects, but Plone also depends on more generic Python packages developed by third parties.
 A Plone release such as Plone 5.2.6 (https://dist.plone.org/release/5.2.6/) pins all of these packages to a specific version, which altogether comprise a Plone version.
 
 Each Plone version has a detailed change log that lists all changes that made it into that release, as compared to the previous release.
@@ -78,6 +79,8 @@ Would become the following.
 extends =  https://dist.plone.org/release/5.2.9/versions.cfg
 ```
 
+After changing the versions files in buildout, you also need to run buildout, which reads the versions and downloads the updated packages fro PyPI into your environment.
+
 But you not only need to change the version of Plone you use, but you also need to update the database.
 
 Since a Plone site stores content and settings in its database, these may need to be modified to reflect changes in the logic or configuration of Plone.
@@ -101,7 +104,7 @@ Upgrade
   For example, `5.2.6` to `5.2.9`, while adding `collective.easyform`, or even `5.0.8` to `5.1.7` when you don't change anything else.
 
 Relaunch
-: The design, content structure, or major version changes.
+: The design, graphical appearance/theme, used frontend libraries (like bootstrap), content or content structure
 
 Migration
 : The process of getting a database from one version of Plone to another version.
