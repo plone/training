@@ -1,17 +1,17 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "What's New in Plone 5, 5.1 and Plone 5.2"
+    "property=og:description": "What's New in Plone 5, 5.1 and Plone 5.2"
+    "property=og:title": "What's New in Plone 5, 5.1 and Plone 5.2"
+    "keywords": "New, Plone, 5, 5.1, 5.2, release, notes, changes"
 ---
 
 (plone5-plone5-label)=
 
 # What's New in Plone 5, 5.1 and Plone 5.2
 
-Plone 5.0 was released in September 2015. Plone 5 was a major release, that changed the content type framework, the user interface and the default design.
+Plone 5.0 was released in September 2015. Plone 5 was a major release, that changed the content type framework, the user interface, and the default design.
 
 Plone 5.1 was released in October 2017 and holds a couple of smaller improvements.
 
@@ -25,9 +25,9 @@ If you are already familiar with Plone 5.0, 5.1 and 5.2 you can skip this sectio
 
 The default theme of Plone 5.x is called [Barceloneta](https://github.com/plone/plonetheme.barceloneta/)
 
-It is a Diazo theme, meaning it uses {py:mod}`plone.app.theming` to insert the output of Plone into static html/css.
+It is a Diazo theme, meaning it uses {py:mod}`plone.app.theming` to insert the output of Plone into static HTML/CSS.
 
-It uses html5, so it uses `<header>`, `<nav>`, `<aside>`, `<section>`, `<article>` and `<footer>` for semantic html.
+It uses HTML5, so it uses `<header>`, `<nav>`, `<aside>`, `<section>`, `<article>` and `<footer>` for semantic html.
 
 The theme is mostly built with [LESS](https://lesscss.org/) (lots of it!)
 and uses the same grid system as [Bootstrap](https://getbootstrap.com/docs/4.4/layout/grid/).
@@ -69,7 +69,7 @@ While Plone 4 used Archetypes all default types are based on Dexterity in Plone 
 
 ## Resource Registry
 
-The resource registry allows you to configure and edit the static resources (js, css) of Plone. It replaces the old javascript and css registries. And it can be used to customize the theme by changing the variables used by LESS or overriding LESS files.
+The resource registry allows you to configure and edit the static resources (JavaScript, CSS) of Plone. It replaces the old JavaScript and CSS registries. And it can be used to customize the theme by changing the variables used by LESS or overriding LESS files.
 
 (plone5-plone5-chameleon-label)=
 

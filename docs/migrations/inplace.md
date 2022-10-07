@@ -361,7 +361,7 @@ Inspect the log to identify some of the major changes for Plone 6:
 ````
 
 After that step you should check if you have add-ons that need to be upgraded in the add-ons control panel `/@@prefs_install_products_form`.
-Migration steps for add-ons are not in `plone.app.upgrade` but are contained in add-on and maintained by its developers.
+Migration steps for add-ons are not in `plone.app.upgrade`, but are contained in an add-on and are maintained by its developers.
 
 In this example `collective.easyform` can be upgraded (from version 3.2.0 to 4.1.0):
 
@@ -509,7 +509,8 @@ After packing the database you can:
 * The migration can take a long time, especially the migration from Archetypes to Dexterity can take up to 12 hours.
   Consider using an export/import migration instead since that is much faster.
 * Your site raises errors due to invalid data. See [Growing pains: PosKeyErrors and other malaises](https://www.youtube.com/watch?v=SwxN3BBxAM8) and https://www.starzel.de/blog/zodb-debugging
-* Migrations are hungry for resources: You might run out of disk space or memory.
+* Migrations are hungry for resources.
+  You might run out of disk space or memory.
 
 
 ## Further reading
