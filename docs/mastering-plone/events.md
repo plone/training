@@ -27,12 +27,12 @@ Code for the beginning of this chapter:
 
 ```shell
 # frontend
-git checkout talklist
+git checkout registry
 ```
 
 ```shell
 # backend
-git checkout talklist
+git checkout registry
 ```
 
 Code for the end of this chapter:

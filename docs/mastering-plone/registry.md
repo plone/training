@@ -17,12 +17,12 @@ Code for the beginning of this chapter:
 
 ```shell
 # frontend
-git checkout event
+git checkout talklist
 ```
 
 ```shell
 # backend
-git checkout event
+git checkout talklist
 ```
 
 Code for the end of this chapter:
