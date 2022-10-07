@@ -28,7 +28,7 @@ Now you need to restart Volto to make Volto aware of the new file. From now on c
 Edit the new file and add this:
 
 ```less
-@fontName: 'Open Sans';
+@fontName: "Roboto";
 ```
 
 You can set it to any Google font available, and the online version of the font will be used.

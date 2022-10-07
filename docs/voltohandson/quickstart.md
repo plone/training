@@ -38,7 +38,7 @@ In each terminal session you should be in your project folder `volto-hands-on-tr
 To run your Volto site we will be using the Plone docker image with all extensions that are necessary to work with Volto installed. Start Plone by running
 
 ```shell
-docker run -p 8080:8080 plone/plone-backend:6.0.0a1
+docker run -p 8080:8080 -e SITE="Plone" -e ADDONS="plone.app.multilingual" plone/plone-backend:6.0.0b3
 ```
 
 Keep that process running during the whole training in one of your console windows.
