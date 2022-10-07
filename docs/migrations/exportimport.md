@@ -415,7 +415,7 @@ The output from the export and import logs should tell you if you need to deal w
 
 `collective.exportimport` has a couple of hooks that you can use in your own packages `contentexport` and `contentimport`.
 
-This training continues by inspecting, discussing and using the [examples from the documentation of exportimport](https://github.com/collective/collective.exportimport/#faq-tips-and-tricks)
+This training continues by inspecting, discussing and using the [examples from the documentation of exportimport](https://github.com/collective/collective.exportimport#faq-tips-and-tricks)
 
 Here are some of the discussed examples:
 

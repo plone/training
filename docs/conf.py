@@ -119,6 +119,8 @@ linkcheck_ignore = [
     "https://plone.github.io/mockup/dev/#pattern/autotoc",
     "https://plone.github.io/mockup/dev/#pattern/modal",
     "https://plone.github.io/mockup/dev/#pattern/moment",
+    "https://github.com/collective/collective.exportimport#faq-tips-and-tricks",
+    "https://github.com/plone/plone.app.contenttypes/tree/2.2.x#migration",
     # These anchors are probably rewritten by JavaScript
     "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
     "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
