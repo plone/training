@@ -28,7 +28,7 @@ Installs the Plone 6 backend using a pip-based installation. This approach makes
 One example of such extension would be
 
 ```Dockerfile
-FROM plone/plone-backend:6.0.0b2
+FROM plone/plone-backend:6.0.0b3
 
 RUN ./bin/pip install "pas.plugins.authomatic --use-deprecated legacy-resolver"
 ```

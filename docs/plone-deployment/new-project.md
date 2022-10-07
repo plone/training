@@ -32,3 +32,15 @@ cookiecutter gh:collective/cookiecutter-plone-starter
 ### Makefile {file}`/Makefile`
 
 TODO: Explain why we use make
+
+
+## Installing the codebase and dependencies
+
+On the root of the project repository, run:
+
+```{code-base} shell
+make install
+```
+```{note}
+This command could take a long time on the first time you run it, as it will download and install all Plone dependencies and also all NPM packages used by Volto.
+```

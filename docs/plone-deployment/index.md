@@ -21,7 +21,7 @@ Many sections may be zipped through in a class, noting to students that the full
 ```
 
 ```{toctree}
-:caption: Ansible
+:caption: Deployment
 :hidden: true
 :maxdepth: 3
 
@@ -30,8 +30,17 @@ setup
 plone-stack
 plone-docker-images
 new-project
+edit-project
+provision
+deploy
 ```
-
-```{seealso}
-<https://docs.plone.org/manage/deploying/>
+```
+intro
+setup: JK review
+plone-stack: JK review
+plone-docker-images: JK review
+new-project: EA
+edit-project: JK
+provision: EA
+deploy: EA
 ```

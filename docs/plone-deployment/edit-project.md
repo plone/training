@@ -7,18 +7,8 @@ myst:
     "keywords": ""
 ---
 
-# Developing the Project
+# Editing your project
 
-## Installing the codebase and dependencies
-
-On the root of the project repository, run:
-
-```{code-base} shell
-make install
-```
-```{note}
-This command could take a long time on the first time you run it, as it will download and install all Plone dependencies and also all NPM packages used by Volto.
-```
 
 ## Starting the servers
 
@@ -39,3 +29,20 @@ On a terminal, run the following code to start the backend server:
 ```{code-base} shell
 make start-frontend
 ```
+
+## Local access
+
+http://training.localhost:3000
+
+
+## Adding OAuth Support
+
+First you need to create a new application on GitHub ...
+
+### Backend
+
+Add pas.plugins.authomatic
+
+### Frontend
+
+Add @plonecollective/volto-authomatic
