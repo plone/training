@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "How to use the listing block with custom criterion"
-    "property=og:description": "How to use the listing block with custom criterion"
+    "description": "How to use the listing block with a custom criterion"
+    "property=og:description": "How to use the listing block with a custom criterion"
     "property=og:title": "Creating a dynamic frontpage with Volto blocks"
-    "keywords": "catalog, index, listing, criteria"
+    "keywords": "Volto, catalog, index, listing, criteria"
 ---
 
 (volto-frontpage-label)=
