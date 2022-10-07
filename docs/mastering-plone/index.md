@@ -55,6 +55,7 @@ eggs1
 dexterity
 dexterity_2_talk
 dexterity_reference
+volto_development
 volto_talkview
 behaviors_1
 volto_frontpage
