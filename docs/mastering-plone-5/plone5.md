@@ -11,7 +11,7 @@ myst:
 
 # What's New in Plone 5, 5.1 and Plone 5.2
 
-Plone 5.0 was released in September 2015. Plone 5 was a mayor release, that changed the content type framework, the user interface and the default design.
+Plone 5.0 was released in September 2015. Plone 5 was a major release, that changed the content type framework, the user interface and the default design.
 
 Plone 5.1 was released in October 2017 and holds a couple of smaller improvements.
 

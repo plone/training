@@ -11,9 +11,9 @@ myst:
 
 # What's New in Plone?
 
-This is a list of mayor changes in the last mayor Plone versions.
+This is a list of major changes in the last major Plone versions.
 
-Plone 5.0 was released in September 2015. Plone 5 was a mayor release, that changed the content type framework, the user interface and the default design.
+Plone 5.0 was released in September 2015. Plone 5 was a mayor release, that changed the default content type framework, the default theme and the way css and Javascript resources are bundled and delivered to the browser
 
 Plone 5.1 was released in October 2017 and holds a couple of smaller improvements.
 

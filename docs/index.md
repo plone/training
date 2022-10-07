@@ -34,6 +34,7 @@ ttw/index
 solr/index
 workflow/index
 angular/index
+migrations/index
 transmogrifier/index
 gatsby/index
 advanced-python/index
@@ -134,6 +135,10 @@ teaching/index
 {doc}`workflow/index`
 
 : How to create and make optimum use of custom Plone workflows
+
+{doc}`migrations/index`
+
+: Upgrading and migrating Plone sites using `collective.exportimport` and other methods.
 
 {doc}`transmogrifier/index`
 
