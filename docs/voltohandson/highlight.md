@@ -97,4 +97,4 @@ To style the block uses this styling:
 }
 ```
 
-Now your Block should look at least very similar to the original on plone.org.
+Now your Block should now look at least very similar to the original on plone.org.
