@@ -112,11 +112,13 @@ To help keeping paths for importing components clean we use index files in sever
 ```js
 import HighlightBlockEdit from './Blocks/highlight/Edit';
 import HighlightBlockView from './Blocks/highlight/View';
+
+export { HighlightBlockEdit, HighlightBlockView };
 ```
 
 ## Blocks settings
 
-We need to configure the project to make it aware of a new block by adding it to the object configuration for that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser.
+We need to configure the project to make it aware of a new block by adding it to the object configuration for that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser. This will gain be done in the projects config file
 
 Import those before the `import '@plone/volto/config';` line:
 

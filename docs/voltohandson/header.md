@@ -241,3 +241,7 @@ You have to place the replacing component in the same original folder path insid
 ```{note}
 Component shadowing is very much like the good old Plone technique called "JBOT" ("just a bunch of templates"), but you can customize virtually any module in Volto, including actions and reducers, not only components.
 ```
+
+## Page content
+
+To have the header look as much as the plone.org page as possible you now can create the pages "get started", "community" and plone foundation to be featured in the navigation.
