@@ -196,6 +196,41 @@ React.useEffect(() => {
 }, [dispatch]);
 ```
 
+#### Search options
+
+- The default representation for search results is a summary that contains only the most basic information like **title, review state, type, path and description**.
+- With the option `fullobjects` all available field values are present in the fetched data.
+- Another option is `metadata_fields`, which allows to get more attributes (selection of Plone catalog metadata columns) than the default search without a performance expensive fetch via option fullobjects.
+
+Possible **sort criterions** are indices of the Plone catalog.
+
+
+```{code-block} jsx
+:linenos:
+:emphasize-lines: 10
+
+const dispatch = useDispatch();
+
+React.useEffect(() => {
+  dispatch(
+    searchContent(
+      '/',
+      {
+        portal_type: ['News Items'],
+        review_state: 'published',
+        sort_on: "effective",
+      },
+      'sponsors',
+    ),
+  );
+}, [dispatch]);
+```
+
+```{seealso}
+[Plone REST API Search](plone6docs:plone.restapi/docs/source/endpoints/searching)
+```
+
+
 (volto-component-store-label)=
 
 ### Connection of component and store

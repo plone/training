@@ -53,7 +53,6 @@ Topics covered:
 - Vocabularies
 - Control panels
 
-If you stop by here for more tips, not attending this training: Make sure you upgrade to Volto 14 or later.
 
 ## Introduction
 
@@ -91,7 +90,7 @@ This UI for the registry is not yet available in the frontend.
 
 ## Registry Records
 
-In {doc}`volto_frontpage` you already added a criterion usable for Collections in {file}`profiles/default/registry/querystring.xml`.
+In {doc}`volto_frontpage` you already added a criterion usable for listing blocks in {file}`profiles/default/registry/querystring.xml`.
 This setting is stored in the registry.
 
 Let's look at existing values in the registry.
@@ -321,6 +320,25 @@ Example `types_of_talk`:
 ]
 ```
 
+If the name "Lightning-Talk" needs to be changed to "Short talks", the talks marked as lightning talks do show up correct, as the value saved on the talks is the token "lightning-talk" which does not change ever.
+
+We introduced a new field `JSONField`.
+As the name says, it describes a field that will be populated with JSON data.
+The field is fitted with a schema describing the valid form of the field values.
+
+```python
+    directives.widget(
+        "audiences",
+        frontendOptions={
+            "widget": "vocabularyterms",
+        },
+    )
+```
+
+The frontendOptions forces Volto to display on editing the field with a widget prepared for vocabulary terms.
+More correct, it forces Volto to lookup the widget in `Volto's` widget mapping to find the corresponding widget.
+
+
 We now register this schema `IPloneconfSettings` for the registry.
 Add the following to {file}`profiles/default/registry/main.xml`.
 With this statement the registry is extended by one record per `IPloneconfSettings` schema field.
@@ -386,7 +404,7 @@ Now you will add a custom control panel to edit all settings related to our pack
 To register a control panel for the frontend and Plone Classic you need quite a bit of boiler-plate:
 
 ```{code-block} python
-:emphasize-lines: 1-2, 4, 156-175
+:emphasize-lines: 1-2, 4, 156-176
 :linenos:
 
 from plone import schema
@@ -609,12 +627,11 @@ Add a file {file}`profiles/default/controlpanel.xml`:
 </object>
 ```
 
-After applying the profile (for example, by reinstalling the package), your control panel shows up.
+After applying the profile (for example, by reinstalling the package), your control panel shows up on <http://localhost:3000/controlpanel/ploneconf-controlpanel>
 
 ```{figure} _static/volto_ploneconf_controlpanel_overview.png
 ```
 
-The address is `http://localhost:3000/controlpanel/ploneconf-controlpanel`
 
 ```{figure} _static/volto_ploneconf_controlpanel.png
 ```
@@ -622,6 +639,8 @@ The address is `http://localhost:3000/controlpanel/ploneconf-controlpanel`
 As you can see in the control panel configlet for the `ploneconf.site` package, the entries can be modified and reordered. Changes are reflected in the registry as the configlet is registered as a wrapped edit form of the `IPloneconfSettings` schema.
 
 ````{note}
+**Frontend widgets**
+
 A short remark on the frontend widget.
 We want the `VocabularyTermsWidget` to be applied.
 Thus we specify a hint, using a so-called "tagged value", the name of the frontend widget to be applied for the three control panel fields in our backend schema.
@@ -635,6 +654,11 @@ directives.widget(
     },
 )
 ```
+This is also the way you would configure a content type schema, where you may want to override the default widget.
+
+A widget component in your frontend package would be mapped to a key "mywidget".
+In your content type schema you would add a widget directive with 
+`frontendOptions={"widget": "mywidget"}`
 ````
 
 (vocabularies-label)=
@@ -658,6 +682,7 @@ Create a file {file}`vocabularies.py` and write code that generates vocabularies
 
 ```{code-block} python
 :linenos:
+:emphasize-lines: 13-15
 
 from plone import api
 from zope.interface import provider
@@ -697,6 +722,30 @@ def RoomsVocabularyFactory(context):
         [[item["token"], item["token"], item["titles"][lang]] for item in items]
     )
 ```
+
+The `SimpleVocabulary.fromItems()` is a method that takes the list of dictionaries of vocabulary terms
+
+```python
+[
+    {
+        "token": "talk",
+        "titles": {
+            "en": "Talk",
+            "de": "Vortrag",
+        },
+    },
+    {
+        "token": "lightning-talk",
+        "titles": {
+            "en": "Lightning-Talk",
+            "de": "Lightning-Talk",
+        },
+    },
+]
+```
+
+and creates a Zope vocabulary.
+This `SimpleVocabulary` instance has methods that Plone uses to display select widgets, display the rendered content type instance according the user language, etc..
 
 You can now register these vocabularies as named utilities in {file}`configure.zcml`:
 
@@ -998,5 +1047,5 @@ By the way: When using a vocabulary you can also drop the annoying `item.title |
 
 ## Summary
 
-- You successfully combined the registry, a control panel and vocabularies to allow managing field options by admins.
-- It seems like a lot but you will certainly use dynamic vocabularies, control panels and the registry in all of your future Plone projects in one way or another.
+- You successfully combined the registry, a control panel and vocabularies to allow managing field options by site administrators.
+- It seems like a lot but you will certainly use dynamic vocabularies, control panels and the registry in most of your future Plone projects in one way or another.

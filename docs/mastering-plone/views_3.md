@@ -17,8 +17,6 @@ myst:
 :class: logo
 ```
 
-Solve the same tasks in the React frontend in chapter {doc}`volto_talk_listview`
-
 ---
 
 Get the code! ({doc}`More info <code>`)
