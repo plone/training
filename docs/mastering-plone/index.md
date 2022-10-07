@@ -61,9 +61,9 @@ behaviors_1
 volto_frontpage
 api
 ide
-custom_search
-events
 registry
+events
+custom_search
 upgrade_steps
 volto_testing
 thirdparty_behaviors
