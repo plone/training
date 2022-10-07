@@ -84,4 +84,14 @@ While Gitlab with it's container registry works the same, we do not include it i
 
 ## Cookiecutter
 
-- Install `cookiecutter` on your main Python installation with `pip install cookiecutter`
+- Install or upgrade {term}`Cookiecutter` in your user's Python:
+
+```shell
+pip install --user --upgrade cookiecutter
+```
+
+## Make
+
+{term}`Make` comes installed on most Linux distributions.
+On macOS, you must first [install Xcode](https://developer.apple.com/xcode/resources/), then install its command line tools.
+On Windows, it is strongly recommended to [Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install), which will include `make`.

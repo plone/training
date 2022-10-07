@@ -54,7 +54,7 @@ TODO: Add image here
 
 ## Check Local access
 
-http://training.localhost:3000
+http://plone-conference.localhost:3000
 
 ## Stopping the servers
 
