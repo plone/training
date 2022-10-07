@@ -31,8 +31,9 @@ cookiecutter gh:collective/cookiecutter-plone-starter
 
 ### Makefile {file}`/Makefile`
 
-TODO: Explain why we use make
-
+We use [make](https://www.gnu.org/software/make/) here because it is well understood, just works, is mature and wide spread available.
+For build and deployment this is an important criteria.
+Future plans are to use make's dependency management and include capabilities more here, and in the dependent Makefiles.
 
 ## Installing the codebase and dependencies
 
