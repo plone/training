@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "Learn the basics about theming in Volto"
-    "property=og:description": "Learn the basics about theming in Volto"
-    "property=og:title": "Theming"
-    "keywords": "Plone, Volto, Training, Theme, Theming"
+    'description': 'Learn the basics about theming in Volto'
+    'property=og:description': 'Learn the basics about theming in Volto'
+    'property=og:title': 'Theming'
+    'keywords': 'Plone, Volto, Training, Theme, Theming'
 ---
 
 (voltohandson-default-font-label)=
@@ -30,7 +30,7 @@ Now you need to restart Volto to make Volto aware of the new file. From now on c
 Edit the new file and add this:
 
 ```less
-@fontName: "Open Sans";
+@fontName: 'Roboto';
 ```
 
 You can set it to any Google font available, and the online version of the font will be used.
