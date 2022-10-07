@@ -59,7 +59,6 @@ volto_development
 volto_talkview
 behaviors_1
 volto_frontpage
-volto_talk_listview
 api
 ide
 custom_search
