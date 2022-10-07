@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "Define what the page you are creating should look like in the end of the training"
-    "property=og:description": "Define what the page you are creating should look like in the end of the training"
-    "property=og:title": "Project requirements"
-    "keywords": "Plone, Volto, Training, Requirements"
+    'description': 'Define what the page you are creating should look like in the end of the training'
+    'property=og:description': 'Define what the page you are creating should look like in the end of the training'
+    'property=og:title': 'Project requirements'
+    'keywords': 'Plone, Volto, Training, Requirements'
 ---
 
 (voltohandson-customcss-label)=
@@ -26,9 +26,8 @@ These are the tasks we will go through:
 - Set up CSS basics
 - Create the header and the footer
 - Create a prominent highlight element that links to the Plone conf website
-- Create a block that links to the plone Download page
-- Create new listing block template to show event items in a grid view
--
+- Create a block that links to the plone download page
+- Create new listing block template to show event items in a grid like view with buttons on the side
 
 ## Training ressources and assets
 
