@@ -12,6 +12,10 @@ myst:
 
 # Reusable Features packaged in add-ons
 
+We will enhance the Plone Conference site with the following behavior:
+
+Talks are submitted. The jury votes for talks to be accepted or rejected.
+
 ```{card}
   In this part you will:
   
@@ -34,9 +38,7 @@ myst:
   - {doc}`embed`
 ```
 
-We will enhance the Plone Conference site with the following behavior:
-
-Talks are submitted. Reviewers vote for talks to be accepted or rejected.
+Jury members shall vote for talks to be accepted or rejected.
 
 For this we need:
 
@@ -97,8 +99,8 @@ Open `instance.yml` and add the add-on to tell Plone to load your add-on. With t
 To apply the changes of the configuration, please build and restart the backend with:
 
 ```shell
-make build-backend
-make start-backend
+make build
+make start
 ```
 
 The add-on can now be activated for our site `Plone`.
@@ -119,14 +121,16 @@ Now the frontend add-on can be generated. We call it 'volto-training-votable' to
 
 ```shell
 cd frontend
-yo @plone/volto:addon volto-training-votable
+yo @plone/volto:addon
 ```
 
-We are now ready to implement our voting behavior in our new frontend add-on created in frontend/volto-training-votable/.
-The generator not only created the add-on directory, but also made necessary changes in our frontend project to integrate the new code.
+Choose "@plone-collective/volto-training-votable" as name for your add-on.
 
-For a restart of the frontend we would run a
+We are now ready to implement our voting behavior in our new frontend add-on created in `frontend/src/addons/volto-training-votable/`.
+The generator not only created the add-on directory, but also made necessary changes in our frontend project to integrate the new code in our Volto app.
+
+For a restart of the frontend we run a
 
 ```shell
-make start-frontend
+yarn start
 ```

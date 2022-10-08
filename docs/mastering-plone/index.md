@@ -70,7 +70,6 @@ thirdparty_behaviors
 dexterity_3
 volto_components_sponsors
 volto_addon
-volto_custom_block
 volto_custom_addon
 volto_custom_addon2
 user_generated_content
@@ -82,7 +81,6 @@ volto_actions
 reusable
 embed
 deployment_code
-deployment_sites
 restapi
 future_of_plone
 optional

@@ -9,6 +9,11 @@ myst:
 
 # Releasing Your Code
 
+```{todo}
+- Release frontend add-on: See https://www.npmjs.com/package/release
+- How to use released an unreleased frontend add-on
+```
+
 > - zest.releaser
 > - pypi-test egg deployment
 

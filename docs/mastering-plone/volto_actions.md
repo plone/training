@@ -39,8 +39,8 @@ git checkout REST-API-frontend-roundtrip
 (volto-actions-overview-label)=
 
 The Conference team placed a call for proposals.
-Now the team wants to select talks.
-To support this process we add a section to talk view from chapter {doc}`volto_talkview` where team members can vote for the talk.
+Now the jury wants to select talks.
+To support this process we add a section to talk view from chapter {doc}`volto_talkview` where jury members can vote for a talk.
 
 Topics covered:
 
@@ -129,8 +129,9 @@ export default Voting;
 On mount of the component the action `getVotes` is dispatched to fetch the data by `dispatch(getVotes(location.pathname));`.
 The action fetches the data.
 The corresponding reducer writes the data in global app store.
-The component `Voting` as other components can now access the data from the app store by `const votes = useSelector((store) => store.votes);`.
-The constant `votes` holds the necessary data for the current talk and user in a dictionary like
+
+The component `Voting` as well as any other component can now access the data from the global app store by `const votes = useSelector((store) => store.votes);`.
+Therefore the constant `votes` holds the necessary data for the current talk and user in a dictionary like
 
 ```{code-block} jsx
 :linenos:
@@ -152,9 +153,11 @@ See the condition of the rendering function.
 We receive all needed info for displaying from the one request of data including the info about the permission of the current user to vote.
 Why do we need only one request? We designed the endpoint `votes` to provide all necessary information.
 
+### actions, reducers and the app store
+
 Before we include the component _Voting_ in talk view from chapter {doc}`volto_talkview`, some words about actions and reducers. The action `getVotes` fetches the data. The corresponding reducer writes the data in global app store.
 
-The action `getVotes` is defined by the request method `get`, the address of the endpoint `votes` an and an identifier for the corresponding reducer to react.
+The action `getVotes` is defined by the request method `get`, the address of the endpoint `votes` and an identifier `GET_VOTES` for the corresponding reducer to react.
 
 ```{code-block} jsx
 :linenos:
@@ -170,7 +173,7 @@ export function getVotes(url) {
 }
 ```
 
-The reducer writes the data fetched by its action to app store.
+The reducer writes the data fetched by its action to the app store.
 
 ```{code-block} jsx
 :emphasize-lines: 20
@@ -231,15 +234,17 @@ votes: {
 }
 ```
 
-This data written by the reducer is the response of the request to `http://localhost:3000/++api++/talks/python-in-arts/@votes` which is proxied to `http://localhost:8080/Plone/talks/python-in-arts/@votes`, if your backend is available at `http://localhost:8080/Plone`.
-It is the data that the adapter `Vote` from `starzel.votable_behavior` `behavior/voting.py` provides and exposes via the REST API endpoint `@votes`.
+This data written by the reducer is the response of the request to `http://localhost:3000/++api++/talks/python-in-arts/@votes` which is proxied to `http://localhost:8080/Plone/talks/python-in-arts/@votes`.
+
+The response is the data that the adapter `training.votable.behaviors.votable.Votable`  provides and exposes via the REST API endpoint `@votes`.
 
 The component gets access to this store entry by `const votes = useSelector((store) => store.votes);`
 
-Now we can include the component _Voting_ in talk view from chapter {doc}`volto_talkview`.
+Now we can include the component `Voting` in a talk view from chapter {doc}`volto_talkview`.
 
 ```{code-block} jsx
 :linenos:
+:emphasize-lines: 1,15
 
 import { Voting } from '~/components';
 
@@ -346,7 +351,7 @@ export function vote(url, vote) {
 }
 ```
 
-As the corresponding reducer updates the app store, the subscribed component `Voting` **reacts by updating itself**. The subsription is done by just
+As the corresponding reducer updates the app store, the subscribed component `Voting` **reacts by updating itself**. The subsription is done by:
 
 ```jsx
 const votes = useSelector((store) => store.votes);
@@ -354,7 +359,8 @@ const votes = useSelector((store) => store.votes);
 
 The component updates itself, it renders with the updated info about if the user has already voted, about the average vote and the total number of already posted votes. So the buttons disappear as we made the rendering conditional to `votes?.already_voted` which says if the current user has already voted.
 
-Why is it possible that this info about the current user has been fetched by `getVotes`? Every request is done with the token of the logged in user.
+Why is it possible that this info about the current user has been fetched by `getVotes`?
+Every request of a Volto app is done with the token of the logged in user.
 
 The authorized user can now vote:
 
