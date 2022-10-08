@@ -39,7 +39,6 @@ intro
 setup: JK review
 plone-stack: JK review
 plone-docker-images: JK review
-new-project: EA
 edit-project: JK
 provision: EA
 deploy: EA
