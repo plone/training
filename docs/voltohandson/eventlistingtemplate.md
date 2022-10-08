@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Learn How to code a custom template for the listing block"
+    "property=og:description": "Learn How to code a custom template for the listing block"
+    "property=og:title": "Events listing template"
+    "keywords": "Plone, Volto, Training, Block, Listing"
+---
+
 # Events listing template
 
 One of the most used blocks in Volto is the listing block. It allows editors to automatically list contents on a page that fit a certain criteria (e.g. all pages of a specific content type). To always display content in the most visually useful way (you might want a list of upcoming events look different to a list of the latest projects of your company) the listing has the possibility to appear in different visual templates. In vanilla volto those are the `default`, `summary` and `image gallery` templates. To learn how to create a new listing template we will recreate the Plone upcoming events listing from a bit further down the page.
@@ -69,11 +78,10 @@ To know style the Template according replace the Code from `eventTemplate.jsx` w
 import React from "react";
 import { Grid } from "semantic-ui-react";
 import { UniversalLink } from "@plone/volto/components";
-import { injectLazyLibs } from "@plone/volto/helpers/Loadable/Loadable";
+import moment from "moment";
 
-const eventTemplate = ({ items, moment: momentlib }) => {
-  const moment = momentlib.default;
-
+const eventTemplate = ({ items }) => {
+  console.log(items);
   return (
     <Grid columns={3}>
       <Grid.Column width={4}>
@@ -89,7 +97,7 @@ const eventTemplate = ({ items, moment: momentlib }) => {
             Add an event
           </UniversalLink>
           <br />
-          <UniversalLink href="/add?type=Sprint" className="ui button">
+          <UniversalLink href="/add?type=sprint" className="ui button">
             Add a sprint
           </UniversalLink>
           <br />
@@ -123,10 +131,10 @@ const eventTemplate = ({ items, moment: momentlib }) => {
   );
 };
 
-export default injectLazyLibs(["moment"])(eventTemplate);
+export default eventTemplate;
 ```
 
-Note that the `moment` js is loaded into the component to properly format the dates of the events.
+Note that the `moment` js is imported into the component to properly format the dates of the events.
 
 To finish the styling, now paste the provided CSS to your `custom.overrides`:
 
