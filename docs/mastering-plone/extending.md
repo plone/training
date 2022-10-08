@@ -20,7 +20,6 @@ myst:
 Extending Volto frontend:
 
 - {ref}`volto-richtexteditor-label`
-- {ref}`volto-custom-block-label`
 - {ref}`volto-addon-label`
 - {ref}`volto-custom-addon-label`
 ````
