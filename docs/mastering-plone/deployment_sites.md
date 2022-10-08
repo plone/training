@@ -11,6 +11,11 @@ myst:
 
 # Buildout II: Getting Ready for Deployment
 
+```{todo}
+Installation without buildout
+```
+
+
 (deployment-starzel-label)=
 
 ## The Starzel buildout

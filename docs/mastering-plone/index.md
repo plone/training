@@ -81,7 +81,6 @@ volto_actions
 reusable
 embed
 deployment_code
-deployment_sites
 restapi
 future_of_plone
 optional

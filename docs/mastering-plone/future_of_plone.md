@@ -11,9 +11,7 @@ myst:
 
 # The Future of Plone
 
-```{note}
-The is no readable text here, only talking points for trainers.
-```
+To be discussed on the training:
 
 - Plone Roadmap: <https://plone.org/roadmap>
 - The Plone development process and the various teams
