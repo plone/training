@@ -65,7 +65,7 @@ Install plonecli:
 
 ```shell
 $ pip install plonecli
-$ pip install bobtemplates.plone==6.0b8
+$ pip install bobtemplates.plone==6.0b15
 ```
 
 Then create the addon:
@@ -97,11 +97,6 @@ You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. cho
 
 git init is disabled!
 Generated file structure at /Users/pbauer/workspace/training/buildout/src/ploneconf.site
-```
-
-```{note}
-You may see Errors like `Error on isort-apply: isort-apply create [...]`
-Please ignore these.
 ```
 
 ```{only} not presentation

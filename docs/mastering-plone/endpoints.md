@@ -9,7 +9,7 @@ myst:
 
 (endpoints-mastering-label)=
 
-# Endpoints
+# REST API Endpoints
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
@@ -70,6 +70,8 @@ We include the new module `api` in the packages' main {file}`configure.zcml`:
 <include package=".browser" />
 <include package=".api" />
 ```
+
+(endpoints-mastering-services-label)=
 
 The services for the endpoint `@votes` are now to be implemented in {file}`voting.py`.
 

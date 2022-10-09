@@ -35,7 +35,6 @@ Talks are submitted. The jury votes for talks to be accepted or rejected.
   - {doc}`endpoints`
   - {doc}`volto_actions`
   - {doc}`reusable`
-  - {doc}`embed`
 ```
 
 Jury members shall vote for talks to be accepted or rejected.
