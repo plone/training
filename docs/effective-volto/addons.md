@@ -13,8 +13,9 @@ addons/bootstrap
 addons/how-an-add-on-works
 addons/use-released-addon
 addons/use-repo-addon
-addons/i18n
+addons/views
 addons/blockdataform
+addons/blockslayout
 addons/block-extensions
 addons/block-styling
 addons/dependencies
@@ -23,5 +24,6 @@ addons/theme
 addons/semanticui
 addons/customlistingtemplate
 addons/asyncconnect
+addons/i18n
 addons/webpack
 ```

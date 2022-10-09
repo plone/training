@@ -20,7 +20,7 @@ by Yarn. By using [mrs-develop](https://github.com/collective/mrs-developer),
 it's possible to have a workflow similar to zc.buildout's mr.developer, where
 you can "checkout" an addon for development.
 
-An addon can be almost anything that a Volto project can be. They can:
+An addon can be **almost anything that a Volto project can be**. They can:
 
 - provide additional views and blocks
 - override or extend Volto's builtin views, blocks, settings
