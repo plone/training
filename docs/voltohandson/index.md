@@ -22,17 +22,19 @@ which is intended as a half day training for people who already know the basics 
 :numbered: true
 
 intro
+introtovolto
 quickstart
 requirements
 starttheming
 header
-footer
 breadcrumbs
+footer
+configandcleanup
 introtoblocks
-blocksmainslider
-contenttypesviews
-highlightsblock
-blocksedit
+highlight
+blocksdownload
+eventlistingtemplate
+contenttypeview
 ```
 
 This training was created by Victor Fernandez de Alba (sneridagh).
