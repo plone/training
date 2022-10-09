@@ -561,3 +561,5 @@ export function clearVotes(url) {
   };
 }
 ```
+
+The add-on can be found on `GitHub`: https://github.com/collective/volto-training-votable.
