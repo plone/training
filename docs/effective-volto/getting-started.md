@@ -3,7 +3,6 @@
 We will be bootstrapping a Full Plone 6 project in order to follow the training and be able to test the topics introduced.
 
 
-
 ```{toctree}
 ---
 caption: Getting Started

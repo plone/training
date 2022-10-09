@@ -1,4 +1,4 @@
-# Volto Anatomy
+# Inside Volto
 
 As with any large complex application, there are multiple facets to Volto, and
 some of them may be strange or unfamiliar to developers used only to Plone
@@ -75,7 +75,7 @@ Looking inside Volto's source code, we find several points of interest:
 ## Deep dive into Volto
 
 To start Volto in development mode, we do `yarn start`. If you peek inside [Volto's
-package.json](https://github.com/plone/volto/blob/d7b6db3db239d09ceafee61dacf14fa7acec9b4b/package.json#L33) at
+package.json][1] at
 the script that's executed for that, you'll notice it simply says `razzle
 start`. So, when we start Volto, we actually start Razzle. See the
 [Razzle chapter](./razzle) for more details.
@@ -117,3 +117,5 @@ chapter for more details.
 The main View component has a "route detector" that will trigger the
 `getContent` action whenever the route (window location) changes, so new
 content will be fetched and a new view is rendered acordingly.
+
+[1]: https://github.com/plone/volto/blob/d7b6db3db239d09ceafee61dacf14fa7acec9b4b/package.json#L33

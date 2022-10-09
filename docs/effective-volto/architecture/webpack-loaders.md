@@ -17,9 +17,9 @@ PostCSS is a pluggable framework that enables enhancements and transformations o
 ## Add your own Webpack loader
 
 Sometimes Razzle provides a plugin for your needed loader, which takes care of
-loading and passing the proper options to that Webpack loader. To load a Razzle
-plugin, for example, to load the razzle-plugin-scss, you need to export
-a `plugins` field in your `razzle.config.js` or `razzle.extend.js`.
+loading and passing the proper options to that Webpack loader. To load
+a [Razzle plugin][1], for example, to load the razzle-plugin-scss, you need to
+export a `plugins` field in your `razzle.config.js` or `razzle.extend.js`.
 
 Here's an example `razzle.extend.js` that allows an addon to load that plugin.
 Make sure to add the `razzle-plugin-scss` as dependency of your addon.
@@ -40,7 +40,10 @@ module.exports = {
 ```
 
 If there's no Razzle plugin, you'll have to write your own Razzle extender
-plugin that inserts the proper rules. See the
-[Volto LESS Plugin](https://github.com/plone/volto/blob/b3b9cf0286bee1101655c8d7e234ca7dae95709e/webpack-plugins/webpack-less-plugin.js)
-for an example of how to define a new loader, with the
-[Bundle Analyzer](https://github.com/plone/volto/blob/b3b9cf0286bee1101655c8d7e234ca7dae95709e/webpack-plugins/webpack-bundle-analyze-plugin.js) as a simpler example for Volto Razzle/Webpack plugins.
+plugin that inserts the proper rules. See the [Volto LESS Plugin][2] for an
+example of how to define a new loader, with the [Bundle Analyzer][3] as
+a simpler example for Volto Razzle/Webpack plugins.
+
+[1]: https://razzlejs.org/docs/customization#plugins
+[2]: https://github.com/plone/volto/blob/b3b9cf0286bee1101655c8d7e234ca7dae95709e/webpack-plugins/webpack-less-plugin.js
+[3]: https://github.com/plone/volto/blob/b3b9cf0286bee1101655c8d7e234ca7dae95709e/webpack-plugins/webpack-bundle-analyze-plugin.js
