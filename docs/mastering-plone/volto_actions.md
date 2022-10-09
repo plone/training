@@ -21,19 +21,8 @@ Solve the same tasks in Plone Classic UI in chapter {doc}`viewlets_2`
 
 ---
 
-Get the code! ({doc}`More info <code>`)
-
-Code for the beginning of this chapter:
-
-```shell
-git checkout testing
-```
-
-Code for the end of this chapter:
-
-```shell
-git checkout REST-API-frontend-roundtrip
-```
+Get the code! 
+[volto-training-votable](https://github.com/collective/volto-training-votable)
 ````
 
 (volto-actions-overview-label)=
@@ -561,5 +550,3 @@ export function clearVotes(url) {
   };
 }
 ```
-
-The add-on can be found on `GitHub`: https://github.com/collective/volto-training-votable.

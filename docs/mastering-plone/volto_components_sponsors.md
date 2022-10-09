@@ -30,7 +30,7 @@ Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```shell
-git checkout testing
+git checkout event
 ```
 
 Code for the end of this chapter:

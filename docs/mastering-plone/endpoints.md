@@ -17,19 +17,8 @@ myst:
 :class: logo
 ```
 
-Get the code! ({doc}`More info <code>`)
-
-Code for the beginning of this chapter:
-
-```shell
-git checkout TODO tag to checkout
-```
-
-Code for the end of this chapter:
-
-```shell
-git checkout TODO tag to checkout
-```
+Get the code! 
+[training.votable](https://github.com/collective/training.votable)
 ````
 
 To be solved task in this part:

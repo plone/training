@@ -11,6 +11,16 @@ myst:
 
 # Complex Behaviors
 
+````{sidebar} Plone Backend Chapter
+```{figure} _static/plone-training-logo-for-backend.svg
+:alt: Plone backend 
+:class: logo
+```
+
+Get the code! 
+[training.votable](https://github.com/collective/training.votable)
+````
+
 A group of jury members vote on talks to be accepted for the conference.
 
 In this part you will:

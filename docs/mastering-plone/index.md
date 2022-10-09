@@ -79,7 +79,6 @@ behaviors_2
 endpoints
 volto_actions
 reusable
-embed
 deployment_code
 restapi
 future_of_plone

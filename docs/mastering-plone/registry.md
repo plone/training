@@ -17,7 +17,7 @@ Code for the beginning of this chapter:
 
 ```shell
 # frontend
-git checkout frontpage
+git checkout talkview
 ```
 
 ```shell
