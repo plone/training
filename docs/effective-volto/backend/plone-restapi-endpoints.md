@@ -69,6 +69,5 @@ as prefix, to show similarity to the classic Browser Views. Some examples includ
 A complete listing of all the available endpoints is available in the
 [plone.restapi endpoints documentation][2]
 
-
 [1]: https://json-schema.org/
 [2]: https://plonerestapi.readthedocs.io/en/latest/endpoints/
