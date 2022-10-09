@@ -68,7 +68,7 @@ Voting component, user has already voted
 
 (volto-actions-fetching-label)=
 
-## Fetching data from backend and displaying
+## Requesting data from backend and displaying
 
 As you have seen in chapter {doc}`endpoints`, endpoints are created to provide the data we need: votes per talk plus info if the current user has the permission to vote on his talk.
 Now we can fetch this data and display it.
@@ -79,6 +79,7 @@ We start with a component _Voting_ to display votes.
 
 ```{code-block} jsx
 :linenos:
+:emphasize-lines: 7,10,16
 
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -86,7 +87,7 @@ import { useLocation } from 'react-router-dom';
 
 import { Header, Label, List, Segment } from 'semantic-ui-react';
 
-import { getVotes } from '~/actions';
+import { getVotes } from '../../actions';
 
 const Voting = () => {
   const votes = useSelector((store) => store.votes);
@@ -126,11 +127,11 @@ const Voting = () => {
 export default Voting;
 ```
 
-On mount of the component the action `getVotes` is dispatched to fetch the data by `dispatch(getVotes(location.pathname));`.
-The action fetches the data.
-The corresponding reducer writes the data in global app store.
+On mount of the component the action `getVotes` is dispatched by `dispatch(getVotes(location.pathname));`.
+- The action fetches the data.
+- The corresponding reducer writes the data in global app store.
 
-The component `Voting` as well as any other component can now access the data from the global app store by `const votes = useSelector((store) => store.votes);`.
+The component `Voting` as well as any other component can now access the data from the global app store by subscribing with `const votes = useSelector((store) => store.votes);`.
 Therefore the constant `votes` holds the necessary data for the current talk and user in a dictionary like
 
 ```{code-block} jsx
@@ -155,10 +156,13 @@ Why do we need only one request? We designed the endpoint `votes` to provide all
 
 ### actions, reducers and the app store
 
-Before we include the component _Voting_ in talk view from chapter {doc}`volto_talkview`, some words about actions and reducers. The action `getVotes` fetches the data. The corresponding reducer writes the data in global app store.
+Before we include the component _Voting_ in talk view from chapter {doc}`volto_talkview`, some words about actions and reducers.
+The action `getVotes` requests the data.
+The corresponding reducer writes the data to the global app store.
 
-The action `getVotes` is defined by the request method `get`, the address of the endpoint `votes` and an identifier `GET_VOTES` for the corresponding reducer to react.
+The action `getVotes` is defined by the request method `GET`, the address of the endpoint `votes` and an identifier `GET_VOTES` for the corresponding reducer to react.
 
+`actions/votes/votes.js`
 ```{code-block} jsx
 :linenos:
 
@@ -175,6 +179,7 @@ export function getVotes(url) {
 
 The reducer writes the data fetched by its action to the app store.
 
+`reducers/votes/votes.js`
 ```{code-block} jsx
 :emphasize-lines: 20
 :linenos:
@@ -216,6 +221,35 @@ export default function votes(state = initialState, action = {}) {
 }
 ```
 
+The action type identifiers are listed in `constants/ActionTypes.js` to keep reducer and action pairs in sync.
+
+```js
+/**
+ * Add your action types here.
+ * @module constants/ActionTypes
+ * @example
+ * export const UPDATE_CONTENT = 'UPDATE_CONTENT';
+ */
+
+export const GET_VOTES = 'GET_VOTES';
+```
+
+We now add our reducer to the overall Volto configuration:
+
+`index.js`
+```js
+import { votes } from './reducers';
+
+const applyConfig = (config) => {
+  config.addonReducers.votes = votes;
+
+  return config;
+};
+
+export default applyConfig;
+```
+
+
 With a successfull action `getVotes`, the app store has an entry
 
 ```{code-block} jsx
@@ -238,7 +272,7 @@ This data written by the reducer is the response of the request to `http://local
 
 The response is the data that the adapter `training.votable.behaviors.votable.Votable`  provides and exposes via the REST API endpoint `@votes`.
 
-The component gets access to this store entry by `const votes = useSelector((store) => store.votes);`
+The component gets access to this store entry by subscribing to the store `const votes = useSelector((store) => store.votes);`
 
 Now we can include the component `Voting` in a talk view from chapter {doc}`volto_talkview`.
 
@@ -246,7 +280,7 @@ Now we can include the component `Voting` in a talk view from chapter {doc}`volt
 :linenos:
 :emphasize-lines: 1,15
 
-import { Voting } from '~/components';
+import { Voting } from 'volto-training-votable/components';
 
 const TalkView = ({ content }) => {
   const color_mapping = {
@@ -267,6 +301,15 @@ const TalkView = ({ content }) => {
 :alt: 'Volto Voting: displaying votes'
 :scale: 50%
 ```
+
+Check the `Redux` tab of Google developer tools to see the store changes forced by our reducer.
+You can filter by "votes".
+
+```{figure} _static/developertools_redux.png
+:alt: 'Developer Tools Redux'
+:scale: 40%
+```
+
 
 ## Writing to the backend…
 
@@ -319,7 +362,7 @@ The click event handler `handleVoteClick` starts the communication with the back
 We import this action from `src/actions`.
 
 ```jsx
-import { getVotes, vote, clearVotes } from "~/actions";
+import { getVotes, vote, clearVotes } from "../../actions";
 ```
 
 The click event handler `handleVoteClick` dispatches the action `vote`:
@@ -371,6 +414,68 @@ The authorized user can now vote:
 
 Observe that we do not calculate average votes and do not check if a user can vote via permissions, roles, whatsoever.
 Every logic is done by the backend. We request votes and infos like 'can the current user do this and that' from the backend.
+
+The reducer is enhanced by the voting part:
+
+`src/reducers/votes/votes.js`
+
+```{code-block} js
+:emphasize-lines: 24,32,41
+:linenos:
+
+/**
+ * Voting reducer.
+ * @module reducers/votes/votes
+ */
+
+import { GET_VOTES, VOTE, CLEAR_VOTES } from '../../constants/ActionTypes';
+
+const initialState = {
+  loaded: false,
+  loading: false,
+  error: null,
+};
+
+/**
+ * Voting reducer.
+ * @function votes
+ * @param {Object} state Current state.
+ * @param {Object} action Action to be handled.
+ * @returns {Object} New state.
+ */
+export default function votes(state = initialState, action = {}) {
+  switch (action.type) {
+    case `${GET_VOTES}_PENDING`:
+    case `${VOTE}_PENDING`:
+      return {
+        ...state,
+        error: null,
+        loaded: false,
+        loading: true,
+      };
+    case `${GET_VOTES}_SUCCESS`:
+    case `${VOTE}_SUCCESS`:
+      return {
+        ...state,
+        ...action.result,
+        error: null,
+        loaded: true,
+        loading: false,
+      };
+    case `${GET_VOTES}_FAIL`:
+    case `${VOTE}_FAIL`:
+      return {
+        ...state,
+        error: action.error,
+        loaded: false,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+}
+```
+
 
 ## Component State
 
@@ -434,3 +539,25 @@ You will see now that the clearing section disappears after clearing.
 This is because it is conditional with `votes?.has_votes`.
 After a successfull `clearVotes` action the corresponding reducer updates the store.
 As the component is subscribed to the store via `const votes = useSelector((store) => store.votes);` the component updates itself ( is rendered with the updated values ).
+And the voting buttons are visible again.
+
+For completnes, the action.
+You have already guessed, it does a `DEL` request to the `@votes` endpint.
+And the endpoint service from last chapter knows what to do.
+
+```js
+/**
+ * Delete votes of an item
+ * @function clearVotes
+ * @returns {Object} Votes action.
+ */
+export function clearVotes(url) {
+  return {
+    type: CLEAR_VOTES,
+    request: {
+      op: 'del',
+      path: `${url}/@votes`,
+    },
+  };
+}
+```
