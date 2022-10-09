@@ -199,7 +199,7 @@ Copy the page template from `parts/omelette/Products/CMFPlone/browser/templates/
 Copy the main template python file from `parts/omelette/Products/CMFPlone/browser/main_template.py` to `src/plonetheme/tokyo/browser/main_template.py`.
 
 ```{note}
-Create a folder for templates if it does not already exist.
+It's recommended to make a commit before you make changes to the template to have a clean diff. Create a folder for templates if it does not already exist.
 ```
 
 Register the template:
