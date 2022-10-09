@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    'description': 'Learn how Blocks work in Volto'
-    'property=og:description': 'Learn how Blocks work in Volto'
-    'property=og:title': 'Introduction to Volto Blocks'
-    'keywords': 'Plone, Volto, Training, Blocks, Introduction'
+    "description": "Learn how Blocks work in Volto"
+    "property=og:description": "Learn how Blocks work in Volto"
+    "property=og:title": "Introduction to Volto Blocks"
+    "keywords": "Plone, Volto, Training, Blocks, Introduction"
 ---
 
 (voltohandson-introtoblocks-label)=
@@ -48,7 +48,7 @@ Create your first block in the project by adding these two components in a new d
 This is the `Edit.jsx`:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 const Edit = (props) => {
   return <div>I'm the Highlight edit component!</div>;
@@ -60,7 +60,7 @@ export default Edit;
 and the `View.jsx`.
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 const View = (props) => {
   return <div>I'm the Highlight view component!</div>;
@@ -110,8 +110,8 @@ To help keeping paths for importing components clean we use index files in sever
 `components/index.js`
 
 ```js
-import HighlightBlockEdit from './Blocks/highlight/Edit';
-import HighlightBlockView from './Blocks/highlight/View';
+import HighlightBlockEdit from "./Blocks/highlight/Edit";
+import HighlightBlockView from "./Blocks/highlight/View";
 
 export { HighlightBlockEdit, HighlightBlockView };
 ```
@@ -123,26 +123,23 @@ We need to configure the project to make it aware of a new block by adding it to
 Import those before the `import '@plone/volto/config';` line:
 
 ```js
-import { HighlightBlockView, HighlightBlockEdit } from '@package/components';
-import heroSVG from '@plone/volto/icons/hero.svg';
+import { HighlightBlockView, HighlightBlockEdit } from "@package/components";
+import heroSVG from "@plone/volto/icons/hero.svg";
 ```
 
 Register it inside the `applyConfig()` function:
 
 ```js
 config.blocks.blocksConfig.highlight = {
-  id: 'highlight',
-  title: 'Highlight',
+  id: "highlight",
+  title: "Highlight",
   icon: heroSVG,
-  group: 'common',
+  group: "common",
   view: HighlightBlockView,
   edit: HighlightBlockEdit,
   restricted: false,
   mostUsed: true,
-  security: {
-    addPermission: [],
-    view: [],
-  },
+  sidebarTab: 1,
 };
 ```
 
