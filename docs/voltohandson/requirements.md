@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    'description': 'Define what the page you are creating should look like in the end of the training'
-    'property=og:description': 'Define what the page you are creating should look like in the end of the training'
-    'property=og:title': 'Project requirements'
-    'keywords': 'Plone, Volto, Training, Requirements'
+    "description": "Define what the page you are creating should look like in the end of the training"
+    "property=og:description": "Define what the page you are creating should look like in the end of the training"
+    "property=og:title": "Project requirements"
+    "keywords": "Plone, Volto, Training, Requirements"
 ---
 
 (voltohandson-customcss-label)=
@@ -32,4 +32,4 @@ These are the tasks we will go through:
 ## Training ressources and assets
 
 There are a few files, mostly images, that you will need to recreate for the `plone.org` page.
-They are currently available from this [Google Drive folder](https://drive.google.com/drive/folders/1xDleXE8Emhr9xn_pnZaGfO9_HmU31L9e?usp=sharing).
+They are currently available from this [Google Drive folder](https://drive.google.com/drive/folders/19nQkPiiwY5lhBNiTTZJaV-kpQ9rkYqiO?usp=sharing).
