@@ -1,7 +1,5 @@
 # Add-ons
 
-## What is and what is not a Volto add-on
-
 ```{toctree}
 ---
 caption: Add-ons
@@ -10,6 +8,7 @@ maxdepth: 2
 numbered: true
 ---
 
+addons/what-is-an-addon
 addons/bootstrap
 addons/how-an-add-on-works
 addons/use-released-addon
