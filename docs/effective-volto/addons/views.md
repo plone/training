@@ -1,8 +1,8 @@
 # Volto views
 
 Writing a "custom view templates" is one of the most basic tasks in classic
-Plone devevelopment. The Volto blocks, powered by the Pastanaga Editor, make
-this task a less frequent occurance in Volto development, but it's still
+Plone development. The Volto blocks, powered by the Pastanaga Editor, make
+this task a less frequent occurrence in Volto development, but it's still
 possible to follow the same development model, to attach custom views to Plone
 content.
 
@@ -21,7 +21,7 @@ const PersonView = ({ content }) => (
 
 In the Volto configuration registry, you can assign views in the following keys:
 
-- `layoutViews`, to map the context `layout` propery to a Volto view component
+- `layoutViews`, to map the context `layout` property to a Volto view component
 - `contentTypesViews` to map a content type to a view
 - `errorViews`
 - `defaultView`

@@ -20,6 +20,7 @@ development/criticalCSS
 development/bundle-analyzing
 development/component-registry
 development/linters
+development/debugging
 development/vscode
 development/vim
 ```
