@@ -1,15 +1,13 @@
 ---
 myst:
   html_meta:
-    'description': 'Learn how to create a slideshow Block'
-    'property=og:description': 'Learn how to create a slideshow Block'
-    'property=og:title': 'Highlight Block'
-    'keywords': 'Plone, Volto, Training, Blocks, Highlight'
+    "description": "Learn how to create a slideshow Block"
+    "property=og:description": "Learn how to create a slideshow Block"
+    "property=og:title": "Highlight Block"
+    "keywords": "Plone, Volto, Training, Blocks, Highlight"
 ---
 
-(voltohandson-blocksmainslider-label)=
-
-# Blocks - Main Slider
+# Blocks - Highlight Block
 
 The most prominent element on the plone.org page is the highlight block advertising the conference
 
@@ -22,9 +20,9 @@ Copy `2022-ploneconf.png` from the `training-resources` folder to `src/component
 Use this code for the block view component `src/components/Blocks/MainSlider/View.jsx`.
 
 ```jsx
-import React from 'react';
-import { Container } from 'semantic-ui-react';
-import ploneConfImg from './2022-ploneconf.png';
+import React from "react";
+import { Container } from "semantic-ui-react";
+import ploneConfImg from "./2022-ploneconf.png";
 
 const HighlightView = (props) => {
   return (
@@ -56,8 +54,8 @@ For now we will leave out how the edit component would look like for a later cha
 So far th Block will only look as expected in the View mode of a page. To also see the slider in the View you can simply import the `View` Component of the Block into the edit and render it there:
 
 ```js
-import React from 'react';
-import View from './View';
+import React from "react";
+import View from "./View";
 
 const HighlightEdit = (props) => {
   return <View {...props} />;
