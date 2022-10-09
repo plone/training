@@ -22,13 +22,11 @@ myst:
 
 ## Starting and Stopping Plone
 
-We control Plone with a small script called "runwsgi":
+We control Plone with a makefile:
 
 ```shell
-$ runwsgi -d instance/etc/zope.ini
+$ make start
 ```
-
-The `-d` parameter starts Plone in debug mode!
 
 You can stop it by pressing {kbd}`ctrl + c`.
 
@@ -48,11 +46,8 @@ As you can see, there is no Plone site yet!
 We now have a running Zope with a database but no content.
 But luckily there is a button to create a Plone site.
 
-Click on the link {guilabel}`Advanced` next to the button {guilabel}`Create a Plone site`.
+Click on the link {guilabel}`Create a new Plone site`.
 If the site asks you to login, use login `admin` and password `secret` (they are taken from the file `instance.yaml`).
-This opens a form to create a Plone site and select additional features.
-Use {samp}`Plone` as the site id.
-Select **ploneconf.site** as a add-on that should be installed with your new site.
 
 ```{figure} _static/features_create_site_form.png
 ```
