@@ -66,7 +66,7 @@ Then execute `curl -o- -L https://yarnpkg.com/install.sh | bash` to install Yarn
 
 ### Vagrant
 
-- [Vagrant](https://www.vagrantup.com/downloads) and VirtualBox or libvirt (Linux / macOS) (caution VirtualBox does not work on Apple Silicion)
+- [Vagrant](https://www.vagrantup.com/downloads) and VirtualBox or libvirt (Linux / macOS).
 
 ```{warning}
 VirtualBox does not run on Apple Silicon, use libvirt+qemu instead.
