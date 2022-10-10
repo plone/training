@@ -2,7 +2,7 @@
 myst:
   html_meta:
     "description": "What is a Volto add-on"
-    "property=og:description": "What is a Volto addon"
+    "property=og:description": "What is a Volto add-on"
     "property=og:title": "What is a Volto addon"
     "keywords": "Volto, Plone, Webpack, Volto add-on"
 ---
