@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (extending-label)=
@@ -19,7 +20,6 @@ html_meta:
 Extending Volto frontend:
 
 - {ref}`volto-richtexteditor-label`
-- {ref}`volto-custom-block-label`
 - {ref}`volto-addon-label`
 - {ref}`volto-custom-addon-label`
 ````

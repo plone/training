@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (events-label)=
@@ -16,8 +17,6 @@ html_meta:
 :class: logo
 ```
 
-Solve the same tasks in Plone Classic UI in chapter {doc}`events_classic`
-
 ---
 
 Get the code! ({doc}`More info <code>`)
@@ -26,12 +25,12 @@ Code for the beginning of this chapter:
 
 ```shell
 # frontend
-git checkout talklist
+git checkout registry
 ```
 
 ```shell
 # backend
-git checkout talklist
+git checkout registry
 ```
 
 Code for the end of this chapter:
@@ -47,7 +46,7 @@ git checkout event
 ```
 ````
 
-We forgot something: a list of talks is great, especially if you can sort it according to your preferences. But if a visitor decides she wants to actually go to see a talk she needs to know when it will take place.
+Show date and time of a talk.
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
@@ -55,13 +54,9 @@ Luckily the default type _Event_ is based on reusable behaviors from the package
 
 In this chapter you will
 
-- enable this behavior for talks
-- display the date in the talkview and talklistview
+- Enable the event behavior for talks
+- Display the date of event in the talkview
 
-```{note}
-This chapter uses Volto to change displaying the dates in talkview and talklistview.
-To meet the same requirements in classic Plone see the chapter {doc}`events_classic`.
-```
 
 ## Add date fields
 
@@ -117,8 +112,8 @@ Here are some examples how dates might be displayed if they are full-day events,
 
 Now consider that dates are displayed different in other languages and it really gets complicated.
 
-So it would be a good idea to reuse a component that already deals with these use-cases.
-Since we use the same behavior as the default content type Event in Plone, the default event-view might have what we need.
+So it would be a good idea to reuse a component that already deals with these use cases.
+Since we use the same behavior as the default content type Event in Plone, the default event view might have what we need.
 
 Add an event und use the React Developer Tools to inspect the component displaying the date.
 The component is called `When` and is defined in `frontend/node_modules/@plone/volto/src/components/theme/View/EventDatesInfo.jsx`.
@@ -276,7 +271,7 @@ This trick does not yet work in Volto because some css-classes are still missing
 Modify {file}`frontend/theme/extras/custom.overrides` and add:
 
 ```less
-// Hide date fields from contributors
+/* Hide date fields from contributors */
 body.userrole-contributor {
   #default-start.field,
   #default-end.field,
@@ -296,14 +291,6 @@ body.userrole-reviewer {
 }
 ```
 
-## Display the date in the listing
-
-```{eval-rst}
-.. todo::
-
-  Adapt ``TalkListView`` to handle the date and time.
-
-```
 
 ### Exercise
 
@@ -401,10 +388,6 @@ Note how it uses `defaultFactory` to set an initial value.
 
 ## Summary
 
-- You reused a existing behavior to add new fields
-- You reused a existing component to display the date
+- You applied an existing behavior to a content type to add new fields
+- You benefited of an existing Volto component to display the date
 - You did not have to write your own datetime fields and indexers o/
-
-```{note}
-To meet the same requirements in classic Plone see the chapter {doc}`events_classic`
-```

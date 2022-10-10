@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (dexterity-reference-label)=
@@ -259,7 +260,7 @@ class IExample(model.Schema):
             values=['Beginner', 'Advanced', 'Professional'],
         ),
         required=False,
-        missing_value={},
+        missing_value=set(),
     )
 
     directives.widget(set_field_checkbox=CheckBoxFieldWidget)
@@ -269,7 +270,7 @@ class IExample(model.Schema):
             values=['Beginner', 'Advanced', 'Professional'],
         ),
         required=False,
-        missing_value={},
+        missing_value=set(),
     )
 
     # File fields

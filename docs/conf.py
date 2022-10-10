@@ -60,6 +60,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
     "sphinx_copybutton",
+    "sphinx_design",
     "sphinx_sitemap",
     "sphinxcontrib.spelling",
     "sphinxext.opengraph",
@@ -69,10 +70,10 @@ extensions = [
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
 myst_enable_extensions = [
     "deflist",  # You will be able to utilise definition lists
-                # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#definition-lists
+    # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#definition-lists
     "linkify",  # Identify “bare” web URLs and add hyperlinks.
     "colon_fence",  # You can also use ::: delimiters to denote code fences,\
-                    #  instead of ```.
+    #  instead of ```.
 ]
 
 # If true, the Docutils Smart Quotes transform, originally based on SmartyPants
@@ -98,7 +99,13 @@ linkcheck_ignore = [
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
     r"https://www.chef.io/products/chef-infra/",  # Site works but creates SSLError
-    ### Start of list of anchored links
+    r"https://plonedemo.kitconcept.com",  # Did Not Connect: Potential Security Issue
+    r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
+    r"https://www.dipf.de/.*",  # a timeout from time to time
+    r"http://plone-conference.localhost.*",
+    r"http://plone-conference.localhost:3000.*",
+    r"https://plone-conference.localhost.*",
+    # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
     # GitHub rewrites anchors with JavaScript.
@@ -115,11 +122,13 @@ linkcheck_ignore = [
     "https://plone.github.io/mockup/dev/#pattern/autotoc",
     "https://plone.github.io/mockup/dev/#pattern/modal",
     "https://plone.github.io/mockup/dev/#pattern/moment",
+    "https://github.com/collective/collective.exportimport#faq-tips-and-tricks",
+    "https://github.com/plone/plone.app.contenttypes/tree/2.2.x#migration",
     # These anchors are probably rewritten by JavaScript
     "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
     "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
     "https://www.npmjs.com/package/axios#example",
-    ### End of list of anchored links
+    # ### End of list of anchored links
 ]
 linkcheck_allowed_redirects = {
     # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
@@ -162,12 +171,18 @@ html_theme = "sphinx_book_theme"
 html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
-html_css_files = ["custom.css",
-                  ("print.css", {"media": "print"})]
+html_css_files = ["custom.css", ("print.css", {"media": "print"})]
+html_js_files = [
+    "patch_scrollToActive.js",
+]
 
 html_extra_path = [
     "robots.txt",
 ]
+
+# Used by sphinx_sitemap to generate a sitemap
+html_baseurl = "https://training.plone.org/5"
+sitemap_url_scheme = "{link}"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -182,16 +197,13 @@ html_theme_options = {
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,
-    "extra_navbar": """
+    "extra_navbar": f"""
         <p class="ploneorglink">
             <a href="https://plone.org">
-                <img src="/5/_static/logo.svg" alt="plone.org" /> plone.org</a>
+                <img src="{html_baseurl}/_static/logo.svg" alt="plone.org" /> plone.org</a>
         </p>""",
 }
 
-# Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org/5"
-sitemap_url_scheme = "{link}"
 
 # -- Intersphinx configuration ----------------------------------
 
@@ -231,3 +243,28 @@ ogp_custom_meta_tags = [
 # -- sphinx_copybutton -----------------------
 copybutton_prompt_text = r"^ {0,2}\d{1,3}"
 copybutton_prompt_is_regexp = True
+
+
+# -- sphinx.ext.todo -----------------------
+# todo_include_todos = True  # Uncomment to show todos.
+
+
+# An extension that allows replacements for code blocks that
+# are not supported in `rst_epilog` or other substitutions.
+# https://stackoverflow.com/a/56328457/2214933
+def source_replace(app, docname, source):
+    result = source[0]
+    for key in app.config.source_replacements:
+        result = result.replace(key, app.config.source_replacements[key])
+    source[0] = result
+
+
+# Dict of replacements.
+source_replacements = {
+    "{PLONE_BACKEND_VERSION}": "6.0.0b3",
+}
+
+
+def setup(app):
+    app.add_config_value("source_replacements", {}, True)
+    app.connect("source-read", source_replace)

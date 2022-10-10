@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (mastering-plone-label)=
@@ -41,39 +42,34 @@ intro
 case
 what_is_plone
 installation
-../plone_training_config/instructions.md
+instructions
 features
-anatomy
 plone_versions
-volto_basics
 configuring_customizing
 volto_overrides
 volto_semantic_ui
 volto_theming
 extending
 add-ons
-buildout_1
 eggs1
 dexterity
 dexterity_2_talk
 dexterity_reference
+volto_development
 volto_talkview
 behaviors_1
 volto_frontpage
-volto_talk_listview
 api
 ide
-custom_search
-events
 registry
+events
+custom_search
 upgrade_steps
 volto_testing
 thirdparty_behaviors
 dexterity_3
 volto_components_sponsors
 volto_addon
-volto_richtexteditor
-volto_custom_block
 volto_custom_addon
 volto_custom_addon2
 user_generated_content
@@ -83,13 +79,12 @@ behaviors_2
 endpoints
 volto_actions
 reusable
-embed
 deployment_code
-deployment_sites
 restapi
 future_of_plone
 optional
 code
+trainer
 ```
 
 Please note that this document is *not complete* without the spoken word of a trainer.

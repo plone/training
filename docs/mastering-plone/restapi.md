@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Plone REST API
@@ -21,7 +22,7 @@ git checkout restapi
 ```
 ````
 
-In this chapter, we will have a look at the [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/index.html), which is a core package as of Plone 5.2.
+In this chapter, we will have a look at the [plone.restapi](plone6docs:plone.restapi/docs/source/index), which is a core package as of Plone 5.2.
 
 It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 
@@ -52,7 +53,7 @@ a REST API response - if you set the `Accept` HTTP header to `application/json`,
 Plone will provide responses in JSON format. Some requests you could try:
 
 ```http
-GET /Plone/talks
+GET /Plone/talks HTTP/1.1
 Accept: application/json
 ```
 
@@ -94,7 +95,7 @@ Content-Type: application/json
 
 The response will look like this:
 
-```http
+```json
 {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTU4Mzh9.s27se99V7leTVTo26N_pbYskebR28W5NS87Fb7zowNk"
 }
@@ -117,7 +118,7 @@ Using the {py:mod}`requests` library from Python, you would do:
 Now we can change the talk title:
 
 ```http
-PATCH /Plone/talks/example-talk
+PATCH /Plone/talks/example-talk HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Authentication: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTYyNzR9.zx8XJb6SCWB2taxyibLZ2461ibDloqU3QbWDkDzT8PY

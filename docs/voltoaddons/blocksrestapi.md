@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training module 9, Plone integration"
-  "property=og:description": "Volto add-ons development training module 9"
-  "property=og:title": "Volto add-ons development Plone integration"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training module 9, Plone integration"
+    "property=og:description": "Volto add-ons development training module 9"
+    "property=og:title": "Volto add-ons development Plone integration"
+    "keywords": "Volto"
 ---
 
 # Plone integration with Volto blocks

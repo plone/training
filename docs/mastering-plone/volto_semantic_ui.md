@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Base for Pastanaga theme and development helper"
-  "property=og:description": "Base for Pastanaga theme and development helper"
-  "property=og:title": "Semantic UI and Plone"
-  "keywords": "theming"
+myst:
+  html_meta:
+    "description": "Base for Pastanaga theme and development helper"
+    "property=og:description": "Base for Pastanaga theme and development helper"
+    "property=og:title": "Semantic UI and Plone"
+    "keywords": "theming"
 ---
 
 (volto-semantic-ui-label)=

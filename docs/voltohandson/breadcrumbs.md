@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Hide the breadcumbs on the siteroot"
-  "property=og:description": "Hide the breadcumbs on the siteroot"
-  "property=og:title": "Hide breadcumbs on the siteroot"
-  "keywords": "Plone, Volto, Training, Theme, Breadcrumbs"
+myst:
+  html_meta:
+    "description": "Hide the breadcumbs on the siteroot"
+    "property=og:description": "Hide the breadcumbs on the siteroot"
+    "property=og:title": "Hide breadcumbs on the siteroot"
+    "keywords": "Plone, Volto, Training, Theme, Breadcrumbs"
 ---
 
 (voltohandson-breadcrumbs-label)=
@@ -18,16 +19,7 @@ We can do it by using bare styling, since Volto injects CSS classes in the body 
 Volto does it very much like Plone does.
 
 ```less
-.siteroot .ui.secondary.segment.breadcrumbs,
-.section-edit .ui.secondary.segment.breadcrumbs {
-  display: none;
-}
-```
-
-However, to simplify the training for now, we will hide the breadcrumbs for all pages.
-
-```less
-.ui.secondary.segment.breadcrumbs {
+.contenttype-plone-site .ui.secondary.vertical.segment.breadcrumbs {
   display: none;
 }
 ```

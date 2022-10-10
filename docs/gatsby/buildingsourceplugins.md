@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Building Source Plugins
@@ -18,7 +19,7 @@ This requires the Plone site to have [plone.restapi](https://pypi.org/project/pl
 
 ```{note}
 plone.restapi is a RESTful hypermedia API for Plone.
-Read more about it in the [docs](https://plonerestapi.readthedocs.io/en/latest/introduction.html).
+Read more about it in the [docs](plone6docs:plone.restapi/docs/source/index).
 ```
 
 Then this plugin can be used to generate a static site from a Plone site, containing pages, structure and all of its contents.
@@ -37,7 +38,7 @@ This way there is a page structure as well.
 
 ```{note}
 Plone even allows custom types.
-Read more about this in the [docs](https://plonerestapi.readthedocs.io/en/latest/types.html).
+Read more about this in the [docs](plone6docs:plone.restapi/docs/source/endpoints/content-types).
 ```
 
 Each of these content objects can be compared to nodes in GatsbyJS.
@@ -88,7 +89,7 @@ plugins: [
   {
     resolve: 'gatsby-source-plone',
     options: {
-      baseUrl: 'https://plonedemo.kitconcept.com/en',
+      baseUrl: 'https://6.demo.plone.org',
     },
   }
 ]

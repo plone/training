@@ -1,14 +1,20 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (deployment-sites-label)=
 
 # Buildout II: Getting Ready for Deployment
+
+```{todo}
+Installation without buildout
+```
+
 
 (deployment-starzel-label)=
 

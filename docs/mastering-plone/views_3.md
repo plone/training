@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (views3-label)=
@@ -15,8 +16,6 @@ html_meta:
 :alt: Plone Classic UI
 :class: logo
 ```
-
-Solve the same tasks in the React frontend in chapter {doc}`volto_talk_listview`
 
 ---
 

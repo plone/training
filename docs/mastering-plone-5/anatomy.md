@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "The Anatomy of Plone"
+    "property=og:description": "The Anatomy of Plone"
+    "property=og:title": "The Anatomy of Plone"
+    "keywords": "history, Plone, ZODB, CMF, Zope, Pyramid, Bluebream"
 ---
 
 (plone5-anatomy-label)=
@@ -22,7 +23,7 @@ Topics covered:
 - Pyramid
 - Bluebream
 
-Plone started as a extension for CMF, which is a extension for Zope. Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
+Plone started as an extension for CMF, which is a extension for Zope. Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
 
 ## Database
 
@@ -69,7 +70,7 @@ class Account(persistent.Persistent):
 - Plone was always based on Zope 2.x. Starting with Plone 5.2+ it uses Zope 4.x
 - Starting with Zope 4.0, the package is only called Zope (not Zope2 or Zope4)
 - *Zope 3* is **not** a version of Zope but an ill-named rewrite of Zope 2 *(sigh)*
-- 4.x is a mayor new release of Zope that supports Python 3 (among many other improvements)
+- 4.x is a major new release of Zope that supports Python 3 (among many other improvements)
 ```
 
 ````{only} not presentation

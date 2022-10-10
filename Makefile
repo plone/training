@@ -27,6 +27,11 @@ help: ## This help message
 clean: ## Clean build directory
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/*
 
+.PHONY: distclean
+distclean:  ## Clean docs build directory and Python virtual environment
+	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/
+	rm -rf ./bin/ ./lib/ ./lib64 ./include ./pyvenv.cfg
+
 bin/python:  ## Set up training: Install requirements
 	python3 -m venv . || virtualenv --clear --python=python3 .
 	bin/python -m pip install --upgrade pip
@@ -53,6 +58,12 @@ manual: bin/python
 .PHONY: presentation
 presentation: bin/python  ## Build html for presentation
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b html -t presentation . $(BUILDDIR)/presentation
+
+.PHONY: livepresentation
+livepresentation: bin/python  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
+	cd "$(DOCS_DIR)" && $(SPHINXAUTOBUILD) \
+		--ignore "*.swp" \
+		-b html -t presentation . "$(BUILDDIR)/presentation" $(SPHINXOPTS) $(O)
 
 .PHONY: dirhtml
 dirhtml: bin/python

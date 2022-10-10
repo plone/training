@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (volto-intro-label)=
@@ -30,7 +31,7 @@ Some technologies and tools we use during the training:
 - Yarn <https://yarnpkg.com>
 - JSX
 - Redux <https://redux.js.org>
-- React-Router <https://reactrouter.com/>
+- React-Router <https://reactrouter.com/en/main>
 - Volto <https://github.com/plone/volto>
 
 (volto-intro-what-to-expect-label)=

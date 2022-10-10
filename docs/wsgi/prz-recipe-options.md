@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # WSGI options
@@ -121,7 +122,7 @@ eggs =
 Same for the `event-log-args/event-log-kwargs` options.
 This means you **have** to provide the `*-log-args` parameter, otherwise you will end up with the (in our case nonsensical) defaults in your `wsgi.ini`.
 After running buildout with `buildout -c options.cfg` you can start your instance with `bin/instance fg`.
-Use a tool such as [netcat](http://netcat.sourceforge.net/) (there is a package for your linux distribution) to open a listening socket: `nc -l 9000`.
+Use a tool such as [netcat](https://netcat.sourceforge.net/) (there is a package for your linux distribution) to open a listening socket: `nc -l 9000`.
 You will see the incoming log entries in pickled format when navigating to your Plone instance in the browser.
 ````
 

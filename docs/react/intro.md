@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Get started with the React training."
-  "property=og:description": "Get started with the React training."
-  "property=og:title": "Introduction"
-  "keywords": "Plone, training"
+myst:
+  html_meta:
+    "description": "Get started with the React training."
+    "property=og:description": "Get started with the React training."
+    "property=og:title": "Introduction"
+    "keywords": "Plone, training"
 ---
 
 (react-intro-label)=
@@ -30,7 +31,7 @@ Some technologies and tools we use during the training:
 - Yarn https://yarnpkg.com
 - JSX
 - Redux https://redux.js.org
-- React-Router https://reactrouter.com/
+- React-Router https://reactrouter.com/en/main
 
 (react-intro-what-to-expect-label)=
 

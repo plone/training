@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Plone's JavaScript and Resource Registries"
-  "property=og:description": "Plone's JavaScript and Resource Registries"
-  "property=og:title": "JavaScript For Plone Developers (up to Plone 5)"
-  "keywords": "Plone, JavaScript, resource registry, bundle, mockup"
+myst:
+  html_meta:
+    "description": "Plone's JavaScript and Resource Registries"
+    "property=og:description": "Plone's JavaScript and Resource Registries"
+    "property=og:title": "JavaScript For Plone Developers (up to Plone 5)"
+    "keywords": "Plone, JavaScript, resource registry, bundle, mockup"
 ---
 
 (javascript-label)=

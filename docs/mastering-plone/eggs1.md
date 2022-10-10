@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (eggs1-label)=
@@ -64,16 +65,16 @@ Install plonecli:
 
 ```shell
 $ pip install plonecli
-$ pip install bobtemplates.plone==6.0b8
+$ pip install bobtemplates.plone==6.0b15
 ```
 
 Then create the addon:
 
 ```shell
-$ plonecli create addon src/ploneconf.site
+plonecli create addon sources/ploneconf.site
 ```
 
-The new add-on will be created in the {file}`src` directory (_src_ is short for _sources_)
+The new add-on will be created in the {file}`sources` directory.
 
 You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. choosing the default value) for most questions except where indicated (enter your GitHub username if you have one, do not initialize a GIT repository, Use Plone 5.2 and python 3.7):
 
@@ -96,11 +97,6 @@ You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. cho
 
 git init is disabled!
 Generated file structure at /Users/pbauer/workspace/training/buildout/src/ploneconf.site
-```
-
-```{note}
-You may see Errors like `Error on isort-apply: isort-apply create [...]`
-Please ignore these.
 ```
 
 ```{only} not presentation

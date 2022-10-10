@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Create an express server to provide the initial data for the component. Write a redux middleware to fire a network request to get the initial data."
-  "property=og:description": "Create an express server to provide the initial data for the component. Write a redux middleware to fire a network request to get the initial data."
-  "property=og:title": "Creating A Simple Backend"
-  "keywords": "Plone, training, exercise, solution, React, Node"
+myst:
+  html_meta:
+    "description": "Create an express server to provide the initial data for the component. Write a redux middleware to fire a network request to get the initial data."
+    "property=og:description": "Create an express server to provide the initial data for the component. Write a redux middleware to fire a network request to get the initial data."
+    "property=og:title": "Creating A Simple Backend"
+    "keywords": "Plone, training, exercise, solution, React, Node"
 ---
 
 (external-data-label)=

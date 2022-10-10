@@ -1,14 +1,15 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (volto-richtexteditor-label)=
 
-# Rich Text Editor Settings
+# Rich Text Editor Settings in DraftJS editor
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
@@ -22,6 +23,13 @@ This chapter is about customizing the rich text editor.
 Add a button and feature to the rich text editor DraftJS.
 ```
 ````
+
+```{warning}
+This chapter is for `DraftJS` editor.
+Since Volto 16 the default editor is `Slate`.
+
+A well written chapter in Plone documentation does describe how to enhance the `Slate editor`: {doc}`plone6docs:volto/configuration/volto-slate/writing-plugins`
+```
 
 The rich text editor lets editors make text bold, italic and more. This chapter is about adding an additional button to the editor toolbar to make text lighter.
 

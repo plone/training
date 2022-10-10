@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training module 3, add-ons block view"
-  "property=og:description": "Volto add-ons development training module 3"
-  "property=og:title": "Volto add-ons development block view"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training module 3, add-ons block view"
+    "property=og:description": "Volto add-ons development training module 3"
+    "property=og:title": "Volto add-ons development block view"
+    "keywords": "Volto"
 ---
 
 # Improve the block view

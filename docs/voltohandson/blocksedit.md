@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Learn how to write an editable Volto Block"
-  "property=og:description": "Learn how to write an editable Volto Block"
-  "property=og:title": "Editable Blocks"
-  "keywords": "Plone, Volto, Training, Blocks"
+myst:
+  html_meta:
+    "description": "Learn how to write an editable Volto Block"
+    "property=og:description": "Learn how to write an editable Volto Block"
+    "property=og:title": "Editable Blocks"
+    "keywords": "Plone, Volto, Training, Blocks"
 ---
 
 (voltohandson-editblocks-label)=

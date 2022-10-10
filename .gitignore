@@ -27,6 +27,7 @@ package-lock.json
 docs/pyvenv.cfg
 .DS_Store
 /venv/lib64
+/lib64
 /venv
 /yarn.lock
 /.vale

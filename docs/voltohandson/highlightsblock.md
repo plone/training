@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Learn how to create the highlight Block"
-  "property=og:description": "Learn how to create the highlight Block"
-  "property=og:title": "Mainslider Block"
-  "keywords": "Plone, Volto, Training, Blocks, Slider"
+myst:
+  html_meta:
+    "description": "Learn how to create the highlight Block"
+    "property=og:description": "Learn how to create the highlight Block"
+    "property=og:title": "Mainslider Block"
+    "keywords": "Plone, Volto, Training, Blocks, Slider"
 ---
 
 (voltohandson-highlightsblock-label)=
