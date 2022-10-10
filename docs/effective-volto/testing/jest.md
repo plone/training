@@ -2,6 +2,10 @@
 
 Jest is the standard "de facto" NodeJS test runner.
 
+```{note}
+If there is one complaint that can be addressed to the Javascript frontend development tooling is that there's no shared way of solving common problems. The main difficulty in setting up Jest for Volto and Volto projects is configuring it for properly "accepting" the way Volto loads its code, via Webpack.
+```
+
 ## Standard setup
 
 Jest does not use Volto's or the project webpack configuration, but its own way of compiling the code under test. Jest needs to know how to compile and process these resources, some of them are automatically and already configured but could be that if you'd need to extend for supporting the resources you are importing in your code.
@@ -10,9 +14,11 @@ The Jest setup is done at `package.json` of your project under the key `jest`. V
 
 ## Config for projects and for add-ons
 
-Jest in Volto does not use the full configuration object from Volto. It uses an special subset of configuration more simpler than the original one, suitable for having more predictable test results. This configuration is loaded from: `test-setup-config.js` file at Volto's root. By taking a look at it, you could see the default configuration.
+Jest in Volto does not use the full configuration object from Volto. It uses a special subset of configuration, simpler than the original one, suitable for having more predictable test results. This configuration is loaded from: [test-setup-config.js][1] file at Volto's root. By taking a look at it, you could see the default configuration.
 
 You can override or extend anything in the default configuration by using the configuration object as you would do normally in code:
+
+[1]: https://github.com/plone/volto/blob/42f2dfc8abc0defa5f3ebef5bcfb6265342ffdc7/test-setup-config.js
 
 ```js
 beforeEach(() => {
