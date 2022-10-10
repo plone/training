@@ -62,7 +62,8 @@ fully refresh the page whenever new content is loaded.
 If we integrate Volto with "external pages", content that lives under the same
 domain name, but it's served differently based on rewrite rules at the HTTP
 proxy server level, we'll need to instruct Volto to know that those URLs are
-"foreign" and it shouldn't use the router for them:
+"foreign" and it should treat all internal links as external, fully triggering
+a browser location change, instead of faking it as a Single Page Application:
 
 ```
 config.settings.externalRoutes = [
