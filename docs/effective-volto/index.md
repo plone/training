@@ -32,9 +32,9 @@ getting-started
 architecture
 backend
 addons
-development
 testing
 deployment
+development
 ```
 
 Please note that this document is *not complete* without the spoken word of a trainer.
