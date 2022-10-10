@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Block Extensions"
+    "property=og:description": "Block Extensions"
+    "property=og:title":  "Block Extensions"
+    "keywords": "Volto, Plone, Pastanaga, Volto blocks extensions"
+---
+
 # Block Extensions
 
 A common pattern in blocks is the "variations" pattern - a slightly different

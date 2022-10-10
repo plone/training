@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Integrate with Volto’s asyncConnect for SSR"
+    "property=og:description": "Integrate with Volto’s asyncConnect for SSR"
+    "property=og:title":  "Integrate with Volto’s asyncConnect for SSR"
+    "keywords": "Volto, Plone, SSR, SPA"
+---
+
 # Integrate with Volto’s asyncConnect for SSR
 
 We already know that Volto provides full server-side rendering of the React

@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Block Styling"
+    "property=og:description": "Block Styling"
+    "property=og:title":  "Block Styling"
+    "keywords": "Volto, Plone, Pastanaga, Volto blocks styling, CSS"
+---
+
 # Block Styling
 
 The block style wrapper is part of a block anatomy.

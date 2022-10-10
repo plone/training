@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Create a block using `BlockDataForm`"
+    "property=og:description": "Create a block using `BlockDataForm`"
+    "property=og:title":  "Create a block using `BlockDataForm`"
+    "keywords": "Volto, Plone, Pastanaga, BlockDataForm, Volto block extensions"
+---
+
 # Create a block using `BlockDataForm`
 
 The BlockDataForm renders an form fully integrated with a block's extension
