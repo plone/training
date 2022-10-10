@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    'description': 'Set up your project and development environment'
-    'property=og:description': 'Set up your project and development environment'
-    'property=og:title': 'Initial project setup'
-    'keywords': 'Plone, Volto, Training, Setup, Docker'
+    "description": "Set up your project and development environment"
+    "property=og:description": "Set up your project and development environment"
+    "property=og:title": "Initial project setup"
+    "keywords": "Plone, Volto, Training, Setup, Docker"
 ---
 
 (voltohandson-quickstart-label)=
@@ -13,18 +13,13 @@ myst:
 
 ## Set Up Volto Project
 
-To create our first volto project we will youse the volto generator tool (https://www.npmjs.com/package/@plone/generator-volto). When you have that installed you can use it to generate a brand new volto project. In our case we will use the latest alpha version of Volto by using the `--canary`flag like this:
+To create our first volto project we will youse the volto generator tool (https://www.npmjs.com/package/@plone/generator-volto). It needs the Yeoman generator as a dependency. install that with `npm install -g yo` When you have that installed you can use it to generate a brand new volto project. In our case we will use the latest alpha version of Volto by using the `--canary`flag like this:
 
 ```shell
 yo @plone/volto <project-name> --canary
 ```
 
 The dialogue in the console will ask you wether you want to install any addons. You can skip by pressing the `enter` button, as we dont want to use any addons for the training.
-
-```{image} _static/volto_generator_terminal.png
-:align: center
-:alt: Console with Volto generator dialogue
-```
 
 ## Build environments
 
@@ -38,7 +33,7 @@ To run our Volto site, we will use the lates Plone 6 backend Docker image.
 You can start it by running the following command:
 
 ```shell
-docker run -p 8080:8080 -e SITE="Plone" -e ADDONS="plone.app.multilingual" plone/plone-backend:6.0.0b3
+docker run -p 8080:8080 -e SITE="Plone" -e plone/plone-backend:6.0.0b3
 ```
 
 Keep that process running during the whole training in one of your terminal windows because the container does not have a persistant storage. So once you stop that container again some of you work might get lost again.
