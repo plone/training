@@ -35,3 +35,4 @@ docs/pyvenv.cfg
 .vscode
 .*project
 /.settings/
+/lib64
