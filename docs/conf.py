@@ -103,6 +103,7 @@ linkcheck_ignore = [
     r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
     r"https://www.dipf.de/.*",  # a timeout from time to time
     r"http://plone-conference.localhost/.*",
+    r"http://plone-conference.localhost:3000/.*",
     r"https://plone-conference.localhost/.*",
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
