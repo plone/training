@@ -13,4 +13,5 @@ numbered: true
 
 getting-started/project
 getting-started/add-on
+getting-started/roadmap
 ```
