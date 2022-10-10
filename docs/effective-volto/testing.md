@@ -9,8 +9,8 @@ numbered: true
 ---
 
 testing/acceptance
-testing/unit
 testing/jest
+testing/unit
 testing/storybook
 testing/addons
 ```
