@@ -77,7 +77,7 @@ First you need to create a new application on GitHub ...
 
 Go to the folder `/backend`.
 
-Append `pas.plugins.authomatic` to `constraints.txt`.
+Append `pas.plugins.authomatic` to `requirements.txt`.
 This installs the package too when installing Plone.
 
 Edit file `instance.yml`.
