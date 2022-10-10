@@ -62,7 +62,8 @@ The Volto code can be found in {file}`/omelette/`.
 ## The Logo
 
 You can use this approach to change the Logo.
-Create your own logo or download a logo and add it to your Volto app ({file}`frontend`) using this path and name: `src/customizations/components/theme/Logo/Logo.svg`.
+
+Create your own logo as a svg image or [download a logo](https://www.starzel.de/plone-tutorial/Logo.svg/@@download) and add it to your Volto app ({file}`frontend`) using this path and name: `src/customizations/components/theme/Logo/Logo.svg`.
 
 After a restart of Volto ({kbd}`ctrl + c` and {kbd}`yarn start`) your page should look like this:
 
