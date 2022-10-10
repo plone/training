@@ -103,7 +103,7 @@ To activate the settings run `make build-backend` in the root folder of the proj
 
 Go to folder `frontend` and edit the package.json.
 
-Append `@plonecollective/volto-authomatic` to the lists if `dependencies` and `addons`.
+Append `@plone-collective/volto-authomatic` to the lists if `dependencies` and `addons`.
 
 To activate the settings run `make build-frontend` in the root folder of the project.
 
