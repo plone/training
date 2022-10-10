@@ -77,14 +77,14 @@ First you need to create a new application on GitHub ...
 
 Go to the folder `/backend`.
 
-Append `pas.plugins.authomatic` to `constraints.txt`.
+Append `pas.plugins.authomatic` to `requirements.txt`.
 This installs the package too when installing Plone.
 
 Edit file `instance.yml`.
 In there is a line `package_includes: ['plone_conference']`.
 This loads the package configuration when starting Plone Backend.
 Append `pas.plugins.authomatic` to the array.
-Afterwars its looks like so:
+Afterward it looks like so:
 
 ```
 default_context:
@@ -92,7 +92,7 @@ default_context:
     initial_user_password: 'admin'
 
     load_zcml:
-        package_includes: ['plone_conference', `pas.plugins.authomatic']
+        package_includes: ['plone_conference', 'pas.plugins.authomatic']
 
     db_storage: direct
 ```
@@ -103,7 +103,7 @@ To activate the settings run `make build-backend` in the root folder of the proj
 
 Go to folder `frontend` and edit the package.json.
 
-Append `@plonecollective/volto-authomatic` to the lists if `dependencies` and `addons`.
+Append `@plone-collective/volto-authomatic` to the lists of `dependencies` and `addons`.
 
 To activate the settings run `make build-frontend` in the root folder of the project.
 
