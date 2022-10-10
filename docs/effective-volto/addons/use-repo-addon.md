@@ -94,3 +94,45 @@ You should use the `src` path inside your package and point the `main` key
 in `package.json` to the `index.js` file in `src/index.js`.
 ```
 
+### Addon development lifecycle
+
+If you want to "disable" using the development version of an addon, or keep
+a more stable version of `mrs.developer.json` in your source code repository,
+you can set its developing status by adding a `develop` key:
+
+```json
+{
+  "acme-volto-foo-addon": {
+    "package": "@acme/volto-foo-addon",
+    "url": "git@github.com:acme/my-volto-addon.git",
+    "path": "src",
+    "develop": true
+  }
+}
+```
+
+You can toggle that key to `false` and run `yarn develop` again.
+
+### Addon dependencies, yarn workspaces
+
+If your addon needs to bring in additional Javascript package dependencies,
+you'll have to set your addon package as a "Yarn workspace". You do this by
+adding a `workspaces` key to the the `package.json` of your Volto project:
+
+```json
+...
+"workspaces": ["src/addons/my-volto-addon"],
+...
+```
+
+It is common practice to use a star glob pattern for the workspaces:
+
+```json
+...
+"workspaces": ["src/addons/*"],
+...
+```
+
+If you do this, make sure to always cleanup the `src/addons` folder whenever
+you toggle the development status of an addon, as the existence of the addon
+folder under the `src/addons` will still influence yarn.
