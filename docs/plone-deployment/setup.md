@@ -45,7 +45,7 @@ If the system does not provide a suitable version, you can use [Pyenv](https://g
 
 ### Node and Node tools
 
-Node 16, latest NPM and Yarn (classic, not 2.x).
+Node 16, latest NPM, Yarn (classic, not 2.x) and Yeoman.
 
 Install [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
 
@@ -54,6 +54,12 @@ Use it to install Node 16 and NPM (hint: check if a newer minor or bugfix releas
 ```bash
 nvm install v16.17.1
 nvm alias default v16.17.1
+```
+
+Now, having Node installed, install Yeoman.
+
+```bash
+npm install -g yo
 ```
 
 Then execute `curl -o- -L https://yarnpkg.com/install.sh | bash` to install Yarn.
