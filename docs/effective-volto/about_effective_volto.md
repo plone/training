@@ -4,7 +4,7 @@ myst:
     "description": "About Effective Volto"
     "property=og:description": "About Effective Volto"
     "property=og:title": "About Effective Volto"
-    "keywords": "Plone, Volto, Trainers"
+    "keywords": "Volto, Tiberiu Ichim, Víctor Fernández de Alba"
 ---
 
 (about-effective-volto-label)=
