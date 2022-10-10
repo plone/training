@@ -22,6 +22,7 @@ react/index
 volto/index
 voltohandson/index
 voltoaddons/index
+effective-volto/index
 testing/index
 theming/index
 theming_plone_5/index
