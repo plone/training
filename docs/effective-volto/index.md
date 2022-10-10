@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Effective Volto"
-  "property=og:description": "Effective Volto"
-  "property=og:title": "Effective Volto"
-  "keywords": "Plone, Volto, Training"
+myst:
+  html_meta:
+    "description": "Effective Volto"
+    "property=og:description": "Effective Volto"
+    "property=og:title": "Effective Volto"
+    "keywords": "Plone, Volto, Training"
 ---
 
 (effective-volto-label)=
