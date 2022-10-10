@@ -119,7 +119,7 @@ make help
 
 To install both the Plone backend and frontend, use the following command.
 
-```{code-base} shell
+```{code-block} shell
 make install
 ```
 
