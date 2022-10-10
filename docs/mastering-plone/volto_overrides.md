@@ -332,7 +332,7 @@ The React developer tools provide a selector to find the component we need to ov
 ```
 
 ```{code-block} jsx
-:emphasize-lines: 3,31-33
+:emphasize-lines: 3,30-34
 :linenos:
 
 import React from 'react';
