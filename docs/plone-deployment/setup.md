@@ -49,7 +49,7 @@ Latest Node LTS version (Node 16), latest NPM, Yarn (classic, not 2.x) and Yeoma
 
 Install [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
 
-Use it to install latest version of Node LTS (currently v16.17.1) and NPM (hint: check if a newer minor or bugfix release is available).
+Use it to install the latest version of Node LTS (currently v16.17.1) and NPM (hint: check if a newer minor or bugfix release is available).
 
 ```bash
 nvm install lts/*
