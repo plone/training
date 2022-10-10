@@ -4,7 +4,7 @@ myst:
     "description": "Create a theme add-on"
     "property=og:description": "Create a theme add-on"
     "property=og:title": "Create a theme add-on"
-    "keywords": "Volto, Plone, Semantic-UI, CSS, Volto theme"
+    "keywords": "Volto, Plone, Semantic UI, CSS, Volto theme"
 ---
 
 # Create a theme add-on
