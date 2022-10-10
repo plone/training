@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Configuration Registry"
+    "property=og:description": "Configuration Registry"
+    "property=og:title":  "Configuration Registry"
+    "keywords": "Volto, Plone, Configuration"
+---
+
 # Configuration Registry
 
 To provide customization and a centralized configuration, Volto holds all its

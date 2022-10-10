@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Debugging with Volto"
+    "property=og:description": "Debugging with Volto"
+    "property=og:title":  "Debugging with Volto"
+    "keywords": "Volto, Plone, Lighthouse, Optimization"
+---
+
 # Debugging with Volto
 
 Low effort: `console.log()`. Don't leave it in production code, unless you

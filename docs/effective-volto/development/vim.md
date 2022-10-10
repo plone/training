@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "vim and neovim integration"
+    "property=og:description": "vim and neovim integration"
+    "property=og:title":  "vim and neovim integration"
+    "keywords": "Volto, Plone, Vim, Development"
+---
+
 # vim and neovim integration
 
 For code linting and formatting, Volto relies on a working configuration of

@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Bundle analyzing"
+    "property=og:description": "Bundle analyzing"
+    "property=og:title":  "Bundle analyzing"
+    "keywords": "Volto, Plone, Bundle, Performance, Optimization"
+---
+
 # Bundle analyzing
 
 Once you start developing your custom Volto project, you'll load a lot of third

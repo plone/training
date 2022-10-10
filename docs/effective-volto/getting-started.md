@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Getting Started"
+    "property=og:description": "Getting Started"
+    "property=og:title":  "Getting Started"
+    "keywords": "Volto, Plone, Newbie"
+---
+
 # Getting Started
 
 We will be bootstrapping a Full Plone 6 project in order to follow the training and be able to test the topics introduced.

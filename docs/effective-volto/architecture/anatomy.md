@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Inside Volto"
+    "property=og:description": "Inside Volto"
+    "property=og:title":  "Inside Volto"
+    "keywords": "Volto, Plone, Volto project, Volto architecture"
+---
+
 # Inside Volto
 
 As with any large complex application, there are multiple facets to Volto, and

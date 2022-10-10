@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Acceptance testing"
+    "property=og:description": "Acceptance testing"
+    "property=og:title":  "Acceptance testing"
+    "keywords": "Volto, Plone, Testing, Cypress"
+---
+
 # Acceptance testing
 
 Volto's acceptance testing (also known as e2e testing) is done using [Cypress](https://www.cypress.io/).

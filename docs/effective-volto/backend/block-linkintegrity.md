@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Link integrity for blocks"
+    "property=og:description": "Link integrity for blocks"
+    "property=og:title":  "Link integrity for blocks"
+    "keywords": "Volto, Plone, Link integrity"
+---
+
 # Link integrity for blocks
 
 Using the latest plone.restapi, Volto blocks also provide Link Integrity

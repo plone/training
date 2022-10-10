@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Bootstrapping a full Plone 6 project"
+    "property=og:description": "Bootstrapping a full Plone 6 project"
+    "property=og:title":  "Bootstrapping a full Plone 6 project"
+    "keywords": "Volto, Plone, Getting Started"
+---
+
 (bootstrapping-label)=
 
 # Bootstrapping a full Plone 6 project

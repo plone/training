@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Developer roadmap"
+    "property=og:description": "Developer roadmap"
+    "property=og:title":  "Developer roadmap"
+    "keywords": "Volto, Plone, Development, Newbie"
+---
+
 # Developer roadmap
 
 If you're coming to Volto as a backend Plone developer, you'll have to learn

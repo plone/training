@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Babel"
+    "property=og:description": "Babel"
+    "property=og:title":  "Babel"
+    "keywords": "Volto, Plone, Webpack, Babel, Javascript"
+---
+
 # Babel
 
 Volto uses [Babel](https://babeljs.io/) as the tool to convert our flavour of

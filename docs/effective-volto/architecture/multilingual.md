@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Multilingual"
+    "property=og:description": "Multilingual"
+    "property=og:title":  "Multilingual"
+    "keywords": "Volto, Plone, i18n, Multilingual"
+---
+
 # Multilingual
 
 This feature has to be enabled and configured both in the backend and in the frontend.

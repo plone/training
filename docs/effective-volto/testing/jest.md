@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Jest"
+    "property=og:description": "Jest"
+    "property=og:title":  "Jest"
+    "keywords": "Volto, Plone, Testing, Jest, CI"
+---
+
 # Jest
 
 Jest is the standard "de facto" NodeJS test runner.

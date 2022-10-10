@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Writing a content expansion endpoint"
+    "property=og:description": "Writing a content expansion endpoint"
+    "property=og:title":  "Writing a content expansion endpoint"
+    "keywords": "Volto, Plone, REST, plone.restapi, Serialization, Content Expanders"
+---
+
 # Writing a content expansion endpoint
 
 By default Volto fetches content using a single call using the

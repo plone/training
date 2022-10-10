@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Add-ons"
+    "property=og:description": "Add-ons"
+    "property=og:title":  "Add-ons"
+    "keywords": "Volto, Plone, Add-ons"
+---
+
 # Add-ons
 
 ```{toctree}

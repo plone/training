@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Webpack"
+    "property=og:description": "Webpack"
+    "property=og:title":  "Webpack"
+    "keywords": "Volto, Plone, Webpack"
+---
+
 # Webpack
 
 In a typical modern web application architecture, we have two parts:

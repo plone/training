@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "critical.css"
+    "property=og:description": "critical.css"
+    "property=og:title":  "critical.css"
+    "keywords": "Volto, Plone, Lighthouse, Optimization"
+---
+
 # `critical.css`
 
 A very important technique to improve the perceived initial load performance of

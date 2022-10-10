@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Volto Blocks"
+    "property=og:description": "Volto Blocks"
+    "property=og:title":  "Volto Blocks"
+    "keywords": "Volto, Plone, Volto blocks, Pastanaga"
+---
+
 # Volto Blocks
 
 Volto features the Pastanaga Editor Engine, allowing you to visually compose

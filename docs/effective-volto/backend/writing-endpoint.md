@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Writing an endpoint"
+    "property=og:description": "Writing an endpoint"
+    "property=og:title":  "Writing an endpoint"
+    "keywords": "Volto, Plone, REST, plone.restapi, Endpoint"
+---
+
 # Writing an endpoint
 
 Endpoint services are registered with the `plone:service` ZCML tags:

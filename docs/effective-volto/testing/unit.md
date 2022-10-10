@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Unit testing"
+    "property=og:description": "Unit testing"
+    "property=og:title":  "Unit testing"
+    "keywords": "Volto, Plone, CI, Jest, Testing"
+---
+
 # Unit testing
 
 Unit testing in Volto is achieved using Jest as the test runner. Unit testing is best used to test components or utilities in isolation.

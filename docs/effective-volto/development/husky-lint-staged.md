@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Husky and lint-staged"
+    "property=og:description": "Husky and lint-staged"
+    "property=og:title":  "Husky and lint-staged"
+    "keywords": "Volto, Plone, Github"
+---
+
 # Husky and lint-staged
 
 Husky is a tool that creates git hooks in yur repo. It allows you to run commands during the git lifecycle events (eg. when you commit or push your code to the server). It's useful for running linters, prettifiers, and tests before or while that events are happening.

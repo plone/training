@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Testing add-ons"
+    "property=og:description": "Testing add-ons"
+    "property=og:title":  "Testing add-ons"
+    "keywords": "Volto, Plone, Testing, CI, Add-ons"
+---
+
 # Testing add-ons
 
 We should let jest know about our aliases and make them available to it to

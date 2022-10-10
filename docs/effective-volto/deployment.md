@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Deployment"
+    "property=og:description": "Deployment"
+    "property=og:title":  "Deployment"
+    "keywords": "Volto, Plone, Deployment"
+---
+
 # Deployment
 
 ```{toctree}

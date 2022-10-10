@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Webpack loaders"
+    "property=og:description": "Webpack loaders"
+    "property=og:title":  "Webpack loaders"
+    "keywords": "Volto, Plone, Webpack"
+---
+
 # Webpack loaders
 
 In the process of "bundling" (creating the static code that gets loaded into

@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Docker"
+    "property=og:description": "Docker"
+    "property=og:title":  "Docker"
+    "keywords": "Volto, Plone, Docker"
+---
+
 # Docker
 
 As any application on earth, Plone 6 Volto can be deployed using Docker.

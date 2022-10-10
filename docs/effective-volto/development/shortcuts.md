@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Shortcuts"
+    "property=og:description": "Shortcuts"
+    "property=og:title":  "Shortcuts"
+    "keywords": "Volto, Plone, Webpack, Javascript, Packaging"
+---
+
 # Shortcuts
 
 Volto provides the following available names for Javascript and LESS imports:

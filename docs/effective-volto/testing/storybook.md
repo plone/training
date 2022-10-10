@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Storybook"
+    "property=og:description": "Storybook"
+    "property=og:title":  "Storybook"
+    "keywords": "Volto, Plone, Storybook, CI, Documentation"
+---
+
 # Storybook
 
 Volto provides integration with [Storybook][1], which is used to document and

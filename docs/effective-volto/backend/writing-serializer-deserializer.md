@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Writing a serializer or a deserializer"
+    "property=og:description": "Writing a serializer or a deserializer"
+    "property=og:title":  "Writing a serializer or a deserializer"
+    "keywords": "Volto, Plone, REST, plone.restapi, serializer, deserializer"
+---
+
 # Writing a serializer or a deserializer
 
 In plone.restapi we have an hierarchy, several levels deep, of serializers and

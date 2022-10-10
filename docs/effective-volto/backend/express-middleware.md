@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Writing Express middleware"
+    "property=og:description": "Writing Express middleware"
+    "property=og:title":  "Writing Express middleware"
+    "keywords": "Volto, Plone, Express, Javascript, Backend"
+---
+
 # Writing Express middleware
 
 When working with Volto projects, we consider the backend to be Plone. But we

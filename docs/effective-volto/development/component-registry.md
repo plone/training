@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Component Registry"
+    "property=og:description": "Component Registry"
+    "property=og:title":  "Component Registry"
+    "keywords": "Volto, Plone, Configuration, React"
+---
+
 # Component Registry
 
 The configuration registry has a component registry integrated on itself.

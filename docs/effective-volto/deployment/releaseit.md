@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "release-it"
+    "property=og:description": "release-it"
+    "property=og:title":  "release-it"
+    "keywords": "Volto, Plone, release-it, release management"
+---
+
 # `release-it`
 
 Volto uses the library `release-it` in order to automate the release process.

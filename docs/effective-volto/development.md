@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Development tools"
+    "property=og:description": "Development tools"
+    "property=og:title":  "Development tools"
+    "keywords": "Volto, Plone, Development"
+---
+
 # Development tools
 
 

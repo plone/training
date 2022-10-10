@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Razzle"
+    "property=og:description": "Razzle"
+    "property=og:title":  "Razzle"
+    "keywords": "Volto, Plone, Webpack, Razzle"
+---
+
 # Razzle
 
 Razzle is an easy boilerplate generator for isomorphic JavaScript applications.

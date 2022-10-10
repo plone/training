@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Redux"
+    "property=og:description": "Redux"
+    "property=og:title":  "Redux"
+    "keywords": "Volto, Plone, Configuration"
+---
+
 # Redux
 
 Redux is the app-state store that Volto uses.

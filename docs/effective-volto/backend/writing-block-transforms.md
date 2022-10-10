@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Writing a block transform"
+    "property=og:description": "Writing a block transform"
+    "property=og:title":  "Writing a block transform"
+    "keywords": "Volto, Plone, REST, plone.restapi, Volto blocks, Serialization, Block Transformers"
+---
+
 # Writing a block transform
 
 Practical experience has shown that it is useful to transform, server-side, the value of block fields on inbound (deserialization) and also outbound (serialization) operations.

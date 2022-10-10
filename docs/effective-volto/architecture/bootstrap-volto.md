@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Bootstrap Volto"
+    "property=og:description": "Bootstrap Volto"
+    "property=og:title":  "Bootstrap Volto"
+    "keywords": "Volto, Plone, Newbie"
+---
+
 # Bootstrap Volto
 
 ::: warning

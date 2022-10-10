@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "VSCode extensions/helpers"
+    "property=og:description": "VSCode extensions/helpers"
+    "property=og:title":  "VSCode extensions/helpers"
+    "keywords": "Volto, Plone, VSCode, Development"
+---
+
 # VSCode extensions/helpers
 
 These are the extensions that are very useful while developing Volto. Volto has also in place some automatic configuration that these extension will read and apply, linters, prettifiers, etc.
