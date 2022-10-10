@@ -105,6 +105,8 @@ linkcheck_ignore = [
     r"http://plone-conference.localhost.*",
     r"http://plone-conference.localhost:3000.*",
     r"https://plone-conference.localhost.*",
+    # Example domain
+    "https://domain-b.com/data.json"
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
@@ -128,6 +130,9 @@ linkcheck_ignore = [
     "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
     "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
     "https://www.npmjs.com/package/axios#example",
+    "https://github.com/plone/plone.restapi/blob/afde2a940d2518e061eb3fe30093093af55e3a50/src/plone/restapi/services/content/configure.zcml#L15-L20",
+    "https://github.com/plone/plone.rest#cors",
+    "https://github.com/plone/plone.docker#for-basic-usage",
     # ### End of list of anchored links
 ]
 linkcheck_allowed_redirects = {
