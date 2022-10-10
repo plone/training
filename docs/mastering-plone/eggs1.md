@@ -71,10 +71,10 @@ $ pip install bobtemplates.plone==6.0b15
 Then create the addon:
 
 ```shell
-$ plonecli create addon src/ploneconf.site
+plonecli create addon sources/ploneconf.site
 ```
 
-The new add-on will be created in the {file}`src` directory (_src_ is short for _sources_)
+The new add-on will be created in the {file}`sources` directory.
 
 You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. choosing the default value) for most questions except where indicated (enter your GitHub username if you have one, do not initialize a GIT repository, Use Plone 5.2 and python 3.7):
 
