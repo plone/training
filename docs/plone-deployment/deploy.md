@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Deploy Plone via make, GitHub Actions, or Gitlab CI"
+    "property=og:description": "Deploy Plone via make, GitHub Actions, or Gitlab CI"
+    "property=og:title": "Deploy Plone via make, GitHub Actions, or Gitlab CI"
+    "keywords": "Deploy, Plone, Makefile, GitHub Actions, Gitlab CI"
 ---
 
 # Deploy
@@ -23,6 +23,7 @@ Also use this also when there is a new version of any of the images.
 ```{code-block} shell
 make status
 ```
+
 ### Check Logs
 
 |Tool|Command|
@@ -31,7 +32,7 @@ make status
 |frontend|`make logs-frontend`|
 |backend|`make logs-backend`|
 
-## Continuos Integration
+## Continuous Integration
 
 ### Using GitHub Actions
 

@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Plone Deployment with Ansible and Docker
+myst:
+  html_meta:
+    "description": "Plone Deployment with Ansible and Docker"
+    "property=og:description": "Plone Deployment with Ansible and Docker"
+    "property=og:title": "Plone Deployment with Ansible and Docker"
+    "keywords": "Plone, Deployment, Ansible, Docker"
 ---
 
 (deployment-label)=

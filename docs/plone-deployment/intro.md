@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Introduction for Plone Deployment with Ansible and Docker"
+    "property=og:description": "Introduction for Plone Deployment with Ansible and Docker"
+    "property=og:title": "Introduction for Plone Deployment with Ansible and Docker"
+    "keywords": "Introduction, Plone, Deployment, Ansible, Docker"
 ---
 
 # Introduction
