@@ -4,7 +4,7 @@ myst:
     "description": "Extending SemanticUI"
     "property=og:description": "Extending SemanticUI"
     "property=og:title": "Extending SemanticUI"
-    "keywords": "Volto, Plone, Semantic-UI, CSS, Volto theme"
+    "keywords": "Volto, Plone, Semantic UI, CSS, Volto theme"
 ---
 
 # Extending SemanticUI
