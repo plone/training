@@ -9,7 +9,7 @@ myst:
 
 # Configurable Downloadlink Block
 
-The next section (skipping the simple text) on plone.org is the Banner with Download Button for Plone. We will use this to learn how to create a Block that is configurable by an editor.
+The next section (skipping the simple text) on `plone.org` is the Banner with Download Button for Plone. We will use this to learn how to create a Block that is configurable by an editor.
 
 ## Initital Block setups
 
@@ -240,4 +240,4 @@ To make the block look somewhat like its example we only need to add the followi
 }
 ```
 
-When done the block should look very much like on plone.org
+When done the block should look very much like on `plone.org`.
