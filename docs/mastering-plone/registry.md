@@ -16,21 +16,11 @@ myst:
 Code for the beginning of this chapter:
 
 ```shell
-# frontend
-git checkout talkview
-```
-
-```shell
 # backend
 git checkout frontpage
 ```
 
 Code for the end of this chapter:
-
-```shell
-# frontend
-git checkout registry
-```
 
 ```shell
 # backend
