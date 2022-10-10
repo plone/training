@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Debugging with Volto"
     "property=og:description": "Debugging with Volto"
-    "property=og:title":  "Debugging with Volto"
+    "property=og:title": "Debugging with Volto"
     "keywords": "Volto, Plone, Lighthouse, Optimization"
 ---
 

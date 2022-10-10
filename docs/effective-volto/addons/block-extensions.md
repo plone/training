@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Block Extensions"
     "property=og:description": "Block Extensions"
-    "property=og:title":  "Block Extensions"
+    "property=og:title": "Block Extensions"
     "keywords": "Volto, Plone, Pastanaga, Volto blocks extensions"
 ---
 

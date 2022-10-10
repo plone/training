@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "VSCode extensions/helpers"
     "property=og:description": "VSCode extensions/helpers"
-    "property=og:title":  "VSCode extensions/helpers"
+    "property=og:title": "VSCode extensions/helpers"
     "keywords": "Volto, Plone, VSCode, Development"
 ---
 

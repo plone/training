@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Bootstrapping an Add-on"
     "property=og:description": "Bootstrapping an Add-on"
-    "property=og:title":  "Bootstrapping an Add-on"
+    "property=og:title": "Bootstrapping an Add-on"
     "keywords": "Volto, Plone, Add-ons, Getting Started"
 ---
 

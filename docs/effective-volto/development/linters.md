@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Linters"
     "property=og:description": "Linters"
-    "property=og:title":  "Linters"
+    "property=og:title": "Linters"
     "keywords": "Volto, Plone, Webpack, Eslint, Prettier, Stylelint"
 ---
 

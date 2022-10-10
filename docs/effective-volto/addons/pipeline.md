@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Add-on and project configuration pipeline"
     "property=og:description": "Add-on and project configuration pipeline"
-    "property=og:title":  "Add-on and project configuration pipeline"
+    "property=og:title": "Add-on and project configuration pipeline"
     "keywords": "Volto, Plone, Volto add-ons, Volto Project"
 ---
 

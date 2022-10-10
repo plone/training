@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Create a custom Listing block template"
     "property=og:description": "Create a custom Listing block template"
-    "property=og:title":  "Create a custom Listing block template"
+    "property=og:title": "Create a custom Listing block template"
     "keywords": "Volto, Plone, Volto Blocks, Listing block"
 ---
 

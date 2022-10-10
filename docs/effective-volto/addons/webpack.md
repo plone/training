@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Extend Webpack setup from an add-on with `razzle.extend.js`"
     "property=og:description": "Extend Webpack setup from an add-on with `razzle.extend.js`"
-    "property=og:title":  "Extend Webpack setup from an add-on with `razzle.extend.js`"
+    "property=og:title": "Extend Webpack setup from an add-on with `razzle.extend.js`"
     "keywords": "Volto, Plone, Webpack, Volto add-on"
 ---
 

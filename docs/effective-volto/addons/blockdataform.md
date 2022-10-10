@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Create a block using `BlockDataForm`"
     "property=og:description": "Create a block using `BlockDataForm`"
-    "property=og:title":  "Create a block using `BlockDataForm`"
+    "property=og:title": "Create a block using `BlockDataForm`"
     "keywords": "Volto, Plone, BlockDataForm, Volto block extensions"
 ---
 

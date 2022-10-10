@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Extending SemanticUI"
     "property=og:description": "Extending SemanticUI"
-    "property=og:title":  "Extending SemanticUI"
+    "property=og:title": "Extending SemanticUI"
     "keywords": "Volto, Plone, Semantic-UI, CSS, Volto theme"
 ---
 

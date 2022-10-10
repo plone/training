@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Writing a block transform"
     "property=og:description": "Writing a block transform"
-    "property=og:title":  "Writing a block transform"
+    "property=og:title": "Writing a block transform"
     "keywords": "Volto, Plone, REST, plone.restapi, Volto blocks, Serialization, Block Transformers"
 ---
 

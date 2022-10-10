@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Inside Volto"
     "property=og:description": "Inside Volto"
-    "property=og:title":  "Inside Volto"
+    "property=og:title": "Inside Volto"
     "keywords": "Volto, Plone, Volto project, Volto architecture"
 ---
 

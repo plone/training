@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Configure a released Volto Add-on in your project"
     "property=og:description": "Configure a released Volto Add-on in your project"
-    "property=og:title":  "Configure a released Volto Add-on in your project"
+    "property=og:title": "Configure a released Volto Add-on in your project"
     "keywords": "Volto, Plone, Volto add-on"
 ---
 

@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Volto Client - Server duality"
     "property=og:description": "Volto Client - Server duality"
-    "property=og:title":  "Volto Client - Server duality"
+    "property=og:title": "Volto Client - Server duality"
     "keywords": "Volto, Plone, SSR"
 ---
 

@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Docker"
     "property=og:description": "Docker"
-    "property=og:title":  "Docker"
+    "property=og:title": "Docker"
     "keywords": "Volto, Plone, Docker"
 ---
 

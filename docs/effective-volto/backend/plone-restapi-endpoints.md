@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Plone RESTAPI endpoints"
     "property=og:description": "Plone RESTAPI endpoints"
-    "property=og:title":  "Plone RESTAPI endpoints"
+    "property=og:title": "Plone RESTAPI endpoints"
     "keywords": "Volto, Plone, REST, JSON, Backend"
 ---
 

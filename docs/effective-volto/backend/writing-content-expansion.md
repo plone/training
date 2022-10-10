@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Writing a content expansion endpoint"
     "property=og:description": "Writing a content expansion endpoint"
-    "property=og:title":  "Writing a content expansion endpoint"
+    "property=og:title": "Writing a content expansion endpoint"
     "keywords": "Volto, Plone, REST, plone.restapi, Serialization, Content Expanders"
 ---
 

@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Configure a non-released add-on from an existing repository"
     "property=og:description": "Configure a non-released add-on from an existing repository"
-    "property=og:title":  "Configure a non-released add-on from an existing repository"
+    "property=og:title": "Configure a non-released add-on from an existing repository"
     "keywords": "Volto, Plone, Volto add-on"
 ---
 

@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Writing a serializer or a deserializer"
     "property=og:description": "Writing a serializer or a deserializer"
-    "property=og:title":  "Writing a serializer or a deserializer"
+    "property=og:title": "Writing a serializer or a deserializer"
     "keywords": "Volto, Plone, REST, plone.restapi, serializer, deserializer"
 ---
 

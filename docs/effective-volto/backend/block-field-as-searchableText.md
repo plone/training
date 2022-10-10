@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Block field contribute to `searchableText`"
     "property=og:description": "Block field contribute to `searchableText`"
-    "property=og:title":  "Block field contribute to `searchableText`"
+    "property=og:title": "Block field contribute to `searchableText`"
     "keywords": "Volto, Plone, Searchable Text, Indexing, Catalog"
 ---
 

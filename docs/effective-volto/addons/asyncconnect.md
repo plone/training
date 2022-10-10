@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Integrate with Volto’s asyncConnect for SSR"
     "property=og:description": "Integrate with Volto’s asyncConnect for SSR"
-    "property=og:title":  "Integrate with Volto’s asyncConnect for SSR"
+    "property=og:title": "Integrate with Volto’s asyncConnect for SSR"
     "keywords": "Volto, Plone, SSR, SPA"
 ---
 

@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Unit testing"
     "property=og:description": "Unit testing"
-    "property=og:title":  "Unit testing"
+    "property=og:title": "Unit testing"
     "keywords": "Volto, Plone, CI, Jest, Testing"
 ---
 

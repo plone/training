@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Shortcuts"
     "property=og:description": "Shortcuts"
-    "property=og:title":  "Shortcuts"
+    "property=og:title": "Shortcuts"
     "keywords": "Volto, Plone, Webpack, Javascript, Packaging"
 ---
 

@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Volto Blocks"
     "property=og:description": "Volto Blocks"
-    "property=og:title":  "Volto Blocks"
+    "property=og:title": "Volto Blocks"
     "keywords": "Volto, Plone, Volto blocks, Pastanaga"
 ---
 

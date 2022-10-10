@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Testing add-ons"
     "property=og:description": "Testing add-ons"
-    "property=og:title":  "Testing add-ons"
+    "property=og:title": "Testing add-ons"
     "keywords": "Volto, Plone, Testing, CI, Add-ons"
 ---
 

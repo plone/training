@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Multilingual"
     "property=og:description": "Multilingual"
-    "property=og:title":  "Multilingual"
+    "property=og:title": "Multilingual"
     "keywords": "Volto, Plone, i18n, Multilingual"
 ---
 

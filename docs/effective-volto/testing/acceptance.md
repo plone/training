@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Acceptance testing"
     "property=og:description": "Acceptance testing"
-    "property=og:title":  "Acceptance testing"
+    "property=og:title": "Acceptance testing"
     "keywords": "Volto, Plone, Testing, Cypress"
 ---
 

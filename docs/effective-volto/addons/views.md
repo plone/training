@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Volto views"
     "property=og:description": "Volto views"
-    "property=og:title":  "Volto views"
+    "property=og:title": "Volto views"
     "keywords": "Volto, Plone, Volto views"
 ---
 

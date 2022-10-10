@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Developer roadmap"
     "property=og:description": "Developer roadmap"
-    "property=og:title":  "Developer roadmap"
+    "property=og:title": "Developer roadmap"
     "keywords": "Volto, Plone, Development, Newbie"
 ---
 

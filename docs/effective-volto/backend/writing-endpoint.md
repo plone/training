@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Writing an endpoint"
     "property=og:description": "Writing an endpoint"
-    "property=og:title":  "Writing an endpoint"
+    "property=og:title": "Writing an endpoint"
     "keywords": "Volto, Plone, REST, plone.restapi, Endpoint"
 ---
 

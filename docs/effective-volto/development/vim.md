@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "vim and neovim integration"
     "property=og:description": "vim and neovim integration"
-    "property=og:title":  "vim and neovim integration"
+    "property=og:title": "vim and neovim integration"
     "keywords": "Volto, Plone, Vim, Development"
 ---
 

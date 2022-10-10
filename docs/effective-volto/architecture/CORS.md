@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "CORS"
     "property=og:description": "CORS"
-    "property=og:title":  "CORS"
+    "property=og:title": "CORS"
     "keywords": "Volto, Plone, CORS, browser"
 ---
 

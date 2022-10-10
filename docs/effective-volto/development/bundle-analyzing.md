@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Bundle analyzing"
     "property=og:description": "Bundle analyzing"
-    "property=og:title":  "Bundle analyzing"
+    "property=og:title": "Bundle analyzing"
     "keywords": "Volto, Plone, Bundle, Performance, Optimization"
 ---
 

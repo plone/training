@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Webpack loaders"
     "property=og:description": "Webpack loaders"
-    "property=og:title":  "Webpack loaders"
+    "property=og:title": "Webpack loaders"
     "keywords": "Volto, Plone, Webpack"
 ---
 

@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "critical.css"
     "property=og:description": "critical.css"
-    "property=og:title":  "critical.css"
+    "property=og:title": "critical.css"
     "keywords": "Volto, Plone, Lighthouse, Optimization"
 ---
 

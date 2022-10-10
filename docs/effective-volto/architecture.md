@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Architecture"
     "property=og:description": "Architecture"
-    "property=og:title":  "Architecture"
+    "property=og:title": "Architecture"
     "keywords": "Volto, Plone, Architecture"
 ---
 

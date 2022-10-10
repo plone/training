@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Testing"
     "property=og:description": "Testing"
-    "property=og:title":  "Testing"
+    "property=og:title": "Testing"
     "keywords": "Volto, Plone, Testing"
 ---
 

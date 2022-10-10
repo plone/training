@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Component Registry"
     "property=og:description": "Component Registry"
-    "property=og:title":  "Component Registry"
+    "property=og:title": "Component Registry"
     "keywords": "Volto, Plone, Configuration, React"
 ---
 

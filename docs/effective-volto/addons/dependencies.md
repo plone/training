@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Add-on dependencies"
     "property=og:description": "Add-on dependencies"
-    "property=og:title":  "Add-on dependencies"
+    "property=og:title": "Add-on dependencies"
     "keywords": "Volto, Plone, Volto add-ons, Javascript, Javascript dependencies"
 ---
 

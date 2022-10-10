@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Babel"
     "property=og:description": "Babel"
-    "property=og:title":  "Babel"
+    "property=og:title": "Babel"
     "keywords": "Volto, Plone, Webpack, Babel, Javascript"
 ---
 

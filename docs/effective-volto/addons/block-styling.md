@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Block Styling"
     "property=og:description": "Block Styling"
-    "property=og:title":  "Block Styling"
+    "property=og:title": "Block Styling"
     "keywords": "Volto, Plone, Volto blocks styling, CSS"
 ---
 

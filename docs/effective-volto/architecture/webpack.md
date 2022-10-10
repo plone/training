@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Webpack"
     "property=og:description": "Webpack"
-    "property=og:title":  "Webpack"
+    "property=og:title": "Webpack"
     "keywords": "Volto, Plone, Webpack"
 ---
 

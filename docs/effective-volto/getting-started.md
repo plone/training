@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Getting Started"
     "property=og:description": "Getting Started"
-    "property=og:title":  "Getting Started"
+    "property=og:title": "Getting Started"
     "keywords": "Volto, Plone, Newbie"
 ---
 

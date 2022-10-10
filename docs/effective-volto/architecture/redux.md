@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Redux"
     "property=og:description": "Redux"
-    "property=og:title":  "Redux"
+    "property=og:title": "Redux"
     "keywords": "Volto, Plone, Configuration"
 ---
 

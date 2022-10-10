@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Husky and lint-staged"
     "property=og:description": "Husky and lint-staged"
-    "property=og:title":  "Husky and lint-staged"
+    "property=og:title": "Husky and lint-staged"
     "keywords": "Volto, Plone, Github"
 ---
 
