@@ -73,7 +73,7 @@ The Plugin needs am application key from Github.
 
 First you need to create a new application on GitHub ...
 
-### Backend
+## Backend
 
 Go to the folder `/backend`.
 
@@ -99,6 +99,51 @@ default_context:
 
 To activate the settings run `make build-backend` in the root folder of the project.
 
-### Frontend
+## Frontend
 
-Add `@plonecollective/volto-authomatic`.
+Go to folder `frontend` and edit the package.json.
+
+Append `@plonecollective/volto-authomatic` to the lists if `dependencies` and `addons`.
+
+To activate the settings run `make build-frontend` in the root folder of the project.
+
+## Activate the plugin
+
+You need to login as administrator to Plone Backend (in Classic UI) at `http://localhost:8080`.
+
+At the bottom of the menu on the left choose `admin`, then `Site Setup` and then `add-ons`.
+Then choose to install `pas.plugins.authomatic`.
+
+Now configure the plugin by adding the Github configuration as JSON.
+
+```
+{
+    "github": {
+        "display": {
+            "title": "Github",
+            "cssclasses": {
+                "button": "btn btn-default",
+                "icon": "glypicon glyphicon-github"
+            },
+            "as_form": false
+        },
+        "propertymap": {
+            "email": "email",
+            "link": "home_page",
+            "location": "location",
+            "name": "fullname",
+            "picture": "avatar_url"
+        },
+        "class_": "authomatic.providers.oauth2.GitHub",
+        "consumer_key": "KEYHERE",
+        "consumer_secret": "SECRETHERE",
+        "access_headers": {
+            "User-Agent": "Plone (pas.plugins.authomatic)"
+        }
+    }
+}
+```
+
+You need to go to your Github account and add an application manually to get the two keys for the application.
+
+Save and all is set.
