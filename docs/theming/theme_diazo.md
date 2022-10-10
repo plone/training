@@ -1231,7 +1231,7 @@ Git state is clean.
 
 --> Python class name [MyView]: ProductsView
 
---> Which base class should the view use (BrowserView/DefaultView)? [BrowserView]:
+--> Which base class should the view use (BrowserView/DefaultView/CollectionView)? [CollectionsView]:
 
 --> View name (part of the URL) [products-view]:
 
@@ -1250,20 +1250,6 @@ views/
 ├── products_view.pt
 └── products_view.py
 ```
-
-Let's open the `configure.zcml` first, to make sure our view is registered correctly.
-
-```xml
-  <browser:page
-    name="products-view"
-    for="Products.CMFCore.interfaces.IFolderish"
-    class=".products_view.ProductsView"
-    template="products_view.pt"
-    permission="zope2.View"
-    />
-```
-
-We want to use the view on a Collection, since the Collection does not provide the IFolderish interface, we need to change the Interface to `plone.app.contenttypes.interfaces.ICollection`.
 
 To have the `products-view` in the list of available views on a Collection, we need to configure it in the FTI settings.
 
