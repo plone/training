@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "How does a Volto add-on works?"
+    "property=og:description": "How does a Volto add-on works?"
+    "property=og:title":  "How does a Volto add-on works?"
+    "keywords": "Volto, Plone, Volto add-ons, Javascript, Javascript dependencies"
+---
+
 # How does a Volto add-on works?
 
 Volto addon packages are just CommonJS packages. The only requirement is that

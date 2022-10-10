@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Create a theme add-on"
+    "property=og:description": "Create a theme add-on"
+    "property=og:title":  "Create a theme add-on"
+    "keywords": "Volto, Plone, Semantic-UI, CSS, Volto theme"
+---
+
 # Create a theme add-on
 
 We can create a Volto Add-on that acts as a theme Add-on, so we can detach it from the project.

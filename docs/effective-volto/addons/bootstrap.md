@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "Blocks Layout"
-    "property=og:description": "Blocks Layout"
-    "property=og:title":  "Blocks Layout"
-    "keywords": "Volto, Plone, Pastanaga, Dexterity Blocks Layout"
+    "description": "Bootstrap an add-on"
+    "property=og:description": "Bootstrap an add-on"
+    "property=og:title":  "Bootstrap an add-on"
+    "keywords": "Volto, Plone, Volto add-ons"
 ---
 
 # Bootstrap an add-on

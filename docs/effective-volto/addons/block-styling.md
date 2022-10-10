@@ -4,7 +4,7 @@ myst:
     "description": "Block Styling"
     "property=og:description": "Block Styling"
     "property=og:title":  "Block Styling"
-    "keywords": "Volto, Plone, Pastanaga, Volto blocks styling, CSS"
+    "keywords": "Volto, Plone, Volto blocks styling, CSS"
 ---
 
 # Block Styling

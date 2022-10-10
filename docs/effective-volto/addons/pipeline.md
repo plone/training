@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Add-on and project configuration pipeline"
+    "property=og:description": "Add-on and project configuration pipeline"
+    "property=og:title":  "Add-on and project configuration pipeline"
+    "keywords": "Volto, Plone, Volto add-ons, Volto Project"
+---
+
 # Add-on and project configuration pipeline
 
 Volto build its configuration out of Volto's configuration defaults, add-ons configuration, and project configuration.

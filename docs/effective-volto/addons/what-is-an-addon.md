@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "What is a Volto addon"
+    "property=og:description": "What is a Volto addon"
+    "property=og:title":  "What is a Volto addon"
+    "keywords": "Volto, Plone, Webpack, Volto add-on"
+---
+
 # What is a Volto addon
 
 There are several advanced scenarios where we might want to have more control

@@ -4,7 +4,7 @@ myst:
     "description": "Create a block using `BlockDataForm`"
     "property=og:description": "Create a block using `BlockDataForm`"
     "property=og:title":  "Create a block using `BlockDataForm`"
-    "keywords": "Volto, Plone, Pastanaga, BlockDataForm, Volto block extensions"
+    "keywords": "Volto, Plone, BlockDataForm, Volto block extensions"
 ---
 
 # Create a block using `BlockDataForm`

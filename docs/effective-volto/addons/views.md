@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Volto views"
+    "property=og:description": "Volto views"
+    "property=og:title":  "Volto views"
+    "keywords": "Volto, Plone, Volto views"
+---
+
 # Volto views
 
 Writing a "custom view templates" is one of the most basic tasks in classic

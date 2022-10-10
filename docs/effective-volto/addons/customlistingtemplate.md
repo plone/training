@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "Create a custom Listing block template"
+    "property=og:description": "Create a custom Listing block template"
+    "property=og:title":  "Create a custom Listing block template"
+    "keywords": "Volto, Plone, Volto Blocks, Listing block"
+---
+
 # Create a custom Listing block template
 
 The Listing block is one of the most versatile blocks, and driver to many of
