@@ -11,7 +11,7 @@ myst:
 
 In the process of "bundling" (creating the static code that gets loaded into
 the browsers, webpack needs to be instructed on how to handle various types of
-files. Javascript/JSX code gets handled by the Babel compiler, etc.
+files. JavaScript/JSX code gets handled by the Babel compiler, etc.
 
 Volto includes several other webpack loaders:
 

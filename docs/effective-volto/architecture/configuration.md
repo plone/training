@@ -10,8 +10,8 @@ myst:
 # Configuration Registry
 
 To provide customization and a centralized configuration, Volto holds all its
-settings in a global singleton object. That is, in a Javascript-running
-browser window, there will be one single instance of that Javascript object.
+settings in a global singleton object. That is, in a JavaScript-running
+browser window, there will be one single instance of that JavaScript object.
 The advantage of the global configuration registry is the simplicity in working
 with it.
 

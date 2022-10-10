@@ -13,7 +13,7 @@ Volto provides working configuration for the following linters:
 
 ## ESlint
 
-[eslint](https://eslint.org/) is used for Javascript code checking. A working
+[eslint](https://eslint.org/) is used for JavaScript code checking. A working
 `.eslintrc.js` file is shipped with every Volto project.
 
 ## Prettier

@@ -11,11 +11,11 @@ myst:
 
 Once you start developing your custom Volto project, you'll load a lot of third
 party code, your own code, etc. In short, you'll be asking your visitors to
-load, parse and execute a lot of Javascript code.
+load, parse and execute a lot of JavaScript code.
 
 One of the key techniques to avoid loading all Volto code at once is to use the
 [Webpack code splitting](https://webpack.js.org/guides/code-splitting/) feature,
-which allows the big Javascript files to be split and load "on demand", as soon
+which allows the big JavaScript files to be split and load "on demand", as soon
 as new components require it. See more about this in the
 [Lazy Loading](./lazyloading) chapter.
 

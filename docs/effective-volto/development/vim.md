@@ -57,4 +57,4 @@ A short checklist for proper integration:
 
 - invalid imports are identified
 - missing imports, broken syntax, invalid react code is flagged
-- JSX and Javascript code is automatically formatted, on save
+- JSX and JavaScript code is automatically formatted, on save

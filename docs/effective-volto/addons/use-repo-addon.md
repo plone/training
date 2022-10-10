@@ -124,7 +124,7 @@ You can toggle that key to `false` and run `yarn develop` again.
 
 ### Addon dependencies, yarn workspaces
 
-If your addon needs to bring in additional Javascript package dependencies,
+If your addon needs to bring in additional JavaScript package dependencies,
 you'll have to set your addon package as a "Yarn workspace". You do this by
 adding a `workspaces` key to the the `package.json` of your Volto project:
 

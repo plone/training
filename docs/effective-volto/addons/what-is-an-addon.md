@@ -13,12 +13,12 @@ There are several advanced scenarios where we might want to have more control
 and flexibility beyond using the plain Volto project to build a site.
 
 We can build Volto add-on products and make them available as generic
-Javascript packages that can be included in any Volto project. By doing so we
+JavaScript packages that can be included in any Volto project. By doing so we
 can provide code and component reutilization across projects and, of course,
 benefit from open source collaboration.
 
 ```{note}
-By declaring a Javascript package as a "Volto addon", Volto provides
+By declaring a JavaScript package as a "Volto addon", Volto provides
 several integration features: language features (so they can be transpiled
 by Babel), whole-process customization via razzle.extend.js and
 integration with Volto's configuration registry.

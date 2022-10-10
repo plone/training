@@ -4,12 +4,12 @@ myst:
     "description": "Shortcuts"
     "property=og:description": "Shortcuts"
     "property=og:title": "Shortcuts"
-    "keywords": "Volto, Plone, Webpack, Javascript, Packaging"
+    "keywords": "Volto, Plone, Webpack, JavaScript, Packaging"
 ---
 
 # Shortcuts
 
-Volto provides the following available names for Javascript and LESS imports:
+Volto provides the following available names for JavaScript and LESS imports:
 
 ## `@root` / `@package`
 

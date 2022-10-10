@@ -4,7 +4,7 @@ myst:
     "description": "Writing Express middleware"
     "property=og:description": "Writing Express middleware"
     "property=og:title": "Writing Express middleware"
-    "keywords": "Volto, Plone, Express, Javascript, Backend"
+    "keywords": "Volto, Plone, Express, JavaScript, Backend"
 ---
 
 # Writing Express middleware

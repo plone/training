@@ -75,7 +75,7 @@ but typically they integrate with several Volto pieces:
   extensions](../addons/block-styling), which open schema-powered blocks to
   "third-party" extensions.
 
-The block manifests its data a simple Javascript Object:
+The block manifests its data a simple JavaScript Object:
 
 ```json
 {

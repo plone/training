@@ -34,16 +34,16 @@ This is useful for developing Volto, but it is not the way to use it, if you
 want to develop your own custom Volto website.
 
 The second method of running Volto is to use the **Volto App generator** and
-bootstrap (based on a fixed scaffolding) a new Javascript package that can
+bootstrap (based on a fixed scaffolding) a new JavaScript package that can
 piggy-back on Volto and treat it as a library. We call this the "Volto
 project".
 
 
 The next steps, after bootstrapping the new Volto project, is to make it your
 own. The community has settled, for now, to use [Yarn
-Classic](https://classic.yarnpkg.com/lang/en/) as the default Javascript
+Classic](https://classic.yarnpkg.com/lang/en/) as the default JavaScript
 package manager, so, to add dependencies on new third-party
-Javascript packages, you'd run:
+JavaScript packages, you'd run:
 
 ```
 yarn add react-slick
@@ -53,11 +53,11 @@ to make the react-slick library available to your Volto project.
 
 You can use this Volto Project scaffold to develop a complete Volto-powered
 website, without needing to do anything else. You can use the `<root>/src/` folder to
-host your custom Javascript code and the `<root>/theme` folder to customize the
+host your custom JavaScript code and the `<root>/theme` folder to customize the
 Volto theme and create your custom look and feel.
 
 But to enable a greater modularity and reusability of code, you can create new
-Javascript packages that are deeply integrated with Volto, the so-called "Volto
+JavaScript packages that are deeply integrated with Volto, the so-called "Volto
 addons".
 
 ## Volto codebase
@@ -74,7 +74,7 @@ Looking inside Volto's source code, we find several points of interest:
 - `store.js`, `middleware`, `actions` and the `reducers` are the centralized
   data store. See the [Redux](./redux) chapter for more details.
 - `registry.js` and the `config` folder will constitute the Volto configuration
-  registry, a deep Javascript object that holds settings and configuration.
+  registry, a deep JavaScript object that holds settings and configuration.
   The registry can be altered by Volto projects and Addons. It doesn't have the
   fancy features of the component registry of ZCA, but it's easier to reason
   and easily inspectable.

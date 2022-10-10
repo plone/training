@@ -12,7 +12,7 @@ myst:
 Jest is the standard "de facto" NodeJS test runner.
 
 ```{note}
-If there is one complaint that can be addressed to the Javascript frontend development tooling is that there's no shared way of solving common problems. The main difficulty in setting up Jest for Volto and Volto projects is configuring it for properly "accepting" the way Volto loads its code, via Webpack.
+If there is one complaint that can be addressed to the JavaScript frontend development tooling is that there's no shared way of solving common problems. The main difficulty in setting up Jest for Volto and Volto projects is configuring it for properly "accepting" the way Volto loads its code, via Webpack.
 ```
 
 ## Standard setup

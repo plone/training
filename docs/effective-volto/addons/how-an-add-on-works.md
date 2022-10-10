@@ -4,7 +4,7 @@ myst:
     "description": "How does a Volto add-on work?"
     "property=og:description": "How does a Volto add-on works?"
     "property=og:title": "How does a Volto add-on works?"
-    "keywords": "Volto, Plone, Volto add-ons, Javascript, Javascript dependencies"
+    "keywords": "Volto, Plone, Volto add-ons, JavaScript, JavaScript dependencies"
 ---
 
 # How does a Volto add-on works?
@@ -130,7 +130,7 @@ export default applyConfig;
 
 ## Addon dependencies
 
-Addons can depend on any other Javascript package, but they can also depend on
+Addons can depend on any other JavaScript package, but they can also depend on
 other Volto addons. To do this, specify the name of your Volto addon dependency
 in your `dependencies` key of `package.json` and create a new `addons` key in
 the `package.json` of your addon, where you specify the extra Volto addon
