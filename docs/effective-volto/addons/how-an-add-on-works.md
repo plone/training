@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    "description": "How does a Volto add-on works?"
+    "description": "How does a Volto add-on work?"
     "property=og:description": "How does a Volto add-on works?"
     "property=og:title": "How does a Volto add-on works?"
     "keywords": "Volto, Plone, Volto add-ons, Javascript, Javascript dependencies"
