@@ -4,7 +4,7 @@ myst:
     "description": "Writing a block transform"
     "property=og:description": "Writing a block transform"
     "property=og:title": "Writing a block transform"
-    "keywords": "Volto, Plone, REST, plone.restapi, Volto blocks, Serialization, Block Transformers"
+    "keywords": "Volto, Plone, REST API, plone.restapi, Volto blocks, Serialization, Block Transformers"
 ---
 
 # Writing a block transform

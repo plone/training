@@ -1,18 +1,18 @@
 ---
 myst:
   html_meta:
-    "description": "Plone RESTAPI endpoints"
-    "property=og:description": "Plone RESTAPI endpoints"
-    "property=og:title": "Plone RESTAPI endpoints"
-    "keywords": "Volto, Plone, REST, JSON, Backend"
+    "description": "Plone REST API endpoints"
+    "property=og:description": "Plone REST API endpoints"
+    "property=og:title": "Plone RES TAPI endpoints"
+    "keywords": "Volto, Plone, REST API, JSON, Backend"
 ---
 
-# Plone RESTAPI endpoints
+# Plone REST API endpoints
 
 Volto comunicates with the Plone backend via the so-called "endpoints", which
-care REST services exposed by plone.restapi. Some of these endpoints include:
+care REST API services exposed by plone.restapi. Some of these endpoints include:
 
-You communicate with the REST service using `application/json` ACCEPT header:
+You communicate with the REST API service using `application/json` ACCEPT header:
 
 ```bash
 curl -H "Accept: application/json" http://localhost:8080/Plone/mycontent
@@ -56,7 +56,7 @@ Authorization: Basic YWRtaW46c2VjcmV0
 ```
 
 To access these endpoints, you can use a variety of HTTP verbs (and they are,
-typically, semantically meaningful, following REST conventions). For example,
+typically, semantically meaningful, following REST API conventions). For example,
 the following verbs are used for content manipulation:
 
 - `GET /folder` to fetch information

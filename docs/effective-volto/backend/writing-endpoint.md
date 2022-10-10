@@ -4,7 +4,7 @@ myst:
     "description": "Writing an endpoint"
     "property=og:description": "Writing an endpoint"
     "property=og:title": "Writing an endpoint"
-    "keywords": "Volto, Plone, REST, plone.restapi, Endpoint"
+    "keywords": "Volto, Plone, REST API, plone.restapi, Endpoint"
 ---
 
 # Writing an endpoint

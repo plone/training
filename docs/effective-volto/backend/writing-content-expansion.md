@@ -4,7 +4,7 @@ myst:
     "description": "Writing a content expansion endpoint"
     "property=og:description": "Writing a content expansion endpoint"
     "property=og:title": "Writing a content expansion endpoint"
-    "keywords": "Volto, Plone, REST, plone.restapi, Serialization, Content Expanders"
+    "keywords": "Volto, Plone, REST API, plone.restapi, Serialization, Content Expanders"
 ---
 
 # Writing a content expansion endpoint
