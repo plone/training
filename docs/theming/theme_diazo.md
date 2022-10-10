@@ -1286,36 +1286,14 @@ Now we have to make sure that we have the correct markup in the template of our 
       <metal:block define-macro="content-core">
 
         <tal:loop repeat="item view/results">
-
-          <section class="page-section"
-            tal:condition="repeat/item/odd">
-            <div class="container">
-              <div class="product-item">
-                <div class="product-item-title d-flex">
-                  <div class="bg-faded p-5 d-flex ms-auto rounded">
-                    <h2 class="section-heading mb-0">
-                      <span class="section-heading-upper">${item/description}</span>
-                      <span class="section-heading-lower">${item/title}</span>
-                    </h2>
-                  </div>
-                </div>
-                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
-                  src="${item/getPath}/@@images/photo/large"
-                  alt="...">
-                  <div class="product-item-description d-flex me-auto">
-                    <div class="bg-faded p-5 rounded"
-                      tal:content="structure item/text/output"></div>
-                  </div>
-                </div>
-              </div>
-            </section>
+          <tal:products tal:condition="python: item.portal_type == 'Product'">
 
             <section class="page-section"
-              tal:condition="repeat/item/even">
+              tal:condition="repeat/item/odd">
               <div class="container">
                 <div class="product-item">
                   <div class="product-item-title d-flex">
-                    <div class="bg-faded p-5 d-flex me-auto rounded">
+                    <div class="bg-faded p-5 d-flex ms-auto rounded">
                       <h2 class="section-heading mb-0">
                         <span class="section-heading-upper">${item/description}</span>
                         <span class="section-heading-lower">${item/title}</span>
@@ -1325,19 +1303,43 @@ Now we have to make sure that we have the correct markup in the template of our 
                   <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
                     src="${item/getPath}/@@images/photo/large"
                     alt="...">
-                    <div class="product-item-description d-flex ms-auto">
-                     <div class="bg-faded p-5 rounded"
-                      tal:content="structure item/text/output"></div>
+                    <div class="product-item-description d-flex me-auto">
+                      <div class="bg-faded p-5 rounded"
+                        tal:content="structure python:item.text.output"></div>
                     </div>
                   </div>
                 </div>
               </section>
-        </tal:loop>
 
-      </metal:block>
-    </metal:content-core>
-  </body>
-</html>
+              <section class="page-section"
+                tal:condition="repeat/item/even">
+                <div class="container">
+                  <div class="product-item">
+                    <div class="product-item-title d-flex">
+                      <div class="bg-faded p-5 d-flex me-auto rounded">
+                        <h2 class="section-heading mb-0">
+                          <span class="section-heading-upper">${item/description}</span>
+                          <span class="section-heading-lower">${item/title}</span>
+                        </h2>
+                      </div>
+                    </div>
+                    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                      src="${item/getPath}/@@images/photo/large"
+                      alt="...">
+                      <div class="product-item-description d-flex ms-auto">
+                        <div class="bg-faded p-5 rounded"
+                          tal:content="structure python:item.text.output"></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </tal:products>
+            </tal:loop>
+
+          </metal:block>
+        </metal:content-core>
+      </body>
+    </html>
 
 ```
 
