@@ -1,9 +1,9 @@
 ---
 html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+  "description": "About Effective Volto"
+  "property=og:description": "About Effective Volto"
+  "property=og:title": "About Effective Volto"
+  "keywords": "Plone, Volto, Trainers"
 ---
 
 (about-effective-volto-label)=
