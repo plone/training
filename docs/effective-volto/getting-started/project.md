@@ -2,7 +2,7 @@
 
 # Bootstrapping a full Plone 6 project
 
-We can use the fairly new [cookiecutter-plone-starter](https://github.com/collective/cookiecutter-plone-starter) repository.
+We can use the new [cookiecutter-plone-starter](https://github.com/collective/cookiecutter-plone-starter) repository.
 
 ```{note}
 The introduction of more tools are in store in order to ease the creation of the boilerplate for a full Plone 6 project, but they might revolve around this cookiecutter template.
