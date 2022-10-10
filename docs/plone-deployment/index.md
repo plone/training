@@ -34,12 +34,3 @@ edit-project
 provision
 deploy
 ```
-```
-intro
-setup: JK review
-plone-stack: JK review
-plone-docker-images: JK review
-edit-project: JK
-provision: EA
-deploy: EA
-```
