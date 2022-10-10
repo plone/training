@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, Plone, Semantic UI, CSS, Volto theme"
 ---
 
-# Extending SemanticUI
+# Extending Semantic UI
 
 Volto uses [Semantic UI](https://semantic-ui.com/) and
 [React Semantic UI](https://react.semantic-ui.com)
