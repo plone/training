@@ -62,7 +62,7 @@ This brings you a lot of power since you don't have to rebuild on every config c
 
 ### Unified traversal ++api++
 
-Since `plone.rest` 2.0.0a1, Plone provides a way to access the RESTAPI without using the `application/json` `Accept` header. It enables a new traversal handler `++api++` that returns RESTAPI calls seamlessly, without any additional path in its responses.
+Since `plone.rest` 2.0.0a1, Plone provides a way to access the REST API without using the `application/json` `Accept` header. It enables a new traversal handler `++api++` that returns REST API calls seamlessly, without any additional path in its responses.
 
 Seamless mode will use this convention when setting up development and production environments for you. So if no `RAZZLE_API_PATH` is present, all backend calls by default will assume a `++api++` is present in your backend and will try to use it.
 
