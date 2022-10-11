@@ -13,7 +13,7 @@ The next section (skipping the simple text) on `plone.org` is the Banner with Do
 
 ## Initital Block setups
 
-The initial setup for this Block is the same as for the `highlight` Block. Create a new folder in `src/components/Blocks` called `download` and in there `View.jsx` as well as `Editor.jsx`. For now give them the same initial content as we did with the highlight:
+The initial setup for this Block is the same as for the `highlight` Block. Create a new folder in `src/components/Blocks` called `download` and in there `View.jsx` as well as `Edit.jsx`. For now give them the same initial content as we did with the highlight:
 
 ```jsx
 import React from 'react';
