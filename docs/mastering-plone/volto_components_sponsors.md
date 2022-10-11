@@ -286,7 +286,28 @@ Listening to this subscription the component fetches the data from the store if 
 ### Presentation of the prepared data
 
 With the data fetched and accessible in the component constant `sponsors` we can
-now render the sponsors data. As we have already prepared a dictionary by sponsor level of the list of sponsors, groupedSponsorsByLevel, we can now show a nested list.
+now render the sponsors data. 
+
+We prepare the sponsors data as a dictionary grouped by sponsor level: groupedSponsorsByLevel.
+
+```js
+const groupedSponsorsByLevel = (array = []) =>
+  array.reduce((obj, item) => {
+    let token = item.level?.token || 'bronze';
+    obj[token] ? obj[token].push(item) : (obj[token] = [item]);
+    return obj;
+  }, {});
+  ```
+
+Which results in an dictionary Object available with our subscription `sponsors`:
+
+```js
+{
+  bronze: [sponsordata1, sponsodata2]
+}
+```
+
+With the subscription `sponsors` we can now show a nested list.
 
 ```{code-block} jsx
 :linenos:
