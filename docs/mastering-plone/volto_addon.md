@@ -27,7 +27,7 @@ For Plone backend add-ons see chapter {ref}`add-ons-label`
 Add-ons enrich a Volto app with specialized blocks, themes, integration of non-Volto Node packages, and more.
 A selection of add-ons can be found on:
 
-- [Awesome Volto](https://github.com/collective/awesome-volto#addons)
+- [Awesome Volto](https://github.com/collective/awesome-volto)
 - [npm #volto-addon](https://www.npmjs.com/search?q=keywords:volto-addon)
 - [github #volto-addon](https://github.com/search?o=desc&q=%23volto-addon&s=&type=Repositories)
 
