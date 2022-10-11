@@ -17,7 +17,7 @@ We already have a basic block boilerplate from the last section. We will conver 
 
 Copy `2022-ploneconf.png` from the `training-resources` folder to `src/components/Blocks/highlight` directory.
 
-Use this code for the block view component `src/components/Blocks/MainSlider/View.jsx`.
+Use this code for the block view component `src/components/Blocks/highlight/View.jsx`.
 
 ```jsx
 import React from "react";
