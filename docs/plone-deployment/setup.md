@@ -45,15 +45,15 @@ If the system does not provide a suitable version, you can use [Pyenv](https://g
 
 ### Node and Node tools
 
-Node 16, latest NPM, Yarn (classic, not 2.x) and Yeoman.
+Latest Node LTS version (Node 16), latest NPM, Yarn (classic, not 2.x) and Yeoman.
 
 Install [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
 
-Use it to install Node 16 and NPM (hint: check if a newer minor or bugfix release is available).
+Use it to install the latest version of Node LTS (currently v16.17.1) and NPM (hint: check if a newer minor or bugfix release is available).
 
 ```bash
-nvm install v16.17.1
-nvm alias default v16.17.1
+nvm install lts/*
+nvm alias default lts/*
 ```
 
 Now, having Node installed, install Yeoman.
@@ -66,7 +66,11 @@ Then execute `curl -o- -L https://yarnpkg.com/install.sh | bash` to install Yarn
 
 ### Vagrant
 
-- [Vagrant](https://www.vagrantup.com/downloads) and VirtualBox or libvirt (Linux)
+- [Vagrant](https://www.vagrantup.com/downloads) and VirtualBox or libvirt (Linux / macOS).
+
+```{warning}
+VirtualBox does not run on Apple Silicon, use libvirt+qemu instead.
+```
 
 ```{note}
 We use Vagrant boxes in this training as a replacement for an external server.
