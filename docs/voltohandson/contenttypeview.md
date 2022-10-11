@@ -36,7 +36,7 @@ const SprintView = (props) => {
     <Container>
       <p>
         From {moment(content.start).format("MMMM D, YYYY")} to{" "}
-        {moment(content.start).format("MMMM D, YYYY")}
+        {moment(content.end).format("MMMM D, YYYY")}
       </p>
       <DefaultView {...props} />
     </Container>
