@@ -72,7 +72,7 @@ This should be enough to show make the "Events" template choosable when adding a
 
 ## Style the template properly
 
-To know style the Template according replace the Code from `eventTemplate.jsx` with:
+To style the template, replace the code from `eventTemplate.jsx` with:
 
 ```jsx
 import React from "react";
