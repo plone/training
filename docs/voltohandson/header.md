@@ -99,7 +99,7 @@ Then we adjust the margin for the content area:
 ## Logo
 
 We use [component shadowing](header-component-shadowing-label) to customize (and override) Volto original components.
-Get the Plone logo (`Logo.svg`) from the `training-resources` you downloaded from the [google drive](https://drive.google.com/drive/folders/1xDleXE8Emhr9xn_pnZaGfO9_HmU31L9e?usp=sharing).
+Get the Plone logo (`Logo.svg`) from the `training-resources` you downloaded from the [google drive](https://drive.google.com/drive/folders/19nQkPiiwY5lhBNiTTZJaV-kpQ9rkYqiO?usp=sharing).
 
 ```{note}
 Every time you add a file to the customizations folder or to the theme folder, you must restart Volto for changes to take effect.
