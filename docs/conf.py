@@ -106,7 +106,7 @@ linkcheck_ignore = [
     r"http://plone-conference.localhost:3000.*",
     r"https://plone-conference.localhost.*",
     # Example domain
-    "https://domain-b.com/data.json"
+    "https://domain-b.com/data.json",
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
