@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone Docker images for deployment"
+    "property=og:description": "Plone Docker images for deployment"
+    "property=og:title": "Plone Docker images for deployment"
+    "keywords": "Plone, deployment, Docker, images"
 ---
 
 # Plone Docker Images

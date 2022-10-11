@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Create a project for Plone deployment with Ansible and Docker"
+    "property=og:description": "Create a project for Plone deployment with Ansible and Docker"
+    "property=og:title": "Create a project for Plone deployment with Ansible and Docker"
+    "keywords": "Plone, deployment, Ansible, Docker, create, project"
 ---
 
 # Create a Project

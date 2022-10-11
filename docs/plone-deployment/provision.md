@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone deployment server setup"
+    "property=og:description": "Plone deployment server setup"
+    "property=og:title": "Plone deployment server setup"
+    "keywords": "Plone, deployment, server, setup"
 ---
 
 # Server Setup

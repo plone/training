@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone deployment training setup"
+    "property=og:description": "Plone deployment training setup"
+    "property=og:title": "Plone deployment training setup"
+    "keywords": "Plone, deployment, training, setup"
 ---
 
 # Training setup

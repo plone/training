@@ -1,13 +1,13 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Introduction to Plone stack for deployment"
+    "property=og:description": "Introduction to Plone stack for deployment"
+    "property=og:title": "Introduction to Plone stack for deployment"
+    "keywords": "Plone, deployment, stack"
 ---
 
-# Intro To Plone Stack
+# Introduction to Plone stack
 
 The basic Plone stack consists out of different parts.
 

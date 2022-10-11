@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Editing your project for deployment"
+    "property=og:description": "Editing your project for deployment"
+    "property=og:title": "Editing your project for deployment"
+    "keywords": "Edit, Plone, project, add-ons, Volto"
 ---
 
 # Editing your project
