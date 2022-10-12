@@ -9,12 +9,10 @@ myst:
 
 # Bootstrap Volto
 
-::: warning
-
-For most up-to-date information on how to get started with Volto, the official
-documentation is the canonical version. A copy of this information is placed
-here, with the caveat that it is probably already out of date by the time
-you're reading this.
+```{warning}
+For the most up-to-date information on how to get started with Volto, the official [Plone documentation](https://6.dev-docs.plone.org/volto/getting-started/install.html) is the canonical version.
+A copy of this information is placed here, with the caveat that it is probably already out of date by the time you're reading this.
+```
 
 ## Install nvm (NodeJS version manager)
 
