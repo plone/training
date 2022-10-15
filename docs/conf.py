@@ -134,8 +134,6 @@ linkcheck_ignore = [
     "https://github.com/plone/plone.docker#for-basic-usage",
     "https://github.com/nodejs/release#release-schedule",
     # ### End of list of anchored links
-    # Temporarily ignore zope.dev because it was allowed to expire
-    "https://www.zope.dev/world.html",
 ]
 linkcheck_allowed_redirects = {
     # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
