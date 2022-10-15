@@ -13,7 +13,7 @@ myst:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
+:alt: Plone backend
 :class: logo
 ```
 
@@ -170,7 +170,6 @@ Example:
   <version>1000</version>
   <dependencies>
     <dependency>profile-pas.plugins.ldap:default</dependency>
-    <dependency>profile-collective.folderishtypes.dx:default</dependency>
     <dependency>profile-collective.geolocationbehavior:default</dependency>
     <dependency>profile-collective.behavior.banner:default</dependency>
   </dependencies>
