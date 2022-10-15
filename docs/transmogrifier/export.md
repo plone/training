@@ -47,7 +47,7 @@ but you may find it better to export everything, and do the limiting on the impo
 
 1. Install `collective.jsonify` into the buildout
 
-2. Add an [External Method](https://old.zope.dev/Documentation/How-To/ExternalMethods) at the root of the Management Interface (`http://[your site]/manage`) with the following properties:
+2. Add an External Method at the root of the Management Interface (`http://[your site]/manage`) with the following properties:
 
    - id: `export_content`
    - module name: `collective.jsonify.json_methods`

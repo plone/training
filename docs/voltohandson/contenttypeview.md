@@ -20,7 +20,7 @@ Name it `Sprint`, then select it, go to the `Behaviors` tab, and add the `Blocks
 
 For creating a new View we will now create a new Folder within `src/components/` called `Views`. In there create the file `SprintView.jsx` which will contain the markup for our view.
 
-We will use the default `Document` view and add the Event Information on top. Beware that we are not modeling this View after the actual on from plone.org, but creating our on version on how the View for the Sprint type might look like.
+We will use the default `Document` view and add the Event Information on top. Beware that we are not modeling this View after the actual one from `plone.org`, but creating our own version on how the View for the Sprint type might look like.
 
 This what the code for it might look like:
 

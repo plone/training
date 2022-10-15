@@ -19,7 +19,7 @@ We use the `theme/extras/custom.overrides` to apply general styling to our site 
 ```{note}
 Use this rule of thumb when building Volto themes: use the default Semantic overrides system when the override is site-wide and applies to Semantic components.
 When using your own components and specific theme styling, use instead `custom.overrides`.
-Applying styling later using this method is much faster than doing it in the Semantic default components. Dont feel confused by the fact, that the header still does look a bit "weird" in comparison to the plone.org one
+Applying styling later using this method is much faster than doing it in the Semantic default components. Dont feel confused by the fact, that the header still does look a bit "weird" in comparison to the `plone.org` one
 ```
 
 This :
@@ -244,4 +244,4 @@ Component shadowing is very much like the good old Plone technique called "JBOT"
 
 ## Page content
 
-To have the header look as much as the plone.org page as possible you now can create the pages "get started", "community" and plone foundation to be featured in the navigation.
+To have the header look as much as the `plone.org` page as possible you now can create the pages "get started", "community" and plone foundation to be featured in the navigation.
