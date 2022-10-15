@@ -9,6 +9,7 @@ on:
 jobs:
   build_deploy:
     runs-on: ubuntu-latest
+    environment: 2022
     steps:
       - uses: actions/checkout@v1
 
