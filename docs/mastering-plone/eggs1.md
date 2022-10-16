@@ -76,7 +76,7 @@ plonecli create addon sources/ploneconf.site
 
 The new add-on will be created in the {file}`sources` directory.
 
-You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. choosing the default value) for most questions except where indicated (enter your GitHub username if you have one, do not initialize a GIT repository, Use Plone 5.2 and python 3.7):
+You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. choosing the default value) for most questions except where indicated (enter your GitHub username if you have one and do not initialize a GIT repository):
 
 ```
 --> Author's name [Philip Bauer]:
@@ -89,14 +89,14 @@ You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. cho
 
 --> Do you want me to initialize a GIT repository in your new package? (y/n) [y]: n
 
---> Plone version [5.2.4]:
+--> Plone version [6.0.0]:
 
 --> Python version for virtualenv [python3]:
 
 --> Do you want me to activate VS Code support? (y/n) [y]: n
 
 git init is disabled!
-Generated file structure at /Users/pbauer/workspace/training/buildout/src/ploneconf.site
+Generated file structure at /Users/pbauer/workspace/training/backend/sources/ploneconf.site
 ```
 
 ```{only} not presentation
@@ -130,17 +130,17 @@ In {file}`src` there is now a new folder {file}`ploneconf.site` and in there is 
 
 {file}`setup.py`
 
-: This file configures the package, its name, dependencies and some metadata like the author's name and email address. The dependencies listed here are automatically downloaded when running buildout.
+: This file configures the package, its name, dependencies and some metadata like the author's name and email address. The dependencies listed here are automatically downloaded when installing that package.
 
 {file}`src/ploneconf/site/`
 
 : The python code of your package itself lives inside a special folder structure.
 That seems confusing but is necessary for good testability.
 Our package contains a [namespace package](https://peps.python.org/pep-0420/) called _ploneconf.site_ and because of this there is a folder {file}`ploneconf` with a {file}`__init__.py` and in there another folder {file}`site` and in there finally is our code.
-From the buildout's perspective your code is in {file}`{your buildout directory}/src/ploneconf.site/src/ploneconf/site/{real code}`
+Your code is in {file}`backend/sources/ploneconf.site/src/ploneconf/site/{real code}`
 
 ```{note}
-Unless discussing the buildout we will from now on silently omit these folders when describing files and assume that {file}`{your buildout directory}/src/ploneconf.site/src/ploneconf/site/` is the root of our package!
+Unless discussing the installation or the frontend we will from now on silently omit these folders when describing files and assume that {file}`backend/src/ploneconf.site/src/ploneconf/site/` is the root of our package!
 ```
 
 {file}`configure.zcml` ({file}`src/ploneconf/site/configure.zcml`)
@@ -205,89 +205,12 @@ When you are working on large projects you will appreciate the best-practices la
 
 ## Including the package in Plone
 
-Before we can use our new package we have to tell Plone about it. Look at {file}`buildout.cfg` and see how `ploneconf.site` is included in `auto-checkout`, `eggs` and `test`:
+Before we can use our new package we have to tell Plone about it. Look at {file}`backend/requirements.txt` and see how `ploneconf.site` can be included in `auto-checkout`:
 
-```{code-block} cfg
-:emphasize-lines: 2, 30, 38
+TODO:
+Update instructions
 
-auto-checkout +=
-    ploneconf.site
-#    starzel.votable_behavior
-
-parts =
-    checkversions
-    instance
-    mrbob
-    packages
-    robot
-    test
-    zopepy
-
-eggs =
-    Plone
-    Pillow
-
-# development tools
-    plone.api
-    plone.reload
-    Products.PDBDebugMode
-    plone.app.debugtoolbar
-    Products.PrintingMailHost
-    pdbpp
-
-# TTW Forms
-    collective.easyform
-
-# The add-on we develop in the training
-    ploneconf.site
-
-# Voting on content
-#    starzel.votable_behavior
-
-zcml =
-
-test-eggs +=
-    ploneconf.site [test]
-```
-
-This tells Buildout to add the egg {py:mod}`ploneconf.site`. The sources for this eggs are defined in the section `[sources]` at the bottom of {file}`buildout.cfg`.
-
-```{code-block} cfg
-:emphasize-lines: 2
-
-[sources]
-ploneconf.site = git https://github.com/collective/ploneconf.site.git pushurl=git@github.com:collective/ploneconf.site.git
-starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
-```
-
-This tells buildout to not download it from pypi but to do a checkout from GitHub put the code in {file}`src/ploneconf.site`.
-
-```{note}
-The package {py:mod}`ploneconf.site` is now downloaded from GitHub and automatically in the branch master. {py:mod}`ploneconf.site` can be called an egg even though it has not been released on pypi. Plone can use it like it uses an egg.
-```
-
-````{note}
-If you do **not** want to use the prepared package for ploneconf.site from GitHub but write it yourself (we suggest you try that) then add the following instead:
-
-```{code-block} cfg
-:emphasize-lines: 2
-
-[sources]
-ploneconf.site = fs ploneconf.site path=src
-starzel.votable_behavior = git https://github.com/collective/starzel.votable_behavior.git pushurl=git://github.com/collective/starzel.votable_behavior.git
-```
-
-This tells buildout to expect `ploneconf.site` in {file}`src/ploneconf.site`.
-The directive `fs` allows you to add eggs on the filesystem without a version control system.
-````
-
-Now run buildout to reconfigure Plone with the updated configuration:
-
-```shell
-$ ./bin/buildout
-```
-
-After restarting Plone with {command}`./bin/instance fg` the new add-on {py:mod}`ploneconf.site` is available for install.
+After restarting Plone with {command}`make start` the new add-on {py:mod}`ploneconf.site` is available for install.
 
 We will not install it now since we did not add any of our own code or configuration yet. Let's do that next.
 
@@ -299,5 +222,5 @@ We will not install it now since we did not add any of our own code or configura
 ## Summary
 
 - You created the package {py:mod}`ploneconf.site` to hold your code.
-- You added the new package to buildout so that Plone can use it.
-- In one of the next chapter we will also create a add-on for Volto, the React frontend.
+- You added the new package to your setup so that Plone can use it.
+- In one of the next chapters we will also create a add-on for Volto, the React frontend.
