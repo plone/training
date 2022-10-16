@@ -15,7 +15,7 @@ This training was initially created by Philip Bauer and Patrick Gerken of [starz
 a canonical training for future Plone developers.
 
 The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it.
-It is published as Open Source on [GitHub](https://github.com/plone/training) and [training.plone.org](https://training.plone.org/).
+It is published as Open Source on [GitHub](https://github.com/plone/training) and {doc}`index`.
 
 If you want to inquire the original authors about organizing a training please contact them at <mailto:team@starzel.de>.
 
