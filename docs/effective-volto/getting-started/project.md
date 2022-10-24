@@ -27,11 +27,14 @@ Install `cookiecutter` command line in your system or in a virtualenv:
 pip install cookiecutter
 ```
 
-### NodeJS & Yarn
+### nvm, Node.JS, Yeoman, and Yarn
 
-First install `nvm` and latest `NodeJS` according to the [Plone documentation](https://6.dev-docs.plone.org/volto/getting-started/install.html#install-nvm-nodejs-version-manager).
+First install `nvm` and latest Node.JS according to the [Plone documentation](https://6.dev-docs.plone.org/volto/getting-started/install.html#install-nvm-nodejs-version-manager).
 
-After that, install `yarn` according to the [Plone documentation](https://6.dev-docs.plone.org/volto/getting-started/install.html#yarn-nodejs-package-manager)
+After that, install Yeoman according to the [Plone documentation](https://6.dev-docs.plone.org/volto/getting-started/install.html#yeoman).
+
+Finally, install `yarn` according to the [Plone documentation](https://6.dev-docs.plone.org/volto/getting-started/install.html#yarn-nodejs-package-manager).
+
 
 ### Docker (optional)
 
@@ -66,7 +69,7 @@ To start frontend:
 make start-frontend
 ```
 
-You can stop each one with `ctrl-c`.
+You can stop each one with {kbd}`ctrl-c`.
 
 After changes please re-build both with
 

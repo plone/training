@@ -437,8 +437,8 @@ News Item
 
 Collection
 
-: Collections are virtual containers of lists of items found by doing a specialized search.
-  With Volto you usually do not use them anymore. Instead you can use a page with one or more listing blocks.
+: Collections are virtual lists of items found by doing a specialized search.
+  With Volto you usually do not use them anymore. Instead you use a page with one or more listing blocks.
 
   ```{figure} _static/features_pending_collection.png
   :alt: Editing a collection
@@ -456,22 +456,6 @@ Collection
 - Display Menu
 - Explain default pages (in classic Plone)
 - Explain Folderish Pages (in Plone6 and Volto)
-
-(features-collections-label)=
-
-## Collections
-
-```{eval-rst}
-.. todo::
-
-    This is still Plone 5. Adapt to Volto.
-```
-
-- add a new collection: "all content that has `pending` as wf_state".
-- explain the default collection for events at <http://localhost:3000/events/aggregator/edit>
-- mention listing blocks for the pastanaga editor
-- multi-path queries
-- constraints, e.g. `/Plone/folder::1`
 
 (features-content-rules-label)=
 

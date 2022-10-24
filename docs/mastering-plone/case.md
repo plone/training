@@ -90,7 +90,7 @@ During the course of the training you will solve the following tasks.
 ## Technologies and Tools
 
 - For the beginning training:
-  
+
   - [Ubuntu linux](https://ubuntu.com/)
   - {term}`pip`
   - Python
@@ -108,6 +108,44 @@ During the course of the training you will solve the following tasks.
   - [{term}`GenericSetup`](https://docs.plone.org/develop/addons/components/genericsetup.html)
   - React
   - Redux
+
+
+
+# Optional topics without documentation
+
+The following topics are not covered in the written training but could be discussed on demand.
+
+- Custom forms
+
+  - Hand-written forms
+  - Form built using zc3.form
+  - Form using addons
+  - Custom add- and edit-forms for content
+
+- Custom fields
+
+- Caching (plone.app.caching, memoize, Varnish etc.)
+
+- Portlets
+
+- Zope Component Architecture in depth
+
+- LDAP-integration, Users, Authentication, Member profiles, Members as content
+
+- Using external APIs
+
+- Asynchronous processing
+
+- ZODB
+
+- RelStorage
+
+- Debugging and Profiling
+
+- {doc}`deployment_code`
+
+- Professional Deployments
+
 
 (intro-what-wont-happen-label)=
 

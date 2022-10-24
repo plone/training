@@ -126,13 +126,13 @@ linkcheck_ignore = [
     "https://plone.github.io/mockup/dev/#pattern/moment",
     "https://github.com/collective/collective.exportimport#faq-tips-and-tricks",
     "https://github.com/plone/plone.app.contenttypes/tree/2.2.x#migration",
-    # These anchors are probably rewritten by JavaScript
     "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
     "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
     "https://www.npmjs.com/package/axios#example",
     "https://github.com/plone/plone.restapi/blob/afde2a940d2518e061eb3fe30093093af55e3a50/src/plone/restapi/services/content/configure.zcml#L15-L20",
     "https://github.com/plone/plone.rest#cors",
     "https://github.com/plone/plone.docker#for-basic-usage",
+    "https://github.com/nodejs/release#release-schedule",
     # ### End of list of anchored links
 ]
 linkcheck_allowed_redirects = {
@@ -195,7 +195,6 @@ sitemap_url_scheme = "{link}"
 html_static_path = ["_static"]
 
 html_theme_options = {
-    "google_analytics_id": "G-P8NCTB796E",
     "repository_url": "https://github.com/plone/training",
     "repository_branch": "main",
     "path_to_docs": "docs",

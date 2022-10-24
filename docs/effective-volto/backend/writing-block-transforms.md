@@ -79,7 +79,7 @@ Then register it as a subscription adapter:
   provides="plone.restapi.interfaces.IBlockFieldDeserializationTransformer"/>
 ```
 
-### Generic block transformers and smart fields
+## Generic block transformers and smart fields
 
 You can create a block transformer that applies to all blocks by using `None` as the value for `block_type`.
 The `order` field still applies, though.

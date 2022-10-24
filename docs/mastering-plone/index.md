@@ -61,8 +61,8 @@ behaviors_1
 volto_frontpage
 api
 ide
-registry
 events
+registry
 custom_search
 upgrade_steps
 volto_testing
@@ -81,8 +81,6 @@ volto_actions
 reusable
 deployment_code
 restapi
-future_of_plone
-optional
 code
 trainer
 ```

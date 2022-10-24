@@ -46,43 +46,46 @@ Other control panels, e.g. Content Rules still need to be implemented.
 
 ### General
 
-01. Add-ons
-02. Database
-03. Date and Time
-04. Language
-05. Mail
-06. Navigation
-07. Search
-08. Site
-09. Social Media
-10. Volto Settings
+1. Add-ons
+1. Database
+1. Date and Time
+1. Language
+1. Mail
+1. Mail
+1. Navigation
+1. Search
+1. Site
+1. Social Media
+1. Undo
+1. Volto Settings
 
 The following control panels are so far only available in the backend:
 
 1. Actions
-2. Discussion
-3. Syndication
-4. Theming
-5. TinyMCE
-6. URL Management
+1. Discussion
+1. Syndication
+1. Theming
+1. TinyMCE
 
 ### Content
 
-1. Content Settings
-2. Dexterity Content Types
-3. Editing
-4. Image Handling
-5. Moderate Comments
-6. Markup
+1. Content Types
+1. Editing
+1. Image Handling
+1. Markup
+1. Moderate Comments
 
 The following control panels are so far only available in the backend:
 
+1. Content Settings
 1. Content Rules
 
 ### Users
 
+1. User and Group Settings
 1. Users
-2. Groups
+1. User Group Membership
+1. Groups
 
 ### Security
 

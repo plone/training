@@ -175,10 +175,6 @@ Products.PrintingMailHost
 
 : An add-on that prevents Plone from sending mails. Instead, they are logged.
 
-Products.enablesettrace or Products.Ienablesettrace
-
-: Add-on that allows to use pdb and ipdb in Python skin scripts. Very useful when debugging terrible legacy code.
-
 `verbose-security = on`
 
 : An option for the recipe {py:mod}`plone.recipe.zope2instance` that logs the detailed reasons why a user might not be authorized to see something.

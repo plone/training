@@ -9,7 +9,7 @@ myst:
 
 # Blocks - Highlight Block
 
-The most prominent element on the plone.org page is the highlight block advertising the conference
+The most prominent element on the `plone.org` page is the highlight block advertising the conference
 
 We already have a basic block boilerplate from the last section. We will conver this now to a static non-configurable block that is thought as a one-of for the conference.
 
@@ -95,4 +95,4 @@ To style the block uses this styling:
 }
 ```
 
-Now your Block should now look at least very similar to the original on plone.org.
+Now your Block should now look at least very similar to the original on `plone.org`.
