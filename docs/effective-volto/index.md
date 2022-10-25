@@ -19,7 +19,7 @@ The goal of this training is to provide a “Swiss army knife” to developers t
 The training will cover essential concepts, as well as good practices and notions of how Volto works under the hood.
 Tips and tricks will be also covered, providing a good amount of insights for those who want to learn more beyond the Volto basics.
 
-This training is intended for an intermediate/advance audience that already has some contact with Volto and tried it out, or has a decent amount of experience with it.
+This training is intended for an intermediate/advanced audience that already has some contact with Volto and tried it out, or has a decent amount of experience with it.
 
 ```{toctree}
 ---
