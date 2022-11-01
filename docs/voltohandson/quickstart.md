@@ -33,7 +33,7 @@ To run our Volto site, we will use the lates Plone 6 backend Docker image.
 You can start it by running the following command:
 
 ```shell
-docker run -p 8080:8080 -e SITE="Plone" -e plone/plone-backend:6.0.0b3
+docker run -p 8080:8080 -e SITE="Plone" plone/plone-backend:6.0.0b3
 ```
 
 Keep that process running during the whole training in one of your terminal windows because the container does not have a persistant storage. So once you stop that container again some of you work might get lost again.
