@@ -22,12 +22,12 @@ At the moment of writing this training there were 2 Events "Plone Conf 2022" and
 
 ## create the actual template
 
-Inside of your `components/Blocks/` directory create a new folder called `listing` and in there a file `eventTemplate.jsx`. Before we create the proper template we will first create a simple mock like this:
+Inside of your `components/Blocks/` directory create a new folder called `listing` and in there a file `eventListingTemplate.jsx`. Before we create the proper template we will first create a simple mock like this:
 
 ```jsx
 import React from "react";
 
-const eventTemplate = ({ items }) => {
+const eventListingTemplate = ({ items }) => {
   return (
     <div>
       <h2>Events:</h2>
@@ -40,7 +40,7 @@ const eventTemplate = ({ items }) => {
   );
 };
 
-export default eventTemplate;
+export default eventListingTemplate;
 ```
 
 Export the component from the `index.js` as you already did with the Block View components and import it to your `config.js`:
@@ -72,7 +72,7 @@ This should be enough to show make the "Events" template choosable when adding a
 
 ## Style the template properly
 
-To style the template, replace the code from `eventTemplate.jsx` with:
+To style the template, replace the code from `eventListingTemplate.jsx` with:
 
 ```jsx
 import React from "react";
@@ -80,7 +80,7 @@ import { Grid } from "semantic-ui-react";
 import { UniversalLink } from "@plone/volto/components";
 import moment from "moment";
 
-const eventTemplate = ({ items }) => {
+const eventListingTemplate = ({ items }) => {
   console.log(items);
   return (
     <Grid columns={3}>
@@ -131,7 +131,7 @@ const eventTemplate = ({ items }) => {
   );
 };
 
-export default eventTemplate;
+export default eventListingTemplate;
 ```
 
 Note that the `moment` js is imported into the component to properly format the dates of the events.
