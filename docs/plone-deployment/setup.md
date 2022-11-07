@@ -36,12 +36,9 @@ Ensure Pip is installed and up to date.
 If the system does not provide a suitable version, you can use [Pyenv](https://github.com/pyenv/pyenv) to install almost any Python version.
 ```
 
-### Docker & Docker Compose
+### Docker
 
 [Docker](https://docs.docker.com/get-docker/) should be version 20.10.18 or above (Check it with `docker --version`)
-
-[Docker Compose](https://docs.docker.com/compose/install/) should be version 2.10.2 or above (Check it with `docker compose version`)
-
 
 ### Node and Node tools
 

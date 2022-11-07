@@ -44,4 +44,4 @@ At the end of the course you will know how to create a custom website using Volt
 
 ## Documentation
 
-Follow the training at <https://training.plone.org>.
+Follow the training at {doc}`index`.

@@ -542,7 +542,8 @@ To be able to search content using these new indexes in collections and listing 
 
 As with all features make sure you only do this if you really need it!
 
-Add criteria for audience, type_of_talk and speaker to the file {file}`profiles/default/registry/querystring.xml`:
+Add criteria for audience, type_of_talk and speaker to the file {file}`profiles/default/registry/querystring.xml`.
+
 
 ```{code-block} xml
 :emphasize-lines: 17-54

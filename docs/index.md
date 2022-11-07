@@ -91,6 +91,14 @@ teaching/index
 
 : Build custom Volto add-ons, explore more advanced Volto topics.
 
+{doc}`effective-volto/index`
+
+: Learn proven practices of Plone frontend development. 
+The training covers essential concepts, as well as good practices and notions of how Volto works under the hood.
+Tips and tricks are also covered, providing a good amount of insights for those who want to learn more beyond the Volto basics.
+
+  This training is intended for an intermediate/advanced audience that already has some contact with Volto and tried it out, or has a decent amount of experience with it.
+
 {doc}`angular/index`
 
 : Building Angular 4 apps using the Plone REST API.

@@ -13,7 +13,7 @@ The next section (skipping the simple text) on `plone.org` is the Banner with Do
 
 ## Initital Block setups
 
-The initial setup for this Block is the same as for the `highlight` Block. Create a new folder in `src/components/Blocks` called `download` and in there `View.jsx` as well as `Editor.jsx`. For now give them the same initial content as we did with the highlight:
+The initial setup for this Block is the same as for the `highlight` Block. Create a new folder in `src/components/Blocks` called `download` and in there `View.jsx` as well as `Edit.jsx`. For now give them the same initial content as we did with the highlight:
 
 ```jsx
 import React from 'react';
@@ -94,9 +94,9 @@ export default schemaDownload;
 
 The `properties` key will contain all the fields, while the `fieldsets` key assignes the fields to different fieldsets. In the `required` array you can define certain fields as required. If you have already experience in working with classic Plone, you will notice, that this is very similar to how you would create content types there.
 
-## Implement schmema in sidebar
+## Implement schema in sidebar
 
-To implment the schema in the sidebar of your block you will have to create another component called `Data.jsx` in which the schema will be transformed to proper react inputs. Paste the following into the `Data.js` block:
+To implement the schema in the sidebar of your block you will have to create another component called `Data.jsx` in which the schema will be transformed to proper react inputs. Paste the following into the `Data.js` block:
 
 ```jsx
 import React from 'react';

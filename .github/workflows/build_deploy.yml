@@ -1,14 +1,14 @@
-
 name: Build and deploy training documentation to training.plone.org
 
 on:
   push:
     branches:
-      - 'main'
+      - "main"
 
 jobs:
   build_deploy:
     runs-on: ubuntu-latest
+    environment: 2022
     steps:
       - uses: actions/checkout@v1
 
@@ -37,11 +37,11 @@ jobs:
         env:
           DEPLOY_KEY: ${{secrets.DEPLOY_KEY_TRAINING}}
         with:
-          flags: '-avzr --delete'
-          options: ''
-          ssh_options: '-p ${{secrets.DEPLOY_PORT}}'
-          src: '_build/html/'
-          dest: '${{secrets.DEPLOY_USER_TRAINING}}@${{secrets.DEPLOY_SERVER_TRAINING}}:${{secrets.DEPLOY_PATH_TRAINING}}/5'
+          flags: "-avzr --delete"
+          options: ""
+          ssh_options: "-p ${{secrets.DEPLOY_PORT}}"
+          src: "_build/html/"
+          dest: "${{secrets.DEPLOY_USER_TRAINING}}@${{secrets.DEPLOY_SERVER_TRAINING}}:${{secrets.DEPLOY_PATH_TRAINING}}"
 
       - name: Display status from deploy
         run: echo "${{ steps.deploy.outputs.status }}"

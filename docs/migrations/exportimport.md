@@ -63,8 +63,18 @@ It can export and import:
 * Local roles
 * The sorting of content (position in parent)
 * Discussions/comments
+* Portlets
 * Versions
 * Redirects
+
+It also does the following:
+
+* Update data to migrate Archetypes to Dexterity
+* Update links and images in html to work with Plone 5.2 and 6
+
+It can be used in:
+
+* Plone 4 - 6
 
 Most of the additional exports and imports are separate from the content because they may require two or more content items.
 During import, you cannot be certain that both items already exist when one is imported.
@@ -404,9 +414,18 @@ If all goes well, this will add a bunch of JSON files in `var/instance` of the o
 Move or copy all of these to the folder `var/instance/import/` of the Plone 6 site.
 
 Now run `@@import_all`.
-If the ID of the site is different from `Plone`, then you need to change the name of the file in the import in the view (see https://github.com/starzel/contentimport/blob/main/contentexport/views.py#L47).
+If the ID of the site is different from `Plone`, then you need to change the name of the file in the import in the view (see https://github.com/starzel/contentimport/blob/main/contentimport/views.py#L47).
 
 This should run all imports, and the new site should be good to go, containing all content and configuration of the old site.
+
+
+## FAQ
+
+* Exporting the blob-path (`include_blobs=2`) and loading it from the original location uing `export COLLECTIVE_EXPORTIMPORT_BLOB_HOME=/Users/pbauer/workspace/dokpool/Plone/var/blobstorage_prod/` is the best option.
+* You can export the blob-path without access to the actual blobs. WIP!
+* Images of Archetypes NewsItems will still be base64-encoded because they don't use a blob. These can cause your json-file to get really large.
+* Always check "Modify exported data for migrations" (`migration=True`)
+* ...
 
 
 ## Step 6: Add fixes, changes, and extensions
@@ -437,6 +456,11 @@ Here are some of the discussed examples:
 * Export and import `collective.cover` content
 * Fixing invalid collection queries
 
+## Fix html
+
+## Final steps
+
+* reset_dates
 
 ## Further reading
 

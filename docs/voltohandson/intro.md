@@ -60,7 +60,7 @@ To follow the training as smoothly as possible it is recommended that you have t
 - [node.js](https://nodejs.org/en/) >= 12
 - [yarn](https://yarnpkg.com/getting-started/install)
 - [node version manager](https://github.com/nvm-sh/nvm)
-- [docker](https://www.docker.com/get-started)
+- [docker](https://www.docker.com/get-started/)
 
 ## Documentation
 

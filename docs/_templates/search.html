@@ -56,6 +56,7 @@
           ['volto','Volto'],
           ['voltohandson','Volto Hands-On'],
           ['voltoaddons','Volto Add-Ons'],
+          ['effective-volto', 'Effective Volto'],
           ['react','ReactJS'],
           ['testing','Testing'],
           ['theming','Theming'],
@@ -90,4 +91,17 @@
     {% endif %}
     </div>
   {% endblock %}
+{% endblock %}
+
+
+{% block footer %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Hide empty sub menu.
+            if ($.trim($(".topbar-contents .bd-toc").html()) === "") {
+                $(".topbar-contents .bd-toc").css("visibility", "hidden");
+            }
+        });
+    </script>
+
 {% endblock %}
