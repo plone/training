@@ -49,17 +49,39 @@ Latest Node LTS version (Node 16), latest NPM, Yarn (classic, not 2.x) and Yeoma
 
 Install [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
 
-Use it to install the latest version of Node LTS (currently v16.17.1) and NPM (hint: check if a newer minor or bugfix release is available).
+Use it to install the latest version of Node LTS and NPM (hint: check if a newer minor or bugfix release is available).
 
 ```bash
-nvm install lts/*
-nvm alias default lts/*
+nvm install "lts/*"
 ```
 
-Now, having Node installed, install Yeoman.
+```{warning}
+Current Node LTS Version (Node 18 - v18.12.1) is currently not supported by Volto.
+Use the older LTS Version (Node 16 - currently v16.17.1) instead.
+```
 
 ```bash
+nvm install "16"
+```
+
+```{tip}
+in upcoming versions of the cookiecutter template, there should be a ``.nvmrc`` file within the generated project. 
+Then use:
+
+    nvm install 
+    nvm use
+
+```
+
+Now, having a current Node version installed, install additional tools globally:
+
+* Yeoman
+* Yarn
+
+```bash
+nvm alias default "lts/*"
 npm install -g yo
+npm install -g yarn
 ```
 
 Then execute `curl -o- -L https://yarnpkg.com/install.sh | bash` to install Yarn.
