@@ -33,7 +33,7 @@ After a [new project](new-project.md) was created lets check every thing runs as
 ### Frontend
 On a terminal, run the following code to start the frontend server:
 
-```{code-base} shell
+```shell
 make start-frontend
 ```
 After a while you should see:
@@ -44,14 +44,14 @@ TODO: Add image here
 
 On a second terminal, run the following code to start the backend server:
 
-```{code-base} shell
-make start-frontend
+```shell
+make start-backend
 ```
 
 After a while you should see:
 
-```
-INFO    [waitress:486][MainThread] Serving on http://0.0.0.0:8080`
+```console
+INFO    [waitress:486][MainThread] Serving on http://0.0.0.0:8080
 ```
 
 ## Check Local access
@@ -60,7 +60,7 @@ http://plone-conference.localhost:3000
 
 ## Stopping the servers
 
-On both terminals press `Ctrl-c`.
+On both terminals press {kbd}`Ctrl-C`.
 
 # Adding OAuth Support
 
