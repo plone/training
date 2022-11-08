@@ -48,34 +48,36 @@ Install [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
 
 Use it to install the latest version of Node LTS and NPM (hint: check if a newer minor or bugfix release is available).
 
-```bash
+```shell
 nvm install "lts/*"
 ```
 
 ```{warning}
-Current Node LTS Version (Node 18 - v18.12.1) is currently not supported by Volto.
+The current Node LTS Version (Node 18 - v18.12.1) is not supported by Volto at this time.
 Use the older LTS Version (Node 16 - currently v16.17.1) instead.
 ```
 
-```bash
+```shell
 nvm install "16"
 ```
 
-```{tip}
-in upcoming versions of the cookiecutter template, there should be a ``.nvmrc`` file within the generated project. 
-Then use:
+````{todo}
+In an upcoming version of the cookiecutter template, there will be a file `.nvmrc` within the generated project that will simplify and combine the foregoing steps. 
+When it is released, you will use the following commands.
 
-    nvm install 
-    nvm use
-
+```shell
+nvm install 
+nvm use
 ```
 
-Now, having a current Node version installed, install additional tools globally:
+````
+
+Now with a current Node LTS version installed, install additional tools globally:
 
 * Yeoman
 * Yarn
 
-```bash
+```shell
 nvm alias default "lts/*"
 npm install -g yo
 npm install -g yarn
