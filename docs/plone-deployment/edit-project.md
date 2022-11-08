@@ -62,7 +62,7 @@ Using internal proxy: http://localhost:3000 -> http://localhost:8080/Plone
 
 ### Backend
 
-On a second terminal, run the following code to start the backend server:
+In a second terminal, run the following code to start the backend server:
 
 ```shell
 make start-backend
