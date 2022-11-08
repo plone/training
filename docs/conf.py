@@ -251,7 +251,7 @@ copybutton_prompt_is_regexp = True
 
 
 # -- sphinx.ext.todo -----------------------
-# todo_include_todos = True  # Uncomment to show todos.
+todo_include_todos = True  # Uncomment to show todos.
 
 
 # An extension that allows replacements for code blocks that
