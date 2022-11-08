@@ -92,19 +92,17 @@ As an example of adding an add-on for this training, we will add a new authentic
 
 There is already a plugin available consisting of one module for Plone Frontend and another for Plone Backend.
 
-The Plugin needs an application key from GitHub.
-
-First you need to create a new application on GitHub.
+The Plugin needs an application key and secret from GitHub.
 
 
 ### Backend
 
-Go to the folder `/backend`.
+Go to the folder `backend`.
 
-Append `pas.plugins.authomatic` to `requirements.txt`.
+Open the file `requirements.txt`, and append `pas.plugins.authomatic`.
 This installs the package, too, when installing Plone.
 
-Edit the file `instance.yml`.
+Edit the file `instance.yaml`.
 There is a line `package_includes: ['plone_conference']`.
 This loads the package configuration when starting Plone Backend.
 Append `pas.plugins.authomatic` to the array.
@@ -125,6 +123,8 @@ default_context:
 
 To activate the settings, run `make build-backend` in the root folder of the project.
 
+Finally, restart the backend with `make start-backend`.
+
 
 ### Frontend
 
@@ -134,15 +134,51 @@ Append `@plone-collective/volto-authomatic` to the lists `dependencies` and `add
 
 To activate the settings, run `make build-frontend` in the root folder of the project.
 
+Finally, restart the frontend with `make start-frontend`.
+
+
+### Get your GitHub key and secret
+
+First create a GitHub OAuth application. Follow the excellent GitHub documentation [Creating an OAuth App](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app).
+
+Use the following values:
+
+Application name
+: `plone-conference`
+
+Homepage URL
+: `http://localhost:3000/`
+
+Application description
+: `Plone Conference`
+
+Authorization callback URL
+: `http://localhost:3000/`
+
+After creating the OAuth application, you will have a client ID.
+Save this for the next section {ref}`activate-the-plugin-label`.
+
+Now you can generate a client secret by clicking {guilabel}`Generate a client secret`.
+Save this for the next section {ref}`activate-the-plugin-label`.
+
+
+(activate-the-plugin-label)=
 
 ### Activate the plugin
 
-You need to login to Plone Backend as Administrator (in Classic UI) at `http://localhost:8080`.
+You need to login to Plone Backend as Administrator (in Classic UI) at `http://localhost:8080/Plone`.
 
-At the bottom of the menu on the left, choose {guilabel}`admin`, {guilabel}`Site Setup`, then {guilabel}`add-ons`.
-Then choose to install `pas.plugins.authomatic`.
+At the bottom of the menu on the left, choose {guilabel}`admin > Site Setup`.
+Select the {guilabel}`Add-ons` control panel.
+Then install `pas.plugins.authomatic` by clicking the {guilabel}`Install` button for {guilabel}`Authomatic PAS Plugin`.
 
 Now configure the plugin by adding the GitHub configuration as JSON.
+Navigate to {guilabel}`Users > Authomatic (OAuth2/OpenID)` from anywhere in the Site Setup.
+
+Copy the following JSON configuration, and replace two values from GitHub.
+The client ID will be the value for `consumer_key`.
+The client secret will be the value for `consumer_secret`.
+Replace the existing JSON configuration in the control panel with your new configuration.
 
 ```json
 {
@@ -172,7 +208,6 @@ Now configure the plugin by adding the GitHub configuration as JSON.
 }
 ```
 
-You need to go to your GitHub account and add an application manually to get the two keys for the application.
-
-Save, and all is set.
+Click {guilabel}`Save`, and all is set.
 Test it by logging out of your Plone site, then try logging back in.
+You should be prompted to log in with GitHub.
