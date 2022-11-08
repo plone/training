@@ -36,12 +36,9 @@ Ensure Pip is installed and up to date.
 If the system does not provide a suitable version, you can use [Pyenv](https://github.com/pyenv/pyenv) to install almost any Python version.
 ```
 
-### Docker & Docker Compose
+### Docker
 
 [Docker](https://docs.docker.com/get-docker/) should be version 20.10.18 or above (Check it with `docker --version`)
-
-[Docker Compose](https://docs.docker.com/compose/install/) should be version 2.10.2 or above (Check it with `docker compose version`)
-
 
 ### Node and Node tools
 
@@ -49,17 +46,41 @@ Latest Node LTS version (Node 16), latest NPM, Yarn (classic, not 2.x) and Yeoma
 
 Install [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
 
-Use it to install the latest version of Node LTS (currently v16.17.1) and NPM (hint: check if a newer minor or bugfix release is available).
+Use it to install the latest version of Node LTS and NPM (hint: check if a newer minor or bugfix release is available).
 
-```bash
-nvm install lts/*
-nvm alias default lts/*
+```shell
+nvm install "lts/*"
 ```
 
-Now, having Node installed, install Yeoman.
+```{warning}
+The current Node LTS Version (Node 18 - v18.12.1) is not supported by Volto at this time.
+Use the older LTS Version (Node 16 - currently v16.17.1) instead.
+```
 
-```bash
+```shell
+nvm install "16"
+```
+
+````{todo}
+In an upcoming version of the cookiecutter template, there will be a file `.nvmrc` within the generated project that will simplify and combine the foregoing steps. 
+When it is released, you will use the following commands.
+
+```shell
+nvm install 
+nvm use
+```
+
+````
+
+Now with a current Node LTS version installed, install additional tools globally:
+
+* Yeoman
+* Yarn
+
+```shell
+nvm alias default "lts/*"
 npm install -g yo
+npm install -g yarn
 ```
 
 Then execute `curl -o- -L https://yarnpkg.com/install.sh | bash` to install Yarn.

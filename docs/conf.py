@@ -106,6 +106,7 @@ linkcheck_ignore = [
     r"http://plone-conference.localhost:3000.*",
     r"https://plone-conference.localhost.*",
     # Example domain
+    "https://domain-a.com/data.json",
     "https://domain-b.com/data.json",
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
@@ -250,7 +251,7 @@ copybutton_prompt_is_regexp = True
 
 
 # -- sphinx.ext.todo -----------------------
-# todo_include_todos = True  # Uncomment to show todos.
+todo_include_todos = True  # Uncomment to show todos.
 
 
 # An extension that allows replacements for code blocks that
