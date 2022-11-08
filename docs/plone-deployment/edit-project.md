@@ -12,14 +12,14 @@ myst:
 There are some changes possible in the project without writing code by just editing the configuration.
 A popular change is adding an add-on.
 
-## About Add-Ons
 
-Both Plone Frontend and Plone Backend allows adding add-ons.
-Dependent on the add-on it could consist out of one part, like only for Plone Backend or only Plone Frontend.
-Or it needs to install add-ons in both, working together.
-If the latter is the case these are two different components.
+## About Add-ons
 
-Plone Frontend add-ons are written in Javascript and are released as NPM packages.
+Both Plone Frontend and Plone Backend allow adding add-ons.
+Depending on the add-on, it could apply to only one of Plone Backend or Plone Frontend, or both working together.
+If the latter is the case, then these would be two different components.
+
+Plone Frontend add-ons are written in JavaScript and are released as NPM packages.
 The Plone community maintains a curated list of Plone Frontend add-ons named [Awesome Volto](https://github.com/collective/awesome-volto).
 
 Plone Backend add-ons are written in Python and are released on the Python Package Index (PyPI).
@@ -28,17 +28,37 @@ The Plone community maintains a curated list of Plone Backend and Plone Classic 
 
 ## Starting the servers
 
-After a [new project](new-project.md) was created lets check every thing runs as expected.
+After a [new project](new-project) was created, let's check that everything runs as expected.
+
 
 ### Frontend
-On a terminal, run the following code to start the frontend server:
+
+In a terminal, run the following code to start the frontend server:
 
 ```shell
 make start-frontend
 ```
+
 After a while you should see:
 
-TODO: Add image here
+```console
+yarn run v1.22.19
+$ razzle start
+ WAIT  Compiling...
+
+
+✔ Client
+  Compiled successfully in 620.55ms
+
+✔ Server
+  Compiled successfully in 25.64s
+
+✅  Server-side HMR Enabled!
+sswp> Handling Hot Module Reloading
+Volto is running in SEAMLESS mode
+Using internal proxy: http://localhost:3000 -> http://localhost:8080/Plone
+🎭 Volto started at 0.0.0.0:3000 🚀
+```
 
 ### Backend
 
@@ -54,39 +74,45 @@ After a while you should see:
 INFO    [waitress:486][MainThread] Serving on http://0.0.0.0:8080
 ```
 
-## Check Local access
+## Check local access
+
+Visit the Plone site at the following URL:
 
 http://plone-conference.localhost:3000
 
+
 ## Stopping the servers
 
-On both terminals press {kbd}`Ctrl-C`.
+In both terminals, press {kbd}`Ctrl-C`.
 
-# Adding OAuth Support
 
-As an example for this training we add a new authentication method:
-Login with GitHub.
+## Adding OAuth support
 
-There is already a plugin available consisting out of one module for Plone Frontend and another for Plone Backend.
+As an example of adding an add-on for this training, we will add a new authentication method, login with GitHub.
 
-The Plugin needs am application key from Github.
+There is already a plugin available consisting of one module for Plone Frontend and another for Plone Backend.
 
-First you need to create a new application on GitHub ...
+The Plugin needs an application key from GitHub.
 
-## Backend
+First you need to create a new application on GitHub.
+
+
+### Backend
 
 Go to the folder `/backend`.
 
 Append `pas.plugins.authomatic` to `requirements.txt`.
-This installs the package too when installing Plone.
+This installs the package, too, when installing Plone.
 
-Edit file `instance.yml`.
-In there is a line `package_includes: ['plone_conference']`.
+Edit the file `instance.yml`.
+There is a line `package_includes: ['plone_conference']`.
 This loads the package configuration when starting Plone Backend.
 Append `pas.plugins.authomatic` to the array.
-Afterward it looks like so:
+Afterward it should look like the following:
 
-```
+```{code-block} yaml
+:emphasize-lines: 6
+
 default_context:
     initial_user_name: 'admin'
     initial_user_password: 'admin'
@@ -97,30 +123,32 @@ default_context:
     db_storage: direct
 ```
 
-To activate the settings run `make build-backend` in the root folder of the project.
+To activate the settings, run `make build-backend` in the root folder of the project.
 
-## Frontend
 
-Go to folder `frontend` and edit the package.json.
+### Frontend
 
-Append `@plone-collective/volto-authomatic` to the lists of `dependencies` and `addons`.
+Go to the folder `frontend`, and edit the file `package.json`.
 
-To activate the settings run `make build-frontend` in the root folder of the project.
+Append `@plone-collective/volto-authomatic` to the lists `dependencies` and `addons`.
 
-## Activate the plugin
+To activate the settings, run `make build-frontend` in the root folder of the project.
 
-You need to login as administrator to Plone Backend (in Classic UI) at `http://localhost:8080`.
 
-At the bottom of the menu on the left choose `admin`, then `Site Setup` and then `add-ons`.
+### Activate the plugin
+
+You need to login to Plone Backend as Administrator (in Classic UI) at `http://localhost:8080`.
+
+At the bottom of the menu on the left, choose {guilabel}`admin`, {guilabel}`Site Setup`, then {guilabel}`add-ons`.
 Then choose to install `pas.plugins.authomatic`.
 
-Now configure the plugin by adding the Github configuration as JSON.
+Now configure the plugin by adding the GitHub configuration as JSON.
 
-```
+```json
 {
     "github": {
         "display": {
-            "title": "Github",
+            "title": "GitHub",
             "cssclasses": {
                 "button": "btn btn-default",
                 "icon": "glypicon glyphicon-github"
@@ -144,6 +172,7 @@ Now configure the plugin by adding the Github configuration as JSON.
 }
 ```
 
-You need to go to your Github account and add an application manually to get the two keys for the application.
+You need to go to your GitHub account and add an application manually to get the two keys for the application.
 
-Save and all is set.
+Save, and all is set.
+Test it by logging out of your Plone site, then try logging back in.
