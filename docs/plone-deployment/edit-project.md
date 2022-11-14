@@ -92,9 +92,9 @@ As an example of adding an add-on for this training, we will add a new authentic
 
 We will do this twice: once for Classic UI, and again for Volto.
 
-```important
-You should use two web browsers, one for logging is an `admin` and the other for logging in as your GitHub username via OAuth.
-Always stay logged in as `admin` in your primary web browser, and use your secondary web browser for OAuth authentication. 
+```{important}
+You should use two web browsers, one for logging in as an Administrator and the other for logging in as your GitHub username via OAuth.
+Always stay logged in as an Administrator in your primary web browser, and use your secondary web browser for OAuth authentication. 
 ```
 
 
@@ -287,7 +287,7 @@ To activate the settings, run `make build-frontend` in the root folder of the pr
 
 Finally, restart the frontend with `make start-frontend`.
 
-```seealso
+```{seealso}
 [`volto-authomatic`](https://github.com/collective/volto-authomatic)
 ```
 
