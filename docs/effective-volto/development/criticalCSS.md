@@ -38,7 +38,7 @@ critical-cli https://example.com/ -o critical.css
 
 Or using `npx`:
 
-```
+```shell
 npx @plone/critical-css-cli -h
 npx @plone/critical-css-cli https://example.com -o critical.css
 ```
