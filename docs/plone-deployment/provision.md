@@ -41,7 +41,7 @@ make provision
 
 ### Configure SSH key
 
-Edit the `group_vars/users.yml` file and replace the line `public_keys: []` with the following.
+Edit the `group_vars/all/users.yml` file and replace the line `public_keys: []` with the following.
 
 ```{code-block} yaml
     public_keys:
