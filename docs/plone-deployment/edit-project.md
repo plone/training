@@ -86,16 +86,63 @@ http://plone-conference.localhost:3000
 In both terminals, press {kbd}`Ctrl-C`.
 
 
-## Adding OAuth support
+## Add OAuth support
 
 As an example of adding an add-on for this training, we will add a new authentication method, login with GitHub.
 
-There is already a plugin available consisting of one module for Plone Frontend and another for Plone Backend.
+We will do this twice: once for Classic UI, and again for Volto.
 
-The Plugin needs an application key and secret from GitHub.
+```important
+You should use two web browsers, one for logging is an `admin` and the other for logging in as your GitHub username via OAuth.
+Always stay logged in as `admin` in your primary web browser, and use your secondary web browser for OAuth authentication. 
+```
 
 
-### Backend
+(create-a-github-oauth-application-label)=
+
+### Create a GitHub OAuth application
+
+Both Plone user interfaces require the creation of a GitHub OAuth application.
+Follow the GitHub documentation [Creating an OAuth App](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app).
+
+You can configure the GitHub OAuth application to use only one Plone user interface at a time, but you can switch back and forth by changing the values.
+We will start with Classic UI configuration.
+After we get OAuth via GitHub working in Classic UI, we will switch to Volto.
+
+
+(classic-ui-github-oauth-app-configuration-label)=
+
+#### Classic UI GitHub OAuth app configuration
+
+Use the following values when creating your GitHub OAuth application.
+
+Application name
+: `plone-conference`
+
+Homepage URL
+: `http://localhost:8080/Plone`
+
+Application description
+: `Plone Conference`
+
+Authorization callback URL
+: `http://localhost:8080/Plone/authomatic-handler/`
+
+
+(get-your-github-client-id-and-secret-label)=
+
+### Get your GitHub client ID and secret
+
+After creating the GitHub OAuth application, you will have a client ID.
+Save this for the next section {ref}`activate-the-plugin-label`, where its value will be used for the `consumer_key`.
+
+Now you can generate a client secret by clicking {guilabel}`Generate a client secret`.
+Save this for the next section {ref}`activate-the-plugin-label`, where its value will be used for the `consumer_secret`.
+
+These two values will work for both Plone user interfaces.
+
+
+### Install `pas.plugins.authomatic` add-on
 
 Go to the folder `backend`.
 
@@ -126,47 +173,11 @@ To activate the settings, run `make build-backend` in the root folder of the pro
 Finally, restart the backend with `make start-backend`.
 
 
-### Frontend
-
-Go to the folder `frontend`, and edit the file `package.json`.
-
-Append `@plone-collective/volto-authomatic` to the lists `dependencies` and `addons`.
-
-To activate the settings, run `make build-frontend` in the root folder of the project.
-
-Finally, restart the frontend with `make start-frontend`.
-
-
-### Get your GitHub key and secret
-
-First create a GitHub OAuth application. Follow the excellent GitHub documentation [Creating an OAuth App](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app).
-
-Use the following values:
-
-Application name
-: `plone-conference`
-
-Homepage URL
-: `http://localhost:3000/`
-
-Application description
-: `Plone Conference`
-
-Authorization callback URL
-: `http://localhost:3000/`
-
-After creating the OAuth application, you will have a client ID.
-Save this for the next section {ref}`activate-the-plugin-label`.
-
-Now you can generate a client secret by clicking {guilabel}`Generate a client secret`.
-Save this for the next section {ref}`activate-the-plugin-label`.
-
-
 (activate-the-plugin-label)=
 
-### Activate the plugin
+### Activate and configure the add-on
 
-You need to login to Plone Backend as Administrator (in Classic UI) at `http://localhost:8080/Plone`.
+In your primary browser, login to Plone Classic UI as Administrator at `http://localhost:8080/Plone/login/`.
 
 At the bottom of the menu on the left, choose {guilabel}`admin > Site Setup`.
 Select the {guilabel}`Add-ons` control panel.
@@ -175,7 +186,7 @@ Then install `pas.plugins.authomatic` by clicking the {guilabel}`Install` button
 Now configure the plugin by adding the GitHub configuration as JSON.
 Navigate to {guilabel}`Users > Authomatic (OAuth2/OpenID)` from anywhere in the Site Setup.
 
-Copy the following JSON configuration, and replace two values from GitHub.
+Copy the following JSON configuration, and replace the two values from GitHub.
 The client ID will be the value for `consumer_key`.
 The client secret will be the value for `consumer_secret`.
 Replace the existing JSON configuration in the control panel with your new configuration.
@@ -209,5 +220,76 @@ Replace the existing JSON configuration in the control panel with your new confi
 ```
 
 Click {guilabel}`Save`, and all is set.
-Test it by logging out of your Plone site, then try logging back in.
+Test it in your secondary browser by visiting `http://localhost:8080/Plone/login/`.
+You should be prompted to log in with GitHub.
+
+
+### Configure the OAuth user permissions
+
+You can assign the OAuthed user to groups and grant permissions.
+This is useful if you expect this user to perform the same functions as an Administrator.
+
+Back in the primary browser as Administrator, visit the control panel {guilabel}`Users > Users`.
+For the {guilabel}`User name` row, check appropriate permissions.
+For the purpose of this training, check {guilabel}`Manager`, then click {guilabel}`Apply changes`.
+
+
+### Change the GitHub OAuth application configuration for Volto
+
+Now that we have OAuth via GitHub working in Classic UI, let's switch to using Volto.
+
+We can reuse the client ID and secret from {ref}`get-your-github-client-id-and-secret-label` and that we entered into the `pas.plugins.authomatic` add-on's control panel configuration in {ref}`activate-the-plugin-label` as is.
+
+We will repeat some of the above steps, but with a few differences.
+
+
+#### Volto GitHub OAuth app configuration
+
+Following what we did previously in {ref}`classic-ui-github-oauth-app-configuration-label`, we will change two values, {guilabel}`Homepage URL` and {guilabel}`Authorization callback URL`.
+Use the following values.
+
+Application name
+: `plone-conference`
+
+Homepage URL
+: `http://localhost:3000/`
+
+Application description
+: `Plone Conference`
+
+Authorization callback URL
+: `http://localhost:3000/login-authomatic`
+
+Click {guilabel}`Update application` to save the changes.
+
+
+### Install `volto-authomatic` add-on
+
+Go to the folder `frontend`, and edit the file `package.json`.
+
+Append `@plone-collective/volto-authomatic` to the list `addons`.
+
+```json
+"addons": [
+  "@plone-collective/volto-authomatic"
+],
+```
+
+Append the key/value pair `"@plone-collective/volto-authomatic": "*"` to the dictionary `dependencies`.
+
+```json
+"dependencies": {
+  "@plone-collective/volto-authomatic": "*"
+}
+```
+
+To activate the settings, run `make build-frontend` in the root folder of the project.
+
+Finally, restart the frontend with `make start-frontend`.
+
+```seealso
+[`volto-authomatic`](https://github.com/collective/volto-authomatic)
+```
+
+Test it in your secondary browser by visiting `http://localhost:3000/login/`.
 You should be prompted to log in with GitHub.
