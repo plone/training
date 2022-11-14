@@ -15,13 +15,13 @@ The generated codebase contains a {file}`/devops` folder with the tools needed t
 
 Change to the {file}`devops` folder in your project directory.
 
-```{code-block} shell
+```shell
 cd devops
 ```
 
 And then install all dependencies.
 
-```{code-block} shell
+```shell
 source .env_local
 make clean
 make setup
@@ -59,7 +59,7 @@ make run-playbook
 
 Create `.env_prod`, if it does not exist, setting all values defined in `.env_local`, then run:
 
-```{code-block} shell
+```shell
 source .env_prod
 ```
 
