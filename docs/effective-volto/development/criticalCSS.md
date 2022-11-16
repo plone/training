@@ -36,6 +36,13 @@ critical-cli -h
 critical-cli https://example.com/ -o critical.css
 ```
 
+Or using `npx`:
+
+```shell
+npx @plone/critical-css-cli -h
+npx @plone/critical-css-cli https://example.com -o critical.css
+```
+
 You can pass multiple URLs and screen dimmensions and the extracted CSS will be
 optimized (duplicate rules will be eliminated, etc). See the [Advanced preset
 of cssnano](https://cssnano.co/docs/what-are-optimisations/) for details. One last
