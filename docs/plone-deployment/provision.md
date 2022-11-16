@@ -22,7 +22,7 @@ cd devops
 And then install all dependencies.
 
 ```shell
-source .env_local
+source .env_dev
 make clean
 make setup
 ```
@@ -57,7 +57,7 @@ make run-playbook
 
 ### For Production
 
-Create `.env_prod`, if it does not exist, setting all values defined in `.env_local`, then run:
+Create `.env_prod`, if it does not exist, setting all values defined in `.env_dev`, then run:
 
 ```shell
 source .env_prod

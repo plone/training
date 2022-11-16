@@ -12,13 +12,13 @@ myst:
 Create a Docker context based on the environment to be used.
 
 ```shell
-source .env_local
+source .env_dev
 make docker-setup
 ```
 
 ## Using provided Makefile
 
-Run `make deploy` to deploy to the server. This command relies on environment variables defined in {file}`.env_local` (or the production env file you created)
+Run `make deploy` to deploy to the server. This command relies on environment variables defined in {file}`.env_dev` (or the production env file you created)
 
 ```shell
 make deploy
