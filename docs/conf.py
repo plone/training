@@ -102,9 +102,7 @@ linkcheck_ignore = [
     r"https://plonedemo.kitconcept.com",  # Did Not Connect: Potential Security Issue
     r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
     r"https://www.dipf.de/.*",  # a timeout from time to time
-    r"http://plone-conference.localhost.*",
-    r"http://plone-conference.localhost:3000.*",
-    r"https://plone-conference.localhost.*",
+    r"https?://plone-conference.localhost.*",
     # Example domain
     "https://domain-a.com/data.json",
     "https://domain-b.com/data.json",
@@ -251,7 +249,7 @@ copybutton_prompt_is_regexp = True
 
 
 # -- sphinx.ext.todo -----------------------
-# todo_include_todos = True  # Uncomment to show todos.
+todo_include_todos = True  # Uncomment to show todos.
 
 
 # An extension that allows replacements for code blocks that
