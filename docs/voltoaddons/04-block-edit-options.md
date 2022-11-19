@@ -307,9 +307,7 @@ const DataTableView = ({ file_data, data }) => {
   );
 };
 
-export default withFileData(({ data: { file_path } }) => file_path?.[0])(
-  DataTableView
-);
+export default withFileData(DataTableView);
 ```
 
 Here's how your block would look like:
