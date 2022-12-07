@@ -179,6 +179,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 
 - Review solr docs [gforcada]
 
+- Add steps to Plone Deployment regarding images release on GitHub,
+  and URL to visit locally deployed site  [danalvrz]
+
 1.2.4 (2014-10-03)
 ------------------
 

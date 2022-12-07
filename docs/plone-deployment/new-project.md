@@ -23,9 +23,9 @@ You can accept the default values in square brackets (`[default-option]`) by hit
 
 For this training, we recommend you to provide:
 
-* `project_title`: **Plone Conference**
-* `github_organization`: Your GitHub username
-* `container_registry`: **2**
+- `project_title`: **Plone Conference**
+- `github_organization`: Your GitHub username
+- `container_registry`: **2**
 
 ```{code-block} console
 :emphasize-lines: 1,15,19
@@ -123,7 +123,6 @@ To install both the Plone backend and frontend, use the following command.
 make install
 ```
 
-
 This will take a few minutes.
 ☕️
 First the backend, then the frontend will be installed.
@@ -141,4 +140,19 @@ When the process completes successfully, it will exit with a message similar to 
 
 ```console
 ✨  Done in 98.97s.
+```
+
+Remember, having the repository on GitHub is currently a requirement to build the Docker images automatically; this might be a good moment to do so in case you had not yet.
+
+The same could be done with other options like GitLab, but we do not provide a working example for it at the moment.
+
+````{note}
+Due to an output difference when translations are built by the `@plone/generator-volto`, at the moment, it is necessary to run on the root directory:
+
+```{code-block} shell
+make i18n
+````
+
+```
+
 ```
