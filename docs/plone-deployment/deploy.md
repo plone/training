@@ -36,11 +36,11 @@ Once everything is running, and if your deployment was local (with Vagrant), you
 
 ### Check Logs
 
-| Tool      | Command               |
-| --------- | --------------------- |
-| webserver | `make logs-webserver` |
-| frontend  | `make logs-frontend`  |
-| backend   | `make logs-backend`   |
+|Tool|Command|
+|-|-|
+|webserver|`make logs-webserver`|
+|frontend|`make logs-frontend`|
+|backend|`make logs-backend`|
 
 ## Continuous Integration
 
