@@ -150,5 +150,5 @@ Due to an output difference when translations are built by the `@plone/generator
 
 ```shell
 make i18n
-````
+```
 ````
