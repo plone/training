@@ -9,6 +9,9 @@ myst:
 
 # Create a Project
 
+As mentioned in the {doc}`intro`'s Training Choices, for this Training, GitHub is a requirement to build the Docker images automatically.
+The steps in this training may be adapted to other providers, including GitLab.
+
 ## Generating the Codebase
 
 Run `cookiecutter` to create a Plone project skeleton using the Cookiecutter {term}`cookiecutter-plone-starter` with the following command.
@@ -23,9 +26,9 @@ You can accept the default values in square brackets (`[default-option]`) by hit
 
 For this training, we recommend you to provide:
 
-* `project_title`: **Plone Conference**
-* `github_organization`: Your GitHub username
-* `container_registry`: **2**
+- `project_title`: **Plone Conference**
+- `github_organization`: Your GitHub username
+- `container_registry`: **2**
 
 ```{code-block} console
 :emphasize-lines: 1,15,19
@@ -123,7 +126,6 @@ To install both the Plone backend and frontend, use the following command.
 make install
 ```
 
-
 This will take a few minutes.
 ☕️
 First the backend, then the frontend will be installed.
@@ -142,3 +144,11 @@ When the process completes successfully, it will exit with a message similar to 
 ```console
 ✨  Done in 98.97s.
 ```
+
+````{note}
+Due to an output difference when translations are built by the `@plone/generator-volto`, at the moment, it is necessary to run on the root directory:
+
+```shell
+make i18n
+```
+````

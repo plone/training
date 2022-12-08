@@ -32,6 +32,8 @@ Also use this command when there is a new version of any of the images.
 make status
 ```
 
+Once everything is running, and if your deployment was local (with Vagrant), you will be able to visit your website at `https://plone-conference.localhost`.
+
 ### Check Logs
 
 |Tool|Command|
