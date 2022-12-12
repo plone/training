@@ -285,5 +285,5 @@ This will stop the test at the first failure and you end up in an interactive sh
 
 For more in-depth information and reference see
 
-- [plone.testing documentation](https://docs.plone.org/external/plone.testing/docs/index.html).
+- [plone.testing documentation](https://5.docs.plone.org/external/plone.testing/docs/index.html).
 - [plone.testing package](https://pypi.org/project/plone.testing)

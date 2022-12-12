@@ -32,8 +32,8 @@ Plone has a multitude of powerful features, is easily accessible to editors but 
 The modular and open component architecture of Plone allows you to change or extend Plone in every respect!
 
 ```{seealso}
-- [What Is Plone?](https://docs.plone.org/intro/index.html)
-- [Conceptual Overview](https://docs.plone.org/working-with-content/introduction/conceptual-overview.html)
+- [What Is Plone?](https://5.docs.plone.org/intro/index.html)
+- [Conceptual Overview](https://5.docs.plone.org/working-with-content/introduction/conceptual-overview.html)
 ```
 
 ## Core concepts
@@ -43,7 +43,7 @@ They make Plone special and distinguish it from most other systems.
 
 ### Traversal
 
-- Plone uses [Traversal](https://docs.plone.org/develop/plone/serving/traversing.html) (portal/folder/document) instead of URL dispatch.
+- Plone uses [Traversal](https://5.docs.plone.org/develop/plone/serving/traversing.html) (portal/folder/document) instead of URL dispatch.
 - Python objects exists in a object tree that looks like a huge nested dictionary:
 
 ```python

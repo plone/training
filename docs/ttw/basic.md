@@ -29,12 +29,12 @@ Topics covered:
 
 3. You will see this form:
 
-   ```{image} https://docs.plone.org/_images/change-logo-in-site-control-panel.png
+   ```{image} https://5.docs.plone.org/_images/change-logo-in-site-control-panel.png
    ```
 
 4. You can now add / remove your custom logo
 
-See the [official docs](https://docs.plone.org/adapt-and-extend/change-the-logo.html).
+See the [official docs](https://5.docs.plone.org/adapt-and-extend/change-the-logo.html).
 
 ## Customize CSS/Less Variables
 
