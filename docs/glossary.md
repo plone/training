@@ -82,7 +82,7 @@ Solr
     [Solr](https://solr.apache.org/) is a popular, blazing-fast, open source enterprise search platform built on Apache Lucene.
 
 ZCML
-    The [Zope Configuration Mark-up Language](https://docs.plone.org/develop/addons/components/zcml.html).
+    The [Zope Configuration Mark-up Language](https://5.docs.plone.org/develop/addons/components/zcml.html).
 
 Diazo
     [Diazo theme engine guide](https://docs.diazo.org/en/latest/).
@@ -205,7 +205,7 @@ Scoped packages
     Namespace for JavaScript packages, they provide a way to avoid naming conflicts for common package names.
 
 middleware (Redux)
-    Custom wrappers for the Redux store dispatch methods. 
+    Custom wrappers for the Redux store dispatch methods.
     They allow customizing the behavior of the data flow inside the redux store.
 
 hooks (React)
@@ -243,8 +243,8 @@ Markdown
 fence
     A method to extend basic MyST syntax.
     You can define a directive with backticks (`` ` ``) followed by a reStructuredText directive in curly brackets (`{}`), and a matching number of closing backticks.
-    You can also nest fences by increasing the number of backticks. 
-    
+    You can also nest fences by increasing the number of backticks.
+
     `````md
     ````{warning}
     There be dragons!
@@ -253,7 +253,7 @@ fence
     ```
     ````
     `````
-    
+
     ````{warning}
     There be dragons!
     ```{important}
@@ -264,7 +264,7 @@ fence
 Open Graph
     The [Open Graph protocol](https://ogp.me/) enables any web page to become a rich object in a social graph.
     For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.
-    
+
 
 mxdev
     [mxdev](https://github.com/mxstack/mxdev) [mɪks dɛv] is a utility that makes it easy to work with Python projects containing lots of packages, of which you only want to develop some.
@@ -275,5 +275,5 @@ plonecli
     A Plone CLI for creating Plone packages. [plonecli usage](https://github.com/plone/plonecli)
 
 GenericSetup
-    [GenericSetup](https://docs.plone.org/develop/addons/components/genericsetup.html) is a framework to modify the Plone site during add-on package installation and uninstallation.
+    [GenericSetup](https://5.docs.plone.org/develop/addons/components/genericsetup.html) is a framework to modify the Plone site during add-on package installation and uninstallation.
     It provides XML-based rules to change the site settings.

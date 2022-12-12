@@ -296,7 +296,7 @@ Alternatively you also select which upgrade steps to run like this:
 - Run the upgrade step.
 
 ```{seealso}
-<https://docs.plone.org/develop/addons/components/genericsetup.html#upgrade-steps>
+<https://5.docs.plone.org/develop/addons/components/genericsetup.html#upgrade-steps>
 ```
 
 ```{note}
@@ -368,7 +368,7 @@ Note the relative Python path {py:class}`..interfaces.IPloneconfSiteLayer`.
 It is equivalent to the absolute path {py:class}`ploneconf.site.interfaces.IPloneconfSiteLayer`.
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/views/layers.html>
+<https://5.docs.plone.org/develop/plone/views/layers.html>
 ```
 
 ### Exercise
@@ -431,7 +431,7 @@ The `column ..` entries allow us to display the values of these indexes in the t
 - Go to <http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes> to inspect and manage the new indexes
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>
+<https://5.docs.plone.org/develop/plone/searching_and_indexing/indexing.html>
 ```
 
 ````{note}
@@ -637,7 +637,7 @@ Add a new file {file}`profiles/default/registry.xml`
 ```
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed>
+<https://5.docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed>
 ```
 
 (plone5-dexterity2-gs-label)=

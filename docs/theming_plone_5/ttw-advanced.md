@@ -49,7 +49,7 @@ At it's core, a {term}`Diazo` theme consists of an HTML page and {file}`rules.xm
 ```{note}
 You can find extended information about Diazo and its integration package {py:mod}`plone.app.theming`
 in the official docs for [Diazo](http://docs.diazo.org/en/latest/) and
-[plone.app.theming](https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme).
+[plone.app.theming](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme).
 ```
 
 ## Principles
@@ -90,8 +90,8 @@ To create our playground we will copy the existing Barceloneta theme.
 
 The most important files:
 
-- {file}`manifest.cfg`: contains metadata about the theme ([manifest reference](https://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file));
-- {file}`rules.xml`: contains the theme rules ([rules reference](https://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax));
+- {file}`manifest.cfg`: contains metadata about the theme ([manifest reference](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file));
+- {file}`rules.xml`: contains the theme rules ([rules reference](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax));
 - {file}`index.html`: the static HTML of the theme.
 
 ### Exercise 1 - Inspecting The {file}`manifest.cfg`

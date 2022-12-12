@@ -301,4 +301,4 @@ Or using the moment pattern in Plone 5:
 ```
 ````
 
-[browserlayer]: https://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
+[browserlayer]: https://5.docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction

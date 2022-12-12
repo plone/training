@@ -71,7 +71,7 @@ On macOS you at least need to install some dependencies with [Homebrew](https://
 brew install zlib git readline jpeg libpng libyaml
 ```
 
-For more information or in case of problems see the [official installation instructions](https://docs.plone.org/manage/installing/installation.html).
+For more information or in case of problems see the [official installation instructions](https://5.docs.plone.org/manage/installing/installation.html).
 
 Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
