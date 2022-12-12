@@ -193,7 +193,7 @@ We use VirtualBox 6.0.x
 
 ### Install and configure Vagrant
 
-Get the latest version from <https://www.vagrantup.com/downloads> for your operating system and install it.
+Get the latest version from <https://developer.hashicorp.com/vagrant/downloads> for your operating system and install it.
 
 Now your system has a command {command}`vagrant` that you can run in the terminal.
 
