@@ -87,7 +87,7 @@ We do this {term}`TTW` (Through-The-Web) right now.
 In the production setup you will define your schema with an interface or a supermodel XML but this is beyond the scope of this training.
 
 More information on dexterity schemas and fields can be found in the Plone documentation:
-<https://5.docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html>
+<https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html>
 ```
 
 Let's add a field *email* to a task.

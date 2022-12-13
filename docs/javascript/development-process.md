@@ -11,7 +11,7 @@ myst:
 
 ## Code Style
 
-Together with [plone.api](https://github.com/plone/plone.api) we developed [Plone code style guidelines](https://5.docs.plone.org/develop/styleguide/), which we are enforcing now for core Plone development.
+Together with [plone.api](https://github.com/plone/plone.api) we developed [Plone code style guidelines](https://docs.plone.org/develop/styleguide/), which we are enforcing now for core Plone development.
 
 This makes code so much more readable.
 

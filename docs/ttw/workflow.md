@@ -1237,15 +1237,15 @@ We hope this has served you as a practical introduction to making the most of of
 
 ## Further Reading
 
-General Plone documentation: <https://6.docs.plone.org>
+General Plone documentation: <https://docs.plone.org>
 
-Plone workflow documentation: <https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html>
+Plone workflow documentation: <https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html>
 
-Dexterity workflow documentation: <https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/workflow.html>
+Dexterity workflow documentation: <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/workflow.html>
 
 Martin Aspeli's famed "DCWorkflow's Hidden Gems" blog post: <https://web.archive.org/web/20190221025627/http://www.martinaspeli.net/articles/dcworkflows-hidden-gems>
 
-Page templates: <https://5.docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html#id1>
+Page templates: <https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html#id1>
 
 Plone developer training: <https://training.plone.org/5/mastering-plone/index.html>
 
@@ -1253,7 +1253,7 @@ Existing workflow training class: <https://training.plone.org/5/workflow/index.h
 
 Alternative tools for building forms in Plone:
 
-- PloneFormGen: <https://5.docs.plone.org/develop/plone/forms/ploneformgen.html>
+- PloneFormGen: <https://docs.plone.org/develop/plone/forms/ploneformgen.html>
 - EasyForm: <https://pypi.org/project/collective.easyform/>
 
 A fantastic tool for building workflows in Plone:

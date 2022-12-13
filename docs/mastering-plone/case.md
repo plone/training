@@ -105,7 +105,7 @@ During the course of the training you will solve the following tasks.
   - [Python](https://www.python.org)
   - ZCML
   - Dexterity content types
-  - [{term}`GenericSetup`](https://5.docs.plone.org/develop/addons/components/genericsetup.html)
+  - [{term}`GenericSetup`](https://docs.plone.org/develop/addons/components/genericsetup.html)
   - React
   - Redux
 
@@ -152,8 +152,8 @@ The following topics are not covered in the written training but could be discus
 ## Topics covered in other trainings and documentation
 
 - {doc}`/theming/index`
-- Plone Classic Viewlets: [Documentation](https://5.docs.plone.org/develop/plone/views/viewlets.html), {ref}`Training Mastering Plone 5<plone5-viewlets1-label>`
-- Plone Classic Portlets: [Documentation](https://5.docs.plone.org/develop/plone/functionality/portlets.html)
-- [form library z3c.form](https://5.docs.plone.org/develop/plone/forms/z3c.form.html)
-- [multilingual content and internationalization](https://5.docs.plone.org/develop/plone/i18n/index.html)
+- Plone Classic Viewlets: [Documentation](https://docs.plone.org/develop/plone/views/viewlets.html), {ref}`Training Mastering Plone 5<plone5-viewlets1-label>`
+- Plone Classic Portlets: [Documentation](https://docs.plone.org/develop/plone/functionality/portlets.html)
+- [form library z3c.form](https://docs.plone.org/develop/plone/forms/z3c.form.html)
+- [multilingual content and internationalization](https://docs.plone.org/develop/plone/i18n/index.html)
 - {doc}`/plone-deployment/index`

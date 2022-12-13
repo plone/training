@@ -377,7 +377,7 @@ Buildout-Documentation
 
 Troubleshooting
 
-: <https://5.docs.plone.org/manage/troubleshooting/buildout.html>
+: <https://docs.plone.org/manage/troubleshooting/buildout.html>
 
 A minimal buildout for Plone 5
 

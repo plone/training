@@ -314,5 +314,5 @@ To set that view by hand as the default view for `front-page` in the ZMI: <http:
 Done. This way you can still use the button _Edit_ to edit the frontpage.
 
 ```{seealso}
-- Querying by date: <https://5.docs.plone.org/develop/plone/searching_and_indexing/query.html#querying-by-date>
+- Querying by date: <https://docs.plone.org/develop/plone/searching_and_indexing/query.html#querying-by-date>
 ```

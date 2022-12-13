@@ -210,7 +210,7 @@ class SponsorsViewlet(ViewletBase):
 - We create the complete `img` tag using a custom scale (200x80) using the view `images` from {py:mod}`plone.namedfile.` This actually scales the logos and saves them as new blobs.
 - In {py:meth}`sponsors` we return an ordered dictionary of randomized lists of dicts (containing the information on sponsors). The order is by sponsor-level since we want the platinum sponsors on top and the bronze sponsors at the bottom. The randomization is for fairness among equal sponsors.
 
-{py:meth}`_sponsors` is cached for an hour using [plone.memoize](https://5.docs.plone.org/manage/deploying/performance/decorators.html#timeout-caches). This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
+{py:meth}`_sponsors` is cached for an hour using [plone.memoize](https://docs.plone.org/manage/deploying/performance/decorators.html#timeout-caches). This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
 
 Instead we should cache until one of the sponsors is modified by using a callable {py:func}`_sponsors_cachekey` that returns a number that changes when a sponsor is modified.
 
@@ -228,9 +228,9 @@ Instead we should cache until one of the sponsors is modified by using a callabl
 > ```
 
 ```{seealso}
-- [Guide to Caching](https://5.docs.plone.org/manage/deploying/caching/index.html)
-- [Cache decorators](https://5.docs.plone.org/manage/deploying/performance/decorators.html)
-- [Image Scaling](https://5.docs.plone.org/develop/plone/images/content.html#creating-scales)
+- [Guide to Caching](https://docs.plone.org/manage/deploying/caching/index.html)
+- [Cache decorators](https://docs.plone.org/manage/deploying/performance/decorators.html)
+- [Image Scaling](https://docs.plone.org/develop/plone/images/content.html#creating-scales)
 ```
 
 ## The template for the viewlet

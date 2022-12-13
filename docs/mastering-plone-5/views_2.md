@@ -616,5 +616,5 @@ the biggest difference is that this method is supposed to return the HTML alread
 Let your base class handle the HTML generation.
 
 ```{seealso}
-<https://5.docs.plone.org/develop/plone/views/browserviews.html>
+<https://docs.plone.org/develop/plone/views/browserviews.html>
 ```

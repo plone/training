@@ -1103,7 +1103,7 @@ There is a lot more about TAL, TALES and METAL that we have not covered.
 You'll only learn it if you keep reading, writing and customizing templates.
 
 ```{seealso}
-- <https://5.docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html>
+- <https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html>
 - Using Zope Page Templates: <https://zope.readthedocs.io/en/latest/zopebook/ZPT.html>
 - Zope Page Templates Reference: <https://zope.readthedocs.io/en/latest/zopebook/AppendixC.html>
 - <https://chameleon.readthedocs.io/en/latest/>

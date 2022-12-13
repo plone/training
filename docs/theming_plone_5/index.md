@@ -54,5 +54,5 @@ custom-components
 
 ```{seealso}
 - {ref}`ttw-label`
-- <https://5.docs.plone.org/adapt-and-extend/theming/index.html>
+- <https://docs.plone.org/adapt-and-extend/theming/index.html>
 ```
