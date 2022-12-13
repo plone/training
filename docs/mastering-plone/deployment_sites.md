@@ -75,8 +75,8 @@ Webserver (nginx)
 Deploying Plone and production-setups are outside the scope for this training.
 
 ```{seealso}
-- <https://docs.plone.org/manage/deploying/index.html>
-- <https://training.plone.org/5/deployment>
+- <https://6.docs.plone.org/deployment/index.html>
+- <https://training.plone.org/plone-deployment/>
 ```
 
 (deployment-tools-label)=

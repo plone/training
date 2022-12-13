@@ -48,7 +48,7 @@ We use the new catalog indexes to provide the data for the widgets and search th
 For other use cases we could also use either the built-in vocabularies (<https://pypi.org/project/plone.app.vocabularies>) or create custom vocabularies for this.
 
 - Custom vocabularies TTW using [Products.ATVocabularyManager](https://pypi.org/project/Products.ATVocabularyManager)
-- Programming using Vocabularies: <https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html>
+- Programming using Vocabularies: <https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html>
 ```
 
 ## collective.collectionfilter

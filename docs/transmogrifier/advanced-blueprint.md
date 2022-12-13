@@ -13,7 +13,7 @@ myst:
 
 This training only focused on one stage, but iterators have three stages!
 Learn more about this at
-<https://docs.plone.org/external/collective.transmogrifier/docs/source/transmogrifier.html#iterators-have-3-stages>
+<https://5.docs.plone.org/external/collective.transmogrifier/docs/source/transmogrifier.html#iterators-have-3-stages>
 
 ## Migrating Users & Groups
 

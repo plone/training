@@ -316,7 +316,7 @@ In this tab Diazo is disabled, allowing you to use your browser's Inspector or D
 
 This *unthemed host name* is managed in the {guilabel}`Theming Control Panel` under {guilabel}`Advanced Settings`, where more domains can be added.
 
-For more details on how to use Diazo rules, take a look at <http://docs.diazo.org/en/latest/> and <https://docs.plone.org/external/plone.app.theming/docs/index.html>.
+For more details on how to use Diazo rules, take a look at <http://docs.diazo.org/en/latest/> and <https://5.docs.plone.org/external/plone.app.theming/docs/index.html>.
 
 With our theme generated from {py:mod}`bobtemplates.plone` we already got a fully functional rule set based on the Plone 5 default Theme:
 
