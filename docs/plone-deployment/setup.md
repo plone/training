@@ -62,11 +62,11 @@ nvm install "16"
 ```
 
 ````{todo}
-In an upcoming version of the cookiecutter template, there will be a file `.nvmrc` within the generated project that will simplify and combine the foregoing steps.
+In an upcoming version of the cookiecutter template, there will be a file `.nvmrc` within the generated project that will simplify and combine the foregoing steps. 
 When it is released, you will use the following commands.
 
 ```shell
-nvm install
+nvm install 
 nvm use
 ```
 
@@ -87,7 +87,7 @@ Then execute `curl -o- -L https://yarnpkg.com/install.sh | bash` to install Yarn
 
 ### Vagrant
 
-- [Vagrant](https://developer.hashicorp.com/vagrant/downloads) and VirtualBox or libvirt (Linux / macOS).
+- [Vagrant](https://www.vagrantup.com/downloads) and VirtualBox or libvirt (Linux / macOS).
 
 ```{warning}
 VirtualBox does not run on Apple Silicon, use libvirt+qemu instead.

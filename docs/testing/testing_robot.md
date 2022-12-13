@@ -176,7 +176,7 @@ Start interactive debugger
 ```
 
 ```{note}
-There are more detailed examples in the [Plone robot framework documentation](https://5.docs.plone.org/external/plone.app.robotframework/docs/source/debugging.html).
+There are more detailed examples in the [Plone robot framework documentation](https://docs.plone.org/external/plone.app.robotframework/docs/source/debugging.html).
 ```
 
 ## Test reports
@@ -200,7 +200,7 @@ Try to write some basic scenarios:
 plonecli created a basic robot test for our TestType content type, so the first part of the exercise could be copied from it.
 Try not copying it and try using the robot framework syntax by yourself.
 
-In the [robot framework documentation](https://5.docs.plone.org/external/plone.app.robotframework/docs/source/index.html) you can find some information that can help you write your first robot framework test.
+In the [robot framework documentation](https://docs.plone.org/external/plone.app.robotframework/docs/source/index.html) you can find some information that can help you write your first robot framework test.
 ```
 
 ````{admonition} Solution

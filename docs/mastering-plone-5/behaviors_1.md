@@ -163,7 +163,7 @@ If you do not define a factory, your attributes will be stored directly on the o
 This can result in clashes with other behaviors.
 
 You can avoid this by using the {py:class}`plone.behavior.AnnotationStorage` factory.
-This stores your attributes in an [Annotation](https://5.docs.plone.org/develop/plone/misc/annotations.html).
+This stores your attributes in an [Annotation](https://docs.plone.org/develop/plone/misc/annotations.html).
 But then you *must* use a marker interface if you want to have custom viewlets, browser views or portlets.
 
 Without it, you would have no interface against which you could register your views.
@@ -198,6 +198,6 @@ We must add the behavior to {file}`profiles/default/types/talk.xml`:
 </object>
 ```
 
-[plone5_fieldset]: https://5.docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
-[plone5_iformfieldprovider]: https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
-[plone5_plone.supermodel]: https://5.docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces
+[plone5_fieldset]: https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
+[plone5_iformfieldprovider]: https://docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
+[plone5_plone.supermodel]: https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces

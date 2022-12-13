@@ -89,7 +89,7 @@ The view of the homepage with the customized logo.
 ```
 
 ```{seealso}
-<https://5.docs.plone.org/adapt-and-extend/change-the-logo.html>
+<https://docs.plone.org/adapt-and-extend/change-the-logo.html>
 ```
 
 (plone5-customizing-portlets-label)=
@@ -206,7 +206,7 @@ explain
 - Create new Document "Imprint" and publish
 
 ```{seealso}
-<https://5.docs.plone.org/develop/plone/functionality/actions.html>
+<https://docs.plone.org/develop/plone/functionality/actions.html>
 ```
 
 #### Global navigation
@@ -249,7 +249,7 @@ If time explain:
   ```
 
 ```{seealso}
-<https://5.docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html>
+<https://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html>
 ```
 
 ### CSS Registry (`portal_css`)

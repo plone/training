@@ -279,7 +279,7 @@ After making changes to the file {file}`manifest.cfg`, we need to deactivate/act
 ```
 
 ```{note}
-You can read more about the {file}`manifest.cfg` and the available options in the [plone.app.theming documentation](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file).
+You can read more about the {file}`manifest.cfg` and the available options in the [plone.app.theming documentation](https://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file).
 ```
 
 ## Final CSS Customization
@@ -676,6 +676,6 @@ use {command}`grunt watch` to do this automatically after every file change.
 ## More Diazo And plone.app.theming Details
 
 For more information on how to build a Diazo based theme look at [the diazo documentation](http://docs.diazo.org/en/latest/)
-and [the plone.app.theming manual](https://5.docs.plone.org/external/plone.app.theming/docs/index.html).
+and [the plone.app.theming manual](https://docs.plone.org/external/plone.app.theming/docs/index.html).
 
 In the next part we will {doc}`take a look at template customizations <theme-package-4>` for our theme and {ref}`make the slider dynamic and let users change the pictures for the slider <create-dynamic-slider-content-in-plone>`.

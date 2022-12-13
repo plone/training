@@ -43,5 +43,5 @@ This is powerful stuff when combined with the more usual role-to-permission mapp
 
 ### Additional Resources
 
-- <https://5.docs.plone.org/working-with-content/collaboration-and-workflow/collaboration-through-sharing.html>
-- <https://5.docs.plone.org/develop/plone/security/local_roles.html>
+- <https://docs.plone.org/working-with-content/collaboration-and-workflow/collaboration-through-sharing.html>
+- <https://docs.plone.org/develop/plone/security/local_roles.html>

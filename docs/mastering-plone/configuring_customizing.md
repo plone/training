@@ -128,7 +128,7 @@ The view of the homepage with the customized logo.
 ```
 
 ```{seealso}
-<https://5.docs.plone.org/adapt-and-extend/change-the-logo.html>
+<https://docs.plone.org/adapt-and-extend/change-the-logo.html>
 ```
 
 (customizing-portlets-label)=
@@ -256,7 +256,7 @@ explain
 - Create new Document "Imprint" and publish
 
 ```{seealso}
-<https://5.docs.plone.org/develop/plone/functionality/actions.html>
+<https://docs.plone.org/develop/plone/functionality/actions.html>
 ```
 
 #### Global navigation

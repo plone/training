@@ -1167,7 +1167,7 @@ In `profiles/default/types/Product.xml` we will activate the basic and namefromt
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
     <!-- Details about all standard behaviors following can be read at
-         https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html
+         https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html
     -->
     <element value="plone.basic"/>
     <element value="plone.namefromtitle"/>

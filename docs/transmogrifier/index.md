@@ -47,7 +47,7 @@ Advanced Blueprint Tips <advanced-blueprint>
 ```
 
 ```{seealso}
-- <https://5.docs.plone.org/external/collective.transmogrifier/docs/source/index.html>
+- <https://docs.plone.org/external/collective.transmogrifier/docs/source/index.html>
 ```
 
 % The following items are hidden in this toctree to prevent Sphinx warnings.

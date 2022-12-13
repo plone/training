@@ -221,8 +221,8 @@ html_theme_options = {
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html
 #
 intersphinx_mapping = {
-    "plonedocs": ("https://5.docs.plone.org/", None),
-    "plone6docs": ("https://6.docs.plone.org/", None),
+    "plonedocs": ("https://docs.plone.org/", None),
+    "plone6docs": ("https://6.dev-docs.plone.org/", None),
     "python": ("https://docs.python.org/3/", None),
 }
 

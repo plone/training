@@ -124,7 +124,7 @@ Here are three noteworthy changes:
   You no longer need to use the ZMI to manage them by hand.
 - "Retina" Image scales: Plone now has scales for high pixel density images.
 
-For a complete list of changes see <https://5.docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_51.html#changes-between-plone-5-0-and-5-1>.
+For a complete list of changes see <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_51.html#changes-between-plone-5-0-and-5-1>.
 
 ## Plone 5.2
 
@@ -145,9 +145,9 @@ Here are some noteworthy changes:
   As an Editor, you can see the {guilabel}`URL Management` link in the {guilabel}`actions` menu of a content item, and add or remove alternative URLs for this specific content item.
 
 ```{seealso}
-- [Complete list of changes for Plone 5.2](https://5.docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_52.html)
-- [Upgrade add-ons to Python 3](https://5.docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_python3.html)
-- [Migrate a ZODB from Python 2.7 to Python 3](https://5.docs.plone.org/manage/upgrading/version_specific_migration/upgrade_zodb_to_python3.html)
+- [Complete list of changes for Plone 5.2](https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_52.html)
+- [Upgrade add-ons to Python 3](https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_python3.html)
+- [Migrate a ZODB from Python 2.7 to Python 3](https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_zodb_to_python3.html)
 ```
 
 ## Plone 6

@@ -11,9 +11,9 @@ myst:
 
 # The Features of Plone
 
-In-depth user-manual: <https://5.docs.plone.org/>
+In-depth user-manual: <https://docs.plone.org/>
 
-See also: <https://5.docs.plone.org/working-with-content/index.html>
+See also: <https://docs.plone.org/working-with-content/index.html>
 
 (plone5-features-start-stop-label)=
 
@@ -334,7 +334,7 @@ The default Plone content types are:
 - Page
 
 ```{note}
-Please keep in mind that we use [plone.app.contenttypes](https://5.docs.plone.org/external/plone.app.contenttypes/docs/README.html) for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
+Please keep in mind that we use [plone.app.contenttypes](https://docs.plone.org/external/plone.app.contenttypes/docs/README.html) for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
 ```
 
 (plone5-features-folders-label)=
@@ -451,7 +451,7 @@ An oddity in all of the standard Plone workflows: a content item may be viewable
 Making a container private does **not** automatically make its contents private.
 ```
 
-Read more at: <https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html>
+Read more at: <https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html>
 
 (plone5-features-wc-label)=
 

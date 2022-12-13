@@ -647,7 +647,7 @@ directives.widget(
 This is also the way you would configure a content type schema, where you may want to override the default widget.
 
 A widget component in your frontend package would be mapped to a key "mywidget".
-In your content type schema you would add a widget directive with
+In your content type schema you would add a widget directive with 
 `frontendOptions={"widget": "mywidget"}`
 ````
 
@@ -765,7 +765,7 @@ From now on you can use these vocabulary by referring to their name, e.g. `plone
 ```
 
 ```{seealso}
-Plone documentation [Vocabularies](https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html).
+Plone documentation [Vocabularies](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html).
 ```
 
 ## Using vocabularies in a schema
