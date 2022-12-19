@@ -14,7 +14,7 @@ demonstrate various UI component. You can check the current deployed version of
 the Storybook at the [Plone 6 (dev) documentation website][2]
 
 [1]: https://storybook.js.org/
-[2]: https://6.dev-docs.plone.org/storybook/
+[2]: https://6.docs.plone.org/storybook/
 
 
 To run Volto's Storybook, with a clone of Volto you can run:

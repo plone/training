@@ -41,7 +41,7 @@ PORT=4000 RAZZLE_API_PATH=https://plone.org/api yarn start:prod
 
 The simplest deployment is to start this node process in your server by any mean of your choice (systemd, process manager, etc) and manage its lifecycle through it.
 
-The Official Plone 6 Volto documentation has page on `pm2`: https://6.dev-docs.plone.org/volto/deploying/pm2.html
+The Official Plone 6 Volto documentation has page on `pm2`: https://6.docs.plone.org/volto/deploying/pm2.html
 
 ## Reverse proxies
 
