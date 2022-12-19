@@ -23,10 +23,9 @@ Plone consists of more than 20.000 files! You need a tool to manage that. No dev
 
 People pick editors themselves. Use whatever you are comfortable and productive with. Here are some of the most used editors in the Plone community:
 
-- [Sublime](https://www.sublimetext.com/)
 - [Visual Studio Code](https://code.visualstudio.com/)
+- [Sublime](https://www.sublimetext.com/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
-- [Atom](https://flight-manual.atom.io/getting-started/sections/why-atom/)
 - [Vim](https://www.vim.org/)
 - [Emacs](https://www.gnu.org/software/emacs/)
 

@@ -33,7 +33,6 @@ People pick editors themselves. Use whatever you are comfortable and productive 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Sublime](https://www.sublimetext.com/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
-- [Atom](https://flight-manual.atom.io/getting-started/sections/why-atom/)
 - [Wing IDE](http://wingide.com/)
 - [Vim](https://www.vim.org/)
 - [Emacs](https://www.gnu.org/software/emacs/)
