@@ -224,7 +224,7 @@ True
 
 ## Querying the catalog
 
-The are many [catalog indexes](https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html) to query. Here are some examples:
+The are many [catalog indexes](https://5.docs.plone.org/develop/plone/searching_and_indexing/indexing.html) to query. Here are some examples:
 
 ```pycon
 >>> portal_catalog = getToolByName(self.context, 'portal_catalog')
@@ -242,7 +242,7 @@ Calling the catalog without parameters returns the whole site:
 ```
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/searching_and_indexing/query.html>
+<https://5.docs.plone.org/develop/plone/searching_and_indexing/query.html>
 ```
 
 (views3-excercises-label)=

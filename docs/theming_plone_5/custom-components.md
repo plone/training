@@ -43,4 +43,4 @@ For more details about Viewlets/ViewletManagers and there possibilities see the 
 Portlets are a very flexible way of providing context related information in the right, left or footer area.
 
 For details on how to use, configure and create Portlets,
-look into the Plone docs [Plone docs Portlet sections](https://docs.plone.org/develop/plone/functionality/portlets.html).
+look into the Plone docs [Plone docs Portlet sections](https://5.docs.plone.org/develop/plone/functionality/portlets.html).

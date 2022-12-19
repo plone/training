@@ -22,7 +22,7 @@ Tell us about yourselves:
 - What is your web development experience?
 - What are your expectations for this tutorial?
 - What is your favorite text editor?
-- If this training will include the development chapters:  
+- If this training will include the development chapters:
     - Do you know the HTML of the output of this?
 
       ```html
@@ -76,8 +76,8 @@ Some technologies and tools we use during the training:
   > - Dexterity
   > - Viewlets
   > - [JQuery](https://jquery.com/)
-  > - [Testing](https://docs.plone.org/external/plone.testing/docs/index.html)
-  > - [References/Relations](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html)
+  > - [Testing](https://5.docs.plone.org/external/plone.testing/docs/index.html)
+  > - [References/Relations](https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/references.html)
 
 (plone5-intro-what-wont-happen-label)=
 
@@ -85,22 +85,22 @@ Some technologies and tools we use during the training:
 
 We will not cover the following topics:
 
-- [Archetypes](https://docs.plone.org/4/en/develop/plone/content/archetypes/index.html)
-- [Portlets](https://docs.plone.org/4/en/old-reference-manuals/portlets/index.html)
-- [z3c.forms](https://docs.plone.org/develop/plone/forms/z3c.form.html)
-- [Theming](https://docs.plone.org/adapt-and-extend/theming/index.html)
-- [i18n and locales](https://docs.plone.org/develop/plone/i18n/index.html)
-- [Deployment, Hosting and Caching](https://docs.plone.org/manage/deploying/index.html)
+- [Archetypes](https://4.docs.plone.org/develop/plone/content/archetypes/index.html)
+- [Portlets](https://5.docs.plone.org/develop/plone/functionality/portlets.html)
+- [z3c.forms](https://5.docs.plone.org/develop/plone/forms/z3c.form.html)
+- [Theming](https://5.docs.plone.org/adapt-and-extend/theming/index.html)
+- [i18n and locales](https://5.docs.plone.org/develop/plone/i18n/index.html)
+- [Deployment, Hosting and Caching](https://5.docs.plone.org/manage/deploying/index.html)
 - Grok
 
 Other topics are only covered lightly:
 
-- [Zope Component Architecture](https://docs.plone.org/develop/addons/components/index.html)
-- [GenericSetup](https://docs.plone.org/develop/addons/components/genericsetup.html)
-- [ZODB](https://docs.plone.org/develop/plone/persistency/index.html)
-- [Security](https://docs.plone.org/develop/plone/security/index.html)
-- [Permissions](https://docs.plone.org/develop/plone/security/permissions.html)
-- [Performance and Tuning](https://docs.plone.org/manage/deploying/performance/index.html)
+- [Zope Component Architecture](https://5.docs.plone.org/develop/addons/components/index.html)
+- [GenericSetup](https://5.docs.plone.org/develop/addons/components/genericsetup.html)
+- [ZODB](https://5.docs.plone.org/develop/plone/persistency/index.html)
+- [Security](https://5.docs.plone.org/develop/plone/security/index.html)
+- [Permissions](https://5.docs.plone.org/develop/plone/security/permissions.html)
+- [Performance and Tuning](https://5.docs.plone.org/manage/deploying/performance/index.html)
 
 (plone5-intro-expect-label)=
 

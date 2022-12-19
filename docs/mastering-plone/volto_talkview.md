@@ -13,7 +13,7 @@ myst:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
+:alt: Plone frontend
 :class: logo
 ```
 ---
@@ -327,8 +327,8 @@ export default TalkView;
 
 - We use the component [Image](https://react.semantic-ui.com/elements/image/#variations-avatar)
 - We use `flattenToAppURL` to turn the Plone url of the image to the Volto url, e.g. it turns <http://localhost:8080/Plone/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg> into <http://localhost:3000/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg>.
-- Open the React Developer Tools in your browser and inspect the property `image` of TalkView and its property `scale`. If you look at the [documentation for the serialization of image-fields](https://6.dev-docs.plone.org/plone.restapi/docs/source/usage/serialization.html#file-image-fields) you can find out where that information comes from.
-- To deal with talks without speaker image, we check for the existence of the image with `content.image?.scales?.preview?.download`. 
+- Open the React Developer Tools in your browser and inspect the property `image` of TalkView and its property `scale`. If you look at the [documentation for the serialization of image-fields](https://6.docs.plone.org/plone.restapi/docs/source/usage/serialization.html#file-image-fields) you can find out where that information comes from.
+- To deal with talks without speaker image, we check for the existence of the image with `content.image?.scales?.preview?.download`.
   The expression with question marks returns `undefined` if `content` has no `image` key or `content.image` has no `scales` key and so on.
   `?.` is the [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) operator.
 

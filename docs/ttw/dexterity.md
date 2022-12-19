@@ -86,7 +86,7 @@ What are the differences?
 
 - Dexterity has a good TTW story.
 - Archetypes has no TTW story.
-- UML-modeling: [ArchGenXML](https://docs.plone.org/4/en/old-reference-manuals/archgenxml/index.html) for Archetypes, [agx](https://github.com/bluedynamics/agx.dev) for Dexterity
+- UML-modeling: [ArchGenXML](https://4.docs.plone.org/old-reference-manuals/archgenxml/index.html) for Archetypes, [agx](https://github.com/bluedynamics/agx.dev) for Dexterity
 
 Approaches for Developers:
 
@@ -140,7 +140,7 @@ Views:
 - The new field `Hot News` is not displayed when rendering the News Item. We'll take care of this later.
 
 ```{seealso}
-<https://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types>
+<https://5.docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types>
 ```
 
 (dexterity1-create-ttw-label-ttw)=
@@ -247,8 +247,8 @@ So, we'll ultimately want to move our new content type into a Python package.
 We're missing some skills to do that, and we'll cover those in the next couple of chapters.
 
 ```{seealso}
-- [Dexterity Developer Manual](https://docs.plone.org/external/plone.app.dexterity/docs/index.html)
-- [The standard behaviors](https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
+- [Dexterity Developer Manual](https://5.docs.plone.org/external/plone.app.dexterity/docs/index.html)
+- [The standard behaviors](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
 ```
 
 (dexterity1-excercises-label-ttw)=
@@ -337,6 +337,6 @@ The schema should look like this:
 ````
 
 ```{seealso}
-- [Dexterity XML](https://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html)
-- [Model-driven types](https://docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types)
+- [Dexterity XML](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html)
+- [Model-driven types](https://5.docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types)
 ```
