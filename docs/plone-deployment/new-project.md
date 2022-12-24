@@ -7,14 +7,14 @@ myst:
     "keywords": "Plone, deployment, Ansible, Docker, create, project"
 ---
 
-# Create a Project
+# Create a project
 
-As mentioned in the {doc}`intro`'s Training Choices, for this Training, GitHub is a requirement to build the Docker images automatically.
+As mentioned in the {doc}`intro`'s {ref}`deploy-training-choices-label`, for this training, GitHub is a requirement to build the Docker images automatically.
 The steps in this training may be adapted to other providers, including GitLab.
 
-## Generating the Codebase
+## Generating the codebase
 
-Run `cookiecutter` to create a Plone project skeleton using the Cookiecutter {term}`cookiecutter-plone-starter` with the following command.
+Run `cookiecutter` to create a Plone project skeleton using the cookiecutter {term}`cookiecutter-plone-starter` with the following command.
 
 ```{code-block} shell
 cookiecutter gh:collective/cookiecutter-plone-starter
@@ -38,8 +38,9 @@ description [A new project using Plone 6.]:
 author [Plone Foundation]:
 email [collective@plone.org]:
 python_package_name [plone_conference]:
-plone_version [6.0.0b3]:
-volto_version [16.0.0-alpha.42]:
+plone_version [6.0.0]:
+volto_version [16.6.0]:
+volto_generator_version [6.2.2]: 
 Select language_code:
 1 - en
 2 - de
@@ -62,13 +63,14 @@ Running sanity checks
   - git: ✓
 
 Summary:
-  - Plone version: 6.0.0b3
-  - Volto version: 16.0.0-alpha.42
+  - Plone version: 6.0.0
+  - Volto version: 16.6.0
+  - Volto Generator version: 6.2.2
   - Output folder: /<path-to-project>/plone-conference
 
 Frontend codebase:
- - Install latest @plone/generator-volto
- - Generate frontend application with @plone/volto 16.0.0-alpha.42
+ - Installing @plone/generator-volto@6.2.2
+ - Generate frontend application with @plone/volto 16.6.0
 
 Backend codebase
  - Format generated code in the backend
@@ -90,11 +92,11 @@ Now, change to your project directory {file}`plone-conference`.
 cd plone-conference
 ```
 
-### Understanding the Codebase
+### Understanding the code base
 
 {file}`/backend`
-: Folder containing the backend (api) solution.
-: Inside this folder, the Python codebase can be found in {file}`src/plone_conference`.
+: Folder containing the backend (API) solution.
+: Inside this folder, the Python code base can be found in {file}`src/plone_conference`.
 
 {file}`/frontend`
 : Folder containing the frontend (Volto) solution. The generated code was created using `@plone/generator-volto`.
@@ -103,18 +105,18 @@ cd plone-conference
 : Folder with Ansible and Docker Stacks.
 
 {file}`/.github/workflows`
-: GitHub Actions workflows to test the codebase and release container images to the choosen container registry.
+: GitHub Actions workflows to test the code base and release container images to the chosen container registry.
 
 {file}`/Makefile`
 : File defining a set of tasks to manage the codebase.
 
-We use [make](https://www.gnu.org/software/make/) here because it is well understood, just works, is mature and wide spread available.
-For build and deployment this is an important criteria.
-Future plans are to use make's dependency management and include capabilities more here, and in the dependent Makefiles.
+We use [`make`](https://www.gnu.org/software/make/) here because it is well understood, just works, is mature, and widely available.
+For build and deployment, this is an important criteria.
+Future plans are to use `make`'s dependency management and include more capabilities here and in the dependent `Makefile`s.
 
 To see all available commands and their descriptions, enter the following command.
 
-```{code-block} shell
+```shell
 make help
 ```
 
@@ -146,7 +148,7 @@ When the process completes successfully, it will exit with a message similar to 
 ```
 
 ````{note}
-Due to an output difference when translations are built by the `@plone/generator-volto`, at the moment, it is necessary to run on the root directory:
+Due to an output difference when translations are built by the `@plone/generator-volto`, at the moment, it is necessary to run the following command on the root directory:
 
 ```shell
 make i18n
