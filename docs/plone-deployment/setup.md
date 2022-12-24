@@ -111,7 +111,7 @@ If you are willing to follow the training using Docker Hub as your registry, ple
 - Create an account at [Docker Hub](https://hub.docker.com/).
 - Configure your local Docker to use Docker Hub credentials with `docker login`
 
-While Gitlab with it's container registry works the same, we do not include it in the training.
+Although Gitlab's container registry works the same as any other, we do not include it in the training.
 
 ## Cookiecutter
 

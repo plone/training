@@ -15,15 +15,15 @@ A popular change is adding an add-on.
 
 ## About Add-ons
 
-Both Plone Frontend and Plone Backend allow adding add-ons.
-Depending on the add-on, it could apply to only one of Plone Backend or Plone Frontend, or both working together.
+Both Plone frontend and Plone backend allow adding add-ons.
+Depending on the add-on, it could apply to only one of Plone backend or Plone frontend, or both working together.
 If the latter is the case, then these would be two different components.
 
-Plone Frontend add-ons are written in JavaScript and are released as NPM packages.
-The Plone community maintains a curated list of Plone Frontend add-ons named [Awesome Volto](https://github.com/collective/awesome-volto).
+Plone frontend add-ons are written in JavaScript and are released as NPM packages.
+The Plone community maintains a curated list of Plone frontend add-ons named [Awesome Volto](https://github.com/collective/awesome-volto).
 
-Plone Backend add-ons are written in Python and are released on the Python Package Index (PyPI).
-The Plone community maintains a curated list of Plone Backend and Plone Classic UI add-ons named [Awesome Plone](https://github.com/collective/awesome-plone).
+Plone backend add-ons are written in Python and are released on the Python Package Index (PyPI).
+The Plone community maintains a curated list of Plone backend and Plone Classic UI add-ons named [Awesome Plone](https://github.com/collective/awesome-plone).
 
 
 ## Starting the servers
@@ -151,7 +151,7 @@ This installs the package, too, when installing Plone.
 
 Edit the file `instance.yaml`.
 There is a line `package_includes: ['plone_conference']`.
-This loads the package configuration when starting Plone Backend.
+This loads the package configuration when starting Plone backend.
 Append `pas.plugins.authomatic` to the array.
 Afterward it should look like the following:
 

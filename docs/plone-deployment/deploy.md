@@ -38,7 +38,7 @@ Once everything is running, and if your deployment was local (with Vagrant), you
 
 |Tool|Command|
 |-|-|
-|webserver|`make logs-webserver`|
+|web server|`make logs-webserver`|
 |frontend|`make logs-frontend`|
 |backend|`make logs-backend`|
 
