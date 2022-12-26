@@ -7,11 +7,11 @@ myst:
     "keywords": "Plone, deployment, server, setup"
 ---
 
-# Server Setup
+# Server setup
 
 The generated codebase contains a {file}`/devops` folder with the tools needed to provision and set up a basic installation of your Plone project using {term}`Ansible` and {term}`Docker`.
 
-## Install Dependencies
+## Install dependencies
 
 Change to the {file}`devops` folder in your project directory.
 
@@ -29,7 +29,7 @@ make setup
 
 This will create a new Python 3 virtual environment with Ansible.
 
-## Provisioning the Server
+## Provisioning the server
 
 We are using Vagrant in this training, and to create a new Vagrant box, as defined in the {file}`Vagrantfile`, run:
 
@@ -55,7 +55,7 @@ Run the playbook to set up the server by installing base packages, creating `UFW
 make run-playbook
 ```
 
-### For Production
+### For production
 
 Create `.env_prod`, if it does not exist, setting all values defined in `.env_dev`, then run:
 
