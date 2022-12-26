@@ -13,7 +13,7 @@ There are some changes possible in the project without writing code by just edit
 A popular change is adding an add-on.
 
 
-## About Add-ons
+## About add-ons
 
 Both Plone frontend and Plone backend allow adding add-ons.
 Depending on the add-on, it could apply to only one of Plone backend or Plone frontend, or both working together.
@@ -177,7 +177,12 @@ Finally, restart the backend with `make start-backend`.
 
 ### Activate and configure the add-on
 
-In your primary browser, login to Plone Classic UI as Administrator at `http://localhost:8080/Plone/login/`.
+In your primary browser, login to Plone Classic UI as Administrator at `http://localhost:8080/Plone/login`.
+
+```{important}
+If you add a trailing slash to the above URL, you will get redirected to `http://localhost:8080/Plone/login/authomatic-handler` and an error message will display.
+Don't do that.
+```
 
 At the bottom of the menu on the left, choose {guilabel}`admin > Site Setup`.
 Select the {guilabel}`Add-ons` control panel.
@@ -291,5 +296,5 @@ Finally, restart the frontend with `make start-frontend`.
 [`volto-authomatic`](https://github.com/collective/volto-authomatic)
 ```
 
-Test it in your secondary browser by visiting `http://localhost:3000/login/`.
+Test it in your secondary browser by visiting `http://localhost:3000/login`.
 You should be prompted to log in with GitHub.
