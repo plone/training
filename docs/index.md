@@ -93,11 +93,14 @@ teaching/index
 
 {doc}`effective-volto/index`
 
-: Learn proven practices of Plone frontend development. 
-The training covers essential concepts, as well as good practices and notions of how Volto works under the hood.
-Tips and tricks are also covered, providing a good amount of insights for those who want to learn more beyond the Volto basics.
+: Learn proven practices of Plone frontend development.
+  The training covers essential concepts, as well as good practices and notions of how Volto works under the hood.
+  Tips and tricks are also covered, providing a good amount of insights for those who want to learn more beyond the Volto basics.
+  Training for intermediate/advanced developers.
 
-  This training is intended for an intermediate/advanced audience that already has some contact with Volto and tried it out, or has a decent amount of experience with it.
+[Use, Integrate and develop Patterns for Plone 6 Classic](https://patternslib.github.io/patternslib-training)
+
+: Use, create and integrate JavaScript functionality based on [Patternslib](https://patternslib.com/) into Plone 6.
 
 {doc}`angular/index`
 
@@ -109,9 +112,8 @@ Tips and tricks are also covered, providing a good amount of insights for those 
 
 {doc}`javascript/index`
 
-: Learn best practices in JavaScript development, how to develop and test your own patterns,
+: Learn best practices in JavaScript development for Plone 5, how to develop and test your own patterns,
   and how to integrate your custom JavaScript applications with Plone.
-
   Technologies will include NPM, Grunt, Patternslib and React.
 
 ### Theming
