@@ -320,8 +320,11 @@ var Search = {
       else {
         Search.stopPulse();
         Search.title.text(_('Search Results'));
-        if (!resultCount)
-          Search.status.text(_('Your search did not match any documents. Please make sure that all words are spelled correctly and that you\'ve selected enough categories.'));
+        if (query === '') {
+          Search.status.text(_('No query, no results.'));
+        }
+        else if (!resultCount)
+          Search.status.text(_('Your search did not match any pages.'));
         else
             Search.status.text(_('Search finished, found %s page(s) matching the search query.').replace('%s', resultCount));
         Search.status.fadeIn(500);
