@@ -575,7 +575,7 @@ The configuration file {file}`mrs.developer.json` instructs mrs.developer from w
 ```shell
 {
     "greenthumb-volto-custom-addon": {
-        "package": "@greenthumb/volto-custom-addon",
+        "package": "volto-custom-addon",
         "url": "git@github.com:greenthumb/volto-custom-addon.git",
         "path": "src"
     }
