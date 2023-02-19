@@ -1,36 +1,30 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Development support by editors and IDE's"
+    "property=og:description": "Development support by editors and IDE's"
+    "property=og:title": "Development environments and editors"
+    "keywords": "Plone, Volto, editor, linter"
 ---
 
 % ide-label:
 
-# IDEs and Editors
-
-```{eval-rst}
-..  todo::
-
-    * Add info on linters and other editor-tools for React
-
-```
+# IDE's and editors
 
 In this part you will:
 
-- Learn about editors
+- learn about editors
 
 Topics covered:
 
-- Many editors
+- editor features and extensions
 
 Plone consists of more than 20.000 files! You need a tool to manage that. No development environment is complete without a good editor.
 
-People pick editors themselves. Use whatever you are comfortable and productive with. Here are some of the most used editors in the Plone community:
+Here are some of the most used editors in the Plone community.
+Pick your favorite!
 
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [VSCode](https://code.visualstudio.com/)
 - [Sublime](https://www.sublimetext.com/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
 - [Wing IDE](http://wingide.com/)
@@ -39,26 +33,22 @@ People pick editors themselves. Use whatever you are comfortable and productive 
 
 Some features that most editors have in one form or another are essential when developing with Plone.
 
-- **Find in project** (SublimeText 3: `cmd + shift + f`)
-- **Find files in Project** (SublimeText 3: `cmd + t`)
-- **Find methods and classes in Project** (SublimeText 3: `cmd + shift + r`)
-- **Goto Definition** (SublimeText3 with codeintel: `alt + click`)
+- **Find in project** (VSCode: {kbd}`cmd-shift-f`)
+- **Find files in Project** (VSCode: {kbd}`cmd-p`)
+- **Find methods and classes in Project** (VSCode: {kbd}`cmd-shift-o`)
+- **Goto Definition** (VSCode Mac: {kbd}`F12`)
 - **Powerful search & replace**
+- **Git Diff** (VSCode: sidebar tab 'source control')
+- **File Diff** (VSCode: select via sidebar tab 'explorer')
 
-The capability of performing a _full text search_ through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone code base in 3 seconds.
+The capability of performing a _full text search_ through the complete Plone code is invaluable. Thanks to omelette, an SSD and plenty of RAM you can search through the complete Plone code base in quickly.
 
-```{note}
-Some editors and IDEs have to be extended to be fully featured. Here are some packages we recommend when using Sublime Text 3:
+Some editors and IDEs have to be extended to be fully featured. Here are some packages we recommend if using VSCode:
 
-- BracketHighlighter
-- GitGutter
-- FileDiffs
-- SublimeLinter with SublimeLinter-flake8 ...
-- INI (syntax for ini-Files)
-- SideBarEnhancements
-- SyncedSideBar
-```
+- Bracket Highlighter: Decorates text inbetween symbols
+- Easy Snippet: Turn your selection into a snippet
 
-```{note}
-This list of extensions gets out of date quickly, especially for VS Code.
-```
+Editor support for `ReactJS` development is explained in {doc}`Effective Volto training: VSCode extensions and helpers<../effective-volto/development/vscode>`.
+
+A must to be mentioned is `ESLint`, which helps correcting and enhancing `Javascript` code.
+
