@@ -1,15 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Protect endpoint, views and more with permissions"
+    "property=og:description": "Protect endpoint, views and more with permissions"
+    "property=og:title": "Permissions"
+    "keywords": "Plone, permission, security"
 ---
 
 (reusable-label)=
 
-# Permissions
+# Permissions (voting story)
 
 In this part you will:
 

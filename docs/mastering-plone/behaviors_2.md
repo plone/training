@@ -1,15 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Extend arbitrary content types with bahaviors and fields"
+    "property=og:description": "Extend arbitrary content types with bahaviors and fields"
+    "property=og:title": "Complex behaviors"
+    "keywords": "Plone, behavior, fields, extending"
 ---
 
 (behaviors2-label)=
 
-# Complex Behaviors
+# Complex Behaviors (voting story)
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg

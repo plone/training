@@ -4,12 +4,12 @@ myst:
     "description": "Actions: fetch data from backend and write data to backend"
     "property=og:description": "Actions: fetch data from backend and write data to backend"
     "property=og:title": "Volto Actions and Component State"
-    "keywords": "hooks, functional component, component state"
+    "keywords": "Plone, Volto, hooks, functional component, component state"
 ---
 
 (volto-actions)=
 
-# Volto Actions and Component State
+# Volto Actions and Component State (voting story)
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg

@@ -1,15 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Create custom REST API endpoints"
+    "property=og:description": "Create custom REST API endpoints"
+    "property=og:title": "REST API Endpoints"
+    "keywords": "Plone, REST API"
 ---
 
 (endpoints-mastering-label)=
 
-# REST API Endpoints
+# REST API endpoints (voting story)
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg

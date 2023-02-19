@@ -10,7 +10,7 @@ myst:
 
 (eggs2-label)=
 
-# Reusable Features packaged in add-ons
+# Reusable Features packaged in add-ons (voting story)
 
 We will enhance the Plone Conference site with the following behavior:
 
