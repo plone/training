@@ -72,6 +72,10 @@ p.ploneorglink img {
   vertical-align: bottom;
 }
 
+#site-navigation {
+  width: 350px;
+}
+
 .bd-sidebar .nav ul {
   padding: 0 0 0 1rem;
 }
