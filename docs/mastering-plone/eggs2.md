@@ -123,13 +123,25 @@ cd frontend
 yo @plone/volto:addon
 ```
 
-Choose "@plone-collective/volto-training-votable" as name for your add-on.
+Choose "volto-training-votable" as name for your add-on.
 
-We are now ready to implement our voting behavior in our new frontend add-on created in `frontend/src/addons/volto-training-votable/`.
-The generator not only created the add-on directory, but also made necessary changes in our frontend project to integrate the new code in our Volto app.
-
-For a restart of the frontend we run a
+Check {file}`package.json` to include the add-on in your app:
 
 ```shell
+"private": true,
+"workspaces": [
+    "src/addons/*"
+],
+"addons": [
+    "volto-custom-addon"
+],
+```
+
+Install and start
+
+```shell
+make install
 yarn start
 ```
+
+We are now ready to implement our voting behavior in our new frontend add-on created in `frontend/src/addons/volto-training-votable/`.
