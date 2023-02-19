@@ -44,6 +44,15 @@ span.highlighted {
   background-color: var(--highlight-searchresult-color);
 }
 
+kbd {
+  padding: 0rem 0.4rem;
+  background-color: #646e79;
+}
+
+#site-navigation kbd {
+  font-size: 1.1rem;
+}
+
 img {
   margin: 1rem 0;
 }
@@ -255,12 +264,6 @@ input#search-input {
   left: .625rem;
   z-index: 100;
   align-self: center;
-}
-
-.input-group-text kbd {
-  padding: 0rem 0.4rem;
-  font-size: 135%;
-  background-color: #646e79;
 }
 
 /* header-article */
