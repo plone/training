@@ -78,14 +78,10 @@ The following control panels are so far only available in the backend:
 The following control panels are so far only available in the backend:
 
 1. Content Settings
-1. Content Rules
 
 ### Users
 
-1. User and Group Settings
-1. Users
-1. User Group Membership
-1. Groups
+1. Editing users
 
 ### Security
 
