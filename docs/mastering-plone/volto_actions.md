@@ -531,7 +531,7 @@ As the component is subscribed to the store via `const votes = useSelector((stor
 And the voting buttons are visible again.
 
 For completnes, the action.
-You have already guessed, it does a `DEL` request to the `@votes` endpint.
+You have already guessed, it does a `DEL` request to the `@votes` endpoint.
 And the endpoint service from last chapter knows what to do.
 
 ```js
@@ -549,4 +549,9 @@ export function clearVotes(url) {
     },
   };
 }
+```
+
+```{note}
+Get the code! 
+[volto-training-votable](https://github.com/collective/volto-training-votable)
 ```

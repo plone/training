@@ -11,15 +11,8 @@ myst:
 
 # Configuring and Customizing Plone "Through The Web"
 
-```{eval-rst}
-..  todo::
-
-    * Update for Plone 6!
-    * Add Volto screenshots for control panels
-
-
- .. sectionauthor:: Philip Bauer <bauer@starzel.de>
-```
+% TODO Update for Plone 6!
+% TODO Add Volto screenshots for control panels
 
 (customizing-controlpanel-label)=
 

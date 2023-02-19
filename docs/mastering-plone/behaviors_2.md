@@ -313,9 +313,8 @@ We look for data with a key unique for this behavior.
 If the annotation with this key does not exist, cause the object is not already voted, we create it.
 We work with `PersistentDict` and `PersistentList`.
 
-```{todo}
-Explain  `PersistentDict` and `PersistentList` in short.
-```
+% TODO Explain  `PersistentDict` and `PersistentList` in short.
+
 Next we provide the internal fields via properties.
 Using this form of property makes them read-only properties, as we do not define write handlers.
 
