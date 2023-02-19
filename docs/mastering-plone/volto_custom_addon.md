@@ -1,15 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Write your own Volto add-on"
+    "property=og:description": "Write your own Volto add-on"
+    "property=og:title": "Extending Volto with custom add-on package"
+    "keywords": "Plone, Volto, add-on, development"
 ---
 
 (volto-custom-addon-label)=
 
-# Extending Volto With Custom Add-on Package
+# Extending Volto with custom add-on package
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
@@ -31,10 +31,10 @@ npm install -g yo
 npm install -g @plone/generator-volto
 ```
 
-Create a sandbox project
+Create a Volto sandbox app:
 
 ```shell
-yo @plone/volto sandbox-volto-custom-addon
+yo @plone/volto sandbox-for-addon
 ```
 
 You see a dialog like this
@@ -43,34 +43,34 @@ You see a dialog like this
 :emphasize-lines: 6,9
 :linenos:
 
-yo @plone/volto sandbox-volto-custom-addon
+yo @plone/volto sandbox-for-addon
 Getting latest Volto version
 Retrieving Volto's yarn.lock
 Using latest released Volto version: 11.1.0
 ? Project description A Volto-powered Plone frontend
 ? Would you like to add addons? true
-? Addon name, plus extra loaders, like: volto-addon:loadExtra,loadAnotherExtra @greenthumb/volto-custom-addon
+? Addon name, plus extra loaders, like: volto-addon:loadExtra,loadAnotherExtra volto-custom-addon
 ? Would you like to add another addon? false
 ? Would you like to add workspaces? true
 ```
 
-@greenthumb/volto-custom-addon is the scoped package name of your add-on.
-
 Go to the app folder:
 
 ```shell
-cd sandbox-volto-custom-addon
+cd sandbox-for-addon
 ```
 
-You now have a Volto app configured for an add-on. An add-on is a Node package. It will live in the folder: {file}`src/addons/volto-custom-addon`.
+You now have a Volto app configured for an add-on.
+An add-on is a Node package.
+It will live in the folder: {file}`src/addons/volto-custom-addon`.
 
 Create your add-on with the generator:
 
 ```shell
-yo @plone/volto:addon @greenthumb/volto-custom-addon
+yo @plone/volto:addon volto-custom-addon
 ```
 
-Update {file}`package.json`:
+Check {file}`package.json` to include the add-on in your app:
 
 ```shell
 "private": true,
@@ -78,28 +78,15 @@ Update {file}`package.json`:
     "src/addons/*"
 ],
 "addons": [
-    "@greenthumb/volto-custom-addon"
+    "volto-custom-addon"
 ],
-```
-
-Update {file}`jsconfig.json`:
-
-```json
-{
-  "compilerOptions": {
-    "paths": {
-      "@greenthumb/volto-custom-addon": ["addons/volto-custom-addon/src"]
-    },
-    "baseUrl": "src"
-  }
-}
 ```
 
 Install and start
 
 ```shell
-$ yarn
-$ yarn start
+make install
+yarn start
 ```
 
 (volto-custom-addon-final-label)=
@@ -121,14 +108,14 @@ Update `package.json`:
 ```shell
 "addons": [
   …
-  "@greenthumb/volto-custom-addon"
+  "volto-custom-addon"
 ],
 "workspaces": [
   "src/addons/*"
 ],
 "dependencies": {
   …
-  "@greenthumb/volto-custom-addon": "1.0.1"
+  "volto-custom-addon": "1.0.1"
 },
 ```
 
