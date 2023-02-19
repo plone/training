@@ -40,7 +40,7 @@ We encourage you to install and run `Plone` on your own machine, as you will hav
 
 ### Installation
 
-Set up the backend with the training code: add-ons `ploneconf.site`  and `training.votable`.
+Set up the [backend with the training code](https://github.com/collective/training_buildout): add-ons `ploneconf.site`  and `training.votable`.
 
 ```shell
 mkdir training
