@@ -34,10 +34,10 @@ wsgi/index
 ttw/index
 solr/index
 workflow/index
-angular/index
 migrations/index
 transmogrifier/index
 gatsby/index
+angular/index
 advanced-python/index
 ```
 
