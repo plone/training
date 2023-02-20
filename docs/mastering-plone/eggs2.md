@@ -10,7 +10,7 @@ myst:
 
 (eggs2-label)=
 
-# Reusable features packaged in add-ons – the voting story
+# The voting story – reusable features packaged in add-ons
 
 You will enhance the Plone Conference site with the following behavior:
 
@@ -29,7 +29,7 @@ Talks are submitted. The jury votes for talks to be accepted or rejected.
   - Frontend package creation with Volto generator
   - Create `React` components to display voting behavior in frontend
   
-  The **voting story** speads about the next chapters:
+  # The **voting story** speads about the next chapters:
   
   - {doc}`behaviors_2`
   - {doc}`endpoints`
