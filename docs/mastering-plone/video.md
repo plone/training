@@ -11,9 +11,8 @@ myst:
 
 # Watch the Training Video
 
-At [Ploneconf 2021](https://2021.ploneconf.org/) the Mastering Plone Development Training was recorded.
-
-It is a shortened version of the training.
+At Ploneconf 2021 the Mastering Plone Development Training was recorded.
+It is a shortened version of the training, given by Philip Bauer and Katja Süss.
 
 Part 1:
 
