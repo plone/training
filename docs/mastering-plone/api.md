@@ -11,12 +11,9 @@ myst:
 
 # Programming Plone
 
-```{todo}
+% TODO Discuss backend development versus frontend development
+% TODO Discuss plone.restapi
 
-    * Discuss backend development versus frontend development
-    * Discuss plone.restapi
-    * Discuss React developer tools
-```
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg

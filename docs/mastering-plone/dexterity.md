@@ -9,14 +9,7 @@ myst:
 
 (dexterity1-label)=
 
-# Dexterity I: Content types
-
-```{eval-rst}
-..  todo::
-
-    * Add Volto screenshots for dexterity content type forms
-
-```
+# Dexterity I: content types
 
 In this part you will:
 
@@ -24,11 +17,6 @@ In this part you will:
 - Customize existing types
 - Create a content type through the web
 
-Topics covered:
-
-- Default and custom content types
-- Modifying existing content types
-- Dexterity
 
 (dexterity1-what-label)=
 
