@@ -30,9 +30,10 @@ Thank you for reading and your charity with non-native English speakers / writer
 
 ## Upcoming Trainings
 
-Plone Conference 2021, end of the year
+Next Plone Conference, end of the year.
 
 If you want to have an on-site training or want to attend a public training please ask for trainings on <https://community.plone.org>.
+
 
 (about-previous-label)=
 
@@ -40,7 +41,7 @@ If you want to have an on-site training or want to attend a public training plea
 
 The Mastering Plone Training was so far held publicly at the following occasions:
 
-- [Plone Conference ONLINE 2021](https://2021.ploneconf.org/)
+- [Plone Conference Namur 2022](https://2022.ploneconf.org/)
 - [Plone Conference ONLINE 2020](https://2020.ploneconf.org/)
 - [Plone Conference 2019 in Ferrara](https://2019.ploneconf.org/)
 - [Plone Conference 2018 in Tokyo](https://2018.ploneconf.org/)
@@ -56,6 +57,7 @@ The Mastering Plone Training was so far held publicly at the following occasions
 - PyCon DE 2012, Leipzig
 - Plone Conference 2012, Arnheim
 - PyCon De 2011, Leipzig
+
 
 (about-trainers-label)=
 
@@ -74,7 +76,7 @@ Katja Süss
 
 : If not gardening she is developing with Python, Svelte and ReactJS.
   Katja is active member of teams Volto, documentation and training.
-  Together with Philip, she lifted the Plone Classic Training to Plone 6 level.
+  Together with Philip, she lifted the Plone Classic Training to Plone 6.
   With a background in mathematical logics she turned towards web development and runs the web agency [Rohberg](https://rohberg.ch/) in Zurich.
   She dedicates herself especially to enthralling user experience and search assistance.
 
