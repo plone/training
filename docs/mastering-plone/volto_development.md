@@ -1,31 +1,25 @@
 ---
 myst:
   html_meta:
-    "description": "Tools for developing in Volto"
-    "property=og:description": "Tools for developing in Volto"
-    "property=og:title": "Volto development"
-    "keywords": "Volto, development, React, Redux"
+    "description": "Plone development tools"
+    "property=og:description": "Plone development tools"
+    "property=og:title": "Plone development"
+    "keywords": "Plone, Volto, development, React, Redux"
 ---
 
 (volto-development-label)=
 
-# Volto App Development
+# Plone development
 
 
 (editors)=
 
 ## IDE's and editors
 
-The variety of editors is big.
-Try `VSCode` if you do not already use it and don't have a strong alternative preference.
-`VSCode` comes with a good support for programming React apps and development in general.
+We are about to write code in Python and React / Javascript.
+An appropriate integrated development environment supports both writing code and accessing our coding base: Plone Python code and Javascript / React code.
 
-Plone consists of more than 20.000 files!
-You need a tool to manage that.
-No development environment is complete without a good editor.
-
-Here are some of the most used editors in the Plone community.
-Pick your favorite!
+Some of the most used editors in the Plone community are listed here.
 
 - [VSCode](https://code.visualstudio.com/)
 - [Sublime](https://www.sublimetext.com/)
@@ -36,20 +30,20 @@ Some features that most editors have in one form or another, are essential when 
 
 | Task | VSCode |
 | --- | --- |
-| Find in project | {kbd}`cmd-shift-f` |
-| Find files in Project | {kbd}`cmd-p` |
-| Find methods and classes in Project | {kbd}`cmd-shift-o` |
-| Goto Definition | {kbd}`F12` |
-| Powerful search & replace | |
-| Git Diff | sidebar tab 'source control' |
-| File Diff | select via sidebar tab 'explorer' |
+| find in project | {kbd}`cmd-shift-f` |
+| find files in a project | {kbd}`cmd-p` |
+| find symbols (methods, classes, …) in a project | {kbd}`cmd-shift-o` |
+| go to definition | {kbd}`F12` |
+| powerful search & replace | |
+| git diff | sidebar tab 'source control' |
+| file diff | select via sidebar tab 'explorer' |
 
-The capability of performing a _full text search_ through the complete Plone code is invaluable.
-Thanks to `omelette` mapping the Volto code in your project, an SSD and plenty of RAM you can search through the complete Plone code base quickly.
+The capability of performing a _full text search_ through the complete Plone frontend code is invaluable.
+Thanks to `omelette` mapping the Volto code in your project, you can search through the complete Plone frontend code base quickly.
 
-Editors and IDE's nowadays have plenty of features.
-Beyond the existing features, many extensions offer multiple practival features.
-Here are some packages we recommend when using VSCode:
+IDE's nowadays have plenty of features.
+Beyond the existing features, many extensions offer multiple practical features.
+Here are some extensions we recommend when using VSCode:
 
 - Easy Snippet: Turn your selection into a snippet.
 - autoDocstring: Generates python docstrings.
@@ -88,7 +82,21 @@ We will request REST API endpoints of the backend later with actions.
 
 ## Tips
 
+**Debugging React**
+
 A variables value can of course always printed to the developer tools console with `console.debug("var_name", var_name)`.
-But if you want to see values inside rendered components, than this can be done by including {var_name}.
-If the value is an Object, than this is also possible by stringifiying it:
+But if you want to see values inside rendered components, than this can be done by including `{var_name}`.
+
+If the value is an `Object`, than this is also possible by stringifiying it:
 Just include `{JSON.stringify(var_name_object)}` in your components `html` code.
+
+**Troubleshooting "Python import cannot be resolved"**
+
+```{image} _static/couldnotberesolved.png
+:alt: Python import cannot be resolved
+```
+
+Select the Python of your project `backend/venv/bin/python`.
+
+In VSCode this can be done by following the menu on selecting the current Python in the bottom of the IDE.
+
