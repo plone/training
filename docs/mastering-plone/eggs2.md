@@ -1,18 +1,18 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Introduction of the voting story – REST API services and React components"
+    "property=og:description": "Introduction of the voting story – REST API services and React components"
+    "property=og:title": "Reusable features packaged in add-ons – the voting story"
+    "keywords": "Plone, Volto, React, add-on"
 ---
 
 
 (eggs2-label)=
 
-# Reusable Features packaged in add-ons (voting story)
+# Reusable features packaged in add-ons – the voting story
 
-We will enhance the Plone Conference site with the following behavior:
+You will enhance the Plone Conference site with the following behavior:
 
 Talks are submitted. The jury votes for talks to be accepted or rejected.
 
@@ -24,12 +24,12 @@ Talks are submitted. The jury votes for talks to be accepted or rejected.
   Topics covered:
   
   - Storing data in `annotations`
-  - Custom `REST API` endpoint
+  - Custom `REST API` service
   - Backend package creation with {term}`plonecli`
   - Frontend package creation with Volto generator
   - Create `React` components to display voting behavior in frontend
   
-  This part spreads about the next chapters:
+  The **voting story** speads about the next chapters:
   
   - {doc}`behaviors_2`
   - {doc}`endpoints`
@@ -41,8 +41,8 @@ Jury members shall vote for talks to be accepted or rejected.
 
 For this we need:
 
-- A `behavior` that stores its data in annotations
-- An endpoint for the frontend to communicate with
+- A `behavior` that stores the vote data in annotations
+- A REST service for the frontend to communicate with
 - A frontend component that displays votes and provides the ability to vote
 
 
@@ -66,7 +66,7 @@ plonecli create addon backend/sources/training.votable
 We press {kbd}`Enter` to all questions *except* 
 
 ```shell
---> Plone version [5.2.4]: {PLONE_BACKEND_VERSION}
+--> Plone version [6.0.0]: {PLONE_BACKEND_VERSION}
 
 --> Python version for virtualenv [python3]: python
 ```
@@ -108,7 +108,7 @@ Please head over to http://localhost:8080/Plone/prefs_install_products_form and 
 
 (eggs2-frontend-package-label)=
 
-## Create Volto add-on
+## Create a Volto add-on
 
 We will use the Volto generator to create an add-on. Please install the tool once with:
 
