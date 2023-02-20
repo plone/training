@@ -117,12 +117,12 @@ From [Web Accessibility In Mind (WebAIM)](https://webaim.org/techniques/alttext/
 Accessibility is part of the [Plone brand and identity](https://plone.org/accessibility).
 
 ````md
-```{image} /_static/standards.png
+```{image} _static/standards.png
 :alt: XKCD "Standards" comic strip
 ```
 ````
 
-```{image} /_static/standards.png
+```{image} _static/standards.png
 :alt: XKCD "Standards" comic strip
 ```
 
