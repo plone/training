@@ -58,13 +58,8 @@ Other fields
 
 : Uri, Sourcetext, Ascii, Bytesline, Asciiline, Pythonidentifier, Dottedname, Dict, Dict with Choice
 
-```{warning}
-In Volto not all field types and features are implemented yet:
+% TODO Check from time to time the completnes of implementation of widgets in Volto (Time, Timedelta, Dict , using a callable for basePath in relationfields.
 
-- Time, Timedelta, Dict are not supported yet.
-- Using a callable for basePath in relationfields is not supported yet.
-- The schema-hints to assign a different widget do not work yet.
-```
 
 ```{code-block} python
 :linenos:
@@ -842,17 +837,54 @@ Et voilà.
 :alt: view mixedfield values
 ```
 
+
 ## Widgets
 
-```{eval-rst}
-.. todo::
+Volto makes suggestions which widget to use, based on the fields type, backend widget and id.
 
-    Document all available widgets
+All widgets are listed here:
+
+- [frontend widgets](https://6.docs.plone.org/storybook)
+- [backend widgets](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html)
+
+### Determine frontend widget
+
+If you want to register a frontend widget for your field, you can define your field such as:
+
+```python
+directives.widget(
+    "specialfield",
+    frontendOptions={
+        "widget": "specialwidget"
+    })
+specialfield = schema.TextLine(title="Field with special frontend widget")
 ```
 
-```{seealso}
-- [Available widgets (a incomplete list)](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html)
+Then register your frontend widget in your apps configuration.
+
+```jsx
+import { MySpecialWidget } from './components';
+
+const applyConfig = (config) => {
+  config.widgets.widget.specialwidget = MySpecialWidget;
+  return config;
+}
 ```
+
+You can also pass additional props to the frontend widget using the `widgetProps` key:
+
+```python
+directives.widget(
+    "specialfield",
+    frontendOptions={
+        "widget": "specialwidget",
+        "widgetProps": {"isLarge": True, "color": "red"}
+    })
+specialfield = schema.TextLine(title="Field with special frontend widget")
+```
+
+The props will be injected into the corresponding widget component, configuring it as specified.
+
 
 ## Directives
 
