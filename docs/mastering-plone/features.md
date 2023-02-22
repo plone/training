@@ -423,7 +423,7 @@ Event
 
 Link
 
-: A link to an internal oder external target.
+: A link to an internal or external target.
 
   ```{figure} _static/features_add_a_link.png
   ```
