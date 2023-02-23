@@ -51,12 +51,12 @@ Other control panels, e.g. Content Rules still need to be implemented.
 1. Date and Time
 1. Language
 1. Mail
-1. Mail
 1. Navigation
 1. Search
 1. Site
 1. Social Media
 1. Undo
+1. URL Management
 1. Volto Settings
 
 The following control panels are so far only available in the backend:
