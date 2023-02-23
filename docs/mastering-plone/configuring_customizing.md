@@ -51,7 +51,7 @@ Other control panels, e.g. Content Rules still need to be implemented.
 1. Date and Time
 1. Language
 1. Mail
-1. Mail
+1. Url Management
 1. Navigation
 1. Search
 1. Site
