@@ -13,7 +13,7 @@ myst:
 
 ## Installing Plone
 
-On order to run Volto you need a backend.
+In order to run Volto you need a backend.
 This can be either Plone or Guillotina.
 For this course we will use Plone, you can download Plone at <https://plone.org/download>.
 We need plone.restapi, so make sure you have that installed and configured correctly.
