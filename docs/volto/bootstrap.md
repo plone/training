@@ -52,14 +52,14 @@ It will create a folder called `my-volto-app` inside the current folder with the
 ```console
 my-volto-app/
 ├── babel.config.js
-├── build
-├── create-sentry-release.sh
 ├── cypress
 │   ├── fixtures
 │   ├── .gitkeep
-│   ├── integration
 │   ├── plugins
-│   └── support
+│   ├── support
+│   └── tests
+├── cypress.config.js
+├── .editorconfig
 ├── .eslintignore
 ├── .eslintrc.js
 ├── .gitignore
@@ -71,6 +71,7 @@ my-volto-app/
 ├── omelette -> node_modules/@plone/volto/
 ├── package.json
 ├── patches
+├── .prettierignore
 ├── public
 │   ├── android-chrome-192x192.png
 │   ├── android-chrome-512x512.png
@@ -100,8 +101,9 @@ my-volto-app/
 ├── .storybook
 ├── theme
 │   └── theme.config
+├── .yarn
 ├── yarn.lock
-└── .yarnrc
+└── .yarnrc.yml
 ```
 
 ## Running The Project
