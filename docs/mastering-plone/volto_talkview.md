@@ -232,7 +232,7 @@ export default TalkView;
 Next we add a segment with info on the speaker:
 
 ```{code-block} jsx
-:emphasize-lines: 2,16-30
+:emphasize-lines: 2,16-32
 
 import React from 'react';
 import { Container, Header, Segment } from 'semantic-ui-react';
@@ -277,7 +277,7 @@ export default TalkView;
 Next we add the image:
 
 ```{code-block} jsx
-:emphasize-lines: 2,3,24-30
+:emphasize-lines: 2,3,25-31
 
 import React from 'react';
 import { Container, Header, Image, Segment } from 'semantic-ui-react';
@@ -403,7 +403,7 @@ export default TalkView;
 As a last step we show the last few fields `website` and `company`, `github` and `twitter`:
 
 ```{code-block} jsx
-:emphasize-lines: 36-42,50-66
+:emphasize-lines: 36-42,50-67
 
 import React from 'react';
 import { flattenToAppURL } from '@plone/volto/helpers';
