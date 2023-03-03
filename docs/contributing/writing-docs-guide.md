@@ -32,15 +32,15 @@ The following are frequently used snippets and examples.
 
 **Official MyST documentation**
 
-- [The MyST Syntax Guide](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html)
-- [MyST Syntax Reference](https://myst-parser.readthedocs.io/en/latest/syntax/reference.html)
+- [MyST authoring/typography](https://myst-parser.readthedocs.io/en/latest/syntax/typography.html)
+- [MyST Syntax tokens](https://myst-parser.readthedocs.io/en/latest/syntax/reference.html)
 ```
 
 
-#### Targets and Cross-Referencing
+#### Cross-referencing
 
 ```{seealso}
-[The MyST Syntax Guide > Targets and Cross-Referencing](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#targets-and-cross-referencing)
+[MyST cross-references](https://myst-parser.readthedocs.io/en/latest/syntax/cross-referencing.html)
 ```
 
 ##### Link to a Chapter or Page
