@@ -37,7 +37,7 @@ The following are frequently used snippets and examples.
 ```
 
 
-#### Targets and Cross-Referencing
+#### Cross-referencing
 
 ```{seealso}
 [MyST cross-references](https://myst-parser.readthedocs.io/en/latest/syntax/cross-referencing.html)
