@@ -252,7 +252,6 @@ const TalkView = (props) => {
       <Segment clearing>
         {content.speaker && <Header dividing>{content.speaker}</Header>}
         <p>{content.company || content.website}</p>
-        <a href={`mailto:${content.email}`}>
         {content.email && (
           <p>
             Email: <a href={`mailto:${content.email}`}>{content.email}</a>
