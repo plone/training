@@ -19,17 +19,17 @@ Talks are submitted. The jury votes for talks to be accepted or rejected.
 ```{card}
   In this part you will:
   
-  - Build your own Plone add-ons for backend and frontend.
+  - build your own Plone add-ons for backend and frontend.
   
   Topics covered:
   
-  - Storing data in `annotations`
-  - Custom `REST API` service
+  - Storing data in annotations
+  - Custom REST API service
   - Backend package creation with {term}`plonecli`
   - Frontend package creation with Volto generator
-  - Create `React` components to display voting behavior in frontend
+  - Create React components to display voting behavior in frontend
   
-  # The **voting story** speads about the next chapters:
+  # The **voting story** spreads about the next chapters:
   
   - {doc}`behaviors_2`
   - {doc}`endpoints`
@@ -41,7 +41,7 @@ Jury members shall vote for talks to be accepted or rejected.
 
 For this we need:
 
-- A `behavior` that stores the vote data in annotations
+- A behavior that stores the vote data in annotations
 - A REST service for the frontend to communicate with
 - A frontend component that displays votes and provides the ability to vote
 
@@ -51,13 +51,13 @@ For this we need:
 ## Create backend package
 
 {term}`plonecli` is a tool to generate Plone backend packages and several features of a Plone backend add-on.
-To install {term}`plonecli`, run once:
+To install plonecli, run once:
 
 ```shell
 pip install plonecli --user
 ```
 
-We use {term}`plonecli` to create a new package.
+We use plonecli to create a new package.
 
 ```shell
 plonecli create addon backend/sources/training.votable

@@ -9,14 +9,14 @@ myst:
 
 (volto-development-label)=
 
-# Plone development
+# Develop
 
 
 (editors)=
 
-## IDE's and editors
+## IDE – Integrated developement environment
 
-We are about to write code in Python and React / Javascript.
+You are about to write code in Python and React / Javascript.
 An appropriate integrated development environment supports both writing code and accessing our coding base: Plone Python code and Javascript / React code.
 
 Some of the most used editors in the Plone community are listed here.
@@ -84,7 +84,7 @@ We will request REST API endpoints of the backend later with actions.
 
 **Debugging React**
 
-A variables value can of course always printed to the developer tools console with `console.debug("var_name", var_name)`.
+A variables value can of course always be printed to the developer tools console with `console.debug("var_name", var_name)`.
 But if you want to see values inside rendered components, than this can be done by including `{var_name}`.
 
 If the value is an `Object`, than this is also possible by stringifiying it:
