@@ -47,6 +47,10 @@ yo @plone/volto
 
 Follow the prompts' questions, providing `my-volto-app` as the project name.
 
+```{warning}
+Do not start your project name with `volto`, as it will cause `plone/generator-volto` to fail.
+```
+
 It will create a folder called `my-volto-app` inside the current folder with the following structure:
 
 ```console
