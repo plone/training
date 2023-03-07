@@ -43,14 +43,17 @@ It will create a folder called `my-app` inside the current folder with the follo
 
 ```console
 my-app
-├── README.md
 ├── node_modules
 ├── package.json
-├── .gitignore
+├── package-lock.json
 ├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── manifest.json
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── README.md
 └── src
     ├── App.css
     ├── App.js
@@ -58,7 +61,8 @@ my-app
     ├── index.css
     ├── index.js
     ├── logo.svg
-    └── registerServiceWorker.js
+    ├── reportWebVitals.js
+    └── setupTests.js
 ```
 
 ## Running The Project
