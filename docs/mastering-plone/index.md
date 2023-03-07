@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Best practice"
+    "property=og:description": "Best practice"
+    "property=og:title": "Mastering Plone 6 Development"
+    "keywords": "Plone"
 ---
 
 (mastering-plone-label)=
@@ -25,7 +25,7 @@ This is the *Mastering Plone 6 Development Training*.
 
 In chapters handling Volto React frontend is a link to a chapter that covers the corresponding tasks in Plone Classic, and vice versa.
 
-Plone 6 is not yet released and thus the training is a work in-progress and there are still some rough edges.
+The training is a work in-progress and there are still some rough edges.
 ```
 
 ```{toctree}
@@ -60,7 +60,6 @@ volto_talkview
 behaviors_1
 volto_frontpage
 api
-ide
 events
 registry
 custom_search
