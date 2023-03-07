@@ -9,7 +9,7 @@ myst:
 
 (bootstrap-volto-label)=
 
-# Bootstrapping A Volto project
+# Bootstrapping a Volto project
 
 ```{note}
 It is recommended to work on a Linux or Mac.
