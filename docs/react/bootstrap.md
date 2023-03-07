@@ -50,10 +50,10 @@ my-app
 ├── public
 │   ├── favicon.ico
 │   ├── index.html
-│   └── manifest.json
-    └── robots.txt
-    └── logo512.png
-    └── logo192.png
+│   ├── manifest.json
+│   ├── robots.txt
+│   ├── logo512.png
+│   └── logo192.png
 └── src
     ├── App.css
     ├── App.js
@@ -61,7 +61,7 @@ my-app
     ├── index.css
     ├── index.js
     ├── logo.svg
-    └── reportWebVitals.js
+    ├── reportWebVitals.js
     └── setupTests.js
 ```
 
