@@ -85,20 +85,15 @@ While developing it is not necessary to restart the frontend unless you are addi
 
 #### Exercise 1
 
-Open the file `backend/instance/etc/zope.ini` in your favorite editor.
 Now let's say you want Plone to listen on port 9080 instead of the default 8080.
+Open the file `backend/instance.yml` in your favorite editor.
 How could you do this?
 
 ````{admonition} Solution
 :class: toggle
 
 ```ini
-[server:main]
-use = egg:waitress#main
-listen = localhost:8080
-threads = 4
-clear_untrusted_proxy_headers = false
-max_request_body_size = 1073741824
+wsgi_listen: localhost:9080
 ```
 
 Change the address to `localhost:9080` and restart your instance.
@@ -116,8 +111,6 @@ When your Plone instance is not called `Plone` you can use the same approach:
 ```shell
 $ RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
 ```
-
-
 ````
 
 #### Exercise 2
