@@ -29,7 +29,7 @@ Talks are submitted. The jury votes for talks to be accepted or rejected.
   - Frontend package creation with Volto generator
   - Create React components to display voting behavior in frontend
   
-  # The **voting story** spreads about the next chapters:
+  The **voting story** spreads about the next chapters:
   
   - {doc}`behaviors_2`
   - {doc}`endpoints`
@@ -66,7 +66,7 @@ plonecli create addon backend/sources/training.votable
 We press {kbd}`Enter` to all questions *except* 
 
 ```shell
---> Plone version [6.0.0]: {PLONE_BACKEND_VERSION}
+--> Plone version [{PLONE_BACKEND_VERSION}]: {PLONE_BACKEND_VERSION}
 
 --> Python version for virtualenv [python3]: python
 ```
