@@ -1,85 +1,78 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone from an integrators view"
+    "property=og:description": "Plone from an integrators view"
+    "property=og:title": "The Features of Plone"
+    "keywords": "Plone, content type, user, group, workflow, content rule, history"
 ---
 
 (features-label)=
 
 # The Features of Plone
 
-```{seealso}
-[Plone documentation](https://6.docs.plone.org/)  
-["Working with content" on 5.docs.plone.org](https://5.docs.plone.org/working-with-content/index.html)
-```
+% TODO Short appetizer on all the fancy features.
 
+Now we start a Plone instance and are having a look at all the features you can use as an integrator.
+Developers will get a glimps on the features that can be modified easily.
 
 (features-start-stop-label)=
 
 ## Starting and Stopping Plone
 
-We control Plone with a makefile:
+We control Plone with `make`. Start your Plone instance with:
 
 ```shell
 $ make start
 ```
 
-You can stop it by pressing {kbd}`ctrl + c`.
-
-On a decent laptop it should take under 10 seconds untill you see the output ``Ready to handle requests``
+The Plone instance starts up with `Ready to handle requests`.
+Later on the instance can be stopped by {kbd}`ctrl + c`.
 
 A standard installation listens on port 8080, so lets have a look at <http://localhost:8080>
 
 ```{figure} _static/features_plone_running.png
 ```
 
-As you can see, there is no Plone site yet!
+As you can see, there is no Plone site yet.
 
 (features-create-plonesite-label)=
 
 ## Creating a Plone Site
 
-We now have a running Zope with a database but no content.
-But luckily there is a button to create a Plone site.
+We now have a running Zope with a database, but no content.
 
-Click on the link {guilabel}`Create a new Plone site`.
-If the site asks you to login, use login `admin` and password `secret` (they are taken from the file `instance.yaml`).
+Push the botton {guilabel}`Create a new Plone site`.
+If the site is asking you to login, log in with `admin` and password `secret` (they are taken from the file `instance.yaml`).
 
 ```{figure} _static/features_create_site_form.png
 ```
 
 You will be automatically redirected to the new site.
 
-This is how the frontpage should look like:
+This is how the front page should look like:
 
 ```{figure} _static/frontpage_plone.png
 ```
 
-```{note}
-Plone has many message boxes.
-They contain important information.
-Read them and make sure you understand them!
-```
 
 ## Starting and Stopping the frontend
 
-To start the frontend that will use your new plone site go to the folder `frontend` and enter:
+Start the frontend of your new Plone site by switching to directory `frontend` and enter:
 
 ```shell
-$ yarn start
+yarn start
 ```
 
-If you open <http://localhost:3000> you will see the front page of the Plone site in Volto.
+Opening `http://localhost:3000`, you will see the front page of your Plone site in Volto.
 
 ```{figure} _static/frontpage_volto.png
 ```
 
-You can stop the frontend anytime using {kbd}`ctrl + c`.
+You can stop the frontend any time using {kbd}`ctrl + c`.
 
 While developing it is not necessary to restart the frontend unless you are adding a new file.
+
 
 ### Exercises
 
@@ -113,69 +106,20 @@ $ RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
 ```
 ````
 
+
 #### Exercise 2
-
-Knowing that `venv/bin/zconsole debug instance/etc/zope.conf` basically offers you a Python prompt, how would you start to explore Plone?
-
-```{admonition} Solution
-:class: toggle
-
-Use `locals()` or `locals().keys()` to see Python objects available in Plone
-
-You will get notified that `app` is automatically bound to your Zope application, so you can use dictionary-access or attribute-access as explained in {doc}`what_is_plone` to inspect the application:
-```
-
-#### Exercise 3
-
-The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
-
-`````{admonition} Solution
-:class: toggle
-
-`app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
-
-```pycon
->>> app
-<Application at >
->>> app.keys()
-['browser_id_manager', 'session_data_manager', 'error_log', 'temp_folder', 'virtual_hosting', 'index_html', 'Plone', 'acl_users']
->>> portal = app["Plone"]
->>> from zope.component.hooks import setSite
->>> setSite(portal)
->>> portal
-<PloneSite at /Plone>
->>> app.Plone.keys()
-['portal_setup', 'MailHost', 'caching_policy_manager', 'content_type_registry', 'error_log', 'plone_utils', 'portal_actions', 'portal_catalog', 'portal_controlpanel', 'portal_diff', 'portal_groupdata', 'portal_groups', 'portal_memberdata', 'portal_membership', 'portal_migration', 'portal_password_reset', 'portal_properties', 'portal_quickinstaller', 'portal_registration', 'portal_skins', 'portal_types', 'portal_uidannotation', 'portal_uidgenerator', 'portal_uidhandler', 'portal_url', 'portal_view_customizations', 'portal_workflow', 'translation_service', 'portal_form_controller', 'mimetypes_registry', 'portal_transforms', 'portal_archivist', 'portal_historiesstorage', 'portal_historyidhandler', 'portal_modifier', 'portal_purgepolicy', 'portal_referencefactories', 'portal_repository', 'acl_users', 'portal_resources', 'portal_registry', 'HTTPCache', 'RAMCache', 'ResourceRegistryCache', 'training', 'schedule', 'location', 'sponsors', 'sprint']
->>> app['Plone']['news']
-<Folder at /Plone/news>
-```
-
-
-````{note}
-Plone and its objects are stored in an object database, the ZODB. You can use `bin/instance debug` as a database client (in the same way e.g. `psql` is a client for PostgreSQL). Instead
-of a special query language (like SQL) you simply use Python to access and manipulate ZODB objects. Don't worry if you accidentally change objects in `bin/instance debug` - you would have to commit
-your changes explicitly to make them permanent. The Python code to do so is:
-
-```pycon
->>> import transaction
->>> transaction.commit()
-```
-
-You have been warned.
-````
-`````
-
-#### Exercise 4
 
 Change the port of the frontend to 1234
 
-```{admonition} Solution
+````{admonition} Solution
 :class: toggle
 
 By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
 
-> \$ HOST=localhost PORT=1234 yarn start
+```shel
+HOST=localhost PORT=1234 yarn start
 ```
+````
 
 (features-walkthrough-label)=
 
@@ -587,3 +531,11 @@ Since it has effect in a "place" in a site, this mechanism is often called "Plac
 
 As with working-copy support, Placeful Workflow ships with Plone but needs to be activated via the add-on configuration page.
 Once it's added, a {guilabel}`Policy` option will appear on the state menu to allow setting a placeful workflow policy.
+
+
+(features-seealso-label)=
+
+## See also
+
+- [Plone documentation](https://6.docs.plone.org/)  
+- ["Working with content" on 5.docs.plone.org](https://5.docs.plone.org/working-with-content/index.html)
