@@ -51,6 +51,9 @@ my-app
 │   ├── favicon.ico
 │   ├── index.html
 │   └── manifest.json
+    └── robots.txt
+    └── logo512.png
+    └── logo192.png
 └── src
     ├── App.css
     ├── App.js
@@ -58,7 +61,8 @@ my-app
     ├── index.css
     ├── index.js
     ├── logo.svg
-    └── registerServiceWorker.js
+    └── reportWebVitals.js
+    └── setupTests.js
 ```
 
 ## Running The Project
