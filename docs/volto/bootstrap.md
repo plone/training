@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Setting up backend and frontend"
     "property=og:description": "Setting up backend and frontend"
-    "property=og:title": "Bootstrapping A Volto project"
+    "property=og:title": "Bootstrapping a Volto project"
     "keywords": "Plone, Volto"
 ---
 
@@ -12,7 +12,7 @@ myst:
 # Bootstrapping a Volto project
 
 ```{note}
-It is recommended to work on a Linux or Mac.
+It is recommended to work on Linux or macOS.
 ```
 
 
@@ -21,12 +21,12 @@ It is recommended to work on a Linux or Mac.
 In order to run Volto you need a backend.
 This can be either Plone or Guillotina.
 For this course we will use Plone.
-Because we will focus on the frontend, for simplicity we install a backend as docker container.
-The installation of a Plone backend as docker container is being described at `docs.plone.org`: {ref}`plone6docs:install-containers-label`.
+Because we will focus on the frontend, for simplicity we will install a backend in a Docker container.
+The installation of a Plone backend in a Docker container is described in {ref}`plone6docs:install-containers-label`.
  
-In short: Create a directory `backend` and run 
+In short, create a directory named `backend`, and run the following command.
 
-```{code-block} shell
+```shell
 docker run --name plone6-backend -e SITE=Plone -e CORS_ALLOW_ORIGIN='*' -d -p 8080:8080 plone/plone-backend:6.0
 ```
 
@@ -47,7 +47,7 @@ Install `@plone/generator-volto`:
 npm install -g yo @plone/generator-volto
 ```
 
-## Bootstrapping A project
+## Create a Volto project
 
 To create a new volto project type the following:
 
