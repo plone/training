@@ -12,9 +12,8 @@ myst:
 # The Features of Plone
 
 ```{seealso}
-[Plone documentation **docs.plone.org**](https://6.docs.plone.org/)
-
-[Chapter "Working with content" on docs.plone.org](https://5.docs.plone.org/working-with-content/index.html)
+[Plone documentation](https://6.docs.plone.org/)  
+["Working with content" on 5.docs.plone.org](https://5.docs.plone.org/working-with-content/index.html)
 ```
 
 
@@ -231,7 +230,7 @@ for example, {guilabel}`folder contents` and {guilabel}`add` are only shown for 
 
 ````{only} not presentation
 Let's create our first users within Plone.
-So far we used the admin user (admin:admin) configured in the buildout.
+So far we used the admin user (admin:admin) configured in the setup.
 This user is often called "Zope root" and is not managed in Plone but only by Zope.
 Therefore the user is missing some features like email and full name and won't be able to use some of Plone's features.
 But the user has all possible permissions.
@@ -240,8 +239,8 @@ Use it to create Plone sites and their initial users, but not much else.
 
 You can also add Zope users via the terminal by entering:
 
-```
-$ ./bin/instance adduser <someusername> <supersecretpassword>
+```shell
+venv/bin/addzopeuser masterofdesaster VXT+zif -c ./instance/etc/zope.conf
 ```
 
 That way you can access databases you get from customers where you have no Plone user.
