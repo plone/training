@@ -44,6 +44,7 @@ It will create a folder called `my-app` inside the current folder with the follo
 ```console
 my-app
 ├── node_modules
+├── .gitignore
 ├── package.json
 ├── package-lock.json
 ├── public
@@ -63,6 +64,10 @@ my-app
     ├── logo.svg
     ├── reportWebVitals.js
     └── setupTests.js
+```
+
+```{note}
+We omit from the structure the files and directories inside the `node_modules` directory because there are too many to list.
 ```
 
 ## Running The Project
