@@ -122,7 +122,7 @@ Accessibility is part of the [Plone brand and identity](https://plone.org/access
 ```
 ````
 
-```{image} _static/standards.png
+```{image} /_static/standards.png
 :alt: XKCD "Standards" comic strip
 ```
 
