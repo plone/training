@@ -150,8 +150,7 @@ Now you can start the app with:
 $ yarn start
 ```
 
-Create a Plone site object *Plone* on <http://localhost:8080>
-
-Point your browser to <http://localhost:3000> and see that Plone is up and running.
+Point your browser to <http://localhost:3000> and see that the app is up and running, albeit without content.
+We will create a Plone instance in the next chapter. 
 
 You can stop the frontend anytime using {kbd}`ctrl + c`.
