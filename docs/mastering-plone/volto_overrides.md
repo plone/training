@@ -313,7 +313,7 @@ So we'll add some simple logic to use the effective date only if it exists.
 )}
 ```
 
-As we are in the html part of our Rect component, we embrace the Javascript code in curly braces.
+As we are in the html part of our React component, we embrace the Javascript code in curly braces.
 Inside Javascript we embrace html in rounded braces.
 
 
