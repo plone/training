@@ -43,8 +43,8 @@ It will create a folder called `my-app` inside the current folder with the follo
 
 ```console
 my-app
-├── node_modules
 ├── .gitignore
+├── node_modules
 ├── package.json
 ├── package-lock.json
 ├── public
