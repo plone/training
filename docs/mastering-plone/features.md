@@ -246,22 +246,16 @@ For the training you don't have to configure a working mailserver since the Plon
 
 ```{only} not presentation
 Click on `Save and send test e-mail`. You will see the mail content in the console output of your instance. Plone will not
-actually send the email to the receivers address unless your remove or deactivate `Products.PrintingMailHost`.
+actually send the email to the receivers address unless your remove or deactivate [Products.PrintingMailHost](https://pypi.org/project/Products.PrintingMailHost/).
 ```
 
 
 ## The site structure
 
-First delete all existing content from the site since we won't use it!
-
-- Click on the folder-icon in the toolbar while on the frontpage
-- Select all displayed content items
-- Click on the trash icon to delete them
-
-Now we have a clean slate and can start creating the structure we want:
+We are creating the following structure:
 
 ```text
-Root (Frontpage)
+Root (front page)
 ├── Training
 ├── Schedule
 ├── Location
@@ -274,9 +268,15 @@ Below we'll add appropriate content.
 
 Edit the front page:
 
-- Change the title to `Plone Conference 2050, Solis Lacus, Mars`
-- Add some dummy text
-- Save the page
+- Change the title to `Plone Conference 2050, Solis Lacus, Mars`.
+- Remove the text blocks below the title by selecting all and deleting them.
+- Add some dummy text.
+- Click somewhere in the text, press return and see the block beeing splitted.
+- Save the page.
+
+If you have already content in your instance, you may want to delete it.
+Go to `/contents` by clicking the folder icon in the toolbar.
+Select all objects and delete them.
 
 Create a site structure:
 
@@ -293,24 +293,23 @@ Create a site structure:
 The view of the newly created site structure.
 ```
 
-```{eval-rst}
-.. TODO::
+Additional to these conference pages we also want some news and events.
+We want a registration page and an a protected section for the conference team.
 
-    * Create folder news or do not delete in former section
-    * screenshot below of the navigation bar
-```
-
+- Add a page "News"
 - In `/news`: Add a News Item "Conference Website online!" with some image
 - In `/news`: Add a News Item "Submit your talks!"
+- Add a page "Events"
 - In `/events`: Add an Event "Deadline for talk submission" Date: 2025/08/10
-- Add a Folder "Register"
-- Add a Folder "Intranet"
+- Add a page "Registration"
+- Add a page "Intranet"
 
 ```{figure} _static/features_new_navigation.png
 :alt: The view of the extended navigation bar.
 
 The view of the extended navigation bar.
 ```
+
 
 (features-content-types-label)=
 
