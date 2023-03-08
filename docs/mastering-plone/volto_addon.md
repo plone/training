@@ -86,7 +86,7 @@ Add-ons that are **not yet released** on `npm` but available on `Github`:
 Install new add-on with `yarn` and restart Volto:
 
 ```shell
-$ yarn
+$ make install
 $ yarn start
 ```
 

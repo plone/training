@@ -115,18 +115,6 @@ We will create one in the next chapter.
 You can stop the running instance anytime using {kbd}`ctrl + c`.
 
 
-
-```{figure} _static/instructions_create_instance.png
-:alt: Ready to create a `Plone` instance.
-:scale: 50 %
-
-Ready to create a `Plone` instance
-```
-
-
-
-
-
 (instructions-install-frontend-label)=
 
 ## Installing the frontend
@@ -150,9 +138,10 @@ Prepare the pre-requisites explained in {ref}`plone6docs:install-packages-prereq
 Get the code for the frontend from GitHub and install:
 
 ```shell
+cd training
 git clone https://github.com/collective/volto-ploneconf.git frontend
 cd frontend
-yarn
+make install
 ```
 
 Now you can start the app with:

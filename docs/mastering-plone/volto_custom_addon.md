@@ -124,7 +124,7 @@ Modify versions as necessary.
 Install new add-on and restart Volto:
 
 ```shell
-$ yarn
+$ make install
 $ yarn start
 ```
 
@@ -137,7 +137,7 @@ yo @plone/volto my-volto-project --addon collective/volto-custom-addon
 Install and start
 
 ```shell
-$ yarn
+$ make install
 $ yarn start
 ```
 
