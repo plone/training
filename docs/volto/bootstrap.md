@@ -126,6 +126,7 @@ To run the project you can type:
 
 ```shell
 cd my-volto-app
+yarn install
 yarn start
 ```
 
