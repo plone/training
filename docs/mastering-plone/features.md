@@ -45,14 +45,14 @@ We now have a running Zope with a database, but no content.
 Push the botton {guilabel}`Create a new Plone site`.
 If the site is asking you to login, log in with `admin` and password `secret` (they are taken from the file `instance.yaml`).
 
-```{figure} _static/features_create_site_form.png
+```{image} _static/features_create_site_form.png
 ```
 
 You will be automatically redirected to the new site.
 
 This is how the front page should look like:
 
-```{figure} _static/frontpage_plone.png
+```{image} _static/frontpage_plone.png
 ```
 
 
@@ -85,7 +85,7 @@ How could you do this?
 ````{admonition} Solution
 :class: toggle
 
-```ini
+```yaml
 wsgi_listen: localhost:9080
 ```
 
@@ -93,17 +93,18 @@ Change the address to `localhost:9080` and restart your instance.
 
 You will also have to tell the frontend that the backend is now running on a different port!
 
-You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base-url of the backend:
+You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base url of the backend:
 
 ```shell
-$ RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone yarn start
+RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone yarn start
 ```
 
 When your Plone instance is not called `Plone` you can use the same approach:
 
 ```shell
-$ RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
+RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
 ```
+
 ````
 
 
@@ -116,10 +117,11 @@ Change the port of the frontend to 1234
 
 By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
 
-```shel
+```shell
 HOST=localhost PORT=1234 yarn start
 ```
 ````
+
 
 (features-walkthrough-label)=
 
@@ -130,15 +132,14 @@ Let's see what is there...
 - {guilabel}`header`:
 
   - {guilabel}`logo`: with a link to the front page
-  - {guilabel}`searchbox`: search (with live-search)
+  - {guilabel}`searchbox`: search
+  - {guilabel}`navigation`: The global navigation
 
-- {guilabel}`navigation`: The global navigation
-
-- {guilabel}`portal-footer`: portlets for the footer, site actions, and colophon
+- {guilabel}`footer`: site actions, and colophon
 
 - {guilabel}`toolbar`: a vertical bar on the left side of the browser window with editing options for the content
 
-On the edit bar, we find options affecting the current context...
+On the toolbar, we find options affecting the current context...
 
 - {guilabel}`edit`
 - {guilabel}`folder contents`
@@ -146,20 +147,21 @@ On the edit bar, we find options affecting the current context...
 
 There is a menu with three dots that holds additional options:
 
-- {guilabel}`state`
-- {guilabel}`view`
+- {guilabel}`review state`
 - {guilabel}`history`
 - {guilabel}`sharing`
+- {guilabel}`url management`
 
 At the bottom of the toolbar is a silhouette-icon that holds a menu with the following links:
 
 - {guilabel}`logout`
 - {guilabel}`profile`
 - {guilabel}`preferences`
-- {guilabel}`site-setup`
+- {guilabel}`site setup`
 
-Some edit bar options only show when appropriate;
-for example, {guilabel}`folder contents` and {guilabel}`add` are only shown for Folders.
+Some toolbar options only show when appropriate.
+For example, {guilabel}`edit` is only shown if the current user has the permission to edit.
+
 
 (features-users-label)=
 
@@ -167,7 +169,7 @@ for example, {guilabel}`folder contents` and {guilabel}`add` are only shown for 
 
 ````{only} not presentation
 Let's create our first users within Plone.
-So far we used the admin user (admin:admin) configured in the setup.
+So far we used the admin user (admin:secret) configured in the setup.
 This user is often called "Zope root" and is not managed in Plone but only by Zope.
 Therefore the user is missing some features like email and full name and won't be able to use some of Plone's features.
 But the user has all possible permissions.
@@ -180,35 +182,34 @@ You can also add Zope users via the terminal by entering:
 venv/bin/addzopeuser masterofdesaster VXT+zif -c ./instance/etc/zope.conf
 ```
 
-That way you can access databases you get from customers where you have no Plone user.
+This way you can access a database you get from customers where you have no Plone user to access the database.
 
-To add a new user in Plone, click on the user icon at the bottom of the left vertical bar and then on {guilabel}`Site setup`.
+To add a new user of Plone instead of Zope, click on the user icon at the bottom of the left vertical bar and then on {guilabel}`Site setup`.
 This is Plone's control panel.
-You can also access it by browsing to <http://localhost:8080/Plone/@@overview-controlpanel>
+You can also access it by browsing to <http://localhost:8080/Plone/controlpanel>
 
 ```{figure} _static/features_control_panel.png
 ```
 
-Click on {guilabel}`Users and Groups` and add a user.
+Click on {guilabel}`Users` and add a user.
 If we had configured a mail server, Plone could send you a mail with a link to a form where you can choose a password.
 (Or, if you have Products.PrintingMailHost in your buildout, you can see the email scrolling by in the console, just the way it would be sent out.)
 We set a password here because we haven't yet configured a mail server.
 
-Make this user with your name an administrator.
+Add this user with your name to the administrators group.
 
 ```{figure} _static/features_add_user_form.png
 ```
 
 Then create another user called `testuser`.
-Make this one a normal user.
+Give this user the role `Editor`.
 You can use this user to see how Plone looks and behaves to users that have no admin permissions.
 
 Now let's see the site in 3 different browsers with three different roles:
 
-> - as anonymous
-> - as editor
-> - as admin
-````
+- as anonymous
+- as editor
+- as admin
 
 ```{only} presentation
 Create some Plone users:
@@ -225,15 +226,16 @@ Logout as admin by clicking 'Logout' and following the instructions.
 Login to the site with your user now.
 ```
 
+
 (features-mailserver-label)=
 
 ## Configure a Mailserver
 
 ```{only} not presentation
-For production-level deployments you have to configure a mailserver.
+For production level deployments you have to configure a mailserver.
 Later in the training we will create some content rules that send emails when new content is put on our site.
 
-For the training you don't have to configure a working mailserver since the Plone-Add-on `Products.PrintingMailHost` is installed which will redirect all emails to the console.
+For the training you don't have to configure a working mailserver since the Plone add-on `Products.PrintingMailHost` is installed which will redirect all emails to the console.
 ```
 
 - Server: {samp}`localhost`
@@ -244,8 +246,9 @@ For the training you don't have to configure a working mailserver since the Plon
 
 ```{only} not presentation
 Click on `Save and send test e-mail`. You will see the mail content in the console output of your instance. Plone will not
-actually send the email to the receivers address unless your remove `Products.PrintingMailHost`.
+actually send the email to the receivers address unless your remove or deactivate `Products.PrintingMailHost`.
 ```
+
 
 ## The site structure
 
