@@ -19,7 +19,7 @@ For this training we will build a website for a fictional Plone conference on Ma
 
 By 2050 human civilisation has reached the stars and each year the conference is held on a different planet.
 
-The conference-webseite we want to create should be reusable in the following years so some things should be configurable.
+The conference website we want to create should be reusable in the following years, so some things should be configurable.
 
 (case-requirements-label)=
 
@@ -78,7 +78,7 @@ During the course of the training you will solve the following tasks.
 - Create a sponsor contenttype to manage sponsors
 - Store non-visible information about the sponsor in the sponsor-type
 - Display sponsors on all pages sorted by level
-- Allow some avilable to be configurable by a admin in a controlpanel
+- Allow some settings to be configurable by an admin in a control panel
 - Create a calendar view to display talks
 - Turn the calendar view in a reuseable block to include it on the frontpage
 - Add a separate add-on to allow voting on talks

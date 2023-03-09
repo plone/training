@@ -315,5 +315,5 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 
 You can configure and customize a lot in Plone through the web.
 The most important options are accessible in the [Plone control panel](http://localhost:8080/Plone/@@overview-controlpanel) but some are hidden away in the [ZMI](http://localhost:8080/Plone/manage).
-The amount and presentation of information may be overwhelming and the differences beweeen the Volto frontend and the Classic Plone frontend adds even more complexity.
+The amount and presentation of information may be overwhelming and the differences between the Volto frontend and the Classic Plone frontend adds even more complexity.
 Don't worry, you'll get the hang of it through practice.
