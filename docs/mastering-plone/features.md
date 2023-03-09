@@ -13,7 +13,7 @@ myst:
 
 % TODO Short appetizer on all the fancy features.
 
-Now we start a Plone instance and are having a look at all the features you can use as an integrator.
+Now we start a Plone instance and take a look at all the features you can use as an integrator.
 Developers will get a glimps on the features that can be modified easily.
 
 (features-start-stop-label)=
