@@ -11,6 +11,18 @@ myst:
 
 A collection of trainings developed and created by the Plone Community.
 
+```{important}
+Some of these trainings shall be archived, and others retained.
+If you are an author or presenter, please review the issue documenting the plan to archive and retain trainings by 2023-03-31 at:
+
+https://github.com/plone/training/issues/672
+
+Soon thereafter we will execute the plan.
+Thank you for your collaboration.
+
+~ The Plone Documentation and Training Teams
+```
+
 ```{toctree}
 :caption: Training Overview
 :maxdepth: 2
