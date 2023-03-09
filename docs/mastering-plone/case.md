@@ -78,7 +78,7 @@ During the course of the training you will solve the following tasks.
 - Create a sponsor contenttype to manage sponsors
 - Store non-visible information about the sponsor in the sponsor-type
 - Display sponsors on all pages sorted by level
-- Allow some available to be configurable by an admin in a control panel
+- Allow some settings to be configurable by an admin in a control panel
 - Create a calendar view to display talks
 - Turn the calendar view in a reuseable block to include it on the frontpage
 - Add a separate add-on to allow voting on talks
