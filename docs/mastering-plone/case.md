@@ -19,7 +19,7 @@ For this training we will build a website for a fictional Plone conference on Ma
 
 By 2050 human civilisation has reached the stars and each year the conference is held on a different planet.
 
-The conference-website we want to create should be reusable in the following years so some things should be configurable.
+The conference website we want to create should be reusable in the following years, so some things should be configurable.
 
 (case-requirements-label)=
 
