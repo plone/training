@@ -42,7 +42,8 @@ If you want to have an on-site training or want to attend a public training plea
 The Mastering Plone Training was so far held publicly at the following occasions:
 
 - [Plone Conference Namur 2022](https://2022.ploneconf.org/)
-- [Plone Conference ONLINE 2020](https://2020.ploneconf.org/)
+- [Plone Conference ONLINE 2021](https://www.youtube.com/watch?v=IEcGKzo3PO0)
+- [Plone Conference ONLINE 2020](https://www.youtube.com/watch?v=_dOAthafoGQ&t=0s)
 - [Plone Conference 2019 in Ferrara](https://2019.ploneconf.org/)
 - [Plone Conference 2018 in Tokyo](https://2018.ploneconf.org/)
 - [August 2018, Munich](https://plone.org/events/community/mastering-plone-training-in-munich)
