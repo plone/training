@@ -418,28 +418,48 @@ Did you receive a notification?
 
 
 ```{figure} _static/features_add_rule_1.png
-:alt: Add a rule through the web.
+:alt: Create a new content rule for an event.
 
 Create a new content rule for an event.
 ```
 
 ```{figure} _static/features_add_rule_2.png
-:alt: Add an action to the rule.
+:alt: Configure the content rule with conditions and actions.
 
 Configure the content rule with conditions and actions.
 ```
 
 ```{figure} _static/features_add_rule_3.png
-:alt: Add mail action.
+:alt: Assign your rule to a page (with or without sub pages) or globally.
 
 Assign your rule to a page (with or without sub pages) or globally.
 ```
+
 
 (features-history-label)=
 
 ## History
 
-Show and explain; mention versioning and its relation to types.
+The history not only lists who edited and published an item, but allows users with the appropriate permission to inspect and even revert changes.
+
+```{figure} _static/history_0.png
+:alt: Access history.
+
+Access history.
+```
+
+```{figure} _static/history_1.png
+:alt: View history.
+
+View history.
+```
+
+```{figure} _static/history_2.png
+:alt: Inspect history.
+
+Inspect history.
+```
+
 
 (features-manage-members-label)=
 
