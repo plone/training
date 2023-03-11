@@ -322,20 +322,10 @@ Page
 : A Page is the most flexible content type.
   You can use the editor to create, edit and arrange blocks on a page.
   You can choose from blocks for Text, Image, Video, List of existing content and many more.
-  Pages - like folders - can also contain other content. This means you can use them to structure your site. In Plone 6 Classic pages are not *folderish*!
+  Pages are folderish, they can contain other content.
+  This means you can use them to structure your site.
 
   ```{figure} _static/features_add_a_page.png
-  ```
-
-Folder
-
-: Folders are used to structure content like in a file-system.
-  They can display a listing of its content.
-  Pages can also contain other content.
-  When you use Volto you usually don't use folders to create a structure since pages are also folders.
-  For some cases (e.g. lists of documents) using folders can be usefull though.
-
-  ```{figure} _static/features_add_a_folder.png
   ```
 
 File
@@ -347,14 +337,16 @@ File
 
 Image
 
-: Like files but png, jpeg or other image types
+: Like file but png, jpeg or other image types.
+  The Image content typ has an image field.
+  Values of the image field are saved in multiple scales to be accessible easily when rendering.
 
   ```{figure} _static/features_add_a_image.png
   ```
 
 Event
 
-: These are basically pages with start and end dates and some additional fields for
+: These are basically pages with start and end dates and some additional fields for whole day or recurring events.
 
   ```{figure} _static/features_add_a_event.png
   ```
@@ -373,61 +365,74 @@ News Item
   ```{figure} _static/features_add_a_news_item.png
   ```
 
-Collection
-
-: Collections are virtual lists of items found by doing a specialized search.
-  With Volto you usually do not use them anymore. Instead you use a page with one or more listing blocks.
-
-  ```{figure} _static/features_pending_collection.png
-  :alt: Editing a collection
-  ```
 
 (features-containers-label)=
 
 ## Containers
 
-- Go to 'schedule'
-- explain the difference between title, ID, and URL
-- explain `/contents`
-- change the order of items
-- explain bulk actions
-- Display Menu
-- Explain default pages (in classic Plone)
-- Explain Folderish Pages (in Plone6 and Volto)
+Go to "News".
+
+Earlier we created this page with its title "News".
+Therfore this page has the id "news" which we can see as part of its url.
+
+A page is folderish.
+To see its contained items, we change to '/contents' by clicking the folder icon.
+
+We can change the order of the two contained items by dragging and dropping.
+
+We can modify their title and id, publish them, etc.. in one step by selecting them and applying a bulk action.
+
+A page has per default the view displaying the blocks of the page.
+As for all content types, you as a developer can provide multiple views or replace the default view.
+This is useful for adding components that should be shown independent of how an editor creates a page.
+
+Per default the page does not show its contained items but just the title and the blocks an editor creates.
+The contained items can be shown by creating a listing block.
+A listing block without any criterias lists the contained items.
+
+```{image} _static/contents.png
+```
+
 
 (features-content-rules-label)=
 
 ## Content Rules
 
-```{warning}
-Content-rules can not be configured in Volto yet. See <https://github.com/plone/volto/issues/10>. You need to use the backend to configure content rules.
-```
+Content rules allow to subscribe actions to events.
+We can access the UI by switching to the site setup.
+Select the menu in the left bottom of your page.
+In site setup we select the content rules panel.
 
-- Create new rule "a new talk is in town"!
-- New content in folder "Talks" -> Send Mail to reviewers.
+Each content rule created here is a contract on a section of this site or just a section to apply an event subscriber.
+The content rule therefore defines an action that subscribes to an event.
+
+### Exercise
+
+Create a new rule "Notify moderators on new news items".
+Apply this rule to content type "News Item".
+Apply this rule globally by switching to your site root and following menu "rules".
+
+Verify that your rule works by creating a new news item.
+See your backend log or your mail for a notification.
+Did you receive a notification?
+
 
 ```{figure} _static/features_add_rule_1.png
 :alt: Add a rule through the web.
 
-Add a rule through the web.
+Create a new content rule for an event.
 ```
 
 ```{figure} _static/features_add_rule_2.png
 :alt: Add an action to the rule.
 
-Add an action to the rule.
+Configure the content rule with conditions and actions.
 ```
 
 ```{figure} _static/features_add_rule_3.png
 :alt: Add mail action.
 
-Add mail action.
-```
-
-```{figure} _static/features_add_rule_4.png
-:alt: Assign the newly created rule.
-
-Assign the newly created rule.
+Assign your rule to a page (with or without sub pages) or globally.
 ```
 
 (features-history-label)=
