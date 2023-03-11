@@ -93,6 +93,8 @@ describe('Add talk tests', () => {
 
 Go to your **backend folder**, open `Makefile` and add test commands:
 
+% TODO Update makefile code example
+
 ```text
 # Volto cypress tests
 
