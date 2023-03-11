@@ -32,6 +32,9 @@ Later on the instance can be stopped by {kbd}`ctrl + c`.
 A standard installation listens on port 8080, so lets have a look at <http://localhost:8080>
 
 ```{figure} _static/features_plone_running.png
+:alt: Zope instance is up and running, ready to create a Plone instance.
+
+Zope instance is up and running, ready to create a Plone instance.
 ```
 
 As you can see, there is no Plone site yet.
@@ -45,14 +48,20 @@ We now have a running Zope with a database, but no content.
 Push the botton {guilabel}`Create a new Plone site`.
 If the site is asking you to login, log in with `admin` and password `secret` (they are taken from the file `instance.yaml`).
 
-```{image} _static/features_create_site_form.png
+```{figure} _static/features_create_site_form.png
+:alt: Create a Plone site
+
+Create a Plone site
 ```
 
 You will be automatically redirected to the new site.
 
 This is how the front page should look like:
 
-```{image} _static/frontpage_plone.png
+```{figure} _static/frontpage_plone.png
+:alt: The front page of your site
+
+The front page of your site
 ```
 
 
@@ -326,7 +335,10 @@ Per default the page does not show its contained items but just the title and th
 The contained items can be shown by creating a listing block.
 A listing block without any criterias lists the contained items.
 
-```{image} _static/contents.png
+```{figure} _static/contents.png
+:alt: page contents
+
+/contents
 ```
 
 
@@ -414,7 +426,7 @@ Users can be assigned a role directly or by joining a group with the respective 
 ### Excursion
 
 We are facing our site as an administrator.
-Administrators are users assigned to the role "Manager" which is assigned all permissions.
+Administrators are users assigned the role "Manager" which is assigned all permissions.
 
 The current user "admin" is not listed in the user control panel as it is not a Plone user, but a Zope user.
 This user is registered in the Zope instance, a level above our dedicated Plone site.
