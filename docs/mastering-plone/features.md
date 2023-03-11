@@ -163,70 +163,6 @@ Some toolbar options only show when appropriate.
 For example, {guilabel}`edit` is only shown if the current user has the permission to edit.
 
 
-(features-users-label)=
-
-## Users
-
-````{only} not presentation
-Let's create our first users within Plone.
-So far we used the admin user (admin:secret) configured in the setup.
-This user is often called "Zope root" and is not managed in Plone but only by Zope.
-Therefore the user is missing some features like email and full name and won't be able to use some of Plone's features.
-But the user has all possible permissions.
-As with the root user of a server, it's bad practice to make unnecessary use of Zope root.
-Use it to create Plone sites and their initial users, but not much else.
-
-You can also add Zope users via the terminal by entering:
-
-```shell
-venv/bin/addzopeuser masterofdesaster VXT+zif -c ./instance/etc/zope.conf
-```
-
-This way you can access a database you get from customers where you have no Plone user to access the database.
-
-To add a new user of **Plone** instead of Zope, click on the user icon at the bottom of the left vertical bar and then on {guilabel}`Site setup`.
-This is Plone's control panel.
-You can also access it by browsing to <http://localhost:8080/Plone/controlpanel>
-
-```{figure} _static/features_control_panel.png
-```
-
-Click on {guilabel}`Users` and add a user.
-If we had configured a mail server, Plone could send you a mail with a link to a form where you can choose a password.
-(Or, if you have Products.PrintingMailHost in your buildout, you can see the email scrolling by in the console, just the way it would be sent out.)
-We set a password here because we haven't yet configured a mail server.
-
-Add this user with your name to the administrators group.
-
-```{figure} _static/features_add_user_form.png
-```
-
-Then create another user called `testuser`.
-Give this user the role `Editor`.
-You can use this user to see how Plone looks and behaves to users that have no admin permissions.
-
-Now let's see the site in 3 different browsers with three different roles:
-
-- as anonymous
-- as editor
-- as admin
-
-```{only} presentation
-Create some Plone users:
-
-1. {guilabel}`admin` > {guilabel}`Site setup` > {guilabel}`Users and Groups`
-2. Add user \<yourname> (groups: Administrators)
-3. Add another user "tester" (groups: None)
-4. Add another user "editor" (groups: None)
-5. Add another user "reviewer" (groups: Reviewers)
-6. Add another user "jurymember" (groups: None)
-
-Logout as admin by clicking 'Logout' and following the instructions.
-
-Login to the site with your user now.
-```
-
-
 (features-mailserver-label)=
 
 ## Configure a Mailserver
@@ -462,6 +398,8 @@ Inspect history.
 
 
 (features-manage-members-label)=
+
+(features-users-label)=
 
 ## Users and groups
 
