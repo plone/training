@@ -184,7 +184,7 @@ venv/bin/addzopeuser masterofdesaster VXT+zif -c ./instance/etc/zope.conf
 
 This way you can access a database you get from customers where you have no Plone user to access the database.
 
-To add a new user of Plone instead of Zope, click on the user icon at the bottom of the left vertical bar and then on {guilabel}`Site setup`.
+To add a new user of **Plone** instead of Zope, click on the user icon at the bottom of the left vertical bar and then on {guilabel}`Site setup`.
 This is Plone's control panel.
 You can also access it by browsing to <http://localhost:8080/Plone/controlpanel>
 
@@ -463,17 +463,53 @@ Inspect history.
 
 (features-manage-members-label)=
 
-## Manage members and groups
+## Users and groups
 
-- add/edit/delete Users
+In short, a user who wants to modify a Plone site needs to be registered and be given the appropriate permissions.
 
-- roles
+The Plone security is based on **roles and permissions**.
+Every transaction (create page, publish page, … ) is protected by a permission.
+A permission is assigned to roles.
 
-- groups
+Users can be assigned a role directly or by joining a group with the respective role.
 
-  - Add group "Editors" and add the user 'editor' to it
-  - Add group: `orga`
-  - Add group: `jury` and add user 'jurymember' to it.
+### Excursion
+
+We are facing our site as an administrator.
+Administrators are users assigned to the role "Manager" which is assigned all permissions.
+
+The current user "admin" is not listed in the user control panel as it is not a Plone user, but a Zope user.
+This user is registered in the Zope instance, a level above our dedicated Plone site.
+Our dedicated Plone site emerges as http://localhost:3000/ but indeed is one Plone site of multiple Plone sites in a Zope instance.
+
+For a deeper insight, visit the backend via the "management interface".
+
+```{figure} _static/zmi_access.png
+:alt: ZMI Zope management interface
+
+ZMI Zope management interface
+```
+
+### Exercise
+
+Create a user "Urs Herbst" who can add and edit content, even review (publish content), but has no administrator rights.  
+The roles should not be assigned directly to the user, but via a group "editors".
+
+Add a group "Jury", create and add user "Lisa Sommer" to it.
+
+(features-groups-label)=
+
+### Groups and users
+
+It is recommended to assign roles to users via group memberships.
+Inspect group memberships at its control panel.
+
+```{figure} _static/groupmemberships.png
+:alt: Groups memberships
+
+Group memberships
+```
+
 
 (features-workflows-label)=
 
