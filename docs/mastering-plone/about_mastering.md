@@ -30,9 +30,9 @@ Thank you for reading and your charity with non-native English speakers / writer
 
 ## Upcoming Trainings
 
-Next Plone Conference, end of the year.
+Next Plone Conference, usually in october.
 
-If you want to have an on-site training or want to attend a public training please ask for trainings on <https://community.plone.org>.
+If you want to have an on-site training or want to attend a public training please ask for trainings on <https://community.plone.org> or one of the trainers.
 
 
 (about-previous-label)=
@@ -64,14 +64,14 @@ The Mastering Plone Training was so far held publicly at the following occasions
 
 ## Trainers
 
-The following trainers have given trainings based on Mastering Plone:
+The following trainers have given trainings based on Mastering Plone development:
 
 Philip Bauer
 
 : Philip Bauer is a web developer from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone.
   A historian by education he drifted towards creating websites in the 90's and founded the company [Starzel](https://www.starzel.de/) in 2000.
   He is a member of the Plone foundation, loves teaching and is dedicated to Open Source.
-  Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer.
+  Among other Plone related projects he started creating the Mastering Plone Development training so that everyone can become a Plone developer.
 
 Katja Süss
 
@@ -141,7 +141,7 @@ Leonardo Caballero
 
 ## License
 
-The Mastering Plone Training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+The Mastering Plone Development training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
 
 ## Using the documentation for a training
@@ -151,4 +151,4 @@ See the information for {doc}`teaching</teaching/index>`.
 
 ## Contributing
 
-You are welcome to contribute. See {doc}`/contributing/index` for more info.
+You are welcome to contribute. See {doc}`/contributing/index` for more information.
