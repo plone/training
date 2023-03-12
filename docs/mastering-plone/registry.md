@@ -56,7 +56,7 @@ And while we're at it: It would be much better to have the options for `audience
 
 By combining the registry, a control panel and vocabularies you can allow rooms to be editable options.
 
-To be able to to so you first need to get to know the registry.
+To be able to do so you first need to get to know the registry.
 
 ## The Registry
 
