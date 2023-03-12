@@ -50,7 +50,7 @@ Topics covered:
 You can skip this part since you already added {py:mod}`ploneconf.site` as a source-checkout when running buildout.
 And in {ref}`features-create-plonesite-label` you installed that package when creating your site.
 
-You can still follow this chapter to learn hwo to create your own packages.
+You can still follow this chapter to learn how to create your own packages.
 ```
 
 Your own code has to be organized as a [Python package](https://docs.python.org/3/tutorial/modules.html#packages). A python package is a directory that follows certain conventions to hold python modules.
