@@ -516,6 +516,30 @@ Since it has effect in a "place" in a site, this mechanism is often called "Plac
 Once it's added, a {guilabel}`Policy` option will appear on the state menu to allow setting a placeful workflow policy.
 
 
+(features-publishing-date-label)=
+
+## Publishing date and expiration date
+
+The visibility of a content type instance like a page is not only ascertained by the workflow state.
+The publishing can be scheduled by setting the publishing date.
+
+Edit the front page of your site to display published news by adding a listing block with the approriate criteria.  
+By publishing one of your news items, it will appear on the front page.
+
+As soon as you change the publishing date to a future date, the news item will no longer be shown on the front page until the date is reached.
+
+
+(features-sharing-label)=
+
+## Sharing
+
+Apart from publishing a page or any other content type instance, and making it visible for all users that are allowed to view published content, we can make it visible to only a group of users.
+The sharing UI can be accessed via the context menu.
+
+The sharing feature is not restricted to visibility.
+You can even make a page, with or without sub pages, editable only by a group of users.
+
+
 (features-wc-label)=
 
 ## Working copy
@@ -550,6 +574,11 @@ If a page is moved it is still available via the former url.
 Additional to this behavior a page can be explicitly made available under further urls.
 
 You can find the UI for adding alternative urls in context menu '…'.
+
+
+% TODO section about commenting feature
+
+% TODO "Features of Plone" is a short overview of out of the box features. Plone can be extended by add-ons…
 
 
 (features-seealso-label)=
