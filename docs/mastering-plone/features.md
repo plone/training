@@ -540,6 +540,18 @@ So, if you need it, you need to activate it via the add-on packages configuratio
 Unless activated, check-in/check-out options are not visible.
 
 
+(features-url-management-label)=
+
+## Url management
+
+Plone has an integrated mechanism to remember urls that where modified.
+If a page is moved it is still available via the former url.
+
+Additional to this behavior a page can be explicitly made available under further urls.
+
+You can find the UI for adding alternative urls in context menu '…'.
+
+
 (features-seealso-label)=
 
 ## See also
