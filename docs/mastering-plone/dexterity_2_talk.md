@@ -9,7 +9,7 @@ myst:
 
 (dexterity-2-talk-label)=
 
-# Dexterity II: Talks
+# Content types II: Talks
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
@@ -34,7 +34,7 @@ git checkout talks
 
 In this part you will solve the following task:
 
-- Create a contenttype 'talk' to store all the data required for a talk
+- Create a content type 'talk' to store all the data required for a talk
 
 Topics covered:
 

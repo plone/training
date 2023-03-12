@@ -9,9 +9,11 @@ myst:
 
 (dexterity-reference-label)=
 
-# Dexterity: Reference
+# Content types: Reference
 
-This chapter documents all types of fields, widgets, directives that you can use with dexterity.
+This chapter documents all fields, widgets, directives that you can use with content types.
+Content types are often called dexterity types which refers to the rework of the content type concept by dexterity and abandoning the Archetypes system.
+
 
 ## Fields included in Plone
 

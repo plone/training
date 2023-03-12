@@ -9,7 +9,7 @@ myst:
 
 (dexterity1-label)=
 
-# Dexterity I: content types
+# Content types I
 
 In this part you will:
 
@@ -22,10 +22,12 @@ In this part you will:
 
 ## What is a content type?
 
-A content type is a kind of object that can store information and is editable by users.
+A content type instance is a kind of object that can store information and is editable by users.
 We have different content types to reflect the different kinds of information about which we need to collect and display information.
 
 Pages, folders, events, news items, files (binary) and images are all content types.
+
+See "Features of Plone – {ref}`features-content-types-label`" for an overview.
 
 It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
 
