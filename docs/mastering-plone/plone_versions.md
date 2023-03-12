@@ -168,5 +168,5 @@ Plone 6 supports Python 3 only and runs on top of Zope 5.
 
 ```{seealso}
 - {ref}`plone6docs:upgrade-guide-label`
-- Training Migrations
+- {doc}`/migrations/index`
 ```
