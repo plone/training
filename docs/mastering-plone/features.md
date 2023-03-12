@@ -13,20 +13,20 @@ myst:
 
 % TODO Short appetizer on all the fancy features.
 
-Now we start a Plone instance and take a look at all the features you can use as an integrator.
-Developers will get a glimps on the features that can be modified easily.
+Now we create a Plone instance and take a look at all the features you can use as an integrator.
+Developers get a glimps on the features that can be modified easily.
 
 (features-start-stop-label)=
 
-## Starting and Stopping Plone
+## Starting and Stopping Zope
 
-We control Plone with `make`. Start your Plone instance with:
+We control Plone with `make`. Start your Zope instance with:
 
 ```shell
 $ make start
 ```
 
-The Plone instance starts up with `Ready to handle requests`.
+The Zope instance starts up with `Ready to handle requests`.
 Later on the instance can be stopped by {kbd}`ctrl + c`.
 
 A standard installation listens on port 8080, so lets have a look at <http://localhost:8080>
@@ -37,7 +37,6 @@ A standard installation listens on port 8080, so lets have a look at <http://loc
 Zope instance is up and running, ready to create a Plone instance.
 ```
 
-As you can see, there is no Plone site yet.
 
 (features-create-plonesite-label)=
 
@@ -46,7 +45,9 @@ As you can see, there is no Plone site yet.
 We now have a running Zope with a database, but no content.
 
 Push the botton {guilabel}`Create a new Plone site`.
-If the site is asking you to login, log in with `admin` and password `secret` (they are taken from the file `instance.yaml`).
+Log in with `admin` and password `secret`.
+The initial login is defined in file `instance.yaml`.
+You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
 
 ```{figure} _static/features_create_site_form.png
 :alt: Create a Plone site
@@ -73,7 +74,7 @@ Start the frontend of your new Plone site by switching to directory `frontend` a
 yarn start
 ```
 
-Opening `http://localhost:3000`, you will see the front page of your Plone site in Volto.
+Opening `http://localhost:3000`, you are facing the front page of your Plone site.
 
 ```{figure} _static/frontpage_volto.png
 ```
@@ -154,7 +155,7 @@ On the toolbar, we find options affecting the current context...
 - {guilabel}`folder contents`
 - {guilabel}`add`
 
-There is a menu with three dots that holds additional options:
+There is a context menu with three dots that holds additional options:
 
 - {guilabel}`review state`
 - {guilabel}`history`
@@ -232,10 +233,12 @@ Create a site structure:
 - Add a Page "Sprint"
 - Add a Page "Contact"
 
+% TODO Can the number of pages be reduced to fit in the browser window width?
+
 ```{figure} _static/features_site_structure.png
 :alt: The view of the newly created site structure.
 
-The view of the newly created site structure.
+The view of the newly created site structure
 ```
 
 Additional to these conference pages we also want some news and events.
@@ -313,12 +316,12 @@ News Item
 
 (features-containers-label)=
 
-## Containers
+## Folderish content
 
 Go to "News".
 
 Earlier we created this page with its title "News".
-Therfore this page has the id "news" which we can see as part of its url.
+Therfore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
 
 A page is folderish.
 To see its contained items, we change to '/contents' by clicking the folder icon.
@@ -327,18 +330,25 @@ We can change the order of the two contained items by dragging and dropping.
 
 We can modify their title and id, publish them, etc.. in one step by selecting them and applying a bulk action.
 
+```{figure} _static/contents.png
+:alt: page contents
+
+`/contents`
+```
+
 A page has per default the view displaying the blocks of the page.
 As for all content types, you as a developer can provide multiple views or replace the default view.
-This is useful for adding components that should be shown independent of how an editor creates a page.
+This is useful for adding components that should be shown independent of how an editor assembles a page with blocks.
 
 Per default the page does not show its contained items but just the title and the blocks an editor creates.
 The contained items can be shown by creating a listing block.
 A listing block without any criterias lists the contained items.
 
-```{figure} _static/contents.png
-:alt: page contents
 
-/contents
+```{figure} _static/listingblock.png
+:alt: listing block
+
+listing contained content items with a listing block
 ```
 
 
@@ -349,16 +359,16 @@ A listing block without any criterias lists the contained items.
 Content rules allow to subscribe actions to events.
 We can access the UI by switching to the site setup.
 Select the menu in the left bottom of your page.
-In site setup we select the content rules panel.
+In the site setup we select the content rules panel.
 
-Each content rule created here is a contract on a section of this site or just a section to apply an event subscriber.
+Each content rule created here is a contract on the site as a whole or just a section to apply an event subscriber to.
 The content rule therefore defines an action that subscribes to an event.
 
 ### Exercise
 
 Create a new rule "Notify moderators on new news items".
 Apply this rule to content type "News Item".
-Apply this rule globally by switching to your site root and following menu "rules".
+Apply this rule globally by switching to your site root and following context menu item "rules".
 
 Verify that your rule works by creating a new news item.
 See your backend log or your mail for a notification.
@@ -437,7 +447,7 @@ For a deeper insight, visit the backend via the "management interface".
 ```{figure} _static/zmi_access.png
 :alt: ZMI Zope management interface
 
-ZMI Zope management interface
+Link to ZMI Zope management interface at `http://localhost:8080/`
 ```
 
 ### Exercise
@@ -476,11 +486,12 @@ The state is "private" and can be changed to "published" by selecting the "publi
 
 The state of a content type instance determines if a user can view, edit or is allowed to execute other modifications like moving or even changing the workflow.
 
-The workflow behavior can be inspected and modified at http://localhost:8080/Plone/portal_workflow/.
-It is recommended to configure the workflows for a project programmatically in an add-on.
+The workflows can be inspected and modified at http://localhost:8080/Plone/portal_workflow/.
+It is recommended to configure the workflows for a project programmatically in an add-on instead of doing this through the web UI.
 But for getting to know workflows, their states and transactions, and their permission mappings, this address in the ZMI (Zope management interface) is a good place to start.
 If you are interested in inspecting the effects on changes it is recommended to copy a default workflow, apply it to for example pages and do changes in this workflow.
-Afterwards these changes can be reverted by reappying the former default workflow.
+Afterwards these changes can be reverted by reapplying the former default workflow.
+
 For programmatically changes, a modified default workflow can be exported and included in an add-on.
 
 Important for the understanding of workflows is the mapping of roles to permissions per workflow state.
@@ -501,7 +512,7 @@ As each user, including the anonymous, has a set of roles, the circle is closed 
 
 ```{warning}
 Placeful workflows are not yet configurable in Volto.
-Workflow settings that are configured in Plone Classic are applied though.
+Workflow settings that are configured in Plone backend are applied though.
 ```
 
 You may need to have different workflows in different parts of a site.
@@ -513,7 +524,7 @@ Typically, you use it to set a special workflow on a page determining the page a
 Since it has effect in a "place" in a site, this mechanism is often called "Placeful Workflow".
 
 `Placeful Workflow` ships with Plone but needs to be activated via the add-on configuration page.
-Once it's added, a {guilabel}`Policy` option will appear on the state menu to allow setting a placeful workflow policy.
+Once it is added, a {guilabel}`Policy` option appears in the state menu to allow setting a placeful workflow policy.
 
 
 (features-publishing-date-label)=
@@ -566,16 +577,16 @@ In fact, the original author may not even have permission to change the document
 Or, you may need to make a partial edit.
 In either case, it may be undesirable for changes to be immediately visible.
 
-Plone's working copy support solves this problem by adding a check-out/check-in function for content — available on the actions menu.
+Plone's working copy support solves this problem by adding a check-out/check-in function for content — available via the actions menu.
 A content item may be checked out, worked on, then checked back in.
 Or it may get abandoned if the changes aren't acceptable.
-The new content is not visible unless checked in.
+The new content is not visible unless checked back in.
 
 While it's shipped with Plone, working copy support is not a common need.
-So, if you need it, you need to activate it via the add-on packages configuration page.
+So, if you need it, activate it via the add-on packages configuration page.
 Unless activated, check-in/check-out options are not visible.
 
 
-% TODO section about commenting feature
+% TODO section about the discussion/commenting feature
 
 % TODO "Features of Plone" is a short overview of out of the box features. Plone can be extended by add-ons…
