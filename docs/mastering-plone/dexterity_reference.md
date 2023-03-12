@@ -11,7 +11,7 @@ myst:
 
 # Dexterity: Reference
 
-This chapter documents all types fields, widgets, directives that you can use with dexterity.
+This chapter documents all types of fields, widgets, directives that you can use with dexterity.
 
 ## Fields included in Plone
 
@@ -41,7 +41,7 @@ Choice with named vocabulary,
 List,
 List with checkboxes,
 List with Select2 widget,
-List with values from named vocabulary but open to additions,
+List with values from a named vocabulary but open to additions,
 Tuple,
 Set,
 Set with checkboxes
