@@ -3,15 +3,15 @@ myst:
   html_meta:
     "description": ""
     "property=og:description": ""
-    "property=og:title": ""
+    "property=og:title": "About Mastering Plone development"
     "keywords": ""
 ---
 
 (about-mastering-label)=
 
-# About Mastering Plone
+# About Mastering Plone development
 
-*Mastering Plone Development Training* is both: an online training and a handout for on-site trainings. We address developers. You are interested in best practice guides and want to learn the why and where, so read on!
+The *Mastering Plone Development* training is both: an online training and a handout for on-site trainings. We address developers. You are interested in best practice guides and want to learn the why and where, so read on!
 
 ## The beginning and the continuation
 
@@ -139,9 +139,67 @@ Leonardo Caballero
   and has spoken at or helped organize Plone and open-source events throughout South America.
 
 
-## License
+(intro-what-happens-label)=
 
-The Mastering Plone Development training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+## Technologies and Tools
+
+- For the beginning of the training:
+
+  - [Ubuntu linux](https://ubuntu.com/)
+  - [Python](https://www.python.org)
+  - Javascript
+  - React
+
+- For the advanced chapters:
+
+  - [Git](https://git-scm.com/)
+  - [GitHub](https://github.com)
+  - [Resources to learn Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
+  - [Python](https://www.python.org)
+  - ZCML
+  - Dexterity content types
+  - [{term}`GenericSetup`](https://5.docs.plone.org/develop/addons/components/genericsetup.html)
+  - React
+  - Redux
+
+
+
+# Optional topics without documentation
+
+The following topics are not covered in the written training but could be discussed on demand.
+
+- Custom forms
+
+- Custom fields
+
+- Caching (plone.app.caching, memoize, Varnish etc.)
+
+- Zope Component Architecture in depth
+
+- LDAP-integration, users, authentication, member profiles, members as content
+
+- Using external APIs
+
+- Asynchronous processing
+
+- ZODB
+
+- RelStorage
+
+- Debugging and Profiling
+
+
+(intro-what-wont-happen-label)=
+
+## Topics covered in other trainings and documentation
+
+- Advanced Volto techniques in {doc}`/effective-volto/index`
+- multilingual content
+- {doc}`Internationalization of the frontend</effective-volto/development/i18n>`
+- {doc}`Internationalization defined in the backend<plone6docs:i18n-l10n/index>`
+- {doc}`/plone-deployment/index`
+- {doc}`/theming/index`
+
 
 
 ## Using the documentation for a training
@@ -152,3 +210,8 @@ See the information for {doc}`teaching</teaching/index>`.
 ## Contributing
 
 You are welcome to contribute. See {doc}`/contributing/index` for more information.
+
+
+## License
+
+The Mastering Plone Development training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).

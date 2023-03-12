@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Recorded training"
+    "property=og:description": "Recorded training"
+    "property=og:title": "Watch the Training Video"
+    "keywords": "Plone, video"
 ---
 
 (video-label)=

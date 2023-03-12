@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": ""
     "property=og:description": ""
-    "property=og:title": ""
+    "property=og:title": "Introduction of the trainees and the trainers"
     "keywords": ""
 ---
 
@@ -36,7 +36,7 @@ Tell us about yourselves:
 - Where is food, restrooms
 - Someone please record the time we take for each chapter (incl. title)
 - Someone please write down errors
-- Contact us after the training: <mailto:team@starzel.de>
+- Contact us after the training: See {ref}`about-trainers-label`.
 ```
 ````
 
@@ -72,5 +72,4 @@ You can use this presentation to copy & paste the code but you will memorize mor
 
 ## Further Reading
 
-- [Martin Aspeli: Professional Plone4 Development](https://www.packtpub.com/product/professional-plone-4-development/9781849514422)
-- [The Zope Book](https://zope.readthedocs.io/en/latest/zopebook/)
+A whole bunch of inspiring {doc}`Plone trainings<../index>`
