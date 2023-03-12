@@ -463,47 +463,65 @@ Group memberships
 
 (features-workflows-label)=
 
-## Workflows
+## Workflow
 
-Take a look at the {guilabel}`state` drop down on the edit bar on the homepage.
-Now, navigate to one of the folders just added.
-The homepage has the status `published` and the new content is `private`.
+A workflow is a set of states and transactions.
+Each content type is assigned a workflow.
+A content type instance like a page is in a state, for example published.
+The state can be changed.
+Which workflow states a content type instance can be switched to is determined by the workflow transactions.
 
-Let's look at the state transitions available for each type.
-We can make a published item private and a private item published.
-We can also submit an item for review.
+Have look at one of the news items we created earlier.
+The state is "private" and can be changed to "published" by selecting the "publish" transaction.
 
-Each of these states connects roles to permissions.
+The state of a content type instance determines if a user can view, edit or is allowed to execute other modifications like moving or even changing the workflow.
 
-- In `published` state, the content is available to anonymous visitors;
-- In `private` state, the content is only viewable by the author (owner) and users who have the `can view` role for the content.
+The workflow behavior can be inspected and modified at http://localhost:8080/Plone/portal_workflow/.
+It is recommended to configure the workflows for a project programmatically in an add-on.
+But for getting to know workflows, their states and transactions, and their permission mappings, this address in the ZMI (Zope management interface) is a good place to start.
+If you are interested in inspecting the effects on changes it is recommended to copy a default workflow, apply it to for example pages and do changes in this workflow.
+Afterwards these changes can be reverted by reappying the former default workflow.
+For programmatically changes, a modified default workflow can be exported and included in an add-on.
 
-A *workflow state* is an association between a role and one or more permissions.
-Moving from one state to another is a `transition`.
-Transitions (like `submit for review`) may have actions — such as the execution of a content rule or script — associated with them.
-
-A complete set of workflow states and transitions makes up a *workflow*.
-Plone allows you to select among several pre-configured workflows that are appropriate for different types of sites.
-Individual content types may have their own workflow.
-Or, and this is particularly interesting, they may have no workflow.
-In that case, which initially applies to file and image uploads, the content object inherits the workflow state of its container.
-
-```{note}
-An oddity in all of the standard Plone workflows: a content item may be viewable even if its container is not.
-Making a container private does **not** automatically make its contents private.
-```
+Important for the understanding of workflows is the mapping of roles to permissions per workflow state.
+This is one crucial integrational component that makes Plone a secure CMS.
+Each content type instance like a page is in a workflow state.
+Access and modifications of this instance is defined by the role/permission mapping of this workflow state.
+As each user, including the anonymous, has a set of roles, the circle is closed and each user has access and or can modify a content type instance or not, according to their roles.
 
 ```{seealso}
 - Training {doc}`/workflow/index`
 - Plone 5 Documentation [Collaboration and Workflow](https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html)
 ```
 
+
+(features-placeful-wf-label)=
+
+## Placeful workflows
+
+```{warning}
+Placeful workflows are not yet configurable in Volto.
+Workflow settings that are configured in Plone Classic are applied though.
+```
+
+You may need to have different workflows in different parts of a site.
+For example, we created an intranet page.
+Since this is intended for our conference organizers — but not the public — the simple workflow we use for the rest of the site is not appropriate for a protected intranet.
+
+Plone's `Workflow Policy Support` package gives you the ability to set different workflows in different sections of a site.
+Typically, you use it to set a special workflow on a page determining the page and its sub pages.
+Since it has effect in a "place" in a site, this mechanism is often called "Placeful Workflow".
+
+`Placeful Workflow` ships with Plone but needs to be activated via the add-on configuration page.
+Once it's added, a {guilabel}`Policy` option will appear on the state menu to allow setting a placeful workflow policy.
+
+
 (features-wc-label)=
 
 ## Working copy
 
 ```{warning}
-Working copies can not be used in Volto yet.
+The working copy feature is not yet implemented in Volto UI.
 ```
 
 Published content, even in an intranet setting, can pose a special problem for editing.
@@ -514,36 +532,12 @@ In either case, it may be undesirable for changes to be immediately visible.
 
 Plone's working copy support solves this problem by adding a check-out/check-in function for content — available on the actions menu.
 A content item may be checked out, worked on, then checked back in.
-Or it may be abandoned if the changes weren't acceptable.
-Not until check in is the new content visible.
+Or it may get abandoned if the changes aren't acceptable.
+The new content is not visible unless checked in.
 
 While it's shipped with Plone, working copy support is not a common need.
 So, if you need it, you need to activate it via the add-on packages configuration page.
 Unless activated, check-in/check-out options are not visible.
-
-```{Note}
-Working Copy Support has limited support for Dexterity content types. The limitation is that there are some outstanding issues with folderish items that contain many items.
-See: [plone/Products.CMFPlone#665](https://github.com/plone/Products.CMFPlone/issues/665)
-```
-
-(features-placeful-wf-label)=
-
-## Placeful workflows
-
-```{warning}
-Placeful workflows can not be configured in Volto yet. Workflow-settings that you configure in the classic frontend are working though.
-```
-
-You may need to have different workflows in different parts of a site.
-For example, we created an intranet folder.
-Since this is intended for use by our conference organizers — but not the public — the simple workflow we wish to use for the rest of the site will not be desirable.
-
-Plone's `Workflow Policy Support` package gives you the ability to set different workflows in different sections of a site.
-Typically, you use it to set a special workflow in a folder that will govern everything under that folder.
-Since it has effect in a "place" in a site, this mechanism is often called "Placeful Workflow".
-
-As with working-copy support, Placeful Workflow ships with Plone but needs to be activated via the add-on configuration page.
-Once it's added, a {guilabel}`Policy` option will appear on the state menu to allow setting a placeful workflow policy.
 
 
 (features-seealso-label)=
