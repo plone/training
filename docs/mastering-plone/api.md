@@ -40,7 +40,7 @@ Topics covered:
 
 ## plone.api
 
-The most important tool nowadays for plone developers is the add-on [plone.api](plone6docs:plone.api/content) that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task, be sure to first check if `plone.api? has a solution for you.
+The most important tool nowadays for plone developers is the add-on [plone.api](plone6docs:plone.api/content) that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task, be sure to first check if `plone.api` has a solution for you.
 
 The API is divided in five sections. Here is one example from each:
 

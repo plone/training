@@ -45,7 +45,7 @@ Topics covered:
 - Displaying data stored in fields of a content type
 - React Basics
 
-The default visualization for our new content type `talk` lists the field values according the types schema.
+The default visualization for our new content type `talk` lists the field values according to the type schema.
 
 Since we want to show the talk data in a nice way, display the speaker portrait and add some components, we write a custom view for type talk.
 
