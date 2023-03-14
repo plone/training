@@ -21,7 +21,7 @@ The story of a conference platform provides a week-long training of several deve
 ```{note}
 This is the *Mastering Plone 6 Development Training*.
 
-*Mastering Plone 6 Development Training* supplements [Mastering Plone 5](https://training.plone.org/mastering-plone-5/) with known best practices for customizing and developing Plone 6: Plone Classic + frontend.
+*Mastering Plone 6 Development Training* supplements {doc}`mastering-plone-5/index` with known best practices for customizing and developing Plone 6: Plone Classic + frontend.
 
 In chapters handling Volto React frontend is a link to a chapter that covers the corresponding tasks in Plone Classic, and vice versa.
 

@@ -402,7 +402,7 @@ The result should look like this:
 - You need to restart Volto when you add a new override.
 
 ```{seealso}
-- <https://training.plone.org/volto/override-components.html>
-- <https://training.plone.org/voltohandson/header.html#header-component>
-- <https://training.plone.org/volto/override-views.html>
+- {doc}`volto/override-components`
+- {ref}`header-component`
+- {doc}`volto/override-views`
 ```

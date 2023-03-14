@@ -133,7 +133,7 @@ docker run -it --rm --name=plone \
 ```
 
 ```{tip}
-This setup is meant only for demonstration and quick testing purposes (since it destroys the container on exit (--rm)). In case you need production ready deployment, check the latest [Plone Deployment Training](https://training.plone.org/plone-deployment/index.html).
+This setup is meant only for demonstration and quick testing purposes (since it destroys the container on exit (--rm)). In case you need production ready deployment, check the training {doc}`plone-deployment/index`.
 ```
 
 ```{note}
