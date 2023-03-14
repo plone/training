@@ -7,6 +7,9 @@ myst:
     "keywords": ""
 ---
 
+% TODO 1st prio: Complete overhaul of "extending" on backend side. Spans this and next two chapters. Zope component architecture, generic setup, overriding, layers, zcml, pipapo.
+% TODO Replace buildout stuff with pip installation. As long as mixidev is needed, do mention this also.
+
 (extending-label)=
 
 # Extending Plone
@@ -17,7 +20,7 @@ myst:
 :class: logo
 ```
 
-Extending Volto frontend:
+For extending Volto frontend see:
 
 - {ref}`volto-richtexteditor-label`
 - {ref}`volto-addon-label`
@@ -30,7 +33,7 @@ In this part you will:
 
 Topics covered:
 
-- Overriding python or react components
+- Overriding python components
 - Component Architecture
 - ZCML
 - GenericSetup
