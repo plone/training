@@ -28,19 +28,43 @@ Its React complement [Semantic UI React](https://react.semantic-ui.com/) provide
 Volto is per default, not mandatory, build on both: the Semantic UI theming and the Semantic UI React Components.
 
 Volto applies `components` from `Semantic UI React` to compose a large part of the views.
-For example the component [Label](https://react.semantic-ui.com/elements/label/) is used to render votes on talks during this training.
+For example the component [Menu (Tabular)](https://react.semantic-ui.com/collections/menu/#types-tabular) is used to render tabular menues.
+
+```{figure} _static/semantic_tabular_menu.png
+:alt: Tabular menu with Semantic UI
+
+Tabular menu with Semantic UI
+```
+
 
 ```jsx
-import React from 'react'
-import { Icon, Label } from 'semantic-ui-react'
+import React, { useState } from 'react';
+import { Menu } from 'semantic-ui-react';
 
-const LabelExampleBasic = () => (
-  <Label>
-    <Icon name='mail' /> 23
-  </Label>
-)
+const TabbedMenuExample = () => {
+  const [activeItem, setActiveItem] = useState('bio');
 
-export default LabelExampleBasic
+  const handleItemClick = (e, { name }) => {
+    setActiveItem(name);
+  };
+
+  return (
+    <Menu tabular>
+      <Menu.Item
+        name="bio"
+        active={activeItem === 'bio'}
+        onClick={handleItemClick}
+      />
+      <Menu.Item
+        name="photos"
+        active={activeItem === 'photos'}
+        onClick={handleItemClick}
+      />
+    </Menu>
+  );
+};
+
+export default TabbedMenuExample;
 ```
 
 See next chapter {doc}`volto_theming` for theming with Semantic UI.
