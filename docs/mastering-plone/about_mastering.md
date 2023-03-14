@@ -201,17 +201,14 @@ The following topics are not covered in the written training but could be discus
 - {doc}`/theming/index`
 
 
+## License
+
+The Mastering Plone Development training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
 ## Using the documentation for a training
 
 See the information for {doc}`teaching</teaching/index>`.
 
-
 ## Contributing
 
-You are welcome to contribute. See {doc}`/contributing/index` for more information.
-
-
-## License
-
-The Mastering Plone Development training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+You are welcome to contribute. See {doc}`/contributing/index` for more info.
