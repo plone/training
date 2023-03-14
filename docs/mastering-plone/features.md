@@ -545,8 +545,8 @@ Making a container private does **not** automatically make its contents private.
 ```
 
 ```{seealso}
-- {doc}`/workflow/index`
-- <https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html>
+- Training {doc}`/workflow/index`
+- Plone 5 Documentation [Collaboration and Workflow](https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html)
 ```
 
 (features-wc-label)=

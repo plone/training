@@ -402,7 +402,5 @@ The result should look like this:
 - You need to restart Volto when you add a new override.
 
 ```{seealso}
-- {doc}`/volto/override-components`
-- {ref}`header-component`
-- {doc}`/volto/override-views`
+Volto Hands-On training: {ref}`voltohandson-header-component-label`
 ```
