@@ -55,13 +55,13 @@ We start with the first case and change the font to another Google font, Lato.
 The overall font is defined in Volto and can be found in {file}`omelette/theme/themes/default/globals/site.variables`. So create an empty file {file}`site.variables` in {file}`theme/globals/` and set your font.
 
 ```css
-@importGoogleFonts : true;
-@fontName : 'Lato';
+@importGoogleFonts: true;
+@fontName: 'Lato';
 @emSize: 18px;
 ```
 
 Volto expects the font files to be present in our app.
-While developing we tell Volto to load Google fonts from Google with `@importGoogleFonts : true;`.
+While developing we tell Volto to load Google fonts from Google with `@importGoogleFonts: true;`.
 
 Semantic UI does not provide a less variable for increasing the letter-spacing.
 So we add a CSS rule for it.
@@ -74,7 +74,7 @@ Create a file {file}`theme/globals/site.overrides` and set the letter-spacing:
 }
 ```
 
-We can use variables and theme overrides to achieve our theme, or we can use Volto’s {file}`custom.overrides`, or we can mix elements of both as needed.
+We can use variables and theme overrides to implement our theme, or we can use Volto’s {file}`custom.overrides`, or we can mix elements of both as needed.
 There is no right or wrong way of doing it, and we will be using the Semantic UI theming engine in both cases.
 
 There are two files {file}`theme/extras/custom.overrides` and {file}`theme/extras/custom.variables` for everything not belonging to default Volto, e.g. header, navigation, breadcrumbs, etc..
