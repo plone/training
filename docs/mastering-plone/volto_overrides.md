@@ -35,49 +35,46 @@ git checkout overrides
 
 In this part you will:
 
-- Find out how news items are displayed
-- Customize existing components
+Customize existing components and views
 
 Topics covered:
 
-- Customize existing views with Component Shadowing
-- Content Type Views
-- Listing Views
+- Component shadowing
+- Content type views
 - Blocks
+
 
 (volto-overrides-componentshadowing-label)=
 
 ## Component shadowing
 
 We use a technique called **component shadowing** to override an existing Volto component with our local custom version, without having to modify Volto's source code at all.
-You have to place the replacing component in the same original folder path inside the `src/customizations` folder of your app.
+You have to place the replacing component in the same original folder path inside the {file}`/src/customizations/` folder of your app.
 
-Every time you add a file to the customizations folder or to the theme folder, you must restart Volto for changes to take effect.
-From that point on, the hot reloading should kick in and reload the page automatically on changes.
+Every time you add a file to the customizations folder or to the theme folder, you have to restart Volto for changes to take effect.
+From that point on, the hot module reloading should kick in and reload the page automatically on changes.
 
 You can customize any module in Volto, including actions and reducers, not only components.
 
 The Volto code can be found in {file}`/omelette/`.
 
-## The Logo
 
-You can use this approach to change the Logo.
+## The logo
 
-Create your own logo as a svg image or [download a logo](https://www.starzel.de/plone-tutorial/Logo.svg/@@download) and add it to your Volto app ({file}`frontend`) using this path and name: `src/customizations/components/theme/Logo/Logo.svg`.
+You can use component shadowing to change the logo.
 
-After a restart of Volto ({kbd}`ctrl + c` and {kbd}`yarn start`) your page should look like this:
+Create your own logo as a svg image and add it to your Volto app using this path and name: {file}`/src/customizations/components/theme/Logo/Logo.svg`.
 
-```{figure} _static/volto_customized_logo.png
-:alt: The customized Logo.
-```
+After a restart of Volto ({kbd}`ctrl + c` and {kbd}`yarn start`) your page should show the new logo.
+
 
 ## The Footer
 
-Customize the footer by copying ``omelette/src/components/theme/Footer/Footer.jsx`` to your customization folder at ``src/customizations/components/theme/Footer/Footer.jsx``
-After a restart you can change this Footer component and the changes are shown immediately due to hot reloading.
+Customize the footer by copying {file}`omelette/src/components/theme/Footer/Footer.jsx` to your customization folder at {file}`/src/customizations/components/theme/Footer/Footer.jsx`.
+After a restart you can change this Footer component and the changes are shown immediately due to hot module reloading.
 
 
-## The News Item View
+## The news item view
 
 We want to show the date a News Item is published.
 This way visitors can see at a glance if they are looking at current or old news.
@@ -170,16 +167,16 @@ export default NewsItemView;
 ````{note}
 - `content` is passed to `NewsItemView` and represents the content item as it is serialized by the REST API.
 
-- The view displays various attributes of the News Item using `content.title`, `content.description` or `content.text.data`
+- The view displays various attributes of the News Item using `content.title`, `content.description` or `content.text.data`.
 
-- You can inspect all data that `content` holds using the React Developer Tools for [Firefox](https://addons.mozilla.org/de/firefox/addon/react-devtools/) or [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
+- You can inspect all data hold by `content` using the React Developer Tools for [Firefox](https://addons.mozilla.org/de/firefox/addon/react-devtools/) or [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
 
 ```{figure} _static/volto_react_devtools.png
 :align: center
 ```
 ````
 
-Copy that file into `src/customizations/components/theme/View/NewsItemView.jsx`.
+Copy that file from {file}`/omelette/` to `src/customizations/components/theme/View/NewsItemView.jsx`.
 
 After restarting Volto, the new file is used when displaying a News Item.
 To make sure your file is used, add a small change before the blocks `<RenderBlocks content={content} />`.
@@ -201,7 +198,7 @@ This will render something like *2022-10-02T21:58:54*.
 Not very user friendly.
 Let's use one of many helpers available in Volto.
 
-Import the component `FormattedDate` from `@plone/volto/components` at the top of the file and use it to format the date in a readable format.
+Import the component `FormattedDate` from `@plone/volto/components` at the top of the file and use it to format the date in a human readable format.
 
 ```{code-block} jsx
 :emphasize-lines: 14,26-28
@@ -319,7 +316,8 @@ Inside Javascript we embrace html in rounded braces.
 
 ## The Listing Block
 
-When you edited the frontpage in {ref}`features-content-types-label`, you may have added a Listing block to the frontpage. If not, please do so now.
+When you edited the frontpage in {ref}`features-content-types-label`, you may have added a listing block to the front page.
+If not, please do so now.
 
 You will see that the listing block does not display the date as well.
 
