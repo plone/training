@@ -402,7 +402,5 @@ The result should look like this:
 - You need to restart Volto when you add a new override.
 
 ```{seealso}
-- <https://training.plone.org/5/volto/override-components.html>
-- <https://training.plone.org/5/voltohandson/header.html#header-component>
-- <https://training.plone.org/5/volto/override-views.html>
+Volto Hands-On training: {ref}`voltohandson-header-component-label`
 ```

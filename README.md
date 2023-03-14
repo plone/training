@@ -2,12 +2,12 @@
 
 # Training
 
-[training.plone.org](https://training.plone.org/5/) is a collection of different trainings, developed and created by the Plone Community.
+[training.plone.org](https://training.plone.org/) is a collection of different trainings, developed and created by the Plone Community.
 
 
 ## Contribute
 
-A guide on how to contribute to the trainings can be found in [Contributing to Plone Trainings Documentation](https://training.plone.org/5/contributing/).
+A guide on how to contribute to the trainings can be found in [Contributing to Plone Trainings Documentation](https://training.plone.org/contributing/).
 
 
 ## Support
