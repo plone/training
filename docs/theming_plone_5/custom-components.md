@@ -36,7 +36,7 @@ Plone has default Viewlets and ViewletManagers like ContentAbove and BelowConten
 For an overview of existing Viewlets and ViewletManagers look at the `/@@manage-viewlets` view.
 
 For more details about Viewlets/ViewletManagers and there possibilities see the Viewlets sections of the
-[Mastering Plone 5: Development chapters](https://training.plone.org/5/mastering-plone/viewlets_1.html).
+[Mastering Plone 5: Development chapters](https://2022.training.plone.org/mastering-plone/viewlets_1.html).
 
 ## Portlets
 
