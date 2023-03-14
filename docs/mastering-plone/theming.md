@@ -122,5 +122,6 @@ Open the file {file}`profiles/default/registry.xml` and add the following:
 
 The resources that are part of the registered bundle will now be deployed with every request.
 
+% This chapter will be removed. No need to update the url to /theming_plone_5
 For more information on working with CSS and JavaScript resources, please see the [resource registry documentation](https://5.docs.plone.org/adapt-and-extend/theming/resourceregistry.html)
 or the [Advanced Diazo training class](https://training.plone.org/5/theming_plone_5/adv-diazo.html).
