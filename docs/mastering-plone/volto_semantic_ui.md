@@ -43,7 +43,4 @@ const LabelExampleBasic = () => (
 export default LabelExampleBasic
 ```
 
-Another example is the [container](https://react.semantic-ui.com/elements/container/) component, that wraps content to be rendered with a margin depending on the browser window size / media query.
-You have seen this component already in the news item view.
-
 See next chapter {doc}`volto_theming` for theming with Semantic UI.
