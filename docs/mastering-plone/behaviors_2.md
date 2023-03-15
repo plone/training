@@ -124,7 +124,7 @@ The `marker` is introduced to register REST API endpoints for objects that adapt
 
 
 We now implement what we registered.
-Therfore we create a file {file}`/behaviors/votable.py` with the schema, marker interface, and the factory.
+Therefore we create a file {file}`/behaviors/votable.py` with the schema, marker interface, and the factory.
 
 ```{code-block} python
 :linenos:
