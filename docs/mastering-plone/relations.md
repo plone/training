@@ -85,7 +85,7 @@ These settings only have a effect in Plone 6 Classic.
 
 With `pattern_options` you can further configure the widget.
 
-In the following example you can specify a) where to start browsing using the _pattern-option_ `basePath` and and b) to leave the dropwdown open using `closeOnSelect`.
+In the following example you can specify a) where to start browsing using the _pattern-option_ `basePath` and b) to leave the dropdown open using `closeOnSelect`.
 
 ```{code-block} python
 :emphasize-lines: 11
