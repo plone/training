@@ -49,7 +49,7 @@ Topics covered:
 ## Component shadowing
 
 We use a technique called **component shadowing** to override an existing Volto component with our local custom version, without having to modify Volto's source code at all.
-You have to place the replacing component in the same original folder path inside the {file}`/src/customizations/` folder of your app.
+You have to place the replacing file in the same folder path inside the {file}`/src/customizations/` folder of your app as the original file in {file}`/omelette/src/`.
 
 Every time you add a file to your app, you have to restart Volto for changes taking effect.
 From that point on, the hot module reloading should kick in and reload the page automatically on changes.
@@ -78,9 +78,15 @@ After a restart you can change this Footer component and the changes are shown i
 
 We want to show the date a News Item is published.
 This way visitors can see at a glance if they are looking at current news.
-
 This information is not shown by default.
 So you need to customize the way a News Item is rendered.
+
+A News Item has date attributes.
+The attributes of a content type instance are defined by the schema of a content type and possible behaviors.
+We will have a look at schemas in {doc}`dexterity` and {doc}`dexterity_2_talk`.
+Behaviors are being described in {doc}`behaviors_1`.
+These date attributes are available when the content is fetched by the frontend.
+But let's first have a look how these attributes are used in a Volto component.
 
 The Volto view component to render a News Item is in {file}`/omelette/src/components/theme/View/NewsItemView.jsx`.
 
@@ -166,6 +172,7 @@ export default NewsItemView;
 
 ````{note}
 - `content` is passed to `NewsItemView` and represents the content item as it is serialized by the REST API.
+  The `content` data has been fetched by an action on navigating to route `http://localhost:3000/my-news-item`.
 
 - The view displays various attributes of the News Item using `content.title`, `content.description` or `content.text.data`.
 

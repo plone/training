@@ -4,12 +4,12 @@ myst:
     "description": ""
     "property=og:description": ""
     "property=og:title": ""
-    "keywords": ""
+    "keywords": "Plone, Volto, add-on, customizing"
 ---
 
 (add-ons-label)=
 
-# Extending Plone With Add-on Packages
+# Extending Plone with add-on packages
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
@@ -20,34 +20,45 @@ myst:
 For Volto add-ons see chapter {ref}`volto-addon-label`
 ````
 
-- There are more than 2,000 add-ons for Plone.
-- A curated list of awesome add-ons for Plone Classic and the backend can be found at <https://github.com/collective/awesome-plone#readme>
-- A curated list of awesome add-ons for Volto can be found at <https://github.com/collective/awesome-volto#readme>
-- Using them saves a lot of development time.
-- Their target, complexity and configurability varies a lot.
-- Add-ons that do not fit your projects needs exactly can be customized by an additonal self-written add-on.
-
-Plone 6 plays with two groups of add-ons: Add-ons for Plone and such for the frontend Volto.
-
-The need of Plone add-ons is depending if you use Plone with or without Volto frontend. As by now, development took place in Plone. Now development will be done in Plone exclusively like before or both in Plone and in ReactJS.
 
 Plone add-ons enrich the CMS by
 
 - adding content types
-- adding behaviors with new fields and relations for existing content types
-- adding content assembling features for overview pages
-- customizing the editor experience
+- adding behaviors with new fields, relations and other features for existing and custom content types
+- adding blocks to add elementary content snippets to a page
 - designing the layout
+- customizing the editor experience
+- adding content assembling features for overview pages
 
-Having a Volto frontend in place, you will apply Plone add-ons with some of the characteristics like above but also Volto add-ons that care about presentation of the content and editor experience.
+Plone 6 knows two groups of add-ons: Add-ons for Plone and such for the frontend Volto.
 
-We start with the scenario of Plone for both backend and frontend. So we use a classic Plone setup without Volto and with the huge repertoire of classic Plone add-ons. This is still be an option in particular as the number of Volto add-ons is just on the way to catch up on all the features and possibilities of Plone add-ons.
+Plone backend add-ons provide
 
-Chapter {ref}`volto-addon-label` explains how to apply one of the awesome Volto add-ons for enhancing editor experience, adding features like displaying data as charts, searching with a faceted navigation and a lot more.
+- content types
+- behaviors to enrich content types
+
+Plone frontent add-ons provide
+- new blocks
+- variations and enhancements of blocks
+- a theme to design the layout of a site
+- components independent of blocks like a dropdown navigation
+
+Both can be tightly coupled, if a frontend feature depends on an new or enriched content type or any other change needed in data structure.
+For example an add-on that has the goal to provide a bookmarking feature depends on a backend add-on that handels the storing of the bookmarks.
+
+Have a look at the curated lists of add-ons:  
+
+
+[backend add-ons](https://github.com/collective/awesome-plone#readme)  
+[frontend add-ons](https://github.com/collective/awesome-volto#readme)
+
+
+
+
 
 (add-ons-notable-label)=
 
-## Some notable Plone add-ons for a classic Plone setup without Volto frontend
+## Some notable Plone add-ons for a classic Plone set up without Volto frontend
 
 [collective.easyform](https://pypi.org/project/collective.easyform)
 

@@ -96,8 +96,6 @@ These are the tags of the backend add-on for which there is code:
 | {doc}`plone_versions` | |
 | {doc}`configuring_customizing` | |
 | {doc}`volto_overrides` | |
-| {doc}`volto_semantic_ui` | |
-| {doc}`volto_theming` | |
 | {doc}`extending` | |
 | {doc}`add-ons` | |
 | {doc}`eggs1` | initial |

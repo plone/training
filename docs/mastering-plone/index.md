@@ -1,31 +1,33 @@
 ---
 myst:
   html_meta:
-    "description": "Best practice"
-    "property=og:description": "Best practice"
+    "description": "The power of the Plone backend – best practice"
+    "property=og:description": "The power of the Plone backend – best practice"
     "property=og:title": "Mastering Plone 6 Development"
-    "keywords": "Plone"
+    "keywords": "Plone, backend"
 ---
 
 (mastering-plone-label)=
 
 # Mastering Plone 6 Development
 
-*Mastering Plone Development* is intended as a training to learn proven practices of Plone development. It's both, an online course and a sketch for an on-the-spot training.
+*Mastering Plone Development* is intended as a training to learn proven practices of Plone development.
+It's both, an online course and a sketch for an on-the-spot training.
 
 The story of a conference platform provides a week-long training of several development topics that can be split in two trainings:
 
-- A beginner training (2 to 3 days) covering the essentials of Plone and Plone Volto.
-- An advanced training (3 to 5 days) with additional advanced topics.
+- A beginner training (2 to 3 days) covering the essentials of Plone development.
+- An advanced training (3 to 5 days) with additional advanced topics concerning the Plone backend.
 
 ```{note}
-This is the *Mastering Plone 6 Development Training*.
+*Mastering Plone 6 Development Training* focuses on Plone backend architecture and topics of Volto development as long as the backend is involved.
 
-*Mastering Plone 6 Development Training* supplements {doc}`/mastering-plone-5/index` with known best practices for customizing and developing Plone 6: Plone Classic + frontend.
+We do not deal with pure Volto topics here.
+For Volto development see training {doc}`/effective-volto/index`.
 
-In chapters handling Volto React frontend is a link to a chapter that covers the corresponding tasks in Plone Classic, and vice versa.
-
-The training is a work in-progress and there are still some rough edges.
+We expect you to work with the Plone React frontend (former called Volto).
+Therefore we do not deal with Plone Classic topics here.
+For Plone Classic see training {doc}`/theming/index` and documentation {doc}`plone6docs:classic-ui/index`
 ```
 
 ```{toctree}
@@ -41,16 +43,14 @@ video
 intro
 case
 what_is_plone
+plone_versions
+features
 installation
 instructions
-features
-plone_versions
 configuring_customizing
 volto_overrides
-volto_semantic_ui
-volto_theming
-extending
 add-ons
+extending
 eggs1
 dexterity
 dexterity_2_talk

@@ -17,7 +17,6 @@ viewlets_advanced_classic
 views_1
 views_2
 views_3
-volto_richtexteditor
 zpt
 ```
 

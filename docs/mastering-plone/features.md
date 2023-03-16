@@ -276,11 +276,18 @@ Page
   ```{figure} _static/features_add_a_page.png
   ```
 
-File
+News Item
 
-: A file like a pdf, video or Word document.
+: Basically a page with an image and an image caption to be used for press releases an such.
 
-  ```{figure} _static/features_add_a_file.png
+  ```{figure} _static/features_add_a_news_item.png
+  ```
+
+Event
+
+: These are basically pages with start and end dates and some additional fields for whole day or recurring events.
+
+  ```{figure} _static/features_add_a_event.png
   ```
 
 Image
@@ -292,11 +299,11 @@ Image
   ```{figure} _static/features_add_a_image.png
   ```
 
-Event
+File
 
-: These are basically pages with start and end dates and some additional fields for whole day or recurring events.
+: A file like a pdf, video or Word document.
 
-  ```{figure} _static/features_add_a_event.png
+  ```{figure} _static/features_add_a_file.png
   ```
 
 Link
@@ -304,13 +311,6 @@ Link
 : A link to an internal or external target.
 
   ```{figure} _static/features_add_a_link.png
-  ```
-
-News Item
-
-: Basically a page with an image and an image caption to be used for press releases an such.
-
-  ```{figure} _static/features_add_a_news_item.png
   ```
 
 

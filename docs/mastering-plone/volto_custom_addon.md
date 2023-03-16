@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "Write your own Volto add-on"
     "property=og:description": "Write your own Volto add-on"
-    "property=og:title": "Extending Volto with custom add-on package"
+    "property=og:title": "Extending Volto with a custom add-on package"
     "keywords": "Plone, Volto, add-on, development"
 ---
 
 (volto-custom-addon-label)=
 
-# Extending Volto with custom add-on package
+# Extending Volto with a custom add-on package
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg

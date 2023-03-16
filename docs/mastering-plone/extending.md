@@ -22,7 +22,6 @@ myst:
 
 For extending Volto frontend see:
 
-- {ref}`volto-richtexteditor-label`
 - {ref}`volto-addon-label`
 - {ref}`volto-custom-addon-label`
 ````

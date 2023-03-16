@@ -11,15 +11,17 @@ myst:
 
 # About Mastering Plone development
 
-The *Mastering Plone Development* training is both: an online training and a handout for on-site trainings. We address developers. You are interested in best practice guides and want to learn the why and where, so read on!
+The *Mastering Plone Development* training is both: an online training and a handout for on-site trainings.  
+We address developers.
+You are interested in best practice guides and want to learn the why and where, so read on!
 
 ## The beginning and the continuation
 
-This training was initially started as a Plone Classic training and evolved now to a roundtrip on both: Plone Classic HOWTOs, same for the ReactJS frontend and the interplay between backend and frontend.
+This training was initially started as a Plone Classic training and evolved now to a roundtrip on both: Plone backend, React frontend and the interplay between backend and frontend.
 
 This training is published on [training.plone.org](https://training.plone.org/).
 
-The *Mastering Plone Development Training* is Open Source on [GitHub](https://github.com/plone/training).
+The *Mastering Plone Development Training* is Open Source.
 
 We update the training currently to teach the best practices.
 You are welcome to contribute and give feedback on [GitHub issues](https://github.com/plone/training/issues).
@@ -31,8 +33,9 @@ Thank you for reading and your charity with non-native English speakers / writer
 ## Upcoming Trainings
 
 Next Plone Conference, usually in october.
+Announced on [plone.org](https://plone.org)
 
-If you want to have an on-site training or want to attend a public training please ask for trainings on <https://community.plone.org> or one of the trainers.
+If you want to have an on-site training or want to attend a public training, please ask for trainings on [community.plone.org](https://community.plone.org) or one of the {ref}`trainers<about-trainers-label>`.
 
 
 (about-previous-label)=
@@ -77,7 +80,7 @@ Katja Süss
 
 : If not gardening she is developing with Python, Svelte and ReactJS.
   Katja is active member of teams Volto, documentation and training.
-  Together with Philip, she lifted the Plone Classic Training to Plone 6.
+  Together with Philip, she lifted the Plone Classic Training to Plone 6.  
   With a background in mathematical logics she turned towards web development and runs the web agency [Rohberg](https://rohberg.ch/) in Zurich.
   She dedicates herself especially to enthralling user experience and search assistance.
 
