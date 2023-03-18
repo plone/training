@@ -28,7 +28,7 @@ This combines the stability, maturity, and security of the Plone backend with a 
 Volto provides a block based new editing experience.
 Pages are assembled by content snippets, blocks.
 
-Plone 6 continues to allow the current server side rendering and Diazo theming without Volto.
+Plone 6 continues to allow the current server side rendering and [Diazo](https://docs.plone.org/external/diazo/docs/index.html) theming without Volto.
 This will be referred to as "Plone Classic UI".
 The classic Barceloneta based frontend in Plone 6 is modernized to use [Bootstrap 5](https://getbootstrap.com/).
 This frontend will stay in place to give developers and users time to adapt to Volto and to provide an easy upgrade path for existing projects.

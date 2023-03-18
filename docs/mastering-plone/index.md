@@ -39,7 +39,6 @@ numbered: true
 ---
 
 about_mastering
-video
 intro
 case
 what_is_plone
@@ -81,6 +80,7 @@ reusable
 deployment_code
 restapi
 code
+video
 trainer
 ```
 

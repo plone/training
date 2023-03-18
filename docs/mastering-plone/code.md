@@ -7,7 +7,7 @@ myst:
     "keywords": ""
 ---
 
-# Using the code for the training
+# The code for the training
 
 You can get the complete code for this training from GitHub.
 - The backend add-on [ploneconf.site](https://github.com/collective/ploneconf.site)
