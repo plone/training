@@ -1,3 +1,13 @@
+---
+myst:
+  html_meta:
+    "description": "Diazo notes"
+    "property=og:description": "Diazo notes"
+    "property=og:title": "Diazo notes"
+    "keywords": "Diazo, Plone, training"
+---
+
+# Diazo notes
 
 ## create addon and theme
 
