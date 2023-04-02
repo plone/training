@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone Training"
+    "property=og:description": "Plone Training"
+    "property=og:title": "Plone Training"
+    "keywords": "Plone, Training"
 ---
 
 # Plone Training
