@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Adjusting the visual representation of Plone with {term}`Diazo`
+myst:
+  html_meta:
+    "description": "Adjusting the visual representation of Plone with Diazo"
+    "property=og:description": "Adjusting the visual representation of Plone with Diazo"
+    "property=og:title": "Plone 5 Theming"
+    "keywords": "Plone, Classic UI, theming, training"
 ---
 
 (plone-5-theming-label)=

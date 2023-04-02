@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Migrating website content into a Plone site using Transmogrifier
+myst:
+  html_meta:
+    "description": "Migrating website content into a Plone site using Transmogrifier"
+    "property=og:description": "Migrating website content into a Plone site using Transmogrifier"
+    "property=og:title": "Migrating Content with Transmogrifier"
+    "keywords": "Plone, Migrate, Content, Transmogrifier"
 ---
 
 (transmogrifier-label)=
