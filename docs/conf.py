@@ -102,12 +102,7 @@ linkcheck_ignore = [
     r"https://plonedemo.kitconcept.com",  # Did Not Connect: Potential Security Issue
     r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
     r"https://www.dipf.de/.*",  # a timeout from time to time
-    r"http://plone-conference.localhost.*",
-    r"http://plone-conference.localhost:3000.*",
-    r"https://plone-conference.localhost.*",
-    # Example domain
-    "https://domain-a.com/data.json",
-    "https://domain-b.com/data.json",
+    r"https?://plone-conference.localhost.*",
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
@@ -178,16 +173,14 @@ html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
 html_css_files = ["custom.css", ("print.css", {"media": "print"})]
-html_js_files = [
-    "patch_scrollToActive.js",
-]
+html_js_files = ["patch_scrollToActive.js", "search_shortcut.js"]
 
 html_extra_path = [
     "robots.txt",
 ]
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org/5"
+html_baseurl = "https://training.plone.org"
 sitemap_url_scheme = "{link}"
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -223,8 +216,8 @@ html_theme_options = {
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html
 #
 intersphinx_mapping = {
-    "plonedocs": ("https://docs.plone.org/", None),
-    "plone6docs": ("https://6.dev-docs.plone.org/", None),
+    "plone5docs": ("https://5.docs.plone.org/", None),
+    "plone6docs": ("https://6.docs.plone.org/", None),
     "python": ("https://docs.python.org/3/", None),
 }
 
@@ -236,9 +229,9 @@ graphviz_output_format = "svg"
 
 # -- OpenGraph configuration ----------------------------------
 
-ogp_site_url = "https://training.plone.org/5/"
+ogp_site_url = "https://training.plone.org/"
 ogp_description_length = 200
-ogp_image = "https://training.plone.org/5/_static/Plone_logo_square.png"
+ogp_image = "https://training.plone.org/_static/Plone_logo_square.png"
 ogp_site_name = "Plone Training"
 ogp_type = "website"
 ogp_custom_meta_tags = [
@@ -251,7 +244,7 @@ copybutton_prompt_is_regexp = True
 
 
 # -- sphinx.ext.todo -----------------------
-# todo_include_todos = True  # Uncomment to show todos.
+todo_include_todos = True  # Uncomment to show todos.
 
 
 # An extension that allows replacements for code blocks that

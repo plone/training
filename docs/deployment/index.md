@@ -57,5 +57,5 @@ letsencrypt-certbot
 ```
 
 ```{seealso}
-<https://docs.plone.org/manage/deploying/>
+<https://5.docs.plone.org/manage/deploying/>
 ```

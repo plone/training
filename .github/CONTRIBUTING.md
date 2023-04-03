@@ -1,1 +1,1 @@
-See our [contributing guidelines](https://training.plone.org/5/contributing/index.html).
+See our [contributing guidelines](https://training.plone.org/contributing/index.html).

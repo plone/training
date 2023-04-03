@@ -177,7 +177,7 @@ You may leave off the `ansible_user` if your user ID is the same on the server.
 An inventory file may have many entries.
 You may run Ansible against one, two, all of the hosts in the inventory file, or against alias groups like "plone-servers".
 
-See [Ansible's inventory documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+See [Ansible's inventory documentation](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html)
 for information on grouping host entries and for more specialized host settings.
 
 Now, let's make things easier for us going forward by creating an {file}`ansible.cfg` file in our playbook directory.

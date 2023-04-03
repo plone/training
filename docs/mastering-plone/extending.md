@@ -30,7 +30,7 @@ In this part you will:
 
 Topics covered:
 
-- Overiding python or react components
+- Overriding python or react components
 - Component Architecture
 - ZCML
 - GenericSetup
@@ -42,7 +42,7 @@ Topic of the following chapter:
 As a developer you want to go further than simply configuring Plone, you want to extend and customize it.
 Plone is built to be extended.
 Extendability is not an afterthought but is the core of Plone and the systems it is based on.
-Instead if is a the core of its architecture.
+Instead it is the core of its architecture.
 
 ```{note}
 Plone itself even started out as an extension for CMF, which is an extension for Zope. Now Plone is the basis for many applications that extend it.

@@ -36,7 +36,7 @@ The modular and open component architecture of Plone allows you to change or ext
 
 ### Traversal
 
-- Plone uses [Traversal](https://docs.plone.org/develop/plone/serving/traversing.html) (portal/folder/document) instead of Routing
+- Plone uses [Traversal](https://5.docs.plone.org/develop/plone/serving/traversing.html) (portal/folder/document) instead of Routing
 - Python objects in a object tree that looks like a huge nested dictionary:
 
 ```python

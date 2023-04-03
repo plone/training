@@ -51,12 +51,12 @@ Other control panels, e.g. Content Rules still need to be implemented.
 1. Date and Time
 1. Language
 1. Mail
-1. Mail
 1. Navigation
 1. Search
 1. Site
 1. Social Media
 1. Undo
+1. URL Management
 1. Volto Settings
 
 The following control panels are so far only available in the backend:
@@ -78,14 +78,10 @@ The following control panels are so far only available in the backend:
 The following control panels are so far only available in the backend:
 
 1. Content Settings
-1. Content Rules
 
 ### Users
 
-1. User and Group Settings
-1. Users
-1. User Group Membership
-1. Groups
+1. Editing users
 
 ### Security
 
@@ -128,7 +124,7 @@ The view of the homepage with the customized logo.
 ```
 
 ```{seealso}
-<https://docs.plone.org/adapt-and-extend/change-the-logo.html>
+<https://5.docs.plone.org/adapt-and-extend/change-the-logo.html>
 ```
 
 (customizing-portlets-label)=
@@ -256,7 +252,7 @@ explain
 - Create new Document "Imprint" and publish
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/functionality/actions.html>
+<https://5.docs.plone.org/develop/plone/functionality/actions.html>
 ```
 
 #### Global navigation
@@ -319,5 +315,5 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 
 You can configure and customize a lot in Plone through the web.
 The most important options are accessible in the [Plone control panel](http://localhost:8080/Plone/@@overview-controlpanel) but some are hidden away in the [ZMI](http://localhost:8080/Plone/manage).
-The amount and presentation of information may be overwhelming and the differences beweeen the Volto frontend and the Classic Plone frontend adds even more complexity.
+The amount and presentation of information may be overwhelming and the differences between the Volto frontend and the Classic Plone frontend adds even more complexity.
 Don't worry, you'll get the hang of it through practice.

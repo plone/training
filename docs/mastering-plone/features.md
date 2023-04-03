@@ -12,9 +12,9 @@ myst:
 # The Features of Plone
 
 ```{seealso}
-[Plone documentation **docs.plone.org**](https://docs.plone.org/)
+[Plone documentation **docs.plone.org**](https://6.docs.plone.org/)
 
-[Chapter "Working with content" on docs.plone.org](https://docs.plone.org/working-with-content/index.html)
+[Chapter "Working with content" on docs.plone.org](https://5.docs.plone.org/working-with-content/index.html)
 ```
 
 
@@ -423,7 +423,7 @@ Event
 
 Link
 
-: A link to an internal oder external target.
+: A link to an internal or external target.
 
   ```{figure} _static/features_add_a_link.png
   ```
@@ -545,8 +545,8 @@ Making a container private does **not** automatically make its contents private.
 ```
 
 ```{seealso}
-- <https://training.plone.org/5/workflow/index.html>
-- <https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html>
+- Training {doc}`/workflow/index`
+- Plone 5 Documentation [Collaboration and Workflow](https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html)
 ```
 
 (features-wc-label)=

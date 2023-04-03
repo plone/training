@@ -1,31 +1,41 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Setting up backend and frontend"
+    "property=og:description": "Setting up backend and frontend"
+    "property=og:title": "Bootstrapping a Volto project"
+    "keywords": "Plone, Volto"
 ---
 
 (bootstrap-volto-label)=
 
-# Bootstrapping A Volto Project
+# Bootstrapping a Volto project
 
-## Installing Plone
-
-On order to run Volto you need a backend.
-This can be either Plone or Guillotina.
-For this course we will use Plone, you can download Plone at <https://plone.org/download>.
-We need plone.restapi, so make sure you have that installed and configured correctly.
-For an example look into the api folder of the Volto repository: <https://github.com/plone/volto/tree/master/api>
-
-```{warning}
-Make sure you set a CORS policy or things tend to magically go wrong. See <https://github.com/plone/volto/blob/master/api/buildout.cfg> for an example.
+```{note}
+It is recommended to work on Linux or macOS.
 ```
+
+
+## Installing Plone backend
+
+In order to run Volto you need a backend.
+This can be either Plone or Guillotina.
+For this course we will use Plone.
+Because we will focus on the frontend, for simplicity we will install a backend in a Docker container.
+The installation of a Plone backend in a Docker container is described in {ref}`plone6docs:install-containers-label`.
+ 
+In short, create a directory named `backend`, and run the following command.
+
+```shell
+docker run --name plone6-backend -e SITE=Plone -e CORS_ALLOW_ORIGIN='*' -d -p 8080:8080 plone/plone-backend:6.0
+```
+
+This installs and starts a Plone backend on port 8080.
+
 
 (install-deps-volto-label)=
 
-## Installing Prerequisites
+## Installing prerequisites for Volto (Plone frontend)
 
 First {ref}`plone6docs:frontend-getting-started-install-nvm-label`.
 
@@ -37,7 +47,7 @@ Install `@plone/generator-volto`:
 npm install -g yo @plone/generator-volto
 ```
 
-## Bootstrapping A Project
+## Create a Volto project
 
 To create a new volto project type the following:
 
@@ -47,19 +57,23 @@ yo @plone/volto
 
 Follow the prompts' questions, providing `my-volto-app` as the project name.
 
+```{warning}
+Do not start your project name with `volto`, as it will cause `plone/generator-volto` to fail.
+```
+
 It will create a folder called `my-volto-app` inside the current folder with the following structure:
 
 ```console
 my-volto-app/
 ├── babel.config.js
-├── build
-├── create-sentry-release.sh
 ├── cypress
 │   ├── fixtures
 │   ├── .gitkeep
-│   ├── integration
 │   ├── plugins
-│   └── support
+│   ├── support
+│   └── tests
+├── cypress.config.js
+├── .editorconfig
 ├── .eslintignore
 ├── .eslintrc.js
 ├── .gitignore
@@ -71,6 +85,7 @@ my-volto-app/
 ├── omelette -> node_modules/@plone/volto/
 ├── package.json
 ├── patches
+├── .prettierignore
 ├── public
 │   ├── android-chrome-192x192.png
 │   ├── android-chrome-512x512.png
@@ -100,11 +115,12 @@ my-volto-app/
 ├── .storybook
 ├── theme
 │   └── theme.config
+├── .yarn
 ├── yarn.lock
-└── .yarnrc
+└── .yarnrc.yml
 ```
 
-## Running The Project
+## Running the project
 
 To run the project you can type:
 
@@ -120,6 +136,7 @@ You can change the port and/or hostname for the frontend by specifying PORT and/
 HOST=my_hostname PORT=1234 yarn start
 ```
 
+Per default the Plone backend runs on port 8080.
 If your backend runs on a different port and/or uses a different hostname you can specify the full url:
 
 ```shell

@@ -516,5 +516,5 @@ class VotingTests(unittest.TestCase):
 ```
 ````
 
-[annotations]: https://docs.plone.org/develop/plone/misc/annotations.html
+[annotations]: https://5.docs.plone.org/develop/plone/misc/annotations.html
 [plone5_happens]: https://github.com/plone/Products.CMFEditions/commit/5c07c72bc8701cf28c9cc68ad940186b9e296ddf

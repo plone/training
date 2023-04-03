@@ -10,7 +10,7 @@ myst:
 # Bootstrap Volto
 
 ```{warning}
-For the most up-to-date information on how to get started with Volto, the official [Plone documentation](https://6.dev-docs.plone.org/volto/getting-started/install.html) is the canonical version.
+For the most up-to-date information on how to get started with Volto, the official [Plone documentation](https://6.docs.plone.org/volto/getting-started/install.html) is the canonical version.
 A copy of this information is placed here, with the caveat that it is probably already out of date by the time you're reading this.
 ```
 
@@ -133,7 +133,8 @@ docker run -it --rm --name=plone \
 ```
 
 ```{tip}
-This setup is meant only for demonstration and quick testing purposes (since it destroys the container on exit (--rm)). In case you need production ready deployment, check the latest [Plone Deployment Training](https://training.plone.org/5/plone-deployment/index.html).
+This setup is meant only for demonstration and quick testing purposes (since it destroys the container on exit (`--rm`)).
+In case you need production ready deployment, check the training {doc}`/plone-deployment/index`.
 ```
 
 ```{note}
