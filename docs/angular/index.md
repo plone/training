@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Building Angular 4 apps using the Plone REST API.
+myst:
+  html_meta:
+    "description": "How to build Angular 4 applications using the Plone REST API"
+    "property=og:description": "How to build Angular 4 applications using the Plone REST API"
+    "property=og:title": "How to build Angular 4 applications using the Plone REST API"
+    "keywords": "Plone, REST, API, Angular, training"
 ---
 
 (angular-label)=
