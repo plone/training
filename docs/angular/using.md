@@ -11,7 +11,7 @@ myst:
 
 ## Preparing The Plone Backend
 
-We need a Plone server running the latest version of [Plone REST API](plone6docs:plone.restapi/docs/source/index).
+We need a Plone server running the latest version of {doc}`Plone REST API <plone6docs:plone.restapi/docs/source/index>`.
 
 We will use a [Plone pre-configured Heroku instance](https://github.com/collective/training-sandbox).
 

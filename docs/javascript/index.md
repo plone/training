@@ -14,7 +14,7 @@ myst:
 ```{note}
 This training is for Plone 5 only.
 A rewritten training for JavaScript in Plone 6 Classic UI will follow later on.
-In the meantime [Plone 6 documentation](plone6docs:classic-ui/static-resources) is your primary source of information for JavaScript in Plone 6 Classic UI.
+In the meantime {doc}`plone6docs:classic-ui/static-resources` is your primary source of information for JavaScript in Plone 6 Classic UI.
 ```
 
 About

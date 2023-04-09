@@ -19,7 +19,7 @@ This requires the Plone site to have [plone.restapi](https://pypi.org/project/pl
 
 ```{note}
 plone.restapi is a RESTful hypermedia API for Plone.
-Read more about it in the [docs](plone6docs:plone.restapi/docs/source/index).
+Read more about it in the documentation of {doc}`Plone REST API <plone6docs:plone.restapi/docs/source/index>`.
 ```
 
 Then this plugin can be used to generate a static site from a Plone site, containing pages, structure and all of its contents.
@@ -38,7 +38,7 @@ This way there is a page structure as well.
 
 ```{note}
 Plone even allows custom types.
-Read more about this in the [docs](plone6docs:plone.restapi/docs/source/endpoints/content-types).
+Read more about this in {doc}`plone6docs:plone.restapi/docs/source/endpoints/content-types`).
 ```
 
 Each of these content objects can be compared to nodes in GatsbyJS.

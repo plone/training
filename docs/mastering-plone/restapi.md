@@ -22,7 +22,7 @@ git checkout restapi
 ```
 ````
 
-In this chapter, we will use [plone.restapi](plone6docs:plone.restapi/docs/source/index), to iteract with the backend without using Volto.
+In this chapter, we will use {doc}`plone6docs:plone.restapi/docs/source/index`, to iteract with the backend without using Volto.
 
 It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 

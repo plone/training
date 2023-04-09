@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "How to fetch data from the backend"
     "property=og:description": "How to fetch data from the backend"
-    "property=og:title": ""
+    "property=og:title": "The Sponsors Component, how to fetch data from the backend"
     "keywords": "REST API, Semantic UI"
 ---
 
@@ -227,7 +227,7 @@ React.useEffect(() => {
 ```
 
 ```{seealso}
-[Plone REST API Search](plone6docs:plone.restapi/docs/source/endpoints/searching)
+{doc}`plone6docs:plone.restapi/docs/source/endpoints/searching`
 ```
 
 
