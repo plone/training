@@ -24,7 +24,7 @@ Thank you for your collaboration.
 ```
 
 ```{toctree}
-:caption: Training Overview
+:caption: Trainings
 :maxdepth: 2
 :hidden: true
 
@@ -54,7 +54,7 @@ advanced-python/index
 ```
 
 ```{toctree}
-:caption: Plone Trainings
+:caption: Appendices
 :maxdepth: 1
 :hidden: true
 
@@ -84,6 +84,7 @@ teaching/index
 {doc}`testing/index`
 
 : Best practices for testing Plone add-ons.
+
 
 ### Volto, React and Javascript
 
@@ -128,8 +129,8 @@ teaching/index
   and how to integrate your custom JavaScript applications with Plone.
   Technologies will include NPM, Grunt, Patternslib and React.
 
-### Theming
 
+### Theming
 
 {doc}`theming/index`
 
@@ -138,6 +139,7 @@ teaching/index
 {doc}`theming_plone_5/index`
 
 : Create a Diazo-based theme as a Plone 5 add-on.
+
 
 ### Deployment
 
