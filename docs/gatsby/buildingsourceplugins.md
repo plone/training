@@ -89,7 +89,7 @@ plugins: [
   {
     resolve: 'gatsby-source-plone',
     options: {
-      baseUrl: 'https://6.demo.plone.org',
+      baseUrl: 'https://demo.plone.org',
     },
   }
 ]

@@ -339,7 +339,7 @@ speed things up.
 
 ```{note}
 We will be using [function
-components](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
+components](https://legacy.reactjs.org/docs/components-and-props.html#function-and-class-components)
 here. There is no rule in Volto that requires choosing between class components or
 function components. Pick whichever feels better. Volto itself uses both
 styles. Although the function components are a newer API, and the use of hooks

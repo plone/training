@@ -176,7 +176,7 @@ const Layout = ({ children }) => (
 In this case, the query is an attribute of the `<StaticQuery>` tag.
 
 ```{note}
-StaticQuery is different from standard components that we have seen before, because it uses a ReactJS pattern called [render props](https://reactjs.org/docs/render-props.html).
+StaticQuery is different from standard components that we have seen before, because it uses a ReactJS pattern called [render props](https://legacy.reactjs.org/docs/render-props.html).
 
 This pattern is used when there are different components of the interface that need the same piece of code/logic and we do not want to duplicate the same code.
 

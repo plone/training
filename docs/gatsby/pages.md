@@ -45,7 +45,7 @@ You can see that React components are written in a particular syntax called `JSX
 Components are functions (or ES6 classes) that accept some data and renders some HTML.
 
 ```{note}
-You can see more information in the official [ReactJS documentation](https://reactjs.org/docs/components-and-props.html)
+You can see more information in the official [ReactJS documentation](https://legacy.reactjs.org/docs/components-and-props.html).
 ```
 
 ## Exercise
