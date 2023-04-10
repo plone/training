@@ -172,8 +172,7 @@ html_theme = "sphinx_book_theme"
 html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
-html_css_files = ["custom.css", ("print.css", {"media": "print"})]
-html_js_files = ["patch_scrollToActive.js", "search_shortcut.js"]
+html_css_files = [("print.css", {"media": "print"})]
 
 html_extra_path = [
     "robots.txt",
