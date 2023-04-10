@@ -195,11 +195,6 @@ html_theme_options = {
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,
-    "extra_navbar": f"""
-        <p class="ploneorglink">
-            <a href="https://plone.org">
-                <img src="{html_baseurl}/_static/logo.svg" alt="plone.org" /> plone.org</a>
-        </p>""",
 }
 
 
