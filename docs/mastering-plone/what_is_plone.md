@@ -299,7 +299,7 @@ Here are some basics that you need to understand if you are new to Volto:
 
 - All data is stored in Plone backend.
   The Volto frontend comes in to display and edit the content.
-- Volto is built in [ReactJS](https://reactjs.org), a modern Javascript Framework.
+- Volto is built in [ReactJS](https://www.reactjs.dev), a modern Javascript Framework.
 - Volto uses {doc}`plone6docs:plone.restapi/docs/source/index` to communicate with the Plone backend.
 - Volto is installed separately from the Plone backend.
   See chapter {ref}`instructions-install-frontend-label` for instructions.

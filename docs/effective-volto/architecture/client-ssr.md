@@ -45,4 +45,4 @@ communication protocol, all the available endpoints, etc. are provided by the
 
 Sometimes view components have code that fetches content via async network
 calls. In case that content should be rendered together with the rest of
-the generated HTML, you need to follow the {doc}`../addons/asyncconect` chapter.
+the generated HTML, you need to follow the {doc}`../addons/asyncconnect` chapter.
