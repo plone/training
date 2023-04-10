@@ -29,7 +29,7 @@ In each terminal session you should be in your project folder `volto-hands-on-tr
 
 ### Plone environment
 
-To run our Volto site, we will use the lates Plone 6 backend Docker image.
+To run our Volto site, we will use the latest Plone 6 backend Docker image.
 You can start it by running the following command:
 
 ```shell
