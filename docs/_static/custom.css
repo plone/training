@@ -1,4 +1,4 @@
-html {
+html[data-theme=light], html[data-theme=dark] {
     --sbt-color-announcement: #3f0000;
 }
 a:hover {
