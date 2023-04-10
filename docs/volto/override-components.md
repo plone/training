@@ -30,8 +30,9 @@ Replace the logo with a logo of your choice.
 When we want to override a specific component, it works exactly the same as the above example with an image.
 Locate the `Tags.jsx` file and override this file so that there is a label in front of the tags with: `Tags:`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```jsx
 /**

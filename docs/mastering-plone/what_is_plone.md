@@ -226,7 +226,7 @@ This gives Plone its easy SEO-friendly URLs.
 
 Traversal through the object database is security checked at every point via very fine grained access-control lists.
 
-```{admonition} Acquisition
+```{note} Acquisition
 
 One missing piece is important and complicated: `Acquisition`.
 
@@ -332,7 +332,7 @@ Since Plone 6 it uses [Bootstrap 5](https://getbootstrap.com/).
 The Plone Classic frontend uses the template-engine [Chameleon](https://chameleon.readthedocs.io/en/latest/) to create html.
 
 
-```{admonition} Choosing the right frontend
+```{note} Choosing the right frontend
 
 Here are some pointers that may help you decide:
 

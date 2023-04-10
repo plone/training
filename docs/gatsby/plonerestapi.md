@@ -121,8 +121,9 @@ If not, the function will finish execution before the data is even retrieved and
 Read more about GET requests with Axios in the [official docs](https://www.npmjs.com/package/axios#example).
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```javascript
 exports.sourceNodes = async ({ actions }) => {

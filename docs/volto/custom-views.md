@@ -168,8 +168,9 @@ export const views = {
 Create the `Album View` that shows the images in a grid.
 You can use the `Card` class from `semantic-ui`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `components/AlbumView/AlbumView.jsx`
 

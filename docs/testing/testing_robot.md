@@ -203,8 +203,9 @@ Try not copying it and try using the robot framework syntax by yourself.
 In the [robot framework documentation](https://5.docs.plone.org/external/plone.app.robotframework/docs/source/index.html) you can find some information that can help you write your first robot framework test.
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{literalinclude} _snippets/test_ct_testing_item.robot
 :language: text
@@ -219,8 +220,9 @@ Now let's test something that we can't test using functional tests: JavaScript.
 - Add a basic mockup pattern to testing-item-view (for example, the [autotoc](https://plone.github.io/mockup/dev/#pattern/autotoc) pattern)
 - Check that the table of contents is rendered on the page
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 > First, add autotoc to the template:
 >
@@ -245,8 +247,9 @@ For the last JavaScript test, try to simulate clicks.
 - The autotoc pattern can also be used for generate tabs.
 - Check that clicking on tabs results in changes to the document object model (DOM).
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 > Add tabs to the template:
 >

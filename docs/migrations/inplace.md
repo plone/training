@@ -78,8 +78,9 @@ Inspect the log to identify some of the major changes for Plone 6:
 * ...
 
 
-````{admonition} The full log output
-:class: toggle
+````{dropdown} The full log output
+:animate: fade-in-slide-down
+:icon: question
 
 ```console
 2022-10-02 10:44:51,093 INFO    [plone.app.upgrade:293][waitress-3] Starting the migration from version: 5217

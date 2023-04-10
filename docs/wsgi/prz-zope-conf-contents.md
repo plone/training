@@ -67,8 +67,9 @@ python-check-interval 1000
 Let's say you temporarily want Plone to listen on port 9080 instead of the default 8080.
 How could you do this without changing the buildout configuration?
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 The http server address would be the address Waitress is listening on configured in `parts/instance/etc/wsgi.ini`.
 Change the line starting with `listen` in the first section of the file:
@@ -100,8 +101,9 @@ Same task as in exercise 1. If instead you add an http-server section to `parts/
 
 What do you expect to happen when executing `bin/instance fg`?
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 You will see an error because `http-server` is not known from Zope's `wsgischema.xml`:
 

@@ -219,8 +219,9 @@ Run the development server with `gatsby develop` and navigate to GraphiQL explor
 
 Try to get data for a particular page with id `https://demo.plone.org/demo/a-news-item`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Since it is a News Item, we can directly use GraphQL to query for `ploneNewsItem`:
 

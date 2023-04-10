@@ -53,8 +53,9 @@ If you already have it, you can skip this step.
 npm install -g grunt-cli
 ```
 
-````{note}
-:class: toggle
+````{dropdown}
+:animate: fade-in-slide-down
+:icon: question
 
 If you get an error with {program}`node` on Debian/Ubuntu, please check if you already have `/usr/bin/node`,
 if not create a symlink like:
@@ -138,8 +139,9 @@ It is now safe to deactivate the `mrbob` virtualenv:
 (mrbobvenv): deactivate
 ```
 
-````{hint}
-:class: toggle
+````{dropdown}
+:animate: fade-in-slide-down
+:icon: question
 
 This would be the perfect time to initialize your package with Git and put your files under version control:
 
@@ -576,8 +578,9 @@ If something is wrong with the theme, you can always go to <http://localhost:808
 
 This control panel will never be themed, so it works even if the theme might be broken.
 
-````{hint}
-:class: toggle
+````{dropdown}
+:animate: fade-in-slide-down
+:icon: question
 
 Don't forget to commit any changes on your package to version control.
 After the first buildout run, there are some new files and folders.

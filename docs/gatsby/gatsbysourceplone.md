@@ -74,8 +74,9 @@ Explore different content object types and also take a look at the breadcrumbs d
 Hints: Query all objects of a type with `allPloneEvent`, `allPloneNewsItem` and so on.
 Breadcrumbs data for every content node is available to us with `allPloneBreadcrumbs`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```text
 {

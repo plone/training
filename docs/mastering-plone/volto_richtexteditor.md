@@ -105,8 +105,9 @@ const customInline = {
 };
 ```
 
-````{admonition} Complete code of the configuration
-:class: toggle
+````{dropdown} Complete code of the configuration
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :linenos:

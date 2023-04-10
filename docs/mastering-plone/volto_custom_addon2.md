@@ -67,8 +67,9 @@ const FAQ = ({ data }) => {
 
 We primarily loop over the accordion elements and we remember the extended (not collapsed) elements.
 
-````{admonition} Complete code of the FAQ component
-:class: toggle
+````{dropdown} Complete code of the FAQ component
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :linenos:
@@ -290,8 +291,9 @@ const FAQListEditWidget = (props) => {
 
 You see the Volto `Form` component with its onSubmit event, the form data and the schema to be used.
 
-````{admonition} Complete code of the FAQListEditWidget component
-:class: toggle
+````{dropdown} Complete code of the FAQListEditWidget component
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 112-124

@@ -208,8 +208,9 @@ It aggregates tracebacks from many sources and (here comes the killer feature) e
 - Use `pdb` during development to experiment.
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Add this to {file}`browser/configure.zcml`:
 

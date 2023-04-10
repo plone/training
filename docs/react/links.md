@@ -127,8 +127,9 @@ export default FaqItem;
 
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/components/FaqItem.jsx

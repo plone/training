@@ -41,8 +41,9 @@ Now, if we are not logged in yet, we display in `app.component.html` a link to t
 
 Let's implement the logout link.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 We add a second link with an output bound to the `click` event, which will call the `logout()` method of our component.
 

@@ -44,8 +44,9 @@ export const settings = {
 
 Add a button to the toolbar to style a text selection as `CODE`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```jsx
 /**

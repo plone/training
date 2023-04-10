@@ -33,8 +33,9 @@ And we will exclude the `Quicklinks` folder from navigation.
 
 Let's implement the Footer component able to display those links.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 First we generate the component:
 

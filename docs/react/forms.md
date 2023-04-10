@@ -46,8 +46,9 @@ return (
   );
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/App.js
@@ -101,8 +102,9 @@ Add a question and answer value to the state which contains the values of the in
 Add `onChange` handlers to the input and textarea which will change the values in the state when the input changes.
 This pattern is called "controlled inputs".
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 17-18,26-32,49-55,58-59
@@ -235,8 +237,9 @@ Now that our values are managed in the state, we can write our submit handler.
 Write an `onSubmit` handler which reads the values from the state and adds the new FAQ item to the list.
 After the item is added, the inputs should also reset to empty values.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 And add this to the body of the function.
 

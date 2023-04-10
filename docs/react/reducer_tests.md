@@ -42,8 +42,9 @@ describe("faq", () => {
 
 Add the unit tests for the edit and delete actions for the reducer.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 1-32

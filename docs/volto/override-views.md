@@ -16,8 +16,9 @@ myst:
 Overriding existing views works exactly the same as components.
 Override the summary view so that the "Read more..." text is gone and is replaced by the rich text content.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```jsx
 /**

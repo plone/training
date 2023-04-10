@@ -152,8 +152,9 @@ For wrk, you can specify the number of threads to use with the `-t` option.
 
 Record and discuss the results.
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 tbd.
 ```
@@ -281,8 +282,9 @@ We can then use `sudo tail -f /var/log/uwsgi/emperor.log` to see what is going o
 
 Change the Plone vassal configuration so that it uses its own logfile.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 You will first need to add the logfile location to `/etc/uwsgi/vassals/plone.ini`:
 

@@ -43,8 +43,9 @@ If we open `GraphiQL` page, we will see new possible queries.
 
 Create a new page called "files-list.js" that displays a list of all files with some informations (path, size, extension) found with some query.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{literalinclude} _snippets/files-list.js
 :language: jsx

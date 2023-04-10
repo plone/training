@@ -25,8 +25,9 @@ What is necessary to implement?
 
 Remember what we did to show featured content on the front page.
 
-```{admonition} Tips for a Solution
-:class: toggle
+```{dropdown} Tips for a Solution
+:animate: fade-in-slide-down
+:icon: question
 
 - The field "type_of_talk" needs to be indexed in catalog.
 - "type_of_talk" needs to be a collection criterion
@@ -41,8 +42,9 @@ A re-start of the backend, a re-install of the add-on and a new re-index of the 
 Check the entries by switching to "Browse" button.
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 {file}`catalog.xml`
 ```xml

@@ -57,8 +57,9 @@ function App() {
 export default App;
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/App.js
@@ -117,8 +118,9 @@ export default App;
 Create the `FaqItem` component in a newly created folder called `components` which renders the same output.
 Also move all the styling of the view to {file}`components/FaqItem.css`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 {file}`components/FaqItem.jsx`
 

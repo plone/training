@@ -153,8 +153,9 @@ You need to make sure it works by checking the result in GraphiQL.
 
 Hints: use any sample data and spread it to the node, but make sure it has all the fields that are mentioned above.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 In `gatsby-node.js`:
 
