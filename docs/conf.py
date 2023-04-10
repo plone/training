@@ -186,7 +186,7 @@ html_static_path = ["_static"]
 html_theme_options = {
     "announcement": "⚠️ You are viewing the 2022 version of Plone Training. <a href='https://training.plone.org/'>View the latest version</a>. ⚠️",
     "logo": {
-        "text": "Plone Training 2023",
+        "text": "Plone Training 2022",
     },
     "path_to_docs": "docs",
     "repository_branch": "main",
