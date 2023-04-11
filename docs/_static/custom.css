@@ -7,9 +7,6 @@ a:hover {
 .bd-header-announcement__content > a {
     color: #66e5ff;
 }
-.visuallyhidden {
-  display: none;
-}
 /*:root {*/
 /*  --highlight-searchresult-color: #b9ee9e;*/
 /*  --codeblock-color: #aad993;*/
