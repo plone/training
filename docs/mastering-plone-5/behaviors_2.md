@@ -445,7 +445,7 @@ You will also have to write a 'request' dummy that mocks the `getClientAddr` and
 :icon: question
 
 There are no tests for `starzel.votablebehavior` at all at the moment.
-But you can refer to [chapter 24 (Testing in Plone)](https://training.plone.org/5/mastering-plone-5/testing.html) for how to setup unit testing for a package.
+But you can refer to [chapter 24 (Testing in Plone)](https://2022.training.plone.org/mastering-plone-5/testing.html) for how to setup unit testing for a package.
 Put the particular test for this exercise into a file named {file}`starzel.votable_behavior/starzel/votable_behavior/tests/test_voting`.
 Remember you need an empty {file}`__init__.py` file in the {file}`tests` directory to make testing work.
 You also need to add `starzel.votable_behavior` to `test-eggs` in {file}`buildout.cfg` and re-run buildout.
