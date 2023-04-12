@@ -1,9 +1,9 @@
-name: Build and deploy training documentation to training.plone.org
+name: Build and deploy training documentation to 2022.training.plone.org
 
 on:
   push:
     branches:
-      - "main"
+      - "2022"
 
 jobs:
   build_deploy:
