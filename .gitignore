@@ -37,3 +37,4 @@ docs/pyvenv.cfg
 /.settings/
 /lib64
 /share/python-wheels
+/share
