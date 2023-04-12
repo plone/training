@@ -88,8 +88,9 @@ We want to create a blog, so we need to edit our `pages/index.js` to list all "b
 
 Hints: try to play a bit with the `allMarkdownRemark` query and see how to retrieve all required information.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{literalinclude} _snippets/index_posts.js
 :emphasize-lines: 7,9-23,27-46

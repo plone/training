@@ -56,8 +56,9 @@ Make sure you have the 'Comic Sans MS' font installed. This is the 'ttf-mscorefo
 
 Change the breadcrumbs so that the divider is pink:
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `theme/collections/breadcrumb.variables`:
 
@@ -71,8 +72,9 @@ Change the breadcrumbs so that the divider is pink:
 For features which are not supported in Semantic UI through the variables, we can use the overrides files.
 Update the breadcrumbs so that the links are underlined.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `theme/collections/breadcrumb.overrides`:
 

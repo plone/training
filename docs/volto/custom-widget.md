@@ -253,8 +253,9 @@ export const widgets = {
 Finish the `RatingWidget` by converting the `TextWidget`.
 You can use the `Rating` component from `semantic-ui`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```jsx
 /**

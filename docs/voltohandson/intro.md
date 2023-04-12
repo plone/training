@@ -26,7 +26,7 @@ Tell us about yourselves:
 
 Some technologies and tools we use during the training:
 
-- React <https://reactjs.org/>
+- React <https://react.dev/>
 - Yarn <https://yarnpkg.com>
 - JSX
 - Volto <https://github.com/plone/volto>

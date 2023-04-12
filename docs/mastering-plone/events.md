@@ -296,8 +296,9 @@ body.userrole-reviewer {
 
 Find out where the event behavior is defined and which fields it offers.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 The name you used to enable the behavior {file}`Talk.xml` is registered in zcml.
 So `name="plone.eventbasic"` should be easy to find.

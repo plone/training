@@ -130,8 +130,9 @@ const App = () => {
 export default App;
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/App.js
@@ -318,8 +319,9 @@ function Faq() {
 export default Faq;
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/components/Faq.jsx
@@ -391,8 +393,9 @@ export default Faq;
 
 Now that we factored out the edit and delete actions from the `Faq` component, update the `FaqItem` component to call the actions we created for our store.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 2,5,13,19,38

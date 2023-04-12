@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "How to fetch data from the backend"
     "property=og:description": "How to fetch data from the backend"
-    "property=og:title": ""
+    "property=og:title": "The Sponsors Component, how to fetch data from the backend"
     "keywords": "REST API, Semantic UI"
 ---
 
@@ -227,7 +227,7 @@ React.useEffect(() => {
 ```
 
 ```{seealso}
-[Plone REST API Search](plone6docs:plone.restapi/docs/source/endpoints/searching)
+{doc}`plone6docs:plone.restapi/docs/source/endpoints/searching`
 ```
 
 
@@ -343,8 +343,9 @@ With the subscription `sponsors` we can now show a nested list.
 </List>
 ```
 
-````{admonition} Complete code of the Sponsors component
-:class: toggle
+````{dropdown} Complete code of the Sponsors component
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :linenos:
@@ -452,8 +453,9 @@ See the new footer. A restart is not necessary as we didn't add a new file. The 
 
 Modify the component to display a sponsor logo as a link to the sponsors website. The address is set in sponsor field "url". See the documentation of [Semantic UI React](https://react.semantic-ui.com/elements/image/#types-link).
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 3-5

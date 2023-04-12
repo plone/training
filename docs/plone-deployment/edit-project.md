@@ -103,7 +103,7 @@ Always stay logged in as an Administrator in your primary web browser, and use y
 ### Create a GitHub OAuth application
 
 Both Plone user interfaces require the creation of a GitHub OAuth application.
-Follow the GitHub documentation [Creating an OAuth App](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app).
+Follow the GitHub documentation [Creating an OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app).
 
 You can configure the GitHub OAuth application to use only one Plone user interface at a time, but you can switch back and forth by changing the values.
 We will start with Classic UI configuration.

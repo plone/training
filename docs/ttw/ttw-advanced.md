@@ -105,8 +105,9 @@ What property in the {file}`manifest.cfg` file defines the source CSS/Less file 
 
 What do you think is the purpose of the `prefix` property?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 The main rules are defined by the `rules` property (you could point this anywhere, however the accepted convention is to use a file named {file}`rules.xml`.
 
@@ -178,8 +179,9 @@ Look back at the `<body>` classes for a manager, then see if you can answer the 
 2. Can you see other differences?
 3. What do you think the `plone-toolbar-expanded` class does?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 The manager also has the role "member" and "authenticated"
 

@@ -50,8 +50,9 @@ function App() {
 export default App;
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/App.js
@@ -111,8 +112,9 @@ export default App;
 To save space in the view, we want to show and hide the answer when you click on the question.
 Add a state variable to the `FaqItem` component, which keeps the state of the answer being shown or not, and adjust the render method to show or hide the answer.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 {file}`components/FaqItem.jsx`
 

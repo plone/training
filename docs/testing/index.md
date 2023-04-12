@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Best practices for testing Plone add-ons
+myst:
+  html_meta:
+    "description": "Best practices for testing Plone add-ons"
+    "property=og:description": "Best practices for testing Plone add-ons"
+    "property=og:title": "Testing Plone"
+    "keywords": "Plone, testing, training"
 ---
 
 (testing-plone-label)=

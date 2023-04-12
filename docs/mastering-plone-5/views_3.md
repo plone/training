@@ -249,8 +249,9 @@ Since you now know how to query the catalog it is time for some exercise.
 
 Add a method {py:meth}`get_news` to {py:class}`TalkListView` that returns a list of brains of all News Items that are published and sort them in the order of their publishing date.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:
@@ -270,8 +271,9 @@ def get_news(self):
 
 Add a method that returns all published keynotes as objects.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:
@@ -412,8 +414,9 @@ Handy but sometimes irritating since from looking at the page template alone we 
 Modify the view to only use path expressions.
 This is **not** best practice but there is plenty of code in Plone and in add-ons so you have to know how to use them.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :linenos:

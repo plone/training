@@ -1,30 +1,18 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone Training"
+    "property=og:description": "Plone Training"
+    "property=og:title": "Plone Training"
+    "keywords": "Plone, Training"
 ---
 
 # Plone Training
 
-A collection of trainings developed and created by the Plone Community.
-
-```{important}
-Some of these trainings shall be archived, and others retained.
-If you are an author or presenter, please review the issue documenting the plan to archive and retain trainings by 2023-03-31 at:
-
-https://github.com/plone/training/issues/672
-
-Soon thereafter we will execute the plan.
-Thank you for your collaboration.
-
-~ The Plone Documentation and Training Teams
-```
+An archived collection of trainings developed and created by the Plone Community.
 
 ```{toctree}
-:caption: Training Overview
+:caption: Trainings
 :maxdepth: 2
 :hidden: true
 
@@ -54,7 +42,7 @@ advanced-python/index
 ```
 
 ```{toctree}
-:caption: Plone Trainings
+:caption: Appendices
 :maxdepth: 1
 :hidden: true
 
@@ -84,6 +72,7 @@ teaching/index
 {doc}`testing/index`
 
 : Best practices for testing Plone add-ons.
+
 
 ### Volto, React and Javascript
 
@@ -128,8 +117,8 @@ teaching/index
   and how to integrate your custom JavaScript applications with Plone.
   Technologies will include NPM, Grunt, Patternslib and React.
 
-### Theming
 
+### Theming
 
 {doc}`theming/index`
 
@@ -138,6 +127,7 @@ teaching/index
 {doc}`theming_plone_5/index`
 
 : Create a Diazo-based theme as a Plone 5 add-on.
+
 
 ### Deployment
 

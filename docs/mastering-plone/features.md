@@ -90,8 +90,9 @@ Open the file `backend/instance/etc/zope.ini` in your favorite editor.
 Now let's say you want Plone to listen on port 9080 instead of the default 8080.
 How could you do this?
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```ini
 [server:main]
@@ -125,8 +126,9 @@ $ RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
 
 Knowing that `venv/bin/zconsole debug instance/etc/zope.conf` basically offers you a Python prompt, how would you start to explore Plone?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Use `locals()` or `locals().keys()` to see Python objects available in Plone
 
@@ -137,8 +139,9 @@ You will get notified that `app` is automatically bound to your Zope application
 
 The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
 
-`````{admonition} Solution
-:class: toggle
+`````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
 
@@ -177,8 +180,9 @@ You have been warned.
 
 Change the port of the frontend to 1234
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
 

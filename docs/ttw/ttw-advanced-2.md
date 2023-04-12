@@ -135,8 +135,9 @@ Then try to answer the following:
 2. There are several viewlets, how many do you count?
 3. Can you identify any portlets, what do you think they are for?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 1. The "content-core" does not include the "title" and "description" while the "content" combines the "title", "description" and "content-core".
 2. Out of the box there are six viewlets (`viewlet-above-content`, `viewlet-above-content-title`, `viewlet-below-content-title`, `viewlet-above-content-body`, `viewlet-below-content-body`, `viewlet-below-content`).
@@ -207,8 +208,9 @@ See the diagram below:
 ```{image} ./_static/theming-dropping-thesearchsection.png
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 The `div` which contains the checkbox has the class `searchSection` applied.
 To remove it, extend your {file}`rules.xml` to include the following lines:
@@ -310,7 +312,8 @@ The supporting files (CSS, JavasSript and other files) may be in subdirectories.
    Then upload it to the theme control panel.
 
    ```{hint}
-   :class: toggle
+   :animate: fade-in-slide-down
+   :icon: question
 
    This is a generic theme, it does not provide the Plone/Diazo specific {file}`rules.xml` or {file}`manifest.cfg` files.
    When you upload the zip file, the theming tool generates a {file}`rules.xml` file.
@@ -335,7 +338,8 @@ The supporting files (CSS, JavasSript and other files) may be in subdirectories.
    ```
 
    ```{hint}
-   :class: toggle
+   :animate: fade-in-slide-down
+   :icon: question
 
    You can identify the theme path by reading your browser's address bar when your theme is open in the theming tool.
    You'll need to include the proper theme path in your {file}`manifest.cfg`,
@@ -383,7 +387,8 @@ The supporting files (CSS, JavasSript and other files) may be in subdirectories.
    ```
 
 ````{hint}
-:class: toggle
+:animate: fade-in-slide-down
+:icon: question
 
 1. Add the theme file:
 
@@ -469,7 +474,8 @@ In this exercise we will alter our theme from the previous exercise to make it i
 1. Update the {file}`rules.xml` file to include Barceloneta rules.
 
    ```{hint}
-   :class: toggle
+   :animate: fade-in-slide-down
+   :icon: question
 
    Use `<xi:include href="++theme++barceloneta/rules.xml" />`
    ```
@@ -478,7 +484,8 @@ In this exercise we will alter our theme from the previous exercise to make it i
    Rename the theme's {file}`index.html` to {file}`front.html` and add a copy of the Barceloneta {file}`index.html`.
 
    ````{hint}
-   :class: toggle
+   :animate: fade-in-slide-down
+   :icon: question
 
    Copy the contents of the Barceloneta {file}`index.html` file, then add it to the theme as the new {file}`index.html` file.
 

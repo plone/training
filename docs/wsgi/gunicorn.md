@@ -148,8 +148,9 @@ The Zope documentations reports several performance issues with gunicorn, s. <ht
 
 Modify `gunicorn-alt.cfg` so it uses the `eventlet` worker class. Check the number of database connections in the ZMI. What do you notice?
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 You need to add `eventlet` to the list of eggs of the `[gunicorn]` part and modify the command line for `[gunicorn-instance]`
 

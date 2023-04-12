@@ -1,9 +1,13 @@
 ---
-html_meta:
-  description: Building blazing-fast static websites with GatsbyJS
+myst:
+  html_meta:
+    "description": "Building blazing-fast static websites with GatsbyJS"
+    "property=og:description": "Building blazing-fast static websites with GatsbyJS"
+    "property=og:title": "Building blazing-fast static websites with GatsbyJS"
+    "keywords": "Plone, static, websites, GatsbyJS, training"
 ---
 
-% gatsby-label:
+(gatsby-label)=
 
 # GatsbyJS
 

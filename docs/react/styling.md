@@ -23,8 +23,9 @@ import "./App.css";
 
 Style the component so that the dot on each item is removed and the question is underlined.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 {file}`App.css`
 

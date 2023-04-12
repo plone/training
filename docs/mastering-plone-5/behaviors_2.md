@@ -376,8 +376,9 @@ Everything else is just python.
 Refactor the voting behavior so that it uses `BTrees` instead of `PersistentDict` and `PersistentList`.
 Use `OOBTree` to replace `PersistentDict` and `OIBTree` to replace `PersistentList`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 change {file}`behavior/voting.py`
 
@@ -439,8 +440,9 @@ Look at the file `ZODB/ConflictResolution.txt` in the `ZODB3` egg for how to cre
 Look at the test code in `zope.annotation` for how to create annotatable dummy content.
 You will also have to write a 'request' dummy that mocks the `getClientAddr` and `getHeader` methods of Zope's HTTP request object to make the `_hash` method of the voting behavior work.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 There are no tests for `starzel.votablebehavior` at all at the moment.
 But you can refer to [chapter 24 (Testing in Plone)](https://training.plone.org/5/mastering-plone-5/testing.html) for how to setup unit testing for a package.

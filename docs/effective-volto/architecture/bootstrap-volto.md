@@ -150,7 +150,7 @@ execute `docker run` will be use to persist the backend server data.
 ```
 
 If you are somewhat familiar with Python development, you can also install Plone locally
-without using Docker. Check the [backend configuration](../configuration/backend.md) section.
+without using Docker. Check the {doc}`../getting-started` section.
 It also has more information on plone.volto.
 
 

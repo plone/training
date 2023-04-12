@@ -100,8 +100,9 @@ function Faq() {
 export default Faq;
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 -import { useState } from "react";

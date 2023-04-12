@@ -104,8 +104,9 @@ In the theming tool, open the {file}`manifest.cfg` spend a minute or two looking
 2. What property in the {file}`manifest.cfg` file defines the source CSS/Less file used by the theme?
 3. What do you think is the purpose of the `prefix` property?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 1. The main rules are defined by the `rules` property (you could point this anywhere, however the accepted convention is to use a file named {file}`rules.xml`.
 2. The `development-css` property points at the main Less file, when compiled to CSS it is placed in the location defined by the `production-css` property.
@@ -172,8 +173,9 @@ Look back at the `<body>` classes for a manager. Can you answer the following qu
 2. Can you see other differences?
 3. What do you think the `plone-toolbar-expanded` class does?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 1. The manager also has the role "member" and "authenticated"
 2. There are `plone-toolbar` classes added to the `<body>` element, these control the display of the toolbar

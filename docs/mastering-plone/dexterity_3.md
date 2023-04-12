@@ -202,8 +202,9 @@ After reinstalling our package we can create the new type.
 
 Sponsors are containers but they don't need to be. Turn them into items by changing their class to {py:class}`plone.dexterity.content.Item`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Modify the instance class.
 

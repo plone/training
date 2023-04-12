@@ -95,8 +95,9 @@ Numerous logging handlers are defined in the [Python standard library](https://d
 Configure Plone access logging to a TCP Server using `logging.handlers.SocketHandler` from the Python standard library.
 Use a local address.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Add the following two lines to your buildout configuration (we use `options.cfg`) from the `wsgitraining_buildout` as a starting point:
 

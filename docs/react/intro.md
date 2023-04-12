@@ -26,7 +26,7 @@ Tell us about yourselves:
 
 Some technologies and tools we use during the training:
 
-- React https://reactjs.org/
+- React https://react.dev/
 - create-react-app https://github.com/facebook/create-react-app
 - Yarn https://yarnpkg.com
 - JSX

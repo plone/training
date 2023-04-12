@@ -137,7 +137,7 @@ Here are some noteworthy changes:
 
 - New navigation with dropdown.
   Site-Administrators can use the navigation control panel `/@@navigation-controlpanel` to configure the dropdown-navigation.
-- Plone 5.2 ships with [plone.restapi](plone6docs:plone.restapi/docs/source/index).
+- Plone 5.2 ships with {doc}`plone6docs:plone.restapi/docs/source/index`.
 - New Login.
   The old skin templates and skin scripts were replaced by browser views that are much easier to customize.
 - Merge `Products.RedirectionTool` into core.

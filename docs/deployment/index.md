@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Deploying Plone with Ansible and OpsWorks
+myst:
+  html_meta:
+    "description": "Deploying Plone with Ansible and OpsWorks"
+    "property=og:description": "Deploying Plone with Ansible and OpsWorks"
+    "property=og:title": "Deploying Plone with Ansible and OpsWorks"
+    "keywords": "Plone, deploy, WSGI, training"
 ---
 
 (automating-deployment-label)=

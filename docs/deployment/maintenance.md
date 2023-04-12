@@ -9,7 +9,7 @@ myst:
 
 # Maintenance Strategies
 
-```{admonition} About
+```{note} About
 This section covers strategies for long-run maintenance of your playbook.
 ```
 

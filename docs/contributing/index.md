@@ -1,19 +1,19 @@
 ---
 myst:
   html_meta:
-    "description": "Contributing to Plone Trainings Documentation"
-    "property=og:description": "Contributing to Plone Trainings Documentation"
-    "property=og:title": "Contributing to Plone Trainings Documentation"
+    "description": "Contributing to Plone Training"
+    "property=og:description": "Contributing to Plone Training"
+    "property=og:title": "Contributing to Plone Training"
     "keywords": "Plone, Trainings, Plone Contributor Agreement, License, Code of Conduct"
 ---
 
 (contributing-index-label)=
 
-# Contributing to Plone Trainings Documentation
+# Contributing to Plone Training
 
-This document describes how to contribute to the Plone Trainings Documentation.
+This document describes how to contribute to the Plone Training.
 
-Contributions to the Plone Trainings documentation are welcome.
+Contributions to the Plone Training are welcome.
 
 
 (contributing-permission-to-publish-label)=

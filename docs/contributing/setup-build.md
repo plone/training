@@ -4,7 +4,7 @@ myst:
     "description": "How to set up the training locally"
     "property=og:description": "How to set up the training locally"
     "property=og:title": "Building and Checking the Quality of Documentation"
-    "keywords": ""
+    "keywords": "Build, Check, quality, documentation"
 ---
 
 (setup-build-label)=

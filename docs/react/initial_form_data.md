@@ -20,8 +20,9 @@ Change the render method to show a form (similar to the "add" form) in "edit" mo
 The `onSave` handler can be a dummy handler for now.
 First we will focus on the two modes.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 7,16-23,26-40,48,50-51
@@ -158,8 +159,9 @@ export default FaqItem;
 
 Create a controlled form like the add form, and pass an `onEdit` handler to the `FaqItem` component, like we did with the `onDelete`.
 
-````{admonition} FaqItem.jsx
-:class: toggle
+````{dropdown} FaqItem.jsx
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 8-9,20-28,34,44-48,52-56,80
@@ -318,8 +320,9 @@ export default FaqItem;
 ```
 ````
 
-````{admonition} App.js
-:class: toggle
+````{dropdown} App.js
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 34-38,57
