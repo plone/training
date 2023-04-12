@@ -166,12 +166,13 @@ const Search = {
   init: () => {
     const query = new URLSearchParams(window.location.search).get("q");
     const training = new URLSearchParams(window.location.search).get("training");
+    const select = document
+      .querySelector('select[name="training"]')
     document
       .querySelectorAll('input[name="q"]')
       .forEach((el) => (el.value = query));
-    document
-      .querySelectorAll('select[name="training"]')
-      .forEach((el) => (el.value = training))
+    if (training) select.value = training;
+    else select.value = "all";
     if (query) Search.performSearch(query, training);
   },
 
