@@ -1,27 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone Training"
+    "property=og:description": "Plone Training"
+    "property=og:title": "Plone Training"
+    "keywords": "Plone, Training"
 ---
 
 # Plone Training
 
 A collection of trainings developed and created by the Plone Community.
-
-```{important}
-Some of these trainings shall be archived, and others retained.
-If you are an author or presenter, please review the issue documenting the plan to archive and retain trainings by 2023-03-31 at:
-
-https://github.com/plone/training/issues/672
-
-Soon thereafter we will execute the plan.
-Thank you for your collaboration.
-
-~ The Plone Documentation and Training Teams
-```
 
 ```{toctree}
 :caption: Training Overview
@@ -30,27 +18,14 @@ Thank you for your collaboration.
 
 mastering-plone/index
 mastering-plone-5/index
-react/index
-volto/index
 voltohandson/index
 voltoaddons/index
 effective-volto/index
 testing/index
 theming/index
-theming_plone_5/index
-javascript/index
 plone-deployment/index
-deployment/index
-deployment/opsworks/index
-wsgi/index
-ttw/index
-solr/index
 workflow/index
 migrations/index
-transmogrifier/index
-gatsby/index
-angular/index
-advanced-python/index
 ```
 
 ```{toctree}
@@ -64,9 +39,7 @@ teaching/index
 ```
 
 
-## Trainings
-
-### Development and Customization
+## Development and Customization
 
 {ref}`mastering-plone-label`
 
@@ -76,24 +49,12 @@ teaching/index
 
 : Mastering Plone 5 is a training intended for people who are new to Plone or want to learn about the best practices of Plone 5 development.
 
-{doc}`ttw/index`
-
-: Create custom content types, a design for a website, layouts for home pages and content types, and custom application logic.
-  All in the browser!
-
 {doc}`testing/index`
 
 : Best practices for testing Plone add-ons.
 
-### Volto, React and Javascript
 
-{doc}`react/index`
-
-: Learn React, Redux and React-Router.
-
-{doc}`volto/index`
-
-: Build a custom website using Volto and the Plone REST API.
+## Volto, React, and Javascript
 
 {doc}`voltohandson/index`
 
@@ -114,46 +75,22 @@ teaching/index
 
 : Use, create and integrate JavaScript functionality based on [Patternslib](https://patternslib.com/) into Plone 6.
 
-{doc}`angular/index`
 
-: Building Angular 4 apps using the Plone REST API.
-
-{doc}`gatsby/index`
-
-: Building static websites with [GatsbyJS](https://www.gatsbyjs.com/).
-
-{doc}`javascript/index`
-
-: Learn best practices in JavaScript development for Plone 5, how to develop and test your own patterns,
-  and how to integrate your custom JavaScript applications with Plone.
-  Technologies will include NPM, Grunt, Patternslib and React.
-
-### Theming
-
+## Theming
 
 {doc}`theming/index`
 
-: Theming Plone 6 Cassic
+: Theming Plone 6 Classic UI
 
-{doc}`theming_plone_5/index`
 
-: Create a Diazo-based theme as a Plone 5 add-on.
-
-### Deployment
+## Deployment
 
 {doc}`plone-deployment/index`
 
 : Deploying Plone 6 for production purposes with Ansible and Docker
 
-{doc}`wsgi/index`
 
-: Deploying and Operating Plone on WSGI.
-
-{doc}`deployment/index`
-
-: How to automate deployment of Plone servers, whether it’s one server or 100.
-
-### Other
+## Other
 
 {doc}`workflow/index`
 
@@ -163,18 +100,6 @@ teaching/index
 
 : Upgrading and migrating Plone sites using `collective.exportimport` and other methods.
 
-{doc}`transmogrifier/index`
-
-: Migrating website content into a Plone site using Transmogrifier
-
-{doc}`solr/index`
-
-: How to add enterprise-grade search to your Plone site.
-
-{doc}`advanced-python/index`
-
-: How to build your own webframework from scracth
-
 {doc}`contributing/index`
 
 : All about contributing to documentation
@@ -182,3 +107,43 @@ teaching/index
 {doc}`teaching/index`
 
 : How To Give Technical Trainings
+
+
+## Archived trainings
+
+Beginning in 2022, after every Plone Conference, we take a snapshot and archive trainings conducted at the conference.
+Because we began this practice in 2022, all previous trainings that have documentation were archived.
+
+
+### 2022
+
+#### Development and Customization
+
+-   [Through-The-Web Plone Customization](https://2022.training.plone.org/ttw/index.html)
+
+
+#### Volto, React, and Javascript
+
+-   [Volto](https://2022.training.plone.org/volto/index.html)  
+-   [Angular SDK for Plone](https://2022.training.plone.org/angular/index.html)
+-   [GatsbyJS](https://2022.training.plone.org/gatsby/index.html)
+-   [JavaScript For Plone Developers (up to Plone 5)](https://2022.training.plone.org/javascript/index.html)
+-   [React](https://2022.training.plone.org/react/index.html)
+
+#### Theming
+
+-   [Plone 5 Theming](https://2022.training.plone.org/theming_plone_5/index.html)
+
+
+#### Deployment
+
+-   [Deploying and Operating Plone on WSGI](https://2022.training.plone.org/wsgi/index.html)
+-   [Automating Plone Deployment](https://2022.training.plone.org/deployment/index.html)
+-   [Plone Deployments With Amazon OpsWorks](https://2022.training.plone.org/deployment/opsworks/index.html)
+
+
+#### Other
+
+-   [Build your own webframework from scratch](https://2022.training.plone.org/advanced-python/index.html)
+-   [Migrating Content with Transmogrifier](https://2022.training.plone.org/transmogrifier/index.html)
+-   [Plone Training Solr](https://2022.training.plone.org/solr/index.html)
