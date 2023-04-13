@@ -1247,9 +1247,9 @@ Martin Aspeli's famed "DCWorkflow's Hidden Gems" blog post: <https://web.archive
 
 Page templates: <https://5.docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html#id1>
 
-Plone developer training: <https://training.plone.org/5/mastering-plone/index.html>
+Plone developer training: <https://training.plone.org/mastering-plone/index.html>
 
-Existing workflow training class: <https://training.plone.org/5/workflow/index.html> (it’s more developer oriented)
+Existing workflow training class: <https://training.plone.org/workflow/index.html> (it’s more developer oriented)
 
 Alternative tools for building forms in Plone:
 
