@@ -46,5 +46,5 @@ theme_diazo
 
 
 ```{seealso}
-- {doc}`../theming_plone_5/index`
+-   [Plone 5 Theming](https://2022.training.plone.org/theming_plone_5/index.html)
 ```
