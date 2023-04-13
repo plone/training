@@ -52,8 +52,9 @@ If in your package there are some helper methods that don't need CMS, Zope, or P
 
 Create a new file in our package with a method that takes a number and returns this number multiplied by 2, and then write an unittest for this.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 File `helper_functions.py`:
 

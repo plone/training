@@ -68,8 +68,9 @@ By default, each test is run as that logged-in user. If we want to run tests as 
 - Fix old tests.
 - Create a new one test to verify that the Contributor role can't add items of this type.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 In `rolemap.xml`:
 

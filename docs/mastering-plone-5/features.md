@@ -87,8 +87,9 @@ Read them and make sure you understand them!
 
 Open the `bin/instance` script in your favorite editor. Now let's say you want Plone to listen on port 9080 instead of the default 8080. Looking at the script, how could you do this?
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 At the end of the `bin/instance` script, you'll see the following code:
 
@@ -118,8 +119,9 @@ Change the address to 0.0.0.0:9080 and restart your instance.
 
 Knowing that `bin/instance debug` basically offers you a Python prompt, how would you start to explore Plone?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Use `locals()` or `locals().keys()` to see Python objects available in Plone
 ```
@@ -128,8 +130,9 @@ Use `locals()` or `locals().keys()` to see Python objects available in Plone
 
 The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
 
-`````{admonition} Solution
-:class: toggle
+`````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
 

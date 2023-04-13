@@ -246,8 +246,9 @@ It tests an edge case.
 There is a trick: create a new {py:class}`TestCase` Class, and set an attribute {py:attr}`level` with the value of 2.
 This test will then only be run when you run the tests with the argument `-a 2` or `--all`.
 
-% .. admonition:: Solution
-% :class: toggle
+% .. dropdown:: Solution
+% :animate: fade-in-slide-down
+% :icon: question
 
 % .. literalinclude:: ../ploneconf.site_sneak/chapters/final/src/ploneconf/site/tests/test_talk.py
 % :lines: 56-138

@@ -168,8 +168,9 @@ Use only a template (no class) to display the number of talks already submitted.
 
 Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Register the viewlet in {file}`browser/configure.zcml`
 
@@ -245,8 +246,9 @@ Use a class and a template to display the number of days until the conference.
 
 You get bonus points if you display it in a nice format (think "In 2 days" and "Last Month") by using either JavaScript or a Python library.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 In {file}`configure.zcml`:
 

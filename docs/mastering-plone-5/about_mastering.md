@@ -36,7 +36,7 @@ The Mastering Plone Training was so far held publicly at the following occasions
 - [Plone Conference 2020 Online](https://2020.ploneconf.org/)
 - [Plone Conference 2019 in Ferrara](https://2019.ploneconf.org/)
 - [Plone Conference 2018 in Tokyo](https://2018.ploneconf.org/)
-- [August 2018, Munich](https://plone.org/events/community/mastering-plone-training-in-munich)
+- [August 2018, Munich](https://plone.org/news-and-events/events/community/mastering-plone-training-in-munich)
 - [Plone Conference 2017 in Barcelona](https://2017.ploneconf.org/)
 - [Plone Conference 2016 in Boston](https://2016.ploneconf.org/)
 - [Plone Conference 2015, Bucharest](https://2015.ploneconf.org/)

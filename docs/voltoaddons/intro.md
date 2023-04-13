@@ -100,6 +100,6 @@ make start-backend
 
 [generator-volto]: https://github.com/plone/generator-volto
 [plone]: https://plone.org
-[react]: https://reactjs.org/
+[react]: https://react.dev/
 [volto]: https://github.com/plone/volto
 [yarn]: https://yarnpkg.com
