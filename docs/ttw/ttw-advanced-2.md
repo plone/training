@@ -311,7 +311,7 @@ The supporting files (CSS, JavasSript and other files) may be in subdirectories.
 1. To get started [download a copy of the New Age theme as a zip file](https://codeload.github.com/StartBootstrap/startbootstrap-new-age/zip/refs/heads/master).
    Then upload it to the theme control panel.
 
-   ```{hint}
+   ```{dropdown}
    :animate: fade-in-slide-down
    :icon: question
 
@@ -337,7 +337,7 @@ The supporting files (CSS, JavasSript and other files) may be in subdirectories.
    *Clean Blog* is a free Bootstrap theme, the latest version is available on GitHub https://github.com/StartBootstrap/startbootstrap-clean-blog
    ```
 
-   ```{hint}
+   ```{dropdown}
    :animate: fade-in-slide-down
    :icon: question
 
@@ -386,7 +386,7 @@ The supporting files (CSS, JavasSript and other files) may be in subdirectories.
    - it can be tricky to dynamically replace background images provided by inline styles.
    ```
 
-````{hint}
+````{dropdown}
 :animate: fade-in-slide-down
 :icon: question
 
@@ -473,7 +473,7 @@ In this exercise we will alter our theme from the previous exercise to make it i
 
 1. Update the {file}`rules.xml` file to include Barceloneta rules.
 
-   ```{hint}
+   ```{dropdown}
    :animate: fade-in-slide-down
    :icon: question
 
@@ -483,7 +483,7 @@ In this exercise we will alter our theme from the previous exercise to make it i
 2. Add conditional rules to {file}`rules.xml` so that the new theme is only shown to anonymous users.
    Rename the theme's {file}`index.html` to {file}`front.html` and add a copy of the Barceloneta {file}`index.html`.
 
-   ````{hint}
+   ````{dropdown}
    :animate: fade-in-slide-down
    :icon: question
 

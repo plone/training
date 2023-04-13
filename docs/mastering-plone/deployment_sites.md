@@ -76,7 +76,7 @@ Deploying Plone and production-setups are outside the scope for this training.
 
 ```{seealso}
 - <https://6.docs.plone.org/deployment/index.html>
-- <https://training.plone.org/plone-deployment/>
+- {doc}`../plone-deployment/index`
 ```
 
 (deployment-tools-label)=

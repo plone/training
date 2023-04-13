@@ -1,4 +1,4 @@
-[![Testing Status](https://github.com/plone/training/actions/workflows/test.yml/badge.svg?branch=main "Testing Status")](https://github.com/plone/training/actions/workflows/test.yml)
+[![Testing Status](https://github.com/plone/training/actions/workflows/test.yml/badge.svg?branch=2022 "Testing Status")](https://github.com/plone/training/actions/workflows/test.yml)
 
 # Training
 
@@ -7,7 +7,7 @@
 
 ## Contribute
 
-A guide on how to contribute to the trainings can be found in [Contributing to Plone Trainings Documentation](https://training.plone.org/contributing/).
+A guide on how to contribute to the trainings can be found in [Contributing to Plone Trainings](https://training.plone.org/contributing/).
 
 
 ## Support
@@ -18,8 +18,3 @@ If you have issues, please open an issue in our [Issue Tracker](https://github.c
 ## License
 
 The project is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) by the [Plone Foundation](https://plone.org).
-
-
-## The landing page
-
-The code for the landing page at https://training.plone.org is in another repository at https://github.com/plone/training.plone.org.
