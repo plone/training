@@ -40,7 +40,7 @@ Topics covered:
 
 ## plone.api
 
-The most important tool nowadays for plone developers is the add-on [plone.api](plone6docs:plone.api/content) that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task, be sure to first check if `plone.api` has a solution for you.
+The most important tool nowadays for plone developers is the add-on {doc}`plone6docs:plone.api/index` that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task, be sure to first check if `plone.api` has a solution for you.
 
 The API is divided in five sections. Here is one example from each:
 
@@ -194,22 +194,23 @@ It aggregates tracebacks from many sources and (here comes the killer feature) e
 
 - Create a new BrowserView callable as `/@@demo_content` in a new file {file}`demo.py`.
 - The view should create five talks each time it is called.
-- Use the docs at [plone.api/content](plone6docs:plone.api/content) to find out how to create new talks.
+- Use the docs at {doc}`plone6docs:plone.api/content` to find out how to create new talks.
 - Use `plone.api.content.transition` to publish all new talks. Find the docs for that method.
 - Only managers should be able to use the view (the permission is called `cmf.ManagePortal`).
 - Switch to the frontpage after calling the view.
-- Display a message about the results (see [Show notification message](plone6docs:plone.api/portal)).
+- Display a message about the results (see {ref}`plone6docs:portal-show-message-example`).
 - For extra credits use the library [requests](https://requests.readthedocs.io/en/latest/) and [Wikipedia](https://www.mediawiki.org/wiki/Wikimedia_REST_API) to populate the talks with content.
 - Use the utility methods `cropText` from `Producs.CMFPlone` to crop the title after 20 characters.
-  Use the docs at [Global utils and helpers](plone6docs:backend/global-utils) to find an overview of `plone_view` helpers.
+  Use the docs at {doc}`plone6docs:backend/global-utils` to find an overview of `plone_view` helpers.
 
 ```{note}
 - Do not try everything at once, work in small iterations, restart to check your results frequently.
 - Use `pdb` during development to experiment.
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Add this to {file}`browser/configure.zcml`:
 

@@ -86,7 +86,7 @@ The Plone Community.
 
 Now, change to your project directory {file}`plone-conference`.
 
-```{code-base} shell
+```shell
 cd plone-conference
 ```
 

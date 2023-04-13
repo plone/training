@@ -1,1 +1,0 @@
-Sphinx<5,>=4.1.2  # sphinx-book-theme 0.3.3 has requirement sphinx<5,>=3, and merged with previous pin

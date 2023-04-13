@@ -96,16 +96,16 @@ This will render as follows.
 
 ## Writing Exercises and Solutions
 
-We use a custom JavaScript in {file}`docs/_templates/page.html` to hide and show solutions to exercises in the trainings.
+We use [Sphinx Design's dropdowns](https://sphinx-design.readthedocs.io/en/latest/dropdowns.html) to hide and show solutions to exercises in the trainings.
 
-This makes use of the unique docutils [`admonition` directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#generic-admonition) which allows a custom title.
-We also use a special `:class: toggle` option for the directive.
+We use its options of `:animate: fade-in-slide-down` and `:icon: question` to animate and provide an icon for the item.
 
 Note that the markup uses [MyST nested directives](https://myst-parser.readthedocs.io/en/latest/syntax/roles-and-directives.html#nesting-directives).
 
 `````md
-````{admonition} This is a title
-:class: toggle
+````{dropdown} This is a title
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:
@@ -121,8 +121,9 @@ print(f"my {a}nd line")
 
 This will render as follows.
 
-````{admonition} This is a title
-:class: toggle
+````{dropdown} This is a title
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:

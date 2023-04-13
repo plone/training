@@ -414,8 +414,9 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
 
 Go to the ZMI and look for the definition of the new `Talk` content type in `portal_types`. Now deactivate {guilabel}`Implicitly addable?` and save. Go back to the site. Can you identify what this change has caused? And why is that useful?
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Go to <http://localhost:8080/Plone/portal_types/talk/manage_propertiesForm>
 

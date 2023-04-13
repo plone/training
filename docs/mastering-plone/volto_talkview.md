@@ -153,9 +153,9 @@ export default TalkView;
   };
   ```
 
-  See [Plone REST API Serialization](plone6docs:plone.restapi/docs/source/usage/serialization).
+  See {doc}`plone6docs:plone.restapi/docs/source/usage/serialization`.
 
-- `content.details.data` holds the raw html. To render it properly we use `dangerouslySetInnerHTML` (see <https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml>)
+- `content.details.data` holds the raw html. To render it properly we use `dangerouslySetInnerHTML` (see https://legacy.reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml).
 
 Please check the 'components' tab of Google developer tools to see the field values of your talk instance.
 

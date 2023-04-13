@@ -15,8 +15,9 @@ myst:
 
 Exercise: Create the highlights basic block using `src/components/Blocks/Highlights/View.jsx` and `src/components/Blocks/Highlights/Edit.jsx` and configure it.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `src/components/Blocks/Highlights/View.jsx`
 

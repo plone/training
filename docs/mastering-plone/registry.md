@@ -901,8 +901,9 @@ Modify {file}`frontend/src/components/Views/Talk.jsx` an add this after the `Whe
     )}
 ```
 
-````{admonition} The complete TalkView
-:class: toggle
+````{dropdown} The complete TalkView
+:animate: fade-in-slide-down
+:icon: question
 
 ```jsx
 import React from 'react';

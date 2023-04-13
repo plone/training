@@ -20,7 +20,7 @@ from datetime import datetime
 project = "Plone Training"
 copyright = """The text and illustrations in this website are licensed
  by the Plone Foundation under a Creative Commons Attribution 4.0
- International license."""
+ International license"""
 author = "Plone Community"
 trademark_name = "Plone"
 
@@ -148,9 +148,6 @@ source_suffix = {
     ".md": "markdown",
 }
 
-# The encoding of source files.
-# source_encoding = "utf-8-sig"
-
 # The master toctree document.
 master_doc = "index"
 
@@ -168,12 +165,10 @@ exclude_patterns = [
 # a list of builtin themes.
 #
 html_theme = "sphinx_book_theme"
-
 html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
 html_css_files = ["custom.css", ("print.css", {"media": "print"})]
-html_js_files = ["patch_scrollToActive.js", "search_shortcut.js"]
 
 html_extra_path = [
     "robots.txt",
@@ -189,17 +184,15 @@ sitemap_url_scheme = "{link}"
 html_static_path = ["_static"]
 
 html_theme_options = {
-    "repository_url": "https://github.com/plone/training",
-    "repository_branch": "main",
+    "logo": {
+        "text": "Plone Training 2023",
+    },
     "path_to_docs": "docs",
-    "use_repository_button": True,
-    "use_issues_button": True,
+    "repository_branch": "main",
+    "repository_url": "https://github.com/plone/training",
     "use_edit_page_button": True,
-    "extra_navbar": f"""
-        <p class="ploneorglink">
-            <a href="https://plone.org">
-                <img src="{html_baseurl}/_static/logo.svg" alt="plone.org" /> plone.org</a>
-        </p>""",
+    "use_issues_button": True,
+    "use_repository_button": True,
 }
 
 

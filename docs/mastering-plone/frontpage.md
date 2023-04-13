@@ -251,8 +251,9 @@ Also this frontpage will probably not win a beauty-contest. But that's not the t
 
 Change the link to open the talk-info in a [modal](https://plone.github.io/mockup/dev/#pattern/modal).
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :emphasize-lines: 2

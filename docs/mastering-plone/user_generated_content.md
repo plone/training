@@ -234,8 +234,9 @@ You would usually create a list of dictionaries containing the type, parent and 
 
 Create a profile `content` that runs its own post_handler in {file}`setuphandlers.py`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Register the profile and the upgrade step in {file}`configure.zcml`
 

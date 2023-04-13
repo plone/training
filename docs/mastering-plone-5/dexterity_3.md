@@ -203,8 +203,9 @@ After reinstalling our package we can create the new type.
 
 Sponsors are containers but they don't need to be. Turn them into items by changing their class to {py:class}`plone.dexterity.content.Item`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Simply modify the property `klass` in the FTI and reinstall.
 
@@ -463,8 +464,9 @@ When we're done, it should have the following fields:
 
 Do _not_ use the {py:class}`IBasic` or {py:class}`IDublinCore` behavior to add title and description. Instead add your own field `title` and give it the title _Name_.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:
@@ -603,8 +605,9 @@ This is more of a Python exercise. The gold and bronze sponsors should also have
 - Silver: 200x80
 - Bronze: 150x60
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :emphasize-lines: 10-15, 41, 44-45

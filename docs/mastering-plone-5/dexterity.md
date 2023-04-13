@@ -246,8 +246,9 @@ So, we'll ultimately want to move our new content type into a Python package. We
 
 Modify Pages to allow uploading an image as decoration (like News Items do).
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 - Go to the dexterity control panel (<http://localhost:8080/Plone/@@dexterity-types>)
 - Click on *Page* (<http://127.0.0.1:8080/Plone/dexterity-types/Document>)
@@ -275,8 +276,9 @@ Do not use the DublinCore or the Basic behavior since a speaker should not have 
 
 We could use this content type later to convert speakers into Plone users. We could then link them to their talks.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 The schema should look like this:
 
