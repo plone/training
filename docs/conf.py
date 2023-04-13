@@ -175,7 +175,7 @@ html_extra_path = [
 ]
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org"
+html_baseurl = "https://2022.training.plone.org"
 sitemap_url_scheme = "{link}"
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -223,9 +223,9 @@ graphviz_output_format = "svg"
 
 # -- OpenGraph configuration ----------------------------------
 
-ogp_site_url = "https://training.plone.org/"
+ogp_site_url = "https://2022.training.plone.org/"
 ogp_description_length = 200
-ogp_image = "https://training.plone.org/_static/Plone_logo_square.png"
+ogp_image = "https://2022.training.plone.org/_static/Plone_logo_square.png"
 ogp_site_name = "Plone Training"
 ogp_type = "website"
 ogp_custom_meta_tags = [
