@@ -4,7 +4,7 @@ myst:
     "description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
     "property=og:description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
     "property=og:title": "Authors Guide"
-    "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer"
+    "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, Vale, linkcheck, lexer"
 ---
 
 (authors-guide-label)=
@@ -34,7 +34,7 @@ myst:
     "description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
     "property=og:description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
     "property=og:title": "Authors Guide"
-    "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer"
+    "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, Vale, linkcheck, lexer"
 ---
 ```
 
@@ -44,7 +44,7 @@ This renders in the HTML `<head>` section as follows.
 <meta content="Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors." name="description" />
 <meta content="Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors." property="og:description" />
 <meta content="Authors Guide" property="og:title" />
-<meta content="Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer" name="keywords" />
+<meta content="Plone, Trainings, SEO, meta, presentation, exercises, solutions, Vale, linkcheck, lexer" name="keywords" />
 ```
 
 Additional {term}`Open Graph` metadata is implemented through the Sphinx extension [`sphinxext-opengraph`](https://github.com/wpilibsuite/sphinxext-opengraph) and the [MyST `html_meta` directive](https://myst-parser.readthedocs.io/en/latest/configuration.html#global-configuration), which resolves to the [Docutils `meta` directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#metadata).
@@ -160,29 +160,30 @@ Open `/_build/html/index.html` in a web browser.
 
 (authors-english-label)=
 
-### American English Spelling, Grammar, and Syntax
+(authors-english-label)=
 
-Spellings are enforced through [`spellcheck`](https://sphinxcontrib-spelling.readthedocs.io/en/latest/index.html).
-We use the locale `en_US`.
+### American English spelling, grammar, and syntax, and style guide
 
-Spelling is configured in {file}`Makefile`, {file}`docs/conf.py`, and {file}`docs/spelling_wordlist.txt`.
+Spellings are enforced through [`Vale`](https://vale.sh/).
+Plone uses American English.
 
-Authors should add new words and proper names using correct casing to {file}`docs/spelling_wordlist.txt`, sorted alphabetically.
+Spelling is configured in {file}`Makefile`, {file}`.vale.ini`, and in files in `styles/Vocab/Plone/`.
 
-See [default settings and configuration options](https://sphinxcontrib-spelling.readthedocs.io/en/latest/customize.html).
+Authors should add new words and proper names using correct casing to {file}`styles/Vocab/Plone/accept.txt`, sorted alphabetically and case-insensitive.
 
-To validate spelling, run the following command.
+Vale also provides English grammar and syntax checking, as well as a Style Guide.
+We follow the [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/).
+
+To perform all these checks, run the following command.
 
 ```shell
-make spellcheck
+make vale
 ```
 
-Open `/_build/spellcheck/` for each training's misspellings.
-
-Because it is difficult to automate good English grammar and syntax, we do not strictly enforce it.
+Because it is difficult to automate good American English grammar and syntax, we do not strictly enforce it.
 We also understand that contributors might not be fluent in English.
-We encourage contributors to make a reasonable effort, and to seek help from community members who are fluent in English.
-When you submit a pull request, please select a Reviewer to review your work.
+We encourage contributors to make a reasonable effort, and to request a review of their pull request from community members who are fluent in English to fix grammar and syntax.
+Please ask!
 
 
 (authors-linkcheck-label)=
@@ -308,7 +309,6 @@ You can search the [Pygments issue tracker](https://github.com/pygments/pygments
 
 
 ## Synchronize the Browser While Editing
-
 
 Use `sphinx-autobuild` to view changes in the browser while editing documentation.
 

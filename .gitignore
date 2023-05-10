@@ -6,7 +6,6 @@
 .vagrant
 *.sublime-project
 *.sublime-workspace
-_build/
 bin/
 build/
 include/
@@ -18,7 +17,6 @@ presentation/
 log/
 node_modules/
 /pip-selfcheck.json
-/pyvenv.cfg
 /training.sublime-workspace
 /.idea
 .python-version
@@ -38,3 +36,9 @@ docs/pyvenv.cfg
 /lib64
 /share/python-wheels
 /share
+
+# Generated files
+pyvenv.cfg
+/_build
+/styles/Microsoft
+

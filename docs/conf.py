@@ -62,7 +62,6 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_sitemap",
-    "sphinxcontrib.spelling",
     "sphinxext.opengraph",
 ]
 
@@ -136,12 +135,8 @@ linkcheck_allowed_redirects = {
     r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*",
 }
 linkcheck_anchors = True
-linkcheck_timeout = 10
-linkcheck_retries = 2
-
-# This is our wordlist with known words, like Github or Plone ...
-spelling_word_list_filename = "spelling_wordlist.txt"
-spelling_ignore_pypi_package_names = True
+linkcheck_timeout = 5
+linkcheck_retries = 1
 
 # The suffix of source filenames.
 source_suffix = {
@@ -155,7 +150,6 @@ master_doc = "index"
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    "spelling_wordlist.txt",
 ]
 
 
