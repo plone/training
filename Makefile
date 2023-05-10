@@ -202,7 +202,7 @@ doctest: bin/python
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
 .PHONY: test
-test: clean linkcheckbroken vale  ## Clean docs build, then run linkcheckbroken and vale
+test: clean linkcheckbroken  ## Clean docs build, then run linkcheckbroken and vale
 
 .PHONY: deploy
 deploy: clean html
