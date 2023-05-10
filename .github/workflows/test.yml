@@ -18,6 +18,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -q -r requirements.txt -c constraints.txt
+          sudo snap install --edge vale
 
       - name: Run tests with make test
         run: make test
