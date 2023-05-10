@@ -28,8 +28,6 @@ docs/pyvenv.cfg
 /lib64
 /venv
 /yarn.lock
-/.vale
-.vale.ini
 .vscode
 .*project
 /.settings/
