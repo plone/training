@@ -23,6 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -q -r requirements.txt -c constraints.txt
           pip freeze
+          sudo snap install --edge vale
 
       - name: Run Vale
         run: |
