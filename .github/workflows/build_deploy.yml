@@ -24,8 +24,12 @@ jobs:
           pip install -q -r requirements.txt -c constraints.txt
           pip freeze
 
-#      - name: Run Vale
-#        run: make vale
+      - name: Run Vale
+        run: |
+          git clone https://github.com/errata-ai/Microsoft.git
+          cp -r ./Microsoft/Microsoft ./styles
+          VALEFILES=$(find ./docs/ -type f -name "*.md" -print)
+          vale --no-exit $VALEFILES
 
       - name: Run linkcheck
         run: make linkcheck

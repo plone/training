@@ -20,7 +20,7 @@ jobs:
           pip install -q -r requirements.txt -c constraints.txt
           sudo snap install --edge vale
 
-      - name: Run tests with make test
+      - name: Run tests with make test (includes clean and linkcheckbroken)
         run: make test
 
       - name: Run Vale
