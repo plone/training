@@ -160,8 +160,6 @@ Open `/_build/html/index.html` in a web browser.
 
 (authors-english-label)=
 
-(authors-english-label)=
-
 ### American English spelling, grammar, and syntax, and style guide
 
 Spellings are enforced through [`Vale`](https://vale.sh/).
