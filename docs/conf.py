@@ -170,7 +170,8 @@ html_extra_path = [
 ]
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org"
+html_baseurl = "https://training.plone.org/"
+# https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#customizing-the-url-scheme
 sitemap_url_scheme = "{link}"
 
 # Add any paths that contain custom static files (such as style sheets) here,
