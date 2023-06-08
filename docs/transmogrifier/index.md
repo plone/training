@@ -23,7 +23,7 @@ This training will cover the necessary steps to export your current site's conte
 and migrate it to a new Plone site. The import process uses an add-on called
 'Transmogrifer'.
 
-In the [Calvin and Hobbes universe](https://www.gocomics.com/calvinandhobbes/1987/03/23), the Transmogrifier is an invention of Calvin's that would turn one thing into another.
+In the Calvin and Hobbes universe, the Transmogrifier is an invention of Calvin's that would turn one thing into another.
 Similarly, [collective.transmogrifier](https://github.com/mjpieters/collective.transmogrifier)
 provides support for building pipelines that turn one thing into another, hence greatly facilitating content import and export.
 This is a life saver when you need to migrate content from one site to another, regardless of the CMS platform.
