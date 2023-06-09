@@ -44,7 +44,7 @@ buildout -c werkzeugdebugger.cfg
 ```
 ````
 
-The werkzeug WSGI server provides an additional [debugging WSGI middleware](https://werkzeug.palletsprojects.com/en/0.16.x/debug) that renders tracebacks and also provides an interactive debug console.
+The werkzeug WSGI server provides an additional [debugging WSGI middleware](https://werkzeug.palletsprojects.com/en/latest/debug/) that renders tracebacks and also provides an interactive debug console.
 To quote from this [blog post](https://labs.detectify.com/2015/10/02/how-patreon-got-hacked-publicly-exposed-werkzeug-debugger/) this is basically remote remote code execution by design, so never use the werkzeug debugger in production (although the original vulnerability has been mitigated by introducing a debugger PIN).
 
 To get this working for Plone we first have to disable our standard exception views.
