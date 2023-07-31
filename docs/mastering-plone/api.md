@@ -142,7 +142,8 @@ Products.PDBDebugMode
 
 Interactive debugger
 
-: When starting Plone using {command}`venv/bin/zconsole debug instance/etc/zope.conf`, you'll end up in an interactive debugger.
+: Start your instance in debug mode with {command}`venv/bin/zconsole debug instance/etc/zope.conf`.
+You have an interactive debugger at your fingertips.
 `app.Plone` is your instance which you can inspect on the command line.
 : To list the ids of the objects in a folderish object:
   ```shell
