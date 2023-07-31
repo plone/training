@@ -180,8 +180,9 @@ A video of the talk [Debug like a pro. How to become a better programmer through
 - Use `pdb` during development to experiment.
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Add this to {file}`browser/configure.zcml`:
 

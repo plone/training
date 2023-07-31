@@ -375,8 +375,9 @@ It is equivalent to the absolute path {py:class}`ploneconf.site.interfaces.IPlon
 
 Do you need to bind the viewlet `featured` from the chapter {doc}`viewlets_1` to this new browser layer?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 No, it would make no difference since the viewlet is already bound to the marker interface {py:class}`ploneconf.site.behaviors.social.ISocial`.
 ```
@@ -515,8 +516,9 @@ In fact we could now simplify the view even further by only returning the brains
 
 Modify {py:class}`TalkListView` to return only brains and adapt the template to these changes. Remember to move `', '.join(brain.audience or [])` into the template.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Here is the class:
 

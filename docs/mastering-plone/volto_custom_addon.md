@@ -91,11 +91,11 @@ yarn start
 
 (volto-custom-addon-final-label)=
 
-```{admonition} Step to the next chapter and come back here for a release.
+```{note} Step to the next chapter and come back here for a release.
 We will create a new block type in the next chapter {doc}`volto_custom_addon2`. We will do this in an add-on to apply the feature to multiple projects.
 ```
 
-```{NOTE}
+```{note}
 Coming back here with the new block type, you can now release the new add-on to npm. @greenthumb is your space. See <https://www.npmjs.com/package/release>
 ```
 

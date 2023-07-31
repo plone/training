@@ -116,7 +116,7 @@ We will customize the existing Volto header, since the one we want does not diff
 We will do so by copying the original Volto `Header` component from the `omelette` folder `omelette/src/components/theme/Header/Header.jsx` folder into `src/customizations/components/theme/Header/Header.jsx`.
 
 ```{note}
-If you have not worked with React that much so far you will notice that the Navigation component in Volto is not a javascipt function. This is because in React components can also be created from a js [class](https://reactjs.org/docs/react-component.html). Actually this was the preffered way to create components in earlier versions of React. Volto is currently undergoing the progress to switch to function components where possible. But as Volto has already a rather extensive codebase this is still an ongoing process.
+If you have not worked with React that much so far you will notice that the Navigation component in Volto is not a javascipt function. This is because in React components can also be created from a js [class](https://legacy.reactjs.org/docs/react-component.html). Actually this was the preffered way to create components in earlier versions of React. Volto is currently undergoing the progress to switch to function components where possible. But as Volto has already a rather extensive codebase this is still an ongoing process.
 <!-- Remove this when the Header.jsx component has been updated to a functional component. -->
 ```
 

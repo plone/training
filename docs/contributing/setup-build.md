@@ -4,7 +4,7 @@ myst:
     "description": "How to set up the training locally"
     "property=og:description": "How to set up the training locally"
     "property=og:title": "Building and Checking the Quality of Documentation"
-    "keywords": ""
+    "keywords": "Build, Check, quality, documentation"
 ---
 
 (setup-build-label)=
@@ -18,25 +18,47 @@ This document covers how to build the Training documentation and check it for qu
 
 ## Installation
 
-Install [Enchant](https://abiword.github.io/enchant/) to check spelling.
+(setup-build-installation-python-label)=
 
-```{seealso}
-[Installation of Enchant from the PyEnchant documentation](https://pyenchant.github.io/pyenchant/install.html).
+### Python
+
+Python 3.8 or later is required.
+A more recent Python is preferred.
+Use your system's package manager or [pyenv](https://github.com/pyenv/pyenv) to install an appropriate version of Python.
+
+
+(setup-build-installation-vale-label)=
+
+### Vale
+
+Vale is a linter for narrative text.
+It checks spelling, English grammar, and style guides.
+Plone documentation uses a custom spelling dictionary, with accepted and rejected spellings in `styles/Vocab/Plone`.
+
+Use your operating system's package manager to [install Vale](https://vale.sh/docs/vale-cli/installation/).
+
+Vale also has [integrations](https://vale.sh/docs/integrations/guide/) with various IDEs.
+
+-   [JetBrains](https://vale.sh/docs/integrations/jetbrains/)
+-   [Vim](https://github.com/dense-analysis/ale)
+-   [VS Code](https://github.com/errata-ai/vale-vscode)
+
+Plone documentation uses a file located at the root of the repository, `.vale.ini`, to configure Vale.
+This file allows overriding rules or changing their severity.
+
+The Plone Documentation Team selected the [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/) for its ease of use—especially for non-native English readers and writers—and attention to non-technical audiences. 
+
+```{note}
+More corrections to spellings and Vale's configuration are welcome by submitting a pull request.
+This is an easy way to become a contributor to Plone.
 ```
 
-**macOS**
+(setup-build-installation-clone-plone-training-label)=
 
-```shell
-brew install enchant
-```
+### Clone `plone/training`
 
-**Ubuntu**
-
-```shell
-sudo apt-get install enchant
-```
-
-Clone the Training repository, then create a Python virtual environment, install project dependencies, activate the virtual environment, and build HTML version of the Training documentation.
+Clone the Plone Training repository, and change your working directory into the cloned project.
+Then with a single command using `Makefile`, create a Python virtual environment, install project dependencies, build the docs, and view the results in a web browser by opening `/_build/html/index.html`.
 
 ```shell
 git clone https://github.com/plone/training.git
@@ -69,6 +91,17 @@ make html
 Open `/_build/html/index.html` in a web browser.
 
 
+### `livehtml`
+
+`livehtml` rebuilds Sphinx documentation on changes, with live-reload in the browser.
+
+```shell
+make livehtml
+```
+
+Open http://0.0.0.0:8000/ in a web browser.
+
+
 (setup-build-make-presentation-label)=
 
 ### `presentation`
@@ -98,16 +131,16 @@ make linkcheck
 Open `/_build/presentation/output.txt` for a list of broken links.
 
 
-### `spellcheck`
+### `vale`
 
-`spellcheck` checks the spelling of words.
+`vale` checks for American English spelling, grammar, syntax, and the Microsoft Developer Style Guide.
 See {ref}`authors-english-label` for configuration.
 
 ```shell
-make spellcheck
+make vale
 ```
 
-Open `/_build/spellcheck/` for each training's misspellings.
+See the output on the console for suggestions.
 
 
 ### `html_meta`

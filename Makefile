@@ -7,7 +7,7 @@ SPHINXBUILD     = $(realpath bin/sphinx-build)
 SPHINXAUTOBUILD = $(realpath bin/sphinx-autobuild)
 PAPER         =
 DOCS_DIR      = ./docs/
-BUILDDIR      = ../_build/
+BUILDDIR      = ../_build
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -15,7 +15,7 @@ PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
-
+VALEFILES       := $(shell find $(DOCS_DIR) -type f -name "*.md" -print)
 
 # Add the following 'help' target to your Makefile
 # And add help text after each target name starting with '\#\#'
@@ -24,7 +24,7 @@ help: ## This help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: clean
-clean: ## Clean build directory
+clean:  ## Clean build directory
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/*
 
 .PHONY: distclean
@@ -184,15 +184,15 @@ linkcheckbroken: bin/python  ## Run linkcheck and show only broken links
 	@echo "Link check complete; look for any errors in the above output " \
 		"or in $(BUILDDIR)/linkcheck/ ."
 
-.PHONY: spellcheck
-spellcheck: bin/python  ## Run spellcheck
-	cd $(DOCS_DIR) && LANGUAGE=$* $(SPHINXBUILD) -b spelling -j 4 $(ALLSPHINXOPTS) $(BUILDDIR)/spellcheck/$*
+.PHONY: vale
+vale: bin/python  ## Run Vale style, grammar, and spell checks
+	vale sync
+	vale --no-wrap $(VALEFILES)
 	@echo
-	@echo "Spellcheck is finished; look for any errors in the above output " \
-		" or in $(BUILDDIR)/spellcheck/ ."
+	@echo "Vale is finished; look for any errors in the above output."
 
 .PHONY: html_meta
-html_meta:
+html_meta:  ## Add meta data headers to all Markdown pages
 	python ./docs/addMetaData.py
 
 .PHONY: doctest
@@ -202,7 +202,7 @@ doctest: bin/python
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
 .PHONY: test
-test: clean linkcheckbroken spellcheck  ## Run linkcheckbroken, spellcheck
+test: clean linkcheckbroken  ## Clean docs build, then run linkcheckbroken
 
 .PHONY: deploy
 deploy: clean html
@@ -213,4 +213,4 @@ netlify:
 	cd $(DOCS_DIR) && sphinx-build -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 
 .PHONY: all
-all: clean spellcheck linkcheck html ## Run checks and build html
+all: clean vale linkcheck html ## Run checks and build html

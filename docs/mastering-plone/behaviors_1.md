@@ -312,8 +312,9 @@ Since you now know how to add indexes to the `portal_catalog`, it is time for an
 
 Add a new index for the `speaker` field of our content type `Talk`
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} xml
 :emphasize-lines: 6-8

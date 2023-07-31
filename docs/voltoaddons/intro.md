@@ -35,7 +35,7 @@ Some technologies and tools we use during the training:
 This training assumes that you have already taken (either in person at a Plone
 Conference or online) the existing React and Volto trainings. If you're
 following this training course on your own, you should first go through the
-{ref}`volto-label` and {ref}`voltohandson-label` trainings.
+{ref}`voltohandson-label` training.
 
 In a real training the instructor should quickly go through a number of key
 concepts of React and Volto development, as a refresher.
@@ -100,6 +100,6 @@ make start-backend
 
 [generator-volto]: https://github.com/plone/generator-volto
 [plone]: https://plone.org
-[react]: https://reactjs.org/
+[react]: https://react.dev/
 [volto]: https://github.com/plone/volto
 [yarn]: https://yarnpkg.com

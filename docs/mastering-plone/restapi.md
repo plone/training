@@ -22,7 +22,7 @@ git checkout restapi
 ```
 ````
 
-In this chapter, we will use [plone.restapi](plone6docs:plone.restapi/docs/source/index), to iteract with the backend without using Volto.
+In this chapter, we will use {doc}`plone6docs:plone.restapi/docs/source/index`, to iteract with the backend without using Volto.
 
 It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 
@@ -75,8 +75,9 @@ REST APIs use HTTP verbs for manipulating content.
 
 Add a new talk in Plone and then update it's title to match 'Foo 42' using the REST API (from Postman or requests).
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 We need to login to change content.
 Using JWT, we do so by POSTing credentials to the `@login` resource to obtain a JSON web token
@@ -486,8 +487,9 @@ Last we have to add some code that allows authenticated users to submit a lightn
 Rewrite the `load_talks()` JavaScript method that it uses the portal search instead of `/Plone/talks`.
 Sort the list by date.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} javascript
 :emphasize-lines: 3

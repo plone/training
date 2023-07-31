@@ -160,7 +160,7 @@ and then re-read it again while actually doing a complex project.
 
 ## Documentation
 
-Follow the training at <https://training.plone.org/5>
+Follow the training at <https://training.plone.org/mastering-plone-5/index.html>
 
 ```{note}
 You can use this presentation to copy & paste the code but you will memorize more if you type yourself.

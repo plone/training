@@ -302,8 +302,9 @@ This is more of a Python exercise. The gold and bronze sponsors should also have
 - Silver: 200x80
 - Bronze: 150x60
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :emphasize-lines: 10-15, 41, 44-45

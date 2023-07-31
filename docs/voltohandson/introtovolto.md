@@ -1,9 +1,10 @@
 ---
-html_meta:
-  'description': 'How volto functions'
-  'property=og:description': 'Learn the inner workings of volto'
-  'property=og:title': 'Inner workings of volto'
-  'keywords': 'Plone, Volto, Training,'
+myst:
+  html_meta:
+    "description": "How volto functions"
+    "property=og:description": "Learn the inner workings of Volto"
+    "property=og:title": "Inner workings of Volto"
+    "keywords": "Plone, Volto, training"
 ---
 
 # Inner workings of Volto

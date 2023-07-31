@@ -239,7 +239,7 @@ export default applyConfig;
 ```
 
 
-With a successfull action `getVotes`, the app store has an entry
+With a successful action `getVotes`, the app store has an entry
 
 ```{code-block} jsx
 :linenos:
@@ -472,7 +472,7 @@ Next step is the feature for developers to clear votes of a talk while preparing
 We want to offer a button to clear votes and integrate a hurdle to prevent unwanted clearing.
 The user shall click and see a question if she really wants to clear the votes.
 
-We are using the _component state_ to be incremented before requesting the backend to definitly clear votes.
+We are using the _component state_ to be incremented before requesting the backend to definitely clear votes.
 
 ```{code-block} jsx
 :emphasize-lines: 14
@@ -526,7 +526,7 @@ function handleClearVotes() {
 
 You will see now that the clearing section disappears after clearing.
 This is because it is conditional with `votes?.has_votes`.
-After a successfull `clearVotes` action the corresponding reducer updates the store.
+After a successful `clearVotes` action the corresponding reducer updates the store.
 As the component is subscribed to the store via `const votes = useSelector((store) => store.votes);` the component updates itself ( is rendered with the updated values ).
 And the voting buttons are visible again.
 

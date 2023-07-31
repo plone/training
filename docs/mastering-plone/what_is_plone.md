@@ -20,7 +20,7 @@ A CMS lets non-technical people create and maintain information for a public web
 - Written in `Python`
 - `Plone` 5.2 supports `Python` 3 and 2
 - `Plone` 6 supports `Python` 3
-- [Plone REST API](plone6docs:plone.restapi/docs/source/index)
+- {doc}`plone6docs:plone.restapi/docs/source/index`
 - `Volto`: `React` based frontend and editor
 - Based on the web framework {term}`Zope`
 - Database: `Zope Object Database` {term}`ZODB` or `ORM` & `SQL`/`Postgres`/`Oracle`
@@ -238,7 +238,7 @@ This gives Plone its easy SEO-friendly URLs.
 
 Traversal through the object database is security checked at every point via very fine grained access-control lists.
 
-```{admonition} Acquisition
+```{note} Acquisition
 
 One missing piece is important and complicated: `Acquisition`.
 
@@ -295,7 +295,7 @@ This is what we are extending and using during this training.
 
 ### Rest API
 
-[Plone REST API](plone6docs:plone.restapi/docs/source/index)
+{doc}`plone6docs:plone.restapi/docs/source/index`
 is a hypermedia API to access Plone content using REST (Representational State Transfer).
 
 It is used to connect the Volto frontend with Plone.
@@ -311,8 +311,8 @@ Here are some basics that you need to understand if you are new to Volto:
 
 - All data is stored in Plone backend.
   The Volto frontend comes in to display and edit the content.
-- Volto is built in [ReactJS](https://reactjs.org), a modern Javascript Framework.
-- Volto uses [plone.restapi](plone6docs:plone.restapi/docs/source/index) to communicate with the Plone backend.
+- Volto is built in [ReactJS](https://www.reactjs.dev), a modern Javascript Framework.
+- Volto uses {doc}`plone6docs:plone.restapi/docs/source/index` to communicate with the Plone backend.
 - Volto is installed separately from the Plone backend.
   See chapter {ref}`instructions-install-frontend-label` for instructions.
 - Volto runs in a different process than the Plone backend.
@@ -344,7 +344,7 @@ Since Plone 6 it uses [Bootstrap 5](https://getbootstrap.com/).
 The Plone Classic frontend uses the template-engine [Chameleon](https://chameleon.readthedocs.io/en/latest/) to create html.
 
 
-```{admonition} Choosing the right frontend
+```{note} Choosing the right frontend
 
 Here are some pointers that may help you decide:
 

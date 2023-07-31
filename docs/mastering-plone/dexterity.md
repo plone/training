@@ -237,8 +237,9 @@ Using Python to define the schema gives us much more control (e.g. for validatio
 
 Modify Pages to allow uploading an image as decoration (like News Items do).
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 - Go to the dexterity control panel (<http://localhost:8080/Plone/@@dexterity-types>)
 - Click on *Page* (<http://127.0.0.1:8080/Plone/dexterity-types/Document>)

@@ -17,21 +17,15 @@ example) and convert it to live Python objects. The (de)serializers, with the
 type-based lookups are a great example of ZCML use, as they're all implemented
 as adapters for the content+request => ISomeSerializationInferface.
 
-1. content based, where the class of the context item is used as discriminator
-  in the adaptor to `plone.restapi.interfaces.ISerializeToJson` (and the
-  counterpart `IDeserializeToJson`. See the [DX Content serializer][1]
-2. field based, used when processing DX Content, where each field/property is
-  adapted for endpoint serialization with the `IFieldSerializer`
-  / `IFieldDeserializer`. See the [DX Field serializers][2]
-3. block based, where we take the JSON data bits that represent a Volto block
-  data and transform it (see the [writing block transformers](./writing-block-transformers) page).
-4. value based, where each Python basic data value needs to be transformed into
-  a JSON-compatible representation, with the `IJsonCompatible` adaptor (use
-  `json_compatible()` helper for this. See the [converters.py module][3] with
-  these basic serializers.
+1.  content based, where the class of the context item is used as discriminator in the adaptor to `plone.restapi.interfaces.ISerializeToJson` (and the counterpart `IDeserializeToJson`.
+    See the [DX Content serializer][1].
+2.  field based, used when processing DX Content, where each field/property is adapted for endpoint serialization with the `IFieldSerializer` / `IFieldDeserializer`.
+    See the [DX Field serializers][2].
+3.  block based, where we take the JSON data bits that represent a Volto block data and transform it (see the {doc}`writing-block-transforms` chapter).
+4.  value based, where each Python basic data value needs to be transformed into a JSON-compatible representation, with the `IJsonCompatible` adaptor (use `json_compatible()` helper for this.
+    See the [converters.py module][3] with these basic serializers.
 
 Here's how the Folder serializer looks like:
-
 
 ```python
 @implementer(ISerializeToJson)

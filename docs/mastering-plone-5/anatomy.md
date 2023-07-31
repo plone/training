@@ -228,8 +228,9 @@ Definition of the PYTHON_PATH makes up most of the `bin/instance` script's code.
 Look at the package list (and maybe also the links provided in the respective sections of this chapter).
 Try to identify 3 packages that belong to Zope 4, 3 packages from CMF, 3 Zope Toolkit packages and 3 packages from the ZCA.
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 - Zope 4: Zope, ZODB, Acquisition, AccessControl, ...
 - CMF: Products.CMFCore, Products.CMFUid, Products.CMFEditions, ... Products.DCWorkflow doesn't fit the pattern but is a very important part of the CMF

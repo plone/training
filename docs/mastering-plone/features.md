@@ -98,8 +98,9 @@ Now let's say you want Plone to listen on port 9080 instead of the default 8080.
 Open the file `backend/instance.yml` in your favorite editor.
 How could you do this?
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```yaml
 wsgi_listen: localhost:9080

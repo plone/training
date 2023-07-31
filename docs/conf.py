@@ -20,7 +20,7 @@ from datetime import datetime
 project = "Plone Training"
 copyright = """The text and illustrations in this website are licensed
  by the Plone Foundation under a Creative Commons Attribution 4.0
- International license."""
+ International license"""
 author = "Plone Community"
 trademark_name = "Plone"
 
@@ -62,7 +62,6 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_sitemap",
-    "sphinxcontrib.spelling",
     "sphinxext.opengraph",
 ]
 
@@ -91,15 +90,12 @@ pygments_style = "sphinx"
 # Ignore localhost
 linkcheck_ignore = [
     r"http://localhost",
+    r"http://0.0.0.0",
     r"http://127.0.0.1",
     r"http://example.com",
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
-    r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
-    r"https://www.virtualbox.org",  # times out often
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
-    r"https://www.chef.io/products/chef-infra/",  # Site works but creates SSLError
-    r"https://plonedemo.kitconcept.com",  # Did Not Connect: Potential Security Issue
     r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
     r"https://www.dipf.de/.*",  # a timeout from time to time
     r"https?://plone-conference.localhost.*",
@@ -111,20 +107,14 @@ linkcheck_ignore = [
     "https://github.com/collective/awesome-volto#addons",
     "https://github.com/collective/collective.easyform#collectivez3cformnorobots-support",
     "https://github.com/collective/collective.easyform#recaptcha-support",
-    "https://github.com/collective/collective.recipe.solrinstance/blob/master/README.rst#multi-core-solr",
-    "https://github.com/nvm-sh/nvm#install-script",
     "https://github.com/plone/plone.app.contentlisting/#methods-of-contentlistingobjects",
     "https://github.com/plone/plone.app.contenttypes#changing-the-base-class-for-existing-objects",
-    "https://github.com/plone/plone.recipe.zope2instance#advanced-logging-options-for-wsgi",
-    "https://github.com/repoze/repoze.catalog/blob/master/docs/usage.rst#query-objects",
     "https://plone.github.io/mockup/dev/#pattern/autotoc",
     "https://plone.github.io/mockup/dev/#pattern/modal",
     "https://plone.github.io/mockup/dev/#pattern/moment",
     "https://github.com/collective/collective.exportimport#faq-tips-and-tricks",
     "https://github.com/plone/plone.app.contenttypes/tree/2.2.x#migration",
     "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
-    "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
-    "https://www.npmjs.com/package/axios#example",
     "https://github.com/plone/plone.restapi/blob/afde2a940d2518e061eb3fe30093093af55e3a50/src/plone/restapi/services/content/configure.zcml#L15-L20",
     "https://github.com/plone/plone.rest#cors",
     "https://github.com/plone/plone.docker#for-basic-usage",
@@ -136,20 +126,13 @@ linkcheck_allowed_redirects = {
     r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*",
 }
 linkcheck_anchors = True
-linkcheck_timeout = 10
-linkcheck_retries = 2
-
-# This is our wordlist with known words, like Github or Plone ...
-spelling_word_list_filename = "spelling_wordlist.txt"
-spelling_ignore_pypi_package_names = True
+linkcheck_timeout = 5
+linkcheck_retries = 1
 
 # The suffix of source filenames.
 source_suffix = {
     ".md": "markdown",
 }
-
-# The encoding of source files.
-# source_encoding = "utf-8-sig"
 
 # The master toctree document.
 master_doc = "index"
@@ -158,7 +141,6 @@ master_doc = "index"
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    "spelling_wordlist.txt",
 ]
 
 
@@ -168,19 +150,18 @@ exclude_patterns = [
 # a list of builtin themes.
 #
 html_theme = "sphinx_book_theme"
-
 html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
 html_css_files = ["custom.css", ("print.css", {"media": "print"})]
-html_js_files = ["patch_scrollToActive.js", "search_shortcut.js"]
 
 html_extra_path = [
     "robots.txt",
 ]
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org"
+html_baseurl = "https://training.plone.org/"
+# https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#customizing-the-url-scheme
 sitemap_url_scheme = "{link}"
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -189,17 +170,15 @@ sitemap_url_scheme = "{link}"
 html_static_path = ["_static"]
 
 html_theme_options = {
-    "repository_url": "https://github.com/plone/training",
-    "repository_branch": "main",
+    "logo": {
+        "text": "Plone Training 2023",
+    },
     "path_to_docs": "docs",
-    "use_repository_button": True,
-    "use_issues_button": True,
+    "repository_branch": "main",
+    "repository_url": "https://github.com/plone/training",
     "use_edit_page_button": True,
-    "extra_navbar": f"""
-        <p class="ploneorglink">
-            <a href="https://plone.org">
-                <img src="{html_baseurl}/_static/logo.svg" alt="plone.org" /> plone.org</a>
-        </p>""",
+    "use_issues_button": True,
+    "use_repository_button": True,
 }
 
 

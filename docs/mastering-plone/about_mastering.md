@@ -49,13 +49,13 @@ The Mastering Plone Training was so far held publicly at the following occasions
 - [Plone Conference ONLINE 2020](https://www.youtube.com/watch?v=_dOAthafoGQ&t=0s)
 - [Plone Conference 2019 in Ferrara](https://2019.ploneconf.org/)
 - [Plone Conference 2018 in Tokyo](https://2018.ploneconf.org/)
-- [August 2018, Munich](https://plone.org/events/community/mastering-plone-training-in-munich)
+- [August 2018, Munich](https://plone.org/news-and-events/events/community/mastering-plone-training-in-munich)
 - [Plone Conference 2017 in Barcelona](https://2017.ploneconf.org/)
 - [Plone Conference 2016 in Boston](https://2016.ploneconf.org/)
 - Plone Conference 2015, Bucharest
 - [March 2015, Munich](https://www.starzel.de/blog/mastering-plone-training-march-2015)
 - Plone Conference 2014, Bristol
-- [June 2014, Caracas](https://mobile.twitter.com/hellfish2/status/476906131970068480)
+- [June 2014, Caracas](https://twitter.com/hellfish2/status/476906131970068480)
 - [May 2014, Munich](https://www.starzel.de/blog/mastering-plone)
 - [PythonBrasil/Plone Conference 2013, Brasilia](http://2013.pythonbrasil.org.br/)
 - PyCon DE 2012, Leipzig
