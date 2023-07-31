@@ -238,8 +238,8 @@ def source_replace(app, docname, source):
 
 # Dict of replacements.
 source_replacements = {
-    "{PLONE_BACKEND_VERSION}": "6.0.2",
-    "{VOLTO_FRONTEND_VERSION}": "16.12.0",
+    "{PLONE_BACKEND_VERSION}": "6.0.6",
+    "{VOLTO_FRONTEND_VERSION}": "16.22.0",
 }
 
 
