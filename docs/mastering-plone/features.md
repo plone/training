@@ -49,6 +49,12 @@ Log in with `admin` and password `secret`.
 The initial login is defined in file `instance.yaml`.
 You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
 
+If you ever have the need to create an emergency user, create one with:
+
+```shell
+venv/bin/addzopeuser masterofdesaster VXT+zif -c ./instance/etc/zope.conf
+```
+
 ```{figure} _static/features_create_site_form.png
 :alt: Create a Plone site
 
