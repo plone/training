@@ -179,6 +179,7 @@ html_theme_options = {
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
+    "article_header_start": ["toggle-primary-sidebar", "chapter-title"]
 }
 
 

@@ -3,6 +3,10 @@ Changelog
 
 This changelog is only very rough. For the full changelog please refer to https://github.com/plone/training/commits/master
 
+
+- Bring back chapter title and training title in sticky top bar from https://github.com/plone/training/pull/622 @ksuess
+
+
 1.2.5 (unreleased)
 ------------------
 
