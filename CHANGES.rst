@@ -4,7 +4,9 @@ Changelog
 This changelog is only very rough. For the full changelog please refer to https://github.com/plone/training/commits/master
 
 
-- Bring back chapter title and training title in sticky top bar from https://github.com/plone/training/pull/622 @ksuess
+- Enhance orientation: Add chapter title and training title in sticky top bar. @ksuess
+- Enhance orientation: Add breadcrumbs to search results. @ksuess
+
 
 
 1.2.5 (unreleased)
