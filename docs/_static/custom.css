@@ -1,11 +1,11 @@
 html[data-theme=light], html[data-theme=dark] {
-    --sbt-color-announcement: #3f0000;
+  --sbt-color-announcement: #3f0000;
 }
 a:hover {
-    --pst-color-link-hover: var(--pst-color-link);
+  --pst-color-link-hover: var(--pst-color-link);
 }
 .bd-header-announcement__content > a {
-    color: #66e5ff;
+  color: #66e5ff;
 }
 /*:root {*/
 /*  --highlight-searchresult-color: #b9ee9e;*/
@@ -178,6 +178,10 @@ a:hover {
 /*#search-results ul li {*/
 /*  margin-bottom: 1em;*/
 /*}*/
+
+#search-results .breadcrumbs .pathseparator {
+  padding: 0 .5em;
+}
 
 /*ul.search li span.highlighted {*/
 /*  background-color: var(--highlight-searchresult-color);*/
