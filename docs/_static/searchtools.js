@@ -10,6 +10,8 @@
  */
 "use strict";
 
+var title_repository = 'Plone training';
+
 /**
  * Simple result scoring code.
  */
@@ -57,6 +59,31 @@ const _removeChildren = (element) => {
 const _escapeRegExp = (string) =>
   string.replace(/[.*+\-?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
 
+
+function _getBreadcrumbs(item, linkUrl) {
+  let parentTitles = item[6];
+  
+  let parentDefaultTitles = [
+    "Plone trainings",
+    "Training for Plone developers"
+  ];
+  parentTitles = Array.isArray(parentTitles) ? parentTitles : parentDefaultTitles;      
+  let path = item[0].split('/')
+    .slice(0, -1);
+  path = path.map((el, index) => {
+    return {
+      "path": path.slice(0, index+1).join('/'),
+      "title": parentTitles[index]
+    }
+  })
+  let markup = path
+    .map((el, idx) => {
+        return `<a href="/${el.path}">${el.title}</a>` 
+      })
+  markup.push(`<span class="lastbreadcrumb">${item[1]}</span>`)
+  return markup.join('<span class="pathseparator">&gt;</span>');
+}
+
 const _displayItem = (item, searchTerms) => {
   const docBuilder = DOCUMENTATION_OPTIONS.BUILDER;
   const docUrlRoot = DOCUMENTATION_OPTIONS.URL_ROOT;
@@ -82,6 +109,13 @@ const _displayItem = (item, searchTerms) => {
     requestUrl = docUrlRoot + docName + docFileSuffix;
     linkUrl = docName + docLinkSuffix;
   }
+
+  let breadcrumbs = document.createElement("div");
+  breadcrumbs.innerHTML = _getBreadcrumbs(item, linkUrl);
+  breadcrumbs.classList.add("breadcrumbs");
+  listItem.appendChild(breadcrumbs);
+
+  // Title links to chapter
   let linkEl = listItem.appendChild(document.createElement("a"));
   linkEl.href = linkUrl + anchor;
   linkEl.dataset.score = score;
@@ -100,6 +134,7 @@ const _displayItem = (item, searchTerms) => {
       });
   Search.output.appendChild(listItem);
 };
+
 const _finishSearch = (resultCount) => {
   Search.stopPulse();
   Search.title.innerText = _("Search Results");
@@ -112,6 +147,7 @@ const _finishSearch = (resultCount) => {
       `Search finished, found ${resultCount} page(s) matching the search query.`
     );
 };
+
 const _displayNextItem = (
   results,
   resultCount,
@@ -277,10 +313,6 @@ const Search = {
       localStorage.setItem("sphinx_highlight_terms", [...highlightTerms].join(" "))
     }
 
-    // console.debug("SEARCH: searching for:");
-    // console.info("required: ", [...searchTerms]);
-    // console.info("excluded: ", [...excludedTerms]);
-
     // array of [docname, title, anchor, descr, score, filename]
     let results = [];
     _removeChildren(document.getElementById("search-progress"));
@@ -337,11 +369,7 @@ const Search = {
         return condition
       })
     }
-
-    // Enrich item with parent training title
-    // for (i = 0; i < results.length; i++)
-    //   results[i][6] = results[i][6] || 'TODO training title';
-
+    
     // now sort the results by score (in opposite order of appearance, since the
     // display function below uses pop() to retrieve items) and then
     // alphabetically
@@ -371,10 +399,6 @@ const Search = {
     }, []);
 
     results = results.reverse();
-
-    // for debugging
-    //Search.lastresults = results.slice();  // a copy
-    // console.info("search results:", Search.lastresults);
 
     // print the results
     _displayNextItem(results, results.length, searchTerms);
@@ -465,6 +489,28 @@ const Search = {
     const scoreMap = new Map();
     const fileMap = new Map();
 
+    /**
+     * Return array with titles of ancestors of file.
+     * @param {number} idx - The index of the result item in global list of files
+     * @returns array
+     */
+    function _getParentTitles(idx) {
+      let path = docNames[idx]
+
+      let foo = path.split('/').slice(0, -1);
+
+      foo = foo.map((el, index) => {
+        return `${foo.slice(0, index+1).join('/')}/index`
+      })
+  
+      let parentTitles = foo.map(el => {
+        let parentId = docNames.indexOf(el);
+        let title = parentId === -1 ? title_repository : titles[parentId];
+        return title
+      })
+      return parentTitles
+    }
+
     // perform the search on the required terms
     searchTerms.forEach((word) => {
       const files = [];
@@ -540,6 +586,7 @@ const Search = {
 
       // select one (max) score for the file.
       const score = Math.max(...wordList.map((w) => scoreMap.get(file)[w]));
+      
       // add result to the result list
       results.push([
         docNames[file],
@@ -548,6 +595,7 @@ const Search = {
         null,
         score,
         filenames[file],
+        _getParentTitles(file)
       ]);
     }
     return results;
