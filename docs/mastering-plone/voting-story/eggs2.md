@@ -8,6 +8,8 @@ myst:
 ---
 
 
+DEBUG 3
+
 (eggs2-label)=
 
 # The voting story – reusable features packaged in add-ons
@@ -48,7 +50,7 @@ For this we need:
 
 (eggs2-backend-package-label)=
 
-## Create backend package
+## Create a backend package
 
 {term}`plonecli` is a tool to generate Plone backend packages and several features of a Plone backend add-on.
 To install plonecli, run once:

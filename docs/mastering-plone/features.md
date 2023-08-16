@@ -27,7 +27,7 @@ $ make start
 ```
 
 The Zope instance starts up with `Ready to handle requests`.
-Later on the instance can be stopped by {kbd}`ctrl + c`.
+Later on the instance can be stopped by {kbd}`ctrl c`.
 
 A standard installation listens on port 8080, so lets have a look at <http://localhost:8080>
 
@@ -85,7 +85,7 @@ Opening `http://localhost:3000`, you are facing the front page of your Plone sit
 ```{figure} _static/frontpage_volto.png
 ```
 
-You can stop the frontend any time using {kbd}`ctrl + c`.
+You can stop the frontend any time using {kbd}`ctrl c`.
 
 While developing it is not necessary to restart the frontend unless you are adding a new file.
 

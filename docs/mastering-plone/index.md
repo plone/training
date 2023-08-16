@@ -39,6 +39,7 @@ numbered: true
 ---
 
 about_mastering
+voting-story/index
 intro
 case
 what_is_plone
