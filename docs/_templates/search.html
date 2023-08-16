@@ -1,7 +1,6 @@
 {%- extends "page.html" %}
 {# Over-ride the body to be custom search structure we want #}
 {% block docs_body %}
-{% set title = _('Search') %}
   <div class="bd-search-container">
     <h1>{{ _("Search") }}</h1>
     <noscript>
@@ -29,7 +28,11 @@
     }
   </script>
 {% endblock docs_body %}
-
+{# Below sections just re-create the behavior of Sphinx default search #}
+{# Page metadata #}
+{%- block htmltitle -%}
+  <title>{{ _("Search") }} - {{ title or docstitle }}</title>
+{%- endblock htmltitle -%}
 {# Manually include the search JS that Sphinx includes #}
 {% block scripts -%}
   {{ super() }}
