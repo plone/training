@@ -414,7 +414,7 @@ If all goes well, this will add a bunch of JSON files in `var/instance` of the o
 Move or copy all of these to the folder `var/instance/import/` of the Plone 6 site.
 
 Now run `@@import_all`.
-If the ID of the site is different from `Plone`, then you need to change the name of the file in the import in the view (see https://github.com/starzel/contentimport/blob/main/contentimport/views.py#L47).
+If the ID of the site is different from `Plone`, then you need to change the name of the file in the import in the view.
 
 This should run all imports, and the new site should be good to go, containing all content and configuration of the old site.
 

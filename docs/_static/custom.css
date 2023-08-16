@@ -179,6 +179,10 @@ a:hover {
 /*  margin-bottom: 1em;*/
 /*}*/
 
+#search-results .breadcrumbs .pathseparator {
+  padding: 0 .5em;
+}
+
 /*ul.search li span.highlighted {*/
 /*  background-color: var(--highlight-searchresult-color);*/
 /*}*/
