@@ -18,7 +18,7 @@ Since we need the Logo component in the Footer, we import it from Volto as we di
 ```jsx
 import { Logo } from '@plone/volto/components';
 ```
-We will also need the Grid component from semantic ui:
+We also need the `Grid` component from Semantic UI:
 
 ```jsx
 import { Grid } from 'semantic-ui-react';
