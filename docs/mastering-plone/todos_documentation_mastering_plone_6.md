@@ -8,7 +8,6 @@ maxdepth: 1
 
 frontpage
 mastering_plone_6
-theming
 timing
 views_1
 views_3

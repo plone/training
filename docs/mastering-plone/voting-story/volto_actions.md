@@ -12,10 +12,6 @@ myst:
 # Volto Actions and Component State (voting story)
 
 ````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
 
 Solve the same tasks in Plone Classic UI in chapter {doc}`viewlets_2`
 
@@ -37,7 +33,7 @@ Topics covered:
 - component state: user interaction: call back to user before dispatching an action
 - theming with Semantic-UI
 
-```{figure} _static/volto_voting1.png
+```{figure} ../_static/volto_voting1.png
 :alt: Volto Voting
 :align: left
 :scale: 50%
@@ -45,7 +41,7 @@ Topics covered:
 Voting
 ```
 
-```{figure} _static/volto_voting2.png
+```{figure} ../_static/volto_voting2.png
 :alt: Volto Voting
 :align: left
 :scale: 50%
@@ -286,7 +282,7 @@ const TalkView = ({ content }) => {
     <Voting />
 ```
 
-```{figure} _static/volto_voting3.png
+```{figure} ../_static/volto_voting3.png
 :alt: 'Volto Voting: displaying votes'
 :scale: 50%
 ```
@@ -294,7 +290,7 @@ const TalkView = ({ content }) => {
 Check the `Redux` tab of Google developer tools to see the store changes forced by our reducer.
 You can filter by "votes".
 
-```{figure} _static/developertools_redux.png
+```{figure} ../_static/developertools_redux.png
 :alt: 'Developer Tools Redux'
 :scale: 40%
 ```
@@ -396,7 +392,7 @@ Every request of a Volto app is done with the token of the logged in user.
 
 The authorized user can now vote:
 
-```{figure} _static/volto_voting1.png
+```{figure} ../_static/volto_voting1.png
 :alt: Volto Voting
 :scale: 50%
 ```

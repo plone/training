@@ -27,19 +27,18 @@ For Volto development see training {doc}`/effective-volto/index`.
 
 We expect you to work with the Plone React frontend (former called Volto).
 Therefore we do not deal with Plone Classic topics here.
-For Plone Classic see training {doc}`/theming/index` and documentation {doc}`plone6docs:classic-ui/index`
+For Plone Classic see training {doc}`/theming/index`, training {doc}`/mastering-plone-5/index` and documentation {doc}`plone6docs:classic-ui/index`
 ```
 
 ```{toctree}
 ---
 caption: Mastering Plone 6 Development
 name: toc-mastering
-maxdepth: 2
+maxdepth: 3
 numbered: true
 ---
 
 about_mastering
-voting-story/index
 intro
 case
 what_is_plone
@@ -73,7 +72,7 @@ volto_custom_addon
 volto_custom_addon2
 user_generated_content
 relations
-eggs2
+voting-story/index
 behaviors_2
 endpoints
 volto_actions

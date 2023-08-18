@@ -15,12 +15,8 @@ myst:
 % TODO Discuss plone.restapi
 
 
-````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
+```{sidebar} Plone Backend Chapter
 ```
-````
 
 In this part you will:
 

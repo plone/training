@@ -28,6 +28,18 @@ You are welcome to contribute and give feedback on [GitHub issues](https://githu
 
 Thank you for reading and your charity with non-native English speakers / writers.
 
+
+(intro-what-happens-label)=
+
+## Technologies and Tools
+
+  - [Linux (Ubuntu)](https://ubuntu.com/)
+  - [Python](https://www.python.org)
+  - [React](https://react.dev/)
+
+We recommend to work on Linux, not Windows.
+
+
 (about-upcoming-label)=
 
 ## Upcoming Trainings
@@ -80,7 +92,7 @@ Katja Süss
 
 : If not gardening she is developing with Python, Svelte and ReactJS.
   Katja is active member of teams Volto, documentation and training.
-  Together with Philip, she lifted the Plone Classic Training to Plone 6.  
+  She lifted the Plone Classic Training to Plone 6.  
   With a background in mathematical logics she turned towards web development and runs the web agency [Rohberg](https://rohberg.ch/) in Zurich.
   She dedicates herself especially to enthralling user experience and search assistance.
 
@@ -100,7 +112,7 @@ Steffen Lindner
 
 : Steffen Lindner started developing Plone in 2006.
   He worked on small Plone sites and also with huge intranet sites.
-  As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at https://www.starzel.de/.
+  As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at [Starzel](https://www.starzel.de/).
 
 Fulvio Casali
 
@@ -146,50 +158,20 @@ Leonardo Caballero
 
 ## Technologies and Tools
 
-- For the beginning of the training:
-
-  - [Ubuntu linux](https://ubuntu.com/)
+  - [Linux (Ubuntu)](https://ubuntu.com/)
   - [Python](https://www.python.org)
-  - Javascript
-  - React
+  - [React](https://react.dev/)
 
-- For the advanced chapters:
-
-  - [Git](https://git-scm.com/)
-  - [GitHub](https://github.com)
-  - [Resources to learn Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
-  - [Python](https://www.python.org)
-  - ZCML
-  - Dexterity content types
-  - [{term}`GenericSetup`](https://5.docs.plone.org/develop/addons/components/genericsetup.html)
-  - React
-  - Redux
-
+We recommend to work on Linux, not Windows.
 
 
 # Optional topics without documentation
 
 The following topics are not covered in the written training but could be discussed on demand.
 
-- Custom forms
+- users, authentication, member profiles, members as content
 
-- Custom fields
-
-- Caching (plone.app.caching, memoize, Varnish etc.)
-
-- Zope Component Architecture in depth
-
-- LDAP-integration, users, authentication, member profiles, members as content
-
-- Using external APIs
-
-- Asynchronous processing
-
-- ZODB
-
-- RelStorage
-
-- Debugging and Profiling
+- ZODB, RelStorage
 
 
 (intro-what-wont-happen-label)=
@@ -201,7 +183,6 @@ The following topics are not covered in the written training but could be discus
 - {doc}`Internationalization of the frontend</effective-volto/development/i18n>`
 - {doc}`Internationalization defined in the backend<plone6docs:i18n-l10n/index>`
 - {doc}`/plone-deployment/index`
-- {doc}`/theming/index`
 
 
 ## License

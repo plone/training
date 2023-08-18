@@ -120,11 +120,7 @@ These are the tags of the backend add-on for which there is code:
 | {doc}`volto_custom_addon2` | |
 | {doc}`user_generated_content` | |
 | {doc}`relations` | |
-| {doc}`eggs2` | |
-| {doc}`behaviors_2` | |
-| {doc}`endpoints` | |
-| {doc}`volto_actions` | |
-| {doc}`reusable` | |
+| {doc}`voting-story/index` | |
 | {doc}`deployment_code` | |
 | {doc}`restapi` | |
 | {doc}`code` | |

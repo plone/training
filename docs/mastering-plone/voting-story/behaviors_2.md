@@ -13,10 +13,6 @@ myst:
 # Complex Behaviors (voting story)
 
 ````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
-:class: logo
-```
 
 Get the backend code! 
 [training.votable](https://github.com/collective/training.votable)

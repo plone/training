@@ -12,10 +12,6 @@ myst:
 # Extending Volto with a custom add-on package
 
 ````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
 
 Solve the same tasks in classic frontend in chapter {doc}`eggs1`
 ````

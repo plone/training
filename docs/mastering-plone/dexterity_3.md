@@ -12,10 +12,6 @@ myst:
 # Dexterity Types III: Sponsors
 
 ````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
-```
 
 Get the code! ({doc}`More info <code>`)
 

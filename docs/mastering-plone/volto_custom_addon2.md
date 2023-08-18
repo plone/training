@@ -12,10 +12,6 @@ myst:
 # Extending Volto With a FAQ Block Type
 
 ````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
 
 Creating a new block type
 ````

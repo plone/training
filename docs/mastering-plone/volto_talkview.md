@@ -12,10 +12,6 @@ myst:
 # Volto View Component: A Default View for a "Talk"
 
 ````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
 ---
 
 Get the code! ({doc}`More info <code>`)

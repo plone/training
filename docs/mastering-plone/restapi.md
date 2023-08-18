@@ -10,10 +10,6 @@ myst:
 # Using plone.restapi without Volto
 
 ````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
-```
 
 Get the code for this chapter ({doc}`More info <code>`):
 

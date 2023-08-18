@@ -7,7 +7,7 @@ myst:
     "keywords": "Plone, permission, security"
 ---
 
-(reusable-label)=
+(permissions-label)=
 
 # Permissions (voting story)
 
@@ -20,7 +20,7 @@ Topics covered:
 - permissions, roles
 
 
-(reusable-permissions-label)=
+(permissions-adding-label)=
 
 ## Adding permissions
 
@@ -89,7 +89,7 @@ CanVotePermission = "training.votable: Can Vote"
 ClearVotesPermission = "training.votable: Clear Votes"
 ```
 
-(reusable-permissions2-label)=
+(permissions-using-label)=
 
 ## Using our permissions
 
@@ -137,7 +137,7 @@ class VotingDelete(Service):
 ```
 
 
-(reusable-defaults-label)=
+(permissions-defaults-label)=
 
 ## Provide defaults
 

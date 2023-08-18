@@ -12,10 +12,6 @@ myst:
 # Using Volto add-ons
 
 ````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
 
 For Plone backend add-ons see chapter {ref}`add-ons-label`
 ````

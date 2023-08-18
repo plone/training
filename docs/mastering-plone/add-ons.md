@@ -12,10 +12,6 @@ myst:
 # Extending Plone with add-on packages
 
 ````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
-```
 
 For Volto add-ons see chapter {ref}`volto-addon-label`
 ````
