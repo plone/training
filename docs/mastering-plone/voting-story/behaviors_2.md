@@ -1,23 +1,20 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Extend arbitrary content types with behaviors and fields"
+    "property=og:description": "Extend arbitrary content types with behaviors and fields"
+    "property=og:title": "Complex behaviors"
+    "keywords": "Plone, behavior, fields, extending"
 ---
+
 
 (behaviors2-label)=
 
-# Complex Behaviors
+# Complex Behaviors (voting story)
 
 ````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
-:class: logo
-```
 
-Get the code! 
+Get the backend code! 
 [training.votable](https://github.com/collective/training.votable)
 ````
 
@@ -39,7 +36,7 @@ Topics covered:
 
 ## Schema and Annotation
 
-The talks are voted.
+The talks are being voted.
 So we provide an additional field with our behavior to store the votes on a talk.
 Therefore the behavior will have a schema with a field "votes".
 
@@ -55,11 +52,14 @@ The content type instance is equipped by a storage where behaviors do store valu
 
 ## The Code
 
-Open your backend add-on created in last chapter in your editor.
+Open your backend add-on you have been creating in the last chapter in your editor.
+
+Later in your daily work you will use {term}`plonecli` to generate a behavior.
+In this training we go step by step through the code to understand a behavior and its capabilities.
 
 To start, we create a directory {file}`behaviors` with an empty {file}`behaviors/__init__.py` file.
 
-To let Plone know about the behavior we write, we include the behavior module:
+To let Plone know about the behavior we are writing, we include the behavior module:
 
 ```{code-block} xml
 :linenos:
@@ -77,6 +77,7 @@ Next, create a {file}`behaviors/configure.zcml` where we register our to be writ
 
 ```{code-block} xml
 :linenos:
+:emphasize-lines: 15-16
 
 <configure
   xmlns="http://namespaces.zope.org/zope"
@@ -104,7 +105,7 @@ There are important differences to the first simple behavior in {ref}`behaviors1
 - There is a marker interface
 - There is a factory
 
-The first simple behavior (discussed in {ref}`behaviors1-label`) was registered  only with the `provides` attributes:
+The first simple behavior discussed in {ref}`behaviors1-label` has been registered only with the `provides` attributes:
 
 ```xml
 <plone:behavior
@@ -116,9 +117,13 @@ The first simple behavior (discussed in {ref}`behaviors1-label`) was registered 
 ```
 
 The `factory` is a class that provides the behavior logic and gives access to the attributes we provide.
-Factories in Plone/Zope are retrieved by adapting an object to an interface and are following the adapter pattern.
-
-If you want to access your behavior features on an object, you would write `votable = IVotable(object)`.
+A factory in Plone/Zope is an `adapter`, that means a function that adapts an object to provide an interface.
+We can use the following short form to access the features of a behavior of an object with `votable = IVotable(object)`.
+The expression `IVotable(object)` is short for "Get the appropriate adapter for interface `IVotable` and apply it to my object!".
+The result is an adopted object with the behavior features.
+You can for example get the value of votes by `IVotable(object).votes`.
+But you can not get the votes by `object.votes`, as the object does not know about votes.
+Only the adapted object `IVotable(object)` does know about votes.
 
 The `marker` is introduced to register REST API endpoints for objects that adapts the behavior.
 
@@ -128,7 +133,6 @@ Therefore we create a file {file}`/behaviors/votable.py` with the schema, marker
 
 ```{code-block} python
 :linenos:
-
 
 class IVotableMarker(Interface):
     """Marker interface for content types or instances that should be votable"""
@@ -143,6 +147,22 @@ class IVotable(model.Schema):
     IVotable(object) returns the adapted object with votable behavior
     """
 
+    votes = schema.Dict(
+        title="Vote info",
+        key_type=schema.TextLine(title="Voted number"),
+        value_type=schema.Int(title="Voted so often"),
+        default={},
+        missing_value={},
+        required=False,
+    )
+    voted = schema.List(
+        title="List of users who voted",
+        value_type=schema.TextLine(),
+        default=[],
+        missing_value=[],
+        required=False,
+    )
+
     if not api.env.debug_mode():
         form.omitted("votes")
         form.omitted("voted")
@@ -153,49 +173,31 @@ class IVotable(model.Schema):
         fields=("votes", "voted"),
     )
 
-    votes = schema.Dict(
-        title="Vote info",
-        key_type=schema.TextLine(title="Voted number"),
-        value_type=schema.Int(title="Voted so often"),
-        default={},
-        missing_value={},
-        required=False,
-    )
-    voted = schema.List(
-        title="Vote hashes",
-        value_type=schema.TextLine(),
-        default=[],
-        missing_value=[],
-        required=False,
-    )
-
     def vote(request):
         """
-        Store the vote information, store the request hash to ensure
-        that the user does not vote twice
+        Store the vote information and store the user(name)
+        to ensure that the user does not vote twice.
         """
 
     def average_vote():
         """
-        Return the average voting for an item
+        Return the average voting for an item.
         """
 
     def has_votes():
         """
-        Return whether anybody ever voted for this item
+        Return whether anybody ever voted for this item.
         """
 
     def already_voted(request):
         """
         Return the information wether a person already voted.
-        This is not very high level and can be tricked out easily
         """
 
     def clear():
         """
-        Clear the votes. Should only be called by admins
+        Clear the votes. Should only be called by admins.
         """
-
 ```
 
 ```{only} not presentation
@@ -204,7 +206,7 @@ This is a lot of code.
 The `IVotableMarker` interface is the marker interface.
 It will be used to register REST API endpoints for objects that adapts this behavior.
 
-The `IVotable` interface is more complex, as you can see.
+The `IVotable` interface is the schema with fields and methods.
 
 The `@provider` decorator of the class ensures that the schema fields are known to other packages.
 Whenever some code wants all schemas of an object, it receives the schema defined directly on the object and the additional schemata.
@@ -214,7 +216,7 @@ Only then the fields are used as form fields.
 We create two schema fields for our internal data structure.
 A dictionary to hold the votes given and a list to remember which jury members already voted and should not vote twice.
 
-The directives `form.omitted` from `plone.autoform` allow us hide the fields.
+The directives `form.omitted` from `plone.autoform` allow us to hide the fields.
 The fields are there to save the data but should not be edited directly.
 
 Then we define the API that we are going to use in the frontend.
@@ -223,17 +225,17 @@ Then we define the API that we are going to use in the frontend.
 Now the only thing that is missing is the behavior implementation, the factory, which we add to {file}`behaviors/votable.py`.
 The factory is an adapter that adapts a talk to the behavior interface `IVotable`.
 
+
 ```{code-block} python
 :linenos:
+
+
+KEY = "training.votable.behaviors.votable.Votable"
 
 @implementer(IVotable)
 @adapter(IVotableMarker)
 class Votable(object):
-    """Adapter for the votable behavior
-
-    Args:
-        object (_type_): _description_
-    """
+    """Adapter implementing the votable behavior"""
 
     def __init__(self, context):
         self.context = context
@@ -245,30 +247,31 @@ class Votable(object):
             )
         self.annotations = annotations[KEY]
 
+    # getter
     @property
     def votes(self):
         return self.annotations["votes"]
 
-    # @votes.setter
+    # setter
     # def votes(self, value):
+    #     """We do not define a setter.
+    #     Function 'vote' is the only one that shall set attributes
+    #     of the context object."""
     #     self.annotations["votes"] = value
 
+    # getter
     @property
     def voted(self):
         return self.annotations["voted"]
 
-    # @voted.setter
+    # setter
     # def voted(self, value):
     #     self.annotations["voted"] = value
 
     def vote(self, vote, request):
-        vote = int(vote)
         if self.already_voted(request):
-            # Exceptions can create ugly error messages. If you or your user
-            # can't resolve the error, you should not catch it.
-            # Transactions can throw errors too.
-            # What happens if you catch them?
-            raise KeyError("You may not vote twice")
+            raise KeyError("You may not vote twice.")
+        vote = int(vote)
         current_user = api.user.get_current()
         self.annotations["voted"].append(current_user.id)
         votes = self.annotations.get("votes", {})
@@ -305,6 +308,7 @@ class Votable(object):
             {"voted": PersistentList(), "votes": PersistentDict()}
         )
         self.annotations = annotations[KEY]
+
 ```
 
 In our `__init__` method we get *annotations* from the object.
@@ -313,9 +317,8 @@ We look for data with a key unique for this behavior.
 If the annotation with this key does not exist, cause the object is not already voted, we create it.
 We work with `PersistentDict` and `PersistentList`.
 
-```{todo}
-Explain  `PersistentDict` and `PersistentList` in short.
-```
+% TODO Explain  `PersistentDict` and `PersistentList` in short.
+
 Next we provide the internal fields via properties.
 Using this form of property makes them read-only properties, as we do not define write handlers.
 

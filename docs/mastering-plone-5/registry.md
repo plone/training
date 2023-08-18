@@ -110,6 +110,9 @@ api.portal.get_registry_record('ploneconf.date_of_conference')
 api.portal.set_registry_record('ploneconf.talk_submission_open', True)
 ```
 
+
+(plone5-registry-controlpanel-label)=
+
 ## Add a custom control panel
 
 When you want to add a custom control panel it is usually more convenient to register the fields, not manually as above, but as fields in a schema, similar to that of a content type schema.

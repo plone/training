@@ -12,7 +12,7 @@ myst:
 A collection of trainings developed and created by the Plone Community.
 
 ```{toctree}
-:caption: Training Overview
+:caption: Trainings
 :maxdepth: 2
 :hidden: true
 
@@ -29,7 +29,7 @@ migrations/index
 ```
 
 ```{toctree}
-:caption: Plone Trainings
+:caption: Info
 :maxdepth: 1
 :hidden: true
 

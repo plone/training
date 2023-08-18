@@ -40,7 +40,7 @@ We encourage you to install and run `Plone` on your own machine, as you will hav
 
 ### Installation
 
-Set up the backend with the training code: add-ons `ploneconf.site`  and `training.votable`.
+Set up the [backend with the training code](https://github.com/collective/training_buildout): add-ons `ploneconf.site`  and `training.votable`.
 
 ```shell
 mkdir training
@@ -115,18 +115,6 @@ We will create one in the next chapter.
 You can stop the running instance anytime using {kbd}`ctrl + c`.
 
 
-
-```{figure} _static/instructions_create_instance.png
-:alt: Ready to create a `Plone` instance.
-:scale: 50 %
-
-Ready to create a `Plone` instance
-```
-
-
-
-
-
 (instructions-install-frontend-label)=
 
 ## Installing the frontend
@@ -150,9 +138,10 @@ Prepare the pre-requisites explained in {ref}`plone6docs:install-packages-prereq
 Get the code for the frontend from GitHub and install:
 
 ```shell
+cd training
 git clone https://github.com/collective/volto-ploneconf.git frontend
 cd frontend
-yarn
+make install
 ```
 
 Now you can start the app with:
@@ -161,8 +150,7 @@ Now you can start the app with:
 $ yarn start
 ```
 
-Create a Plone site object *Plone* on <http://localhost:8080>
-
-Point your browser to <http://localhost:3000> and see that Plone is up and running.
+Point your browser to <http://localhost:3000> and see that the app is up and running, albeit without content.
+We will create a Plone instance in the next chapter. 
 
 You can stop the frontend anytime using {kbd}`ctrl + c`.

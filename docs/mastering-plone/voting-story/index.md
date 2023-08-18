@@ -1,63 +1,74 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Introduction of the voting story – REST API services and React components"
+    "property=og:description": "Introduction of the voting story – REST API services and React components"
+    "property=og:title": "Reusable features packaged in add-ons – the voting story"
+    "keywords": "Plone, Volto, React, add-on, development, developer, women in IT, REST API"
 ---
 
 
 (eggs2-label)=
 
-# Reusable Features packaged in add-ons
+# The voting story – reusable features packaged in add-ons
 
-We will enhance the Plone Conference site with the following behavior:
+You will enhance the Plone Conference site with the following behavior:
 
 Talks are submitted. The jury votes for talks to be accepted or rejected.
 
-```{card}
+````{card}
   In this part you will:
   
-  - Build your own Plone add-ons for backend and frontend.
+  - build your own Plone add-ons for backend and frontend.
   
   Topics covered:
   
-  - Storing data in `annotations`
-  - Custom `REST API` endpoint
+  - Storing data in annotations
+  - Custom REST API service
   - Backend package creation with {term}`plonecli`
   - Frontend package creation with Volto generator
-  - Create `React` components to display voting behavior in frontend
+  - Create React components to display voting behavior in frontend
   
-  This part spreads about the next chapters:
+  The **voting story** spreads about the next chapters:
   
-  - {doc}`behaviors_2`
-  - {doc}`endpoints`
-  - {doc}`volto_actions`
-  - {doc}`reusable`
-```
+  ```{toctree}
+  ---
+  name: toc-voting-story
+  maxdepth: 2
+  numbered: false
+  ---
+
+  behaviors_2
+  endpoints
+  volto_actions
+  permissions
+  ```
+```````
+
+
+
 
 Jury members shall vote for talks to be accepted or rejected.
 
 For this we need:
 
-- A `behavior` that stores its data in annotations
-- An endpoint for the frontend to communicate with
+- A behavior that stores the vote data in annotations
+- A REST service for the frontend to communicate with
 - A frontend component that displays votes and provides the ability to vote
 
 
 (eggs2-backend-package-label)=
 
-## Create backend package
+## Create a backend package
 
 {term}`plonecli` is a tool to generate Plone backend packages and several features of a Plone backend add-on.
-To install {term}`plonecli`, run once:
+To install plonecli, run once:
 
 ```shell
 pip install plonecli --user
 ```
 
-We use {term}`plonecli` to create a new package.
+We use plonecli to create a new package.
 
 ```shell
 plonecli create addon backend/sources/training.votable
@@ -66,7 +77,7 @@ plonecli create addon backend/sources/training.votable
 We press {kbd}`Enter` to all questions *except* 
 
 ```shell
---> Plone version [5.2.4]: {PLONE_BACKEND_VERSION}
+--> Plone version [{PLONE_BACKEND_VERSION}]: {PLONE_BACKEND_VERSION}
 
 --> Python version for virtualenv [python3]: python
 ```
@@ -108,7 +119,7 @@ Please head over to http://localhost:8080/Plone/prefs_install_products_form and 
 
 (eggs2-frontend-package-label)=
 
-## Create Volto add-on
+## Create a Volto add-on
 
 We will use the Volto generator to create an add-on. Please install the tool once with:
 
@@ -123,13 +134,25 @@ cd frontend
 yo @plone/volto:addon
 ```
 
-Choose "@plone-collective/volto-training-votable" as name for your add-on.
+Choose "volto-training-votable" as name for your add-on.
 
-We are now ready to implement our voting behavior in our new frontend add-on created in `frontend/src/addons/volto-training-votable/`.
-The generator not only created the add-on directory, but also made necessary changes in our frontend project to integrate the new code in our Volto app.
-
-For a restart of the frontend we run a
+Check {file}`package.json` to include the add-on in your app:
 
 ```shell
+"private": true,
+"workspaces": [
+    "src/addons/*"
+],
+"addons": [
+    "volto-custom-addon"
+],
+```
+
+Install and start
+
+```shell
+make install
 yarn start
 ```
+
+We are now ready to implement our voting behavior in our new frontend add-on created in `frontend/src/addons/volto-training-votable/`.

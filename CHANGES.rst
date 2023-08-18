@@ -12,7 +12,9 @@ This changelog is only very rough. For the full changelog please refer to https:
 1.2.5 (unreleased)
 ------------------
 
-- Full rework of volto hands-on training to be up to date with changes to Volto during the last year [jackahl]
+- Overhaul Mastering Plone Development [ksuess]
+
+- Update Volto hands-on training with changes to during the last year [jackahl]
 
 - Language tweaks to WSGI training [polyester]
 

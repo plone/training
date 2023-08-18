@@ -11,19 +11,12 @@ myst:
 
 # Programming Plone
 
-```{todo}
+% TODO Discuss backend development versus frontend development
+% TODO Discuss plone.restapi
 
-    * Discuss backend development versus frontend development
-    * Discuss plone.restapi
-    * Discuss React developer tools
-```
 
-````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
+```{sidebar} Plone Backend Chapter
 ```
-````
 
 In this part you will:
 
@@ -145,7 +138,8 @@ Products.PDBDebugMode
 
 Interactive debugger
 
-: When starting Plone using {command}`venv/bin/zconsole debug instance/etc/zope.conf`, you'll end up in an interactive debugger.
+: Start your instance in debug mode with {command}`venv/bin/zconsole debug instance/etc/zope.conf`.
+You have an interactive debugger at your fingertips.
 `app.Plone` is your instance which you can inspect on the command line.
 : To list the ids of the objects in a folderish object:
   ```shell
@@ -190,7 +184,66 @@ It aggregates tracebacks from many sources and (here comes the killer feature) e
 - ["PDB Like a Pro" by Philip Bauer](https://www.youtube.com/watch?v=yOG36Ae_TJ0&feature=youtu.be)
 ```
 
-## Exercise
+
+## Exercise 1
+
+Knowing that `venv/bin/zconsole debug instance/etc/zope.conf` basically offers you a Python prompt to inspect your Plone instance, how would you start to explore Plone?
+
+```{admonition} Solution
+:class: toggle
+
+Use `locals()` or `locals().keys()` to see Python objects available in Plone
+
+You will get notified that `app` is automatically bound to your Zope application, so you can use dictionary-access or attribute-access as explained in {doc}`what_is_plone` to inspect the application:
+```
+
+## Exercise 2
+
+The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
+
+`````{admonition} Solution
+:class: toggle
+
+`app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
+
+```pycon
+>>> app
+<Application at >
+>>> app.keys()
+['browser_id_manager', 'session_data_manager', 'error_log', 'temp_folder', 'virtual_hosting', 'index_html', 'Plone', 'acl_users']
+>>> portal = app["Plone"]
+>>> from zope.component.hooks import setSite
+>>> setSite(portal)
+>>> portal
+<PloneSite at /Plone>
+>>> app.Plone.keys()
+['portal_setup', 'MailHost', 'caching_policy_manager', 'content_type_registry', 'error_log', 'plone_utils', 'portal_actions', 'portal_catalog', 'portal_controlpanel', 'portal_diff', 'portal_groupdata', 'portal_groups', 'portal_memberdata', 'portal_membership', 'portal_migration', 'portal_password_reset', 'portal_properties', 'portal_quickinstaller', 'portal_registration', 'portal_skins', 'portal_types', 'portal_uidannotation', 'portal_uidgenerator', 'portal_uidhandler', 'portal_url', 'portal_view_customizations', 'portal_workflow', 'translation_service', 'portal_form_controller', 'mimetypes_registry', 'portal_transforms', 'portal_archivist', 'portal_historiesstorage', 'portal_historyidhandler', 'portal_modifier', 'portal_purgepolicy', 'portal_referencefactories', 'portal_repository', 'acl_users', 'portal_resources', 'portal_registry', 'HTTPCache', 'RAMCache', 'ResourceRegistryCache', 'training', 'schedule', 'location', 'sponsors', 'sprint']
+>>> app['Plone']['news']
+<Folder at /Plone/news>
+```
+
+
+````{note}
+Plone and its objects are stored in an object database, the {term}`ZODB`.
+You can use `venv/bin/zconsole debug instance/etc/zope.conf` as a database client (in the same way e.g. `psql` is a client for PostgreSQL).
+Instead of a special query language (like SQL) you simply use Python to access and manipulate ZODB objects.
+Don't worry if you accidentally change objects - you would have to commit your changes explicitly to make them permanent.
+
+The Python code to do so is:
+
+```pycon
+>>> import transaction
+>>> transaction.commit()
+```
+
+You have been warned.
+````
+`````
+
+
+
+
+## Exercise 3
 
 - Create a new BrowserView callable as `/@@demo_content` in a new file {file}`demo.py`.
 - The view should create five talks each time it is called.
@@ -204,7 +257,7 @@ It aggregates tracebacks from many sources and (here comes the killer feature) e
   Use the docs at {doc}`plone6docs:backend/global-utils` to find an overview of `plone_view` helpers.
 
 ```{note}
-- Do not try everything at once, work in small iterations, restart to check your results frequently.
+- Do not try everything at once, work in small iterations, restart your Plone instance to check your results frequently.
 - Use `pdb` during development to experiment.
 ```
 
