@@ -13,7 +13,7 @@ myst:
 
 ````{sidebar} Plone Frontend Chapter
 
-Solve the same tasks in classic frontend in chapter {doc}`eggs1`
+See {doc}`eggs1` for extending Plone with backend add-ons.
 ````
 
 As soon as you have repeating needs in Volto projects, you will want to move the code to an add-on that can be applied to multiple projects. One of several ways to start with a new add-on is the Yeoman generator we already used to initiate a Volto app.

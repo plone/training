@@ -29,17 +29,6 @@ You are welcome to contribute and give feedback on [GitHub issues](https://githu
 Thank you for reading and your charity with non-native English speakers / writers.
 
 
-(intro-what-happens-label)=
-
-## Technologies and Tools
-
-  - [Linux (Ubuntu)](https://ubuntu.com/)
-  - [Python](https://www.python.org)
-  - [React](https://react.dev/)
-
-We recommend to work on Linux, not Windows.
-
-
 (about-upcoming-label)=
 
 ## Upcoming Trainings

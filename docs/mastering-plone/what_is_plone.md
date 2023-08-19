@@ -18,7 +18,7 @@ A CMS lets non-technical people create and maintain content for a public website
 
 - Open Source
 - Written and extensible in `Python`
-- [Plone REST API](plone6docs:plone.restapi/docs/source/index)
+- {doc}`Plone REST API<plone6docs:plone.restapi/docs/source/index>`
 - `Volto`: `React` based frontend and editor
 - Based on the web framework {term}`Zope`
 - Database: `Zope object database` {term}`ZODB` or relational database
@@ -34,7 +34,7 @@ Plone has a multitude of powerful features, is easily accessible to editors but 
 The modular and open component architecture of Plone allows you to change or extend Plone in every aspect!
 
 ```{seealso}
-Plone documentation [Overview](plone6docs:overview/index)  
+Plone documentation on [docs.plone.org](https://docs.plone.org/)  
 Demo installation on [demo.plone.org](https://demo.plone.org/)
 ```
 

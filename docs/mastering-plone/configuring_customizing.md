@@ -64,6 +64,7 @@ The following control panels are so far only available in the backend:
 1. Image handling
 1. Markup
 1. Moderate comments
+1. Relations
 
 The following control panels are so far only available in the backend:
 
@@ -72,8 +73,8 @@ The following control panels are so far only available in the backend:
 ### Users
 
 1. Editing users
-2. Editing groups
-3. Editing group memberships
+1. Editing groups
+1. Editing group memberships
 
 ### Security
 
@@ -82,17 +83,16 @@ The following control panels are so far only available in the backend:
 The following control panels are so far only available in the backend:
 
 1. Errors
-2. HTML Filtering
-3. Relations
+1. HTML Filtering
 
 ### Advanced
 
 The following control panels are so far only available in the backend:
 
 1. Caching
-2. Configuration Registry
-3. Maintenance
-5. Resource registries
+1. Configuration Registry
+1. Maintenance
+1. Resource registries
 
 ### Add-ons
 

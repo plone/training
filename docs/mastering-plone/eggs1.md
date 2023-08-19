@@ -33,12 +33,12 @@ git checkout initial
 In this part you will:
 
 - Create a custom Python package {py:mod}`ploneconf.site`
-- Modify the buildout to install {py:mod}`ploneconf.site`
+- Modify the setup to install {py:mod}`ploneconf.site`
 
 Topics covered:
 
-- {py:mod}`plonecli`, a Plone CLI for creating Plone packages
-- the structure of python packages
+- {py:mod}`plonecli`, a Plone CLI (command line installer) for creating Plone packages
+- The structure of python packages
 
 ## Creating the package
 

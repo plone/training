@@ -35,7 +35,7 @@ We encourage you to install and run `Plone` on your own machine, as you will hav
 
 ### Prerequisites
 
-- `make`. We recommend upgrading to at least make 4. 
+- `make`. We recommend upgrading to at least `make` 4. 
 
 
 ### Installation
@@ -112,7 +112,7 @@ Point your browser to <http://localhost:8080> to see `Plone` running.
 There is no Plone site yet.
 We will create one in the next chapter.
 
-You can stop the running instance anytime using {kbd}`ctrl + c`.
+You can stop the running instance anytime using {kbd}`ctrl c`.
 
 
 (instructions-install-frontend-label)=
@@ -153,4 +153,4 @@ $ yarn start
 Point your browser to <http://localhost:3000> and see that the app is up and running, albeit without content.
 We will create a Plone instance in the next chapter. 
 
-You can stop the frontend anytime using {kbd}`ctrl + c`.
+You can stop the frontend anytime using {kbd}`ctrl c`.

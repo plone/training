@@ -17,9 +17,9 @@ myst:
 
 Tell us about yourselves:
 
-- your experience with Plone
-- experience with web development in general
-- your expectations for this training
+- Your experience with Plone
+- Your experience with web development in general
+- Your expectations for this training
 
 (intro-classroom-protocol)=
 
@@ -27,7 +27,7 @@ Tell us about yourselves:
 
 
 - Stop us and ask questions instantly when you have them!
-- Tell us if we speak too fast, too slow or not loud enough.
+- Tell us, if we speak too fast, too slow or not loud enough.
 - Please give us a sign if you are stuck.
 - Take notes.
 - If you have questions later on, community.plone.org is the Plone forum with many experienced developers.
@@ -44,7 +44,7 @@ Follow the training at https://training.plone.org/mastering-plone.
 
 ## Learn
 
-You can use this presentation to copy & paste the code but you will memorize more if you type yourself.
+You can use this presentation to copy & paste the code, but you will memorize more if you type yourself.
 
 
 (intro-further-reading-label)=
