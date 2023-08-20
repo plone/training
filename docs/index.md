@@ -20,6 +20,7 @@ mastering-plone/index
 mastering-plone-5/index
 voltohandson/index
 voltoaddons/index
+volto4dummies/index
 effective-volto/index
 testing/index
 theming/index
