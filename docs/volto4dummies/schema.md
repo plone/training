@@ -1,0 +1,1 @@
+### Blocks schema and extensions
