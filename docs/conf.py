@@ -179,7 +179,7 @@ html_theme_options = {
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
-    "article_header_start": ["toggle-primary-sidebar", "chapter-title"]
+    "article_header_start": ["toggle-primary-sidebar", "chapter-title"],
 }
 
 
@@ -240,7 +240,7 @@ def source_replace(app, docname, source):
 # Dict of replacements.
 source_replacements = {
     "{PLONE_BACKEND_VERSION}": "6.0.6",
-    "{VOLTO_FRONTEND_VERSION}": "16.22.0",
+    "{VOLTO_FRONTEND_VERSION}": "16.22.1",
 }
 
 
