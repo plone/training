@@ -9,7 +9,7 @@ myst:
 
 (endpoints-mastering-label)=
 
-# REST API endpoints (voting story)
+# REST API endpoints [voting story]
 
 ````{sidebar} Plone Backend Chapter
 

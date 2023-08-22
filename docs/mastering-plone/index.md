@@ -35,17 +35,15 @@ For Plone Classic see training {doc}`/theming/index`, training {doc}`/mastering-
 caption: Mastering Plone 6 Development
 name: toc-mastering
 maxdepth: 3
-numbered: true
+numbered: 2
 ---
 
 about_mastering
 intro
 case
 what_is_plone
-plone_versions
-features
 installation
-instructions
+features
 configuring_customizing
 volto_overrides
 add-ons
@@ -78,9 +76,7 @@ endpoints
 volto_actions
 reusable
 deployment_code
-restapi
 code
-video
 trainer
 ```
 

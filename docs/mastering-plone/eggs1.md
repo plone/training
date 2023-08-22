@@ -104,7 +104,7 @@ You generated a package with a lot files. It might look like too much boilerplat
 ## Volto Add-ons
 
 The package that will hold your own code for volto was already created when you installed the frontend with `create-volto-app`.
-The folder {file}`frontend/` that you created in the chapter {ref}`instructions-install-frontend-label` not only holds the default volto frontend but also gives you the option to extend and customize the frontend.
+The folder {file}`frontend/` that you created in the chapter {ref}`installation-install-frontend-label` not only holds the default volto frontend but also gives you the option to extend and customize the frontend.
 
 ## Eggs
 

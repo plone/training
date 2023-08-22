@@ -25,10 +25,10 @@ They will be added by name in backend configuration or frontend configuratin, th
 ## The code-packages
 
 The add-on package [ploneconf.site](https://github.com/collective/ploneconf.site) contains the complete backend code for this training excluding exercises.
-It is automatically downloaded from GitHub when you run `make build` in your Plone backend set up from {doc}`instructions`.
+It is automatically downloaded from GitHub when you run `make build` in your Plone backend set up from {doc}`installation`.
 
 The frontend app [volto-ploneconf](https://github.com/collective/volto-ploneconf) holds the code for the frontend excluding exercises.
-As explained in {doc}`instructions`, it is to be installed side by side with the backend in a folder `/frontend/`.
+As explained in {doc}`installation`, it is to be installed side by side with the backend in a folder `/frontend/`.
 Optional frontend add-ons are configured here in `packages.json`.
 
 The default branches of these repositories hold the code of the final chapter of the training.
@@ -86,14 +86,11 @@ These are the tags of the backend add-on for which there is code:
 | Chapter                        | Tag-Name                 |
 | ------------------------------ | ------------------------ |
 | {doc}`about_mastering` | |
-| {doc}`video` | |
 | {doc}`intro` | |
 | {doc}`case` | |
 | {doc}`what_is_plone` | |
 | {doc}`installation` | |
-| {doc}`instructions` | |
 | {doc}`features` | |
-| {doc}`plone_versions` | |
 | {doc}`configuring_customizing` | |
 | {doc}`volto_overrides` | |
 | {doc}`extending` | |
@@ -122,7 +119,6 @@ These are the tags of the backend add-on for which there is code:
 | {doc}`relations` | |
 | {doc}`voting-story/index` | |
 | {doc}`deployment_code` | |
-| {doc}`restapi` | |
 | {doc}`code` | |
 | {doc}`trainer` | |
 

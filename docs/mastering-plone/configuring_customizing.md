@@ -37,8 +37,6 @@ Switch to the backend if you need to configure your site: `http://localhost:8080
 
 ### General
 
-1. Add-ons
-1. Database
 1. Date and time
 1. Language
 1. Mail
@@ -46,9 +44,11 @@ Switch to the backend if you need to configure your site: `http://localhost:8080
 1. Search
 1. Site
 1. Social Media
+1. Volto settings
+1. Add-ons
+1. Database
 1. Undo
 1. URL management
-1. Volto settings
 
 The following control panels are so far only available in the backend:
 
@@ -58,13 +58,12 @@ The following control panels are so far only available in the backend:
 
 ### Content
 
-1. Content rules
 1. Content types
 1. Editing
 1. Image handling
-1. Markup
-1. Moderate comments
+1. Content rules
 1. Relations
+1. Moderate comments
 
 The following control panels are so far only available in the backend:
 
@@ -72,6 +71,7 @@ The following control panels are so far only available in the backend:
 
 ### Users
 
+1. User and group settings
 1. Editing users
 1. Editing groups
 1. Editing group memberships
@@ -125,12 +125,10 @@ At some point you'll have to learn what all those objects are about. But not tod
 
 - Actions are mostly links. But **really flexible** links.
 - Actions are configurable TTW (Through-The-Web) and through code.
-- These actions are usually iterated over in viewlets and displayed.
 
 Examples:
 
 - Links in the Footer (`site_actions`)
-- Actions Dropdown (`object_buttons`)
 
 Actions have properties like:
 

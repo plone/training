@@ -21,9 +21,7 @@ This training was initially started as a Plone Classic training and evolved now 
 
 This training is published on [training.plone.org](https://training.plone.org/).
 
-The *Mastering Plone Development Training* is Open Source.
-
-We update the training currently to teach the best practices.
+We update the training ongoing to teach the best practices.
 You are welcome to contribute and give feedback on [GitHub issues](https://github.com/plone/training/issues).
 
 Thank you for reading and your charity with non-native English speakers / writers.
@@ -39,29 +37,15 @@ Announced on [plone.org](https://plone.org)
 If you want to have an on-site training or want to attend a public training, please ask for trainings on [community.plone.org](https://community.plone.org) or one of the {ref}`trainers<about-trainers-label>`.
 
 
-(about-previous-label)=
+(video-label)=
 
-## Previous Trainings
+## Watch the Training Video
 
-The Mastering Plone Training was so far held publicly at the following occasions:
+At Ploneconf 2021 the Mastering Plone Development Training was recorded.
+It is a shortened version of the training, given by Philip Bauer and Katja Süss.
 
-- [Plone Conference Namur 2022](https://2022.ploneconf.org/)
-- [Plone Conference ONLINE 2021](https://www.youtube.com/watch?v=IEcGKzo3PO0)
-- [Plone Conference ONLINE 2020](https://www.youtube.com/watch?v=_dOAthafoGQ&t=0s)
-- [Plone Conference 2019 in Ferrara](https://2019.ploneconf.org/)
-- [Plone Conference 2018 in Tokyo](https://2018.ploneconf.org/)
-- [August 2018, Munich](https://plone.org/news-and-events/events/community/mastering-plone-training-in-munich)
-- [Plone Conference 2017 in Barcelona](https://2017.ploneconf.org/)
-- [Plone Conference 2016 in Boston](https://2016.ploneconf.org/)
-- Plone Conference 2015, Bucharest
-- [March 2015, Munich](https://www.starzel.de/blog/mastering-plone-training-march-2015)
-- Plone Conference 2014, Bristol
-- [June 2014, Caracas](https://twitter.com/hellfish2/status/476906131970068480)
-- [May 2014, Munich](https://www.starzel.de/blog/mastering-plone)
-- [PythonBrasil/Plone Conference 2013, Brasilia](http://2013.pythonbrasil.org.br/)
-- PyCon DE 2012, Leipzig
-- Plone Conference 2012, Arnheim
-- PyCon De 2011, Leipzig
+[Part 1 – Mastering Plone Development Training](https://www.youtube.com/watch?v=Jzuw3uWtzzI)  
+[Part 2 – Mastering Plone Development Training](https://www.youtube.com/watch?v=IEcGKzo3PO0)  
 
 
 (about-trainers-label)=
@@ -82,7 +66,7 @@ Katja Süss
 : If not gardening she is developing with Python, Svelte and ReactJS.
   Katja is active member of teams Volto, documentation and training.
   She lifted the Plone Classic Training to Plone 6.  
-  With a background in mathematical logics she turned towards web development and runs the web agency [Rohberg](https://rohberg.ch/) in Zurich.
+  With a background in mathematical logic she turned towards web development and runs the web agency [Rohberg](https://rohberg.ch/) in Zurich.
   She dedicates herself especially to enthralling user experience and search assistance.
 
 Patrick Gerken
@@ -143,22 +127,11 @@ Leonardo Caballero
   and has spoken at or helped organize Plone and open-source events throughout South America.
 
 
-(intro-what-happens-label)=
-
-## Technologies and Tools
-
-  - [Linux (Ubuntu)](https://ubuntu.com/)
-  - [Python](https://www.python.org)
-  - [React](https://react.dev/)
-
-We recommend to work on Linux, not Windows.
-
-
-# Optional topics without documentation
+## Optional topics without documentation
 
 The following topics are not covered in the written training but could be discussed on demand.
 
-- users, authentication, member profiles, members as content
+- Users, authentication, member profiles, members as content
 
 - ZODB, RelStorage
 

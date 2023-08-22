@@ -9,7 +9,7 @@ myst:
 
 # Releasing your code
 
-## Releasing your Python add-on code
+## Releasing your backend add-on
 
 > - zest.releaser
 > - pypi-test egg deployment
