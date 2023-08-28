@@ -154,6 +154,9 @@ html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
 html_css_files = ["custom.css", ("print.css", {"media": "print"})]
+html_js_files = [
+    "patch_scrollToActive.js",
+]
 
 html_extra_path = [
     "robots.txt",
