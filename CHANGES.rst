@@ -4,6 +4,7 @@ Changelog
 This changelog is only very rough. For the full changelog please refer to https://github.com/plone/training/commits/master
 
 
+- Scroll sidebar to active navigation element. @ksuess
 - Enhance orientation: Add chapter title and training title in sticky top bar. @ksuess
 - Enhance orientation: Add breadcrumbs to search results. @ksuess
 
