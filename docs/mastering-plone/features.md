@@ -18,7 +18,7 @@ Developers get a glimps on the features that can be modified easily.
 
 (features-start-stop-label)=
 
-## Starting and Stopping Zope
+## Starting and stopping Zope
 
 We control Plone with `make`. Start your Zope instance with:
 
@@ -40,7 +40,7 @@ Zope instance is up and running, ready to create a Plone instance.
 
 (features-create-plonesite-label)=
 
-## Creating a Plone Site
+## Creating a Plone site
 
 We now have a running Zope with a database, but no content.
 
@@ -72,7 +72,7 @@ The front page of your site
 ```
 
 
-## Starting and Stopping the frontend
+## Starting and stopping the frontend
 
 Start the frontend of your new Plone site by switching to directory `frontend` and enter:
 
@@ -90,17 +90,13 @@ You can stop the frontend any time using {kbd}`ctrl c`.
 While developing it is not necessary to restart the frontend unless you are adding a new file.
 
 
-### Exercises
+### Change ports
 
-#### Exercise 1
+#### backend
 
 Now let's say you want Plone to listen on port 9080 instead of the default 8080.
 Open the file `backend/instance.yml` in your favorite editor.
 How could you do this?
-
-````{dropdown} Solution
-:animate: fade-in-slide-down
-:icon: question
 
 ```yaml
 wsgi_listen: localhost:9080
@@ -122,22 +118,15 @@ When your Plone instance is not called `Plone` you can use the same approach:
 RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
 ```
 
-````
-
-
-#### Exercise 2
+#### frontend
 
 Change the port of the frontend to 1234
-
-````{admonition} Solution
-:class: toggle
 
 By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
 
 ```shell
 HOST=localhost PORT=1234 yarn start
 ```
-````
 
 
 (features-walkthrough-label)=
@@ -480,7 +469,7 @@ Group memberships
 
 (features-workflows-label)=
 
-## Workflow
+## Workflows
 
 A workflow is a set of states and transactions.
 Each content type is assigned a workflow.
@@ -515,7 +504,7 @@ As each user, including the anonymous, has a set of roles, the circle is closed 
 
 (features-placeful-wf-label)=
 
-## Placeful workflows
+### Placeful workflows
 
 ```{warning}
 Placeful workflows are not yet configurable in Volto.
@@ -567,7 +556,7 @@ A moved page is still available via the former url.
 
 Additional to this behavior, a page can be explicitly made available under further urls.
 
-You can find the UI for adding alternative urls following the context menu '…'.
+You can find the UI for adding alternative urls following the context menu {guilabel}`...`.
 
 
 (features-wc-label)=

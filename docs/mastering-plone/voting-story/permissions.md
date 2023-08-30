@@ -9,7 +9,7 @@ myst:
 
 (permissions-label)=
 
-# Permissions (voting story)
+# Permissions [voting story]
 
 In this part you will:
 

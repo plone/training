@@ -9,7 +9,7 @@ myst:
 
 (volto-actions)=
 
-# Volto Actions and Component State (voting story)
+# Volto Actions and Component State [voting story]
 
 ````{sidebar} Plone Frontend Chapter
 

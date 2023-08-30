@@ -30,9 +30,9 @@ Some features that most editors have in one form or another, are essential when 
 
 | Task | VSCode |
 | --- | --- |
-| find in project | {kbd}`cmd-shift-f` |
-| find files in a project | {kbd}`cmd-p` |
-| find symbols (methods, classes, …) in a project | {kbd}`cmd-shift-o` |
+| find in project | {kbd}`cmd shift f` |
+| find files in a project | {kbd}`cmd p` |
+| find symbols (methods, classes, …) in a project | {kbd}`cmd shift o` |
 | go to definition | {kbd}`F12` |
 | powerful search & replace | |
 | git diff | sidebar tab 'source control' |

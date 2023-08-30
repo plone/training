@@ -16,7 +16,6 @@ myst:
 ## Background
 
 For this training we will build a website for a fictional Plone conference on Mars.
-
 By 2050 human civilisation has reached the stars and each year the conference is held on a different planet.
 
 The conference website we want to create should be reusable in the following years, so some things should be configurable.
@@ -34,14 +33,14 @@ Here are some requirements that we want to meet when the site is done:
 - As an organizer I want to see a list of all proposed talks.
 - As an organizer I want to display the sponsors of the conference.
 - As a jury member I want to vote on talk submission.
-- As an organizer I want to decide which talks to accept an publish on the site, and which not.
+- As an organizer I want to decide which talks to accept and publish on the site, and which not.
 
 Note that requirements connect roles with capabilities.
 This is important because we'll want to limit the capabilities to those to whom we assign particular roles.
 
 ## Changing requirements
 
-If you have ever organized a conference you will find that this story is pretty rough.
+If you have ever organized a conference, you will find that this story is pretty rough.
 Like in many real projects new requirements will come up during the development of the project.
 
 Here are some specific feature requirements that will come up:
@@ -63,24 +62,21 @@ During the course of the training you will solve the following tasks.
 - Create users and organize them
 - Configure some basic settings of the website
 - Create content with info about the conference using the default features
-- Create a Plone add-on to hold our own python code
-- Create a contenttype 'talk' to store all the data required for a talk
-- Create a view to display talks in a nice way
-- Create a view that shows a list of talks to allow a easy overview
+- Create a Plone add-on to hold our own python code in a backend add-on
+- Create a content type 'talk' to store all the data required for a talk
+- Create a view to display a talk in a nice way
+- Create a Volto block variation that shows a list of talks to allow an easy overview
 - Create a new field to mark arbitrary content as 'featured'
 - Display this featured content on a dynamic frontpage
 - Add date and time to talks to assign them in a schedule
 - Display date and time on talks
 - Allow potential speakers to self-register and then create and submit talks
-- Store the data on the speaker in a custom content-type
+- Store the data on the speaker in a custom content type
 - Create a relation from speaker to talk upon creation of a talk
 - Allow multiple speakers for one talk
-- Create a sponsor contenttype to manage sponsors
+- Create a sponsor content type to manage sponsors
 - Store non-visible information about the sponsor in the sponsor-type
 - Display sponsors on all pages sorted by level
 - Allow some settings to be configurable by an admin in a control panel
-- Create a calendar view to display talks
-- Turn the calendar view in a reuseable block to include it on the frontpage
-- Add a separate add-on to allow voting on talks
-- Create a react-component for voting and connect it to the backend with a custom restapi-endpoint
-- Create a simple mobile app that allows the easy submission of lightning talks (a type of talk)
+- Create a separate add-on to allow voting on talks
+- Create a React component for voting and connect it to the backend with a custom restapi-endpoint

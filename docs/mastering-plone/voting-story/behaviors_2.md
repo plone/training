@@ -10,7 +10,7 @@ myst:
 
 (behaviors2-label)=
 
-# Complex Behaviors (voting story)
+# Complex Behaviors [voting story]
 
 ````{sidebar} Plone Backend Chapter
 

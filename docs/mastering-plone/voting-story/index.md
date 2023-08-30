@@ -8,9 +8,9 @@ myst:
 ---
 
 
-(eggs2-label)=
+(voting-story-label)=
 
-# The voting story – reusable features packaged in add-ons
+# Roundtrip [The voting story] frontend, backend, and REST
 
 You will enhance the Plone Conference site with the following behavior:
 
@@ -28,6 +28,7 @@ Talks are submitted. The jury votes for talks to be accepted or rejected.
   - Backend package creation with {term}`plonecli`
   - Frontend package creation with Volto generator
   - Create React components to display voting behavior in frontend
+  - Permissions
   
   The **voting story** spreads about the next chapters:
   
@@ -35,7 +36,7 @@ Talks are submitted. The jury votes for talks to be accepted or rejected.
   ---
   name: toc-voting-story
   maxdepth: 2
-  numbered: false
+  numbered: 1
   ---
 
   behaviors_2
@@ -57,7 +58,7 @@ For this we need:
 - A frontend component that displays votes and provides the ability to vote
 
 
-(eggs2-backend-package-label)=
+(voting-story-backend-package-label)=
 
 ## Create a backend package
 
@@ -117,7 +118,7 @@ The add-on can now be activated for our site `Plone`.
 Please head over to http://localhost:8080/Plone/prefs_install_products_form and activate / install the new add-on.
 
 
-(eggs2-frontend-package-label)=
+(voting-story-frontend-package-label)=
 
 ## Create a Volto add-on
 

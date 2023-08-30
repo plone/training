@@ -249,9 +249,12 @@ Modify Pages to allow uploading an image as decoration (like News Items do).
 The images are displayed above the title.
 ```
 
-```{seealso}
+## Further reading
+- Documentation {doc}`plone6docs:backend/fields`
+- [Example content type](https://github.com/collective/example.contenttype) A Plone content type with all available fields
+
+Plone 5 documentation
 - [Dexterity Developer Manual](https://5.docs.plone.org/external/plone.app.dexterity/docs/index.html)
 - [The standard behaviors](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
 - [Dexterity XML](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html)
 - [Model-driven types](https://5.docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types)
-```

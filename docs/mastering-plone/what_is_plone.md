@@ -13,28 +13,28 @@ myst:
 
 # What is Plone?
 
-Plone is an open source Content Management System (CMS) built in Python.
+Plone is an Open Source Content Management System (CMS) built in Python.
 A CMS lets non-technical people create and maintain content for a public website or an intranet in a web browser.
 
 - Open Source
 - Written and extensible in `Python`
-- [Plone REST API](plone6docs:plone.restapi/docs/source/index)
+- {doc}`Plone REST API<plone6docs:plone.restapi/docs/source/index>`
 - `Volto`: `React` based frontend and editor
 - Based on the web framework {term}`Zope`
 - Database: `Zope object database` {term}`ZODB` or relational database
 - Runs on Linux-based systems
 - Docker images available
 
-Plone has a multitude of powerful features, is easily accessible to editors but also fun for programmers.
+Plone has a multitude of powerful features, is easily accessible to editors, but also fun for developers.
 
 - Workflow-driven, collaborative management of content
 - Industrial strength security and access control
-- Limitless extensibility and huge ecosystem of [add-ons](https://pypi.org/search/?c=Framework+%3A%3A+Plone+%3A%3A+Addon)
+- Limitless extensibility and huge ecosystem of add-ons
 
 The modular and open component architecture of Plone allows you to change or extend Plone in every aspect!
 
 ```{seealso}
-Plone documentation [Overview](plone6docs:overview/index)  
+Plone documentation on [docs.plone.org](https://docs.plone.org/)  
 Demo installation on [demo.plone.org](https://demo.plone.org/)
 ```
 
@@ -142,7 +142,7 @@ Plone creates forms for all these schemata to add and edit content.
 
 ```{seealso}
 - [Zope Component Architecture](https://zopecomponent.readthedocs.io/en/latest/narr.html)
-- The [Keynote](https://youtu.be/eGRJbBI_H2w?t=239) by Cris Ewing at PyCon 2016
+- The [Keynote](https://youtu.be/eGRJbBI_H2w?t=1308) by Cris Ewing at PyCon 2016
 ```
 
 
@@ -333,14 +333,13 @@ Here are some basics that you need to understand if you are new to Volto:
 - Volto is built in [ReactJS](https://www.reactjs.dev), a modern Javascript Framework.
 - Volto uses {doc}`plone6docs:plone.restapi/docs/source/index` to communicate with the Plone backend.
 - Volto is installed separately from the Plone backend.
-  See chapter {ref}`instructions-install-frontend-label` for instructions.
+  See chapter {ref}`installation-install-frontend-label` for instructions.
 - Volto runs in a different process than the Plone backend.
   By default Volto runs on port 3000. If you start Volto with `yarn start` you can see the frontend on <http://localhost:3000>.
   The Plone backend runs by default on <http://localhost:8080>
 - You create a new Plone instance in an already set up Zope environment via the backend.
   This is by now not possible in Volto.
 - Volto takes advantage of [Semantic UI React components](https://react.semantic-ui.com/) to compose most of the views.
-  For example the component [Image](https://react.semantic-ui.com/elements/image/) is used to render images.
 - The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://www.youtube.com/watch?v=wW9mTl1Tavc&t=133s).
 - Same as Plone Classic, Volto is highly extendable with add-ons for further features.
 - Existing Volto components are customizable with a technology similar to `z3c.jbot` called {ref}`volto-overrides-componentshadowing-label`.

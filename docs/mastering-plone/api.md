@@ -153,7 +153,7 @@ You have an interactive debugger at your fingertips.
   >>> app.Plone.talks.contentItems()
   [('whats-new-in-python-3.10', <Talk at /Plone/talks/whats-new-in-python-3.10>), ('plone-7', <Talk at /Plone/talks/plone-7>), ('zope', <Talk at /Plone/talks/zope>), ('betty-white', <Talk at /Plone/talks/betty-white>), ('new-years-day', <Talk at /Plone/talks/new-years-day>), ('journey-band', <Talk at /Plone/talks/journey-band>)]
   ```
-: Stop the interactive shell with {kbd}`ctrl-d`.
+: Stop the interactive shell with {kbd}`ctrl d`.
 
 plone.app.debugtoolbar
 
