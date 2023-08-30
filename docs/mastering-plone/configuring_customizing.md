@@ -105,98 +105,22 @@ Below the links to panels you will find information on your Plone, Zope and Pyth
 
 ## ZMI (Zope management interface)
 
+Zope is the foundation of Plone.
+Here you can access the inner workings of Zope and Plone alike.
+
 Go to <http://localhost:8080/Plone/manage>
 
-Zope is the foundation of Plone. Here you can access the inner workings of Zope and Plone alike.
-
 ```{warning}
-Here you can easily break your site so you should know what you are doing!
+You can easily break your site here. So you should know what you are doing!
 Back up your site, just to be sure.
 ```
 
-```{only} not presentation
-We only cover three parts of customization in the ZMI now.
-Later on when we will have added our own code we'll come back to the ZMI and will look for it.
+Examples of what can be configured in the `ZMI` are
 
-At some point you'll have to learn what all those objects are about. But not today.
-```
+{guilabel}`portal_workflow` where you can inspect and manage existing and applied workflows, their states and transitions.
 
-### Actions (portal_actions)
+{guilabel}`portal_catalog` where you can inspect existing indices.
 
-- Actions are mostly links. But **really flexible** links.
-- Actions are configurable TTW (Through-The-Web) and through code.
-
-Examples:
-
-- Links in the Footer (`site_actions`)
-
-Actions have properties like:
-
-- description
-- url
-- i18n-domain
-- condition
-- permissions
-
-#### `site_actions`
-
-These are the links at the bottom of the page:
-
-- {guilabel}`Site Map`
-- {guilabel}`Accessibility`
-- {guilabel}`Contact`
-- {guilabel}`Site Setup`
-
-We want a new link to legal information, called "Imprint".
-
-- Go to `site_actions` (we know that because we checked in `@@manage-viewlets`)
-- Add a CMF Action `imprint`
-- Set URL to `string:${portal_url}/imprint`
-- Leave *condition* empty
-- Set permission to `View`
-- Save
-
-```{only} not presentation
-explain
-```
-
-- Check if the link is on the page
-- Create new Document "Imprint" and publish
-
-```{seealso}
-<https://5.docs.plone.org/develop/plone/functionality/actions.html>
-```
-
-#### Global navigation
-
-- The horizontal navigation is called `portal_tabs`
-- Go to {menuselection}`portal_actions --> portal_tabs` [Link](http://localhost:8080/Plone/portal_actions/portal_tabs/manage_main)
-- Edit `index_html`
-
-Where is the navigation?
-
-The navigation shows content-objects, which are in Plone's root. Plus all actions in `portal_tabs`.
-
-Explain & edit `index_html`
-
-Configuring the navigation itself is done elsewhere: <http://localhost:8080/Plone/@@navigation-controlpanel>
-
-If time explain:
-
-- user > login/logout
-
-
-### Further tools in the ZMI
-
-There are many more notable items in the ZMI. We'll visit some of them later.
-
-- {guilabel}`acl_users`
-- {guilabel}`error_log`
-- {guilabel}`portal_setup`
-- {guilabel}`portal_workflow`
-- {guilabel}`portal_catalog`
-
-(customizing-summary-label)=
 
 ## Summary
 

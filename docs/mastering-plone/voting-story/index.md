@@ -28,6 +28,7 @@ Talks are submitted. The jury votes for talks to be accepted or rejected.
   - Backend package creation with {term}`plonecli`
   - Frontend package creation with Volto generator
   - Create React components to display voting behavior in frontend
+  - Permissions
   
   The **voting story** spreads about the next chapters:
   

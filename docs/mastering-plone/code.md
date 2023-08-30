@@ -98,7 +98,6 @@ These are the tags of the backend add-on for which there is code:
 | {doc}`eggs1` | initial |
 | {doc}`dexterity` | |
 | {doc}`dexterity_2_talk` | talks |
-| {doc}`dexterity_reference` | |
 | {doc}`volto_development` | |
 | {doc}`volto_talkview` | |
 | {doc}`behaviors_1` | behaviors_1 |
