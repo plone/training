@@ -13,6 +13,9 @@ You can get the complete code for this training from GitHub.
 - The backend add-on [ploneconf.site](https://github.com/collective/ploneconf.site)
 - The frontend Volto app [volto-ploneconf](https://github.com/collective/volto-ploneconf)
 
+The backend add-on is included in the backend setup of [Training setup Mastering Plone Development](https://github.com/collective/training_buildout).
+See chapter {ref}`installation-install-backend-label`.
+
 Further add-ons are build or used while stepping through advanced training chapters.
 For the sake of completion we are mentioning them here.
 There is no need to check them out as they are dependencies in backend or frontend.
@@ -95,28 +98,28 @@ These are the tags of the backend add-on for which there is code:
 | {doc}`volto_overrides` | |
 | {doc}`extending` | |
 | {doc}`add-ons` | |
-| {doc}`eggs1` | initial |
+| {doc}`eggs1` | |
 | {doc}`dexterity` | |
-| {doc}`dexterity_2_talk` | talks |
+| {doc}`dexterity_2_talk` | |
 | {doc}`volto_development` | |
 | {doc}`volto_talkview` | |
-| {doc}`behaviors_1` | behaviors_1 |
+| {doc}`behaviors_1` | |
 | {doc}`volto_frontpage` | |
 | {doc}`api` | |
-| {doc}`events` | event |
-| {doc}`registry` | registry |
+| {doc}`events` | base |
+| {doc}`registry` | vocabularies |
 | {doc}`custom_search` | |
-| {doc}`upgrade_steps` | upgrade_steps |
 | {doc}`volto_testing` | |
 | {doc}`thirdparty_behaviors` | |
-| {doc}`dexterity_3` | dexterity_3 |
+| {doc}`dexterity_3` | dexterity_upgrade_steps |
+| {doc}`upgrade_steps` | dexterity_upgrade_steps |
 | {doc}`volto_components_sponsors` | |
 | {doc}`volto_addon` | |
 | {doc}`volto_custom_addon` | |
 | {doc}`volto_custom_addon2` | |
 | {doc}`user_generated_content` | |
-| {doc}`relations` | |
-| {doc}`voting-story/index` | |
+| {doc}`relations` | relations |
+| {doc}`voting-story/index` | voting |
 | {doc}`deployment_code` | |
 | {doc}`code` | |
 | {doc}`trainer` | |

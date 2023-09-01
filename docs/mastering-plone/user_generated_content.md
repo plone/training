@@ -11,7 +11,7 @@ myst:
 
 # Workflow, Roles and Permissions
 
-````{sidebar} Plone Backend Chapter
+````{sidebar} Plone backend chapter
 
 Get the code! ({doc}`More info <code>`)
 

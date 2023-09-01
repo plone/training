@@ -9,7 +9,7 @@ myst:
 
 # Plone Training
 
-A collection of trainings developed and created by the Plone Community.
+A collection of trainings developed and created by the Plone community.
 
 ```{toctree}
 :caption: Trainings
@@ -43,11 +43,11 @@ teaching/index
 
 {ref}`mastering-plone-label`
 
-: Mastering Plone 6 teaches the best practices of Plone development. It covers frontend as well as backend development and Volto as well as Plone Classic.
+: `Mastering Plone 6 development training` teaches the best practices of Plone development.
 
 {ref}`mastering-plone5-label`
 
-: Mastering Plone 5 is a training intended for people who are new to Plone or want to learn about the best practices of Plone 5 development.
+: `Mastering Plone 5 development training` is the predecessor of the Plone 6 version. It includes also `Plone Classic` topics like viewlets, views, portlets, etc..
 
 {doc}`testing/index`
 

@@ -15,7 +15,7 @@ myst:
 % TODO Discuss plone.restapi
 
 
-```{sidebar} Plone Backend Chapter
+```{sidebar} Plone backend chapter
 ```
 
 In this part you will:

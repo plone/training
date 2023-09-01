@@ -11,29 +11,30 @@ myst:
 
 # Upgrade-steps
 
-````{sidebar} Plone Backend Chapter
+````{card} Backend chapter
 
 Get the code! ({doc}`More info <code>`)
 
-Code for the beginning of this chapter:
-
 ```shell
-git checkout registry
-```
-
-Code for the end of this chapter:
-
-```shell
-git checkout upgrade_steps
+# ploneconf.site
+git checkout dexterity_upgrade_steps
 ```
 ````
 
+```{card}
 In this part we will:
 
 - Write code to update, create or move content
 - Create custom catalog indexes
 - Query the catalog for them,
 - Enable more default features for our type
+```
+
+```{figure} _static/upgrade_steps.png
+:alt: Upgrade step
+
+Upgrade step
+```
 
 (upgrade-steps-upgrades-label)=
 

@@ -8,14 +8,12 @@ myst:
 ---
 
 % TODO 1st prio: Complete overhaul of "extending" on backend side. Spans this and next two chapters. Zope component architecture, generic setup, overriding, layers, zcml, pipapo.
-% TODO Replace buildout stuff with pip installation. As long as mxdev is needed, do mention this also.
 
 (extending-label)=
 
 # Extending Plone
 
-```{sidebar} Plone Backend Chapter
-```
+> **Plone backend chapter**
 
 In this part you will:
 
@@ -44,8 +42,8 @@ Therefore we create two different extension packages to customize and extend Plo
 
 Sometimes it is easy to know, which layer needs to be customized to achieve a certain result.
 
-- All styling and javascript-based interaction is customized on the Volto side of Plone
-- Content types and other persistent data is customized or created in a Python package
+- All styling and javascript-based interaction is customized on the Volto side of Plone.
+- Content types and other persistent data is customized or created in a Python package.
 
 For more complex use cases you will need to add code to both parts of our customization story.
 For example a content type is defined in the Python package and its visualization is defined in the Javascript package.
@@ -155,7 +153,7 @@ Typically you use *GenericSetup* to change workflows or add new content type def
 GenericSetup profiles may also be built into Python packages. Every package that is listed on the add-on package list inside a Plone installation has a GS profile that details how it fits into Plone. Packages that are part of Plone itself may have GS profiles, but are excluded from the active/inactive listing.
 ```
 
-Example:
+Examples of a profile of an add-on in `profile/default/`
 
 {file}`metadata.xml`:
 
@@ -171,9 +169,9 @@ Example:
 </metadata>
 ```
 
-Most settings are stored in a tool called `portal_registry`. Since it has great import/export handlers for GenericSetup it can be configures with {file}`registry.xml`:
+Most settings are stored in a tool called `portal_registry`. Since it has great import/export handlers for GenericSetup it can be configured with {file}`registry/main.xml`:
 
-{file}`registry.xml`:
+{file}`registry/main.xml`:
 
 ```xml
 <?xml version="1.0"?>

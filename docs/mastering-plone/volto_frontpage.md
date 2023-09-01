@@ -11,7 +11,7 @@ myst:
 
 # Creating a dynamic frontpage with Volto blocks
 
-````{sidebar} Plone Frontend Chapter
+````{sidebar} Plone frontend chapter
 
 Get the code! ({doc}`More info <code>`)
 
