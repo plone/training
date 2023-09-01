@@ -11,7 +11,7 @@ myst:
 
 # The Sponsors Component
 
-````{sidebar} Plone Frontend Chapter
+````{sidebar} Plone frontend chapter
 
 ```{topic} Description
 Create a React component for content fetched from the backend

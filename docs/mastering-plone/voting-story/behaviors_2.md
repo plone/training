@@ -12,7 +12,7 @@ myst:
 
 # Complex Behaviors [voting story]
 
-````{sidebar} Plone Backend Chapter
+````{sidebar} Plone backend chapter
 
 Get the backend code! 
 [training.votable](https://github.com/collective/training.votable)

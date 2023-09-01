@@ -11,7 +11,7 @@ myst:
 
 # Volto View Component: A Default View for a "Talk"
 
-````{sidebar} Plone Frontend Chapter
+````{sidebar} Plone frontend chapter
 
 Get the code! ({doc}`More info <code>`)
 

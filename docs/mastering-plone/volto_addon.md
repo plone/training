@@ -11,7 +11,7 @@ myst:
 
 # Using Volto add-ons
 
-````{sidebar} Plone Frontend Chapter
+````{sidebar} Plone frontend chapter
 
 For Plone backend add-ons see chapter {ref}`add-ons-label`
 ````

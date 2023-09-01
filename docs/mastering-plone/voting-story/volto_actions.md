@@ -11,7 +11,7 @@ myst:
 
 # Volto Actions and Component State [voting story]
 
-````{sidebar} Plone Frontend Chapter
+````{sidebar} Plone frontend chapter
 
 Solve the same tasks in Plone Classic UI in chapter {doc}`viewlets_2`
 

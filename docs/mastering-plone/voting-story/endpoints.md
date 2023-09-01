@@ -11,7 +11,7 @@ myst:
 
 # REST API endpoints [voting story]
 
-````{sidebar} Plone Backend Chapter
+````{sidebar} Plone backend chapter
 
 Get the code! 
 [training.votable](https://github.com/collective/training.votable)

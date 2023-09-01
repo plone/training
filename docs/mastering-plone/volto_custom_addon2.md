@@ -11,7 +11,7 @@ myst:
 
 # Extending Volto With a FAQ Block Type
 
-````{sidebar} Plone Frontend Chapter
+````{sidebar} Plone frontend chapter
 
 Creating a new block type
 ````

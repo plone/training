@@ -9,7 +9,7 @@ myst:
 
 (mastering-plone-label)=
 
-# Mastering Plone 6 Development
+# Mastering Plone 6 development
 
 *Mastering Plone Development* is intended as a training to learn proven practices of Plone development.
 It's both, an online course and a sketch for an on-the-spot training.
@@ -58,10 +58,10 @@ api
 events
 registry
 custom_search
-upgrade_steps
 volto_testing
 thirdparty_behaviors
 dexterity_3
+upgrade_steps
 volto_components_sponsors
 volto_addon
 volto_custom_addon

@@ -25,7 +25,7 @@ In this part you will:
 A content type instance is a kind of object that can store information and is editable by users.
 We have different content types to reflect the different kinds of information about which we need to collect and display information.
 
-Pages, folders, events, news items, files (binary) and images are all content types.
+Pages, events, news items, files (binary) and images are all content types.
 
 See "Features of Plone – {ref}`features-content-types-label`" for an overview.
 
@@ -46,8 +46,7 @@ Every Plone content type has the following parts:
 
 Schema
 
-: A definition of fields that comprise a content type;
-properties of an object.
+: A definition of fields that comprise a content type, properties of an object.
 
 FTI
 

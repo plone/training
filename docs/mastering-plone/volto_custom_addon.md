@@ -11,7 +11,7 @@ myst:
 
 # Extending Volto with a custom add-on package
 
-````{sidebar} Plone Frontend Chapter
+````{sidebar} Plone frontend chapter
 
 See {doc}`eggs1` for extending Plone with backend add-ons.
 ````

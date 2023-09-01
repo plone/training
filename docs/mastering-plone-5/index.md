@@ -9,7 +9,7 @@ myst:
 
 (mastering-plone5-label)=
 
-# Mastering Plone 5 Development
+# Mastering Plone 5 development
 
 This is the documentation for the "Mastering Plone 5" training.
 
