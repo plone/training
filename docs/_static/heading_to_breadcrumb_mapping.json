@@ -1,0 +1,1189 @@
+{
+  "heading_to_breadcrumb": {
+    "Glossary": {
+      "Plone Training": "https://training.plone.org/",
+      "Glossary": "https://training.plone.org/glossary"
+    },
+    "Plone Training": {
+      "Plone Training": "https://training.plone.org/index"
+    },
+    "Authors Guide": {
+      "Plone Training": "https://training.plone.org/",
+      "Contributing to Plone Training": "https://training.plone.org/contributing",
+      "Authors Guide": "https://training.plone.org/contributing/authors"
+    },
+    "Contributing to Plone Training": {
+      "Plone Training": "https://training.plone.org/",
+      "Contributing to Plone Training": "https://training.plone.org/contributing/index"
+    },
+    "Building and Checking the Quality of Documentation": {
+      "Plone Training": "https://training.plone.org/",
+      "Contributing to Plone Training": "https://training.plone.org/contributing",
+      "Building and Checking the Quality of Documentation": "https://training.plone.org/contributing/setup-build"
+    },
+    "General Guide to Writing Documentation": {
+      "Plone Training": "https://training.plone.org/",
+      "Contributing to Plone Training": "https://training.plone.org/contributing",
+      "General Guide to Writing Documentation": "https://training.plone.org/contributing/writing-docs-guide"
+    },
+    "About Effective Volto": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "About Effective Volto": "https://training.plone.org/effective-volto/about_effective_volto"
+    },
+    "Add-ons": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Add-ons": "https://training.plone.org/effective-volto/addons"
+    },
+    "Architecture": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Architecture": "https://training.plone.org/effective-volto/architecture"
+    },
+    "Backend": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Backend": "https://training.plone.org/effective-volto/backend"
+    },
+    "Deployment": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Deployment": "https://training.plone.org/effective-volto/deployment"
+    },
+    "Development tools": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Development tools": "https://training.plone.org/effective-volto/development"
+    },
+    "Getting Started": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Getting Started": "https://training.plone.org/effective-volto/getting-started"
+    },
+    "Effective Volto": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto/index"
+    },
+    "Testing": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Testing": "https://training.plone.org/effective-volto/testing"
+    },
+    "Integrate with Volto\u2019s asyncConnect for SSR": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Integrate with Volto\u2019s asyncConnect for SSR": "https://training.plone.org/effective-volto/addons/asyncconnect"
+    },
+    "Block Extensions": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Block Extensions": "https://training.plone.org/effective-volto/addons/block-extensions"
+    },
+    "Block Styling": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Block Styling": "https://training.plone.org/effective-volto/addons/block-styling"
+    },
+    "Create a block using BlockDataForm": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Create a block using BlockDataForm": "https://training.plone.org/effective-volto/addons/blockdataform"
+    },
+    "Blocks Layout": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Blocks Layout": "https://training.plone.org/effective-volto/addons/blockslayout"
+    },
+    "Bootstrap an add-on": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Bootstrap an add-on": "https://training.plone.org/effective-volto/addons/bootstrap"
+    },
+    "Create a custom Listing block variation": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Create a custom Listing block variation": "https://training.plone.org/effective-volto/addons/customlistingtemplate"
+    },
+    "Add-on dependencies": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Add-on dependencies": "https://training.plone.org/effective-volto/addons/dependencies"
+    },
+    "How does a Volto add-on works?": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "How does a Volto add-on works?": "https://training.plone.org/effective-volto/addons/how-an-add-on-works"
+    },
+    "Add-on Internationalization": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Add-on Internationalization": "https://training.plone.org/effective-volto/addons/i18n"
+    },
+    "Add-on and project configuration pipeline": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Add-on and project configuration pipeline": "https://training.plone.org/effective-volto/addons/pipeline"
+    },
+    "Extending Semantic UI": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Extending Semantic UI": "https://training.plone.org/effective-volto/addons/semanticui"
+    },
+    "Create a theme add-on": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Create a theme add-on": "https://training.plone.org/effective-volto/addons/theme"
+    },
+    "Configure a released Volto Add-on in your project": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Configure a released Volto Add-on in your project": "https://training.plone.org/effective-volto/addons/use-released-addon"
+    },
+    "Configure an unreleased add-on from an existing repository": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Configure an unreleased add-on from an existing repository": "https://training.plone.org/effective-volto/addons/use-repo-addon"
+    },
+    "Volto views": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Volto views": "https://training.plone.org/effective-volto/addons/views"
+    },
+    "Extend Webpack setup from an add-on with razzle.extend.js": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Extend Webpack setup from an add-on with razzle.extend.js": "https://training.plone.org/effective-volto/addons/webpack"
+    },
+    "What is a Volto add-on": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "What is a Volto add-on": "https://training.plone.org/effective-volto/addons/what-is-an-addon"
+    },
+    "Inside Volto": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Inside Volto": "https://training.plone.org/effective-volto/architecture/anatomy"
+    },
+    "Babel": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Babel": "https://training.plone.org/effective-volto/architecture/babel"
+    },
+    "Volto Blocks": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Volto Blocks": "https://training.plone.org/effective-volto/architecture/blocks"
+    },
+    "Bootstrap Volto": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Bootstrap Volto": "https://training.plone.org/effective-volto/architecture/bootstrap-volto"
+    },
+    "Volto Client - Server duality": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Volto Client - Server duality": "https://training.plone.org/effective-volto/architecture/client-ssr"
+    },
+    "Configuration Registry": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Configuration Registry": "https://training.plone.org/effective-volto/architecture/configuration"
+    },
+    "CORS": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "CORS": "https://training.plone.org/effective-volto/architecture/CORS"
+    },
+    "Multilingual": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Multilingual": "https://training.plone.org/effective-volto/architecture/multilingual"
+    },
+    "Razzle": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Razzle": "https://training.plone.org/effective-volto/architecture/razzle"
+    },
+    "Redux": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Redux": "https://training.plone.org/effective-volto/architecture/redux"
+    },
+    "Webpack loaders": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Webpack loaders": "https://training.plone.org/effective-volto/architecture/webpack-loaders"
+    },
+    "Webpack": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Webpack": "https://training.plone.org/effective-volto/architecture/webpack"
+    },
+    "Block field contribute to searchableText": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Block field contribute to searchableText": "https://training.plone.org/effective-volto/backend/block-field-as-searchableText"
+    },
+    "Link integrity for blocks": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Link integrity for blocks": "https://training.plone.org/effective-volto/backend/block-linkintegrity"
+    },
+    "Writing Express middleware": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Writing Express middleware": "https://training.plone.org/effective-volto/backend/express-middleware"
+    },
+    "Plone REST API endpoints": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Plone REST API endpoints": "https://training.plone.org/effective-volto/backend/plone-restapi-endpoints"
+    },
+    "Writing a block transform": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Writing a block transform": "https://training.plone.org/effective-volto/backend/writing-block-transforms"
+    },
+    "Writing a content expansion endpoint": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Writing a content expansion endpoint": "https://training.plone.org/effective-volto/backend/writing-content-expansion"
+    },
+    "Writing an endpoint": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Writing an endpoint": "https://training.plone.org/effective-volto/backend/writing-endpoint"
+    },
+    "Writing a serializer or a deserializer": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Writing a serializer or a deserializer": "https://training.plone.org/effective-volto/backend/writing-serializer-deserializer"
+    },
+    "Docker": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Docker": "https://training.plone.org/effective-volto/deployment/docker"
+    },
+    "release-it": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "release-it": "https://training.plone.org/effective-volto/deployment/releaseit"
+    },
+    "Seamless mode": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Seamless mode": "https://training.plone.org/effective-volto/deployment/seamlessmode"
+    },
+    "Simple deployment": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Simple deployment": "https://training.plone.org/effective-volto/deployment/simple"
+    },
+    "Bundle analyzing": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Bundle analyzing": "https://training.plone.org/effective-volto/development/bundle-analyzing"
+    },
+    "Component Registry": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Component Registry": "https://training.plone.org/effective-volto/development/component-registry"
+    },
+    "critical.css": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "critical.css": "https://training.plone.org/effective-volto/development/criticalCSS"
+    },
+    "Debugging with Volto": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Debugging with Volto": "https://training.plone.org/effective-volto/development/debugging"
+    },
+    "Environment variables": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Environment variables": "https://training.plone.org/effective-volto/development/environmentvariables"
+    },
+    "Husky and lint-staged": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Husky and lint-staged": "https://training.plone.org/effective-volto/development/husky-lint-staged"
+    },
+    "Internationalization": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Internationalization": "https://training.plone.org/effective-volto/development/i18n"
+    },
+    "Icons": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Icons": "https://training.plone.org/effective-volto/development/icons"
+    },
+    "Lazyloading components, injectLazyLibs for libraries": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Lazyloading components, injectLazyLibs for libraries": "https://training.plone.org/effective-volto/development/lazyloading"
+    },
+    "Linters": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Linters": "https://training.plone.org/effective-volto/development/linters"
+    },
+    "How to setup your development environment using environment variables": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "How to setup your development environment using environment variables": "https://training.plone.org/effective-volto/development/setup"
+    },
+    "Shortcuts": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Shortcuts": "https://training.plone.org/effective-volto/development/shortcuts"
+    },
+    "vim and neovim integration": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "vim and neovim integration": "https://training.plone.org/effective-volto/development/vim"
+    },
+    "VSCode extensions/helpers": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "VSCode extensions/helpers": "https://training.plone.org/effective-volto/development/vscode"
+    },
+    "Bootstrapping an Add-on": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Bootstrapping an Add-on": "https://training.plone.org/effective-volto/getting-started/add-on"
+    },
+    "Bootstrapping a full Plone 6 project": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Bootstrapping a full Plone 6 project": "https://training.plone.org/effective-volto/getting-started/project"
+    },
+    "Developer roadmap": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Developer roadmap": "https://training.plone.org/effective-volto/getting-started/roadmap"
+    },
+    "Acceptance testing": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Acceptance testing": "https://training.plone.org/testing/acceptance"
+    },
+    "Testing add-ons": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Testing add-ons": "https://training.plone.org/effective-volto/testing/addons"
+    },
+    "Jest": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Jest": "https://training.plone.org/effective-volto/testing/jest"
+    },
+    "Storybook": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Storybook": "https://training.plone.org/effective-volto/testing/storybook"
+    },
+    "Unit testing": {
+      "Plone Training": "https://training.plone.org/",
+      "Effective Volto": "https://training.plone.org/effective-volto",
+      "Unit testing": "https://training.plone.org/effective-volto/testing/unit"
+    },
+    "About Mastering Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "About Mastering Plone": "https://training.plone.org/mastering-plone-5/about_mastering"
+    },
+    "Extending Plone With Add-on Packages": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Extending Plone With Add-on Packages": "https://training.plone.org/mastering-plone/add-ons"
+    },
+    "Programming Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Programming Plone": "https://training.plone.org/mastering-plone-5/api"
+    },
+    "Behaviors": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Behaviors": "https://training.plone.org/mastering-plone-5/behaviors_1"
+    },
+    "Complex Behaviors": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Complex Behaviors": "https://training.plone.org/mastering-plone/behaviors_2"
+    },
+    "The Case Study": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "The Case Study": "https://training.plone.org/mastering-plone-5/case"
+    },
+    "Using the code for the training": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Using the code for the training": "https://training.plone.org/mastering-plone-5/code"
+    },
+    "Configuring and Customizing Plone \"Through The Web\"": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Configuring and Customizing Plone \"Through The Web\"": "https://training.plone.org/mastering-plone-5/configuring_customizing"
+    },
+    "Custom Search": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Custom Search": "https://training.plone.org/mastering-plone-5/custom_search"
+    },
+    "Releasing Your Code": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Releasing Your Code": "https://training.plone.org/mastering-plone-5/deployment_code"
+    },
+    "Buildout II: Getting Ready for Deployment": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Buildout II: Getting Ready for Deployment": "https://training.plone.org/mastering-plone-5/deployment_sites"
+    },
+    "Dexterity I: Content types": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Dexterity I: Content types": "https://training.plone.org/mastering-plone/dexterity"
+    },
+    "Dexterity II: Talks": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Dexterity II: Talks": "https://training.plone.org/mastering-plone/dexterity_2_talk"
+    },
+    "Dexterity Types III: Sponsors": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Dexterity Types III: Sponsors": "https://training.plone.org/mastering-plone/dexterity_3"
+    },
+    "Dexterity: Reference": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Dexterity: Reference": "https://training.plone.org/mastering-plone-5/dexterity_reference"
+    },
+    "Write Your Own Python Add-On to Customize Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Write Your Own Python Add-On to Customize Plone": "https://training.plone.org/mastering-plone/eggs1"
+    },
+    "Reusable Features packaged in add-ons": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Reusable Features packaged in add-ons": "https://training.plone.org/mastering-plone/eggs2"
+    },
+    "Using starzel.votable_behavior in ploneconf.site": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Using starzel.votable_behavior in ploneconf.site": "https://training.plone.org/mastering-plone-5/embed"
+    },
+    "REST API Endpoints": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "REST API Endpoints": "https://training.plone.org/mastering-plone/endpoints"
+    },
+    "Turning Talks into Events": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Turning Talks into Events": "https://training.plone.org/mastering-plone-5/events"
+    },
+    "Extending Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Extending Plone": "https://training.plone.org/mastering-plone-5/extending"
+    },
+    "The Features of Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "The Features of Plone": "https://training.plone.org/mastering-plone-5/features"
+    },
+    "Creating a Dynamic Front Page": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Creating a Dynamic Front Page": "https://training.plone.org/mastering-plone-5/frontpage"
+    },
+    "IDEs and Editors": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "IDEs and Editors": "https://training.plone.org/mastering-plone-5/ide"
+    },
+    "Mastering Plone 6 Development": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone/index"
+    },
+    "Set up Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Set up Plone": "https://training.plone.org/mastering-plone/installation"
+    },
+    "Set up Plone for the Training": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Set up Plone for the Training": "https://training.plone.org/mastering-plone/instructions"
+    },
+    "Introduction": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Introduction": "https://training.plone.org/voltohandson/intro"
+    },
+    "Mastering Plone 6": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Mastering Plone 6": "https://training.plone.org/mastering-plone/mastering_plone_6"
+    },
+    "What's New in Plone?": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "What's New in Plone?": "https://training.plone.org/mastering-plone/plone_versions"
+    },
+    "Vocabularies, Registry-Settings and Control Panels": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Vocabularies, Registry-Settings and Control Panels": "https://training.plone.org/mastering-plone/registry"
+    },
+    "Relations": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Relations": "https://training.plone.org/mastering-plone-5/relations"
+    },
+    "Using plone.restapi without Volto": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Using plone.restapi without Volto": "https://training.plone.org/mastering-plone/restapi"
+    },
+    "Permissions": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Permissions": "https://training.plone.org/mastering-plone/reusable"
+    },
+    "Theming": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Theming": "https://training.plone.org/voltohandson/starttheming"
+    },
+    "Using Third-Party Behaviors": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Using Third-Party Behaviors": "https://training.plone.org/mastering-plone-5/thirdparty_behaviors"
+    },
+    "Timetable": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Timetable": "https://training.plone.org/mastering-plone-5/timing"
+    },
+    "TODOs documentation Mastering Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "TODOs documentation Mastering Plone": "https://training.plone.org/mastering-plone/todos_documentation_mastering_plone_6"
+    },
+    "Trainer: Preparation": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Trainer: Preparation": "https://training.plone.org/mastering-plone/trainer"
+    },
+    "Upgrade-steps": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Upgrade-steps": "https://training.plone.org/mastering-plone/upgrade_steps"
+    },
+    "Workflow, Roles and Permissions": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Workflow, Roles and Permissions": "https://training.plone.org/mastering-plone/user_generated_content"
+    },
+    "Watch the Training Video": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Watch the Training Video": "https://training.plone.org/mastering-plone/video"
+    },
+    "Writing Viewlets": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Writing Viewlets": "https://training.plone.org/mastering-plone-5/viewlets_1"
+    },
+    "A Viewlet for the Votable Behavior": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "A Viewlet for the Votable Behavior": "https://training.plone.org/mastering-plone-5/viewlets_2"
+    },
+    "Advanced Viewlets": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Advanced Viewlets": "https://training.plone.org/mastering-plone/viewlets_advanced_classic"
+    },
+    "Views I": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Views I": "https://training.plone.org/mastering-plone-5/views_1"
+    },
+    "Views II: A Default View for \"Talk\"": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Views II: A Default View for \"Talk\"": "https://training.plone.org/mastering-plone-5/views_2"
+    },
+    "Views III: A Talk List": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Views III: A Talk List": "https://training.plone.org/mastering-plone-5/views_3"
+    },
+    "Volto Actions and Component State": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Volto Actions and Component State": "https://training.plone.org/mastering-plone/volto_actions"
+    },
+    "Using Volto add-ons": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Using Volto add-ons": "https://training.plone.org/mastering-plone/volto_addon"
+    },
+    "The Sponsors Component": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "The Sponsors Component": "https://training.plone.org/mastering-plone/volto_components_sponsors"
+    },
+    "Extending Volto With Custom Add-on Package": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Extending Volto With Custom Add-on Package": "https://training.plone.org/mastering-plone/volto_custom_addon"
+    },
+    "Extending Volto With a FAQ Block Type": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Extending Volto With a FAQ Block Type": "https://training.plone.org/mastering-plone/volto_custom_addon2"
+    },
+    "Volto App Development": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Volto App Development": "https://training.plone.org/mastering-plone/volto_development"
+    },
+    "Creating a dynamic frontpage with Volto blocks": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Creating a dynamic frontpage with Volto blocks": "https://training.plone.org/mastering-plone/volto_frontpage"
+    },
+    "Customizing Volto Components": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Customizing Volto Components": "https://training.plone.org/mastering-plone/volto_overrides"
+    },
+    "Rich Text Editor Settings in DraftJS editor": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Rich Text Editor Settings in DraftJS editor": "https://training.plone.org/mastering-plone/volto_richtexteditor"
+    },
+    "Semantic UI": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Semantic UI": "https://training.plone.org/mastering-plone/volto_semantic_ui"
+    },
+    "Volto View Component: A Default View for a \"Talk\"": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Volto View Component: A Default View for a \"Talk\"": "https://training.plone.org/mastering-plone/volto_talkview"
+    },
+    "Testing in Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Testing in Plone": "https://training.plone.org/mastering-plone-5/testing"
+    },
+    "Theming in Volto": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 6 Development": "https://training.plone.org/mastering-plone",
+      "Theming in Volto": "https://training.plone.org/mastering-plone/volto_theming"
+    },
+    "What is Plone?": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "What is Plone?": "https://training.plone.org/mastering-plone-5/what_is_plone"
+    },
+    "Page Templates": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Page Templates": "https://training.plone.org/mastering-plone-5/zpt"
+    },
+    "Extend Plone With Add-On Packages": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Extend Plone With Add-On Packages": "https://training.plone.org/mastering-plone-5/add-ons"
+    },
+    "The Anatomy of Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "The Anatomy of Plone": "https://training.plone.org/mastering-plone-5/anatomy"
+    },
+    "More Complex Behaviors": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "More Complex Behaviors": "https://training.plone.org/mastering-plone-5/behaviors_2"
+    },
+    "Buildout I": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Buildout I": "https://training.plone.org/mastering-plone-5/buildout_1"
+    },
+    "Dexterity I: \"Through The Web\"": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Dexterity I: \"Through The Web\"": "https://training.plone.org/mastering-plone-5/dexterity"
+    },
+    "Dexterity Types II: Growing Up": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Dexterity Types II: Growing Up": "https://training.plone.org/mastering-plone-5/dexterity_2"
+    },
+    "Dexterity Types III: Python": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Dexterity Types III: Python": "https://training.plone.org/mastering-plone-5/dexterity_3"
+    },
+    "Write Your Own Add-Ons to Customize Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Write Your Own Add-Ons to Customize Plone": "https://training.plone.org/mastering-plone-5/eggs1"
+    },
+    "Creating Reusable Packages": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Creating Reusable Packages": "https://training.plone.org/mastering-plone-5/eggs2"
+    },
+    "Return to Dexterity: Moving contenttypes into Code": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Return to Dexterity: Moving contenttypes into Code": "https://training.plone.org/mastering-plone-5/export_code"
+    },
+    "The Future of Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "The Future of Plone": "https://training.plone.org/mastering-plone-5/future_of_plone"
+    },
+    "Mastering Plone 5 Development": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5/index"
+    },
+    "Installation & Setup": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Installation & Setup": "https://training.plone.org/mastering-plone-5/installation"
+    },
+    "Optional": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Optional": "https://training.plone.org/mastering-plone-5/optional"
+    },
+    "What's New in Plone 5, 5.1 and Plone 5.2": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "What's New in Plone 5, 5.1 and Plone 5.2": "https://training.plone.org/mastering-plone-5/plone5"
+    },
+    "Manage Settings with Registry, Control Panels and Vocabularies": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Manage Settings with Registry, Control Panels and Vocabularies": "https://training.plone.org/mastering-plone-5/registry"
+    },
+    "Resources": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Resources": "https://training.plone.org/mastering-plone-5/resources"
+    },
+    "Plone REST API": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Plone REST API": "https://training.plone.org/mastering-plone-5/restapi"
+    },
+    "Making Our Package Reusable": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Making Our Package Reusable": "https://training.plone.org/mastering-plone-5/reusable"
+    },
+    "TODOs documentation Mastering Plone 5": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "TODOs documentation Mastering Plone 5": "https://training.plone.org/mastering-plone-5/todos_documentation_mastering_plone_5"
+    },
+    "User Generated Content": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "User Generated Content": "https://training.plone.org/mastering-plone-5/user_generated_content"
+    },
+    "Customizing Existing Templates": {
+      "Plone Training": "https://training.plone.org/",
+      "Mastering Plone 5 Development": "https://training.plone.org/mastering-plone-5",
+      "Customizing Existing Templates": "https://training.plone.org/mastering-plone-5/zpt_2"
+    },
+    "Migrating with collective.exportimport": {
+      "Plone Training": "https://training.plone.org/",
+      "Migration best practices": "https://training.plone.org/migrations",
+      "Migrating with collective.exportimport": "https://training.plone.org/migrations/exportimport"
+    },
+    "Migration best practices": {
+      "Plone Training": "https://training.plone.org/",
+      "Migration best practices": "https://training.plone.org/migrations/index"
+    },
+    "In-place migrations": {
+      "Plone Training": "https://training.plone.org/",
+      "Migration best practices": "https://training.plone.org/migrations",
+      "In-place migrations": "https://training.plone.org/migrations/inplace"
+    },
+    "Migrating from third party systems to Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Migration best practices": "https://training.plone.org/migrations",
+      "Migrating from third party systems to Plone": "https://training.plone.org/migrations/migrate-to-plone"
+    },
+    "Migrating Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Migration best practices": "https://training.plone.org/migrations",
+      "Migrating Plone": "https://training.plone.org/migrations/migrations"
+    },
+    "Migrate to Volto": {
+      "Plone Training": "https://training.plone.org/",
+      "Migration best practices": "https://training.plone.org/migrations",
+      "Migrate to Volto": "https://training.plone.org/migrations/volto"
+    },
+    "Deploy": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Deployment": "https://training.plone.org/plone-deployment",
+      "Deploy": "https://training.plone.org/plone-deployment/deploy"
+    },
+    "Editing your project": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Deployment": "https://training.plone.org/plone-deployment",
+      "Editing your project": "https://training.plone.org/plone-deployment/edit-project"
+    },
+    "Plone Deployment": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Deployment": "https://training.plone.org/plone-deployment/index"
+    },
+    "Create a Project": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Deployment": "https://training.plone.org/plone-deployment",
+      "Create a Project": "https://training.plone.org/plone-deployment/new-project"
+    },
+    "Plone Docker Images": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Deployment": "https://training.plone.org/plone-deployment",
+      "Plone Docker Images": "https://training.plone.org/plone-deployment/plone-docker-images"
+    },
+    "Introduction to Plone stack": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Deployment": "https://training.plone.org/plone-deployment",
+      "Introduction to Plone stack": "https://training.plone.org/plone-deployment/plone-stack"
+    },
+    "Server Setup": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Deployment": "https://training.plone.org/plone-deployment",
+      "Server Setup": "https://training.plone.org/plone-deployment/provision"
+    },
+    "Training setup": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Deployment": "https://training.plone.org/plone-deployment",
+      "Training setup": "https://training.plone.org/plone-deployment/setup"
+    },
+    "Installing Plone for the Training": {
+      "Plone Training": "https://training.plone.org/",
+      "Installing Plone for the Training": "https://training.plone.org/plone_training_config/instructions_plone5"
+    },
+    "What Vagrant is and does": {
+      "Plone Training": "https://training.plone.org/",
+      "What Vagrant is and does": "https://training.plone.org/plone_training_config/what_vagrant_does"
+    },
+    "After the training: Aftercare, keep in touch, learn, improve": {
+      "Plone Training": "https://training.plone.org/",
+      "Teaching": "https://training.plone.org/teaching",
+      "After the training: Aftercare, keep in touch, learn, improve": "https://training.plone.org/teaching/after"
+    },
+    "Before the training: Create  material, invite trainees, preparation": {
+      "Plone Training": "https://training.plone.org/",
+      "Teaching": "https://training.plone.org/teaching",
+      "Before the training: Create  material, invite trainees, preparation": "https://training.plone.org/teaching/before"
+    },
+    "During training day(s): what to expect, do's and don'ts": {
+      "Plone Training": "https://training.plone.org/",
+      "Teaching": "https://training.plone.org/teaching",
+      "During training day(s): what to expect, do's and don'ts": "https://training.plone.org/teaching/during"
+    },
+    "Teaching": {
+      "Plone Training": "https://training.plone.org/",
+      "Teaching": "https://training.plone.org/teaching/index"
+    },
+    "Training theory: education, how people learn and process information": {
+      "Plone Training": "https://training.plone.org/",
+      "Teaching": "https://training.plone.org/teaching",
+      "Training theory: education, how people learn and process information": "https://training.plone.org/teaching/theory"
+    },
+    "Continuous Integration": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Continuous Integration": "https://training.plone.org/testing/continuous_integration"
+    },
+    "Testing Plone": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing/index"
+    },
+    "Intro to tests": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Intro to tests": "https://training.plone.org/testing/intro_to_tests"
+    },
+    "How to test a Plone add-on": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "How to test a Plone add-on": "https://training.plone.org/testing/start"
+    },
+    "Summary": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Summary": "https://training.plone.org/testing/summary"
+    },
+    "Testing a Dexterity content type": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Testing a Dexterity content type": "https://training.plone.org/testing/testing_dexterity"
+    },
+    "Robot tests": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Robot tests": "https://training.plone.org/testing/testing_robot"
+    },
+    "Testing setup": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Testing setup": "https://training.plone.org/testing/testing_setup"
+    },
+    "Testing a view": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Testing a view": "https://training.plone.org/testing/testing_view"
+    },
+    "Some theory": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Some theory": "https://training.plone.org/testing/theory"
+    },
+    "Unit tests": {
+      "Plone Training": "https://training.plone.org/",
+      "Testing Plone": "https://training.plone.org/testing",
+      "Unit tests": "https://training.plone.org/testing/unittest"
+    },
+    "Diazo notes": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone 6 Classic UI Theming": "https://training.plone.org/theming",
+      "Diazo notes": "https://training.plone.org/theming/diazo-notes"
+    },
+    "Plone 6 Classic UI Theming": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone 6 Classic UI Theming": "https://training.plone.org/theming/index"
+    },
+    "Preparation for the theming training": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone 6 Classic UI Theming": "https://training.plone.org/theming",
+      "Preparation for the theming training": "https://training.plone.org/theming/preparation"
+    },
+    "Create a theme based on Barceloneta": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone 6 Classic UI Theming": "https://training.plone.org/theming",
+      "Create a theme based on Barceloneta": "https://training.plone.org/theming/theme_barceloneta"
+    },
+    "Create a theme based on Diazo": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone 6 Classic UI Theming": "https://training.plone.org/theming",
+      "Create a theme based on Diazo": "https://training.plone.org/theming/theme_diazo"
+    },
+    "Create a Theme from scratch": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone 6 Classic UI Theming": "https://training.plone.org/theming",
+      "Create a Theme from scratch": "https://training.plone.org/theming/theme_scratch"
+    },
+    "TTW Customizations": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone 6 Classic UI Theming": "https://training.plone.org/theming",
+      "TTW Customizations": "https://training.plone.org/theming/ttw_customizations"
+    },
+    "Volto add-ons development": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "Volto add-ons development": "https://training.plone.org/voltoaddons/01-addon-basics"
+    },
+    "Basic working block": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "Basic working block": "https://training.plone.org/voltoaddons/02-block-edit"
+    },
+    "Improve the block view": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "Improve the block view": "https://training.plone.org/voltoaddons/03-block-view"
+    },
+    "Block editing with a form": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "Block editing with a form": "https://training.plone.org/voltoaddons/04-block-edit-options"
+    },
+    "Customizable columns": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "Customizable columns": "https://training.plone.org/voltoaddons/05-objectwidget-block-edit"
+    },
+    "Make the block extensible": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "Make the block extensible": "https://training.plone.org/voltoaddons/06-cell-renderer"
+    },
+    "Add-ons - advanced topics": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "Add-ons - advanced topics": "https://training.plone.org/voltoaddons/07-misc-addons"
+    },
+    "Plone integration with Volto blocks": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "Plone integration with Volto blocks": "https://training.plone.org/voltoaddons/blocksrestapi"
+    },
+    "Volto Add-ons Development": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons/index"
+    },
+    "Developer integration with text editors": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "About": "https://training.plone.org/voltoaddons/about",
+      "Developer integration with text editors": "https://training.plone.org/voltoaddons/about/devenvironment"
+    },
+    "About": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "About": "https://training.plone.org/voltoaddons/about/index"
+    },
+    "Really short primer on Javascript enhancements": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Add-ons Development": "https://training.plone.org/voltoaddons",
+      "About": "https://training.plone.org/voltoaddons/about",
+      "Really short primer on Javascript enhancements": "https://training.plone.org/voltoaddons/about/jsbasics"
+    },
+    "Configurable Downloadlink Block": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Configurable Downloadlink Block": "https://training.plone.org/voltohandson/blocksdownload"
+    },
+    "Blocks - Edit components": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Blocks - Edit components": "https://training.plone.org/voltohandson/blocksedit"
+    },
+    "Breadcrumbs": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Breadcrumbs": "https://training.plone.org/voltohandson/breadcrumbs"
+    },
+    "Edit config and site cleanup": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Edit config and site cleanup": "https://training.plone.org/voltohandson/configandcleanup"
+    },
+    "Content types Views": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Content types Views": "https://training.plone.org/voltohandson/contenttypesviews"
+    },
+    "Sprint content type": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Sprint content type": "https://training.plone.org/voltohandson/contenttypeview"
+    },
+    "Events listing template": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Events listing template": "https://training.plone.org/voltohandson/eventlistingtemplate"
+    },
+    "Footer": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Footer": "https://training.plone.org/voltohandson/footer"
+    },
+    "Header": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Header": "https://training.plone.org/voltohandson/header"
+    },
+    "Blocks - Highlight Block": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Blocks - Highlight Block": "https://training.plone.org/voltohandson/highlight"
+    },
+    "Blocks - Highlights": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Blocks - Highlights": "https://training.plone.org/voltohandson/highlightsblock"
+    },
+    "Volto Hands-On": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson/index"
+    },
+    "Brief introduction to Volto blocks": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Brief introduction to Volto blocks": "https://training.plone.org/voltohandson/introtoblocks"
+    },
+    "Inner workings of Volto": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Inner workings of Volto": "https://training.plone.org/voltohandson/introtovolto"
+    },
+    "Quick Start": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Quick Start": "https://training.plone.org/voltohandson/quickstart"
+    },
+    "Project requirements": {
+      "Plone Training": "https://training.plone.org/",
+      "Volto Hands-On": "https://training.plone.org/voltohandson",
+      "Project requirements": "https://training.plone.org/voltohandson/requirements"
+    },
+    "Dynamic Roles": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Workflow": "https://training.plone.org/workflow",
+      "Dynamic Roles": "https://training.plone.org/workflow/dynamic-roles"
+    },
+    "Using GenericSetup to Manage Plone Workflows": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Workflow": "https://training.plone.org/workflow",
+      "Using GenericSetup to Manage Plone Workflows": "https://training.plone.org/workflow/generic-setup-export-import"
+    },
+    "Plone Workflow": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Workflow": "https://training.plone.org/workflow/index"
+    },
+    "Introduction To Workflows": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Workflow": "https://training.plone.org/workflow",
+      "Introduction To Workflows": "https://training.plone.org/workflow/introduction"
+    },
+    "Local Roles": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Workflow": "https://training.plone.org/workflow",
+      "Local Roles": "https://training.plone.org/workflow/local-roles"
+    },
+    "Placeful Workflow": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Workflow": "https://training.plone.org/workflow",
+      "Placeful Workflow": "https://training.plone.org/workflow/placeful-workflow"
+    },
+    "Basic Roles and Permissions": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Workflow": "https://training.plone.org/workflow",
+      "Basic Roles and Permissions": "https://training.plone.org/workflow/roles-and-permissions"
+    },
+    "Multi-chain Workflows": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Workflow": "https://training.plone.org/workflow",
+      "Multi-chain Workflows": "https://training.plone.org/workflow/workflow-chains"
+    },
+    "Workflow Variables": {
+      "Plone Training": "https://training.plone.org/",
+      "Plone Workflow": "https://training.plone.org/workflow",
+      "Workflow Variables": "https://training.plone.org/workflow/workflow-variables"
+    }
+  }
+}

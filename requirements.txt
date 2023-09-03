@@ -13,3 +13,5 @@ sphinx-sitemap
 sphinx-togglebutton
 sphinxcontrib-spelling
 sphinxext-opengraph
+nuclia
+nucliadb-sdk
