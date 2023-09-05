@@ -49,6 +49,7 @@ add-ons
 extending
 dexterity
 dexterity_2_talk
+dexterity_reference
 volto_overrides
 volto_talkview
 volto_development

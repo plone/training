@@ -11,7 +11,7 @@ myst:
 
 # Content types: Reference
 
-This chapter documents all fields, widgets, directives that you can use with content types.
+This chapter documents common fields, widgets, directives that you can use with content types.
 Content types are often called dexterity types which refers to the rework of the content type concept by dexterity and abandoning the Archetypes system.
 
 
@@ -19,9 +19,9 @@ Content types are often called dexterity types which refers to the rework of the
 
 This is a schema with examples for all field-types that are shipped with Plone by default. They are arranged in fieldsets:
 
-Default
+Text, Boolean, Email
 
-: Textline, Text, Boolean, Richtext (html), Email
+: Textline, RichText, Boolean, Email, URI
 
 Number fields
 
@@ -29,24 +29,11 @@ Number fields
 
 Date and time fields
 
-: Datetime,
-Date,
-Time,
-Timedelta
+: Datetime, Date
 
 Choice and Multiple Choice fields
 
-: Choice,
-Choice with radio widget,
-Choice with Select2 widget,
-Choice with named vocabulary,
-List,
-List with checkboxes,
-List with Select2 widget,
-List with values from a named vocabulary but open to additions,
-Tuple,
-Set,
-Set with checkboxes
+: Choice, List, Tuple, Set
 
 Relation fields
 
@@ -56,32 +43,24 @@ File fields
 
 : File, Image
 
-Other fields
-
-: Uri, Sourcetext, Ascii, Bytesline, Asciiline, Pythonidentifier, Dottedname, Dict, Dict with Choice
-
-% TODO Check from time to time the completnes of implementation of widgets in Volto (Time, Timedelta, Dict , using a callable for basePath in relationfields.
-
+```{seealso}
+See the code in [example.contenttype **branch training**](https://github.com/collective/example.contenttype/blob/training-mastering-plone-development/src/example/contenttype/example.py)
+```
 
 ```{code-block} python
 :linenos:
 
-from plone.app.multilingual.browser.interfaces import make_relation_root_path
 from plone.app.textfield import RichText
-from plone.app.z3cform.widget import AjaxSelectFieldWidget
-from plone.app.z3cform.widget import RelatedItemsFieldWidget
-from plone.app.z3cform.widget import SelectFieldWidget
 from plone.autoform import directives
 from plone.dexterity.content import Container
+
 from plone.namedfile.field import NamedBlobFile
 from plone.namedfile.field import NamedBlobImage
-from plone.schema.email import Email
+from plone.schema import Email
+
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 from plone.supermodel.directives import primary
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from z3c.form.browser.radio import RadioFieldWidget
-from z3c.relationfield.schema import Relation
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
@@ -89,532 +68,282 @@ from zope.interface import implementer
 
 
 class IExample(model.Schema):
-    """Dexterity-Schema with all field-types."""
+    """Dexterity-Schema with common field-types."""
 
-    # The most used fields
-    # textline, text, bool, richtext, email
+    # fieldset(
+    #     "default",
+    #     label="Text, Boolean, Email",
+    #     fields=(
+    #         "title",
+    #         "description",
+    #         "richtext_field",
+    #         "bool_field",
+    #         "email_field",
+    #         "uri_field",
+    #     ),
+    # )
 
     fieldset(
-        'numberfields',
-        label='Number fields',
-        fields=('int_field', 'float_field'),
+        "numberfields",
+        label="Number",
+        fields=("int_field", "float_field"),
     )
 
     fieldset(
-        'datetimefields',
-        label='Date and time fields',
-        fields=('datetime_field', 'date_field', 'time_field', 'timedelta_field'),
-    )
-
-    fieldset(
-        'choicefields',
-        label='Choice and Multiple Choice fields',
+        "datetimefields",
+        label="Date and time",
         fields=(
-            'choice_field',
-            'choice_field_radio',
-            'choice_field_select',
-            'choice_field_voc',
-            'list_field',
-            'list_field_checkbox',
-            'list_field_select',
-            'list_field_voc_unconstrained',
-            'tuple_field',
-            'set_field',
-            'set_field_checkbox',
+            "datetime_field",
+            "date_field",
         ),
     )
 
     fieldset(
-        'relationfields',
-        label='Relation fields',
-        fields=('relationchoice_field', 'relationlist_field'),
-    )
-
-    fieldset(
-        'filefields',
-        label='File fields',
-        fields=('file_field', 'image_field'),
-    )
-
-    fieldset(
-        'otherfields',
-        label='Other fields',
+        "choicefields",
+        label="Choice",
         fields=(
-            'uri_field',
-            'sourcetext_field',
-            'ascii_field',
-            'bytesline_field',
-            'asciiline_field',
-            'pythonidentifier_field',
-            'dottedname_field',
-            'dict_field',
-            'dict_field_with_choice',
+            "choice_field",
+            "list_field",
+            "tuple_field",
+            "set_field",
         ),
     )
 
-    primary('title')
+    fieldset(
+        "relationfields_volto",
+        label="Relation fields – Volto",
+        fields=(
+            "relationchoice_field_named_staticcatalogvocabulary",
+            "relationlist_field_named_staticcatalogvocabulary",
+        ),
+    )
+
+    fieldset(
+        "filefields",
+        label="File",
+        fields=("file_field", "image_field"),
+    )
+
+    # Default fields
+    primary("title")
     title = schema.TextLine(
-        title='Primary Field (Textline)',
+        title="Primary Field (Textline)",
+        description="zope.schema.TextLine",
         required=True,
     )
 
-    text_field = schema.Text(
-        title='Text Field',
+    description = schema.TextLine(
+        title="Description (Textline)",
+        description="zope.schema.TextLine",
         required=False,
-        missing_value='',
     )
 
-    textline_field = schema.TextLine(
-        title='Textline field',
-        description='A simple input field',
+    # text_field = schema.Text(
+    #     title="Text Field",
+    #     description="zope.schema.Text",
+    #     required=False,
+    #     missing_value="",
+    #     default="",
+    # )
+
+    # textline_field = schema.TextLine(
+    #     title="Textline field",
+    #     description="A simple input field (zope.schema.TextLine)",
+    #     required=False,
+    # )
+
+    richtext_field = RichText(
+        title="RichText field",
+        description="This uses a richtext editor. (plone.app.textfield.RichText)",
+        max_length=2000,
         required=False,
     )
 
     bool_field = schema.Bool(
-        title='Boolean field',
+        title="Boolean field",
+        description="zope.schema.Bool",
         required=False,
     )
 
+    email_field = Email(
+        title="Email field",
+        description="A simple input field for a email (plone.schema.email.Email)",
+        required=False,
+    )
+
+    uri_field = schema.URI(
+        title="URI field",
+        description="A simple input field for a URLs (zope.schema.URI)",
+        required=False,
+    )
+
+    # Choice fields
     choice_field = schema.Choice(
-        title='Choice field',
-        values=['One', 'Two', 'Three'],
-        required=True,
-    )
-
-    directives.widget(choice_field_radio=RadioFieldWidget)
-    choice_field_radio = schema.Choice(
-        title='Choice field with radio boxes',
-        values=['One', 'Two', 'Three'],
-        required=True,
-    )
-
-    choice_field_voc = schema.Choice(
-        title='Choicefield with values from named vocabulary',
-        vocabulary='plone.app.vocabularies.PortalTypes',
-        required=False,
-    )
-
-    directives.widget(choice_field_select=SelectFieldWidget)
-    choice_field_select = schema.Choice(
-        title='Choicefield with select2 widget',
-        vocabulary='plone.app.vocabularies.PortalTypes',
+        title="Choice field",
+        description="zope.schema.Choice",
+        values=["One", "Two", "Three"],
         required=False,
     )
 
     list_field = schema.List(
-        title='List field',
+        title="List field",
+        description="zope.schema.List",
         value_type=schema.Choice(
-            values=['Beginner', 'Advanced', 'Professional'],
+            values=["Beginner", "Advanced", "Professional"],
         ),
         required=False,
         missing_value=[],
-    )
-
-    directives.widget(list_field_checkbox=CheckBoxFieldWidget)
-    list_field_checkbox = schema.List(
-        title='List field with checkboxes',
-        value_type=schema.Choice(
-            values=['Beginner', 'Advanced', 'Professional'],
-        ),
-        required=False,
-        missing_value=[],
-    )
-
-    directives.widget(list_field_select=SelectFieldWidget)
-    list_field_select = schema.List(
-        title='List field with select widget',
-        value_type=schema.Choice(
-            values=['Beginner', 'Advanced', 'Professional'],
-        ),
-        required=False,
-        missing_value=[],
-    )
-
-    list_field_voc_unconstrained = schema.List(
-        title='List field with values from vocabulary but not constrained to them.',
-        value_type=schema.TextLine(),
-        required=False,
-        missing_value=[],
-    )
-    directives.widget(
-        'list_field_voc_unconstrained',
-        AjaxSelectFieldWidget,
-        vocabulary='plone.app.vocabularies.Users',
+        default=[],
     )
 
     tuple_field = schema.Tuple(
-        title='Tuple field',
+        title="Tuple field",
+        description="zope.schema.Tuple",
         value_type=schema.Choice(
-            values=['Beginner', 'Advanced', 'Professional'],
+            values=["Beginner", "Advanced", "Professional"],
         ),
         required=False,
         missing_value=(),
+        default=(),
     )
 
     set_field = schema.Set(
-        title='Set field',
+        title="Set field",
+        description="zope.schema.Set",
         value_type=schema.Choice(
-            values=['Beginner', 'Advanced', 'Professional'],
+            values=["Beginner", "Advanced", "Professional"],
         ),
         required=False,
         missing_value=set(),
+        default=set(),
     )
 
-    directives.widget(set_field_checkbox=CheckBoxFieldWidget)
-    set_field_checkbox = schema.Set(
-        title='Set field with checkboxes',
-        value_type=schema.Choice(
-            values=['Beginner', 'Advanced', 'Professional'],
-        ),
-        required=False,
-        missing_value=set(),
-    )
-
-    # File fields
+    # File and image fields
     image_field = NamedBlobImage(
-        title='Image field',
-        description='A upload field for images',
+        title="Image field",
+        description="A upload field for images (plone.namedfile.field.NamedBlobImage)",
         required=False,
     )
 
     file_field = NamedBlobFile(
-        title='File field',
-        description='A upload field for files',
+        title="File field",
+        description="A upload field for files (plone.namedfile.field.NamedBlobFile)",
         required=False,
     )
 
     # Date and Time fields
     datetime_field = schema.Datetime(
-        title='Datetime field',
-        description='Uses a date and time picker',
+        title="Datetime field",
+        description="Uses a date and time picker (zope.schema.Datetime)",
         required=False,
     )
 
     date_field = schema.Date(
-        title='Date field',
-        description='Uses a date picker',
+        title="Date field",
+        description="Uses a date picker (zope.schema.Date)",
         required=False,
     )
 
-    time_field = schema.Time(
-        title='Time field',
-        required=False,
-    )
+    """Relation fields like Volto likes it
 
-    timedelta_field = schema.Timedelta(
-        title='Timedelta field',
-        required=False,
-    )
+    RelationChoice and RelationList with named StaticCatalogVocabulary
 
-    # Relation Fields
-    relationchoice_field = RelationChoice(
-        title='Relationchoice field',
-        vocabulary='plone.app.vocabularies.Catalog',
+    StaticCatalogVocabulary registered with same name as field/relation.
+    This allowes Volto relations control panel to restrict potential targets.
+    """
+
+    relationchoice_field_named_staticcatalogvocabulary = RelationChoice(
+        title="RelationChoice – named StaticCatalogVocabulary – Select widget",
+        description="field/relation: relationchoice_field_named_staticcatalogvocabulary",
+        vocabulary="relationchoice_field_named_staticcatalogvocabulary",
         required=False,
     )
     directives.widget(
-        'relationchoice_field',
-        RelatedItemsFieldWidget,
-        pattern_options={
-            'selectableTypes': ['Document'],
-            'basePath': make_relation_root_path,
+        "relationchoice_field_named_staticcatalogvocabulary",
+        frontendOptions={
+            "widget": "select",
         },
     )
 
-    relationlist_field = RelationList(
-        title='Relationlist Field',
-        default=[],
-        value_type=RelationChoice(vocabulary='plone.app.vocabularies.Catalog'),
+    relationlist_field_named_staticcatalogvocabulary = RelationList(
+        title="RelationList – named StaticCatalogVocabulary – Select widget",
+        description="field/relation: relationlist_field_named_staticcatalogvocabulary",
+        value_type=RelationChoice(
+            vocabulary="relationlist_field_named_staticcatalogvocabulary",
+        ),
         required=False,
+        default=[],
         missing_value=[],
     )
     directives.widget(
-        'relationlist_field',
-        RelatedItemsFieldWidget,
-        pattern_options={
-            'selectableTypes': ['Document'],
-            'basePath': make_relation_root_path,
+        "relationlist_field_named_staticcatalogvocabulary",
+        frontendOptions={
+            "widget": "select",
         },
     )
 
     # Number fields
     int_field = schema.Int(
-        title='Integer Field (e.g. 12)',
-        description='Allocated (maximum) number of objects',
+        title="Integer Field (e.g. 12)",
+        description="zope.schema.Int",
         required=False,
     )
 
     float_field = schema.Float(
-        title='Float field (e.g. 12.2)',
+        title="Float field, e.g. 12.7",
+        description="zope.schema.Float",
         required=False,
-    )
-
-    # Text fields
-    email_field = Email(
-        title='Email field',
-        description='A simple input field for a email',
-        required=False,
-    )
-
-    uri_field = schema.URI(
-        title='URI field',
-        description='A simple input field for a URLs',
-        required=False,
-    )
-
-    richtext_field = RichText(
-        title='RichText field',
-        description='This uses a richtext editor.',
-        max_length=2000,
-        required=False,
-    )
-
-    sourcetext_field = schema.SourceText(
-        title='SourceText field',
-        required=False,
-    )
-
-    ascii_field = schema.ASCII(
-        title='ASCII field',
-        required=False,
-    )
-
-    bytesline_field = schema.BytesLine(
-        title='BytesLine field',
-        required=False,
-    )
-
-    asciiline_field = schema.ASCIILine(
-        title='ASCIILine field',
-        required=False,
-    )
-
-    pythonidentifier_field = schema.PythonIdentifier(
-        title='PythonIdentifier field',
-        required=False,
-    )
-
-    dottedname_field = schema.DottedName(
-        title='DottedName field',
-        required=False,
-    )
-
-    dict_field = schema.Dict(
-        title='Dict field',
-        required=False,
-        key_type=schema.TextLine(
-            title='Key',
-            required=False,
-        ),
-        value_type=schema.TextLine(
-            title='Value',
-            required=False,
-        ),
-    )
-
-    dict_field_with_choice = schema.Dict(
-        title='Dict field with key and value as choice',
-        required=False,
-        key_type=schema.Choice(
-            title='Key',
-            values=['One', 'Two', 'Three'],
-            required=False,
-        ),
-        value_type=schema.Set(
-            title='Value',
-            value_type=schema.Choice(
-                values=['Beginner', 'Advanced', 'Professional'],
-            ),
-            required=False,
-            missing_value={},
-        ),
     )
 
 
 @implementer(IExample)
 class Example(Container):
     """Example instance class"""
-
 ```
 
-```{seealso}
-- [Dexterity Developer Manual](https://5.docs.plone.org/external/plone.app.dexterity/docs/index.html)
-- [All available Fields](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types)
-- [Schema-driven types with Dexterity](https://5.docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types)
-- [The standard behaviors](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
-```
 
 ## How fields look like
 
-### Backend
-
-This is how these fields look like when editing content in the backend:
-
-```{figure} _static/dexterity_reference_default_fields.png
-:alt: Default fields
-
-Default fields
-```
-
-```{figure} _static/dexterity_reference_number_fields.png
-:alt: Number fields
-
-Number fields
-```
-
-```{figure} _static/dexterity_reference_datetime_fields.png
-:alt: Date and time fields
-
-Date and time fields
-```
-
-```{figure} _static/dexterity_reference_choice_and_list_fields.png
-:alt: Choice and multiple choice fields
-
-Choice and multiple choice fields
-```
-
-```{figure} _static/dexterity_reference_file_fields.png
-:alt: File fields
-
-File fields
-```
-
-```{figure} _static/dexterity_reference_relation_fields.png
-:alt: Reference fields
-
-Reference fields
-```
-
-```{figure} _static/dexterity_reference_other_fields.png
-:alt: Other fields including the dict field
-
-Other fields including the dict field
-```
-
-### Frontend
-
 This is how these fields look like when editing content in Volto:
 
-```{figure} _static/dexterity_reference_volto_default_fields.png
+```{figure} _static/dexterity/dex1.png
 :alt: Default fields
 
-Default fields
+Text and boolean fields
 ```
 
-```{figure} _static/dexterity_reference_volto_number_fields.png
+```{figure} _static/dexterity/dex_number.png
 :alt: Number fields
 
 Number fields
 ```
 
-```{figure} _static/dexterity_reference_volto_datetime_fields.png
+```{figure} _static/dexterity/dex2.png
 :alt: Date and time fields
 
 Date and time fields
 ```
 
-```{figure} _static/dexterity_reference_volto_choice_and_list_fields.png
+```{figure} _static/dexterity/dex3.png
 :alt: Choice and multiple choice fields
 
 Choice and multiple choice fields
 ```
 
-```{figure} _static/dexterity_reference_volto_file_fields.png
-:alt: File fields
-
-File fields
-```
-
-```{figure} _static/dexterity_reference_volto_relation_fields.png
+```{figure} _static/dexterity/dex4.png
 :alt: Reference fields
 
 Reference fields
 ```
 
-```{figure} _static/dexterity_reference_volto_other_fields.png
-:alt: Other fields including the dict field
+```{figure} _static/dexterity/dex5.png
+:alt: File fields
 
-Other fields
+File fields
 ```
 
-## 3rd party fields
 
-- To control the available values of other fields or hide/show them based on user input use the [Masterselect Field](https://pypi.org/project/plone.formwidget.masterselect/).
-- For spam-protection use [collective.z3cform.norobots](https://pypi.org/project/collective.z3cform.norobots/).
-- Color-Picker [collective.z3cform.colorpicker](https://github.com/collective/collective.z3cform.colorpicker)
-- There is no Computedfield but most use-cases can be achieved with a readonly-field and a property. See the [discussion](https://community.plone.org/t/computed-field-for-dexterity/11405)
-
-(dexterity-reference-datagridfield-label)=
-
-## Datagrid Field
-
-The [datagrid field](https://pypi.org/project/collective.z3cform.datagridfield/) allows you to enter multiple values at once as rows in a table. Each row is a sub form defined in a separate schema.
-
-```{note}
-The *datagrid field* is for Plone Classic. See the *mixedfield* below, if you are working with Plone.
-```
-
-Here is an example:
-
-```{code-block} python
-:linenos:
-
-from collective.z3cform.datagridfield import DataGridFieldFactory
-from collective.z3cform.datagridfield import DictRow
-from plone.app.z3cform.widget import SelectFieldWidget
-from plone.autoform import directives
-from plone.supermodel import model
-from zope import schema
-from zope.interface import Interface
-
-
-class IMyRowSchema(Interface):
-
-    choice_field = schema.Choice(
-        title='Choice Field',
-        vocabulary='plone.app.vocabularies.PortalTypes',
-        required=False,
-        )
-    directives.widget('objective', SelectFieldWidget)
-
-    textline_field = schema.TextLine(
-        title='Textline field',
-        required=False,
-        )
-
-    bool_field = schema.Bool(
-        title='Boolean field',
-        required=False,
-    )
-
-
-class IExampleWithDatagrid(model.Schema):
-
-    title = schema.TextLine(title='Title', required=True)
-
-    datagrid_field = schema.List(
-        title='Datagrid field',
-        value_type=DictRow(title='Table', schema=IMyRowSchema),
-        default=[],
-        required=False,
-    )
-    directives.widget('datagrid_field', DataGridFieldFactory)
-```
-
-The edit-form looks like this:
-
-```{figure} _static/dexterity_reference_datagridfield_edit.png
-
-```
-
-The output looks like this:
-
-```{figure} _static/dexterity_reference_datagridfield_view.png
-
-```
-
-## mixedfield
+## mixedfield (Datagrid field)
 
 The mixedfield empowers your user to create a list of objects of mixed value types sharing the same schema.
 If you are familliar with the Plone Classic datagrid field this is the complementary field / widget combo for Plone.
@@ -628,7 +357,7 @@ Example is a custom history:
 
 ### Backend
 
-Add a field _history_field_ to your content type schema.
+Add a `JSONField` field to your content type schema.
 
 ```{code-block} python
 :emphasize-lines: 1-6, 33, 37, 38
@@ -844,10 +573,7 @@ Et voilà.
 
 Volto makes suggestions which widget to use, based on the fields type, backend widget and id.
 
-All widgets are listed here:
-
-- [frontend widgets](https://6.docs.plone.org/storybook)
-- [backend widgets](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html)
+All widgets are listed here: [frontend widgets](https://6.docs.plone.org/storybook)
 
 ### Determine frontend widget
 
@@ -1032,13 +758,4 @@ class IMyEvent(model.Schema):
         if data.start is not None and data.end is not None:
             if data.start > data.end:
                 raise Invalid('Start must be before the end.')
-```
-
-```{seealso}
-To learn more about directives, validators and default values, refer to the following:
-
-- [Form schema hints and directives](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html)
-- [Validation](https://5.docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html) (this documentation unfortunately still uses the obsolete grok technology)
-- [z3c.form documentation](https://z3cform.readthedocs.io/en/latest/advanced/validator.html)
-- [Default values for fields on add forms](https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html)
 ```
