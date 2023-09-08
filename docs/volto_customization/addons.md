@@ -195,27 +195,28 @@ export default (config) => {
 };
 ```
 
-The `config` object that is passed is the Volto `configuration registry`,
-the singleton module referenced throughout Volto and Volto projects,
-by importing `@plone/volto/registry`. The add-on can mutate the properties of
-the config, such as `settings`, `blocks`, `views`, `widgets`, or its dedicated
-`addonRoutes` and `addonReducers`.
+**Pro-Tip 💡**
 
-So: {guilabel}`Volto → add-ons → project`.
-
-To load an add-on, the project needs to specify the add-on in the `addons` key
-of `project.json`. Optional configuration loaders are specified as
-a comma-separated list after the `:` colon symbol.
-
-```js
-// ...
-"addons": [
-    "volto-slate:asDefaultBlock,simpleLink",
-    "@eeacms/volto-tabs-block",
-]
-// ...
+```{note}
+If you want to register a specific profile of an addon, wrap the configuration in a function and provide it after a colon(:) next to addon name. You can also provde a comma seperated multiple loaders profiles. Note the main configuration will be loaded always.
 ```
 
-Notice the use of `:` symbol that specifies optional configuration loaders that are exported by the add-on's `src/index.js`.
+```js
+export function simpleLink(config) {
+  return installSimpleLink(config);
+}
 
-## Develop a basic Teaser (TODO)
+export function tableButton(config) {
+  return installTableButton(config);
+}
+```
+
+```
+ ...
+"addons": [
+"volto-slate:tableButton,simpleLink",
+"@eeacms/volto-tabs-block",
+]
+...
+
+```

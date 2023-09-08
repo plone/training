@@ -1,1 +1,0 @@
-### Extending Teasers per type
