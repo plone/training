@@ -1,4 +1,4 @@
-name: Build and deploy training documentation to training.plone.org
+name: build/deploy training.plone.org
 
 on:
   push:
