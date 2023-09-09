@@ -52,7 +52,7 @@ jobs:
           options: ""
           ssh_options: "-p ${{vars.DEPLOY_PORT_TRAINING}}"
           src: "_build/html/"
-          dest: "${{vars.DEPLOY_USER_TRAINING}}@${{vars.DEPLOY_SERVER_TRAINING}}:${vars.DEPLOY_PATH_TRAINING}}"
+          dest: "${{vars.DEPLOY_USER_TRAINING}}@${{vars.DEPLOY_SERVER_TRAINING}}:${{vars.DEPLOY_PATH_TRAINING}}"
 
       - name: Display status from deploy
         run: echo "${{ steps.deploy.outputs.status }}"
