@@ -14,7 +14,7 @@ mechanisms: variations and block styles. To use it, instantiate the schema and
 pass it down to the component. A full Volto block edit component could be like:
 
 ```jsx
-export const MyBlockSchema = ({data, intl}) => {
+export const myBlockSchema = ({data, intl}) => {
   return {
     title: "My block",
     fieldsets: [
@@ -91,11 +91,7 @@ a Select control for the active variation, in the sidebar.
     mostUsed: false,
     blockHasOwnFocusManagement: true,
     sidebarTab: 1,
-    blockSchema: MyBlockSchema,
-    security: {
-      addPermission: [],
-      view: [],
-    },
+    blockSchema: myBlockSchema,
     variations: [
       {
         id: 'leftSideView',
@@ -116,14 +112,29 @@ Note: you can assign the schema to `blockSchema` in the block configuration. It
 is used only to extract the block default values. This integration will be
 improved, in the future.
 
-## Using a dataAdapter pattern
+## Using a blockSchema and the dataAdapter pattern
 
-Sometimes is useful to adapt the incoming data to other data format, structure or type.
+You can declare the schema that the block is using internally in the `blockSchema` property in the block configuration.
+This will enable some niceties in `BlockDataForm` internals and you will have access to it via configuration instead of using an arbitrary imported name.
+
+Sometimes is also useful to adapt the incoming data to other data format, structure or type.
 You can use the dataAdapter pattern in `BlockDataForm` as this:
 
+Given a block with the config:
+
+```js
+  config.blocks.blocksConfig.myBlock = {
+    // ...
+    schemaEnhancer: myBlockSchemaEnhancer,
+    blockSchema: myBlockSchema,
+    dataAdapter: myBlockDataAdapter,
+    // ...
+  };
+```
+
 ```jsx
-  const schema = blocksConfig[data['@type']].blockSchema({ intl });
-  const dataAdapter = blocksConfig[data['@type']].dataAdapter;
+  const schema = blocksConfig.myBlock.blockSchema({ intl });
+  const dataAdapter = blocksConfig.myBlock.dataAdapter;
 
     <BlockDataForm
       schema={schema}
@@ -149,7 +160,7 @@ and define `dataAdapter` as this:
 ```js
 import { isEmpty } from 'lodash';
 
-export const TeaserBlockDataAdapter = ({
+export const myBlockDataAdapter = ({
   block,
   data,
   id,
@@ -160,6 +171,8 @@ export const TeaserBlockDataAdapter = ({
     ...data,
     [id]: value,
   };
+
+  // The adaptation that I need to inject to the block value(s)
   if (id === 'href' && !isEmpty(value) && !data.title && !data.description) {
     dataSaved = {
       ...dataSaved,
@@ -168,6 +181,8 @@ export const TeaserBlockDataAdapter = ({
       head_title: value[0].head_title,
     };
   }
+
+  // Then we save it to the current block data
   onChangeBlock(block, dataSaved);
 };
 ```
