@@ -21,7 +21,7 @@ that content type.
 
 The available controls in the Block Settings tab are controlled by the `schema` property in the block configuration:
 
-```
+```js
   hero: {
     id: 'hero',
     title: 'Hero',
@@ -36,10 +36,6 @@ The available controls in the Block Settings tab are controlled by the `schema` 
     mostUsed: false,
     blockHasOwnFocusManagement: true,
     sidebarTab: 1,
-    security: {
-      addPermission: [],
-      view: [],
-    },
   },
 ```
 
