@@ -13,7 +13,7 @@ The BlockDataForm renders an form fully integrated with a block's extension
 mechanisms: variations and block styles. To use it, instantiate the schema and
 pass it down to the component. A full Volto block edit component could be like:
 
-```
+```jsx
 export const MyBlockSchema = ({data, intl}) => {
   return {
     title: "My block",
@@ -62,6 +62,9 @@ export const MyBlockEdit = (props) => {
             });
           }}
           formData={data}
+          onChangeBlock={onChangeBlock}
+          block={block}
+          blocksConfig={blocksConfig}
         />
       </SidebarPortal>
     </>
@@ -76,7 +79,7 @@ If there's any registered variations for this block, they will be displayed as
 a Select control for the active variation, in the sidebar.
 
 
-```
+```js
   myblock: {
     id: 'myblock',
     title: 'My Block',
@@ -112,3 +115,59 @@ a Select control for the active variation, in the sidebar.
 Note: you can assign the schema to `blockSchema` in the block configuration. It
 is used only to extract the block default values. This integration will be
 improved, in the future.
+
+## Using a dataAdapter pattern
+
+Sometimes is useful to adapt the incoming data to other data format, structure or type.
+You can use the dataAdapter pattern in `BlockDataForm` as this:
+
+```jsx
+  const schema = blocksConfig[data['@type']].blockSchema({ intl });
+  const dataAdapter = blocksConfig[data['@type']].dataAdapter;
+
+    <BlockDataForm
+      schema={schema}
+      title={schema.title}
+      onChangeField={(id, value) => {
+        dataAdapter({
+          block,
+          data,
+          id,
+          onChangeBlock,
+          value,
+        });
+      }}
+      onChangeBlock={onChangeBlock}
+      formData={data}
+      block={block}
+      blocksConfig={blocksConfig}
+    />
+```
+
+and define `dataAdapter` as this:
+
+```js
+import { isEmpty } from 'lodash';
+
+export const TeaserBlockDataAdapter = ({
+  block,
+  data,
+  id,
+  onChangeBlock,
+  value,
+}) => {
+  let dataSaved = {
+    ...data,
+    [id]: value,
+  };
+  if (id === 'href' && !isEmpty(value) && !data.title && !data.description) {
+    dataSaved = {
+      ...dataSaved,
+      title: value[0].Title,
+      description: value[0].Description,
+      head_title: value[0].head_title,
+    };
+  }
+  onChangeBlock(block, dataSaved);
+};
+```
