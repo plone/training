@@ -14,7 +14,8 @@ components, making it an isomorphic application.
 
 How does that work? In simplified pseudocode, it works like this:
 
-- in server.jsx we have code like `react-dom.renderToString(<Router/>)`
+- in Volto's `server.jsx` we conver the React component tree to an HTML string
+  with `react-dom.renderToString(<Router routes={routes} />)`
 - the Router renders its declared components, which is the `App` and its
   direct child, the `View` component
 
@@ -72,8 +73,9 @@ Note: this example is a low-tech "frontend-er only" solution. In real life you
 will probably want to devise a mechanism where that footer-links information is
 automatically included with every content request.
 
-Notice the extender mechanism, we register a "modifier" for the current list of
-"async connect dispatch actions".
+As you can see from the above example, the configuration registration is done
+by using a "modifier" of all the other registered asyncPropsExtender, so we
+can even change that list of extenders, with something like:
 
 ```
 config.settings.asyncPropsExtenders = [
