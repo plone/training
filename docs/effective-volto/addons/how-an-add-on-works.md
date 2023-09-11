@@ -19,9 +19,7 @@ This gives you the ability to move all your project configuration, components, c
 
 An add-on can be published in an npm registry, just as any other package. However, Volto Add-ons should not be transpiled. They should be released as "source" packages.
 
-See `@kitconcept/volto-blocks-grid` as an example.
-
-https://github.com/kitconcept/volto-blocks-grid
+See [@kitconcept/volto-blocks-grid](https://github.com/kitconcept/volto-blocks-grid) as an example.
 
 ## Loading a Volto Add-on in a project
 
@@ -47,11 +45,12 @@ features. In Plone terminology, it is like including a Python egg to the
 `zcml` section of zc.buildout.
 ```
 
-By including the addon name in the `addons` key, the addon's default export
+By including the addon name in the `addons` key, the addon's main default export
 function is executed, being passed the Volto configuration registry. In that
 function, the addon can customize the registry. The function needs to return
 the `config` (Volto configuration registry) object, so that it's passed further
 along to the other addons.
+
 
 ### Loading a Volto Add-on optional configuration
 
@@ -111,6 +110,22 @@ And the `package.json` file of your addon:
   "main": "src/index.js",
 }
 ```
+In effect, Volto does the equivalent of:
+
+
+```
+import installMyVoltoAddon from 'my-volto-addon'
+
+// ... in the configuration registry setup step:
+const configRegistry = installMyVoltoAddon(defaultRegistry);
+```
+
+So the Volto addon needs to export a default function
+that receives the Volto configuration registry, is free to change the registry
+as it sees fit, then it needs to return that registry.
+
+Volto will chain-execute all the addon configuration functions to compute the
+final configuration registry.
 
 ```{warning}
 An addon's default configuration method will always be loaded.
