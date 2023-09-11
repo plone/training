@@ -156,7 +156,7 @@ data like:
 }
 ```
 
-will generate classnames `primary inverted`
+will generate classnames `primary inverted`. This relies on the `noprefix` and `bool` converters that are registered in Volto.
 
 ## `styleClassNameExtenders`
 
@@ -239,17 +239,13 @@ a fixed number of lines.
 We'll have the following styles schema:
 
 ```js
-const StyleSchema = () => (
-  {
-    fieldsets: [
-      {
+const maxLinesSchemaEnhancer = (schema) => {
+  schema.properties.styles.schema.fieldsets.push({
         title: 'Styling',
         id: 'default',
         fields: ['maxLines'],
-      }
-    ],
-    properties: {
-      maxLines: {
+      });
+  schema.properties.styles.schema.properties.maxLines = {
         title: 'Max lines',
         description:
           "Limit description to a maximum number of lines by adding trailing '...'",
@@ -257,16 +253,22 @@ const StyleSchema = () => (
         default: 2,
         minimum: 0,
         maximum: 5,
-      },
-    },
-    required: [],
-  });
+      };
+  return schema;
+}
 ```
 
 We'll assign it to the listing block:
 
 ```
-config.blocks.blocksConfig.listing.stylesSchema = StyleSchema;
+import { composeSchema } from '@plone/volto/helpers';
+
+// ... somewhere in the configuration function
+  config.blocks.blocksConfig.listing.schemaEnhancer = composeSchema(
+    config.blocks.blocksConfig.listing.schemaEnhancer,
+    maxLinesSchemaEnhancer
+  );
+// ...
 ```
 
 For the CSS part, we add the following code:

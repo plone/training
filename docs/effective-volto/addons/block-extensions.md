@@ -9,12 +9,12 @@ myst:
 
 # Block Extensions
 
-A common pattern in blocks is the "variations" pattern - a slightly different
+A common pattern in blocks is the "variations" UI pattern - a slightly different
 versions of a block that can be toggled on demand by the editors. Choosing the
 listing template (gallery, summary listing, etc.) for the `Listing` block is
-one example of the typical use cases for this feature.
+one example of the typical use case for this feature.
 
-A block can define variations in the block configuration. These variations can
+A block defines variations in its block configuration. These variations can
 be used to enhance or complement the default behavior of a block without having
 to shadow its stock components. These enhancements can be at the settings level
 (add or remove block settings) via schema enhancers or, if the code of your
