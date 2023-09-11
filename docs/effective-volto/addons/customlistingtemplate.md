@@ -9,7 +9,7 @@ myst:
 
 # Create a custom Listing block variation
 
-The Listing block is one of the most versatile blocks, and driver to many of
+The Listing block is one of the most versatile blocks, and a driver to many of
 Volto's more "advanced" technologies, such as variations.
 
 It can be shaped into many forms, such as sliders, carousels, cards and more.
