@@ -1,15 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Protect endpoint, views and more with permissions"
+    "property=og:description": "Protect endpoint, views and more with permissions"
+    "property=og:title": "Permissions"
+    "keywords": "Plone, permission, security"
 ---
 
-(reusable-label)=
+(permissions-label)=
 
-# Permissions
+# Permissions [voting story]
 
 In this part you will:
 
@@ -20,7 +20,7 @@ Topics covered:
 - permissions, roles
 
 
-(reusable-permissions-label)=
+(permissions-adding-label)=
 
 ## Adding permissions
 
@@ -89,7 +89,7 @@ CanVotePermission = "training.votable: Can Vote"
 ClearVotesPermission = "training.votable: Clear Votes"
 ```
 
-(reusable-permissions2-label)=
+(permissions-using-label)=
 
 ## Using our permissions
 
@@ -137,7 +137,7 @@ class VotingDelete(Service):
 ```
 
 
-(reusable-defaults-label)=
+(permissions-defaults-label)=
 
 ## Provide defaults
 

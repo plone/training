@@ -12,16 +12,11 @@ myst:
 # The Sponsors Component
 
 ````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
 
 ```{topic} Description
 Create a React component for content fetched from the backend
 ```
 
-Solve the same tasks in Plone Classic UI: {doc}`viewlets_advanced_classic`
 
 ---
 

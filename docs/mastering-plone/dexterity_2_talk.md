@@ -9,13 +9,9 @@ myst:
 
 (dexterity-2-talk-label)=
 
-# Dexterity II: Talks
+# Content types II: Talks
 
 ````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
-```
 
 Get the code! ({doc}`More info <code>`)
 
@@ -34,7 +30,7 @@ git checkout talks
 
 In this part you will solve the following task:
 
-- Create a contenttype 'talk' to store all the data required for a talk
+- Create a content type 'talk' to store all the data required for a talk
 
 Topics covered:
 
@@ -294,3 +290,10 @@ In one of the next chapters we will create a custom view for the new type.
 - You can now control the data that will be stored for talks.
 - You can reuse and adapt these examples to model data for your own use-cases.
 - Next up: After looking at even more fields that are available in Plone, you will learn to change how talks are displayed.
+
+
+```{seealso}
+Documentation {doc}`plone6docs:backend/fields`
+[Example content type](https://github.com/collective/example.contenttype)
+A Plone content type with all available fields
+```
