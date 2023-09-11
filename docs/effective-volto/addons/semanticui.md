@@ -18,7 +18,10 @@ exchangeable concepts. Classes use syntax from natural languages like
 noun/modifier relationships, word order, and plurality to link concepts
 intuitively.
 
-Semantic-UI-LESS has a builtin theming engine based on the following concepts:
+Volto uses Semantic-UI for both the public and the "private" administration
+interface. See the [Theme](./theme) chapter for details on how to use a different CSS framework for the public part of your theme.
+
+Semantic-UI-LESS has a built-in theming engine based on the following concepts:
 
 - LESS [definitions](https://github.com/Semantic-Org/Semantic-UI-LESS/tree/master/definitions) files (split in globals, collections, elements, etc) to define the basic styles (ex: `definitions/modules/tab.less`)
 - A [semantic.less](https://github.com/Semantic-Org/Semantic-UI-LESS/blob/e4395217c1b8b3227c7387284d12f2d9774d33c6/semantic.less) file which imports all the available definition files
@@ -41,9 +44,9 @@ theme.config](https://github.com/plone/volto/blob/7044eca789d836786e9e7890366690
 (by shadowing, via webpack resolve aliases, the `../../theme.config` import
 path).
 
-Volto's theme is called Pastanaga, which is a typical Semantic-UI theme. For
+Volto's theme is called Pastanaga. It's a typical Semantic-UI theme. For
 the new elements and components that don't exist in Semantic-UI, the Pastanaga
-theme uses the [extras](https://github.com/plone/volto/tree/master/theme/themes/pastanaga/extras) folder, which isn't fully using the Semantic-UI theming engine.
+theme uses the [extras](https://github.com/plone/volto/tree/master/theme/themes/pastanaga/extras) folder. The downside is that they aren't fully using the Semantic-UI theming engine.
 
 The key to success in Volto theming is to understand how Semantic-UI's theming
 engine works and how to manipulate it. Reading the `theme.less` and
@@ -59,7 +62,8 @@ import '@plone/volto/../theme/themes/pastanaga/extras/extras.less';
 
 By simply providing your own copy of semantic.less (and changing the above
 import), you can tweak which basic semantic-ui definitions are loaded, or even
-create new elements.
+create new elements. See an example in the [EEA website
+frontend](https://github.com/eea/eea-website-frontend/blob/160ecd7924d113966e1ebd6cbe957dca3f228c6b/src/theme.js)
 
 ```
 & {
