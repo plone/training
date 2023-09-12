@@ -9,7 +9,7 @@ myst:
 
 # Configure an unreleased add-on from an existing repository
 
-We use `mrs-developer` tool to manage the development cycle.
+We use `mrs-developer` tool to manage the development cycle of Volto add-ons.
 This tool help us to pull the remote code and configure the current project to have the add-on(s) available for the build.
 
 ## Add mrs-developer dependency and related script
