@@ -11,9 +11,8 @@ myst:
 
 Writing a "custom view templates" is one of the most basic tasks in classic
 Plone development. The Volto blocks, powered by the Pastanaga Editor, make
-this task a less frequent occurrence in Volto development, but it's still
-possible to follow the same development model, to attach custom views to Plone
-content.
+this task a less frequent occurrence in Volto development, the Plone Classic
+concept of writing a view template for a content type is supported by Volto.
 
 A Volto content view is a really simple React component.
 
@@ -35,8 +34,8 @@ In the Volto configuration registry, you can assign views in the following keys:
 - `errorViews`
 - `defaultView`
 
-In Volto the DefaultView is blocks-enabled, so you can easily enable the blocks
-behavior for any content type. The resolution order is:
+Volto's `DefaultView` is blocks-enabled, so it will automatically work for any
+content type that has the Blocks behavior enabled. The view resolution order is:
 
 - get view by type
 - get view by layout
@@ -44,8 +43,10 @@ behavior for any content type. The resolution order is:
 
 ## Router views
 
-For generic, views, that aren't attached to the context content, you need to
-write a new route.
+If you need to implement an additional view for a content type, or something
+that's not dirrectly attached to the context content, you have to use the
+"router", which high-level component that connects the window location to the
+proper React component to be used.
 
 The view component can be any React component, and you register that route like
 so:
