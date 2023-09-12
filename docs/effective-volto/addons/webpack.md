@@ -11,8 +11,11 @@ myst:
 
 Just like you can extend Razzle's configuration from the project, you can do so
 with an addon, as well. You should provide a `razzle.extend.js` file in your
-addon root folder. An example of such file where the theme.config alias is
-changed, to enable a custom Semantic theme inside the addon:
+addon root folder. Here's an example of such file, where we achieve two things:
+
+- we add a new webpack plugin, the
+  [bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer)
+- we reconfigure the `theme.config` alias, to enable a custom Semantic theme inside the addon:
 
 ```js
 const analyzerPlugin = {
