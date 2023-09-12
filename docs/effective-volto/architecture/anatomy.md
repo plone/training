@@ -16,7 +16,7 @@ development world, Volto is no longer a strange beast.
 
 To list some of the things that Volto is:
 
-- A **Single Page Application**, based on React that runs in client browsers
+- A **Single Page Application**, based on React, it runs in the browsers
 - An **Express-powered HTTP server** that can completely generate full HTML pages
   server-side. See the [Server Side Rendering](./client-ssr) chapter for more.
 - A CMS UI to interact with Plone, the backend
@@ -25,18 +25,18 @@ To list some of the things that Volto is:
 
 There are two ways of running Volto:
 
-- **Standalone** (to develop Volto itself)
 - as a **Volto Project** (for your own custom use, to develop a new website).
+- **Standalone** (to develop Volto itself)
 
 Running Volto standalone is simple: make a clone of Volto from Github, run
-`yarn` to download its dependencies, then `yarn start` to simply start Volto.
+`yarn install` to download its dependencies, then `yarn start` to simply start Volto.
 This is useful for developing Volto, but it is not the way to use it, if you
 want to develop your own custom Volto website.
 
-The second method of running Volto is to use the **Volto App generator** and
+The main method of running Volto is to use the **Volto App generator** and
 bootstrap (based on a fixed scaffolding) a new JavaScript package that can
 piggy-back on Volto and treat it as a library. We call this the "Volto
-project".
+Project".
 
 
 The next steps, after bootstrapping the new Volto project, is to make it your
@@ -76,8 +76,8 @@ Looking inside Volto's source code, we find several points of interest:
 - `registry.js` and the `config` folder will constitute the Volto configuration
   registry, a deep JavaScript object that holds settings and configuration.
   The registry can be altered by Volto projects and Addons. It doesn't have the
-  fancy features of the component registry of ZCA, but it's easier to reason
-  and easily inspectable.
+  fancy features of the component registry of ZCA, but it's easier to
+  understand and easily inspectable.
 - the `theme.js` and the parent folder `theme` are Volto's Pastanaga theme,
   materialized as a Semantic-UI theme.
 
@@ -86,7 +86,7 @@ Looking inside Volto's source code, we find several points of interest:
 To start Volto in development mode, we do `yarn start`. If you peek inside [Volto's
 package.json][1] at
 the script that's executed for that, you'll notice it simply says `razzle
-start`. So, when we start Volto, we actually start Razzle. See the
+start`. So, when we start Volto, we actually run Razzle. See the
 [Razzle chapter](./razzle) for more details.
 
 Running in development mode provides automatic reload of changed code
@@ -96,9 +96,10 @@ Razzle provides two entrypoints for webpack: the server and the client bundles.
 
 ### Volto HTTP server
 
-The server uses Expressjs uses `renderToString` from `react-dom/server` to
-provide server-side rendering of the HTML pages. From these generated HTML
-pages, the client bundle will be loaded by the browsers.
+The server uses Expressjs and `renderToString` from `react-dom/server` to
+provide server-side rendering of the HTML pages. The generated HTML
+page includes `<script>` and `<link>` tags that will then load the Volto client
+bundle in the browser.
 
 The HTTP server is extensible via Express middleware and Volto provides an API
 to declare and load them from Volto Projects and Addons.
@@ -107,7 +108,7 @@ to declare and load them from Volto Projects and Addons.
 
 Once the browser loads the client bundle, Volto mounts a location-based React
 Router and uses the App component as the top level component, plus other
-defined child routes. The View render component will be found and instantiated.
+defined child routes. Volto's main `View`  component will be found and instantiated.
 Check the `src/routes.js` module to see all available routes. Notice that the
 generic `View` component is close to the last in the list of default routes,
 this allows routes to take precedence over the content matching.
