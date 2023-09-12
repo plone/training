@@ -45,3 +45,6 @@ module.exports = {
   modify,
 };
 ```
+
+Check
+[volto-searchlib razzle.extend.js](https://github.com/eea/volto-searchlib/blob/d84fec8eec1def0088d8025eaf5d7197074b95a7/razzle.extend.js) file for an example on how to include additional paths to the Babel configuration and how to add additional webpack name aliases.
