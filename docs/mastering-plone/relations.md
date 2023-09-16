@@ -7,6 +7,9 @@ myst:
     "keywords": ""
 ---
 
+
+(relations)=
+
 # Relations
 
 You can model relationships between content items by placing them in a hierarchy (e.g. a folder _speakers_ containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in Richtext fields. But where would you then store a talk that two speakers give together?

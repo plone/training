@@ -12,10 +12,6 @@ myst:
 # Testing in Plone
 
 ````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
 
 For information on testing Plone backend see the separate training: {ref}`testing-plone-label`
 ````
@@ -92,6 +88,8 @@ describe('Add talk tests', () => {
 ```
 
 Go to your **backend folder**, open `Makefile` and add test commands:
+
+% TODO Update makefile code example
 
 ```text
 # Volto cypress tests

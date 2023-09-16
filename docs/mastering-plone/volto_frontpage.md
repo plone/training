@@ -12,11 +12,6 @@ myst:
 # Creating a dynamic frontpage with Volto blocks
 
 ````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
----
 
 Get the code! ({doc}`More info <code>`)
 
@@ -105,9 +100,7 @@ To understand this code snippet, we have to know the information and tags we are
 - The group value defines the group under which the entry shows up in the selection widget, in our case `Metadata`.
 
 ```{note}
-For a full list of all existing QueryField declarations see <https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml#L245>
-
-For a full list of all existing operations see <https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml#L1>
+For a list of existing QueryField declarations and operations see https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml
 ```
 
 Like explained in the last chapter we can now restart the instance and import the newly added profile by using the `portal_setup` in our ZMI.

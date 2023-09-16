@@ -3,10 +3,19 @@ Changelog
 
 This changelog is only very rough. For the full changelog please refer to https://github.com/plone/training/commits/master
 
+
+- Scroll sidebar to active navigation element. @ksuess
+- Enhance orientation: Add chapter title and training title in sticky top bar. @ksuess
+- Enhance orientation: Add breadcrumbs to search results. @ksuess
+
+
+
 1.2.5 (unreleased)
 ------------------
 
-- Full rework of volto hands-on training to be up to date with changes to Volto during the last year [jackahl]
+- Overhaul Mastering Plone Development [ksuess]
+
+- Update Volto hands-on training with changes to during the last year [jackahl]
 
 - Language tweaks to WSGI training [polyester]
 
