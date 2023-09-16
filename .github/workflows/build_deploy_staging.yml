@@ -1,17 +1,17 @@
-name: build/deploy training.plone.org
+name: Build / deploy staging.training.plone.org
 
 on:
   push:
     branches:
-      - "main"
+      - "nuclia"
     workflow_dispatch:
 
 jobs:
   build_deploy:
     runs-on: ubuntu-latest
-    environment: 
-      name: training.plone.org
-      url: https://training.plone.org
+    environment:
+      name: staging.training.plone.org
+      url: https://staging.training.plone.org
     steps:
       - uses: actions/checkout@v4
 
