@@ -21,7 +21,6 @@ jobs:
 
       - name: Install requirements
         run: |
-          pip install -q -r requirements-initial.txt
           pip install -q -r requirements.txt
 
       - name: Run Nuclia Sync
