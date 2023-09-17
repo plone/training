@@ -1,6 +1,11 @@
 name: Nuclia Sync
 
 on: [push]
+
+env:
+  DEPLOY_NUCLIA_URL : ${{ secrets.DEPLOY_NUCLIA_URL }}
+  DEPLOY_NUCLIA_TOKEN : ${{ secrets.DEPLOY_NUCLIA_TOKEN }}
+
 jobs:
   sync:
     runs-on: ubuntu-latest

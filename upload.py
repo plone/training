@@ -9,8 +9,8 @@ import re
 
 # that's actually an API key, not a NUA one
 # but that's the name of the variable on our GitHub repo
-API_KEY = ""
-KB = ""
+API_KEY = os.environ["DEPLOY_NUCLIA_TOKEN"]
+KB = os.environ["DEPLOY_NUCLIA_URL"]
 PUBLIC_URL = "https://training.plone.org/"
 
 
@@ -45,6 +45,37 @@ def extract_first_heading(file_path):
 get_slug = lambda path: re.sub(r'[\W_]+', '-', path.lower().strip()).strip('-')
 
 
+def normalize_path(path):
+    return path.replace('.md', '').replace('./docs', '').lstrip('/')
+
+
+def create_url(origin_url, url_path):
+    return f"{origin_url.rstrip('/')}/{url_path}"
+
+
+def generate_breadcrumb_for_path(path):
+    breadcrumb = []
+    temp_path = "./"
+    path_items = path.split('/')[1:]
+
+    for path_item in path_items:
+        temp_path = os.path.join(temp_path, path_item)
+        if temp_path.endswith(".md"):
+            heading = extract_first_heading(temp_path)
+            new_data = {"url":create_url(
+                PUBLIC_URL, normalize_path(temp_path)),"label":heading}
+            breadcrumb.append(new_data)
+        else:
+            index_md_path = os.path.join(temp_path, "index.md")
+            if os.path.exists(index_md_path):
+                heading = extract_first_heading(index_md_path)
+                new_data = {"url":create_url(
+                PUBLIC_URL, normalize_path(temp_path)),"label":heading}
+            temp_path = os.path.join(temp_path, "")
+            breadcrumb.append(new_data)
+    return {"breadcrumbs":breadcrumb}
+
+
 def upload_doc(path):
     slug = get_slug(path)
     title = extract_first_heading(path)
@@ -57,6 +88,7 @@ def upload_doc(path):
         url=KB,
         api_key=API_KEY,
         origin={"url": origin_url},
+        extra={"metadata": generate_breadcrumb_for_path(path)},
     )
 
 
