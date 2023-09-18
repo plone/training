@@ -79,9 +79,7 @@ def generate_breadcrumb_for_path(path):
 def upload_doc(path):
     slug = get_slug(path)
     title = extract_first_heading(path)
-    print(PUBLIC_URL)
     origin_url = f"{PUBLIC_URL}{path.replace('.md', '').replace('./docs/', '')}"  # noqa
-    print(origin_url)
     sdk.NucliaUpload().text(
         path=path,
         format="MARKDOWN",
@@ -114,7 +112,7 @@ def sync():
     with open("./docs/_static/nuclia_sync.json", "r") as sync_info:
         old_data = json.load(sync_info)
     new_data = generate_nuclia_sync()
-    print(new_data)
+
     to_delete = []
     for doc, _ in old_data["docs"].items():
         if doc not in new_data["docs"]:
