@@ -1,143 +1,156 @@
-let breadcrumbMapping; // Storing the fetched JSON here
-let resultHeadings = []; // Store the result headings once fetched
-let counter = 0;
+const { switchMap } = rxjs;
+const nucliaResult = document.querySelector("nuclia-search-results");
+const shadowRoot = nucliaResult.shadowRoot;
 
-// Function to load JSON into script
-async function fetchBreadcrumbMapping() {
+const nuclia = new window.NucliaSDK.Nuclia({
+  backend: "https://nuclia.cloud/api",
+  zone: "europe-1",
+  knowledgeBox: "62407006-2711-4631-9c03-761d156de289",
+});
+
+function createBreadcrumbs(Container) {
+
+  // Container hash gets the md5 value of resource but i am unable to find resource by passing that hash
+  // let ContainerHash = Container.querySelector(
+  //   "div > div.sw-field-metadata > div > div:nth-child(2) > span.title-xxs"
+  // ).innerText;
+
+  let ContainerHeading = Container.querySelector("div");
+
+  // One of The hash that works 79e4d894189842acb0902b5d879c2fe6
   try {
-    const response = await fetch("/_static/heading_to_breadcrumb_mapping.json");
-    breadcrumbMapping = await response.json();
-  } catch (error) {
-    console.error("Error fetching mapping:", error);
-  }
-}
-
-fetchBreadcrumbMapping();
-
-// Function to create breadcrumbs so that we can just put in title of results
-async function createBreadcrumbs(resultHeading) {
-  try {
-    // Check if the heading exists in the mapping
-    const breadcrumbs =
-      breadcrumbMapping["heading_to_breadcrumb"][resultHeading];
-    if (!breadcrumbs) {
-      throw new Error("No breadcrumbs found for the heading: ", resultHeading);
-    }
-    return breadcrumbs;
-  } catch (error) {
-    console.error("Error fetching mapping:", error);
-    return [];
-  }
-}
-
-// Function to add breadcrumbs above each result heading
-function addBreadcrumbsToResults() {
-  // select the tag being populated with results
-  const nucliaResult = document.querySelector("nuclia-search-results");
-
-  if (!nucliaResult) {
-    return; // Exit if nuclia-search-results tag is not found
-  }
-
-  // need to acces the shadow root
-  const shadowRoot = nucliaResult.shadowRoot;
-
-  // Observe changes in the shadow root of nuclia-search-results element
-  const observer = new MutationObserver((mutationsList) => {
-    for (const mutation of mutationsList) {
-      if (mutation.type === "childList") {
-        // Check if the mutation involves the addition of nodes
-        if (mutation.addedNodes.length > 0) {
-          // Iterate through added nodes and process them
-          mutation.addedNodes.forEach((addedNode) => {
-            // Check if the added node has the 'result-container' class
-            if (
-              addedNode.classList &&
-              addedNode.classList.contains("result-container")
-            ) {
-              // Find all h3 tags with the specified class within the result container and adding to resultHeadings
-              resultHeadings = Array.from(mutation.addedNodes).flatMap(
-                (addedNode) =>
-                  Array.from(
-                    addedNode.querySelectorAll(
-                      "h3.ellipsis.title-m.svelte-1yttzcg"
-                    )
-                  )
-              );
-
-              resultHeadings.forEach((resultHeading) => {
-                // Check if the result heading already has breadcrumbs
-                if (!resultHeading.dataset.breadcrumbsAdded) {
-                  // If Not, Then Mark the element as having breadcrumbs
-                  resultHeading.dataset.breadcrumbsAdded = true;
-                  // Create breadcrumbs for the result item
-                  createBreadcrumbs(resultHeading.innerHTML)
-                    .then((breadcrumbObj) => {
-                      // Create a container with class breadcrumbs
-                      const breadcrumbContainer = document.createElement("div");
-                      breadcrumbContainer.className = "breadcrumbs";
-
-                      const breadcrumbNames = Object.keys(breadcrumbObj);
-                      const lastBreadcrumb = breadcrumbNames.pop();
-
-                      breadcrumbNames.forEach((breadcrumbName, index) => {
-                        // Create anchor
-                        const breadcrumbLink = document.createElement("a");
-                        breadcrumbLink.href = breadcrumbObj[breadcrumbName]; // URL from JSON
-                        breadcrumbLink.textContent = breadcrumbName;
-
-                        // Create a span for this anchor
-                        const breadcrumbElement =
-                          document.createElement("span");
-                        breadcrumbElement.className = "breadcrumb-item"; // Apply the breadcrumb-item class
-
-                        breadcrumbElement.appendChild(breadcrumbLink);
-
-                        // Add the separator " > " between elements
-                        if (
-                          breadcrumbNames.length > 1 &&
-                          counter < breadcrumbNames.length - 1
-                        ) {
-                          counter = counter + 1;
-                          const separator = document.createElement("span");
-                          separator.textContent = " > ";
-                          separator.className = "pathseparator";
-                          breadcrumbContainer.appendChild(separator);
-                        }
-
-                        breadcrumbContainer.appendChild(breadcrumbElement);
-                      });
-
-                      // Add the last breadcrumb as a non-clickable span
-                      const lastBreadcrumbElement =
-                        document.createElement("span");
-                      lastBreadcrumbElement.className = "last-breadcrumb";
-                      lastBreadcrumbElement.textContent = lastBreadcrumb;
-
-                      breadcrumbContainer.appendChild(lastBreadcrumbElement);
-
-                      resultHeading.insertAdjacentElement(
-                        "beforebegin",
-                        breadcrumbContainer
-                      );
-                    })
-                    .catch((error) => {
-                      console.error("Error creating breadcrumbs:", error);
-                    });
-                }
-              });
-            }
-          });
+    nuclia.db
+      .getKnowledgeBox()
+      .pipe(
+        switchMap((knowledgeBox) =>
+          knowledgeBox.getResource("79e4d894189842acb0902b5d879c2fe6", [
+            "extra",
+          ])
+        )
+      )
+      .subscribe(
+        (resource) => {
+          insertBreadcrumbDiv(resource, ContainerHeading);
+        },
+        (error) => {
+          console.error("Error fetching resource:", error);
         }
+      );
+  } catch (error) {
+    console.error("Error in createBreadcrumbs:", error);
+  }
+}
+
+function insertBreadcrumbDiv(resource, ContainerHeading) {
+  let array = resource.extra.metadata["breadcrumbs"];
+  if (!ContainerHeading.querySelector("div.breadcrumbs")) {
+    let breadcrumbContainer = document.createElement("div");
+    breadcrumbContainer.className = "breadcrumbs";
+    for (let i = 0; i < array.length; i++) {
+      let dict = array[i];
+
+      // Create a span element for each breadcrumb
+      let breadcrumbSpan = document.createElement("span");
+
+      // Create a breadcrumb link or span based on whether it's the last breadcrumb
+      if (i < array.length - 1) {
+        let breadcrumbLink = document.createElement("a");
+        breadcrumbLink.href = dict.url;
+        breadcrumbLink.textContent = dict.label;
+        breadcrumbLink.classList.add("breadcrumb-link");
+        breadcrumbSpan.appendChild(breadcrumbLink);
+
+        // Add a separator between breadcrumb links (e.g., '>')
+        let separator = document.createTextNode(" > ");
+        breadcrumbSpan.appendChild(separator);
+      } else {
+        // If it's the last breadcrumb, create a non-clickable span
+        breadcrumbSpan.textContent = dict.label;
+        breadcrumbSpan.classList.add("breadcrumb-last");
       }
+
+      breadcrumbContainer.appendChild(breadcrumbSpan);
+    }
+    ContainerHeading.insertAdjacentElement(
+      "afterbegin",
+      breadcrumbContainer
+    );
+  }
+}
+
+
+function isMatch(element) {
+  return (
+    element &&
+    element.nodeName === "DIV" &&
+    element.classList &&
+    element.classList.contains("result-title-container") &&
+    element.classList.length === 2
+  );
+}
+
+// Function to process added nodes within the shadow DOM
+function processAddedNodes(addedNodes) {
+  addedNodes.forEach((addedNode) => {
+    if (isMatch(addedNode)) {
+      createBreadcrumbs(addedNode);
     }
   });
+}
 
-  // Start observing the shadow root of each nuclia-search-results element
+function addBreadcrumbsToResults() {
+  if (!nucliaResult) {
+    console.error("Nuclia-search-result tag not found");
+    return;
+  }
+  let observer = new MutationObserver(callback);
+
   observer.observe(shadowRoot, {
     childList: true,
     subtree: true,
   });
-  // Need To stop Observing when the Nuclia results are populated
-  // but I guess they keep updating so need to observe continously.
 }
+
+const callback = function (mutationsList, observer) {
+  for (const mutation of mutationsList) {
+    if (mutation.type === "childList") {
+      processAddedNodes(mutation.addedNodes);
+    }
+  }
+};
+
+const style = document.createElement('style');
+style.textContent = `
+  
+/* Breadcrumb container */
+.breadcrumbs {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Breadcrumb links */
+.breadcrumbs a {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.2s;
+}
+
+/* Style for the last breadcrumb */
+.breadcrumbs span:last-child {
+  color: #555; 
+}
+
+/* Separator between breadcrumbs */
+.breadcrumbs .separator {
+  margin: 0 5px;
+  color: #777; 
+}
+
+/* Hover effect for breadcrumb links */
+.breadcrumbs a:hover {
+  color: #0056b3;
+}
+
+`;
+// Append the style element to the shadow DOM
+shadowRoot.appendChild(style);

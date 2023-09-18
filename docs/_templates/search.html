@@ -19,6 +19,9 @@ we want #} {% block docs_body %}
   {% endblock %}
 </div>
 
+<script src="https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js"></script>
+<script src="https://unpkg.com/@nuclia/core@latest/umd/index.js"></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const queryInput = document.getElementById("search-input").value;
@@ -48,12 +51,10 @@ we want #} {% block docs_body %}
 </script>
 
  <!-- Nuclia Widget -->
-<nuclia-search-bar
-  mode="dark"
-  knowledgebox="2ff26906-702f-42e3-8da6-95d8074fad4e"
+<nuclia-search-bar mode="dark"
+  knowledgebox="62407006-2711-4631-9c03-761d156de289"
   zone="europe-1"
-  features="answers,navigateToLink,permalink"
-></nuclia-search-bar>
+  features="answers,navigateToLink,displayMetadata" ></nuclia-search-bar>
 
 <!-- Search results -->
 <nuclia-search-results mode="dark"></nuclia-search-results>
