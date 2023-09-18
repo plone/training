@@ -79,6 +79,7 @@ def generate_breadcrumb_for_path(path):
 def upload_doc(path):
     slug = get_slug(path)
     title = extract_first_heading(path)
+    print(PUBLIC_URL)
     origin_url = f"{PUBLIC_URL}{path.replace('.md', '').replace('./docs/', '')}"  # noqa
     sdk.NucliaUpload().text(
         path=path,
