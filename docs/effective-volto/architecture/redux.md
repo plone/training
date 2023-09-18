@@ -100,3 +100,6 @@ function MyComponent(props) {
   return <button onClick={() => setMyVal(val + 1)}>Count up</button>
 }
 ```
+
+Another alternative is the `React.useContext()` and the context providers,
+which are used in several places in Volto, for example for the Slate richtext editor.
