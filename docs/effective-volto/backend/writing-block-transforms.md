@@ -9,12 +9,12 @@ myst:
 
 # Writing a block transform
 
-Practical experience has shown that it is useful to transform, server-side, the value of block fields on inbound (deserialization) and also outbound (serialization) operations.
+Practical experience has shown that it is useful to transform, server-side, the value of block fields on inbound (deserialization, saving in the database) or outbound (serialization, exposing information to the browser) operations.
 For example, HTML field values are cleaned up using `portal_transforms`.
 Or paths in image blocks are transformed to use `resolveuid`.
 
 It is possible to influence the transformation of block values per block type.
-For example, to tweak the value stored in an image type block, we can create a new subscriber as follows:
+For example, to tweak the value stored in an `image` type block, we can create a new subscriber as follows:
 
 ```python
 @implementer(IBlockFieldDeserializationTransformer)
