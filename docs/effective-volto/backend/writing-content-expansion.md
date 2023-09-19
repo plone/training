@@ -9,11 +9,11 @@ myst:
 
 # Writing a content expansion endpoint
 
-By default Volto fetches content using a single call using the
+By default Volto fetches content using a single call to the
 [unnamed (content) endpoint](https://github.com/plone/plone.restapi/blob/afde2a940d2518e061eb3fe30093093af55e3a50/src/plone/restapi/services/content/configure.zcml#L15-L20).
 
 plone.restapi provides a mechanism to piggy-back on this network call to load
-additional information, via the so-called Content Expanders which are adaptors
+additional information, the so-called Content Expanders which are adaptors
 for `plone.restapi.interfaces.IExpandableElement`.
 
 For example, here's the registration for the breadcrumbs content expander:
@@ -145,5 +145,5 @@ export default function applyConfig (config) {
 }
 ```
 
-Notice that the api expanders are a feature of plone.restapi content
+Notice that the api expanders are a feature of plone.restapi **content**
 serialization, so they'll be included on endpoints where content is serialized.
