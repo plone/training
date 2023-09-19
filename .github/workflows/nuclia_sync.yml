@@ -25,6 +25,13 @@ jobs:
         run: |
           python3 upload.py
 
+      - name: Run Breadmaker
+        env:
+          DEPLOY_NUCLIA_URL: ${{secrets.DEPLOY_NUCLIA_URL}}
+          DEPLOY_NUCLIA_TOKEN: ${{secrets.DEPLOY_NUCLIA_TOKEN}}
+        run: |
+          python3 breadmaker.py
+
       - name: Commit changes
         run: |
           git config --global user.name github-actions

@@ -1,62 +1,53 @@
-const { switchMap } = rxjs;
+let breadcrumbMapping; // Storing the fetched JSON here
+let resultHeading=""; // Store the result headings once fetched
 const nucliaResult = document.querySelector("nuclia-search-results");
 const shadowRoot = nucliaResult.shadowRoot;
 
-const nuclia = new window.NucliaSDK.Nuclia({
-  backend: "https://nuclia.cloud/api",
-  zone: "europe-1",
-  knowledgeBox: "62407006-2711-4631-9c03-761d156de289",
-});
+async function fetchBreadcrumbMapping() {
+  try {
+    const response = await fetch("/_static/heading_mapping.json");
+    breadcrumbMapping = await response.json();
+  } catch (error) {
+    console.error("Error fetching mapping:", error);
+  }
+}
+
+fetchBreadcrumbMapping();
 
 function createBreadcrumbs(Container) {
 
-  // Container hash gets the md5 value of resource but i am unable to find resource by passing that hash
-  // let ContainerHash = Container.querySelector(
-  //   "div > div.sw-field-metadata > div > div:nth-child(2) > span.title-xxs"
-  // ).innerText;
-
   let ContainerHeading = Container.querySelector("div");
+  resultHeading = ContainerHeading.querySelector("h3").innerText;
 
-  // One of The hash that works 79e4d894189842acb0902b5d879c2fe6
   try {
-    nuclia.db
-      .getKnowledgeBox()
-      .pipe(
-        switchMap((knowledgeBox) =>
-          knowledgeBox.getResource("79e4d894189842acb0902b5d879c2fe6", [
-            "extra",
-          ])
-        )
-      )
-      .subscribe(
-        (resource) => {
-          insertBreadcrumbDiv(resource, ContainerHeading);
-        },
-        (error) => {
-          console.error("Error fetching resource:", error);
-        }
-      );
+    insertBreadcrumbDiv(resultHeading, ContainerHeading);
   } catch (error) {
     console.error("Error in createBreadcrumbs:", error);
   }
 }
 
-function insertBreadcrumbDiv(resource, ContainerHeading) {
-  let array = resource.extra.metadata["breadcrumbs"];
+function insertBreadcrumbDiv(resultHeading, ContainerHeading) {
+  const jsonData =
+      breadcrumbMapping["heading_to_breadcrumb"][resultHeading];
+    if (!jsonData) {
+      throw new Error("No breadcrumbs found for the heading: ", resultHeading);
+  }
+
   if (!ContainerHeading.querySelector("div.breadcrumbs")) {
     let breadcrumbContainer = document.createElement("div");
     breadcrumbContainer.className = "breadcrumbs";
-    for (let i = 0; i < array.length; i++) {
-      let dict = array[i];
+
+    let i = 0;
+    Object.keys(jsonData).forEach(key => {
+      const value = jsonData[key];
 
       // Create a span element for each breadcrumb
       let breadcrumbSpan = document.createElement("span");
-
       // Create a breadcrumb link or span based on whether it's the last breadcrumb
-      if (i < array.length - 1) {
+      if (i < Object.keys(jsonData).length - 1) {
         let breadcrumbLink = document.createElement("a");
-        breadcrumbLink.href = dict.url;
-        breadcrumbLink.textContent = dict.label;
+        breadcrumbLink.href = value;
+        breadcrumbLink.textContent = key;
         breadcrumbLink.classList.add("breadcrumb-link");
         breadcrumbSpan.appendChild(breadcrumbLink);
 
@@ -65,12 +56,14 @@ function insertBreadcrumbDiv(resource, ContainerHeading) {
         breadcrumbSpan.appendChild(separator);
       } else {
         // If it's the last breadcrumb, create a non-clickable span
-        breadcrumbSpan.textContent = dict.label;
+        breadcrumbSpan.textContent = key;
         breadcrumbSpan.classList.add("breadcrumb-last");
       }
+      i++;
 
       breadcrumbContainer.appendChild(breadcrumbSpan);
-    }
+  });
+
     ContainerHeading.insertAdjacentElement(
       "afterbegin",
       breadcrumbContainer
