@@ -64,16 +64,18 @@ def generate_breadcrumb_for_path(path):
             heading = extract_first_heading(temp_path)
             new_data = {"url":create_url(
                 PUBLIC_URL, normalize_path(temp_path)),"label":heading}
-            breadcrumb.append(new_data)
         else:
             index_md_path = os.path.join(temp_path, "index.md")
             if os.path.exists(index_md_path):
                 heading = extract_first_heading(index_md_path)
                 new_data = {"url":create_url(
                 PUBLIC_URL, normalize_path(temp_path)),"label":heading}
-            temp_path = os.path.join(temp_path, "")
+            else:
+                continue
+        # Check if the new_data entry already exists in the breadcrumb
+        if new_data not in breadcrumb:
             breadcrumb.append(new_data)
-    return {"breadcrumbs":breadcrumb}
+    return {"breadcrumbs": breadcrumb}
 
 
 def upload_doc(path):

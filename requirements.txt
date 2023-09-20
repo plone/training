@@ -5,6 +5,8 @@ jsx-lexer
 lesscpy
 linkify-it-py
 myst-parser
+nuclia
+nucliadb-sdk
 sphinx-autobuild
 sphinx-book-theme
 sphinx-copybutton
@@ -13,5 +15,3 @@ sphinx-sitemap
 sphinx-togglebutton
 sphinxcontrib-spelling
 sphinxext-opengraph
-nuclia
-nucliadb-sdk

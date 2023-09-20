@@ -1,27 +1,25 @@
-{%- extends "page.html" %} {# Over-ride the body to be custom search structure
-we want #} {% block docs_body %}
-<div class="bd-search-container">
-  <h1>{{ _("Search") }}</h1>
-  <noscript>
-    <div class="admonition error">
-      <p class="admonition-title">{% trans %}Error{% endtrans %}</p>
-      <p>
-        {% trans %}Please activate JavaScript to enable the search
-        functionality.{% endtrans %}
-      </p>
-    </div>
-  </noscript>
-  {% block searchtext %}
-  <div>
-    {% trans %}Searching for multiple words only shows matches that contain all
-    words.{% endtrans %}
-  </div>
-  {% endblock %}
+{%- extends "page.html" %}
+{# Over-ride the body to be custom search structure we want #}
+{% block docs_body %}
+  <div class="bd-search-container">
+    <h1>{{ _("Search") }}</h1>
+    <noscript>
+      <div class="admonition error">
+        <p class="admonition-title">{% trans %}Error{% endtrans %}</p>
+        <p>{% trans %}Please activate JavaScript to enable the search functionality.{% endtrans %}</p>
+      </div>
+    </noscript>
+    {% block searchtext %}
+      <div>
+        {% trans %}Searching for multiple words only shows matches that contain
+        all words.{% endtrans %}
+      </div>
+    {% endblock %}
 </div>
-
 <script src="https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js"></script>
 <script src="https://unpkg.com/@nuclia/core@latest/umd/index.js"></script>
 
+<!-- Adding the widget to search result page -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const queryInput = document.getElementById("search-input").value;
@@ -50,18 +48,19 @@ we want #} {% block docs_body %}
   });
 </script>
 
- <!-- Nuclia Widget -->
-<nuclia-search-bar mode="dark"
+<!-- Nuclia Widget -->
+<nuclia-search-bar mode = "dark"
   knowledgebox="62407006-2711-4631-9c03-761d156de289"
   zone="europe-1"
-  features="answers,navigateToLink,displayMetadata" ></nuclia-search-bar>
+  features="answers,navigateToLink,hideThumbnails"
+></nuclia-search-bar>
 
 <!-- Search results -->
-<nuclia-search-results mode="dark"></nuclia-search-results>
+<nuclia-search-results mode = "dark"></nuclia-search-results>
 
-<!-- Optional script -->
+<!-- Optional script below-->
 <script>
-  // Activate the search field on page load 
+  // Activate the search field on page load
   let searchInput = document.querySelector("form.bd-search input");
   if (searchInput) {
     searchInput.focus();
@@ -69,14 +68,16 @@ we want #} {% block docs_body %}
     console.log("[PST]: Set focus on search field.");
   }
 </script>
-<!-- I Dont think below code is required anymore as it is related to sphinx-->
-
-{% endblock docs_body %} {# Below sections just re-create the behavior of Sphinx
-default search #} {# Page metadata #} {%- block htmltitle -%}
-<title>{{ _("Search") }} - {{ title or docstitle }}</title>
-{%- endblock htmltitle -%} {# Manually include the search JS that Sphinx
-includes #} {% block scripts -%} {{ super() }}
-<script src="{{ pathto('_static/searchtools.js', 1) }}"></script>
-<script src="{{ pathto('_static/language_data.js', 1) }}"></script>
-<script src="{{ pathto('searchindex.js', 1) }}"></script>
+{% endblock docs_body %}
+{# Below sections just re-create the behavior of Sphinx default search #}
+{# Page metadata #}
+{%- block htmltitle -%}
+  <title>{{ _("Search") }} - {{ title or docstitle }}</title>
+{%- endblock htmltitle -%}
+{# Manually include the search JS that Sphinx includes #}
+{% block scripts -%}
+  {{ super() }}
+  <script src="{{ pathto('_static/searchtools.js', 1) }}"></script>
+  <script src="{{ pathto('_static/language_data.js', 1) }}"></script>
+  <script src="{{ pathto('searchindex.js', 1) }}"></script>
 {%- endblock scripts %}

@@ -8,22 +8,16 @@ const nuclia = new window.NucliaSDK.Nuclia({
   knowledgeBox: "62407006-2711-4631-9c03-761d156de289",
 });
 
-function createBreadcrumbs(Container) {
+function createBreadcrumbs(resultTitleContainer,ContainerHash) {
 
-  // Container hash gets the md5 value of resource but i am unable to find resource by passing that hash
-  // let ContainerHash = Container.querySelector(
-  //   "div > div.sw-field-metadata > div > div:nth-child(2) > span.title-xxs"
-  // ).innerText;
+  let ContainerHeading = resultTitleContainer.querySelector("div:nth-child(2)");
 
-  let ContainerHeading = Container.querySelector("div");
-
-  // One of The hash that works 79e4d894189842acb0902b5d879c2fe6
   try {
     nuclia.db
       .getKnowledgeBox()
       .pipe(
         switchMap((knowledgeBox) =>
-          knowledgeBox.getResource("79e4d894189842acb0902b5d879c2fe6", [
+          knowledgeBox.getResource(ContainerHash, [
             "extra",
           ])
         )
@@ -60,7 +54,7 @@ function insertBreadcrumbDiv(resource, ContainerHeading) {
         breadcrumbLink.classList.add("breadcrumb-link");
         breadcrumbSpan.appendChild(breadcrumbLink);
 
-        // Add a separator between breadcrumb links (e.g., '>')
+        // Add a separator between breadcrumb links 
         let separator = document.createTextNode(" > ");
         breadcrumbSpan.appendChild(separator);
       } else {
@@ -78,13 +72,12 @@ function insertBreadcrumbDiv(resource, ContainerHeading) {
   }
 }
 
-
 function isMatch(element) {
   return (
     element &&
     element.nodeName === "DIV" &&
     element.classList &&
-    element.classList.contains("result-title-container") &&
+    element.classList.contains("sw-result-row") &&
     element.classList.length === 2
   );
 }
@@ -93,7 +86,11 @@ function isMatch(element) {
 function processAddedNodes(addedNodes) {
   addedNodes.forEach((addedNode) => {
     if (isMatch(addedNode)) {
-      createBreadcrumbs(addedNode);
+      let resultTitleContainer = addedNode.querySelector('.result-title-container')
+      let ContainerHash = addedNode.getAttribute('data-nuclia-rid');
+      if (ContainerHash.length == 32) { // To be removed when Null result issue get solved
+        createBreadcrumbs(resultTitleContainer,ContainerHash);
+      }
     }
   });
 }
@@ -121,36 +118,87 @@ const callback = function (mutationsList, observer) {
 
 const style = document.createElement('style');
 style.textContent = `
-  
+:host {
+  --pst-color-primary: #579aca;
+  --color-on-hover: #0056b3;
+  --color-of-separator: #777;
+  --color-of-lastbreadcrumb: #CECECE;
+}
+
 /* Breadcrumb container */
 .breadcrumbs {
-  font-size: 16px;
   margin: 10px 0;
 }
 
 /* Breadcrumb links */
 .breadcrumbs a {
+  font-size: var(--font-size-small);
   text-decoration: none;
-  color: #007bff;
+  color: var(--pst-color-primary);
   transition: color 0.2s;
 }
 
 /* Style for the last breadcrumb */
 .breadcrumbs span:last-child {
-  color: #555; 
+  font-size: var(--font-size-small);
+  color: var(--color-of-lastbreadcrumb); 
 }
 
 /* Separator between breadcrumbs */
 .breadcrumbs .separator {
+  font-size: var(--font-size-small);
   margin: 0 5px;
-  color: #777; 
+  color: var(--color-of-separator); 
 }
 
 /* Hover effect for breadcrumb links */
 .breadcrumbs a:hover {
-  color: #0056b3;
+  color: var(--color-on-hover);
 }
 
+/*Heading of the results*/
+h3.ellipsis.title-m{
+    color: var(--pst-color-primary);
+  }
+
+/*Subheading of the results*/
+.sw-paragraph-result {
+  color: var(--pst-color-primary);
+}
+/*Gap between results*/
+.results, .search-results {
+  gap: var(--rhythm-4);
+}
+/*Gap between widget and answer generation*/
+.sw-initial-answer {
+  margin-top: var(--rhythm-3);
+}
 `;
 // Append the style element to the shadow DOM
 shadowRoot.appendChild(style);
+
+function handleThemeChange(mutationsList) {
+  mutationsList.forEach((mutation) => {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          const newMode = htmlSelector.getAttribute('data-theme');
+          const nucliaSearchResults = document.querySelector('nuclia-search-results');
+          const nucliaSearchBar = document.querySelector('nuclia-search-bar');
+          const currentMode = nucliaSearchResults.getAttribute('mode');
+
+          if (newMode === 'dark' && currentMode !== 'dark') {
+              nucliaSearchResults.setAttribute('mode', 'dark');
+            nucliaSearchBar.setAttribute('mode', 'dark');
+          } else if (newMode === 'light' && currentMode !== 'light') {
+              nucliaSearchResults.setAttribute('mode', 'light');
+            nucliaSearchBar.setAttribute('mode', 'light');
+          }
+      }
+  });
+}
+
+// Select the HTML element and configure the observer
+const htmlSelector = document.querySelector('html');
+const observer = new MutationObserver(handleThemeChange);
+
+// Start observing changes in the data-theme attribute
+observer.observe(htmlSelector, { attributes: true, attributeFilter: ['data-theme'] });
