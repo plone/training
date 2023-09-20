@@ -9,7 +9,7 @@ myst:
 
 # Unit testing
 
-Unit testing in Volto is achieved using Jest as the test runner. Unit testing is best used to test components or utilities in isolation.
+Unit testing in Volto is achieved using [Jest](https://jestjs.io/) as the test runner. Unit testing is best used to test components or utilities in isolation.
 
 Here's an example of a unit test in Volto.
 
@@ -108,7 +108,10 @@ describe('Diff', () => {
 });
 ```
 
-This example was chosen specifically because it shows two potential tricky situations in unit testing: lazy-loaded libraries and stateful components, that change their rendered content during their lifecycle.
+This example was chosen specifically because it shows two potential tricky situations in unit testing:
+
+- lazy-loaded libraries, and
+- stateful components, that change their rendered content during their lifecycle.
 
 So, when dealing with lazy-loaded libraries, we have to mock the lazy-loading process and fully load them before we can do the test:
 
