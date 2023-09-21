@@ -11,7 +11,7 @@ myst:
 
 Jest is the standard "de facto" NodeJS test runner.
 
-```{note}
+```{warning}
 If there is one complaint that can be addressed to the JavaScript frontend development tooling is that there's no shared way of solving common problems. The main difficulty in setting up Jest for Volto and Volto projects is configuring it for properly "accepting" the way Volto loads its code, via Webpack.
 ```
 
@@ -37,7 +37,7 @@ beforeEach(() => {
 
 ## Transforms
 
-Jest is using its own "transforms" to deal with the resources your code is using (importing). So they are all "transformed" before you run the tests. There is a transform for every common type of resource: `js`, `jsx`, `svg`, `less`, `png`, `jpg`, `gif`, and so on. You can take a look at them at the root of your project or in vanilla Volto repo in `package.json`.
+To deal with the resources that your code is using (importing), Jest is using its own "transforms", which it performs as part of running the tests. There is a transform for every common type of resource: `js`, `jsx`, `svg`, `less`, `png`, `jpg`, `gif`, and so on. You can take a look at them at the root of your project or in vanilla Volto repo in `package.json`.
 
 ```json
 "jest": {
@@ -87,7 +87,7 @@ When testing addons there are some caveats that you should take care of in the r
 
 ### `jest-addon.config.js`
 
-This is a scape hatch for providing an alternative jest configuration that gets added to the default one. This is a `commonJS` file:
+This is an "escape hatch" for providing an alternative jest configuration that gets added to the default one. This is a `CommonJS` file:
 
 ```js
 module.exports = {
