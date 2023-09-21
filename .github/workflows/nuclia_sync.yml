@@ -24,12 +24,23 @@ jobs:
           DEPLOY_NUCLIA_TOKEN: ${{secrets.DEPLOY_NUCLIA_TOKEN}}
         run: |
           python3 upload.py
-
-      - name: Commit changes
+          
+      - name: Check for changes in nuclia_sync.json
+        id: check_changes
+        run: |
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          echo "Changed files: $CHANGED_FILES"
+          if echo "$CHANGED_FILES" | grep -q 'nuclia_sync.json'; then
+            echo "::set-output name=changed::true"
+          else
+            echo "::set-output name=changed::false"
+          fi
+  
+      - name: Commit changes 
+        if: steps.check_changes.outputs.changed == 'true'
         run: |
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
           git add .
-          git commit -m "Nuclia Sync: Updated docs" --allow-empty
+          git commit -m "Nuclia Sync: Updated docs" 
           git push
-          
