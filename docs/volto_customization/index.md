@@ -34,7 +34,5 @@ data_adapters
 teaser_variations
 extending_teasers
 listing_block
-component_registry
-theming
 
 ```
