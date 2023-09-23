@@ -26,7 +26,7 @@ intro
 installation
 addons
 voltosettings
-content_type
+shadowing
 blocks
 schema
 styling
