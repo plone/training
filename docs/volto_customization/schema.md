@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "How to approach the blocks schema and variations"
+    "property=og:description": "How to approach the blocks schema and variations"
+    "property=og:title": "Blocks schema and variations"
+    "keywords": "Volto, Blocks, Schema"
+---
+
 ### Blocks schema and variations
 
 In the previous chapter we just replaced or enhanced our View component by directly mutating the View in the Blocks engine. Now since all the blocks in principle should be schema based and should use `BlockDataForm` we do have another concept of extending Blocks with respect to schema.

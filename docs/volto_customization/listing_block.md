@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "How to create a block variation"
+    "property=og:description": "How to create a block variation"
+    "property=og:title": "Create a simple listing block variation"
+    "keywords": "Volto, Training, Block variation"
+---
+
 ### Create a simple listing block variation
 
 We will create a variation for listing block, the approach is the same we did for teasers. A new variation which will control the layout and extensions which will take care of individual items styling.

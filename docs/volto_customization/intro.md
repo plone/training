@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "Introduction to the Volto for Dummies Training Documentation"
-    "property=og:description": "Introduction to the Volto for Dummies Training Documentation"
-    "property=og:title": "Volto for Dummies Training"
-    "keywords": "Volto, Training, Dummies"
+    "description": "Introduction to the Volto Customization for JavaScript Beginners Training Documentation"
+    "property=og:description": "Introduction to the Volto Customization for JavaScript Beginners Training Documentation"
+    "property=og:title": "Volto Customization for JavaScript Beginners"
+    "keywords": "Volto, Training, Beginners"
 ---
 
 (volto4dummies-intro-label)=

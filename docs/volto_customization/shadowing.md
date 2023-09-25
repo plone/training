@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "How to customize content-type Views and other Components"
+    "property=og:description": "How to customize content-type Views and other Components"
+    "property=og:title": "Customize Content-type Views and other Components"
+    "keywords": "Volto, Customize, Shadowing"
+---
+
 ### Customize Content-type Views and other Components
 
 You can customize all components of Volto using a technique called component shadowing.

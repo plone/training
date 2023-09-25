@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "How to support extensions per teaser block"
+    "property=og:description": "How to support extensions per teaser block"
+    "property=og:title": "Block Extensions"
+    "keywords": "Volto, Block, Variations"
+---
+
 ### Extending Teasers per type
 
 The basic scenario is to add variations to a block so that it can give control over its look and feel. Sometimes its also possible for a need to have control over individual elements. For instance, Consider we have a teaaser grid in which we can have a base variation of its layout. Then we would left with styling and adjusting individual teasers. This is where extensions come into play.

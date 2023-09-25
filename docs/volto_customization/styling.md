@@ -1,4 +1,13 @@
-### Usage of StyleWrapper( Styling Schemas) and StyleMenu
+---
+myst:
+  html_meta:
+    "description": "How to use StyleWrapper(Styling Schemas) and StyleMenu"
+    "property=og:description": "How to use StyleWrapper(Styling Schemas) and StyleMenu"
+    "property=og:title": "Usage of StyleWrapper(Styling Schemas) and StyleMenu"
+    "keywords": "Volto, StyleWrapper, StyleMenu"
+---
+
+### Usage of StyleWrapper(Styling Schemas) and StyleMenu
 
 Its essential to also control the styling of Blocks and most importantly if the styling is done based on schema. In Volto we have a central wrapper named [`StyleWrapper`](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Block/StyleWrapper.jsx#L1) which wraps around all the View template of Blocks. The job of stylewrapper is to build and inject style classNames into its children.
 
