@@ -9,37 +9,34 @@ myst:
 
 (dexterity-3-label)=
 
-# Dexterity Types III: Sponsors
+# Content types III: Sponsors
 
-````{sidebar} Plone Backend Chapter
+````{card} Backend chapter
 
 Get the code! ({doc}`More info <code>`)
 
-Code for the beginning of this chapter:
 
 ```shell
-git checkout resources
+git checkout dexterity_upgrade_steps
 ```
 
-Code for the end of this chapter:
-
-```shell
-git checkout dexterity_3
-```
 ````
 
 Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.
 
+```{card}
 In this part we will:
 
 - Create a sponsor contenttype to manage sponsors
 - Store non-visible information about the sponsor in the sponsor-type
 
-The topics we cover are:
+Topics covered:
 
 - Schema hint and directives
 - Field permissions
 - Vocabularies
+```
+
 
 ## The Python schema
 
@@ -56,28 +53,17 @@ from plone.dexterity.content import Container
 from plone.namedfile import field as namedfile
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
-from z3c.form.browser.radio import RadioFieldWidget
 from zope import schema
-from zope.schema.vocabulary import SimpleTerm
-from zope.schema.vocabulary import SimpleVocabulary
-
-
-LevelVocabulary = SimpleVocabulary(
-    [SimpleTerm(value='platinum', title='Platinum Sponsor'),
-     SimpleTerm(value='gold', title='Gold Sponsor'),
-     SimpleTerm(value='silver', title='Silver Sponsor'),
-     SimpleTerm(value='bronze', title='Bronze Sponsor')]
-    )
+from zope.interface import implementer
 
 
 class ISponsor(model.Schema):
     """Dexterity Schema for Sponsors
     """
 
-    directives.widget(level=RadioFieldWidget)
     level = schema.Choice(
         title='Sponsoring Level',
-        vocabulary=LevelVocabulary,
+        vocabulary='ploneconf.sponsor_levels',
         required=True
     )
 
@@ -109,6 +95,7 @@ class ISponsor(model.Schema):
         required=False
     )
 
+
 @implementer(ISponsor)
 class Sponsor(Container):
     """Sponsor instance class"""
@@ -116,7 +103,6 @@ class Sponsor(Container):
 
 Some things are notable here:
 
-- {py:class}`LevelVocabulary` is used to create the options used in the field `level`. This way we could easily translate the displayed value.
 - {samp}`fieldset('Images', fields=['logo', 'advertisement'])` moves the two image fields to another tab.
 - {samp}`directives.read_permission(...)` sets the read and write permission for the field `notes` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that {py:attr}`obj.notes` is still accessible in templates and Python.
 
@@ -129,7 +115,7 @@ See the {ref}`plone6docs:backend-fields-reference-label` for a reference of all 
 Next, we create the factory type information ("FTI") for the new type in {file}`profiles/default/types/sponsor.xml`
 
 ```{code-block} xml
-:emphasize-lines: 26
+:emphasize-lines: 21
 :linenos:
 
 <?xml version="1.0"?>
@@ -194,31 +180,9 @@ Then we register the FTI in {file}`profiles/default/types.xml`
 
 After reinstalling our package we can create the new type.
 
-### Exercise 1
+In production you will want to manage and document such changes in code with upgrade steps.
+See the next chapter.
 
-Sponsors are containers but they don't need to be. Turn them into items by changing their class to {py:class}`plone.dexterity.content.Item`.
-
-````{dropdown} Solution
-:animate: fade-in-slide-down
-:icon: question
-
-Modify the instance class.
-
-```{code-block} xml
-:emphasize-lines: 4
-:linenos:
-
-from plone.dexterity.content import Item
-
-@implementer(ISponsor)
-class Sponsor(Item):
-    """Sponsor instance class"""
-```
-
-```{note}
-Changing the base-class of existing content from Item to Container or the other way around is possible but requires. See <https://github.com/plone/plone.app.contenttypes#changing-the-base-class-for-existing-objects> for details.
-```
-````
 
 ## Summary
 

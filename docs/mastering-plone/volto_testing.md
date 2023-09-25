@@ -11,7 +11,7 @@ myst:
 
 # Testing in Plone
 
-````{sidebar} Plone Frontend Chapter
+````{card} Frontend chapter
 
 For information on testing Plone backend see the separate training: {ref}`testing-plone-label`
 ````
