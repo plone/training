@@ -46,7 +46,6 @@ Prerequisites:
 
 intro
 installation
-addons
 voltosettings
 shadowing
 blocks
