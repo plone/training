@@ -7,13 +7,13 @@ myst:
     "keywords": "Volto, Block, Variations"
 ---
 
-### Extending Teasers per type
+# Extending Teasers per type
 
 The basic scenario is to add variations to a block so that it can give control over its look and feel. Sometimes its also possible for a need to have control over individual elements. For instance, Consider we have a teaaser grid in which we can have a base variation of its layout. Then we would left with styling and adjusting individual teasers. This is where extensions come into play.
 
 In this chapter we will tweak our newly created variation to also support extensions per teaser block and then later we will add grid support to teasers.
 
-### Block Extensions
+## Block Extensions
 
 Block extensions are the way to display a new form of your block for a particular block type. For instance if you have a teaserGrid, with block extensions you can control the styling and behaviour of individual teasers. The split of responsibilites is as follows: "the variation will control how the teasers layout and extension will control the individual rendering."
 
@@ -553,7 +553,7 @@ The styles.less is to be created as well:
 
 Great. We now have extension per teaser in our block which controls each item individually.
 
-### Grid support to Teasers
+## Grid support to Teasers
 
 As mentioned before we will add grid support in our project to be able to have a whole `teaserGrid` working properly along with our extended code. In order to demonstrate it, we need to list teasers in grid system. We'll use `@kitconcept/volto-blocks-grid` for that and extend it in our own ways.
 

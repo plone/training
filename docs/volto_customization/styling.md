@@ -7,9 +7,13 @@ myst:
     "keywords": "Volto, StyleWrapper, StyleMenu"
 ---
 
-### Usage of StyleWrapper(Styling Schemas) and StyleMenu
+# Usage of StyleWrapper(Styling Schemas) and StyleMenu
 
-Its essential to also control the styling of Blocks and most importantly if the styling is done based on schema. In Volto we have a central wrapper named [`StyleWrapper`](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Block/StyleWrapper.jsx#L1) which wraps around all the View template of Blocks. The job of stylewrapper is to build and inject style classNames into its children.
+Its essential to also control the styling of Blocks and most importantly if the styling is done based on schema or not. 
+
+## StyleWrapper(Styling Schemas)
+
+In Volto we have a central wrapper named [`StyleWrapper`](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Block/StyleWrapper.jsx#L1) which wraps around all the View template of Blocks. The job of stylewrapper is to build and inject style classNames into its children.
 
 In the schema at any point in time, we can call a volto helper which adds `styles` fields. Which then gets converted into classNames with the prefix `--has`. Its upto the theme owner in which way they want to add css for it.
 Simply, the job of StyleWrapper is to inject classNames(build from schema) into their children.
@@ -171,7 +175,7 @@ Go ahead and add classNames in your `css/less` files
 }
 ```
 
-### StyleMenu
+## StyleMenu
 
 StyleMenu is not the part of Blocks engine instead its a volto-slate plugin and its used to style rich text content only.
 
