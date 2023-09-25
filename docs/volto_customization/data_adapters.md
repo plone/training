@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, Enhance block, dataAdapter"
 ---
 
-### Enhance Teaser block with additional data
+# Enhance Teaser block with additional data
 
 Teaser block has an ability to let user mutate or intercept block settings data from their customization. The `dataAdapter` field gets registered in Teaser configuration in order to acheive this.
 

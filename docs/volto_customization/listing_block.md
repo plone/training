@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, Training, Block variation"
 ---
 
-### Create a simple listing block variation
+# Create a simple listing block variation
 
 We will create a variation for listing block, the approach is the same we did for teasers. A new variation which will control the layout and extensions which will take care of individual items styling.
 

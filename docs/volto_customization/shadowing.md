@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, Customize, Shadowing"
 ---
 
-### Customize Content-type Views and other Components
+# Customize Content-type Views and other Components
 
 You can customize all components of Volto using a technique called component shadowing.
 

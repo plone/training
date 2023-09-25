@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, configuration"
 ---
 
-### Most useful volto settings
+# Most useful volto settings
 
 You can configure Volto by modifying settings in a js-file.
 

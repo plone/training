@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, Training, Extend block"
 ---
 
-### Extend volto blocks
+# Extend volto blocks
 
 There are various ways of extending Volto blocks from core behaviour. The component shadowing is the plain old way of customizing components in volto. But it comes with its own problems like keeping the shadowed component up to date with latest fixes and features.
 In the modern day volto development we can directly extend blocks in form of variations and extensions and populate each of them with their own schemas.

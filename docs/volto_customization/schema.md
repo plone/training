@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, Blocks, Schema"
 ---
 
-### Blocks schema and variations
+# Blocks schema and variations
 
 In the previous chapter we just replaced or enhanced our View component by directly mutating the View in the Blocks engine. Now since all the blocks in principle should be schema based and should use `BlockDataForm` we do have another concept of extending Blocks with respect to schema.
 
