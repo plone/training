@@ -52,9 +52,11 @@ shadowing
 blocks
 schema
 teaser_variations
-styling
 data_adapters
+styling
 extending_teasers
 listing_block
 
 ```
+
+<!-- https://github.com/collective/volto-teaser-tutorial -->
