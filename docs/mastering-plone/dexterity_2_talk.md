@@ -9,9 +9,9 @@ myst:
 
 (dexterity-2-talk-label)=
 
-# Content types II: Talks
+# Content types II: Talk
 
-> **Plone backend chapter**
+> **Backend chapter**
 > 
 > Get the code of `ploneconf.site` at branch 'base'.  
 > {doc}`more info on how to get the code <code>`

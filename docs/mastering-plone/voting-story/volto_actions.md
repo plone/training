@@ -11,11 +11,7 @@ myst:
 
 # Volto Actions and Component State [voting story]
 
-````{sidebar} Plone frontend chapter
-
-Solve the same tasks in Plone Classic UI in chapter {doc}`viewlets_2`
-
----
+````{card} Frontend chapter
 
 Get the code! 
 [volto-training-votable](https://github.com/collective/volto-training-votable)
@@ -35,16 +31,14 @@ Topics covered:
 
 ```{figure} ../_static/volto_voting1.png
 :alt: Volto Voting
-:align: left
-:scale: 50%
+:scale: 70%
 
 Voting
 ```
 
 ```{figure} ../_static/volto_voting2.png
 :alt: Volto Voting
-:align: left
-:scale: 50%
+:scale: 70%
 
 Voting component, user has already voted
 ```

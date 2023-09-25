@@ -13,14 +13,13 @@ myst:
 
 ````{card} Backend chapter
 
-Get the code:
+Get the code: https://github.com/collective/ploneconf.site
 
 ```shell
-# ploneconf.site
 git checkout vocabularies
 ```
 
-{doc}`code`
+More info in {doc}`code`
 ````
 
 ```{card} 

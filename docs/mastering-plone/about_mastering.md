@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
+    "description": "What to expect. Trainings on site. Training videos."
+    "property=og:description": "What to expect. Trainings on site. Training videos."
     "property=og:title": "About Mastering Plone development"
-    "keywords": ""
+    "keywords": "Plone, training, develop"
 ---
 
 (about-mastering-label)=

@@ -11,10 +11,11 @@ myst:
 
 # Extending Plone with add-on packages
 
-> **Plone backend chapter**
-> 
-> For frontend add-ons see chapter {ref}`volto-addon-label`
+```{card}
+Backend chapter
 
+For frontend add-ons see chapter {ref}`volto-addon-label`
+```
 
 
 Plone add-ons enrich the CMS by

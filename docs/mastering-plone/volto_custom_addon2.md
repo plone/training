@@ -11,7 +11,7 @@ myst:
 
 # Extending Volto With a FAQ Block Type
 
-````{sidebar} Plone frontend chapter
+````{card} Frontend chapter
 
 Creating a new block type
 ````
@@ -583,7 +583,7 @@ The configuration file {file}`mrs.developer.json` instructs mrs.developer from w
 Run
 
 ```shell
-yarn develop
+make develop
 ```
 
 An official release is done on npm. Switch to section {ref}`Release a Volto add-on <volto-custom-addon-final-label>`.
