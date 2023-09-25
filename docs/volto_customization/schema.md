@@ -205,7 +205,7 @@ styles.less:
 }
 ```
 
-Right now it this variation only shows default variation of Teaser block. In the coming chapter we are gonna enhance it with extension per teaser.
+Right now this variation only shows default variation of Teaser block. In the coming chapter we are gonna enhance it with extension per teaser.
 
 ```{note}
 The [Body](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Body.jsx#L13) component in Teaser block also supports variations from component registry. You can read more about component registry in following chapters.

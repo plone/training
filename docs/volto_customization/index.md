@@ -19,18 +19,20 @@ Level
 What You'll Learn:
 
 : In this hands-on training, you will embark on a journey to master Volto customization from the ground up. Whether you're a developer looking to expand your skill set or someone entirely new to JavaScript, this course will provide you with the knowledge and tools to excel in Volto development. Here's what you can expect to learn:
-  * Introduction to Volto: Get acquainted with Volto's architecture, key concepts, and its role in modern web development.
-  * JavaScript Fundamentals: Build a strong foundation in JavaScript, covering essential topics like variables, functions, and data structures.
-  * React Essentials: Dive into React, the heart of Volto, and learn how to create dynamic user interfaces using React components.
-  * Customizing Volto: Explore the art of customizing Volto projects, from theming and styling to creating custom blocks.
-  * Building Blocks: Discover the building blocks of a Volto project, including new variations.
-  * Best Practices: Gain insights into industry best practices for efficient Volto development.
+
+- Introduction to Volto: Get acquainted with Volto's architecture, key concepts, and its role in modern web development.
+- JavaScript Fundamentals: Build a strong foundation in JavaScript, covering essential topics like variables, functions, and data structures.
+- React Essentials: Dive into React, the heart of Volto, and learn how to create dynamic user interfaces using React components.
+- Customizing Volto: Explore the art of customizing Volto projects, from theming and styling to creating custom blocks.
+- Building Blocks: Discover the building blocks of a Volto project, including new variations.
+- Best Practices: Gain insights into industry best practices for efficient Volto development.
 
 Who Should Attend:
 
 : This training program is tailored for:
-  * JavaScript beginners looking to enter the world of Volto and React.
-  * Developers interested in extending their expertise to include Volto customization.
+
+- JavaScript beginners looking to enter the world of Volto and React.
+- Developers interested in extending their expertise to include Volto customization.
 
 Prerequisites:
 
@@ -49,9 +51,9 @@ voltosettings
 shadowing
 blocks
 schema
+teaser_variations
 styling
 data_adapters
-teaser_variations
 extending_teasers
 listing_block
 
