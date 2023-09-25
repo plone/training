@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "How can you configure Volto"
+    "property=og:description": "How can you configure Volto"
+    "property=og:title": "Most useful volto settings"
+    "keywords": "Volto, configuration"
+---
+
 ### Most useful volto settings
 
 You can configure Volto by modifying settings in a js-file.

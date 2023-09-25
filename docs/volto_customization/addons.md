@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "Volto add-ons for dummies"
+    "description": "Volto add-ons for beginners"
     "property=og:description": "Volto add-ons"
     "property=og:title": "Volto add-ons"
-    "keywords": "Volto"
+    "keywords": "Volto, Training"
 ---
 
 # Volto add-ons

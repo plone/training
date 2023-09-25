@@ -1,4 +1,13 @@
-### Teaser block variations Schemas
+---
+myst:
+  html_meta:
+    "description": "How to work with block variations schema"
+    "property=og:description": "How to work with block variations schema"
+    "property=og:title": "Teaser block variations Schema"
+    "keywords": "Volto, Blocks, Variations, schemaEnhancers"
+---
+
+### Teaser block variations Schema
 
 Now that we have learnt on how to add a new variation to a teaser block. Sometimes its important to also have schemas of those variations merged into the main schema. So each variation can come up with its own set of schema. We can use `schemaEnhancers` for this purpose.
 

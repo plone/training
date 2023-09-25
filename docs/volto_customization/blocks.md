@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "How to extend volto blocks"
+    "property=og:description": "How to extend volto blocks"
+    "property=og:title": "Extend volto blocks"
+    "keywords": "Volto, Training, Extend block"
+---
+
 ### Extend volto blocks
 
 There are various ways of extending Volto blocks from core behaviour. The component shadowing is the plain old way of customizing components in volto. But it comes with its own problems like keeping the shadowed component up to date with latest fixes and features.

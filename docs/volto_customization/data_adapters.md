@@ -1,3 +1,12 @@
+---
+myst:
+  html_meta:
+    "description": "How to enhance Teaser block with additional data"
+    "property=og:description": "How to enhance Teaser block with additional data"
+    "property=og:title": "Enhance Teaser block with additional data"
+    "keywords": "Volto, Enhance block, dataAdapter"
+---
+
 ### Enhance Teaser block with additional data
 
 Teaser block has an ability to let user mutate or intercept block settings data from their customization. The `dataAdapter` field gets registered in Teaser configuration in order to acheive this.
