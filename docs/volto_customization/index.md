@@ -37,11 +37,10 @@ Prerequisites:
 : No prior experience with Volto is required. However, a basic understanding of web development concepts and basic JavaScript knowledge will be beneficial.
 
 ```{toctree}
----
-caption: Volto Customization for JavaScript Beginners
-name: toc-voltocustomization
-maxdepth: 3
----
+:caption: Volto Customization for JavaScript Beginners
+:name: toc-voltocustomization
+:maxdepth: 3
+:numbered: true
 
 intro
 installation
