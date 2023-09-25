@@ -1,16 +1,19 @@
-name: Build and deploy training documentation to training.plone.org
+name: build/deploy training.plone.org
 
 on:
   push:
     branches:
       - "main"
+    workflow_dispatch:
 
 jobs:
   build_deploy:
     runs-on: ubuntu-latest
-    environment: main
+    environment: 
+      name: training.plone.org
+      url: https://training.plone.org
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
@@ -47,9 +50,9 @@ jobs:
         with:
           flags: "-avzr --delete"
           options: ""
-          ssh_options: "-p ${{secrets.DEPLOY_PORT}}"
+          ssh_options: "-p ${{vars.DEPLOY_PORT_TRAINING}}"
           src: "_build/html/"
-          dest: "${{secrets.DEPLOY_USER_TRAINING}}@${{secrets.DEPLOY_SERVER_TRAINING}}:${{secrets.DEPLOY_PATH_TRAINING}}"
+          dest: "${{vars.DEPLOY_USER_TRAINING}}@${{vars.DEPLOY_SERVER_TRAINING}}:${{vars.DEPLOY_PATH_TRAINING}}"
 
       - name: Display status from deploy
         run: echo "${{ steps.deploy.outputs.status }}"
