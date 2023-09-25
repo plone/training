@@ -32,7 +32,7 @@ Some technologies and tools we use during the training:
 - Volto Generator
 - Plone 6!
 
-Before we dive into the content of this training, I'd like to make a helpful suggestion. If you're new to Volto and React or feel like you could benefit from a refresher, it might be a great idea to [explore some existing Volto and React training resources](https://www.youtube.com/playlist?list=PLGN9BI-OAQkTVkkJfSMHu-l-_AVW_uoRf) that can provide you with a solid foundation. These resources can serve as valuable supplements to what we'll cover here.
+Before we dive into the content of this training, I'd like to make a helpful suggestion. If you're new to Volto and React or feel like you could benefit from a refresher, it might be a great idea to <a target="_blank" href="https://www.youtube.com/playlist?list=PLGN9BI-OAQkTVkkJfSMHu-l-_AVW_uoRf">explore some existing Volto and React training resources</a> that can provide you with a solid foundation. These resources can serve as valuable supplements to what we'll cover here.
 
 We have designed this training to be beginner-friendly, but having some prior exposure to these technologies can be advantageous. It will help you grasp the concepts more quickly and make the learning experience even more enjoyable.
 
