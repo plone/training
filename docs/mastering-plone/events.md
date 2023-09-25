@@ -11,7 +11,7 @@ myst:
 
 # Turning Talks into Events
 
-````{sidebar} Plone frontend chapter
+````{card} Frontend chapter
 
 Get the code! ({doc}`More info <code>`)
 

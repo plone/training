@@ -13,13 +13,15 @@ myst:
 
 ````{card} Backend chapter
 
-Get the code! ({doc}`More info <code>`)
+Get the code: https://github.com/collective/ploneconf.site
 
 ```shell
-# ploneconf.site
 git checkout dexterity_upgrade_steps
 ```
+
+More info in {doc}`code`
 ````
+
 
 ```{card}
 In this part we will:

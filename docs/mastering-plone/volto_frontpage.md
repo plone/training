@@ -11,29 +11,25 @@ myst:
 
 # Creating a dynamic frontpage with Volto blocks
 
-````{sidebar} Plone frontend chapter
+Show selected content on the front page by criterion.
 
-Get the code! ({doc}`More info <code>`)
+````{card} Frontend chapter
+
+Get the code: https://github.com/collective/ploneconf.site
 
 ```{note}
 Despite this is a frontend chapter, we are working on backend code in `ploneconf.site`.
 ```
 
-Code for the beginning of this chapter:
-
-```shell
-git checkout behaviors_1
-```
-
-Code for the end of this chapter:
-
 ```shell
 git checkout frontpage
 ```
+
+More info in {doc}`code`
 ````
 
-Show selected content on the front page.
 
+```{card}
 In this part you will:
 
 - Use a listing block to show content marked as "featured"
@@ -42,6 +38,7 @@ In this part you will:
 Topics covered
 
 - collection criterion
+```
 
 
 We prepared a behavior for content types to store the information if the content should be featured in the previous  chapter.

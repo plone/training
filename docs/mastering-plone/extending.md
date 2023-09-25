@@ -13,7 +13,7 @@ myst:
 
 # Extending Plone
 
-> **Plone backend chapter**
+```{card} Backend chapter
 
 In this part you will:
 
@@ -25,6 +25,7 @@ Topics covered:
 - Component architecture
 - ZCML
 - GenericSetup
+```
 
 As a developer you want to go further than simply configuring Plone, you want to extend and customize it.
 Plone is built to be extended.
@@ -67,7 +68,7 @@ For most projects you combine multiple kinds of methods to extend Plone.
 
 (extending-technologies-component-architecture-label)=
 
-### Component Architecture
+## Component Architecture
 
 ```{only} presentation
 - State of the art
@@ -105,7 +106,7 @@ This is what you want to use.
 
 (extending-components-label)=
 
-### Configuring Zope Components with ZCML
+## Configuring Zope Components with ZCML
 
 ```{only} presentation
 - zcml (Zope Component Markup Language) is used to register components
@@ -134,7 +135,7 @@ It may seem a little cumbersome that you have to register all components. But th
 
 (extending-technologies-generic-setup-label)=
 
-### GenericSetup
+## GenericSetup
 
 ```{only} presentation
 - Old style

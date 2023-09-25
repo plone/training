@@ -7,6 +7,8 @@ myst:
     "keywords": ""
 ---
 
+(code-label)=
+
 # The code for the training
 
 You can get the complete code for this training from GitHub.
@@ -86,8 +88,8 @@ This does two things:
 These are the tags of the backend add-on for which there is code:
 
 
-| Chapter                        | Tag-Name                 |
-| ------------------------------ | ------------------------ |
+| Chapter                        | Tag-Name                 | Package |
+| ------------------------------ | ------------------------ | --- |
 | {doc}`about_mastering` | |
 | {doc}`intro` | |
 | {doc}`case` | |
@@ -95,31 +97,31 @@ These are the tags of the backend add-on for which there is code:
 | {doc}`installation` | |
 | {doc}`features` | |
 | {doc}`configuring_customizing` | |
-| {doc}`volto_overrides` | |
-| {doc}`extending` | |
 | {doc}`add-ons` | |
-| {doc}`eggs1` | |
+| {doc}`extending` | |
 | {doc}`dexterity` | |
 | {doc}`dexterity_2_talk` | |
-| {doc}`volto_development` | |
-| {doc}`volto_talkview` | |
-| {doc}`behaviors_1` | |
-| {doc}`volto_frontpage` | |
+| {doc}`dexterity_reference` | |
+| {doc}`volto_overrides` | overrides | volto-ploneconf |
+| {doc}`volto_talkview` | talkview | volto-ploneconf |
+| {doc}`volto_development` | 
+| {doc}`behaviors_1` | behaviors_1 | ploneconf.site |
+| {doc}`volto_frontpage` | frontpage | ploneconf.site |
 | {doc}`api` | |
-| {doc}`events` | base |
-| {doc}`registry` | vocabularies |
+| {doc}`events` | base | ploneconf.site |
+| {doc}`registry` | vocabularies | ploneconf.site |
 | {doc}`custom_search` | |
 | {doc}`volto_testing` | |
 | {doc}`thirdparty_behaviors` | |
-| {doc}`dexterity_3` | dexterity_upgrade_steps |
-| {doc}`upgrade_steps` | dexterity_upgrade_steps |
+| {doc}`dexterity_3` |
+| {doc}`upgrade_steps` |
 | {doc}`volto_components_sponsors` | |
 | {doc}`volto_addon` | |
 | {doc}`volto_custom_addon` | |
 | {doc}`volto_custom_addon2` | |
 | {doc}`user_generated_content` | |
 | {doc}`relations` | relations |
-| {doc}`voting-story/index` | voting |
+| {doc}`voting-story/index` | | training.votable, volto-training-votable |
 | {doc}`deployment_code` | |
 | {doc}`code` | |
 | {doc}`trainer` | |

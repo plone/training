@@ -11,12 +11,13 @@ myst:
 
 # REST API endpoints [voting story]
 
-````{sidebar} Plone backend chapter
+````{card} Backend chapter
 
 Get the code! 
 [training.votable](https://github.com/collective/training.votable)
 ````
 
+```{card}
 To be solved task in this part:
 
 - Provide access to voting for the Volto frontend
@@ -29,6 +30,7 @@ Topics covered:
 
 - Extending plone.restapi
 - Services and Endpoints
+```
 
 Out of the box Volto has no access to the logic of the voting behavior of the last chapter.
 

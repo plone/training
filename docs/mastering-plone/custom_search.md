@@ -27,8 +27,8 @@ Remember what we did to show featured content on the front page.
 :animate: fade-in-slide-down
 :icon: question
 
-- The field "type_of_talk" needs to be indexed in catalog.
-- "type_of_talk" needs to be a collection criterion
+- The field `type_of_talk` needs to be indexed in catalog.
+- `type_of_talk` needs to be a collection criterion.
 
 After adding an index and a criterion, and restarting the backend, and re-installing the add-on, the index is present in catalog but empty.
 

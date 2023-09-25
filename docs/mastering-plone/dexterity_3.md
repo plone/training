@@ -9,7 +9,7 @@ myst:
 
 (dexterity-3-label)=
 
-# Dexterity Types III: Sponsors
+# Content types III: Sponsors
 
 ````{card} Backend chapter
 

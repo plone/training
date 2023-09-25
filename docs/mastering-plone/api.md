@@ -15,8 +15,7 @@ myst:
 % TODO Discuss plone.restapi
 
 
-```{sidebar} Plone backend chapter
-```
+```{card} Backend chapter
 
 In this part you will:
 
@@ -28,6 +27,8 @@ Topics covered:
 - {py:mod}`plone.api`
 - Portal tools
 - Debugging
+```
+
 
 (api-api-label)=
 
@@ -138,9 +139,12 @@ Products.PDBDebugMode
 
 Interactive debugger
 
-: Start your instance in debug mode with {command}`venv/bin/zconsole debug instance/etc/zope.conf`.
-You have an interactive debugger at your fingertips.
-`app.Plone` is your instance which you can inspect on the command line.
+: Start your instance in debug mode with  
+  ```shell
+  venv/bin/zconsole debug instance/etc/zope.conf
+  ```
+  You have an interactive debugger at your fingertips.
+  `app.Plone` is your Plone instance object which you can inspect on the command line.
 : To list the ids of the objects in a folderish object:
   ```shell
   >>> app.Plone.talks.keys()
@@ -153,6 +157,10 @@ You have an interactive debugger at your fingertips.
   >>> app.Plone.talks.contentItems()
   [('whats-new-in-python-3.10', <Talk at /Plone/talks/whats-new-in-python-3.10>), ('plone-7', <Talk at /Plone/talks/plone-7>), ('zope', <Talk at /Plone/talks/zope>), ('betty-white', <Talk at /Plone/talks/betty-white>), ('new-years-day', <Talk at /Plone/talks/new-years-day>), ('journey-band', <Talk at /Plone/talks/journey-band>)]
   ```
+: Setting the site with `setSite` is necessary because the root object when starting the interactive debugger is `app`, which can contain more than just one Plone instance object.
+We choose our Plone instance with id `Plone`.
+With setting the site to operate on, we have access to the Zope component registry.
+The component registry is needed for methods like `contentItems` which look up utilities and other components like in this case the `ITypesTool.`
 : Stop the interactive shell with {kbd}`ctrl d`.
 
 plone.app.debugtoolbar
@@ -204,7 +212,7 @@ The `app` object you encountered in the previous exercise can be seen as the roo
 `````{admonition} Solution
 :class: toggle
 
-`app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
+`app.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
 
 ```pycon
 >>> app
@@ -216,10 +224,12 @@ The `app` object you encountered in the previous exercise can be seen as the roo
 >>> setSite(portal)
 >>> portal
 <PloneSite at /Plone>
->>> app.Plone.keys()
-['portal_setup', 'MailHost', 'caching_policy_manager', 'content_type_registry', 'error_log', 'plone_utils', 'portal_actions', 'portal_catalog', 'portal_controlpanel', 'portal_diff', 'portal_groupdata', 'portal_groups', 'portal_memberdata', 'portal_membership', 'portal_migration', 'portal_password_reset', 'portal_properties', 'portal_quickinstaller', 'portal_registration', 'portal_skins', 'portal_types', 'portal_uidannotation', 'portal_uidgenerator', 'portal_uidhandler', 'portal_url', 'portal_view_customizations', 'portal_workflow', 'translation_service', 'portal_form_controller', 'mimetypes_registry', 'portal_transforms', 'portal_archivist', 'portal_historiesstorage', 'portal_historyidhandler', 'portal_modifier', 'portal_purgepolicy', 'portal_referencefactories', 'portal_repository', 'acl_users', 'portal_resources', 'portal_registry', 'HTTPCache', 'RAMCache', 'ResourceRegistryCache', 'training', 'schedule', 'location', 'sponsors', 'sprint']
->>> app['Plone']['news']
-<Folder at /Plone/news>
+>>> portal.keys()
+['portal_setup', 'MailHost', 'caching_policy_manager', 'content_type_registry', 'error_log', 'plone_utils', 'portal_actions', 'portal_catalog', 'portal_controlpanel', 'portal_diff', 'portal_groupdata', 'portal_groups', 'portal_memberdata', 'portal_membership', 'portal_migration', 'portal_password_reset', 'portal_properties', 'portal_registration', 'portal_skins', 'portal_types', 'portal_uidannotation', 'portal_uidgenerator', 'portal_uidhandler', 'portal_url', 'portal_view_customizations', 'portal_workflow', 'translation_service', 'mimetypes_registry', 'portal_transforms', 'portal_archivist', 'portal_historiesstorage', 'portal_historyidhandler', 'portal_modifier', 'portal_purgepolicy', 'portal_referencefactories', 'portal_repository', 'acl_users', 'portal_resources', 'portal_registry', 'HTTPCache', 'RAMCache', 'ResourceRegistryCache', 'talks', 'sponsors']
+>>> app['Plone']['talks']
+<Folder at /Plone/talks>
+>>> app.Plone.talks
+<FolderishDocument at /Plone/talks>
 ```
 
 
@@ -247,14 +257,13 @@ You have been warned.
 
 - Create a new BrowserView callable as `/@@demo_content` in a new file {file}`demo.py`.
 - The view should create five talks each time it is called.
-- Use the docs at {doc}`plone6docs:plone.api/content` to find out how to create new talks.
-- Use `plone.api.content.transition` to publish all new talks. Find the docs for that method.
+- Use the documentation at {doc}`plone6docs:plone.api/content` to find out how to create new talks.
+- Use `plone.api.content.transition` to publish all new talks. Find the documentation for this method.
 - Only managers should be able to use the view (the permission is called `cmf.ManagePortal`).
-- Switch to the frontpage after calling the view.
 - Display a message about the results (see {ref}`plone6docs:portal-show-message-example`).
 - For extra credits use the library [requests](https://requests.readthedocs.io/en/latest/) and [Wikipedia](https://www.mediawiki.org/wiki/Wikimedia_REST_API) to populate the talks with content.
 - Use the utility methods `cropText` from `Producs.CMFPlone` to crop the title after 20 characters.
-  Use the docs at {doc}`plone6docs:backend/global-utils` to find an overview of `plone_view` helpers.
+  Use the documentation at {doc}`plone6docs:backend/global-utils` to find an overview of `plone_view` helpers.
 
 ```{note}
 - Do not try everything at once, work in small iterations, restart your Plone instance to check your results frequently.

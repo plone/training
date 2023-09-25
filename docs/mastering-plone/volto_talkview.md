@@ -11,23 +11,18 @@ myst:
 
 # Volto View Component: A Default View for a "Talk"
 
-````{sidebar} Plone frontend chapter
+````{card} Frontend chapter
 
-Get the code! ({doc}`More info <code>`)
-
-Code for the beginning of this chapter:
-
-```shell
-git checkout theming
-```
-
-Code for the end of this chapter:
+Get the code: https://github.com/collective/volto-ploneconf
 
 ```shell
 git checkout talkview
 ```
+
+More info in {doc}`code`
 ````
 
+```{card}
 In this part we will:
 
 - Create a view to display a talk
@@ -39,6 +34,7 @@ Topics covered:
 - View
 - Displaying data stored in fields of a content type
 - React Basics
+```
 
 The default visualization for our new content type `talk` lists the field values according to the type schema.
 
