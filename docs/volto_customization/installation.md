@@ -19,7 +19,7 @@ Getting started with Volto involves setting up a development environment, unders
 
 Before you start working with Volto, ensure you have the following prerequisites:
 
-- <a target="_blank" href="https://nodejs.org/en">Node.js LTS (18.x)</a> - (<a target="_blank" href="https://6.docs.plone.org/volto/getting-started/install.html#install-nvm-node-js-version-manager">see instructions for installation</a>)
+- <a target="_blank" href="https://nodejs.org/en">Node.js LTS (16.x)</a> - (<a target="_blank" href="https://6.docs.plone.org/volto/getting-started/install.html#install-nvm-node-js-version-manager">see instructions for installation</a>)
 - <a target="_blank" href="https://www.python.org/">Python</a> - See below for specific versions.
 - <a target="_blank" href="https://www.docker.com/get-started">Docker</a> (if using the Plone docker images - <a target="_blank" href="https://6.docs.plone.org/volto/getting-started/install.html#use-or-install-docker">see instructions for installation</a> and <a target="_blank" href="https://6.docs.plone.org/volto/getting-started/install.html#run-a-volto-ready-plone-docker-container">how to run a Plone docker container</a>)
 
