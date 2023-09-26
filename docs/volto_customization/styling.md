@@ -9,7 +9,7 @@ myst:
 
 # Usage of StyleWrapper(Styling Schemas) and StyleMenu
 
-Its essential to also control the styling of Blocks and most importantly if the styling is done based on schema or not. 
+Its essential to also control the styling of Blocks and most importantly if the styling is done based on schema or not.
 
 ## StyleWrapper(Styling Schemas)
 
@@ -20,7 +20,8 @@ Simply, the job of StyleWrapper is to inject classNames(build from schema) into 
 
 We see that in our Teaser config volto already calls the [addStyling](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/helpers/Extensions/withBlockSchemaEnhancer.js#L297) in the schema. The job of this function is to add styles field in the styling fieldset in schema provided.
 
-```jsx
+```{code-block} jsx
+
 export const TeaserSchema = ({ intl }) => {
   const schema = {
     title: intl.formatMessage(messages.teaser),
@@ -92,7 +93,8 @@ and then we can manipulate those fields by adding whatever styles we want. Let's
 
 In your variation schemaEnhancer:
 
-```js
+```{code-block} js
+
 config.blocks.blocksConfig.teaser.variations = [
   ...config.blocks.blocksConfig.teaser.variations,
   {
@@ -129,27 +131,30 @@ config.blocks.blocksConfig.teaser.variations = [
 
 As StyleWrapper wraps around our view component in `RenderBlocks`. The styleNames should be available in our component's rendered html.
 
-```
+```{code-block} html
+
 <div class="block teaser has--align--left has--objectFit--contain">
     <a href="/teaser-view">
-        <div class="teaser-item overlay">
-            <div class="image-wrapper">
-                <img src="/teaser-view/@@images/preview_image-600-dd112f14087d6a99687a9f94dd31a9a4.jpeg" alt="" loading="lazy">
-            </div>
-            <div class="gradiant">
-                <div style="display: flex; flex-direction: column;">
-                <h2>teaser View</h2>
-                <p></p>
-            </div>
+      <div class="teaser-item overlay">
+        <div class="image-wrapper">
+            <img src="/teaser-view/@@images/preview_image-600-dd112f14087d6a99687a9f94dd31a9a4.jpeg" alt="Alt image text" loading="lazy">
         </div>
-    </div>
+        <div class="gradiant">
+          <div style="display: flex; flex-direction: column;">
+            <h2>teaser View</h2>
+            <p></p>
+          </div>
+        </div>
+      </div>
     </a>
 </div>
 ```
 
 Go ahead and add classNames in your `css/less` files
 
-```css
+```{code-block} less
+:force: true
+
 .has--objectFit--contain {
   img {
     object-fit: contain !important;
@@ -181,7 +186,8 @@ StyleMenu is not the part of Blocks engine instead its a volto-slate plugin and 
 
 In your policy package, you can add styleMenu configuration like:
 
-```js
+```{code-block} jsx
+
 config.settings.slate.styleMenu = {
   ...(config.settings.slate.styleMenu || {}),
   blockStyles: [

@@ -16,7 +16,8 @@ Let us take an example for a teaser block which we already have in volto core. I
 
 The most simple customization is the View of the Teaser. The volto core teaser block confiugration looks like:
 
-```jsx
+```{code-block} jsx
+
   teaser: {
     id: 'teaser',
     title: 'Teaser',
@@ -42,14 +43,16 @@ The most simple customization is the View of the Teaser. The volto core teaser b
 
 Plain and simple. Every block in Volto have Edit and View stock components. You can customize each of them individually by either shadowing or directly like:
 
-```
+```{code-block} js
+
 config.blocks.blocksConfig.teaser.view = MyTeaserView
 
 ```
 
 Let's replace our Main teaser view with our `MyTeaserView` component:
 
-```jsx
+```{code-block} jsx
+
 const MyDataProvider = (props) => {
   const enhancedChildren = React.Children.map(props.children, (child) => {
     if (React.isValidElement(child)) {

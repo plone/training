@@ -262,7 +262,8 @@ export default TeaserBlockImageDefault;
 
 TeaserBlockImageRight:
 
-```jsx
+```{code-block} jsx
+
 import React from "react";
 import PropTypes from "prop-types";
 import { Message } from "semantic-ui-react";
@@ -371,7 +372,8 @@ export default TeaserBlockImageRight;
 
 TeaserBlockImageOverlay:
 
-```jsx
+```{code-block} jsx
+
 import React from "react";
 import PropTypes from "prop-types";
 import { Message } from "semantic-ui-react";
@@ -498,7 +500,9 @@ export default TeaserBlockImageOverlay;
 
 The styles.less is to be created as well:
 
-```css
+```{code-block} less
+:force: true
+
 .gradiant {
   h2 {
     color: white;
@@ -561,7 +565,7 @@ First add `@kitconcept/volto-blocks-grid` in addons key and dependencies in pack
 
 In your project's config:
 
-```js
+```{code-block} js
 addons: [
     "@kitconcept/volto-blocks-grid",
      "volto-teaser-tutorial",
@@ -580,7 +584,7 @@ Now since, grid block from `@kitconcept/volto-blocks-grid` uses teaser from its 
 
 In your volto-teaser-tutorial addon's `index.js`:
 
-```js
+```{code-block} js
 if (
   config.blocks.blocksConfig?.__grid?.blocksConfig?.teaser &&
   config.blocks.blocksConfig?.teaser

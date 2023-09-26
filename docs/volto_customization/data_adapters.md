@@ -11,7 +11,8 @@ myst:
 
 Teaser block has an ability to let user mutate or intercept block settings data from their customization. The `dataAdapter` field gets registered in Teaser configuration in order to acheive this.
 
-```js
+```{code-block} js
+
 teaser: {
     id: 'teaser',
     title: 'Teaser',
@@ -38,7 +39,8 @@ teaser: {
 
 The signature of `dataAdapter` is like this:
 
-```js
+```{code-block} js
+
 export const TeaserBlockDataAdapter = ({
   block,
   data,
@@ -74,13 +76,13 @@ The above Adapter gets consumed in [Data](https://github.com/plone/volto/blob/96
 
 Let's register a new `dataAdapter` our config:
 
-```js
+```{code-block} js
 config.blocks.blocksConfig.teaser.dataAdapter = myDataOwnAdapter;
 ```
 
 In your data-adapter.js:
 
-```js
+```{code-block} js
 export const myDataOwnAdapter = ({ block, data, id, onChangeBlock, value }) => {
   let dataSaved = {
     ...data,

@@ -25,10 +25,10 @@ Before you start working with Volto, ensure you have the following prerequisites
 
 The versions of Python that are supported in Volto depend on the version of Plone that you use.
 
-| Plone | Python | Volto |
-|---|---|---|
-| 5.2 | 2.7, 3.6-3.8 | 15.0 |
-| 6.0 | 3.8-3.10 | 16.0 |
+| Plone | Python       | Volto |
+| ----- | ------------ | ----- |
+| 5.2   | 2.7, 3.6-3.8 | 15.0  |
+| 6.0   | 3.8-3.10     | 16.0  |
 
 Depending on the operating system that you are using, some of the following pre-requisites might change.
 They assume you have a macOS/Linux machine.
@@ -38,14 +38,14 @@ They assume you have a macOS/Linux machine.
 To bootstrap a new Volto project, you can use Yeoman [@plone/generator-volto](https://github.com/plone/generator-volto).
 First, install it as a global tool (<a target="_blank" href="https://6.docs.plone.org/volto/getting-started/install.html#yeoman">see instructions for installation</a>):
 
-```shell
+```{code-block} shell
 npm install -g yo
 npm install -g @plone/generator-volto
 ```
 
 Then you can bootstrap the project with:
 
-```shell
+```{code-block} shell
 yo @plone/volto volto-tutorial-project
 ```
 
@@ -55,7 +55,7 @@ to add add-ons, choose `false`.
 
 Now you can start your newly created Volto project:
 
-```shell
+```{code-block} shell
 cd volto-tutorial-project
 yarn start
 ```
@@ -68,7 +68,7 @@ Let's start creating an add-on. We'll create a new package:
 `volto-teaser-tutorial`. Inside your Volto project, bootstrap
 the add-on by running (in the Volto project root):
 
-```shell
+```{code-block} shell
 yo @plone/volto:addon
 ```
 
@@ -81,7 +81,7 @@ scaffolding of the add-on completes, you can check the created files in
 
 Back to the project, you can edit `jsconfig.json` and add your add-on:
 
-```json
+```{code-block} json
 {
   "compilerOptions": {
     "baseUrl": "src",
@@ -103,13 +103,13 @@ JavaScript packages that are shipped transpiled.
 
 Alternatively, if you already have an addon pushed to a remote repository and you want to create a volto development stack with it, you can use our addon script to easily scaffold a dev environment without creating a project externally.
 
-```shell
+```{code-block} shell
 npx -p @plone/scripts addon clone [options] <source> [destination]
 ```
 
 This command downloads the volto-teaser-tutorial add-on from its git repository's main branch, and will generate a project with the latest Volto version.
 
-```shell
+```{code-block} shell
 npx -p @plone/scripts addon clone https://github.com/kitconcept/volto-teaser-tutorial.git --branch main
 ```
 
@@ -120,14 +120,14 @@ to manage the package and `jsconfig.json` changes.
 
 Install mrs-developer as a development dependency by running:
 
-```shell
+```{code-block} shell
 yarn add -W -D mrs-developer
 ```
 
 Create a `mrs.developer.json` in your project with the following content (adjust it according
 to your names and repository location):
 
-```json
+```{code-block} json
 {
   "volto-teaser-tutorial": {
     "url": "https://github.com/<namespace>/volto-teaser-tutorial.git",
@@ -149,7 +149,7 @@ You could treat workspaces as major "working environment" for your project. So a
 
 Change the Volto project's `package.json` to include something like:
 
-```json
+```{code-block} json
 {
   "private": "true",
   "workspaces": [
@@ -168,7 +168,7 @@ It's only needed to make sure you can't accidentally publish the package to NPM.
 To be able to add dependencies to the add-on, you need to add them via the
 workspaces machinery by running something like (at the Volto project root):
 
-```shell
+```{code-block} shell
 yarn workspaces info
 yarn workspace volto-teaser-tutorial add papaparse
 ```
@@ -180,7 +180,7 @@ There are several other add-on templates, such as
 You could very well decide not to use any of them, and instead bootstrap a new
 add-on by running:
 
-```shell
+```{code-block} shell
 mkdir -p src/addons/volto-teaser-tutorial
 cd src/addons/volto-teaser-tutorial
 npm init
@@ -196,7 +196,7 @@ a configuration loader. Just make sure to point the `main` in
 To tell Volto about our new add-on, add it to the `addons` key of the Volto
 project `package.json`:
 
-```js
+```{code-block} js
 // ...
 "addons": ["volto-teaser-tutorial"]
 // ...
@@ -212,7 +212,7 @@ Their `main` entry in `package.json` should point to `src/index.js`,
 which should be an ES6 module with a default export.
 Here is the default add-on configuration loader:
 
-```jsx
+```{code-block} js
 export default (config) => {
   return config;
 };
@@ -224,7 +224,7 @@ export default (config) => {
 If you want to register a specific profile of an addon, wrap the configuration in a function and provide it after a colon(:) next to addon name. You can also provde a comma seperated multiple loaders profiles. Note the main configuration will be loaded always.
 ```
 
-```js
+```{code-block} js
 export function simpleLink(config) {
   return installSimpleLink(config);
 }

@@ -15,7 +15,7 @@ First of all let's add a styling fieldset in the current schema of volto's defau
 
 In your addon config:
 
-```js
+```{code-block} js
 if (config.blocks.blocksConfig.listing) {
   config.blocks.blocksConfig.listing.title = "Listing (Tutorial)";
   config.blocks.blocksConfig.listing.schemaEnhancer = addStylingFieldset;
@@ -24,7 +24,7 @@ if (config.blocks.blocksConfig.listing) {
 
 Create a file named `helpers.js` and add the relevant schema enhancer for it:
 
-```js
+```{code-block} js
 import { cloneDeep } from "lodash";
 import imageNarrowSVG from "@plone/volto/icons/image-narrow.svg";
 import imageFitSVG from "@plone/volto/icons/image-fit.svg";
@@ -80,7 +80,9 @@ export const addStylingFieldset = ({ schema }) => {
 
 This function will inject styles field into the schema if isn't present already. We can add relevant styling here. Volto will build classNames based on the styles as mentioned in the earlier chapters. We will have to provide our own css for the generated classNames.
 
-```less
+```{code-block} less
+:force: true
+
 #main .has--size--narrow_width,
 #main .narrow_width,
 [class~="narrow_view"] [id="page-document"] > * {
@@ -98,7 +100,8 @@ This function will inject styles field into the schema if isn't present already.
 
 In order to have a control over individual items in the listing let's create a sample variation of listing block.
 
-```js
+```{code-block} js
+
 import ListingVariation from 'volto-teaser-tutorial/components/ListingBlockVariation';
 
 
@@ -143,7 +146,7 @@ Finally we write our own variation for ListingBlock:
 
 ListingVariation.jsx
 
-```jsx
+```{code-block} jsx
 import React from "react";
 import PropTypes from "prop-types";
 import cloneDeep from "lodash/cloneDeep";
