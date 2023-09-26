@@ -11,10 +11,11 @@ myst:
 
 # Using Volto add-ons
 
-````{sidebar} Plone Frontend Chapter
+````{card} Frontend chapter
 
 For Plone backend add-ons see chapter {ref}`add-ons-label`
 ````
+
 
 (add-ons-volto-overview-label)=
 
