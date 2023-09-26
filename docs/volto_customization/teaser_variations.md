@@ -15,7 +15,8 @@ schemaEnhancers works on the concept of composition. They are just functions whi
 
 In our variation, lets add a schemaEnhancer to modify existing schema and add a `CreationDate` from catalog metadata brain.
 
-```js
+```{code-block} js
+
 config.blocks.blocksConfig.teaser.variations = [
   ...config.blocks.blocksConfig.teaser.variations,
   {
@@ -38,7 +39,8 @@ config.blocks.blocksConfig.teaser.variations = [
 
 And then in your code of that variation, you should consume that field accordingly.
 
-```js
+```{code-block} js
+
 const creationDate = data.href?.[0]?.CreationDate;
 const formattedDate = formatDate({
   date: creationDate,
@@ -55,7 +57,7 @@ const formattedDate = formatDate({
 
 Finaly render it conditionally on the basis of data.creationDate
 
-```jsx
+```{code-block} jsx
 {
   data?.creationDate && <p style={{ color: "white" }}>{formattedDate}</p>;
 }
@@ -63,7 +65,7 @@ Finaly render it conditionally on the basis of data.creationDate
 
 The whole component looks like:
 
-```jsx
+```{code-block} jsx
 import React from "react";
 import PropTypes from "prop-types";
 import { Message } from "semantic-ui-react";

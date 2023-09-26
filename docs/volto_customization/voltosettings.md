@@ -13,7 +13,7 @@ You can configure Volto by modifying settings in a js-file.
 
 This is the original `config.js` of a project where the registry is imported and returned unchanged.
 
-```js
+```{code-block} js
 import "@plone/volto/config";
 
 export default function applyConfig(config) {
@@ -24,7 +24,7 @@ export default function applyConfig(config) {
 
 Here three settings are changed:
 
-```js
+```{code-block} js
 import "@plone/volto/config";
 
 export default function applyConfig(config) {
@@ -47,7 +47,7 @@ For example the setting `supportedLanguages` must match the one set in the Plone
 
 To use Volto in a multilingual project you do this:
 
-```js
+```{code-block} js
 import "@plone/volto/config";
 
 export default function applyConfig(config) {

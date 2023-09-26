@@ -67,7 +67,8 @@ We should create this view template in our `components/TeaserBlockImageVariation
 
 TeaserBlockImageVariation.jsx:
 
-```jsx
+```{code-block} jsx
+
 import React from "react";
 import PropTypes from "prop-types";
 import { Message } from "semantic-ui-react";
@@ -176,7 +177,9 @@ export default TeaserBlockImageDefault;
 
 styles.less:
 
-```css
+```{code-block} less
+:force: true
+
 .gradiant {
   h2 {
     color: white;
