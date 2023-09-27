@@ -32,9 +32,20 @@ With the initial project and dependencies set up now, you could already start ad
 yo @plone/volto:addon
 ```
 
-When prompted to add a name to your addon, just hit enter and your current projects name will be used as name for the addon as well. Finally to get you project readily configured run `make develop` to get the configuration updated for your policy addon.
+When prompted to add a name to your addon, just hit enter and your current projects name will be used as name for the addon as well. This will create a new folder with your projects name within the `src/addons` directory. Finally to get you project readily configured run `make develop` to get the configuration inside of `jsconfig` and `mrs.developer.json` updated to use our new policy addon.
 
-Your folder structure inside your projects src directory now should look something like this:
+## Folder structure
+
+Within your `src` folder of your project you will find the following subfolders:
+
+- actions
+- components
+- constants
+- customizations
+- helpers
+- reducers
+
+As we want to work within our policy addon instead of directly within our initial project we will have to recreate some of these inside of our addon during the course of this training. Your folder structure inside your projects src directory now should look something like this:
 
 ```{image} _static/initial_folder_structure.png
 :align: center
