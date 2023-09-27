@@ -11,8 +11,13 @@ myst:
 
 # Project requirements
 
-Our hands-on exercise is to recreate the 2022 version of [plone.org](https://web.archive.org/web/20221008084859/https://plone.org) or rather a set of parts of the site that are suited different ways you can use volto.
-The screenshot below shows the frontpage of `plone.org` (as of 2022 just before Plone conf). The red markings indicate the different sections of the website that we will be creating or customizing including the header, navigation, highlight element, downlodad teaser and news listing:
+Our hands-on exercise is to recreate the 2023 version of [plone.org](https://plone.org) or rather a set of parts of the site that are suited to show off different ways you can customize Volto. These include
+- Theme (Footer, Header, Breadcrumbs)
+- Highlight-Slide
+- News Listing
+- Release Announcement
+
+The screenshot below shows the frontpage of `plone.org` (as of 2023 just before Plone conf) with the areas, we will recreate marked in red.
 
 ```{image} _static/ploneorg-frontpage.png
 :align: center
@@ -24,12 +29,16 @@ The screenshot below shows the frontpage of `plone.org` (as of 2022 just before 
 These are the tasks we will go through:
 
 - Set up CSS basics
-- Create the header and the footer
-- Create a prominent highlight element that links to the Plone conf website
-- Create a block that links to the plone download page
+- Customize the header and the footer
+- Create a static Slider that shows current Highlights from the Plone community
+- Edit your projects config
+- Create a new Block that shows an configurable logo
 - Create new listing block template to show event items in a grid like view with buttons on the side
+- Create a new View for a new content type "Plone Release"
+- Add translatable strings to your project
+- Add a new Addon to the project and customize it
 
 ## Training ressources and assets
 
 There are a few files, mostly images, that you will need to recreate for the `plone.org` page.
-They are currently available from this [Google Drive folder](https://drive.google.com/drive/folders/19nQkPiiwY5lhBNiTTZJaV-kpQ9rkYqiO?usp=sharing).
+They are currently available from this [location in github](https://github.com/plone/training/tree/main/docs/voltohandson).

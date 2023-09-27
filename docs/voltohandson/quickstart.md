@@ -34,6 +34,14 @@ yo @plone/volto:addon
 
 When prompted to add a name to your addon, just hit enter and your current projects name will be used as name for the addon as well. Finally to get you project readily configured run `make develop` to get the configuration updated for your policy addon.
 
+Your folder structure inside your projects src directory now should look something like this:
+
+```{image} _static/initial_folder_structure.png
+:align: center
+:alt: initial folder structure with new addon inside addons folder
+```
+
+
 ## Build environments
 
 We need to build two environments.
