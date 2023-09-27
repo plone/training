@@ -9,14 +9,21 @@ myst:
 
 # Extend volto blocks
 
-There are various ways of extending Volto blocks from core behaviour. The component shadowing is the plain old way of customizing components in volto. But it comes with its own problems like keeping the shadowed component up to date with latest fixes and features.
-In the modern day volto development we can directly extend blocks in form of variations and extensions and populate each of them with their own schemas.
+There are various ways of extending Volto blocks.
+Component shadowing (see last chapter) is a very basic to customize components in volto.
+But it comes with its own problems like keeping the shadowed component up to date with latest fixes and features of newer Volto versions.
+Instead of shadowing components we can:
 
-Let us take an example for a teaser block which we already have in volto core. In our addon `volto-teaser-tutorial` we will step by step extend each component that we have in volto core.
+* Change the block-config
+* Extend blocks by adding new block-variations
+* Write add schemaEnhancer to modify blocks schema
 
-The most simple customization is the View of the Teaser. The volto core teaser block confiugration looks like:
+Let us first change the View of the teaser block which we already have in volto core by changing the block-configuration.
+In our addon `volto-teaser-tutorial` we will step by step extend each component that we have in volto core.
 
-```{code-block} jsx
+The most simple customization is the View of the Teaser. The volto core teaser block configration (in `omelette/src/config/Blocks.jsx`) looks like:
+
+```{code-block} js
 
   teaser: {
     id: 'teaser',
@@ -41,15 +48,22 @@ The most simple customization is the View of the Teaser. The volto core teaser b
   },
 ```
 
-Plain and simple. Every block in Volto have Edit and View stock components. You can customize each of them individually by either shadowing or directly like:
+Every block in Volto has Edit and View components.
+You can customize these individually by either shadowing or directly in the confuguration (`index.js` of your addon) like this:
 
 ```{code-block} js
+import MyTeaserView from 'volto-teaser-tutorial/components/Blocks/Teaser/View'
 
-config.blocks.blocksConfig.teaser.view = MyTeaserView
+const applyConfig = (config) => {
+  config.blocks.blocksConfig.teaser.view = MyTeaserView
+  return config;
+}
 
+export default applyConfig;
 ```
 
-Let's replace our Main teaser view with our `MyTeaserView` component:
+Of course we need to add our custom `MyTeaserView` component in our addon.
+From the root of the project that is  `src/addon/volto-teaser-tutorial/src/components/Blocks/Teaser/View.jsx`:
 
 ```{code-block} jsx
 
