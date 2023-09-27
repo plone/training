@@ -11,23 +11,20 @@ myst:
 
 You can configure Volto by modifying settings in a js-file.
 
-This is the original `config.js` of a project where the registry is imported and returned unchanged.
+In our addon we can modify the `index.js`
 
 ```{code-block} js
-import "@plone/volto/config";
-
-export default function applyConfig(config) {
-  // Add here your project's configuration here by modifying `config` accordingly
+const applyConfig = (config) => {
   return config;
-}
+};
+
+export default applyConfig;
 ```
 
 Here three settings are changed:
 
 ```{code-block} js
-import "@plone/volto/config";
-
-export default function applyConfig(config) {
+const applyConfig = (config) => {
   config.settings = {
     ...config.settings,
     navDepth: 3,
@@ -36,21 +33,25 @@ export default function applyConfig(config) {
   };
   return config;
 }
+
+export default applyConfig;
 ```
 
 ```{note}
 The `...` is a use of the [spread-syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) that "expands" the configuration into its elements and allows to change existing values and add new ones.
 ```
 
-Some of the settings are duplicates of setting existing in the Plone backend.
+```{note}
+If you instead make your changes in the project (i.e. not using a addon) you make the same changes in the file `config.js` of the project.
+```
+
+Some of the settings are duplicates of settings that exist in the Plone backend.
 For example the setting `supportedLanguages` must match the one set in the Plone registry as `plone.available_languages` and in `plone.default_language`.
 
-To use Volto in a multilingual project you do this:
+To configure Volto as a multilingual project you do this:
 
 ```{code-block} js
-import "@plone/volto/config";
-
-export default function applyConfig(config) {
+const applyConfig = (config) => {
   config.settings = {
     ...config.settings,
     defaultLanguage: "de",
@@ -59,6 +60,8 @@ export default function applyConfig(config) {
   };
   return config;
 }
+
+export default applyConfig;
 ```
 
 ```{seealso}
@@ -83,5 +86,4 @@ Many options are explained in the {doc}`plone6docs:volto/configuration/settings-
 
 You can not only change but also extend Volto here by extending existing configuration options or adding new ones.
 
-For example here you add new blocks, cusomize existing blocks or configure what view/template is used for viewing a certain content-type.
-Here are the most useful volto settings which we have for a typical volto project.
+For example here you add new blocks, customize existing blocks or configure what view/template is used when displaying a certain content-type.
