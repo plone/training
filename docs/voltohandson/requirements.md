@@ -41,4 +41,4 @@ These are the tasks we will go through:
 ## Training ressources and assets
 
 There are a few files, mostly images, that you will need to recreate for the `plone.org` page.
-They are currently available from this [location in github](https://github.com/plone/training/tree/main/docs/voltohandson).
+They are currently available from this [location in github](https://github.com/plone/training/tree/main/docs/voltohandson/ressources).
