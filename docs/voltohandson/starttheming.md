@@ -18,13 +18,18 @@ To develop our theme, we can use [Semantic UI](https://react.semantic-ui.com/) v
 :alt: Theming engine diagram
 ```
 
+## Set up theming for your addon
+
+To make your project use the theme of your addon, you need to specify this in your projects `package.json` file (not in your addon). Just set the theme like `"theme":"<your-addon-name>"`. Next you need to set up the appropriate folders and files inside of your addon. Start by creating a directory called `theme` in your addons `src` directory. In there create the directories `globals` and `extras`. Next copy the `theme.config` file from the root projetcs `/theme` folder to your newly created one.
+Finally edit your `theme.config` and change the `@siteFolder` variable to contain your addon name instead of `../../theme` to `<your-addon-name>/theme`. Remember to restart your Volto process.
+
 ## Basic font family
 
 [plone.org](plone.org) uses the "Assisstant" font instead of the Volto default "Poppins". You can use Semantic UI variables for customizing the font, as it's a valuable feature.
 
-Create a file called `site.variables`in the following path `src/addons/<your-addon-name>/theme/globals/` (which you will have to create first).
+Create a file called `site.variables`in the following path `src/addons/<your-addon-name>/theme/globals/`.
 
-Now you need to restart Volto to make Volto aware of the new file. From now on changes in this file will be automatically applied upon save and you will see the results in your browser.
+Now you need to restart Volto once again to make it aware of the new file. From now on changes in this file will be automatically applied upon save and you will see the results in your browser.
 
 ```{note}
 Everytime you add a new file to your project you will have to restart your development process to make Volto aware of your new file.
@@ -49,7 +54,4 @@ you should define it as usual in CSS and set the variable `importGoogleFonts` ap
 You can find the list with the global Semantic UI variables available in `omelette/theme/themes/default/globals/site.variables`.
 ```
 
-## custom.overrides
 
-Create a file named `src/addons/<your-addon-name>/theme/extras/custom.overrides` which will contain all the CSS concerning our local theme.
-This is a file containing LESS declarations. It's loaded more quickly than the theme ones, because it's outside the theme. You should restart Volto to make Volto aware of the new file.
