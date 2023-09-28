@@ -21,8 +21,8 @@ Blocks are composed of two basic (and required) components: the Block edit and v
 By default, Volto ships with a basic set of Blocks, including Title, Text, Image, Video, Listing, Search, Table, ToC and Maps.
 
 ```{note}
-Volto Blocks are not enabled by default in Plone content types.
-However, the `plone.volto` package enables Blocks for the `Document` content type,
+Volto Blocks are not enabled by default in all Plone content types.
+However, the `plone.volto` package, which comes with a default Plone 6 site enables Blocks for the `Document`, `Event` and `News Item` content types,
 so you will be able to use Blocks when you create or edit a page.
 ```
 
@@ -44,14 +44,14 @@ Test the `Blocks` behavior for the content type you've just added it to, by crea
 
 Every Block is composed of an edit (`Edit.jsx`) component and a view (`View.jsx`) component.
 
-Create your first block in the project by adding these two components in a new directory in `src/components/Blocks/highlight`.
+Create your first block in the project by adding these two components in a new directory in your addon `src/components/Blocks/slider`.
 This is the `Edit.jsx`:
 
 ```jsx
 import React from "react";
 
 const Edit = (props) => {
-  return <div>I'm the Highlight edit component!</div>;
+  return <div>I'm the Slider edit component!</div>;
 };
 
 export default Edit;
@@ -63,7 +63,7 @@ and the `View.jsx`.
 import React from "react";
 
 const View = (props) => {
-  return <div>I'm the Highlight view component!</div>;
+  return <div>I'm the Slider view component!</div>;
 };
 
 export default View;
@@ -83,7 +83,7 @@ You can use them to render the view component.
 
 ### Block edit component props
 
-The edit component of a block receives these props from the Blocks Engine:
+The edit component of a block receives a quite high number props from the Blocks Engine. Some of the most useful are these:
 
 > - type - the type of the block
 > - id - the unique ID for the current block
@@ -91,29 +91,20 @@ The edit component of a block receives these props from the Blocks Engine:
 > - selected - (Bool) true if the block is currently selected
 > - index - the block index order in the list of blocks
 > - pathname - the current URL pathname
-> - onAddBlock - handler for adding a block in the block list
-> - onMutateBlock - handler for mutating a block type into another
-> - onChangeBlock - handler for changing the data of that block
-> - onSelectBlock - handler for selecting the block
-> - onDeleteBlock - handler for deleting the block
-> - onFocusPreviousBlock - handler for focusing the previous block in the block list
-> - onFocusNextBlock - handler for focusing the next block in the block list
-> - handleKeyDown - handler for managing press keys while the block is selected
-> - onMoveBlock - handler for moving blocks
 
 You can use all these props to render your edit block and model its behavior.
 
 ## Register Block Files in index
 
-To help keeping paths for importing components clean we use index files in several places in Volto projects. You can find a `index.js` under `src/components/`. In there we directly export the Block components directly from there respective files. This is to make it easier to import components in other places in the project, without having to remember all their paths.
+To help keeping paths for importing components clean we use index files in several places in Volto projects. under `src/components/` create a new file `index.js` which serves as a library from where we late can easily import all our components without having to rmemeber all of their paths. In there we directly export the Block components directly from their respective files.
 
-`components/index.js`
+`/src/components/index.js`
 
 ```js
-import HighlightBlockEdit from "./Blocks/highlight/Edit";
-import HighlightBlockView from "./Blocks/highlight/View";
+import SliderBlockEdit from "./Blocks/Slider/Edit";
+import SliderBlockView from "./Blocks/Slider/View";
 
-export { HighlightBlockEdit, HighlightBlockView };
+export { SliderBlockEdit, SliderBlockView };
 ```
 
 ## Blocks settings
@@ -123,20 +114,20 @@ We need to configure the project to make it aware of a new block by adding it to
 Import those before the `import '@plone/volto/config';` line:
 
 ```js
-import { HighlightBlockView, HighlightBlockEdit } from "@package/components";
+import { SliderBlockView, SliderBlockEdit } from "@package/components";
 import heroSVG from "@plone/volto/icons/hero.svg";
 ```
 
 Register it inside the `applyConfig()` function:
 
 ```js
-config.blocks.blocksConfig.highlight = {
-  id: "highlight",
-  title: "Highlight",
+config.blocks.blocksConfig.slider = {
+  id: "slider",
+  title: "Slider",
   icon: heroSVG,
   group: "common",
-  view: HighlightBlockView,
-  edit: HighlightBlockEdit,
+  view: SliderBlockView,
+  edit: SliderBlockEdit,
   restricted: false,
   mostUsed: true,
   sidebarTab: 1,

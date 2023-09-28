@@ -11,6 +11,11 @@ myst:
 
 # Header
 
+## custom.overrides
+
+Create a file named `src/addons/<your-addon-name>/theme/extras/custom.overrides` which will contain all the CSS concerning our local theme.
+This is a file containing LESS declarations. It's loaded more quickly than the theme ones, because it's outside the theme. You should restart Volto to make Volto aware of the new file.
+
 ## Some dummy content
 
 So that our Navigation shows more than just the homepage, you should add some dummy pages like on [plone.org](plone.org) to your site using the add page menu in the top left of the page. Add some pages like:
@@ -43,27 +48,35 @@ This:
     padding-bottom: 0em;
   }
 
-  &.padding-bottom {
-    padding-bottom: 100px;
-  }
-
   .header {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
 
-    .logo-nav-wrapper {
-      flex-grow: unset;
+    .search {
+      border-left: 1px solid @lightGrey;
     }
-  }
+    .search-button {
+      border: none;
+      background: none;
+      color: #005b85;
+      cursor: pointer;
+    }
 
-  .ui.secondary.pointing.menu .item {
-    font-family: 'Poppins';
-    text-transform: none;
-    color: @black;
-
-    &:first-child {
-      display: none;
+    .try-now-link {
+      color: @blue;
+      margin-right: 1em;
+    }
+    .ui.secondary.pointing.menu .item {
+      font-family: 'Poppins';
+      text-transform: none;
+      color: @black;
+      &.active {
+        border-color: @blue;
+      }
+      &:first-child {
+        display: none;
+      }
     }
   }
 }

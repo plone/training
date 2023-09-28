@@ -19,20 +19,28 @@ Make sure you save your page after deleting all Blocks and before editing the `c
 
 ## Making the Title block deletable
 
-The config will be located inside the `config.js` folder in your projects `src` directory. Iside you will find the following code:
+The config will be located inside the `config.js` folder in your policy addons `src` directory. Inside you will find the following code:
 
 ```js
-// All your imports required for the config here BEFORE this line
-import '@plone/volto/config';
-export default function applyConfig(config) {
-  // Add here your project's configuration here by modifying `config` accordingly
-}
+const applyConfig = (config) => {
+
+  return config;
+};
+
+export default applyConfig;
+
 ```
 
 To enable removing the title block you only need to add the following line to override the original `requiredBlocks` array inside the `applyConfig` function:
 
 ```js
-config.blocks.requiredBlocks = [];
+const applyConfig = (config) => {
+  config.blocks.requiredBlocks = [];
+
+  return config;
+};
+
+export default applyConfig;
 ```
 
 ```{hint}

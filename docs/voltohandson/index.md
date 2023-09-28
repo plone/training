@@ -34,7 +34,7 @@ breadcrumbs
 footer
 configandcleanup
 introtoblocks
-highlight
+slider
 blocksdownload
 eventlistingtemplate
 contenttypeview
