@@ -9,7 +9,7 @@ myst:
 
 # Environment variables
 
-All the environment variables defined at runtime that have the "RAZZLE_" prefix, are available in the browser under window.env
+All the environment variables defined at runtime that have the "RAZZLE_" prefix, are available in the browser under window.env. The nodejs server always has access to them, via the `process.env` runtime variable.
 
 ex:
 If we start the application with an env variable
@@ -57,7 +57,7 @@ In case you can't afford or change your deployment, you can still upgrade Volto 
 RAZZLE_LEGACY_TRAVERSE=true yarn start:prod
 ```
 
-### VOLTO_ROBOTSTXT
+### `VOLTO_ROBOTSTXT`
 
 You can override the robots.txt file with an environment variable called
 `VOLTO_ROBOTSTXT`. This is useful when using the same build on multiple
@@ -73,7 +73,7 @@ If you want to use the `VOLTO_ROBOTSTXT` environment variable, make sure to
 delete the file `public/robots.txt` from your project.
 ```
 
-### DEBUG
+### `DEBUG`
 
 It will enable the log several logging points scattered through the Volto code. It uses the `volto:` namespace.
 
@@ -91,6 +91,14 @@ also
 
 ```bash
 DEBUG=volto:* yarn start
+```
+
+### `DEBUG_HPM`
+
+It will allow you to debug the devproxy middleware by setting the `http-proxy-middleware` logging level to `debug`.
+
+```bash
+DEBUG_HPM=1 yarn start
 ```
 
 #### Component Shadowing errors (shadowing)
@@ -120,7 +128,7 @@ In the environment variable `ADDONS`, you can specify:
 
 ```bash
 yarn add volto-slate
-ADDONS=volto-slate:asDefault yarn start
+ADDONS=volto-form-block yarn start
 ```
 
 `ADDONS` can also be used to temporarily enable a feature or a set of customizations.
@@ -170,20 +178,20 @@ If you need to specify several add-ons, separate them with a semicolon (`;`):
 
 ```bash
 yarn add volto-slate
-ADDONS="volto-slate:asDefault;@kitconcept/volto-blocks-grid" yarn start
+ADDONS="volto-form-block;@kitconcept/volto-blocks-grid" yarn start
 ```
 
 As a result, your app will load the add-ons in the following order:
 
 - `@kitconcept/volto-blocks-grid`
 - `@eeacms/volto-accordion-block`
-- `volto-slate`
+- `volto-form-block`
 
 ```{important}
 The `ADDONS` key is a Volto specific configuration. Simply setting `ADDONS` doesn't download the javascript package. This has to be covered by another way, either installing the addon package (with yarn add) or loading it as a development package with mrs-developer.
 ```
 
-## BUILD_DIR
+## `BUILD_DIR`
 
 This is a runtime-only environment variable that directs the build to run Volto from an especific location, other than the default folder `build`.
 
