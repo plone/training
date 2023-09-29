@@ -9,9 +9,9 @@ myst:
 
 # `release-it`
 
-Volto uses the library `release-it` in order to automate the release process.
+Volto uses the library `release-it` in order to automate the release process of addons and other JS libraries.
 
-You can also integrate it with your add-on or project, since it's quite handy and saves you quite a lot of time.
+You can also integrate it with your add-ons, since it's quite handy and saves you quite a lot of time.
 
 ```{note}
 If you are familiarized with `zest.releaser` in the Python packaging world, this library aims to do the same.

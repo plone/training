@@ -9,7 +9,7 @@ myst:
 
 # Docker
 
-As any application on earth, Plone 6 Volto can be deployed using Docker.
+As any application on earth, Plone 6 with Volto as frontend can be deployed using Docker.
 It is recommended that you follow the best practices explained in the "Installing Plone" recent training course by Érico Andréi and Jens Klein.
 
 ## Simple example

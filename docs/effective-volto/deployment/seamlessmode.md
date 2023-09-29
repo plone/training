@@ -9,6 +9,31 @@ myst:
 
 # Seamless mode
 
+In any Plone + Volto deployment, we have the following servers:
+
+- a Volto nodejs frontend server
+- a Plone backend server, running on Zope
+
+When a browser tries to load a page, it will first communicate with the frontend server, the Volto nodejs server. It will receive **HTML that contains the HTML markup of that page content** and the necessary `<script>` and `<link>` tags to load the Volto React app, with its CSS look and feel.
+
+The generated HTML markup from Volto already has everything in place, it has been prerendered with the content fetched from the Plone backend. This process is called Server Side Rendering, SSR. But there's two unknowns for this Volto nodejs server:
+
+- "what is my domain name?"
+- "what is the address of the Plone backend?"
+
+The address of the Plone backend, in Volto terminology (and its own code), is called "the API path", which it stores in `config.settings.apiPath`.
+
+The "seamless" mode is intended to make this process as painless as possible, by relying on conventions and HTTP headers to allow guessing these two unknowns from the environment.
+
+The first question, *"what is my domain name?"* can be answered by looking at the `Host` header received by the Volto nodejs server.
+
+The second question is a lot harder to answer, because there can be so many unknowns, so, instead, there's a few layers of "guessing".
+
+- If you're running Volto for development, the Plone backend is exposed from the frontend (`localhost:3000`) via a "devproxy" that assumes that the Plone backend is at `http://localhost:8080/Plone`. You can override it with [`RAZZLE_DEV_PROXY_API_PATH`](https://github.com/plone/volto/blob/5eb332829956dbf0505283b176008c9364ccf2f9/src/config/index.js#L101).
+- If you're running in production, the Plone backend is assumed to be exposed at the same URL, but available via the special traversal path, the `++api++`. So you need to add aditional rewrite rules in your Apache or Nginx proxy server to directly redirect those requests to the Plone backend.
+- Before the `++api++` traverser was added, you could configure the proxy server to serve Plone directly via a `/api` subpath and the `_vh_api` VirtualHostMonster suffix. Then you would configure Volto with the `RAZZLE_API_PATH` variable. This is still available and works.
+- If you want the Volto nodejs server to communicate directly with the Plone backend via the internal network (for example, when running a Docker stack), you can use the `RAZZLE_INTERNAL_API_PATH` setting to configure the address of the Plone backend.
+
 ## Feature history
 
 This was added in Volto 13 as an experimental feature. During the experimental phase, we realized of several issues hard to solve, which made us rethink the feature into its second incarnation, available since Volto 14.
