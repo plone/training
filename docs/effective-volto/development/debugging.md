@@ -18,5 +18,4 @@ component hierarchy, inspect props, hooks, HOCs, etc.
 Redux Dev Tools allows you to observe the Redux actions and inspect the store
 state.
 
-You can add `debugger` lines in your code, to trigger breakpoints in the
-browser. To debug the server, you need to hook the Chrome Inspector.
+You can add `debugger` lines in your code, to trigger breakpoints in the browser. To debug the server, you need to hook the [Chrome DevTools](https://nodejs.org/en/docs/guides/debugging-getting-started). Note that there's multiple threads hooked into the inspector (server, client, hotreload process), so you'll have to find the one that coresponds to the server.
