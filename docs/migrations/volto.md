@@ -13,12 +13,7 @@ myst:
 
 See the chapter {ref}`plone6docs:backend-migrate-to-volto-label` of the Plone Upgrade Guide.
 
-Issues:
+This explains mostly why you need to do what and how to use the form `@@migrate_to_volto` by hand.
 
-* Complex HTML, such as in tables, is transformed to HTML blocks.
-* There is no migration from DraftJS to Slate.
+You can (and should) use the power of that feature in your exportimport-based migration as described in https://github.com/collective/collective.exportimport#migrate-to-volto
 
-Alternatives:
-
-* Start fresh
-* Use `collective.exportimport` (TODO: https://github.com/collective/collective.exportimport/issues/133).
