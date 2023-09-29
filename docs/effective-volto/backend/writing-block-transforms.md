@@ -85,6 +85,46 @@ You can create a block transformer that applies to all blocks by using `None` as
 The `order` field still applies, though.
 The generic block transformers enable us to create **smart block fields**, which are handled differently.
 For example, any internal link stored as `url` or `href` in a block value is converted (and stored) as a `resolveuid`-based URL, then resolved back to a full URL on block serialization.
+Any block field name can be a URL, if you make that value an object with `@type` and `value` keys, like below:
+
+```JSON
+{
+  "@type": "headlineBlock",
+  "preview_image": {
+    "@type": "URL",
+    "value": "../path/to/object"
+  }
+}
+```
+
+The same is valid for any of the following combination of values, even when
+they are found in a list of objects that's set as the value of a block field:
+
+```JSON
+{
+  "@type": "headlineBlock",
+  "preview_images": [
+    {
+      "@id": "../path/to/object",
+    },
+    {
+      "url": "../path/to/object",
+    },
+    {
+      "href": "../path/to/object",
+    },
+    {
+      "@type": "URL",
+      "value": "../path/to/object"
+    },
+    {
+      "@id": "../path/to/object",
+      "@type": "URL",
+      "value": "../path/to/object"
+    }
+  ]
+}
+```
 
 Another **smart field** is the `searchableText` field in a block value.
 It needs to be a plain text value, and it will be used in the `SearchableText` value for the context item.
