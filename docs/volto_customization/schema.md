@@ -13,9 +13,17 @@ In the previous chapter we just replaced or enhanced our View component by direc
 
 The `BlockDataForm` renders a schemaEnhanced form ready to be used along with the variations support.
 
-The variations are various "View" mode options that your block might have whether its layout, the designs or a completely enhanced form of a block. We don't need to shadow or customize any block in order to obtain a desired structure.
+The variations are various "View" mode options that your block might have whether its layout, the designs or a completely enhanced form of a block.
 
-So in the current schema for teaser block we have:
+You may know the variations from the listing-block already:
+
+```{image} _static/variations.png
+:alt: The variations of the listing block
+```
+
+To create a new variation we don't need to shadow or customize the block.
+
+So in the default schema for teaser block we have:
 
 ```js
  teaser: {
@@ -41,23 +49,29 @@ So in the current schema for teaser block we have:
   },
 ```
 
-Notice the variations key, in which we can have multiple view templates for a given block. Right now its going to use the default one which is the [TeaserBlockDefaultBody](https://github.com/plone/volto/blob/985e419396b4d00567d12e7e309ea420012e9cc7/src/components/manage/Blocks/Teaser/DefaultBody.jsx#L1).
+Notice the *variations* key, in which we can have multiple view templates for a given block. Right now its going to use the default one which is the [TeaserBlockDefaultBody](https://github.com/plone/volto/blob/985e419396b4d00567d12e7e309ea420012e9cc7/src/components/manage/Blocks/Teaser/DefaultBody.jsx#L1).
 
-We are going to create a new variation of this teaser block. This variation is essential because using it we are gonna create block extension per teaser. Later we can also enhance this variation with the new schema.
+We are going to create a new variation of this teaser block. This variation is essential because using it we will create block extensions per teaser. Later we can also enhance this variation with the new schema.
 
-Go ahead and register it in the variations key like:
+Go ahead and extend the in the variations key of the teaser-block in `index.js` like this:
 
 ```js
 import TeaserBlockImageVariation from 'volto-teaser-tutorial/components/TeaserBlockImageVariation';
 
-config.blocks.blocksConfig.teaser.variations = [
+const applyConfig = (config) => {
+  // ...
+  config.blocks.blocksConfig.teaser.variations = [
     ...config.blocks.blocksConfig.teaser.variations,
-      {
-        id: 'image-top-variation',
-        title: 'Image(Top) variation',
-        template: TeaserBlockImageVariation,
-      },
-    ],
+    {
+      id: 'image-top-variation',
+      title: 'Image(Top) variation',
+      template: TeaserBlockImageVariation,
+    },
+  ]
+  return config;
+}
+
+export default applyConfig;
 ```
 
 We should create this view template in our `components/TeaserBlockImageVariation.jsx`
@@ -160,7 +174,10 @@ TeaserBlockImageDefault.propTypes = {
 export default TeaserBlockImageDefault;
 ```
 
-After this you will be able to choose variations for this block from the Blocks Settings sidebar. Right now this variation only shows default variation of Teaser block. In the coming chapter we are gonna enhance it with extension per teaser.
+After this you will be able to choose variations for this block from the Blocks Settings sidebar.
+Right now this variation only shows default variation of Teaser block.
+You could decide to modify the template here already though.
+In the coming chapter we are gonna enhance this variation with extension per teaser.
 
 ```{note}
 The [Body](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Body.jsx#L13) component in Teaser block also supports adding variations from component registry. You can read more about component registry in following chapters.
