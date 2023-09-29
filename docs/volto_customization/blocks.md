@@ -14,9 +14,9 @@ Component shadowing (see last chapter) is a very basic to customize components i
 But it comes with its own problems like keeping the shadowed component up to date with latest fixes and features of newer Volto versions.
 Instead of shadowing components we can:
 
-* Change the block-config
-* Extend blocks by adding new block-variations
-* Write add schemaEnhancer to modify blocks schema
+- Change the block-config
+- Extend blocks by adding new block-variations
+- Write add schemaEnhancer to modify blocks schema
 
 Let us first change the View of the teaser block which we already have in volto core by changing the block-configuration.
 In our addon `volto-teaser-tutorial` we will step by step extend each component that we have in volto core.
@@ -63,39 +63,19 @@ export default applyConfig;
 ```
 
 Of course we need to add our custom `MyTeaserView` component in our addon.
-From the root of the project that is  `src/addon/volto-teaser-tutorial/src/components/Blocks/Teaser/View.jsx`:
+From the root of the project that is `src/addon/volto-teaser-tutorial/src/components/Blocks/Teaser/View.jsx`:
 
 ```{code-block} jsx
-
-const MyDataProvider = (props) => {
-  const enhancedChildren = React.Children.map(props.children, (child) => {
-    if (React.isValidElement(child)) {
-      return React.cloneElement(child, {
-        ...props,
-        enhancedProp: "some-enhanced-prop",
-      });
-    }
-    return child;
-  });
-
-  return enhancedChildren;
-};
+import React from 'react';
+import TeaserBody from '@plone/volto/components/manage/Blocks/Teaser/Body';
+import { withBlockExtensions } from '@plone/volto/helpers';
 
 const TeaserView = (props) => {
-  return (
-    <MyDataProvider>
-      <TeaserBody {...props} />
-    </MyDataProvider>
-  );
+  return <TeaserBody {...props} extraProps={{ foo: 'bar' }} />;
 };
 
 export default withBlockExtensions(TeaserView);
+
 ```
 
 Here, the View component renders a TeaserBody which will be a result of an active variation, we will come to that in later chapters.
-
-Notice we are wrapping our TeaserBody variation in a DataProvider which may inject some extra props along with its original ones.
-
-```{note} 💡
-The React.cloneElement() API creates a clone of an element and returns a new React element. The cool thing is that the resulting element will have all of the original element’s props, with the new props merged in.
-```

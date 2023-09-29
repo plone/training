@@ -48,13 +48,10 @@ We are going to create a new variation of this teaser block. This variation is e
 Go ahead and register it in the variations key like:
 
 ```js
- variations: [
-      {
-        id: 'default',
-        isDefault: true,
-        title: 'Default',
-        template: TeaserBlockDefaultBody,
-      },
+import TeaserBlockImageVariation from 'volto-teaser-tutorial/components/TeaserBlockImageVariation';
+
+config.blocks.blocksConfig.teaser.variations = [
+    ...config.blocks.blocksConfig.teaser.variations,
       {
         id: 'image-top-variation',
         title: 'Image(Top) variation',
@@ -101,16 +98,6 @@ const TeaserBlockImageDefault = (props) => {
   const href = data.href?.[0];
   const image = data.preview_image?.[0];
   const align = data?.styles?.align;
-  const creationDate = data.href?.[0]?.CreationDate;
-  const formattedDate = formatDate({
-    date: creationDate,
-    format: {
-      year: "numeric",
-      month: "short",
-      day: "2-digit",
-    },
-    locale: locale,
-  });
 
   const hasImageComponent = config.getComponent("Image").component;
   const Image = config.getComponent("Image").component || DefaultImage;
@@ -156,8 +143,6 @@ const TeaserBlockImageDefault = (props) => {
                   <div className="headline">{data.head_title}</div>
                 )}
                 <h2>{data?.title}</h2>
-                {data.creationDate && <p>{formattedDate}</p>}
-                {!data.hide_description && <p>{data?.description}</p>}
               </div>
             </div>
           </MaybeWrap>
@@ -175,41 +160,8 @@ TeaserBlockImageDefault.propTypes = {
 export default TeaserBlockImageDefault;
 ```
 
-styles.less:
-
-```{code-block} less
-:force: true
-
-.gradiant {
-  h2 {
-    color: white;
-  }
-  position: absolute;
-  bottom: 30px;
-  display: flex;
-  width: 100%;
-  height: 200px;
-  align-items: flex-end;
-  padding: 1.5rem;
-  background-image: linear-gradient(
-    13.39deg,
-    rgba(46, 62, 76, 0.65) 38.6%,
-    rgba(46, 62, 76, 0.169) 59.52%,
-    rgba(69, 95, 106, 0) 79.64%
-  );
-}
-
-.teaser-item.overlay {
-  display: flex;
-
-  .image-wrapper {
-    width: 100%;
-  }
-}
-```
-
-Right now this variation only shows default variation of Teaser block. In the coming chapter we are gonna enhance it with extension per teaser.
+After this you will be able to choose variations for this block from the Blocks Settings sidebar. Right now this variation only shows default variation of Teaser block. In the coming chapter we are gonna enhance it with extension per teaser.
 
 ```{note}
-The [Body](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Body.jsx#L13) component in Teaser block also supports variations from component registry. You can read more about component registry in following chapters.
+The [Body](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Body.jsx#L13) component in Teaser block also supports adding variations from component registry. You can read more about component registry in following chapters.
 ```

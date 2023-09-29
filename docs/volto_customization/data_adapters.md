@@ -77,21 +77,25 @@ The above Adapter gets consumed in [Data](https://github.com/plone/volto/blob/96
 Let's register a new `dataAdapter` our config:
 
 ```{code-block} js
-config.blocks.blocksConfig.teaser.dataAdapter = myDataOwnAdapter;
+import {myOwnDataAdapter} from 'volto-teaser-tuturial/components/data-adapter';
+
+config.blocks.blocksConfig.teaser.dataAdapter = myOwnDataAdapter;
 ```
 
-In your data-adapter.js:
+Create a file named data-adapter.js in `volto-teaser-tutorial/components`:
 
 ```{code-block} js
-export const myDataOwnAdapter = ({ block, data, id, onChangeBlock, value }) => {
+import isEmpty from 'lodash/isEmpty';
+
+export const myOwnDataAdapter = ({ block, data, id, onChangeBlock, value }) => {
   let dataSaved = {
     ...data,
     [id]: value,
   };
-  if (id === "title" && !isEmpty(value) && !data.title) {
+  if (id === 'title' && !isEmpty(value)) {
     dataSaved = {
       ...dataSaved,
-      title: value[0].toUpperCase() + string.slice(1),
+      title: value[0].toUpperCase() + value.slice(1),
     };
   }
   onChangeBlock(block, dataSaved);
