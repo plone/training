@@ -72,10 +72,10 @@ Here are some more setting you might use in your projects:
 
 - `contentIcons` - configure Content Types icons. See https://6.docs.plone.org/volto/configuration/settings-reference.html#term-contentIcons
 - `navDepth` - Navigation levels depth used in the navigation endpoint calls. Increasing this is useful for implementing fat navigation menus.
-- `workflowMapping` - colors for workflow states/transitions.
-- `openExternalLinkInNewTab`
-- `hasWorkingCopySupport`
-- `maxFileUploadSize`
+- `workflowMapping` - Configure colors for workflow states/transitions - if you have a custom workflow or want to change the default colors.
+- `openExternalLinkInNewTab` - Kind of self-explaining, isn't it?
+- `hasWorkingCopySupport` - Enable if `plone.app.iterate` (Working Copy Support) is installed.
+- `maxFileUploadSize` - Limit the size of uploads
 - `nonContentRoutes` - A list of path strings which are considered to be outside of plone-restapi's content serialization. For example: `/controlpanel, /login,/sitemap,/personal-information` are all nonContentRoutes.
 
 You can find all existing options in the file [config/index.js](https://github.com/plone/volto/blob/master/src/config/index.js#L73) of Volto itself which is available in your projects in `frontend/omelette/src/config/index.js`.
