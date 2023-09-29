@@ -12,7 +12,7 @@ RAZZLE_DEV_PROXY_API_PATH = 'http://localhost:8080/Plone'
 ```
 
 The internal proxy simulates a web server doing reverse proxy with standard Plone VHM config.
-You can configure this if required too:
+You can configure this, too:
 
 ```shell
 RAZZLE_PROXY_REWRITE_TARGET = '/VirtualHostBase/http/localhost:3000/Plone/++api++/VirtualHostRoot'
@@ -90,5 +90,5 @@ The internal proxy is always available, even in production since Volto 14.
 When `RAZZLE_API_PATH` is present, Volto does not use it, and use the URL in there instead.
 
 ```{important}
-Again, when `RAZZLE_API_PATH` is present your deployment is the one who has to deal with CORS.
+Again, when `RAZZLE_API_PATH` is present, your deployment (Plone backend configuration) is the one who has to deal with CORS.
 ```
