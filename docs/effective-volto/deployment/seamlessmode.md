@@ -9,10 +9,10 @@ myst:
 
 # Seamless mode
 
-In any Plone + Volto deployment, we have the following servers:
+In any Plone + Volto deployment, we have the following services:
 
 - a Volto nodejs frontend server
-- a Plone backend server, running on Zope
+- a Plone backend server
 
 When a browser tries to load a page, it will first communicate with the frontend server, the Volto nodejs server. It will receive **HTML that contains the HTML markup of that page content** and the necessary `<script>` and `<link>` tags to load the Volto React app, with its CSS look and feel.
 
@@ -30,9 +30,65 @@ The first question, *"what is my domain name?"* can be answered by looking at th
 The second question is a lot harder to answer, because there can be so many unknowns, so, instead, there's a few layers of "guessing".
 
 - If you're running Volto for development, the Plone backend is exposed from the frontend (`localhost:3000`) via a "devproxy" that assumes that the Plone backend is at `http://localhost:8080/Plone`. You can override it with [`RAZZLE_DEV_PROXY_API_PATH`](https://github.com/plone/volto/blob/5eb332829956dbf0505283b176008c9364ccf2f9/src/config/index.js#L101).
-- If you're running in production, the Plone backend is assumed to be exposed at the same URL, but available via the special traversal path, the `++api++`. So you need to add aditional rewrite rules in your Apache or Nginx proxy server to directly redirect those requests to the Plone backend.
+- If you're running in production, the Plone backend is assumed to be exposed at the same domain, but available via the special traversal path, the `++api++`. So you need to add aditional rewrite rules in your Apache or Nginx proxy server to directly redirect those requests to the Plone backend.
 - Before the `++api++` traverser was added, you could configure the proxy server to serve Plone directly via a `/api` subpath and the `_vh_api` VirtualHostMonster suffix. Then you would configure Volto with the `RAZZLE_API_PATH` variable. This is still available and works.
 - If you want the Volto nodejs server to communicate directly with the Plone backend via the internal network (for example, when running a Docker stack), you can use the `RAZZLE_INTERNAL_API_PATH` setting to configure the address of the Plone backend.
+
+## Nginx example config for seamless mode deployments
+
+```nginx
+upstream backend {
+    server host.docker.internal:8080;
+}
+upstream frontend {
+    server host.docker.internal:3000;
+}
+
+server {
+  listen 80;
+  server_name myservername.org;
+
+  client_max_body_size 1G;
+
+  access_log /dev/stdout;
+  error_log /dev/stdout;
+
+  # [seamless mode] Recomended as default configuration, using seamless mode plone.rest ++api++ traversal
+  # yarn build && yarn start:prod
+  location ~ /\+\+api\+\+($|/.*) {
+      rewrite ^/\+\+api\+\+($|/.*) /VirtualHostBase/http/myservername.org/Plone/++api++/VirtualHostRoot/$1 break;
+      proxy_pass http://backend;
+  }
+
+  # Legacy deployment example, using RAZZLE_LEGACY_TRAVERSE Volto won't append ++api++ automatically
+  # Recommended only if you can't upgrade to latest `plone.restapi` and `plone.rest`
+  # yarn build && RAZZLE_API_PATH=http://myservername.org/api RAZZLE_LEGACY_TRAVERSE=true yarn start:prod
+  # location ~ /api($|/.*) {
+  #     rewrite ^/api($|/.*) /VirtualHostBase/http/myservername.org/Plone/VirtualHostRoot/_vh_api$1 break;
+  #    proxy_pass http://backend;
+  # }
+
+  location ~ / {
+      location ~* \.(js|jsx|css|less|swf|eot|ttf|otf|woff|woff2)$ {
+          add_header Cache-Control "public";
+          expires +1y;
+          proxy_pass http://frontend;
+      }
+      location ~* static.*\.(ico|jpg|jpeg|png|gif|svg)$ {
+          add_header Cache-Control "public";
+          expires +1y;
+          proxy_pass http://frontend;
+      }
+
+      proxy_set_header        Host $host;
+      proxy_set_header        X-Real-IP $remote_addr;
+      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header        X-Forwarded-Proto $scheme;
+      proxy_redirect http:// https://;
+      proxy_pass http://frontend;
+  }
+}
+```
 
 ## Feature history
 
@@ -134,59 +190,3 @@ or update your pip `requirements.txt` if you are using pip.
 If you are using the official Docker Plone image, use the `VERSIONS` environment variable:
 
 `VERSIONS="plone.restapi=8.12.1 plone.rest=2.0.0a1"`
-
-## nginx example config for seamless mode deployments
-
-```nginx
-upstream backend {
-    server host.docker.internal:8080;
-}
-upstream frontend {
-    server host.docker.internal:3000;
-}
-
-server {
-  listen 80;
-  server_name myservername.org;
-
-  client_max_body_size 1G;
-
-  access_log /dev/stdout;
-  error_log /dev/stdout;
-
-  # [seamless mode] Recomended as default configuration, using seamless mode new plone.rest traversal
-  # yarn build && yarn start:prod
-  location ~ /\+\+api\+\+($|/.*) {
-      rewrite ^/\+\+api\+\+($|/.*) /VirtualHostBase/http/myservername.org/Plone/++api++/VirtualHostRoot/$1 break;
-      proxy_pass http://backend;
-  }
-
-  # Legacy deployment example, using RAZZLE_LEGACY_TRAVERSE Volto won't append ++api++ automatically
-  # Recommended only if you can't upgrade to latest `plone.restapi` and `plone.rest`
-  # yarn build && RAZZLE_API_PATH=http://myservername.org/api RAZZLE_LEGACY_TRAVERSE=true yarn start:prod
-  # location ~ /api($|/.*) {
-  #     rewrite ^/api($|/.*) /VirtualHostBase/http/myservername.org/Plone/VirtualHostRoot/_vh_api$1 break;
-  #    proxy_pass http://backend;
-  # }
-
-  location ~ / {
-      location ~* \.(js|jsx|css|less|swf|eot|ttf|otf|woff|woff2)$ {
-          add_header Cache-Control "public";
-          expires +1y;
-          proxy_pass http://frontend;
-      }
-      location ~* static.*\.(ico|jpg|jpeg|png|gif|svg)$ {
-          add_header Cache-Control "public";
-          expires +1y;
-          proxy_pass http://frontend;
-      }
-
-      proxy_set_header        Host $host;
-      proxy_set_header        X-Real-IP $remote_addr;
-      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header        X-Forwarded-Proto $scheme;
-      proxy_redirect http:// https://;
-      proxy_pass http://frontend;
-  }
-}
-```
