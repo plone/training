@@ -11,10 +11,10 @@ myst:
 
 # Effective Volto
 
-*Effective Plone 6 Volto* is intended as a training to learn proven practices of Plone development.
+*Effective Volto* is intended as a training to learn proven practices of Plone 6 Volto frontend development.
 It's both an online course and a sketch for an on-the-spot training.
 
-The goal of this training is to provide a comprehensive overview of Volto to developers that still don’t have enough confidence to start a client project with Volto.
+The goal of this training is to provide a comprehensive overview of Volto to developers that still don’t have enough confidence to start a client project with Volto. Because of the huge amount of knowledge and variety of the content covered, it is less a "hands-on training" and more of a "show and tell". We present concepts, explain how things work and leave it to the participants to put all this in practice.
 
 The training will cover essential concepts, as well as good practices and notions of how Volto works under the hood.
 Tips and tricks will be also covered, providing a good amount of insights for those who want to learn more beyond the Volto basics.
