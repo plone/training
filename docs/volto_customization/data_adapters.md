@@ -77,7 +77,7 @@ The above Adapter gets consumed in [Data](https://github.com/plone/volto/blob/96
 Let's register a new `dataAdapter` our config:
 
 ```{code-block} js
-import {myOwnDataAdapter} from 'volto-teaser-tuturial/components/data-adapter';
+import {myOwnDataAdapter} from 'volto-teaser-tutorial/components/data-adapter';
 
 config.blocks.blocksConfig.teaser.dataAdapter = myOwnDataAdapter;
 ```
