@@ -21,6 +21,17 @@ To avoid duplication we simply follow the chapter {ref}`volto-overrides-label` o
 
 In that chapter you learn how to override the logo, the footer, the news-item view and the default listing-block.
 
+The only difference is whenever we add new files instead of adding them to the project we add the to our addon.
+
+For example when we customize the News Item View instead of adding the override as:
+
+`src/customizations/components/theme/View/NewsItemView.jsx`
+
+we add it as
+
+`src/addon/volto-teaser-tutorial/src/customizations/volto/components/theme/View/NewsItemView.jsx`.
+
+Both paths work fine though, we just want to go all-in with the addon-approach.
 
 ```{seealso}
 - {ref}`voltohandson-header-component-label` (Volto Hands-On Training)
