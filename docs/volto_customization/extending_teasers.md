@@ -165,7 +165,11 @@ import { defineMessages, useIntl } from "react-intl";
 
 import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
 
-import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers";
+import {
+  flattenToAppURL,
+  isInternalURL,
+  addAppURL,
+} from "@plone/volto/helpers";
 import { MaybeWrap } from "@plone/volto/components";
 import { formatDate } from "@plone/volto/helpers/Utils/Date";
 import { UniversalLink } from "@plone/volto/components";
@@ -278,7 +282,7 @@ import { defineMessages, useIntl } from "react-intl";
 
 import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
 
-import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers";
+import { flattenToAppURL, isInternalURL, addAppURL } from "@plone/volto/helpers";
 import { MaybeWrap } from "@plone/volto/components";
 import { formatDate } from "@plone/volto/helpers/Utils/Date";
 import { UniversalLink } from "@plone/volto/components";
@@ -390,7 +394,7 @@ import { Message } from "semantic-ui-react";
 import { defineMessages, useIntl } from "react-intl";
 import cloneDeep from "lodash/cloneDeep";
 import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
-import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers";
+import { flattenToAppURL, isInternalURL, addAppURL } from "@plone/volto/helpers";
 import { MaybeWrap } from "@plone/volto/components";
 import { formatDate } from "@plone/volto/helpers/Utils/Date";
 import { UniversalLink } from "@plone/volto/components";
