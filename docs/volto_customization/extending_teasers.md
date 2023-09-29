@@ -17,9 +17,13 @@ In this chapter we will tweak our newly created variation to also support extens
 
 Block extensions are the way to display a new form of your block for a particular block type. For instance if you have a teaserGrid, with block extensions you can control the styling and behaviour of individual teasers. The split of responsibilites is as follows: "the variation will control how the teasers layout and extension will control the individual rendering."
 
-We already learn about the block variation in the former chapters. We will now add the teaser block extenttions the same way we do for variations.
+We already learn about the block variation in the former chapters. We will now add the teaser block extensions the same way we do for variations.
 
 ```js
+import TeaserBlockImageDefault from "volto-teaser-tutorial/components/extensions/TeaserBlockImageDefault";
+import TeaserBlockImageRight from "volto-teaser-tutorial/components/extensions/TeaserBlockImageRight";
+import TeaserBlockImageOverlay from "volto-teaser-tutorial/components/extensions/TeaserBlockImageOverlay";
+
 config.blocks.blocksConfig.teaser.extensions = {
   ...(config.blocks.blocksConfig.teaser.extensions || {}),
   cardTemplates: {
@@ -47,7 +51,7 @@ config.blocks.blocksConfig.teaser.extensions = {
 };
 ```
 
-As for the training we created only three extensions namely `TeaserBlockImageDefault`, `TeaserBlockImageRight` and `TeaserBlockImageOverlay`.
+As for the training we created only three extensions namely `TeaserBlockImageDefault`, `TeaserBlockImageRight` and `TeaserBlockImageOverlay` into our addons `components/extensions` folder.
 
 In order to support these extension first we need to add a special fieldset to our variation schema so that we can seperate the concerns about individual teasers and put these extensions under it.
 
@@ -92,7 +96,7 @@ config.blocks.blocksConfig.teaser.variations = [
 Notice first we added a new fieldSet where our extensions will recide and the method `addExtensionFieldToSchema` imported volto core. This method as mentioned above adds a new field in the given fieldSet with the given extenionName `cardTemplates`.
 
 ```{note}
-By default ``addExtensionFieldToSchema` adds the extewnsion field to default fieldSet, in order to ovverride that you can pass `insertFieldToOrder` method to specifiy where it should be added.
+By default `addExtensionFieldToSchema` adds the extewnsion field to default fieldSet, in order to ovverride that you can pass `insertFieldToOrder` method to specifiy where it should be added.
 
 ```
 
@@ -387,7 +391,7 @@ import { formatDate } from "@plone/volto/helpers/Utils/Date";
 import { UniversalLink } from "@plone/volto/components";
 import cx from "classnames";
 import config from "@plone/volto/registry";
-import "./styles.less";
+
 
 const messages = defineMessages({
   PleaseChooseContent: {
@@ -498,7 +502,7 @@ TeaserBlockImageOverlay.propTypes = {
 export default TeaserBlockImageOverlay;
 ```
 
-The styles.less is to be created as well:
+The styles have to be added as well:
 
 ```{code-block} less
 :force: true
@@ -575,6 +579,8 @@ dependencies: [
     "@kitconcept/volto-blocks-grid": "*"
 ]
 ```
+
+You have to stop the frontend server and run `yarn install` again from the root of your project.
 
 ```{note}
 Its essential that we load `volto-teaser-tutorial` after volto-blocks-grid so that we overrride teaser block the right way.

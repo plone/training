@@ -66,33 +66,32 @@ Finaly render it conditionally on the basis of data.creationDate
 The whole component looks like:
 
 ```{code-block} jsx
-import React from "react";
-import PropTypes from "prop-types";
-import { Message } from "semantic-ui-react";
-import { defineMessages, useIntl } from "react-intl";
-import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
-import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers";
-import { getTeaserImageURL } from "@plone/volto/components/manage/Blocks/Teaser/utils";
-import { MaybeWrap } from "@plone/volto/components";
-import { formatDate } from "@plone/volto/helpers/Utils/Date";
-import { UniversalLink } from "@plone/volto/components";
-import cx from "classnames";
-import config from "@plone/volto/registry";
-import "./styles.less";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Message } from 'semantic-ui-react';
+import { defineMessages, useIntl } from 'react-intl';
+import imageBlockSVG from '@plone/volto/components/manage/Blocks/Image/block-image.svg';
+import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers';
+import { getTeaserImageURL } from '@plone/volto/components/manage/Blocks/Teaser/utils';
+import { MaybeWrap } from '@plone/volto/components';
+import { formatDate } from '@plone/volto/helpers/Utils/Date';
+import { UniversalLink } from '@plone/volto/components';
+import cx from 'classnames';
+import config from '@plone/volto/registry';
 
 const messages = defineMessages({
   PleaseChooseContent: {
-    id: "Please choose an existing content as source for this element",
+    id: 'Please choose an existing content as source for this element',
     defaultMessage:
-      "Please choose an existing content as source for this element",
+      'Please choose an existing content as source for this element',
   },
 });
 
-const DefaultImage = (props) => <img {...props} alt={props.alt || ""} />;
+const DefaultImage = (props) => <img {...props} alt={props.alt || ''} />;
 
-const TeaserBlockImageOverlay = (props) => {
+const TeaserBlockImageDefault = (props) => {
   const { className, data, isEditMode } = props;
-  const locale = config.settings.dateLocale || "en";
+  const locale = config.settings.dateLocale || 'en';
   const intl = useIntl();
   const href = data.href?.[0];
   const image = data.preview_image?.[0];
@@ -101,21 +100,21 @@ const TeaserBlockImageOverlay = (props) => {
   const formattedDate = formatDate({
     date: creationDate,
     format: {
-      year: "numeric",
-      month: "short",
-      day: "2-digit",
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
     },
     locale: locale,
   });
 
-  const hasImageComponent = config.getComponent("Image").component;
-  const Image = config.getComponent("Image").component || DefaultImage;
+  const hasImageComponent = config.getComponent('Image').component;
+  const Image = config.getComponent('Image').component || DefaultImage;
   const { openExternalLinkInNewTab } = config.settings;
   const defaultImageSrc =
     href && flattenToAppURL(getTeaserImageURL({ href, image, align }));
 
   return (
-    <div className={cx("block teaser", className)}>
+    <div className={cx('block teaser', className)}>
       <>
         {!href && isEditMode && (
           <Message>
@@ -129,36 +128,36 @@ const TeaserBlockImageOverlay = (props) => {
           <MaybeWrap
             condition={!isEditMode}
             as={UniversalLink}
-            href={href["@id"]}
+            href={href['@id']}
             target={
               data.openLinkInNewTab ||
-              (openExternalLinkInNewTab && !isInternalURL(href["@id"]))
-                ? "_blank"
+              (openExternalLinkInNewTab && !isInternalURL(href['@id']))
+                ? '_blank'
                 : null
             }
           >
-            <div className="teaser-item overlay">
+            <div className="teaser-item default">
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
                   <Image
-                    src={hasImageComponent ? href : defaultImageSrc}
+                    src={
+                      hasImageComponent
+                        ? href
+                        : defaultImageSrc ??
+                          addAppURL(`${href}/${image?.download}`)
+                    }
                     alt=""
                     loading="lazy"
                   />
                 </div>
               )}
-
-              <div className="gradiant">
+              <div className="content">
                 {data?.head_title && (
                   <div className="headline">{data.head_title}</div>
                 )}
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <h2>{data?.title}</h2>
-                  {!data.hide_description && <p>{data?.description}</p>}
-                  {data?.creationDate && (
-                    <p style={{ color: "white" }}>{formattedDate}</p>
-                  )}
-                </div>
+                <h2>{data?.title}</h2>
+                {data.creationDate && <p>{formattedDate}</p>}
+                {!data.hide_description && <p>{data?.description}</p>}
               </div>
             </div>
           </MaybeWrap>
@@ -168,10 +167,11 @@ const TeaserBlockImageOverlay = (props) => {
   );
 };
 
-TeaserBlockImageOverlay.propTypes = {
+TeaserBlockImageDefault.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   isEditMode: PropTypes.bool,
 };
 
-export default TeaserBlockImageOverlay;
+export default TeaserBlockImageDefault;
+
 ```

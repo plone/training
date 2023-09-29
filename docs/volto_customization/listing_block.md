@@ -16,13 +16,15 @@ First of all let's add a styling fieldset in the current schema of volto's defau
 In your addon config:
 
 ```{code-block} js
+import { addStylingFieldset } from 'volto-teaser-tutorial/components/helpers';
+
 if (config.blocks.blocksConfig.listing) {
   config.blocks.blocksConfig.listing.title = "Listing (Tutorial)";
   config.blocks.blocksConfig.listing.schemaEnhancer = addStylingFieldset;
 }
 ```
 
-Create a file named `helpers.js` and add the relevant schema enhancer for it:
+Create a file named `helpers.js` inside `components/` folder and add the relevant schema enhancer for it:
 
 ```{code-block} js
 import { cloneDeep } from "lodash";
@@ -106,7 +108,7 @@ import ListingVariation from 'volto-teaser-tutorial/components/ListingBlockVaria
 
 
  config.blocks.blocksConfig.listing.variations = [
-    ...(config.blocks.blocksConfig.listing.variations || [])
+    ...(config.blocks.blocksConfig.listing.variations || []),
     {
       id: 'tutorial',
       isDefault: false,
@@ -144,7 +146,7 @@ Notice that here we will keep the schemaEnhancer configuration of teaser extensi
 
 Finally we write our own variation for ListingBlock:
 
-ListingVariation.jsx
+ListingBlockVariation.jsx
 
 ```{code-block} jsx
 import React from "react";
@@ -223,6 +225,22 @@ ListingVariation.propTypes = {
   isEditMode: PropTypes.bool,
 };
 export default ListingVariation;
+```
+
+You might want to modify rendering of the images a bit in all the teaser block extensions in the `extensions/` folder.
+
+Thus, locate the Image component in `TeaserBlockImageDefault` and replace it with:
+
+```jsx
+<Image
+  src={
+    hasImageComponent
+      ? href
+      : defaultImageSrc ?? addAppURL(`${href}/${image?.download}`)
+  }
+  alt=""
+  loading="lazy"
+/>
 ```
 
 We will now have the per listing item styling support like we have for teaser blocks. We can also add more styling schema with the help of its individual schema extenders.

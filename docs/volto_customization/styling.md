@@ -150,7 +150,7 @@ As StyleWrapper wraps around our view component in `RenderBlocks`. The styleName
 </div>
 ```
 
-Go ahead and add classNames in your `css/less` files
+Go ahead and add classNames in your `css/less` files. Create a file name `styles.less` inside `components/` folder and copy the styles below. Make sure to import this file into `index.js`.
 
 ```{code-block} less
 :force: true
@@ -187,6 +187,9 @@ StyleMenu is not the part of Blocks engine instead its a volto-slate plugin and 
 In your policy package, you can add styleMenu configuration like:
 
 ```{code-block} jsx
+
+import paintSVG from '@plone/volto/icons/paint.svg';
+import { Icon } from '@plone/volto/components';
 
 config.settings.slate.styleMenu = {
   ...(config.settings.slate.styleMenu || {}),
