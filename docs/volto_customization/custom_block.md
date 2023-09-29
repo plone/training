@@ -62,7 +62,7 @@ export default weatherBlockSchema;
 
 ```
 
-5. **Register the Block:** In your Volto project, locate the "blocks.blocks.js" file and add an entry for your "Weather Block"
+5. **Register the Block:** In your Volto project, locate the "components/index.js" file and add an entry for your "Weather Block"
 
 ```{code-block} js
 
