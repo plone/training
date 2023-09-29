@@ -37,7 +37,6 @@ import { Icon } from '@plone/volto/components';
 import myIconSVG from 'my-volto-addon/icons/myicon.svg';
 
 <Icon name={myIconSVG} size="24px" />;
-
 ```
 
 The `icons` folder is an absolute must, because otherwise it won't be loaded by
