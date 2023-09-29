@@ -24,6 +24,7 @@ What You'll Learn:
 - JavaScript Fundamentals: Build a strong foundation in JavaScript, covering essential topics like variables, functions, and data structures.
 - React Essentials: Dive into React, the heart of Volto, and learn how to create dynamic user interfaces using React components.
 - Customizing Volto: Explore the art of customizing Volto projects, from theming and styling to creating custom blocks.
+- API Integration: Learn how to integrate external APIs into your Volto applications to add new functionalities.
 - Building Blocks: Discover the building blocks of a Volto project, including new variations.
 - Best Practices: Gain insights into industry best practices for efficient Volto development.
 
@@ -47,6 +48,7 @@ Prerequisites:
 intro
 installation
 voltosettings
+custom_block
 shadowing
 blocks
 schema
