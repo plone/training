@@ -227,20 +227,4 @@ ListingVariation.propTypes = {
 export default ListingVariation;
 ```
 
-You might want to modify rendering of the images a bit in all the teaser block extensions in the `extensions/` folder.
-
-Thus, locate the Image component in `TeaserBlockImageDefault` and replace it with:
-
-```jsx
-<Image
-  src={
-    hasImageComponent
-      ? href
-      : defaultImageSrc ?? addAppURL(`${href}/${image?.download}`)
-  }
-  alt=""
-  loading="lazy"
-/>
-```
-
 We will now have the per listing item styling support like we have for teaser blocks. We can also add more styling schema with the help of its individual schema extenders.

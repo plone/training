@@ -166,7 +166,6 @@ import { defineMessages, useIntl } from "react-intl";
 import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
 
 import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers";
-import { getTeaserImageURL } from "@plone/volto/components/manage/Blocks/Teaser/utils";
 import { MaybeWrap } from "@plone/volto/components";
 import { formatDate } from "@plone/volto/helpers/Utils/Date";
 import { UniversalLink } from "@plone/volto/components";
@@ -201,11 +200,8 @@ const TeaserBlockImageDefault = (props) => {
     locale: locale,
   });
 
-  const hasImageComponent = config.getComponent("Image").component;
   const Image = config.getComponent("Image").component || DefaultImage;
   const { openExternalLinkInNewTab } = config.settings;
-  const defaultImageSrc =
-    href && flattenToAppURL(getTeaserImageURL({ href, image, align }));
 
   return (
     <div className={cx("block teaser", className)}>
@@ -234,9 +230,16 @@ const TeaserBlockImageDefault = (props) => {
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
                   <Image
-                    src={hasImageComponent ? href : defaultImageSrc}
+                    item={props["@type"] === "listing" ? null : image || href}
+                    src={
+                      props["@type"] === "listing"
+                        ? addAppURL(`${href}/${image?.download}`)
+                        : null
+                    }
+                    imageField={image ? image.image_field : href.image_field}
                     alt=""
                     loading="lazy"
+                    responsive={true}
                   />
                 </div>
               )}
@@ -276,7 +279,6 @@ import { defineMessages, useIntl } from "react-intl";
 import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
 
 import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers";
-import { getTeaserImageURL } from "@plone/volto/components/manage/Blocks/Teaser/utils";
 import { MaybeWrap } from "@plone/volto/components";
 import { formatDate } from "@plone/volto/helpers/Utils/Date";
 import { UniversalLink } from "@plone/volto/components";
@@ -311,11 +313,8 @@ const TeaserBlockImageRight = (props) => {
     locale: locale,
   });
 
-  const hasImageComponent = config.getComponent("Image").component;
   const Image = config.getComponent("Image").component || DefaultImage;
   const { openExternalLinkInNewTab } = config.settings;
-  const defaultImageSrc =
-    href && flattenToAppURL(getTeaserImageURL({ href, image, align }));
 
   return (
     <div className={cx("block teaser", className)}>
@@ -351,10 +350,17 @@ const TeaserBlockImageRight = (props) => {
               </div>
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
-                  <Image
-                    src={hasImageComponent ? href : defaultImageSrc}
+                <Image
+                    item={props['@type'] === 'listing' ? null : image || href}
+                    src={
+                      props['@type'] === 'listing'
+                        ? addAppURL(`${href}/${image?.download}`)
+                        : null
+                    }
+                    imageField={image ? image.image_field : href.image_field}
                     alt=""
                     loading="lazy"
+                    responsive={true}
                   />
                 </div>
               )}
@@ -385,7 +391,6 @@ import { defineMessages, useIntl } from "react-intl";
 import cloneDeep from "lodash/cloneDeep";
 import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
 import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers";
-import { getTeaserImageURL } from "@plone/volto/components/manage/Blocks/Teaser/utils";
 import { MaybeWrap } from "@plone/volto/components";
 import { formatDate } from "@plone/volto/helpers/Utils/Date";
 import { UniversalLink } from "@plone/volto/components";
@@ -434,11 +439,8 @@ const TeaserBlockImageOverlay = (props) => {
       intl,
     });
 
-  const hasImageComponent = config.getComponent("Image").component;
   const Image = config.getComponent("Image").component || DefaultImage;
   const { openExternalLinkInNewTab } = config.settings;
-  const defaultImageSrc =
-    href && flattenToAppURL(getTeaserImageURL({ href, image, align }));
 
   return (
     <div className={cx("block teaser", className)}>
@@ -466,10 +468,17 @@ const TeaserBlockImageOverlay = (props) => {
             <div className="teaser-item overlay">
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
-                  <Image
-                    src={hasImageComponent ? href : defaultImageSrc}
+                 <Image
+                    item={props['@type'] === 'listing' ? null : image || href}
+                    src={
+                      props['@type'] === 'listing'
+                        ? addAppURL(`${href}/${image?.download}`)
+                        : null
+                    }
+                    imageField={image ? image.image_field : href.image_field}
                     alt=""
                     loading="lazy"
+                    responsive={true}
                   />
                 </div>
               )}
