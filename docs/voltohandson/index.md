@@ -36,7 +36,7 @@ configandcleanup
 introtoblocks
 slider
 releaseblock
-eventlistingtemplate
+listinggridvariation
 contenttypeview
 ```
 
