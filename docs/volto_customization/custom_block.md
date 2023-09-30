@@ -159,6 +159,7 @@ export default Edit;
 ...
 import WeatherEdit from './components/Blocks/Weather/Edit';
 import WeatherView from './components/Blocks/Weather/View';
+
 ...
 export { WeatherView, WeatherEdit };
 
@@ -167,8 +168,8 @@ export { WeatherView, WeatherEdit };
 We need to configure the project to make it aware of a new block by adding it to the object configuration that is located in "src/config.js". For that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser.
 
 ```{code-block} js
-import WeatherEdit from './Edit';
-import WeatherView from './View';
+import WeatherEdit from './components/Blocks/Weather/Edit';
+import WeatherView from './components/Blocks/Weather/View';
 import worldSVG from '@plone/volto/icons/world.svg';
 ...
 export default function applyConfig(config) {
