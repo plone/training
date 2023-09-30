@@ -35,7 +35,7 @@ footer
 configandcleanup
 introtoblocks
 slider
-blocksdownload
+releaseblock
 eventlistingtemplate
 contenttypeview
 ```

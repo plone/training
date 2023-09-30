@@ -96,7 +96,7 @@ You can use all these props to render your edit block and model its behavior.
 
 ## Register Block Files in index
 
-To help keeping paths for importing components clean we use index files in several places in Volto projects. under `src/components/` create a new file `index.js` which serves as a library from where we late can easily import all our components without having to rmemeber all of their paths. In there we directly export the Block components directly from their respective files.
+To help keeping paths for importing components clean we use index files in several places in Volto projects. In your addon under `src/components/` create a new file `index.js` which serves as a library from where we late can easily import all our components without having to rmemeber all of their paths. In there we directly export the Block components directly from their respective files.
 
 `/src/components/index.js`
 

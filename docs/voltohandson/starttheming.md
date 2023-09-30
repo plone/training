@@ -38,7 +38,7 @@ Everytime you add a new file to your project you will have to restart your devel
 Edit the new file and add this:
 
 ```less
-@fontName: "Assisstant";
+@fontName: "Asisstant";
 ```
 
 You can set it to any Google font available, and the online version of the font will be used.
