@@ -36,7 +36,7 @@ So, included with webpack is the following functionality (all via plugins):
 - convert JSX to JavaScript code (via Babel plugin)
 - transpiling ESM modules to CommonJS require-based JavaScript modules (Babel)
 - concatenate and provide "bundle and chunk loaders" for the multiple JS files
-- compiling LESS files to CSS, using the `less-loader` plugin
+- compiling LESS and SASS files to CSS, using their loader plugins
 - bundling the multiple CSS files together
 - loading other resources, such as images
 - sometimes (depending on size), wholly including static images into the

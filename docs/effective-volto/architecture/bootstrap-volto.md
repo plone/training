@@ -45,8 +45,8 @@ it provides easy access to any NodeJS released version.
 4.  Install any active LTS version of NodeJS (https://github.com/nodejs/release#release-schedule):
 
     ```bash
-    nvm install 16
-    nvm use 16
+    nvm install 18
+    nvm use 18
     ```
 
 5.  Test NodeJS:
@@ -125,11 +125,7 @@ To install Docker desktop for Mac, here are the detailed instructions:
 When you have installed Docker, you can use the official Plone Docker container with the proper configuration for Volto using the `plone.volto` add'on right away by issuing:
 
 ```shell
-docker run -it --rm --name=plone \
-  -p 8080:8080 -e SITE=Plone -e \
-  ADDONS="plone.restapi==8.18.0 plone.app.iterate==4.0.2 plone.rest==2.0.0a1 plone.app.vocabularies==4.3.0 plone.volto==3.1.0a8" \
-  -e PROFILES="plone.volto:default-homepage" \
-  plone/plone-backend
+docker run -it --rm --name=backend -p 8080:8080 -e SITE=Plone plone/server-dev
 ```
 
 ```{tip}
