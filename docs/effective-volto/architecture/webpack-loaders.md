@@ -15,9 +15,10 @@ files. JavaScript/JSX code gets handled by the Babel compiler, etc.
 
 Volto includes several other webpack loaders:
 
-- .less files are loaded with the LESS Loader, pipelined through PostCSS
-- .css files are loaded directly
-- .svg files, if placed in a folder called `icons`, can be loaded as React
+- `.less` files are loaded with the LESS Loader, pipelined through PostCSS
+- `.scss` files are loaded with the SASS Loader, pipelined through PostCSS
+- `.css` files are loaded directly
+- `.svg` files, if placed in a folder called `icons`, can be loaded as React
   elements
 - the file loader, for static resources such as images
 
@@ -25,13 +26,15 @@ PostCSS is a pluggable framework that enables enhancements and transformations o
 
 ## Add your own Webpack loader
 
-Sometimes Razzle provides a plugin for your needed loader, which takes care of
-loading and passing the proper options to that Webpack loader. To load
-a [Razzle plugin][1], for example, to load the razzle-plugin-scss, you need to
-export a `plugins` field in your `razzle.config.js` or `razzle.extend.js`.
+Sometimes Razzle provides a plugin for your needed loader, which takes care of loading and passing the proper options to that Webpack loader. For example, to load the razzle-plugin-scss which is a [Razzle plugin][1], you need to export a `plugins` field in your `razzle.config.js` or `razzle.extend.js`.
 
-Here's an example `razzle.extend.js` that allows an addon to load that plugin.
-Make sure to add the `razzle-plugin-scss` as dependency of your addon.
+```{note}
+`razzle-plugin-scss` is included in Volto (both in 16 and 17) since the beginning of 2023.
+Keeping the example here as reference for other Razzle plugins.
+```
+
+Here's an example `razzle.extend.js` that allows a Volto addon to load that Razzle plugin.
+First, make sure to add the `razzle-plugin-scss` as Javascript package dependency of your addon.
 
 ```js
 const plugins = (defaultPlugins) => {

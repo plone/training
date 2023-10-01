@@ -10,16 +10,20 @@ myst:
 # Plone REST API endpoints
 
 Volto comunicates with the Plone backend via the so-called "endpoints", which
-care REST API services exposed by plone.restapi. Some of these endpoints include:
+care REST API services exposed by plone.restapi.
 
-You communicate with the REST API service using `application/json` ACCEPT header:
+You communicate with the REST API service using `application/json` ACCEPT header.
+You can also use the `++api++` traversal which does not need the header:
 
 ```bash
 curl -H "Accept: application/json" http://localhost:8080/Plone/mycontent
 ```
 
-The response from the server is typically JSON content (using the
-[JSONSchema][1] format).
+```bash
+curl http://localhost:8080/Plone/++api++/mycontent
+```
+
+Unless you found a bug in code, the response from the server is JSON content (using the [JSONSchema][1] format).
 
 ```
 GET /plone/front-page HTTP/1.1
@@ -64,7 +68,7 @@ the following verbs are used for content manipulation:
 - `PATCH /folder/{document-id}` to update a document
 - `DELETE /folder/{document-id}` to remove a document
 
-plone.restapi comes with many many endpoints, covering a lot of the Plone
+plone.restapi comes with many many endpoints, covering a most of the Plone
 backend functionality. By convention the endpoints are named with a single `@`
 as prefix, to show similarity to the classic Browser Views. Some examples include:
 

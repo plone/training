@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, Plone, frontend, React, deployment"
 ---
 
-# Simple deployment
+# [DEPRECATED] Old (pre-seamless mode) deployment
 
 Volto is a Node application that runs on your machine/server and listens to a port. Once you are ready to deploy it, you should build it running:
 

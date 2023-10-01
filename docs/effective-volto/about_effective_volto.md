@@ -23,7 +23,7 @@ Tiberiu Ichim
 
 Víctor Fernández de Alba
 
-: Víctor is CTO at kitconcept GmbH, a Plone solution provider from Bonn, Germany. Member of the Plone Community since 2006, author of a Plone book, co-author of Plone 5’s multilingual feature and its default theme Barceloneta. He is the Plone 6 Volto Release Manager, member of the Volto Team and Plone REST API contributor. He was also organizer of the Barcelona Plone Conference in 2017, sprints and other Plone events in Barcelona and Bonn and he is deeply involved in several Plone Community Teams including the Plone Foundation Board of directors.
+: Víctor is CTO at kitconcept GmbH, a Plone solution provider from Bonn, Germany. Member of the Plone Community since 2006, currently he's the Release Manager of Plone Volto and Volto Team leader. Author of a Plone book, co-author of Plone 5’s multilingual feature and its default theme Barceloneta. He is the Plone 6 Volto Release Manager, member of the Volto Team and Plone REST API contributor. He was also organizer of the Barcelona Plone Conference in 2017, sprints and other Plone events in Barcelona and Bonn and he is deeply involved in several Plone Community Teams.
 
 ## License
 
