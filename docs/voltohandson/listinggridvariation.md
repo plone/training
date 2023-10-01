@@ -11,7 +11,7 @@ myst:
 
 One of the most used blocks in Volto is the listing block. It allows editors to automatically list contents on a page that fit a certain criteria (e.g. all pages of a specific content type). To always display content in the most visually useful way (you might want a list of upcoming events look different to a list of the latest projects of your company) the listing has the possibility to appear in different visual variations. In vanilla Plone 6 those are the `default`, `summary` and `image gallery` variation. To learn how to create a new listing variation we will recreate the Plone latest News listing from underneath the slider.
 
-```{image} /_static/latest_news.png
+```{image} _static/latest_news.png
 :align: center
 :alt: plone.org latest news listing
 ```
