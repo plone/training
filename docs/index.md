@@ -20,6 +20,7 @@ mastering-plone/index
 mastering-plone-5/index
 voltohandson/index
 voltoaddons/index
+volto_customization/index
 effective-volto/index
 testing/index
 theming/index
@@ -63,6 +64,10 @@ teaching/index
 {doc}`voltoaddons/index`
 
 : Build custom Volto add-ons, explore more advanced Volto topics.
+
+{doc}`volto_customization/index`
+
+: Are you new to JavaScript development and eager to explore the world of Volto customization? Unlock the power of Volto, the modern React-based CMS framework for Plone, by joining our comprehensive half day training designed specifically for JavaScript beginners.
 
 {doc}`effective-volto/index`
 
@@ -124,7 +129,7 @@ Because we began this practice in 2022, all previous trainings that have documen
 
 #### Volto, React, and Javascript
 
--   [Volto](https://2022.training.plone.org/volto/index.html)  
+-   [Volto](https://2022.training.plone.org/volto/index.html)
 -   [Angular SDK for Plone](https://2022.training.plone.org/angular/index.html)
 -   [GatsbyJS](https://2022.training.plone.org/gatsby/index.html)
 -   [JavaScript For Plone Developers (up to Plone 5)](https://2022.training.plone.org/javascript/index.html)
