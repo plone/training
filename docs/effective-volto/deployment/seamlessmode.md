@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, Plone, frontend, React, Seamless, mode"
 ---
 
-# Seamless mode
+# Recommended deployment schema (aka Seamless mode)
 
 In any Plone + Volto deployment, we have the following services:
 
