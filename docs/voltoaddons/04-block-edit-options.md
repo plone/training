@@ -438,5 +438,5 @@ export default withBlockDataSource({
 })(DataTableEdit);
 ```
 
-[field.jsx]: https://github.com/plone/volto/blob/master/src/components/manage/Form/Field.jsx
-[Volto's widget documentation]: https://github.com/plone/volto/blob/master/docs/source/recipes/widget.md
+[field.jsx]: https://github.com/plone/volto/blob/main/src/components/manage/Form/Field.jsx
+[Volto's widget documentation]: https://github.com/plone/volto/blob/main/docs/source/recipes/widget.md

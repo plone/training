@@ -12,10 +12,15 @@ myst:
 Volto comunicates with the Plone backend via the so-called "endpoints", which
 care REST API services exposed by plone.restapi.
 
-You communicate with the REST API service using `application/json` ACCEPT header:
+You communicate with the REST API service using `application/json` ACCEPT header.
+You can also use the `++api++` traversal which does not need the header:
 
 ```bash
 curl -H "Accept: application/json" http://localhost:8080/Plone/mycontent
+```
+
+```bash
+curl http://localhost:8080/Plone/++api++/mycontent
 ```
 
 Unless you found a bug in code, the response from the server is JSON content (using the [JSONSchema][1] format).

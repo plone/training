@@ -260,7 +260,7 @@ The reducer code looks scary, but it shouldn't be. To understand it, you need
 to know:
 
 - In Volto, all actions that have a `request` field are treated as network
-  requests, and they will be processed by the [API middleware](https://github.com/plone/volto/blob/master/src/middleware/api.js).
+  requests, and they will be processed by the [API middleware](https://github.com/plone/volto/blob/main/src/middleware/api.js).
 - That middleware will then trigger several new actions, derived from the main
   function and prefixed with its name, either `PENDING`, `SUCCESS`, or `FAIL`.
 - For each of these new actions, we will reduce the state of the store to
