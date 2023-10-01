@@ -86,6 +86,7 @@ def upload_doc(path):
         path=path,
         format="MARKDOWN",
         slug=slug,
+        field="page",
         title=title,
         url=KB,
         api_key=API_KEY,
