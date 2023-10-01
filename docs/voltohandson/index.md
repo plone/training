@@ -18,7 +18,7 @@ Level
 : All levels
 
 This is the documentation for the "Volto Hands-On" training,
-which is intended as a half day training for people who already know the basics of ReactJS and Volto.
+which is intended as a half to full day training for people who already know the basics of ReactJS.
 
 ```{toctree}
 :caption: Volto Hands-On
@@ -34,10 +34,10 @@ breadcrumbs
 footer
 configandcleanup
 introtoblocks
-highlight
-blocksdownload
-eventlistingtemplate
-contenttypeview
+slider
+releaseblock
+listinggridvariation
+plonerealeasetype
 ```
 
-This training was created by Victor Fernandez de Alba (sneridagh).
+This training was originally created by Victor Fernandez de Alba (sneridagh) and kept up to date by Jakob Kahl (jackahl).
