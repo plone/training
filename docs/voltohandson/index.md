@@ -37,7 +37,7 @@ introtoblocks
 slider
 releaseblock
 listinggridvariation
-contenttypeview
+plonerealeasetype
 ```
 
 This training was created by Victor Fernandez de Alba (sneridagh).
