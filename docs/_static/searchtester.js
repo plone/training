@@ -123,6 +123,7 @@ style.textContent = `
   --color-on-hover: #0056b3;
   --color-of-separator: #777;
   --color-of-lastbreadcrumb: #CECECE;
+  --font-size-title-m: 22px;
 }
 
 /* Breadcrumb container */
@@ -159,7 +160,8 @@ style.textContent = `
 /*Heading of the results*/
 h3.ellipsis.title-m{
     color: var(--pst-color-primary);
-  }
+    font-size: var(--font-size-title-m);
+}
 
 /*Subheading of the results*/
 .sw-paragraph-result {
@@ -167,7 +169,7 @@ h3.ellipsis.title-m{
 }
 /*Gap between results*/
 .results, .search-results {
-  gap: var(--rhythm-4);
+  gap: var(--rhythm-7);
 }
 /*Gap between widget and answer generation*/
 .sw-initial-answer {
