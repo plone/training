@@ -56,3 +56,5 @@ wesbos.theme-cobalt2
 wix.vscode-import-cost
 Zignd.html-css-class-completion
 ```
+
+The path to a happy developer experience is to start with a minimal IDE setup and gradually add extensions, first reading their documentation and understanding their use case.

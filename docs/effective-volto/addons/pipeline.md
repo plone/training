@@ -35,7 +35,7 @@ module.exports = {
 }
 ```
 
-This is a scape hatch where you can define using code the add-ons that are used the current project. Take a look:
+This is an "escape hatch" where you can use logic and environment conditions to define the add-ons to be loaded in the current project. Take a look:
 
 
 ```js
