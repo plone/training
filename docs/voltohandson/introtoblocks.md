@@ -4,7 +4,7 @@ myst:
     "description": "Learn how Blocks work in Volto"
     "property=og:description": "Learn how Blocks work in Volto"
     "property=og:title": "Introduction to Volto Blocks"
-    "keywords": "Plone, Volto, Training, Blocks, Introduction"
+    "keywords": "Plone, Volto, Training, Blocks"
 ---
 
 (voltohandson-introtoblocks-label)=
@@ -13,7 +13,7 @@ myst:
 
 We will use Volto blocks to compose the homepage.
 
-Volto features the Pastanaga Editor Engine, allowing you to compose a page visually using blocks.
+Volto features the Pastanaga Blocks Editor Engine, allowing you to compose a page visually using blocks.
 The editor allows you to add, modify, reorder and delete blocks.
 Blocks provide the user the ability to display content in an arbitrary way, although blocks can also define behavior and can have specific features.
 Blocks are composed of two basic (and required) components: the Block edit and view components.
@@ -22,18 +22,15 @@ By default, Volto ships with a basic set of Blocks, including Title, Text, Image
 
 ```{note}
 Volto Blocks are not enabled by default in all Plone content types.
-However, the `plone.volto` package, which comes with a default Plone 6 site enables Blocks for the `Document`, `Event` and `News Item` content types,
-so you will be able to use Blocks when you create or edit a page.
+However, the `plone.volto` package, which comes with a default Plone 6 site enables Blocks for the `Document`, `Event` and `News Item` content types, so you will be able to use Blocks when you create or edit a page.
 ```
 
 ## How to manually enable Blocks on a content type
 
-There is a behavior called `Blocks` made available by `plone.restapi`.
-To enable it you need to access the Plone backend running at <http://localhost:3000/controlpanel/dexterity-types>.
+There is a behavior called `Blocks` made available by `plone.volto`.
+To enable it you need to access the types [controlpanel](localhost:3000/controlpanel/dexterity-types).
 
-Thre you can choose a content type and enable `Blocks` in the `Behaviors` tab.
-
-Test the `Blocks` behavior for the content type you've just added it to, by creating a new object of that type from the Volto frontend using the toolbar.
+There you can choose a content type to edit and enable `Blocks` in the `Behaviors` tab.
 
 ```{image} _static/behaviors_controlpanel.png
 :align: center
@@ -42,9 +39,16 @@ Test the `Blocks` behavior for the content type you've just added it to, by crea
 
 ## Blocks anatomy
 
+The first Block we will create is the Slider Block at the top of the plone.org frontpage.
+
+```{image} _static/slider_screenshot.png
+:align: center
+:alt: slider on plone.org frontpage
+```
+
 Every Block is composed of an edit (`Edit.jsx`) component and a view (`View.jsx`) component.
 
-Create your first block in the project by adding these two components in a new directory in your addon `src/components/Blocks/slider`.
+Create your first block in the project by adding these two components in a new directory in your addon `src/components/Blocks/Slider`.
 This is the `Edit.jsx`:
 
 ```jsx
@@ -109,9 +113,7 @@ export { SliderBlockEdit, SliderBlockView };
 
 ## Blocks settings
 
-We need to configure the project to make it aware of a new block by adding it to the object configuration for that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser. This will gain be done in the projects config file
-
-Import those before the `import '@plone/volto/config';` line:
+We need to configure the project to make it aware of a new block by adding it to the object configuration for that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser. This will again be done in the projects config file:
 
 ```js
 import { SliderBlockView, SliderBlockEdit } from "@package/components";
@@ -134,4 +136,4 @@ config.blocks.blocksConfig.slider = {
 };
 ```
 
-Our new block should be ready to use in the editor.
+Your new block should be ready to use in the editor.

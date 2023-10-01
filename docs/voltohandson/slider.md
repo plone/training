@@ -11,7 +11,7 @@ myst:
 
 The most prominent element on the `plone.org` page is the Slider block with some of the latest news. As you are not quite ready yet to create a dynamic or editable block create a static version with screenhsots from the original as slides. I provided these in the [training ressources](https://github.com/plone/training/tree/main/docs/voltohandson/ressources)
 
-We already have a basic block boilerplate from the last section. We will convert this now to a static non-configurable block that is thought as a one-of for the training.
+We already have a basic block boilerplate from the last section. We will convert this now to a static non-configurable block that is thought as a one-off for the training.
 
 ## Block view component
 

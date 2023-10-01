@@ -19,6 +19,7 @@ We can do it by using bare styling, since Volto injects CSS classes in the body 
 Volto does it very much like Plone does.
 
 ```less
+//breadcrumbs
 .contenttype-plone-site .ui.secondary.vertical.segment.breadcrumbs {
   display: none;
 }

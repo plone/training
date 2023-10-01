@@ -214,7 +214,6 @@ and add this styling to the `custom.overrides` file:
 
 ```less
 //Footer
-
 #footer {
   padding: 2rem 0 0 0;
   margin: 1rem 0 0 0;

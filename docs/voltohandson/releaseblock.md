@@ -97,7 +97,6 @@ The `properties` key will contain all the fields, while the `fieldsets` key assi
 To implement the schema in the sidebar of your block you will have to create another component called `Data.jsx` in which the schema will be transformed to proper react inputs. Paste the following into the `Data.jsx` file:
 
 ```jsx
-import React from 'react';
 import { BlockDataForm } from '@plone/volto/components';
 import Schema from './schema';
 
@@ -123,14 +122,12 @@ const ReleaseData = (props) => {
 };
 
 export default ReleaseData;
-
 ```
 
 The `BlockDataForm` component will transform the `schema.js` data into a usable sidebar. You now can add that sidebar to your Blocks
 Last but not least you need to amend `Edit.jsx` to use that sidebar:
 
 ```jsx
-import React from 'react';
 import { SidebarPortal } from '@plone/volto/components';
 import { withBlockExtensions } from '@plone/volto/helpers';
 import ReleaseData from './Data';
@@ -165,7 +162,7 @@ You are now able to edit the content of your Block, but will still see your defa
 import { Container } from 'semantic-ui-react';
 import { UniversalLink } from '@plone/volto/components';
 
-const View = (props) => {
+const ReleaseView = (props) => {
   const { data } = props;
   return (
     <div className="block release full-width">
@@ -194,7 +191,7 @@ const View = (props) => {
   );
 };
 
-export default View;
+export default ReleaseView;
 ```
 
 Note that all the fields defined in the schema and filled via the sidebar can now be accessed from the `data` key of the blocks props. You can use `console.log(data)` to see the details.
@@ -254,8 +251,9 @@ To make the block look like its twin on plone.org we only need to add the follow
     }
   }
 }
-
-
 ```
+## Release
 
-When done, you can enter edit mode on your frontpage and add the respective text as on the original `plone.org`. Fpor the image create a new Image type Plone content object and upload the Plone 6 image from the training ressources. Then Choose that Image in the edit toolbar of your Block.
+When done, you can enter edit mode on your frontpage and add the respective text as on the original `plone.org`.
+
+For the image create a new Image-type Plone content object and upload the Plone 6 image from the training ressources. Then Choose that Image in the edit toolbar of your Block.

@@ -28,17 +28,18 @@ So that our Navigation shows more than just the homepage, you should add some du
 
 ## Header styling
 
-We will start introducing the basic styling for the header. Inside the theme folder created in the last lesson create another folder `extras` and a file `custom.overrides` so you have `theme/extras/custom.overrides` in our addon. Use this file to apply general styling to our site theme.
+We will start introducing the basic styling for the header. Inside the theme folder created in the last lesson create another folder `extras` and a file `custom.overrides` so you have `theme/extras/custom.overrides` in your addon. Use this file to apply general styling to your site theme.
 
 ```{note}
 Use this rule of thumb when building Volto themes: use the default Semantic overrides system when the override is site-wide and applies to Semantic components.
 When using your own components and specific theme styling, use instead `custom.overrides`.
-Applying styling later using this method is much faster than doing it in the Semantic default components. Dont feel confused by the fact, that the header still does look a bit "weird" in comparison to the `plone.org` one
+Applying styling later using this method is much faster than doing it in the Semantic default components. Dont feel confused by the fact, that the header still does look a bit "weird" in comparison to the `plone.org` one.
 ```
 
 This:
 
 ```less
+//header
 .ui.basic.segment.header-wrapper {
   position: relative;
   border-bottom: 1px solid @lightGrey;
@@ -68,7 +69,7 @@ This:
       margin-right: 1em;
     }
     .ui.secondary.pointing.menu .item {
-      font-family: 'Poppins';
+      font-family: 'Helvetica Neue';
       text-transform: none;
       color: @black;
       &.active {
@@ -85,8 +86,8 @@ This:
 
 ## Logo
 
-We use [component shadowing](header-component-shadowing-label) to customize (and override) Volto original components.
-Get the Plone logo (`Logo.svg`) from the resources from the [github repo](https://github.com/plone/training/tree/main/docs/voltohandson/ressources).
+We use [component shadowing](header-component-shadowing-label) to customize (and override) Voltos original components.
+Get the Plone logo (`Logo.svg`) from the ressources provided at the [github repo](https://github.com/plone/training/tree/main/docs/voltohandson/ressources).
 
 ```{hint}
 Remember: every time you add a file to the customizations folder or to the theme folder, you must restart Volto for changes to take effect.
@@ -101,12 +102,8 @@ From that point on, the hot reloading should kick in and reload the page automat
 We will customize the existing Volto header only a bit, since the one we want does not differ much from the original.
 We will do so by copying the original Volto `Header` component from the `omelette` folder `omelette/src/components/theme/Header/Header.jsx` folder into `src/customizations/components/theme/Header/Header.jsx`.
 
-```{note}
-If you have not worked with React that much so far you will notice that the Navigation component in Volto is not a javascipt function. This is because in React components can also be created from a js [class](https://legacy.reactjs.org/docs/react-component.html). Actually this was the preffered way to create components in earlier versions of React. Volto is currently undergoing the progress to switch to function components where possible. But as Volto has already a rather extensive codebase this is still an ongoing process.
-<!-- Remove this when the Header.jsx component has been updated to a functional component. -->
-```
 
-We have to make some more changes to that component, such as replacing the search widget with a simple button, removing the `Anontools` component, adding the "try now" link and centering the navigation.
+We have to make some changes to that component, such as replacing the search widget with a simple button, removing the `Anontools` component, adding the "try now" link and centering the navigation.
 Your outcome could look something like this:
 
 ```jsx
@@ -160,6 +157,9 @@ Header.defaultProps = {
 
 ```
 
+```{hint}
+We are also using Voltos builtin Icon component to display the search icon in the button. This component can be used to easily display any svg icon from the volto core your `src/icons` folder.
+```
 
 (header-component-shadowing-label)=
 
@@ -169,5 +169,5 @@ We use a technique called **component shadowing** to override an existing Volto 
 You have to place the replacing component in the same original folder path inside your addons the `src/customizations` folder. Take the `src` directory in Volto as the root when recreating the path in `src/addon/<your-addon-name>/customizations`.
 
 ```{note}
-Component shadowing is very much like the good old Plone technique called "JBOT" ("just a bunch of templates"), but you can customize virtually any module in Volto, including actions and reducers, not only components.
+Component shadowing is very much like the good old Plone technique called "JBOT" ("just a bunch of templates"), but you can customize virtually any module in Volto, including actions and reducers, not only visual components.
 ```
