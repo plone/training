@@ -48,8 +48,8 @@ You will become familiar with Volto customization, theming, and how to get the m
 
 ## The hands-on exercise
 
-The hands-on exercise will feature developing the basics of recreating the old `plone.com` site using Volto.
-You can view the old `plone.com` site to get a sense of what to expect from it here: [plone.com in the internet archive](https://web.archive.org/web/20210813064319/https://plone.com/).
+The hands-on exercise will feature recreating the current [plone.org](https://plone.org) site using Volto.
+
 We will be facing different challenges and we will be solving them, introducing or refreshing some of the concepts covered in the previous training classes.
 We will cover the proper solution to each challenge and we will provide an overview of what to expect when developing for Volto.
 
@@ -57,11 +57,8 @@ We will cover the proper solution to each challenge and we will provide an overv
 
 To follow the training as smoothly as possible it is recommended that you have the following software installed on your computer:
 
-- [node.js](https://nodejs.org/en/) >= 12
+- [node.js](https://nodejs.org/en/) >= 16
 - [yarn](https://yarnpkg.com/getting-started/install)
 - [node version manager](https://github.com/nvm-sh/nvm)
 - [docker](https://www.docker.com/get-started/)
 
-## Documentation
-
-Follow the training at {ref}`voltohandson-label`.

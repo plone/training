@@ -68,14 +68,14 @@ You can start it by running the following command:
 docker run -p 8080:8080 -e SITE=Plone plone/plone-backend
 ```
 
-Keep that process running during the whole training in one of your terminal windows because the container does not have a persistant storage. So once you stop that container again some of you work might get lost again.
+Keep that process running during the whole training in one of your terminal windows because the container does not have a persistant storage. So once you stop that container your plone database will be lost.
 
 ```{note}
 If you already have expierience setting up Plone instances you can also use a Plone Classic Plone instance with the addons "Plone 6 Frontend (plone.volto)" and "plone.restapi" installed.
 ```
 
 ```{seealso}
-An alternate way to set up a complete Plone 6 Project including both frontend and backend setup is using Plone cookiecutter: https://github.com/collective/cookiecutter-plone-starter
+An alternate way to set up a complete Plone 6 Project including both frontend and backend setup is using Plone [cookiecutter](https://github.com/collective/cookiecutter-plone-starter)
 ```
 ### Yarn environment
 

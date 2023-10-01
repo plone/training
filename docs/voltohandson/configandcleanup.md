@@ -19,7 +19,7 @@ Make sure you save your page after deleting all Blocks and before editing the `c
 
 ## Making the Title block deletable
 
-The config will be located inside the `config.js` folder in your policy addons `src` directory. Inside you will find the following code:
+The config will be located inside the `index.js` file in your policy addons `src` directory. Inside you will find the following code:
 
 ```js
 const applyConfig = (config) => {
@@ -44,5 +44,5 @@ export default applyConfig;
 ```
 
 ```{hint}
-You can find all default configurations in your `ommelette/src/config/`.
+You can find all default configurations in your `omelette/src/config/`.
 ```

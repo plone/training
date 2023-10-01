@@ -4,7 +4,7 @@ myst:
     "description": "Learn How to code a custom template for the listing block"
     "property=og:description": "Learn How to code a custom template for the listing block"
     "property=og:title": "Grid listing variation"
-    "keywords": "Plone, Volto, Training, Block, Listing"
+    "keywords": "Plone, Volto, Training, Block, Listing, Variation"
 ---
 
 # Grid listing Variation
@@ -29,7 +29,7 @@ Create these inside of your "News and Events" Page in your training site. You ca
 - Sort on "Effective date" and "Reversed order"
 - "Results limit": 3
 
-The listing Block should already show you the 3 News Items.
+The listing Block should now show you the 3 News Items.
 
 
 ## create the actual variation
@@ -138,7 +138,7 @@ const ListingGridVariation = (props) => {
 export default ListingGridVariation;
 ```
 
-Note that the `moment` js is used here format the dates of the news items. This is the default library used in Volto for date formatting. We are also using Voltos builtin Icon to display the arrows in the button. This component can be used to easily display any svg icon from the volto core your `src/icons` folder.
+Note that the `moment` js is used here format the dates of the news items. This is the default library used in Volto for date formatting.
 
 To finish the styling, now add this provided CSS to your `custom.overrides`:
 
