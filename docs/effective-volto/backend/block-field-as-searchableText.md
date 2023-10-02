@@ -12,12 +12,15 @@ myst:
 Sometimes we want the blocks to be "text searchable", to participate in the
 SearchableText extracted for the document.
 
-There are two solutions for this, the simple but inneficient, and the
+There are two solutions for this, the simple but inefficient, and the
 efficient but more complicated.
 
+
 ## Client side solution
+
 The block provides the data to be indexed in its `searchableText` attribute:
 
+```json
 {
   "@type": "image",
   "align": "center",
@@ -26,6 +29,7 @@ The block provides the data to be indexed in its `searchableText` attribute:
   "size": "l",
   "url": "https://2021.ploneconf.org/images/logoandfamiliesalt.svg"
 }
+```
 
 This is the easy solution. The downside is the extra bits that have to be
 stored in the database and shuffled around in network communication from the
