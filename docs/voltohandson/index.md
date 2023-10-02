@@ -38,6 +38,7 @@ slider
 releaseblock
 listinggridvariation
 plonerealeasetype
+internationalization
 ```
 
 This training was originally created by Victor Fernandez de Alba (sneridagh) and kept up to date by Jakob Kahl (jackahl).
