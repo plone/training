@@ -29,13 +29,11 @@ This is done in the project `package.json`, `addons` key:
 ```json
 {
   "name": "my-nice-volto-project",
-  ...
   "addons": [
     "acme-volto-foo-addon",
     "@plone/some-addon",
     "collective-another-volto-addon"
-  ],
-  ...
+  ]
 }
 ```
 
@@ -57,8 +55,8 @@ along to the other add-ons.
 
 Some add-ons might choose to allow the Volto project to selectively load some of
 their configuration, so they may offer additional optional configuration functions,
-which you can load by overloading the add-on name in the `addons` `package.json`
-key, like so:
+which you can load by overloading the add-on name in the `addons`
+key in `package.json`, like so:
 
 ```{code-block} json
 :emphasize-lines: 4
