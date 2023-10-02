@@ -576,42 +576,15 @@ Great. We now have extension per teaser in our block which controls each item in
 
 ## Grid support to Teasers
 
-As mentioned before we will add grid support in our project to be able to have a whole `teaserGrid` working properly along with our extended code. In order to demonstrate it, we need to list teasers in grid system. We'll use `@kitconcept/volto-blocks-grid` for that and extend it in our own ways.
-
-First add `@kitconcept/volto-blocks-grid` in addons key and dependencies in package.json of your project's config.
-
-In your project's config:
-
-```{code-block} js
-addons: [
-    "@kitconcept/volto-blocks-grid",
-     "volto-teaser-tutorial",
-]
-
-dependencies: [
-    "@kitconcept/volto-blocks-grid": "*"
-]
-```
-
-You have to stop the frontend server and run `yarn install` again from the root of your project.
-
-```{note}
-Its essential that we load `volto-teaser-tutorial` after volto-blocks-grid so that we overrride teaser block the right way.
-```
-
-Now since, grid block from `@kitconcept/volto-blocks-grid` uses teaser from its blocksConfig we need to override it with our teaser block so that it is used instead of the one in `@kitconcept/volto-blocks-grid`.
+As mentioned before we will configure the grid-block to also use our extended teaser-block.
+We need to override the grid-block configuration with our teaser block.
 
 In your volto-teaser-tutorial addon's `index.js`:
 
 ```{code-block} js
-if (
-  config.blocks.blocksConfig?.__grid?.blocksConfig?.teaser &&
-  config.blocks.blocksConfig?.teaser
-) {
-  //This ensures that grid block uses our overrideen teaser
-  config.blocks.blocksConfig.__grid.blocksConfig.teaser =
+  //This ensures that grid block uses our overridden teaser
+  config.blocks.blocksConfig.gridBlock.blocksConfig.teaser =
     config.blocks.blocksConfig.teaser;
-}
 ```
 
 Woot. We will now have a grid block with our teaser variations so that each teaser can now have its own set of extensions.
