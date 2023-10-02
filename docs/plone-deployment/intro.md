@@ -27,6 +27,8 @@ The tools to use for this purpose reflect the opinions of the Plone community, b
 
 In this training we will focus on a basic setup that could be scaled to fit a big Plone installation, if needed.
 
+(deploy-training-choices-label)=
+
 ## Training Choices
 
 Linux
