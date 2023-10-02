@@ -21,7 +21,7 @@ proxy-ing some of Plone's browser views (for example the `@@images` or
 
 Here's, as an example, the Sitemap middleware:
 
-```
+```jsx
 import express from 'express';
 import { generateSitemap } from '@plone/volto/helpers';
 
@@ -54,7 +54,7 @@ Notice that this code should not get into the client bundle, so you should
 load it conditionally by placing it in a separate module.
 
 
-```
+```jsx
 export default applyConfig(config) {
   if (__SERVER__) {
     const makeMiddleware = require('./mymiddleware');
