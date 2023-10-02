@@ -13,7 +13,7 @@ Now that we have learnt on how to add a new variation to a teaser block. Sometim
 
 schemaEnhancers works on the concept of composition. They are just functions which take original schema, formdata and intl and return modified schema based on its arguments.
 
-In our variation, lets add a schemaEnhancer to modify existing schema and add a `CreationDate` from catalog metadata brain.
+In our variation, let's add a schemaEnhancer to modify existing schema and add a `CreationDate` from catalog metadata brain.
 
 ```{code-block} js
 
@@ -55,7 +55,7 @@ const formattedDate = formatDate({
 
 `data.href` contains the catalog brain properties which are requested via `selectedItemAttrs`. CreationDate is one of them. Notice we are using formatDate from Volto helpers which is used to parse date into respective formats on the basis of locales.
 
-Finaly render it conditionally on the basis of data.creationDate
+Finally render it conditionally on the basis of `data.creationDate`
 
 ```{code-block} jsx
 {

@@ -11,7 +11,7 @@ myst:
 
 Let's create a volto block that will display weather information for Eibar. For this we can use <a target="_blank" href="https://open-meteo.com/">Open-Meteo API</a>. Open-Meteo is an open-source weather API and offers free access for non-commercial use. No API key required.
 
-Creating a basic block in Volto, involves several steps. Below, I'll outline the steps to create a Volto block that displays the weather forecast in Eibar.
+Creating a basic block in Volto involves several steps. Below, I'll outline the steps to create a Volto block that displays the weather forecast in Eibar.
 
 1. **Setup Your Volto Project:** If you haven't already, set up a Volto project. You can use the instructions presented in [Installation -> Bootstrap a new Volto project](installation.md#bootstrap-a-new-volto-project) section.
 

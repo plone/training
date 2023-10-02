@@ -9,7 +9,7 @@ myst:
 
 # Enhance Teaser block with additional data
 
-Teaser block has an ability to let user mutate or intercept block settings data from their customization. The `dataAdapter` field gets registered in Teaser configuration in order to acheive this.
+The Teaser block has an ability to let user mutate or intercept block settings data from their customization. The `dataAdapter` field gets registered in Teaser configuration in order to achieve this.
 
 ```{code-block} js
 
@@ -66,10 +66,10 @@ export const TeaserBlockDataAdapter = ({
 
 The above dataAdapter intercepts the blocksData and modifies its properties namely `title,description,head_title`. Note that you can also add new fields here.
 
-We can register our own dataAdapter in place of this by maintaining same definition.
+We can register our own dataAdapter in place of this by maintaining the same definition.
 
 ```{note}
-In order for dataAdapters to work make sure the code of your block allows and consumes it in its implmentation.
+In order for dataAdapters to work make sure the code of your block allows and consumes it in its implementation.
 ```
 
 The above Adapter gets consumed in [Data](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Data.jsx#L47) component of teaser block.
