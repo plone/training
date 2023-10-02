@@ -1,92 +1,82 @@
 ---
 myst:
   html_meta:
-    "description": "Introduction to Plone stack for deployment"
-    "property=og:description": "Introduction to Plone stack for deployment"
-    "property=og:title": "Introduction to Plone stack for deployment"
-    "keywords": "Plone, deployment, stack"
+    "description": "Introduction to the Plone deployment stack"
+    "property=og:description": "Explore the components and configurations for deploying a modern Plone 6 site."
+    "property=og:title": "Introduction to the Plone deployment stack"
+    "keywords": "Plone, Deployment, Stack, Configuration, Guide"
 ---
+# Introduction to Plone Stack
 
-# Introduction to Plone stack
+Explore the intricate components of the Plone stack, tailored for deploying a modern Plone 6 site with a ReactJS-powered frontend.
+For deployments focusing on Plone Classic UI with server-side HTML rendering, the frontend component is excluded.
+This guide won’t cover the integration of a web accelerator or the setup of an edge caching service.
 
-The basic Plone stack consists out of different parts.
+## Components of the Plone Stack
 
-This training show the stack for a modern Plone 6 site with a ReactJS powered frontend.
-If it comes you need to deploy a Plone Classic UI site, with server side HTML rendering, the frontend part is omitted.
+### Webserver
 
-This architecture allows horizontal scaling where it is with most needed, on the rendering of HTML and JSON.
+The webserver, accessible externally on ports 80 and 443, handles the routing and rewriting of HTTP requests to the Plone frontend and backend, and is tasked with TLS termination. While {term}`Nginx` and {term}`Traefik` are recommended, other webservers can also be employed. This training will exclusively utilize Traefik.
 
-In this training we skip installing a reverse caching proxy between webserver and Plone nor we show setting up an edge caching service.
+### Web Accelerator
 
-## Webserver
+{term}`Varnish`, a web accelerator, is positioned between the external webserver and internal services to cache dynamically generated content. For a detailed Plone setup with Varnish, refer to the [volto-caching](https://github.com/collective/volto-caching) repository.
 
-Listening on ports 80 and 443, proxy requests to the Plone Frontend and Plone Backend.
+### Plone Frontend
 
-The webserver job is to route and rewrite HTTP requests to the frontend and backend and is responsible for TSL termination.
-We recommend either Nginx or Traefik, but other capable webservers work too.
+Hosted on a Node HTTP-server running on port 3000, the Plone frontend constitutes the default user interface and requires access to the Plone Backend and the webserver.
 
-## Plone Frontend
+### Plone Backend
 
-Node HTTP-server running on port 3000, hosts the default user interface for Plone.
-This process needs to have access to the Plone Backend service.
+Operating on port 8080, the Plone Backend, a WSGI process, serves as the HTTP server hosting the Plone API. It’s optimal to pair it with a specialized database like ZEO server or a relational database via RelStorage, supporting PostgreSQL, MySQL/MariaDB, and Oracle. A separate shared file system is essential for storing binary data if ZEO is employed.
 
-## Plone Backend
+### Database
 
-WSGI process running on port 8080, is the HTTP-server with Plone API.
+The database layer can range from a simple ZODB with file storage to more scalable options like a ZEO server or a relational database. This training will focus on using a PostgreSQL instance.
 
-Even though it's possible to run it without a specialized database, it's better you to point to either a ZEO server or a relational database.
-Supported relational databases are Postgresql, MySQL/MariaDB and Oracle.
-If a ZEO-server is used - and only then - a separate shared file system is needed to store binary data (blobs).
+## Deployment Configurations
 
-This process need to have access to the database service.
+### Basic Setup
 
-## Database
+#### Without Specialized Database
 
-The storage as a specialized database layer.
-It can be a simple file storage, which does not scale.
-It could be either a ZEO server or a relational database for scalable production setups.
-It stores content and binary data (relational database).
-
-# Basic Setup
-
-All services running on the same server.
-
-## Without a specialized database
-
+```
 Webserver -> Plone Frontend -> Plone Backend (file storage).
-
-```{note}
-This is recommended only for demo sites and trying out Plone.
 ```
 
-## With a specialized database
+```{note}
+Ideal for demo sites and Plone trials.
+```
 
+#### With Specialized Database
+
+```
 Webserver → Plone Frontend → Plone Backend → Database
+```
 
-# Multi-server Setup
+```{note}
+Solution to be presented in this training.
+```
 
-Different constallations are possible.
-In a multiserver setup load can distributed and reduncacy can be added through horizontal scaling.
+#### With Specialized Database and Caching
 
-## Webserver and Frontend
+```
+Webserver → Web Accelerator → Plone Frontend → Plone Backend → Database
+```
 
-### Both on one machine
+### Multi-server Setup
 
-Externally accessible on ports 80 and 443
+In a multi-server environment, load distribution and redundancy are achieved through various configurations, enabling horizontal scaling.
 
-Hosts web server and Plone Frontend processes.
+#### Webserver and Web Accelerator Layer
 
-### Both separated on own machines
+Externally accessible machine hosting both the webserver and web accelerator on ports 80 and 443.
 
-- Webserver on own machine.
-- Frontend on other machine(s) thus it can scale.
+#### Plone Application Layer (Frontend and Backend)
 
-## Plone Backend
+Hosts scalable Plone Frontend and Backend processes, enhancing performance and responsiveness.
 
-Hosts Plone Backend processes, listening on port 8080, made to scale.
+#### Database Layer
 
-## Database server
-
-Hosts either a Zeo server or a relational database.
-Most hosting providers offer managed relational database services with proper backup and replication, you should consider this as a primary option if you're not familiar with database management.
-If you do not have this option we recommend to use Postgresql.
+Can host a ZEO server or a relational database. Managed relational database services with backup and replication are
+recommended for those unfamiliar with database management, with PostgreSQL being a preferred choice.

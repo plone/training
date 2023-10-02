@@ -33,8 +33,9 @@ intro
 setup
 plone-stack
 plone-docker-images
-new-project
-edit-project
-provision
+project-new
+project-start
+project-edit
+server-setup
 deploy
 ```

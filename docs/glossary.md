@@ -277,3 +277,21 @@ plonecli
 GenericSetup
     [GenericSetup](https://5.docs.plone.org/develop/addons/components/genericsetup.html) is a framework to modify the Plone site during add-on package installation and uninstallation.
     It provides XML-based rules to change the site settings.
+
+cookiecutter-plone-starter
+    [cookiecutter-plone-starter](https://github.com/collective/cookiecutter-plone-starter) is a `cookiecutter` template, created by the Plone community, to bootstrap
+    a new Plone 6 project using Volto and a relational database.
+
+Traefik
+    [Traefik](https://doc.traefik.io/traefik/) is an open-source reverse proxy and load balancer designed to handle HTTP and TCP applications.
+    It simplifies the deployment and routing of services and is particularly well-suited for cloud-native and containerized environments,
+    offering features like automatic service discovery, middleware plugins, and robust security options.
+
+Nginx
+    [Nginx](https://nginx.org/en/) is a high-performance web server, reverse proxy, and load balancer that is known for its speed, reliability, and flexibility.
+    It can also serve as a mail proxy server and provides features for HTTP and TCP/UDP applications, making it a popular choice for serving web content,
+    optimizing resource utilization, and enhancing web performance and security.
+
+Varnish
+    [Varnish](https://varnish-cache.org/intro/) is a high-performance HTTP accelerator and reverse proxy caching server designed to speed up web applications by caching content in memory.
+    It serves stored content to users quickly, reducing the load on web servers and enhancing the overall user experience by delivering web pages at high speed.
