@@ -31,7 +31,7 @@ This command initiates the Backend server. Upon successful startup, you’ll obs
 
 Indicating the server is operational and awaiting requests on port 8080. Visit [http://localhost:8080](http://localhost:8080) to explore.
 
-```{figure} /_static/plone-deployment/backend-start-localhost.png
+```{figure} _static/backend_start_localhost.png
 :alt: Backend server initiation at http://localhost:8080
 
 Backend server initiation at http://localhost:8080
@@ -54,7 +54,7 @@ The Frontend initiation takes longer due to the initial codebase compilation. A 
 
 Signifying the Frontend server is active on port 3000. Access it via [http://localhost:3000](http://localhost:3000).
 
-```{figure} /_static/plone-deployment/frontend-start-localhost.png
+```{figure} _static/frontend_start_localhost.png
 :alt: Frontend server initiation at http://localhost:3000
 
 Frontend server initiation at http://localhost:3000
@@ -107,10 +107,8 @@ Re-run `make stack-status`, and both Backend and Frontend should now display a *
 
 Your website is accessible at [http://ploneconf2023.localhost](http://ploneconf2023.localhost).
 
-```{figure} /_static/plone-deployment/stack-start-localhost.png
+```{figure} _static/stack_start_localhost.png
 :alt: Accessing the site at http://ploneconf2023.localhost
-
-Accessing the site at http://ploneconf2023.localhost
 ```
 
 ### Updating the Codebase
