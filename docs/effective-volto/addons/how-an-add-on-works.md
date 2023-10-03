@@ -7,17 +7,17 @@ myst:
     "keywords": "Volto, Plone, Volto add-ons, JavaScript, JavaScript dependencies"
 ---
 
-# How does a Volto add-on works?
+# How does a Volto add-on work?
 
-Volto addon packages are just CommonJS packages. The only requirement is that
+Volto add-on packages are just CommonJS packages. The only requirement is that
 they point the `main` key of their `package.json` to a module that exports, as
 a default function that acts as a Volto configuration loader.
 
-Similarly to how you develop a Plone backend Python Add-on, you can control all aspects of Volto from a Volto Add-on.
+Similarly to how you develop a Plone backend Python add-on, you can control all aspects of Volto from a Volto add-on.
 
-This gives you the ability to move all your project configuration, components, customizations and even theme files to an add-on. This has the advantage to render the project configuration empty, so you could at any point not only reuse the add-on(s) outside the current project, but also have the project as simply boilerplate that could be replaced at any point (eg. a Volto update).
+This gives you the ability to move all your project configuration, components, customizations and even theme files to an add-on. This has the advantage to render the project configuration empty, so you could at any point not only reuse the add-on(s) outside the current project, but also have the project as simply boilerplate that could be replaced at any point (for example, a Volto update).
 
-An add-on can be published in an npm registry, just as any other package. However, Volto Add-ons should not be transpiled. They should be released as "source" packages.
+An add-on can be published in an npm registry, just as any other package. However, Volto add-ons should not be transpiled. They should be released as "source" packages.
 
 See [@kitconcept/volto-blocks-grid](https://github.com/kitconcept/volto-blocks-grid) as an example.
 
@@ -29,35 +29,34 @@ This is done in the project `package.json`, `addons` key:
 ```json
 {
   "name": "my-nice-volto-project",
-  ...
   "addons": [
     "acme-volto-foo-addon",
     "@plone/some-addon",
     "collective-another-volto-addon"
-  ],
-  ...
+  ]
 }
-
-```{warning}
-Adding the addon package to the `addons` key is obligatory! It allows Volto
-to treat that package properly and provide it with BabelJS language
-features. In Plone terminology, it is like including a Python egg to the
-`zcml` section of zc.buildout.
 ```
 
-By including the addon name in the `addons` key, the addon's main default export
+```{warning}
+Adding the add-on package to the `addons` key is obligatory! It allows Volto
+to treat that package properly and provide it with BabelJS language
+features. In Plone terminology, it is like including a Python egg to the
+`zcml` section of `zc.buildout`.
+```
+
+By including the add-on name in the `addons` key, the add-on's main default export
 function is executed, being passed the Volto configuration registry. In that
-function, the addon can customize the registry. The function needs to return
+function, the add-on can customize the registry. The function needs to return
 the `config` (Volto configuration registry) object, so that it's passed further
-along to the other addons.
+along to the other add-ons.
 
 
 ### Loading a Volto Add-on optional configuration
 
-Some addons might choose to allow the Volto project to selectively load some of
+Some add-ons might choose to allow the Volto project to selectively load some of
 their configuration, so they may offer additional optional configuration functions,
-which you can load by overloading the addon name in the ``addons`` package.json
-key, like so:
+which you can load by overloading the add-on name in the `addons`
+key in `package.json`, like so:
 
 ```{code-block} json
 :emphasize-lines: 4
@@ -77,7 +76,7 @@ If coming from the Plone backend development, you could map the main add-on conf
 
 ### Providing add-on configuration
 
-The default export of your addon main `index.js` file should be a function with
+The default export of your add-on main `index.js` file should be a function with
 the signature `config => config`.
 That is, it should take the `global` configuration object and return it,
 possibly mutated or changed. So your main `index.js` will look like:
@@ -103,15 +102,15 @@ export default function applyConfig(config) {
 }
 ```
 
-And the `package.json` file of your addon:
+And the `package.json` file of your add-on:
 
 ```json
 {
   "main": "src/index.js",
 }
 ```
-In effect, Volto does the equivalent of:
 
+In effect, Volto does the equivalent of:
 
 ```
 import installMyVoltoAddon from 'my-volto-addon'
@@ -120,20 +119,20 @@ import installMyVoltoAddon from 'my-volto-addon'
 const configRegistry = installMyVoltoAddon(defaultRegistry);
 ```
 
-So the Volto addon needs to export a default function
+So the Volto add-on needs to export a default function
 that receives the Volto configuration registry, is free to change the registry
 as it sees fit, then it needs to return that registry.
 
-Volto will chain-execute all the addon configuration functions to compute the
+Volto will chain-execute all the add-on configuration functions to compute the
 final configuration registry.
 
 ```{warning}
-An addon's default configuration method will always be loaded.
+An add-on's default configuration method will always be loaded.
 ```
 
 ### Providing optional add-on configurations
 
-You can export additional configuration functions from your addon's main
+You can export additional configuration functions from your add-on's main
 `index.js`.
 
 ```js
@@ -143,13 +142,13 @@ export { loadOptionalBlocks, overrideSomeDefaultBlock };
 export default applyConfig;
 ```
 
-## Addon dependencies
+## Add-on dependencies
 
-Addons can depend on any other JavaScript package, but they can also depend on
-other Volto addons. To do this, specify the name of your Volto addon dependency
+Add-ons can depend on any other JavaScript package, but they can also depend on
+other Volto add-ons. To do this, specify the name of your Volto add-on dependency
 in your `dependencies` key of `package.json` and create a new `addons` key in
-the `package.json` of your addon, where you specify the extra Volto addon
+the `package.json` of your add-on, where you specify the extra Volto add-on
 dependency.
 
-By doing this, the addons can "chain-load" one another, so you don't have to
+By doing this, the add-ons can "chain-load" one another, so you don't have to
 keep track of intermediary dependencies.
