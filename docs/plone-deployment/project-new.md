@@ -77,7 +77,7 @@ An example interaction with the `cookiecutter-plone-starter` wizard is shown bel
 Navigate to your project directory:
 
 ```shell
-cd ploneconf2023-<your-github-username>
+cd ploneconf2023
 ```
 
 ### Understanding the Codebase
