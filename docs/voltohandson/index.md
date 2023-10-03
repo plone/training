@@ -37,7 +37,7 @@ introtoblocks
 slider
 releaseblock
 listinggridvariation
-plonerealeasetype
+plonereleasetype
 internationalization
 ```
 
