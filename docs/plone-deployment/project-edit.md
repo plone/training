@@ -70,7 +70,7 @@ Follow GitHub's guide on [Creating an OAuth App](https://docs.github.com/en/apps
 
 ### Backend: Installing `pas.plugins.authomatic`
 
-Modify `backend/src/ploneconf2023/setup.py` to include `pas.plugins.authomatic` in `install_requires`. Also, update `backend/src/ploneconf2023/src/ploneconf2023/dependencies.yaml` to load the package configuration during Plone Backend startup.
+Modify `backend/src/ploneconf2023/setup.py` to include `pas.plugins.authomatic` in `install_requires`. Also, update `backend/src/ploneconf2023/src/ploneconf2023/dependencies.zcml` to load the package configuration during Plone Backend startup.
 
 ### Frontend: Installing `volto-authomatic`
 
