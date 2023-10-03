@@ -28,7 +28,7 @@ For participants of **Plone Conference 2023**, please use the following settings
 - `Project Title`: **Plone Conference Training**
 - `Project Slug`: **ploneconf2023**
 - `Project URL`: **ploneconf2023-\<your-github-username\>.tangrama.com.br**
-- `github_organization`: **\<your-github-username\>**
+- `GitHub User or Organization`: **\<your-github-username\>**
 ```
 
 An example interaction with the `cookiecutter-plone-starter` wizard is shown below:
@@ -59,7 +59,7 @@ An example interaction with the `cookiecutter-plone-starter` wizard is shown bel
     5 - Nederlands
     6 - Suomi
     Choose from [1/2/3/4/5/6] (1):
-  [15/18] GitHub Organization (collective): <your-github-username>
+  [15/18] GitHub User or Organization (collective): <your-github-username>
   [16/18] Container Registry
     1 - GitHub Container Registry
     2 - Docker Hub
