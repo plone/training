@@ -73,12 +73,11 @@ nvm use
 ```
 ````
 
-Install Yeoman and Yarn globally:
+Install Yeoman globally:
 
 ```shell
 nvm alias default "lts/*"
 npm install -g yo
-npm install -g yarn@3
 ```
 
 ### 6. **External Services**
