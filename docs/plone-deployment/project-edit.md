@@ -26,7 +26,7 @@ We’ll illustrate the process of integrating a Frontend add-on, `@plonegovbr/vo
 
 Edit {file}`frontend/src/addons/volto-ploneconf2023/package.json` and append `@plonegovbr/volto-code-block` to the `addons` and `dependencies` sections, as shown below:
 
-\```json
+```json
 "addons": [
   ...,
   "@plonegovbr/volto-code-block"
@@ -35,7 +35,7 @@ Edit {file}`frontend/src/addons/volto-ploneconf2023/package.json` and append `@p
   ...,
   "@plonegovbr/volto-code-block": "*"
 }
-\```
+```
 
 #### Reinstalling the Project
 
@@ -49,11 +49,11 @@ If the project is running, halt the Frontend with {kbd}`Ctrl-C`. Restart it with
 
 Format your codebase with `make format`, then commit and push the changes:
 
-\```shell
+```shell
 git add frontend/src/addons/volto-ploneconf2023/package.json frontend/yarn.lock
 git commit -m "Add @plonegovbr/volto-code-block"
 git push
-\```
+```
 
 ## Implementing OAuth Support with GitHub
 
@@ -78,7 +78,37 @@ Add `@plone-collective/volto-authomatic` to the `addons` and `dependencies` sect
 
 ### Activating and Configuring the Add-on
 
-Start the Docker Compose stack with `make stack-start`. Navigate to [http://ploneconf2023.localhost/ClassicUI/login](http://ploneconf2023.localhost/ClassicUI/login) and authenticate. Install `pas.plugins.authomatic` from the {guilabel}`Add-ons` control panel and configure it with the JSON configuration, replacing `KEYHERE` and `SECRETHERE` with your GitHub OAuth application’s client ID and secret.
+Start the Docker Compose stack with `make stack-start`. Navigate to [http://ploneconf2023.localhost/ClassicUI/login](http://ploneconf2023.localhost/ClassicUI/login) and authenticate.
+
+Install `pas.plugins.authomatic` from the {guilabel}`Add-ons` control panel and configure it with the following JSON configuration, replacing `KEYHERE` and `SECRETHERE` with your GitHub OAuth application’s client ID and secret.
+
+```json
+{
+  "github": {
+    "display": {
+      "title": "Github",
+      "cssclasses": {
+        "button": "btn btn-default",
+        "icon": "glypicon glyphicon-github"
+      },
+      "as_form": false
+    },
+    "propertymap": {
+      "email": "email",
+      "link": "home_page",
+      "location": "location",
+      "name": "fullname",
+      "picture": "avatar_url"
+    },
+    "class_": "authomatic.providers.oauth2.GitHub",
+    "consumer_key": "KEYHERE",
+    "consumer_secret": "SECRETHERE",
+    "access_headers": {
+      "User-Agent": "Plone (pas.plugins.authomatic)"
+    }
+  }
+}
+```
 
 ### Authenticating with GitHub
 
