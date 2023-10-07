@@ -93,16 +93,16 @@ npm install -g yo
 Make sure your computer is set up with the appropriate keys to access your GitHub account,
 as we will be utilizing GitHub extensively throughout this training.
 
-#### Container Registry
+#### Container Registry: GitHub or Docker Hub
 
-We'll use the GitHub Container Registry during the training, but the concepts are also applicable to Docker Hub. If you prefer Docker Hub:
+We'll use the GitHub Container Registry during the training. The concepts are also applicable to Docker Hub. If you prefer Docker Hub:
 
 - Create an account at [Docker Hub](https://hub.docker.com/).
 - Configure your local Docker to use Docker Hub credentials.
 
-```shell
-docker login
-```
+  ```shell
+  docker login
+  ```
 
 ### 7. **Cookiecutter**
 
