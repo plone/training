@@ -48,6 +48,12 @@ Ensure Docker version 20.10.18 or above is installed. Verify with:
 docker --version
 ```
 
+Ensure Docker is running. Verify with:
+
+```shell
+docker ps
+```
+
 ### 5. **Node and Node Tools**
 
 Install the latest Node LTS version using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
