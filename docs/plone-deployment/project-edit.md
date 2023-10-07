@@ -43,7 +43,10 @@ Execute `make install-frontend` from the repository root to install the new add-
 
 #### Restarting the Project
 
-If the project is running, halt the Frontend with {kbd}`Ctrl-C`. Restart it with `make start-frontend` and navigate to [http://localhost:3000](http://localhost:3000). After authentication, the new block becomes available on the content edit page.
+Start your project with: `make start-backend` and `make start-frontend` on different shells.
+
+If the project was running, halt the Frontend with {kbd}`Ctrl-C`. Restart it with `make start-frontend`
+and navigate to [http://localhost:3000](http://localhost:3000). After authentication, the new block becomes available on the content edit page.
 
 #### Committing Changes
 
