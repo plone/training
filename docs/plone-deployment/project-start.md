@@ -60,6 +60,9 @@ Signifying the Frontend server is active on port 3000. Access it via [http://loc
 Frontend server initiation at http://localhost:3000
 ```
 
+```{note}
+Default credentials: **admin/admin**.
+```
 
 ## Stopping the servers
 
