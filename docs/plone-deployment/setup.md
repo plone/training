@@ -111,3 +111,28 @@ The latest version of {term}`Cookiecutter` will be used, and it doesn’t requir
 ### 8. **Make**
 
 {term}`Make` is pre-installed on most Linux distributions. For macOS, install Xcode and its command-line tools. Windows users are advised to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) that includes `make`.
+
+### 9. **Troubleshooting**
+
+#### Insufficient Docker virtual disk space
+
+Docker requires sufficient virtual disk space to install and build images. A typical error message may be: `Could not create directory.` or anything else that mentions writing to the image.
+To resolve this, use an appropriate docker system prune option, such as:
+
+```
+docker system prune -a
+```
+
+See also [https://docs.docker.com/engine/reference/commandline/system_prune/](https://docs.docker.com/engine/reference/commandline/system_prune/)
+
+You can also configure settings for Docker Desktop. Under `Prefences > Resources > Advanced`, you can configure appropriate settings for virtual disk limit and memory.
+
+See also:
+- [Change Docker Desktop settings on Mac](https://docs.docker.com/desktop/settings/mac/#advanced)
+- [Change Docker Desktop settings on Windows](https://docs.docker.com/desktop/settings/windows/)
+- [Change Docker Desktop settings on Linux](https://docs.docker.com/desktop/settings/linux/)
+
+#### Insufficient Docker virtual memory
+
+Docker requires sufficient memory to install and build images. See the previous item for details.
+
