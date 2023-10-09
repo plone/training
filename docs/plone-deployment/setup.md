@@ -123,7 +123,9 @@ To resolve this, use an appropriate docker system prune option, such as:
 docker system prune -a
 ```
 
-See also [https://docs.docker.com/engine/reference/commandline/system_prune/](https://docs.docker.com/engine/reference/commandline/system_prune/)
+```{seealso}
+See also https://docs.docker.com/engine/reference/commandline/system_prune/.
+```
 
 You can also configure settings for Docker Desktop. Under `Prefences > Resources > Advanced`, you can configure appropriate settings for virtual disk limit and memory.
 
