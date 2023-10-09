@@ -127,7 +127,8 @@ docker system prune -a
 See also https://docs.docker.com/engine/reference/commandline/system_prune/.
 ```
 
-You can also configure settings for Docker Desktop. Under `Prefences > Resources > Advanced`, you can configure appropriate settings for virtual disk limit and memory.
+You can also configure settings for Docker Desktop.
+Under {guilabel}`Prefences > Resources > Advanced`, you can configure appropriate settings for virtual disk limit and memory.
 
 See also:
 - [Change Docker Desktop settings on Mac](https://docs.docker.com/desktop/settings/mac/#advanced)
