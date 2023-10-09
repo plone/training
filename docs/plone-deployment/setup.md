@@ -119,7 +119,7 @@ The latest version of {term}`Cookiecutter` will be used, and it doesn’t requir
 Docker requires sufficient virtual disk space to install and build images. A typical error message may be: `Could not create directory.` or anything else that mentions writing to the image.
 To resolve this, use an appropriate docker system prune option, such as:
 
-```
+```shell
 docker system prune -a
 ```
 
