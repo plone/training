@@ -10,7 +10,7 @@ myst:
 # Installation
 
 ```{warning}
-For the most up-to-date information on how to get started with Volto you can check the [official documentation](https://6.docs.plone.org/volto/getting-started/install.html).
+For the most up-to-date information on how to get started with Volto you can check the [official documentation](https://6.docs.plone.org/volto/index.html).
 ```
 
 Getting started with Volto involves setting up a development environment, understanding its core concepts, and exploring its features. Here's a step-by-step guide to help you begin your journey with Volto:
@@ -19,16 +19,16 @@ Getting started with Volto involves setting up a development environment, unders
 
 Before you start working with Volto, ensure you have the following prerequisites:
 
-- <a target="_blank" href="https://nodejs.org/en">Node.js LTS (16.x)</a> - (<a target="_blank" href="https://6.docs.plone.org/volto/getting-started/install.html#install-nvm-node-js-version-manager">see instructions for installation</a>)
+- <a target="_blank" href="https://nodejs.org/en">Node.js LTS (16.x)</a> - (<a target="_blank" href="https://6.docs.plone.org/install/install-from-packages.html#nvm">see instructions for installation</a>)
 - <a target="_blank" href="https://www.python.org/">Python</a> - See below for specific versions.
-- <a target="_blank" href="https://www.docker.com/get-started">Docker</a> (if using the Plone docker images - <a target="_blank" href="https://6.docs.plone.org/volto/getting-started/install.html#use-or-install-docker">see instructions for installation</a> and <a target="_blank" href="https://6.docs.plone.org/volto/getting-started/install.html#run-a-volto-ready-plone-docker-container">how to run a Plone docker container</a>)
+- <a target="_blank" href="https://www.docker.com/get-started">Docker</a> (if using the Plone docker images - <a target="_blank" href="https://6.docs.plone.org/install/containers/index.html">see instructions for installation and usage</a>)
 
 The versions of Python that are supported in Volto depend on the version of Plone that you use.
 
-| Plone | Python       | Volto |
-| ----- | ------------ | ----- |
-| 5.2   | 2.7, 3.6-3.8 | 15.0  |
-| 6.0   | 3.8-3.10     | 16.0  |
+| Plone | Python       | Volto        |
+| ----- | ------------ | ------------ |
+| 6.0   | 3.8-3.11     | 16.0 or 17.0 |
+| 5.2   | 2.7, 3.6-3.8 | 15.0         |
 
 Depending on the operating system that you are using, some of the following pre-requisites might change.
 They assume you have a macOS/Linux machine.
@@ -36,7 +36,7 @@ They assume you have a macOS/Linux machine.
 ## Bootstrap a new Volto project
 
 To bootstrap a new Volto project, you can use Yeoman [@plone/generator-volto](https://github.com/plone/generator-volto).
-First, install it as a global tool (<a target="_blank" href="https://6.docs.plone.org/volto/getting-started/install.html#yeoman">see instructions for installation</a>):
+First, install it as a global tool (<a target="_blank" href="https://6.docs.plone.org/volto/recipes/creating-project.html">see instructions for installation</a>):
 
 ```{code-block} shell
 npm install -g yo
@@ -253,5 +253,3 @@ Join the Volto community, participate in discussions, and ask questions on the V
 ```{warning}
 Getting started with Volto may seem complex at first, but with practice and exploration, you'll become more comfortable with its features and capabilities. It offers a powerful and flexible platform for building modern web applications with React and Plone.
 ```
-
-<!-- https://api.open-meteo.com/v1/forecast?latitude=43.18515020594871&longitude=-2.4716999868143192&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m -->

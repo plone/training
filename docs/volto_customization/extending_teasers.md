@@ -273,8 +273,7 @@ export default TeaserBlockImageDefault;
 
 TeaserBlockImageRight:
 
-```{code-block} jsx
-
+```jsx
 import React from "react";
 import PropTypes from "prop-types";
 import { Message } from "semantic-ui-react";
@@ -282,7 +281,11 @@ import { defineMessages, useIntl } from "react-intl";
 
 import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
 
-import { flattenToAppURL, isInternalURL, addAppURL } from "@plone/volto/helpers";
+import {
+  flattenToAppURL,
+  isInternalURL,
+  addAppURL,
+} from "@plone/volto/helpers";
 import { MaybeWrap } from "@plone/volto/components";
 import { formatDate } from "@plone/volto/helpers/Utils/Date";
 import { UniversalLink } from "@plone/volto/components";
@@ -354,10 +357,10 @@ const TeaserBlockImageRight = (props) => {
               </div>
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
-                <Image
-                    item={props['@type'] === 'listing' ? null : image || href}
+                  <Image
+                    item={props["@type"] === "listing" ? null : image || href}
                     src={
-                      props['@type'] === 'listing'
+                      props["@type"] === "listing"
                         ? addAppURL(`${href}/${image?.download}`)
                         : null
                     }
@@ -386,21 +389,23 @@ export default TeaserBlockImageRight;
 
 TeaserBlockImageOverlay:
 
-```{code-block} jsx
-
+```jsx
 import React from "react";
 import PropTypes from "prop-types";
 import { Message } from "semantic-ui-react";
 import { defineMessages, useIntl } from "react-intl";
 import cloneDeep from "lodash/cloneDeep";
 import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
-import { flattenToAppURL, isInternalURL, addAppURL } from "@plone/volto/helpers";
+import {
+  flattenToAppURL,
+  isInternalURL,
+  addAppURL,
+} from "@plone/volto/helpers";
 import { MaybeWrap } from "@plone/volto/components";
 import { formatDate } from "@plone/volto/helpers/Utils/Date";
 import { UniversalLink } from "@plone/volto/components";
 import cx from "classnames";
 import config from "@plone/volto/registry";
-
 
 const messages = defineMessages({
   PleaseChooseContent: {
@@ -472,10 +477,10 @@ const TeaserBlockImageOverlay = (props) => {
             <div className="teaser-item overlay">
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
-                 <Image
-                    item={props['@type'] === 'listing' ? null : image || href}
+                  <Image
+                    item={props["@type"] === "listing" ? null : image || href}
                     src={
-                      props['@type'] === 'listing'
+                      props["@type"] === "listing"
                         ? addAppURL(`${href}/${image?.download}`)
                         : null
                     }
@@ -519,7 +524,6 @@ The styles have to be added as well:
 
 ```{code-block} less
 :force: true
-
 .gradiant {
   h2 {
     color: white;

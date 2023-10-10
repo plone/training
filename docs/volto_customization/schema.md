@@ -49,27 +49,27 @@ So in the default schema for teaser block we have:
   },
 ```
 
-Notice the *variations* key, in which we can have multiple view templates for a given block. Right now its going to use the default one which is the [TeaserBlockDefaultBody](https://github.com/plone/volto/blob/985e419396b4d00567d12e7e309ea420012e9cc7/src/components/manage/Blocks/Teaser/DefaultBody.jsx#L1).
+Notice the _variations_ key, in which we can have multiple view templates for a given block. Right now its going to use the default one which is the <a target="_blank" href="https://github.com/plone/volto/blob/985e419396b4d00567d12e7e309ea420012e9cc7/src/components/manage/Blocks/Teaser/DefaultBody.jsx#L1">TeaserBlockDefaultBody</a>.
 
 We are going to create a new variation of this teaser block. This variation is essential because using it we will create block extensions per teaser. Later we can also enhance this variation with the new schema.
 
 Go ahead and extend the in the variations key of the teaser-block in `index.js` like this:
 
 ```js
-import TeaserBlockImageVariation from 'volto-teaser-tutorial/components/TeaserBlockImageVariation';
+import TeaserBlockImageVariation from "volto-teaser-tutorial/components/TeaserBlockImageVariation";
 
 const applyConfig = (config) => {
   // ...
   config.blocks.blocksConfig.teaser.variations = [
     ...config.blocks.blocksConfig.teaser.variations,
     {
-      id: 'image-top-variation',
-      title: 'Image(Top) variation',
+      id: "image-top-variation",
+      title: "Image(Top) variation",
       template: TeaserBlockImageVariation,
     },
-  ]
+  ];
   return config;
-}
+};
 
 export default applyConfig;
 ```
@@ -183,5 +183,5 @@ You could decide to modify the template here already though.
 In the coming chapter we are gonna enhance this variation with extension per teaser.
 
 ```{note}
-The [Body](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Body.jsx#L13) component in Teaser block also supports adding variations from component registry. You can read more about component registry in following chapters.
+The <a target="blank" href="https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Body.jsx#L13">Body</a> component in Teaser block also supports adding variations from component registry. You can read more about component registry in following chapters.
 ```
