@@ -78,8 +78,7 @@ We should create this view template in our `components/TeaserBlockImageVariation
 
 TeaserBlockImageVariation.jsx:
 
-```{code-block} jsx
-
+```jsx
 import React from "react";
 import PropTypes from "prop-types";
 import { Message } from "semantic-ui-react";
@@ -142,9 +141,9 @@ const TeaserBlockImageDefault = (props) => {
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
                   <Image
-                    item={props['@type'] === 'listing' ? null : image || href}
+                    item={props["@type"] === "listing" ? null : image || href}
                     src={
-                      props['@type'] === 'listing'
+                      props["@type"] === "listing"
                         ? addAppURL(`${href}/${image?.download}`)
                         : null
                     }

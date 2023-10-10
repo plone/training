@@ -13,7 +13,7 @@ You can configure Volto by modifying settings in a js-file.
 
 In our addon we can modify the `index.js`
 
-```{code-block} js
+```js
 const applyConfig = (config) => {
   return config;
 };
@@ -23,7 +23,7 @@ export default applyConfig;
 
 Here three settings are changed:
 
-```{code-block} js
+```js
 const applyConfig = (config) => {
   config.settings = {
     ...config.settings,
@@ -32,7 +32,7 @@ const applyConfig = (config) => {
     hasWorkingCopySupport: true,
   };
   return config;
-}
+};
 
 export default applyConfig;
 ```
@@ -50,7 +50,7 @@ For example the setting `supportedLanguages` must match the one set in the Plone
 
 To configure Volto as a multilingual project you do this:
 
-```{code-block} js
+```js
 const applyConfig = (config) => {
   config.settings = {
     ...config.settings,
@@ -59,7 +59,7 @@ const applyConfig = (config) => {
     supportedLanguages: ["en", "de", "fr"],
   };
   return config;
-}
+};
 
 export default applyConfig;
 ```

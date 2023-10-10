@@ -11,8 +11,7 @@ myst:
 
 The Teaser block has an ability to let user mutate or intercept block settings data from their customization. The `dataAdapter` field gets registered in Teaser configuration in order to achieve this.
 
-```{code-block} js
-
+```js
 teaser: {
     id: 'teaser',
     title: 'Teaser',
@@ -39,8 +38,7 @@ teaser: {
 
 The signature of `dataAdapter` is like this:
 
-```{code-block} js
-
+```js
 export const TeaserBlockDataAdapter = ({
   block,
   data,
@@ -76,23 +74,23 @@ The above Adapter gets consumed in <a target="_blank" href="https://github.com/p
 
 Let's register a new `dataAdapter` our config:
 
-```{code-block} js
-import {myOwnDataAdapter} from 'volto-teaser-tutorial/components/data-adapter';
+```js
+import { myOwnDataAdapter } from "volto-teaser-tutorial/components/data-adapter";
 
 config.blocks.blocksConfig.teaser.dataAdapter = myOwnDataAdapter;
 ```
 
 Create a file named data-adapter.js in `volto-teaser-tutorial/components`:
 
-```{code-block} js
-import isEmpty from 'lodash/isEmpty';
+```js
+import isEmpty from "lodash/isEmpty";
 
 export const myOwnDataAdapter = ({ block, data, id, onChangeBlock, value }) => {
   let dataSaved = {
     ...data,
     [id]: value,
   };
-  if (id === 'title' && !isEmpty(value)) {
+  if (id === "title" && !isEmpty(value)) {
     dataSaved = {
       ...dataSaved,
       title: value[0].toUpperCase() + value.slice(1),

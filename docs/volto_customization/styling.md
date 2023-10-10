@@ -20,8 +20,7 @@ Simply, the job of StyleWrapper is to inject classNames(build from schema) into 
 
 We see that in our Teaser config volto already calls the <a target="_blank" href="https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/helpers/Extensions/withBlockSchemaEnhancer.js#L297">addStyling</a> in the schema. The job of this function is to add styles field in the styling fieldset in schema provided.
 
-```{code-block} jsx
-
+```jsx
 export const TeaserSchema = ({ intl }) => {
   const schema = {
     title: intl.formatMessage(messages.teaser),
@@ -93,8 +92,7 @@ and then we can manipulate those fields by adding whatever styles we want. Let's
 
 In your variation schemaEnhancer:
 
-```{code-block} js
-
+```js
 config.blocks.blocksConfig.teaser.variations = [
   ...config.blocks.blocksConfig.teaser.variations,
   {
@@ -131,22 +129,25 @@ config.blocks.blocksConfig.teaser.variations = [
 
 As StyleWrapper wraps around our view component in `RenderBlocks`. The styleNames should be available in our component's rendered html.
 
-```{code-block} html
-
+```html
 <div class="block teaser has--align--left has--objectFit--contain">
-    <a href="/teaser-view">
-      <div class="teaser-item overlay">
-        <div class="image-wrapper">
-            <img src="/teaser-view/@@images/preview_image-600-dd112f14087d6a99687a9f94dd31a9a4.jpeg" alt="Alt image text" loading="lazy">
-        </div>
-        <div class="gradiant">
-          <div style="display: flex; flex-direction: column;">
-            <h2>teaser View</h2>
-            <p></p>
-          </div>
+  <a href="/teaser-view">
+    <div class="teaser-item overlay">
+      <div class="image-wrapper">
+        <img
+          src="/teaser-view/@@images/preview_image-600-dd112f14087d6a99687a9f94dd31a9a4.jpeg"
+          alt="Alt image text"
+          loading="lazy"
+        />
+      </div>
+      <div class="gradiant">
+        <div style="display: flex; flex-direction: column;">
+          <h2>teaser View</h2>
+          <p></p>
         </div>
       </div>
-    </a>
+    </div>
+  </a>
 </div>
 ```
 
@@ -186,10 +187,9 @@ StyleMenu is not the part of Blocks engine instead its a volto-slate plugin and 
 
 In your policy package, you can add styleMenu configuration like:
 
-```{code-block} jsx
-
-import paintSVG from '@plone/volto/icons/paint.svg';
-import { Icon } from '@plone/volto/components';
+```jsx
+import paintSVG from "@plone/volto/icons/paint.svg";
+import { Icon } from "@plone/volto/components";
 
 config.settings.slate.styleMenu = {
   ...(config.settings.slate.styleMenu || {}),

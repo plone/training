@@ -585,10 +585,10 @@ We need to override the grid-block configuration with our teaser block.
 
 In your volto-teaser-tutorial addon's `index.js`:
 
-```{code-block} js
-  //This ensures that grid block uses our overridden teaser
-  config.blocks.blocksConfig.gridBlock.blocksConfig.teaser =
-    config.blocks.blocksConfig.teaser;
+```js
+//This ensures that grid block uses our overridden teaser
+config.blocks.blocksConfig.gridBlock.blocksConfig.teaser =
+  config.blocks.blocksConfig.teaser;
 ```
 
 Woot. We will now have a grid block with our teaser variations so that each teaser can now have its own set of extensions.
