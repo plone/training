@@ -137,7 +137,6 @@ See also
 - [Change Docker Desktop settings on Linux](https://docs.docker.com/desktop/settings/linux/#advanced)
 ```
 - [Change Docker Desktop settings on Windows](https://docs.docker.com/desktop/settings/windows/)
-- [Change Docker Desktop settings on Linux](https://docs.docker.com/desktop/settings/linux/)
 
 #### Insufficient Docker virtual memory
 
