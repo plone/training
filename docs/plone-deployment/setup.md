@@ -48,6 +48,12 @@ Ensure Docker version 20.10.18 or above is installed. Verify with:
 docker --version
 ```
 
+Ensure Docker is running. Verify with:
+
+```shell
+docker ps
+```
+
 ### 5. **Node and Node Tools**
 
 Install the latest Node LTS version using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
@@ -87,16 +93,16 @@ npm install -g yo
 Make sure your computer is set up with the appropriate keys to access your GitHub account,
 as we will be utilizing GitHub extensively throughout this training.
 
-#### Container Registry
+#### Container Registry: GitHub or Docker Hub
 
-We'll use the GitHub Container Registry during the training, but the concepts are also applicable to Docker Hub. If you prefer Docker Hub:
+We'll use the GitHub Container Registry during the training. The concepts are also applicable to Docker Hub. If you prefer Docker Hub:
 
 - Create an account at [Docker Hub](https://hub.docker.com/).
 - Configure your local Docker to use Docker Hub credentials.
 
-```shell
-docker login
-```
+  ```shell
+  docker login
+  ```
 
 ### 7. **Cookiecutter**
 
@@ -105,3 +111,32 @@ The latest version of {term}`Cookiecutter` will be used, and it doesn’t requir
 ### 8. **Make**
 
 {term}`Make` is pre-installed on most Linux distributions. For macOS, install Xcode and its command-line tools. Windows users are advised to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) that includes `make`.
+
+### 9. **Troubleshooting**
+
+#### Insufficient Docker virtual disk space
+
+Docker requires sufficient virtual disk space to install and build images. A typical error message may be: `Could not create directory.` or anything else that mentions writing to the image.
+To resolve this, use an appropriate docker system prune option, such as:
+
+```shell
+docker system prune -a
+```
+
+```{seealso}
+[docker system prune](https://docs.docker.com/engine/reference/commandline/system_prune/)
+```
+
+You can also configure settings for Docker Desktop.
+Under {guilabel}`Prefences > Resources > Advanced`, you can configure appropriate settings for virtual disk limit and memory.
+
+```{seealso}
+- [Change Docker Desktop settings on Mac](https://docs.docker.com/desktop/settings/mac/#advanced)
+- [Change Docker Desktop settings on Windows](https://docs.docker.com/desktop/settings/windows/#advanced)
+- [Change Docker Desktop settings on Linux](https://docs.docker.com/desktop/settings/linux/#advanced)
+```
+
+#### Insufficient Docker virtual memory
+
+Docker requires sufficient memory to install and build images. See the previous item for details.
+
