@@ -50,7 +50,7 @@ you should define it as usual in CSS and set the variable `importGoogleFonts` ap
 @importGoogleFonts: true;
 ```
 
-Two more important Variables that are changed in plone.org are:
+Two more important variables that are changed in plone.org are:
 
 ```less
 @largeMonitorBreakpoint: 1330px;
