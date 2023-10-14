@@ -44,7 +44,7 @@ Edit the new file and add this:
 You can set it to any Google font available, and the online version of the font will be used.
 You can also set other variables concerning the font used, such as the sizes available.
 In case you want to use more than one font or a font that is self-hosted,
-you should define it as usual in CSS and set the variable `importGoogleFonts` appropriately. As `Assistant` is Google Font we will set:
+you should define it as usual in CSS and set the variable `importGoogleFonts` appropriately. As `Assistant` is a Google Font we will set:
 
 ```less
 @importGoogleFonts: true;
