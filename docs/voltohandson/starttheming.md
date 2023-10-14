@@ -56,7 +56,8 @@ Two more important variables that are changed in plone.org are:
 @largeMonitorBreakpoint: 1330px;
 @emSize: 16px;
 ```
-These Two Variables change the Width of the Default Container. Add them as well.
+These two variables change the width of the default container.
+Add them as well.
 
 
 ```{tip}
