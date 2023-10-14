@@ -34,14 +34,14 @@ Then, we replace the `Footer` component content to match the one from plone.org.
             <Grid.Column>
               <List>
                 <List.Header>
-                  <Link to="/why-plone">About Plone</Link>
+                  <a href="https://plone.org/why-plone">About Plone</a>
                 </List.Header>
                 <List.Content>
                   <List.Item>
-                    <Link to="/try-plone">Try Plone</Link>
+                    <a href="https://plone.org/try-plone">Try Plone</a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/download">Download Plone</Link>
+                    <a href="https://plone.org/download">Download Plone</a>
                   </List.Item>
                   <List.Item>
                     <a href="https://6.docs.plone.org">Documentation</a>
@@ -50,10 +50,10 @@ Then, we replace the `Footer` component content to match the one from plone.org.
                     <a href="https://training.plone.org">Training</a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/security">Security</Link>
+                    <a href="https://plone.org/security">Security</a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/roadmap">Roadmap</Link>
+                    <a href="https://plone.org/roadmap">Roadmap</a>
                   </List.Item>
                   <List.Item>
                     <a href="https://github.com/plone">Github</a>
@@ -64,23 +64,23 @@ Then, we replace the `Footer` component content to match the one from plone.org.
             <Grid.Column>
               <List>
                 <List.Header>
-                  <Link to="/community">Community</Link>
+                  <a href="https://plone.org/community">Community</a>
                 </List.Header>
                 <List.Content>
                   <List.Item>
                     <a href="https://community.plone.org/">Forum</a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/community/chat">Chat</Link>
+                    <a href="https://plone.org/community/chat">Chat</a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/contribute">Contribute code</Link>
+                    <a href="https://plone.org/contribute">Contribute code</a>
                   </List.Item>
                   <List.Item>
-                    <a href="/community/bugs">Report an issue</a>
+                    <a href="https://plone.org/community/bugs">Report an issue</a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/news-and-events">News and events</Link>
+                    <a href="https://plone.org/news-and-events">News and events</a>
                   </List.Item>
                   <List.Item>
                     <a href="https://ploneconf.org">Conference</a>
@@ -91,30 +91,30 @@ Then, we replace the `Footer` component content to match the one from plone.org.
             <Grid.Column>
               <List>
                 <List.Header>
-                  <Link to="/foundation">Foundation</Link>
+                  <a href="https://plone.org/foundation">Foundation</a>
                 </List.Header>
                 <List.Content>
                   <List.Item>
-                    <Link to="/foundation/members/application-procedure">
+                    <a href="https://plone.org/foundation/members/application-procedure">
                       Join the foundation
-                    </Link>
+                    </a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/foundation/board">Board</Link>
+                    <a href="https://plone.org/foundation/board">Board</a>
                   </List.Item>
                   <List.Item>
                     <a href="https://github.com/sponsors/plone">Donate</a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/foundation/sponsorship">Sponsors</Link>
+                    <a href="https://plone.org/foundation/sponsorship">Sponsors</a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/foundation/materials/foundation-resolutions/code-of-conduct">
+                    <a href="https://plone.org/foundation/materials/foundation-resolutions/code-of-conduct">
                       Code of conduct
-                    </Link>
+                    </a>
                   </List.Item>
                   <List.Item>
-                    <Link to="/foundation/members">Foundation members</Link>
+                    <a href="https://plone.org/foundation/members">Foundation members</a>
                   </List.Item>
                   <List.Item>
                     <a href="https://plone.teemill.com/">Shop</a>
@@ -125,9 +125,9 @@ Then, we replace the `Footer` component content to match the one from plone.org.
             <Grid.Column className="separated">
               <List>
                 <List.Header>
-                  <Link to="/news-and-events/plone-in-social-media">
+                  <a href="https://plone.org/news-and-events/plone-in-social-media">
                     Follow us
-                  </Link>
+                  </a>
                 </List.Header>
                 <List.Content>
                   <Grid textAlign="left" columns={2}>
@@ -177,7 +177,7 @@ Then, we replace the `Footer` component content to match the one from plone.org.
               <List>
                 <List.Header>
                   <List.Item>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    <a href="https://plone.org/privacy-policy">Privacy Policy</a>
                   </List.Item>
                 </List.Header>
                 <List.Content>
@@ -210,7 +210,7 @@ Then, we replace the `Footer` component content to match the one from plone.org.
     </div>
 ```
 
-and add this styling to the `custom.overrides` file:
+And we Add this styling to the `custom.overrides` file:
 
 ```less
 //Footer
