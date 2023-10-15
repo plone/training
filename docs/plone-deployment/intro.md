@@ -1,76 +1,63 @@
 ---
 myst:
   html_meta:
-    "description": "Introduction for Plone Deployment with Ansible and Docker"
-    "property=og:description": "Introduction for Plone Deployment with Ansible and Docker"
-    "property=og:title": "Introduction for Plone Deployment with Ansible and Docker"
-    "keywords": "Introduction, Plone, Deployment, Ansible, Docker"
+    "description": "Introduction to Plone Deployment with Ansible and Docker"
+    "property=og:description": "Learn how to deploy Plone efficiently and robustly using Ansible and Docker."
+    "property=og:title": "Plone Deployment with Ansible and Docker"
+    "keywords": "Plone, Deployment, Ansible, Docker, Training"
 ---
 
 # Introduction
 
-The subject of this training is the deployment of Plone for production purposes.
+This training material provides insights into deploying Plone for production.
+We aim to impart skills for automating deployment processes,
+ensuring that you can transform a fresh Linux server into an efficient and robust Plone server.
 
-We will, in particular, be focusing on automating deployment using tools which can target
-a fresh Linux server and create on it an efficient, robust server.
+## Target Audience
 
-That target server may be a cloud server newly created on {term}`AWS`, {term}`Linode` or {term}`DigitalOcean`.
+Whether you are looking to deploy on a newly created cloud server on {term}`AWS`, {term}`Linode`, or {term}`DigitalOcean`,
+or considering a virtual machine on your personal computer for testing, this training is tailored for you.
 
-Or, it may be a virtual machine created for testing on your own desk or laptop.
+## Objectives
 
-The goal is that these deployments are _repeatable_.
-If you run the automated deployment multiple times against multiple cloud servers, you should get the same results.
+- Achieve repeatable deployments.
+- Ensure consistency across multiple deployment instances.
+- Impart knowledge on the tools reflecting the Plone community's preferences.
 
-If you run the automated deployment against a virtual machine on your laptop, you should be able to test it as if it was a matching cloud server.
+## Training Content
 
-The tools to use for this purpose reflect the opinions of the Plone community, but they are not the only way of deploying Plone in production.
+We will delve into a basic setup, scalable to accommodate extensive Plone installations.
 
-In this training we will focus on a basic setup that could be scaled to fit a big Plone installation, if needed.
+### Training Choices
 
-## Training Choices
+#### Linux
 
-Linux
+While BSD, macOS, and Windows are viable options, the Plone community predominantly prefers Linux for production servers.
+However, any system capable of running Python should suffice for development purposes.
 
-> BSD is great.
-> macOS is familiar.
-> Windows works fine, too.
-> But the majority experience in the Plone community is with Linux for production servers.
-> That doesn't mean you have to use Linux for your laptop or desktop; anything that runs Python is likely fine.
+#### Major Distributions
 
-Major distributions
+We support and recommend Ubuntu LTS for server setup. Debian and other distributions with up-to-date packages are also compatible.
 
-> Ubuntu LTS is supported for the server setup and in the training.
-> Debian is very similar.
-> Other distributions with recent packages might work too.
+#### Platform Packages
 
-Platform packages
+Prioritize platform packages to leverage automatic updates. Opt for usability over the latest versions to ensure stability and security.
 
-> Use platform packages whenever possible.
-> The non-Plone components on your server should be automatically able to update using your platform tools.
-> If a platform package is usable, use it even if it isn't the newest, coolest version.
+#### Ansible
 
-Ansible
+Ansible stands out for its serverless nature, Python foundation, and user-friendly YAML configuration language,
+making it a preferred choice for deployment automation.
 
-> There are all sorts of great tools for automating deployment.
-> People at various times have chosen Puppet, Salt/Minion and other tools.
-> This training uses Ansible because it requires no preinstalled server part, it's written in Python,
-> and its configuration language is YAML, which is easy to read.
+#### Docker and Docker Swarm
 
-Docker and Docker Swarm
+Embrace the consistency and repeatability offered by containers. Docker, complemented by Docker Swarm,
+simplifies the setup process, making it accessible even for beginners.
 
-> Containers guarantee repeatable deployments that could run both locally and in production.
-> Docker is the most famous solution in this landscape, has good documentation and is in use by our community.
-> Docker Swarm is a toolset that's easy to explain and setup, even for new users.
+#### GitHub and GitHub Actions
 
-GitHub and GitHub actions
+With Plone’s development anchored on GitHub, the community is gravitating towards GitHub Actions for new packages.
+The principles outlined are adaptable to GitLab, Jenkins, and similar platforms.
 
-> Plone's development happens on GitHub, and the community is increasingly adopting GitHub actions in their new packages
-> Concepts explained here could be adapted to other environments like GitLab and Jenkins
+#### Kubernetes
 
-Kubernetes
-
-> This version of the training doesn't (yet) support Kubernetes, but this may change in the near future
-
-And ...
-
-> Particular parts of the deployment stack are discussed in the next section.
+While the current training edition doesn’t cover Kubernetes, we anticipate its inclusion in upcoming updates.

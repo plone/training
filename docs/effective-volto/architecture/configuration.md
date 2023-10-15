@@ -15,7 +15,7 @@ browser window, there will be one single instance of that JavaScript object.
 The advantage of the global configuration registry is the simplicity in working
 with it.
 
-To use it in your custom code, you simply do:
+To import the singleton object, you simply do:
 
 ```
 import config from '@plone/volto/registry';
@@ -29,6 +29,19 @@ The configuration registry object has several branches:
 - `addonRoutes` and `addonReducers`
 - `components`
 
-This is the object that gets passed to the `applyConfig` configuration
-initializers. You can read it and mutate it at Volto's project and addons
-initialization.
+You can easily inspect this configuration by `console.log`.
+
+This configuration object is produced as a result of the following process:
+
+- Volto defines a base configuration (check [plone/volto](https://github.com/plone/volto) `src/config` folder
+- Volto passes this base configuration to the addons configuration loader chain
+  (all the default exported `applyConfig` from the defined Volto addons)
+- Each of these addons will directly change the configuration object, adding,
+  removing or tweaking existing settings.
+- Then it is passed to your custom Volto project `applyConfig`.
+- And finally, it is made available as the singleton importable object.
+
+This process is performed by the user's browser any time then (re)load a Volto
+page. Any changes to the configuration object should be performed at this
+"bootup", and not as a result of user interaction. The configuration registry
+is local to a browser tab, it's not shared between tabs.

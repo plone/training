@@ -18,7 +18,7 @@ From MDN:
 An example of a cross-origin request: the front-end JavaScript code served from `https://domain-a.com` uses XMLHttpRequest to make a request for `https://domain-b.com/data.json`.
 
 Plone 6 Volto and Plone 6 backend communicate with each other using XHR requests, and since the fronted is a pure JavaScript application, it has to comply with CORS rules.
-Either if it's while you are in development or in production enviroments.
+This is valid at all times, no matter if you are in development or in a production enviroment. But if you use Volto Seamless mode for deployment (where the plone.restapi endpoints are exposed under the same domain as the frontend) then the browser is not affected by CORS issues, as the requests come from the same domain.
 
 Plone has a way to configure the CORS headers in order to allow domains to access it.
 
@@ -45,6 +45,10 @@ These scenarios are:
 - Using the internal proxy provided by Volto's NodeJS SSR server
 
 During development, the last one is the one you are going to use.
-The backend will live in `http://localhost:8080/Plone` and the frontend in `http://localhost:3000`.
+The default backend will live in `http://localhost:8080/Plone` and the frontend in `http://localhost:3000`. If your Plone site is not named `Plone` (so its url is something like `http://localhost:8080/mysite`, you can still use Seamless mode by creating a file called `.env.development` in the Volto project root with something like this:
 
-In production, you'll probably will be using Volto's Seamless mode, so you won't be defining any custom API_PATH but using `++api++` traversal, and reverse proxying it through your webserver.
+```
+RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite
+```
+
+In production, you'll probably will be using Volto's Seamless mode, so you won't be defining any custom `API_PATH` but using `++api++` traversal, and reverse proxying it through your webserver.

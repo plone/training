@@ -1,128 +1,142 @@
 ---
 myst:
   html_meta:
-    "description": "Plone deployment training setup"
+    "description": "Step-by-step guide to setting up your system for Plone deployment training"
     "property=og:description": "Plone deployment training setup"
-    "property=og:title": "Plone deployment training setup"
-    "keywords": "Plone, deployment, training, setup"
+    "property=og:title": "Setting Up for Plone Deployment Training"
+    "keywords": "Plone, Deployment, Training, Setup, Installation"
 ---
 
-# Training setup
+# Training Setup
 
-Your computer should have the following software.
-Please prepare this before the training starts.
+Ensure a seamless learning experience by preparing your computer with the necessary software before the training commences.
 
-## Software
+## Pre-requisites
 
-### Operating System
+### 1. **Operating System**
 
-Use recent versions of Linux or macOS.
+- **Linux/macOS:** A recent version is preferred. macOS users should have [Homebrew](https://brew.sh/) installed.
+- **Windows:** Consider using [WSL2 with Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10), though it’s not officially tested for this training.
 
-For macOS users, also have Homebrew installed.
+### 2. **Code Editor**
 
-Windows with [WSL2 and Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10) could work too but was not checked for this training.
+Choose a code editor you’re comfortable with, such as VSCode, PyCharm, Sublime, VI, or Emacs.
 
-### Code Editor
+### 3. **Python**
 
-Code editor of your choice (VSCode, Pycharm, Sublime, VI, Emacs)
+Install Python version 3.10.x or 3.11.x, ensuring that `pip` is included and updated.
 
-### Python
-
-Python version 3.9.x or 3.10.x.
-
-Ensure Pip is installed and up to date.
-
-```{tip}
-If the system does not provide a suitable version, you can use [Pyenv](https://github.com/pyenv/pyenv) to install almost any Python version.
+```shell
+python -m pip install --upgrade pip
 ```
 
-### Docker
+Install `pipx` for managing Python applications:
 
-[Docker](https://docs.docker.com/get-docker/) should be version 20.10.18 or above (Check it with `docker --version`)
+```shell
+python -m pip install --upgrade install pipx
+```
 
-### Node and Node tools
+```{tip}
+Use [Pyenv](https://github.com/pyenv/pyenv) if your system doesn’t provide the required Python version.
+```
 
-Latest Node LTS version (Node 16), latest NPM, Yarn (classic, not 2.x) and Yeoman.
+### 4. **Docker**
 
-Install [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
+Ensure Docker version 20.10.18 or above is installed. Verify with:
 
-Use it to install the latest version of Node LTS and NPM (hint: check if a newer minor or bugfix release is available).
+```shell
+docker --version
+```
+
+Ensure Docker is running. Verify with:
+
+```shell
+docker ps
+```
+
+### 5. **Node and Node Tools**
+
+Install the latest Node LTS version using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
 
 ```shell
 nvm install "lts/*"
 ```
 
 ```{warning}
-The current Node LTS Version (Node 18 - v18.12.1) is not supported by Volto at this time.
-Use the older LTS Version (Node 16 - currently v16.17.1) instead.
+Ensure to use the Node LTS Version (18) that is officially supported by Volto.
 ```
 
 ```shell
-nvm install "16"
+nvm install "18"
 ```
 
 ````{todo}
-In an upcoming version of the cookiecutter template, there will be a file `.nvmrc` within the generated project that will simplify and combine the foregoing steps.
-When it is released, you will use the following commands.
+In future versions of the cookiecutter template, a `.nvmrc` file will be included to simplify Node version management. The commands below will be applicable then.
 
 ```shell
 nvm install
 nvm use
 ```
-
 ````
 
-Now with a current Node LTS version installed, install additional tools globally:
-
-* Yeoman
-* Yarn
+Install Yeoman globally:
 
 ```shell
 nvm alias default "lts/*"
 npm install -g yo
-npm install -g yarn
 ```
 
-Then execute `curl -o- -L https://yarnpkg.com/install.sh | bash` to install Yarn.
+### 6. **External Services**
 
-### Vagrant
+#### GitHub Account
 
-- [Vagrant](https://developer.hashicorp.com/vagrant/downloads) and VirtualBox or libvirt (Linux / macOS).
+Make sure your computer is set up with the appropriate keys to access your GitHub account,
+as we will be utilizing GitHub extensively throughout this training.
 
-```{warning}
-VirtualBox does not run on Apple Silicon, use libvirt+qemu instead.
-```
+#### Container Registry: GitHub or Docker Hub
 
-```{note}
-We use Vagrant boxes in this training as a replacement for an external server.
-```
-
-## External Services
-
-### GitHub Account
-
-Please make sure your computer has the correct keys to your Github account.
-
-### Container Registry
-
-During the training we will use the GitHub Container Registry, but everything explained here also applies to Docker Hub usage.
-If you are willing to follow the training using Docker Hub as your registry, please:
+We'll use the GitHub Container Registry during the training. The concepts are also applicable to Docker Hub. If you prefer Docker Hub:
 
 - Create an account at [Docker Hub](https://hub.docker.com/).
-- Configure your local Docker to use Docker Hub credentials with `docker login`
+- Configure your local Docker to use Docker Hub credentials.
 
-While Gitlab with it's container registry works the same, we do not include it in the training.
+  ```shell
+  docker login
+  ```
 
-## Cookiecutter
+### 7. **Cookiecutter**
 
-- Install or upgrade {term}`Cookiecutter` in your user's Python:
+The latest version of {term}`Cookiecutter` will be used, and it doesn’t require a separate installation as we’ll use `pipx`.
+
+### 8. **Make**
+
+{term}`Make` is pre-installed on most Linux distributions. For macOS, install Xcode and its command-line tools. Windows users are advised to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) that includes `make`.
+
+### 9. **Troubleshooting**
+
+#### Insufficient Docker virtual disk space
+
+Docker requires sufficient virtual disk space to install and build images. A typical error message may be: `Could not create directory.` or anything else that mentions writing to the image.
+To resolve this, use an appropriate docker system prune option, such as:
 
 ```shell
-pip install --user --upgrade cookiecutter
+docker system prune -a
 ```
 
-## Make
+```{seealso}
+[docker system prune](https://docs.docker.com/engine/reference/commandline/system_prune/)
+```
 
-{term}`Make` comes installed on most Linux distributions.
-On macOS, you must first [install Xcode](https://developer.apple.com/xcode/resources/), then install its command line tools.
-On Windows, it is strongly recommended to [Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install), which will include `make`.
+You can also configure settings for Docker Desktop.
+Under {guilabel}`Prefences > Resources > Advanced`, you can configure appropriate settings for virtual disk limit and memory.
+
+```{seealso}
+- [Change Docker Desktop settings on Mac](https://docs.docker.com/desktop/settings/mac/#advanced)
+- [Change Docker Desktop settings on Windows](https://docs.docker.com/desktop/settings/windows/#advanced)
+- [Change Docker Desktop settings on Linux](https://docs.docker.com/desktop/settings/linux/#advanced)
+```
+
+#### Insufficient Docker virtual memory
+
+Docker requires sufficient memory to install and build images. See the previous item for details.
+

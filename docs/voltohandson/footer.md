@@ -21,231 +21,193 @@ import { Logo } from '@plone/volto/components';
 We also need the `Grid` component from Semantic UI:
 
 ```jsx
-import { Grid } from 'semantic-ui-react';
+import { Container, List, Grid } from 'semantic-ui-react';
 ```
 
-Then, we replace the `Footer` component content to match the one from `plone.org`.
+Then, we replace the `Footer` component content to match the one from plone.org.
 
 ```jsx
-<>
-  <Segment
-    role="contentinfo"
-    vertical
-    padded
-    inverted
-    textAlign="center"
-    id="footer"
-  >
-    <Container>
-      <Grid textAlign="left" columns={6}>
-        <Grid.Column>
-          <List inverted>
-            <List.Header>
-              <UniversalLink href="/about-plone">
-                Plone Foundation
-              </UniversalLink>
-            </List.Header>
-            <List.Content>
-              <List.Item>
-                <UniversalLink href="/donate">Donate & Sponsors</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/meeting">Meeting minutes</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/board">Current board</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/board">Foundation members</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/coc">Code of Conduct</UniversalLink>
-              </List.Item>
-            </List.Content>
-          </List>
-        </Grid.Column>
-        <Grid.Column>
-          <List inverted>
-            <List.Header>
-              <UniversalLink href="/support">Support</UniversalLink>
-            </List.Header>
-            <List.Content>
-              <List.Item>
-                <UniversalLink href="/community/chat">Chat room</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="https://community.plone.org/">
-                  Forums
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/locals">Local user groups</UniversalLink>
-              </List.Item>
-            </List.Content>
-          </List>
-        </Grid.Column>
-        <Grid.Column>
-          <List inverted>
-            <List.Header>
-              <UniversalLink href="/downloads">Downloads</UniversalLink>
-            </List.Header>
-            <List.Content>
-              <List.Item>
-                <UniversalLink href="/get-plone">Get Plone</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/addons">All add-ons</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/security">Security</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/hotfixes">Check hotfixes</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="https://github.com/plone">
-                  Browse source
-                </UniversalLink>
-              </List.Item>
-            </List.Content>
-          </List>
-        </Grid.Column>
-        <Grid.Column>
-          <List inverted>
-            <List.Header>
-              <UniversalLink href="https://docs.plone.org/">
-                Documentation
-              </UniversalLink>
-            </List.Header>
-            <List.Content>
-              <List.Item>
-                <UniversalLink href="https://docs.plone.org/">
-                  Full documentation
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="https://training.plone.org/">
-                  Training
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="http://docs.plone.org/manage/installing/">
-                  Installation
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="https://www.youtube.com/c/PloneCMS">
-                  YouTube
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="https://www.linkedin.com/company/plone-foundation/">
-                  Linkedin
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/about">About this site</UniversalLink>
-              </List.Item>
-            </List.Content>
-          </List>
-        </Grid.Column>
-        <Grid.Column>
-          <List inverted>
-            <List.Header>
-              <UniversalLink href="/contribute">Contribute</UniversalLink>
-            </List.Header>
-            <List.Content>
-              <List.Item>
-                <UniversalLink href="/roadmap">Roadmap</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/report-bugs">
-                  Report bugs in Plone
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/security">
-                  Report website issues
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="/skills">Contribute skills</UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="https://github.com/plone">
-                  Contribute code
-                </UniversalLink>
-              </List.Item>
-            </List.Content>
-          </List>
-        </Grid.Column>
-        <Grid.Column>
-          <List inverted>
-            <List.Header>
-              <UniversalLink href="/contribute">Stay up to date</UniversalLink>
-            </List.Header>
-            <List.Content>
-              <List.Item>
-                <UniversalLink href="/newsletter">
-                  Newsletter signup
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="http://planet.plone.org/">
-                  Planet Plone (blogs)
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="https://twitter.com/plone">
-                  @plone on Twitter
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="https://www.facebook.com/plonecms/">
-                  PloneCMS on Facebook
-                </UniversalLink>
-              </List.Item>
-              <List.Item>
-                <UniversalLink href="https://www.linkedin.com/groups/2300">
-                  Plone LinkedIn group
-                </UniversalLink>
-              </List.Item>
-            </List.Content>
-          </List>
-        </Grid.Column>
-      </Grid>
-    </Container>
-  </Segment>
-  <Segment id="sub-footer">
-    <Container>
-      <Grid columns={4}>
-        <Grid.Column>
-          <Logo />
-        </Grid.Column>
-        <Grid.Column>
-          <p>
-            The text and illustrations in this website are licensed by the Plone
-            Foundation under a Creative Commons Attribution-ShareAlike 4.0
-            International license.
-          </p>
-        </Grid.Column>
-        <Grid.Column>
-          <p>
-            Plone and the Plone® logo are registered trademarks of the Plone
-            Foundation, registered in the United States and other countries. For
-            guidelines on the permitted uses of the Plone trademarks, see{' '}
-            <UniversalLink href="https://plone.org/foundation/logo">
-              https://plone.org/foundation/logo
-            </UniversalLink>
-          </p>
-        </Grid.Column>
-        <Grid.Column>
-          <p>All other trademarks are owned by their respective owners.</p>
-        </Grid.Column>
-      </Grid>
-    </Container>
-  </Segment>
-</>
+<div id="footer">
+      <Container>
+        <div id="footer-main">
+          <Grid textAlign="left" columns={4}>
+            <Grid.Column>
+              <List>
+                <List.Header>
+                  <Link to="/why-plone">About Plone</Link>
+                </List.Header>
+                <List.Content>
+                  <List.Item>
+                    <Link to="/try-plone">Try Plone</Link>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/download">Download Plone</Link>
+                  </List.Item>
+                  <List.Item>
+                    <a href="https://6.docs.plone.org">Documentation</a>
+                  </List.Item>
+                  <List.Item>
+                    <a href="https://training.plone.org">Training</a>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/security">Security</Link>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/roadmap">Roadmap</Link>
+                  </List.Item>
+                  <List.Item>
+                    <a href="https://github.com/plone">Github</a>
+                  </List.Item>
+                </List.Content>
+              </List>
+            </Grid.Column>
+            <Grid.Column>
+              <List>
+                <List.Header>
+                  <Link to="/community">Community</Link>
+                </List.Header>
+                <List.Content>
+                  <List.Item>
+                    <a href="https://community.plone.org/">Forum</a>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/community/chat">Chat</Link>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/contribute">Contribute code</Link>
+                  </List.Item>
+                  <List.Item>
+                    <a href="/community/bugs">Report an issue</a>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/news-and-events">News and events</Link>
+                  </List.Item>
+                  <List.Item>
+                    <a href="https://ploneconf.org">Conference</a>
+                  </List.Item>
+                </List.Content>
+              </List>
+            </Grid.Column>
+            <Grid.Column>
+              <List>
+                <List.Header>
+                  <Link to="/foundation">Foundation</Link>
+                </List.Header>
+                <List.Content>
+                  <List.Item>
+                    <Link to="/foundation/members/application-procedure">
+                      Join the foundation
+                    </Link>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/foundation/board">Board</Link>
+                  </List.Item>
+                  <List.Item>
+                    <a href="https://github.com/sponsors/plone">Donate</a>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/foundation/sponsorship">Sponsors</Link>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/foundation/materials/foundation-resolutions/code-of-conduct">
+                      Code of conduct
+                    </Link>
+                  </List.Item>
+                  <List.Item>
+                    <Link to="/foundation/members">Foundation members</Link>
+                  </List.Item>
+                  <List.Item>
+                    <a href="https://plone.teemill.com/">Shop</a>
+                  </List.Item>
+                </List.Content>
+              </List>
+            </Grid.Column>
+            <Grid.Column className="separated">
+              <List>
+                <List.Header>
+                  <Link to="/news-and-events/plone-in-social-media">
+                    Follow us
+                  </Link>
+                </List.Header>
+                <List.Content>
+                  <Grid textAlign="left" columns={2}>
+                    <Grid.Column>
+                      <List>
+                        <List.Content>
+                          <List.Item>
+                            <a href="https://plone.social/@plone" rel="me">
+                              Mastodon
+                            </a>
+                          </List.Item>
+                          <List.Item>
+                            <a href="https://twitter.com/plone">Twitter</a>
+                          </List.Item>
+                          <List.Item>
+                            <a href="https://www.instagram.com/plonecms/">
+                              Instagram
+                            </a>
+                          </List.Item>
+                        </List.Content>
+                      </List>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <List>
+                        <List.Content>
+                          <List.Item>
+                            <a href="https://www.youtube.com/@plonecms">
+                              YouTube
+                            </a>
+                          </List.Item>
+                          <List.Item>
+                            <a href="https://www.linkedin.com/company/plone-foundation/">
+                              Linkedin
+                            </a>
+                          </List.Item>
+                          <List.Item>
+                            <a href="https://www.facebook.com/plonecms">
+                              Facebook
+                            </a>
+                          </List.Item>
+                        </List.Content>
+                      </List>
+                    </Grid.Column>
+                  </Grid>
+                </List.Content>
+              </List>
+              <List>
+                <List.Header>
+                  <List.Item>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
+                  </List.Item>
+                </List.Header>
+                <List.Content>
+                  <List.Item>Cookie Settings</List.Item>
+                </List.Content>
+              </List>
+            </Grid.Column>
+          </Grid>
+        </div>
+      </Container>
+      <div id="footer-small-wrapper">
+        <Container>
+          <div id="footer-small">
+            <div className="logo">
+              <Logo />
+            </div>
+            <div className="address">
+              The text and illustrations in this website are licensed by the
+              Plone Foundation under a Creative Commons Attribution-ShareAlike
+              4.0 International license. Plone and the Plone® logo are
+              registered trademarks of the Plone Foundation, registered in the
+              United States and other countries. For guidelines on the permitted
+              uses of the Plone trademarks, see
+              https://plone.org/foundation/logo. All other trademarks are owned
+              by their respective owners.
+            </div>
+          </div>
+        </Container>
+      </div>
+    </div>
 ```
 
 and add this styling to the `custom.overrides` file:
@@ -253,43 +215,97 @@ and add this styling to the `custom.overrides` file:
 ```less
 //Footer
 #footer {
-  background-color: #113156;
-  color: #dfe6ec;
-  padding-top: 55px;
-  .ui.grid {
-    .ui.list {
-      a:hover {
-        text-decoration: underline;
-      }
-      .header {
-        margin-bottom: 19px;
+  padding: 2rem 0 0 0;
+  margin: 1rem 0 0 0;
+  box-shadow: 0px 5px 7px 5px rgba(119, 119, 119, 0.1);
 
-        a {
-          font-size: 15px;
-          color: #dfe6ec;
+  #footer-main {
+    display: flex;
+    /*
+     *margin-right: -15px;
+     *margin-left: -15px;
+     */
+    .ui {
+      width: 100%;
+
+      .column {
+        flex: 1 1 25%;
+
+        &.separated {
+          border-left: 1px solid @black;
         }
-      }
-      .item {
-        margin-bottom: 6px;
-        a {
-          font-size: 12.5px;
+
+        .list {
+          padding: 0;
+          font-size: 0.8rem;
+          list-style-type: none;
+
+          .header {
+            display: flex;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: normal;
+
+            a {
+              &:hover,
+              &:active,
+              &:focus {
+                color: @primaryColor;
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .content {
+            .item {
+              margin-bottom: 0.7em;
+              color: @black;
+              line-height: 1.5;
+
+              a {
+                color: @black !important;
+
+                &:hover,
+                &:active,
+                &:focus {
+                  color: @primaryColor;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
         }
       }
     }
   }
-}
 
-#sub-footer {
-  background: #1f1238;
-  margin-top: 0;
-  border: none;
-  padding-top: 36px;
-  padding-bottom: 54px;
-  p,
-  a {
-    color: @white;
-    font-size: 11.5px;
-    font-weight: bold;
+  #footer-small-wrapper {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    background-color: #f9f9f9;
+
+    #footer-small {
+      display: flex;
+      align-items: center;
+      font-size: 0.7rem;
+
+      .logo {
+        flex: 0 0 auto;
+      }
+
+      .address {
+        padding: 0 0.5rem;
+      }
+
+      .logo {
+        padding-right: 1.5rem;
+      }
+
+      .address {
+        color: @black;
+        line-height: 1.3;
+      }
+    }
   }
 }
 ```

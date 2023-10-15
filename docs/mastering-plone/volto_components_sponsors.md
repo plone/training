@@ -11,14 +11,9 @@ myst:
 
 # The Sponsors Component
 
-````{sidebar} Plone Frontend Chapter
-
-```{topic} Description
 Create a React component for content fetched from the backend
-```
 
-
----
+````{card} Frontend chapter
 
 Get the code! ({doc}`More info <code>`)
 
@@ -38,6 +33,7 @@ git checkout sponsors
 In the previous chapter {doc}`dexterity_3` you created the `sponsor` content type.
 Now let's learn how to display content of this type.
 
+```{card}
 To be solved task in this part:
 
 - Advert to sponsors on all pages, sorted by level
@@ -51,6 +47,7 @@ Topics covered:
 - Create React component
 - Use React action of Volto to fetch data from Plone via REST API
 - Style component with Semantic UI
+```
 
 ```{figure} _static/volto_component_sponsors.png
 :alt: Sponsors component

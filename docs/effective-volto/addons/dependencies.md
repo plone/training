@@ -14,15 +14,18 @@ in your addon's `addons` key, just like you do in your project. By doing so,
 that other addon's configuration loader is executed first, so you can depend on
 the configuration being already applied. Another benefit is that you'll have
 to declare only the "top level" addon in your project, the dependencies will be
-discovered and automatically treated as Volto addons. For example, volto-slate
-depends on volto-object-widget's configuration being already applied, so
-volto-slate can declare in its package.json:
+discovered and automatically treated as Volto addons. For example, the Volto
+addon volto-eea-kitkat, which is the Volto umbrela addon that registers
+a default set of addons for the EEA websites, depends on many other addons:
 
 ```
 {
-  "name": "volto-slate",
+  "name": "volto-eea-kitkat",
   ...
-  "addons": ['@eeacms/volto-object-widget']
+  "addons": [
+    '@eeacms/volto-matomo',
+    // ...
+  ]
 }
 ```
 
