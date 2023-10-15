@@ -9,7 +9,7 @@ myst:
 
 # Acceptance testing
 
-Volto's acceptance testing (also known as e2e testing) is done using [Cypress](https://www.cypress.io/).
+Volto's acceptance testing (also known as E2E, end-to-end testing) is done using [Cypress](https://www.cypress.io/).
 
 There are a number of fixtures available covering all the configuration use cases.
 These fixtures have both a specific backend and frontend configuration setup and a related set of tests.
@@ -57,10 +57,7 @@ There are convenience commands for each of these fixtures. See `Makefile` for mo
 Go to the `cypress/tests` folder to see existing tests.
 There is a directory per fixture.
 This directory is hot reloaded with your changes as you write the tests.
-For more information on how to write Cypress tests:
-
-    https://docs.cypress.io
-
+For more information on how to write Cypress tests visit the [official Cypress documentation](https://docs.cypress.io)
 
 ## Helper commands
 
@@ -104,7 +101,7 @@ More information about this: https://www.cypress.io/blog/2018/11/14/testing-redu
 
 #### Volto settings
 
-You can modify on the fly the main Volto settings like this:
+You can modify "on the fly" the main Volto settings like this:
 
 ```js
 cy.settings().then(settings => {

@@ -9,32 +9,17 @@ myst:
 
 (dexterity-2-talk-label)=
 
-# Dexterity II: Talks
+# Content types II: Talk
 
-````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
-```
+> **Backend chapter**
+> 
+> Get the code of `ploneconf.site` at branch 'base'.  
+> {doc}`more info on how to get the code <code>`
 
-Get the code! ({doc}`More info <code>`)
-
-Code for the beginning of this chapter:
-
-```shell
-git checkout volto
-```
-
-Code for the end of this chapter:
-
-```shell
-git checkout talks
-```
-````
 
 In this part you will solve the following task:
 
-- Create a contenttype 'talk' to store all the data required for a talk
+- Create a content type 'talk' to store all the data required for a talk
 
 Topics covered:
 
@@ -158,67 +143,67 @@ class ITalk(model.Schema):
 
     directives.widget(type_of_talk=RadioFieldWidget)
     type_of_talk = schema.Choice(
-        title='Type of talk',
-        values=['Talk', 'Training', 'Keynote'],
+        title="Type of talk",
+        values=["talk", "training", "keynote"],
         required=True,
     )
 
     details = RichText(
-        title='Details',
-        description='Description of the talk (max. 2000 characters)',
+        title="Details",
+        description="Description of the talk (max. 2000 characters)",
         max_length=2000,
         required=True,
     )
 
     directives.widget(audience=CheckBoxFieldWidget)
     audience = schema.Set(
-        title='Audience',
+        title="Audience",
         value_type=schema.Choice(
-            values=['Beginner', 'Advanced', 'Professional'],
+            values=['beginner', 'advanced', 'professional'],
         ),
         required=False,
     )
 
     speaker = schema.TextLine(
-        title='Speaker',
-        description='Name (or names) of the speaker',
+        title="Speaker",
+        description="Name (or names) of the speaker",
         required=False,
     )
 
     company = schema.TextLine(
-        title='Company',
+        title="Company",
         required=False,
     )
 
     email = Email(
-        title='Email',
-        description='Email adress of the speaker',
+        title="Email",
+        description="Email adress of the speaker",
         required=False,
     )
 
     website = schema.TextLine(
-        title='Website',
+        title="Website",
         required=False,
     )
 
     twitter = schema.TextLine(
-        title='Twitter name',
+        title="Twitter name",
         required=False,
     )
 
     github = schema.TextLine(
-        title='Github username',
+        title="Github username",
         required=False,
     )
 
     image = NamedBlobImage(
-        title='Image',
-        description='Portrait of the speaker',
+        title="Image",
+        description="Portrait of the speaker",
         required=False,
     )
 
     speaker_biography = RichText(
-        title='Speaker Biography (max. 1000 characters)',
+        title="Speaker Biography (max. 1000 characters)",
         max_length=1000,
         required=False,
     )
@@ -294,3 +279,10 @@ In one of the next chapters we will create a custom view for the new type.
 - You can now control the data that will be stored for talks.
 - You can reuse and adapt these examples to model data for your own use-cases.
 - Next up: After looking at even more fields that are available in Plone, you will learn to change how talks are displayed.
+
+
+```{seealso}
+Documentation {doc}`plone6docs:backend/fields`
+[Example content type](https://github.com/collective/example.contenttype)
+A Plone content type with all available fields
+```

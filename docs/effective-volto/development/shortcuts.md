@@ -7,7 +7,7 @@ myst:
     "keywords": "Volto, Plone, Webpack, JavaScript, Packaging"
 ---
 
-# Shortcuts
+# Shortcuts (name aliases)
 
 Volto provides the following available names for JavaScript and LESS imports:
 
@@ -19,6 +19,15 @@ Both `@root` and `@package` points to the current top level of either our Volto 
 
 ```{deprecated} Volto 17.0.0
 Since `@package` naming is confusing, specially in an add-on environment, it will be deprecated from Volto 17.0.0 on, in favor of `@root`. In the meanwhile, both shortcuts are enabled.
+```
+
+### Customizing `@root` imports.
+
+There's a few places in Volto that use `@root` imports. They reference the "Volto project", but an addon can still customize those (in the scenario where you don't want to touch the Volto project generated scaffolding), by creating a file such as `src/customizations/@root/theme.js`. This way, for example, an addon could implement its own custom `semantic.less` file:
+
+```js
+import '@eeacms/volto-eea-design-system/semantic.less';
+import '@plone/volto/../theme/themes/pastanaga/extras/extras.less';
 ```
 
 ## volto-themes

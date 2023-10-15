@@ -27,7 +27,7 @@ These changes are reflected in different releases of Plone.
 
 The [release-schedule](https://plone.org/download/release-schedule) specifies, which versions are supported and for how long.
 
-```{figure} https://plone.org/download/plonereleaseschedule-2022-09-12.png/@@images/image
+```{figure} https://plone.org/download/release-schedule/plone-release-schedule-2022-12-13.png/@@images/image
 :alt: The Plone release schedule
 ```
 
@@ -39,10 +39,10 @@ Security support
 : Plone security hotfixes will be made available for this series.
   For more information, see the [security update policy](https://plone.org/security/update-policy).
 
-From the moment Plone 6 is released, Plone 6.0.x will be under maintenance support, and Plone 5.2.x will be under security support.
-That means new features are being developed for Plone 6.1.x, and bugfixes are being developed for Plone 6.0.x.
+From the moment Plone 6 was released, Plone 6.0.x was under maintenance support, and Plone 5.2.x will be under security support when Plone 6.1 is released.
+That means new features are being developed for Plone 6.1.x while bugfixes are being developed for Plone 6.0.x.
 
-Plone intends to provide stable releases (for example, 5.2.8 is a stable release of the 5.2.x series).
+Plone intends to provide stable releases (for example, 5.2.14 is a stable release of the 5.2.x series).
 Only bugfixes and changes that extend or improve an existing feature—as long as they don't break anything—make it into a bugfix release.
 
 
@@ -144,7 +144,7 @@ Each of these major changes requires special treatment during an upgrade that ma
 With Plone 5.0 the default framework for content types switched from Archetypes to Dexterity.
 
 Up through Plone 5.2.x, there is a built-in migration from Archetypes to Dexterity, but it only supports Python 2.
-See [Migration](https://pypi.org/project/plone.app.contenttypes/2.2.3/#migration) in the latest stable release of `plone.app.contenttypes` for details on the migration of custom and default content types to Dexterity.
+See [Migration](https://pypi.org/project/plone.app.contenttypes) in the latest stable release of `plone.app.contenttypes` for details on the migration of custom and default content types to Dexterity.
 
 Using [collective.exportimport](https://pypi.org/project/collective.exportimport/) you can export Archetypes content and import it as Dexterity content.
 

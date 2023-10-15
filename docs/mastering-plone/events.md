@@ -11,13 +11,7 @@ myst:
 
 # Turning Talks into Events
 
-````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
-
----
+````{card} Frontend chapter
 
 Get the code! ({doc}`More info <code>`)
 

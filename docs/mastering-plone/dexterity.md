@@ -9,14 +9,7 @@ myst:
 
 (dexterity1-label)=
 
-# Dexterity I: Content types
-
-```{eval-rst}
-..  todo::
-
-    * Add Volto screenshots for dexterity content type forms
-
-```
+# Content types I
 
 In this part you will:
 
@@ -24,20 +17,17 @@ In this part you will:
 - Customize existing types
 - Create a content type through the web
 
-Topics covered:
-
-- Default and custom content types
-- Modifying existing content types
-- Dexterity
 
 (dexterity1-what-label)=
 
 ## What is a content type?
 
-A content type is a kind of object that can store information and is editable by users.
+A content type instance is a kind of object that can store information and is editable by users.
 We have different content types to reflect the different kinds of information about which we need to collect and display information.
 
-Pages, folders, events, news items, files (binary) and images are all content types.
+Pages, events, news items, files (binary) and images are all content types.
+
+See "Features of Plone – {ref}`features-content-types-label`" for an overview.
 
 It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
 
@@ -56,8 +46,7 @@ Every Plone content type has the following parts:
 
 Schema
 
-: A definition of fields that comprise a content type;
-properties of an object.
+: A definition of fields that comprise a content type, properties of an object.
 
 FTI
 
@@ -259,9 +248,12 @@ Modify Pages to allow uploading an image as decoration (like News Items do).
 The images are displayed above the title.
 ```
 
-```{seealso}
+## Further reading
+- Documentation {doc}`plone6docs:backend/fields`
+- [Example content type](https://github.com/collective/example.contenttype) A Plone content type with all available fields
+
+Plone 5 documentation
 - [Dexterity Developer Manual](https://5.docs.plone.org/external/plone.app.dexterity/docs/index.html)
 - [The standard behaviors](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
 - [Dexterity XML](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html)
 - [Model-driven types](https://5.docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types)
-```

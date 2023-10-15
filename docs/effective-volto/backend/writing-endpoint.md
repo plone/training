@@ -34,3 +34,21 @@ class BreadcrumbsGet(Service):
         # ... pseudocode
         return extract_something_from(self.context)
 ```
+
+Make sure that the return value is compatible with JSON serialization. You may
+need to convert the value. plone.restapi provides an extensible adapter-based
+function for this, the `plone.restapi.serializer.converters.json_compatible`.
+
+A common pattern is to reuse a content expander class in your service
+implementation. You can do it like:
+
+```python
+from plone.restapi.services import Service
+from plone.restapi.interfaces import IExpandableElement
+
+class BreadcrumbsGet(Service):
+    def reply(self):
+        # ... pseudocode
+        expander = getMultiAdapter((self.context, self.request), interface=IExpandableElement, name="breadcrumbs")
+        return expander(expand=True)['breadcrumbs']
+```

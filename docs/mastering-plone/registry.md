@@ -11,25 +11,18 @@ myst:
 
 # Vocabularies, Registry-Settings and Control Panels
 
-````{sidebar} Get the code!
+````{card} Backend chapter
 
-Code for the beginning of this chapter:
-
-```shell
-# backend
-git checkout frontpage
-```
-
-Code for the end of this chapter:
+Get the code: https://github.com/collective/ploneconf.site
 
 ```shell
-# backend
-git checkout registry
+git checkout vocabularies
 ```
 
-{doc}`code`
+More info in {doc}`code`
 ````
 
+```{card} 
 In this part you will:
 
 - Store custom settings in the registry
@@ -42,6 +35,7 @@ Topics covered:
 - plone.app.registry
 - Vocabularies
 - Control panels
+```
 
 
 ## Introduction
@@ -394,12 +388,10 @@ Now you will add a custom control panel to edit all settings related to our pack
 To register a control panel for the frontend and Plone Classic you need quite a bit of boiler-plate:
 
 ```{code-block} python
-:emphasize-lines: 1-2, 4, 156-176
+:emphasize-lines: 3, 154-163
 :linenos:
 
 from plone import schema
-from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
-from plone.app.registry.browser.controlpanel import RegistryEditForm
 from plone.autoform import directives
 from plone.restapi.controlpanels import RegistryConfigletPanel
 from zope.component import adapter
@@ -552,17 +544,6 @@ class IPloneconfSettings(Interface):
     )
 
 
-class PloneconfRegistryEditForm(RegistryEditForm):
-    schema = IPloneconfSettings
-    schema_prefix = "ploneconf"
-    label = "Ploneconf Settings"
-
-
-
-class PloneConfControlPanelFormWrapper(ControlPanelFormWrapper):
-    form = PloneconfRegistryEditForm
-
-
 @adapter(Interface, Interface)
 class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
     """Volto control panel"""
@@ -575,23 +556,14 @@ class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
     group = "Products"
 ```
 
-You also need to register the view and the adapter in {file}`browser/configure.zcml`:
+You also need to register the adapter in {file}`browser/configure.zcml`:
 
 ```{code-block} xml
 :linenos:
-:emphasize-lines: 4,10
 
-    <browser:page
-        name="ploneconf-controlpanel"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        class=".controlpanel.PloneConfControlPanelFormWrapper"
-        permission="cmf.ManagePortal"
-        layer="ploneconf.site.interfaces.IPloneconfSiteLayer"
-        />
-
-    <adapter
-        factory="ploneconf.site.browser.controlpanel.PloneConfRegistryConfigletPanel"
-        name="ploneconf-controlpanel" />
+  <adapter
+    factory="ploneconf.site.browser.controlpanel.PloneConfRegistryConfigletPanel"
+    name="ploneconf-controlpanel" />
 ```
 
 Finally register the configlet with Generic Setup so that it gets listed in the {guilabel}`Site Setups` panels list.
@@ -599,7 +571,7 @@ Add a file {file}`profiles/default/controlpanel.xml`:
 
 ```{code-block} xml
 :linenos:
-:emphasize-lines: 10
+:emphasize-lines: 9
 
 <?xml version="1.0"?>
 <object name="portal_controlpanel">
@@ -608,9 +580,6 @@ Add a file {file}`profiles/default/controlpanel.xml`:
       action_id="ploneconf-controlpanel"
       appId="ploneconf-controlpanel"
       category="Products"
-      condition_expr=""
-      icon_expr=""
-      url_expr="string:${portal_url}/@@ploneconf-controlpanel"
       visible="True">
     <permission>Manage portal</permission>
   </configlet>

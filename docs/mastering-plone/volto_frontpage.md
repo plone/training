@@ -11,34 +11,25 @@ myst:
 
 # Creating a dynamic frontpage with Volto blocks
 
-````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
----
+Show selected content on the front page by criterion.
 
-Get the code! ({doc}`More info <code>`)
+````{card} Frontend chapter
+
+Get the code: https://github.com/collective/ploneconf.site
 
 ```{note}
 Despite this is a frontend chapter, we are working on backend code in `ploneconf.site`.
 ```
 
-Code for the beginning of this chapter:
-
-```shell
-git checkout behaviors_1
-```
-
-Code for the end of this chapter:
-
 ```shell
 git checkout frontpage
 ```
+
+More info in {doc}`code`
 ````
 
-Show selected content on the front page.
 
+```{card}
 In this part you will:
 
 - Use a listing block to show content marked as "featured"
@@ -47,6 +38,7 @@ In this part you will:
 Topics covered
 
 - collection criterion
+```
 
 
 We prepared a behavior for content types to store the information if the content should be featured in the previous  chapter.
@@ -105,9 +97,7 @@ To understand this code snippet, we have to know the information and tags we are
 - The group value defines the group under which the entry shows up in the selection widget, in our case `Metadata`.
 
 ```{note}
-For a full list of all existing QueryField declarations see <https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml#L245>
-
-For a full list of all existing operations see <https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml#L1>
+For a list of existing QueryField declarations and operations see https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml
 ```
 
 Like explained in the last chapter we can now restart the instance and import the newly added profile by using the `portal_setup` in our ZMI.

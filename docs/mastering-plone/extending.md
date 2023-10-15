@@ -7,22 +7,13 @@ myst:
     "keywords": ""
 ---
 
+% TODO 1st prio: Complete overhaul of "extending" on backend side. Spans this and next two chapters. Zope component architecture, generic setup, overriding, layers, zcml, pipapo.
+
 (extending-label)=
 
 # Extending Plone
 
-````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
-```
-
-Extending Volto frontend:
-
-- {ref}`volto-richtexteditor-label`
-- {ref}`volto-addon-label`
-- {ref}`volto-custom-addon-label`
-````
+```{card} Backend chapter
 
 In this part you will:
 
@@ -30,37 +21,34 @@ In this part you will:
 
 Topics covered:
 
-- Overriding python or react components
-- Component Architecture
+- Overriding Python components
+- Component architecture
 - ZCML
 - GenericSetup
-
-Topic of the following chapter:
-
-- Extending Plone with existing add-ons
+```
 
 As a developer you want to go further than simply configuring Plone, you want to extend and customize it.
 Plone is built to be extended.
 Extendability is not an afterthought but is the core of Plone and the systems it is based on.
 Instead it is the core of its architecture.
 
-```{note}
-Plone itself even started out as an extension for CMF, which is an extension for Zope. Now Plone is the basis for many applications that extend it.
-```
+> Plone consists of a Python backend and a React frontend.
+> They are connected via the REST API.
+> Thus you have two different layers that you can customize.
 
-Plone consists of a Python backend and a React frontend. They are connected via the REST API. Thus you have two different layers that you can customize.
+Therefore we create two different extension packages to customize and extend Plone:
 
-Therefore we create two different extension-packages to customize and extend Plone:
-
-1. One is a python package that holds e.g. content types, dexterity-behaviors and configuration.
-2. The other is a javascript package that hold views, styling and customization of the frontend.
+1. One is a Python package that holds e.g. content types, behaviors and configuration.
+2. The other is a Javascript package that hold views, styling and customization of the frontend.
 
 Sometimes it is easy to know, which layer needs to be customized to achieve a certain result.
 
-- All styling and javascript-based interaction is customized on the Volto-layer of Plone
-- Content types and other persistent data should be customized or created in a python-package
+- All styling and javascript-based interaction is customized on the Volto side of Plone.
+- Content types and other persistent data is customized or created in a Python package.
 
-For more complex use-cases you will need to add code to both parts of our customization-story. For example a content type will be defined in the python-package and its visualization will be defined in the javascript-package.
+For more complex use cases you will need to add code to both parts of our customization story.
+For example a content type is defined in the Python package and its visualization is defined in the Javascript package.
+
 
 (extending-technologies-label)=
 
@@ -72,12 +60,15 @@ This depends on what type of extension you want to create.
 
 ```{only} not presentation
 - You can create extensions with new types of objects to add to your Plone site. Usually these are content types.
-- You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a converter from jpg to text.
+- You can create an extension that changes or extends functionality. For example to change the way Plone displays search results, or to make pictures searchable by adding a transformer from image to text.
 ```
 
-For most projects you mix all kinds of methods to extend Plone.
+For most projects you combine multiple kinds of methods to extend Plone.
 
-### Component Architecture
+
+(extending-technologies-component-architecture-label)=
+
+## Component Architecture
 
 ```{only} presentation
 - State of the art
@@ -115,7 +106,7 @@ This is what you want to use.
 
 (extending-components-label)=
 
-### Configuring Zope Components with ZCML
+## Configuring Zope Components with ZCML
 
 ```{only} presentation
 - zcml (Zope Component Markup Language) is used to register components
@@ -141,7 +132,10 @@ It may seem a little cumbersome that you have to register all components. But th
 
 ```
 
-### GenericSetup
+
+(extending-technologies-generic-setup-label)=
+
+## GenericSetup
 
 ```{only} presentation
 - Old style
@@ -160,7 +154,7 @@ Typically you use *GenericSetup* to change workflows or add new content type def
 GenericSetup profiles may also be built into Python packages. Every package that is listed on the add-on package list inside a Plone installation has a GS profile that details how it fits into Plone. Packages that are part of Plone itself may have GS profiles, but are excluded from the active/inactive listing.
 ```
 
-Example:
+Examples of a profile of an add-on in `profile/default/`
 
 {file}`metadata.xml`:
 
@@ -176,9 +170,9 @@ Example:
 </metadata>
 ```
 
-Most settings are stored in a tool called `portal_registry`. Since it has great import/export handlers for GenericSetup it can be configures with {file}`registry.xml`:
+Most settings are stored in a tool called `portal_registry`. Since it has great import/export handlers for GenericSetup it can be configured with {file}`registry/main.xml`:
 
-{file}`registry.xml`:
+{file}`registry/main.xml`:
 
 ```xml
 <?xml version="1.0"?>

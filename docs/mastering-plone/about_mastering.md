@@ -1,81 +1,72 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "What to expect. Trainings on site. Training videos."
+    "property=og:description": "What to expect. Trainings on site. Training videos."
+    "property=og:title": "About Mastering Plone development"
+    "keywords": "Plone, training, develop"
 ---
 
 (about-mastering-label)=
 
-# About Mastering Plone
+# About Mastering Plone development
 
-*Mastering Plone Development Training* is both: an online training and a handout for on-site trainings. We address developers. You are interested in best practice guides and want to learn the why and where, so read on!
+The *Mastering Plone Development* training is both: an online training and a handout for on-site trainings.  
+We address developers.
+You are interested in best practice guides and want to learn the why and where, so read on!
 
 ## The beginning and the continuation
 
-This training was initially started as a Plone Classic training and evolved now to a roundtrip on both: Plone Classic HOWTOs, same for the ReactJS frontend and the interplay between backend and frontend.
+This training was initially started as a Plone Classic training and evolved now to a roundtrip on both: Plone backend, React frontend and the interplay between backend and frontend.
 
 This training is published on [training.plone.org](https://training.plone.org/).
 
-The *Mastering Plone Development Training* is Open Source on [GitHub](https://github.com/plone/training).
-
-We update the training currently to teach the best practices.
+We update the training ongoing to teach the best practices.
 You are welcome to contribute and give feedback on [GitHub issues](https://github.com/plone/training/issues).
 
 Thank you for reading and your charity with non-native English speakers / writers.
+
 
 (about-upcoming-label)=
 
 ## Upcoming Trainings
 
-Plone Conference 2021, end of the year
+Next Plone Conference, usually in october.
+Announced on [plone.org](https://plone.org)
 
-If you want to have an on-site training or want to attend a public training please ask for trainings on <https://community.plone.org>.
+If you want to have an on-site training or want to attend a public training, please ask for trainings on [community.plone.org](https://community.plone.org) or one of the {ref}`trainers<about-trainers-label>`.
 
-(about-previous-label)=
 
-## Previous Trainings
+(video-label)=
 
-The Mastering Plone Training was so far held publicly at the following occasions:
+## Watch the Training Video
 
-- [Plone Conference ONLINE 2021](https://2021.ploneconf.org/)
-- [Plone Conference ONLINE 2020](https://2020.ploneconf.org/)
-- [Plone Conference 2019 in Ferrara](https://2019.ploneconf.org/)
-- [Plone Conference 2018 in Tokyo](https://2018.ploneconf.org/)
-- [August 2018, Munich](https://plone.org/news-and-events/events/community/mastering-plone-training-in-munich)
-- [Plone Conference 2017 in Barcelona](https://2017.ploneconf.org/)
-- [Plone Conference 2016 in Boston](https://2016.ploneconf.org/)
-- Plone Conference 2015, Bucharest
-- [March 2015, Munich](https://www.starzel.de/blog/mastering-plone-training-march-2015)
-- Plone Conference 2014, Bristol
-- [June 2014, Caracas](https://twitter.com/hellfish2/status/476906131970068480)
-- [May 2014, Munich](https://www.starzel.de/blog/mastering-plone)
-- [PythonBrasil/Plone Conference 2013, Brasilia](http://2013.pythonbrasil.org.br/)
-- PyCon DE 2012, Leipzig
-- Plone Conference 2012, Arnheim
-- PyCon De 2011, Leipzig
+At Ploneconf 2021 the Mastering Plone Development Training was recorded.
+It is a shortened version of the training, given by Philip Bauer and Katja Süss.
+
+[Part 1 – Mastering Plone Development Training](https://www.youtube.com/watch?v=Jzuw3uWtzzI)  
+[Part 2 – Mastering Plone Development Training](https://www.youtube.com/watch?v=IEcGKzo3PO0)  
+
 
 (about-trainers-label)=
 
 ## Trainers
 
-The following trainers have given trainings based on Mastering Plone:
+The following trainers have given trainings based on Mastering Plone development:
 
 Philip Bauer
 
 : Philip Bauer is a web developer from Munich who fell in love with Plone in 2005 and since then works almost exclusively with Plone.
   A historian by education he drifted towards creating websites in the 90's and founded the company [Starzel](https://www.starzel.de/) in 2000.
   He is a member of the Plone foundation, loves teaching and is dedicated to Open Source.
-  Among other Plone-related projects he started creating the Mastering Plone Training so that everyone can become a Plone-Developer.
+  Among other Plone related projects he started creating the Mastering Plone Development training so that everyone can become a Plone developer.
 
 Katja Süss
 
 : If not gardening she is developing with Python, Svelte and ReactJS.
   Katja is active member of teams Volto, documentation and training.
-  Together with Philip, she lifted the Plone Classic Training to Plone 6 level.
-  With a background in mathematical logics she turned towards web development and runs the web agency [Rohberg](https://rohberg.ch/) in Zurich.
+  She lifted the Plone Classic Training to Plone 6.  
+  With a background in mathematical logic she turned towards web development and runs the web agency [Rohberg](https://rohberg.ch/) in Zurich.
   She dedicates herself especially to enthralling user experience and search assistance.
 
 Patrick Gerken
@@ -94,7 +85,7 @@ Steffen Lindner
 
 : Steffen Lindner started developing Plone in 2006.
   He worked on small Plone sites and also with huge intranet sites.
-  As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at https://www.starzel.de/.
+  As Open Source / Free Software developer he joined the Plone core developer team 2011 and works at [Starzel](https://www.starzel.de/).
 
 Fulvio Casali
 
@@ -136,15 +127,33 @@ Leonardo Caballero
   and has spoken at or helped organize Plone and open-source events throughout South America.
 
 
+## Optional topics without documentation
+
+The following topics are not covered in the written training but could be discussed on demand.
+
+- Users, authentication, member profiles, members as content
+
+- ZODB, RelStorage
+
+
+(intro-what-wont-happen-label)=
+
+## Topics covered in other trainings and documentation
+
+- Advanced Volto techniques in {doc}`/effective-volto/index`
+- multilingual content
+- {doc}`Internationalization of the frontend</effective-volto/development/i18n>`
+- {doc}`Internationalization defined in the backend<plone6docs:i18n-l10n/index>`
+- {doc}`/plone-deployment/index`
+
+
 ## License
 
-The Mastering Plone Training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
-
+The Mastering Plone Development training is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
 ## Using the documentation for a training
 
 See the information for {doc}`teaching</teaching/index>`.
-
 
 ## Contributing
 

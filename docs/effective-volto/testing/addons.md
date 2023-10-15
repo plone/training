@@ -42,47 +42,66 @@ RAZZLE_JEST_CONFIG=my-custom-jest-config.js yarn test
 Both configurations are merged in a way that the keys of the config provided override  the initial (`package.json`) default config, either in Volto or in your projects.
 ```
 
-This is specially useful in CI while developing add-ons, so you can pass an specific configuration that deals with the addon config properly.
+This is specially useful in CI while developing add-ons, so you can pass a specific configuration that deals with the add-on config properly.
 
 ## Testing add-ons in isolation
 
 Testing an add-on in isolation as you would do when you develop a Plone Python backend add-on can be a bit challenging, since an add-on needs a working project in order to bootstrap itself.
-There are some utilities available in order to help bootstrap a testing environment for isolated add-ons.
+The latest generator has the boilerplate needed in order to bootstrap a dockerized environment where you can run any test to your add-on.
 
-(plone-scripts-label)=
+### Setup the environment
 
-### `@plone/scripts`
+Run once
 
-This library adds some useful command line utilities that come in handy when testing add-ons in isolation.
+```shell
+make dev
+```
 
-First of all, your add-on should has `@plone/scripts` as dependency:
+### Build the containers manually
 
-    ```json
-    "dependencies": {
-        "@plone/scripts": "*",
-    }
-    ```
+Run
 
-Once done, your environment has an executable `addon` available which exposes a command line interface and you could run:
+```shell
+make build-backend
+make build-addon
+```
 
-`npx -p @plone/scripts addon clone [options] <source> [destination]`
+### Unit tests
 
-    Options:
-      -p, --private          set if the repo is private, then GITHUB_TOKEN is used
-      -b, --branch <branch>  set the repo branch, defaults to main
-      -c, --canary           downloads latest Volto canary (alpha) version
-      -h, --help             display help for command
+Run
 
-Example:
+```shell
+make test
+```
 
-`npx -p @plone/scripts addon clone https://github.com/kitconcept/volto-blocks-grid.git --branch my_new_branch --canary`
+### Acceptance tests
 
-This will create a directory named `addon-testing-project` (this is a sensible default, but you can specify a custom one) and will bootstrap a new project using Volto's standard project generator.
-It will adjust the configuration of this project to setup the add-on in the project using `mrs-developer` and the git URL given to fetch the add-on contents.
-You can specify the branch to be used, if the project should use the latest alpha available.
-There is an option for private repos as well, in that case, it will use the `GITHUB_TOKEN` present in your environment variables to fetch it.
+Run once
 
-After this, as a developer you can use the usual project commands to run tests (unit, linting, acceptance) inside the generated addon-testing-project`.
-You can configure the CI of your choice for automated testing, you can take a look at how it's done in: https://github.com/kitconcept/volto-blocks-grid/tree/main/.github/workflows
-The idea is to issue commands inside the generated `addon-testing-project` project and do your checks.
-Take special care on how to pass down to the `npx` command the current PR branch.
+```shell
+make install-acceptance
+```
+
+For starting the servers
+
+Run
+
+```shell
+make start-test-acceptance-server
+```
+
+The frontend is run in dev mode, so development while writing tests is possible.
+
+Run
+
+```shell
+make test-acceptance
+```
+
+To run Cypress tests afterwards.
+
+When finished, don't forget to shutdown the backend server.
+
+```shell
+make stop-test-acceptance-server
+```

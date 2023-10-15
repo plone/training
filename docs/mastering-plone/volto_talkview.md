@@ -11,28 +11,18 @@ myst:
 
 # Volto View Component: A Default View for a "Talk"
 
-````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
----
+````{card} Frontend chapter
 
-Get the code! ({doc}`More info <code>`)
-
-Code for the beginning of this chapter:
-
-```shell
-git checkout theming
-```
-
-Code for the end of this chapter:
+Get the code: https://github.com/collective/volto-ploneconf
 
 ```shell
 git checkout talkview
 ```
+
+More info in {doc}`code`
 ````
 
+```{card}
 In this part we will:
 
 - Create a view to display a talk
@@ -44,6 +34,7 @@ Topics covered:
 - View
 - Displaying data stored in fields of a content type
 - React Basics
+```
 
 The default visualization for our new content type `talk` lists the field values according to the type schema.
 
@@ -232,7 +223,7 @@ export default TalkView;
 Next we add a segment with info on the speaker:
 
 ```{code-block} jsx
-:emphasize-lines: 2,16-30
+:emphasize-lines: 2,16-32
 
 import React from 'react';
 import { Container, Header, Segment } from 'semantic-ui-react';
@@ -277,7 +268,7 @@ export default TalkView;
 Next we add the image:
 
 ```{code-block} jsx
-:emphasize-lines: 2,3,24-30
+:emphasize-lines: 2,3,25-31
 
 import React from 'react';
 import { Container, Header, Image, Segment } from 'semantic-ui-react';
@@ -403,7 +394,7 @@ export default TalkView;
 As a last step we show the last few fields `website` and `company`, `github` and `twitter`:
 
 ```{code-block} jsx
-:emphasize-lines: 36-42,50-66
+:emphasize-lines: 36-42,50-67
 
 import React from 'react';
 import { flattenToAppURL } from '@plone/volto/helpers';

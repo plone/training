@@ -7,23 +7,33 @@ myst:
     "keywords": ""
 ---
 
-# Using the code for the training
+(code-label)=
 
-```{todo}
-- Add info and link to repository of volto package
-```
+# The code for the training
 
 You can get the complete code for this training from GitHub.
 - The backend add-on [ploneconf.site](https://github.com/collective/ploneconf.site)
 - The frontend Volto app [volto-ploneconf](https://github.com/collective/volto-ploneconf)
 
+The backend add-on is included in the backend setup of [Training setup Mastering Plone Development](https://github.com/collective/training_buildout).
+See chapter {ref}`installation-install-backend-label`.
+
+Further add-ons are build or used while stepping through advanced training chapters.
+For the sake of completion we are mentioning them here.
+There is no need to check them out as they are dependencies in backend or frontend.
+They will be added by name in backend configuration or frontend configuratin, than fetched by building the backend or the frontend.
+
+- [training.votable](https://github.com/collective/training.votable)
+- [volto-training-votable](https://github.com/collective/volto-training-votable)
+
+
 ## The code-packages
 
 The add-on package [ploneconf.site](https://github.com/collective/ploneconf.site) contains the complete backend code for this training excluding exercises.
-It is automatically downloaded from GitHub when you run `make build` in your Plone backend set up from {doc}`instructions`.
+It is automatically downloaded from GitHub when you run `make build` in your Plone backend set up from {doc}`installation`.
 
 The frontend app [volto-ploneconf](https://github.com/collective/volto-ploneconf) holds the code for the frontend excluding exercises.
-As explained in {doc}`instructions`, it is to be installed side by side with the backend in a folder `/frontend/`.
+As explained in {doc}`installation`, it is to be installed side by side with the backend in a folder `/frontend/`.
 Optional frontend add-ons are configured here in `packages.json`.
 
 The default branches of these repositories hold the code of the final chapter of the training.
@@ -32,9 +42,9 @@ Each chapter that adds code to the package has a tag that can be used to get the
 ## Getting the code for a certain chapter
 
 To use the code for a certain chapter you need to checkout the appropriate tag for the chapter.
-The package will then contain the complete code for that chapter (excluding exercises).
+The package will then contain the complete code for that chapter excluding exercises.
 
-If you want to add the code for the chapter yourself you have to checkout the tag for the previous chapter.
+If you want to add the code for the chapter yourself you have to checkout the tag of the previous chapter.
 
 Here is an example:
 
@@ -45,6 +55,7 @@ git checkout views_2
 The names of the tags are the same as the URL of the chapter.
 The tag for the chapter {doc}`/mastering-plone/registry` is `registry`.
 You can get it with {command}`git checkout registry`.
+
 
 ## Moving from chapter to chapter
 
@@ -68,56 +79,55 @@ git stash
 This does two things:
 
 1. It deletes any files that you added and are not part of the package.
-2. It will move away changes to files that are part of the package but not delete them. You can get them back later. You should learn about the command {command}`git stash` before you try reapply stashed changes.
+1. It will move away changes to files that are part of the package but not delete them. 
+   You can get them back later.
+   You should learn about the command {command}`git stash` before you try to reapply stashed changes.
 
 ## Tags
-
-```{todo}
-Update list of tags in backend add-on.
-```
 
 These are the tags of the backend add-on for which there is code:
 
 
-| Chapter                        | Tag-Name                 |
-| ------------------------------ | ------------------------ |
-| {doc}`about_mastering`         |                          |
-| {doc}`intro`                   |                          |
-| {doc}`installation`            |                          |
-| {doc}`case`                    |                          |
-| {doc}`features`                |                          |
-| {doc}`anatomy`                 |                          |
-| {doc}`configuring_customizing` |                          |
-| {doc}`theming`                 |                          |
-| {doc}`extending`               |                          |
-| {doc}`add-ons`                 |                          |
-| {doc}`dexterity`               |                          |
-| {doc}`buildout_1`              | `buildout_1`             |
-| {doc}`eggs1`                   | `eggs1`                  |
-| {doc}`views_1`                 | `views_1`                |
-| {doc}`zpt`                     | `zpt`                    |
-| {doc}`zpt_2`                   | `zpt_2`                  |
-| {doc}`views_2`                 | `views_2`                |
-| {doc}`views_3`                 | `views_3`                |
-| {doc}`behaviors_1`             | `behaviors_1`            |
-| {doc}`viewlets_1`              | `viewlets_1`             |
-| {doc}`api`                     |                          |
-| {doc}`ide`                     |                          |
-| {doc}`custom_search`           |                          |
-| {doc}`events`                  | `events`                 |
-| {doc}`user_generated_content`  | `user_generated_content` |
-| {doc}`thirdparty_behaviors`    | `thirdparty_behaviors`   |
-| {doc}`dexterity_3`             | `dexterity_3`            |
-| {doc}`relations`               | `relations`              |
-| {doc}`registry`                | `registry`               |
-| {doc}`frontpage`               | `frontpage`              |
-| {doc}`eggs2`                   |                          |
-| {doc}`behaviors_2`             |                          |
-| {doc}`viewlets_2`              |                          |
-| {doc}`reusable`                |                          |
-| {doc}`embed`                   |                          |
-| {doc}`deployment_code`         |                          |
-| {doc}`deployment_sites`        |                          |
+| Chapter                        | Tag-Name                 | Package |
+| ------------------------------ | ------------------------ | --- |
+| {doc}`about_mastering` | |
+| {doc}`intro` | |
+| {doc}`case` | |
+| {doc}`what_is_plone` | |
+| {doc}`installation` | |
+| {doc}`features` | |
+| {doc}`configuring_customizing` | |
+| {doc}`add-ons` | |
+| {doc}`extending` | |
+| {doc}`dexterity` | |
+| {doc}`dexterity_2_talk` | |
+| {doc}`dexterity_reference` | |
+| {doc}`volto_overrides` | overrides | volto-ploneconf |
+| {doc}`volto_talkview` | talkview | volto-ploneconf |
+| {doc}`volto_development` | 
+| {doc}`behaviors_1` | behaviors_1 | ploneconf.site |
+| {doc}`volto_frontpage` | frontpage | ploneconf.site |
+| {doc}`api` | |
+| {doc}`events` | base | ploneconf.site |
+| {doc}`registry` | vocabularies | ploneconf.site |
+| {doc}`custom_search` | |
+| {doc}`volto_testing` | |
+| {doc}`thirdparty_behaviors` | |
+| {doc}`dexterity_3` |
+| {doc}`upgrade_steps` |
+| {doc}`volto_components_sponsors` | |
+| {doc}`volto_addon` | |
+| {doc}`volto_custom_addon` | |
+| {doc}`volto_custom_addon2` | |
+| {doc}`user_generated_content` | |
+| {doc}`relations` | relations |
+| {doc}`voting-story/index` | | training.votable, volto-training-votable |
+| {doc}`deployment_code` | |
+| {doc}`code` | |
+| {doc}`trainer` | |
+
+% TODO list of chapters with tags for frontend `volto-ploneconf`
+
 
 
 ## Updating the code-package

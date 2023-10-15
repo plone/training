@@ -1,39 +1,41 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Technical view"
+    "property=og:description": "Technical view"
+    "property=og:title": "What is Plone?"
+    "keywords": "Plone, Zope, security, CMS, REST, React, traversing, object publishing, database, object oriented, acquisition"
 ---
+
+% TODO Review Plone/Zope techniques
 
 (intro-what-is-plone-label)=
 
 # What is Plone?
 
-Plone is an open source Content Management System (CMS) built in Python. A CMS lets non-technical people create and maintain information for a public website or an intranet using only a web browser.
+Plone is an Open Source Content Management System (CMS) built in Python.
+A CMS lets non-technical people create and maintain content for a public website or an intranet in a web browser.
 
-- Open Source Enterprise `CMS`
-- Written in `Python`
-- `Plone` 5.2 supports `Python` 3 and 2
-- `Plone` 6 supports `Python` 3
-- {doc}`plone6docs:plone.restapi/docs/source/index`
+- Open Source
+- Written and extensible in `Python`
+- {doc}`Plone REST API<plone6docs:plone.restapi/docs/source/index>`
 - `Volto`: `React` based frontend and editor
 - Based on the web framework {term}`Zope`
-- Database: `Zope Object Database` {term}`ZODB` or `ORM` & `SQL`/`Postgres`/`Oracle`
-- Runs on Linux, macOS, BSD, Solaris, NixOS and Windows
+- Database: `Zope object database` {term}`ZODB` or relational database
+- Runs on Linux-based systems
+- Docker images available
 
-Plone has a multitude of powerful features, is easily accessible to editors but also fun for programmers.
+Plone has a multitude of powerful features, is easily accessible to editors, but also fun for developers.
 
 - Workflow-driven, collaborative management of content
-- Industrial Strength Security and Access-Control
-- Limitless Extensibility
+- Industrial strength security and access control
+- Limitless extensibility and huge ecosystem of add-ons
 
-The modular and open component architecture of Plone allows you to change or extend Plone in every respect!
+The modular and open component architecture of Plone allows you to change or extend Plone in every aspect!
 
 ```{seealso}
-- [What Is Plone?](https://5.docs.plone.org/intro/index.html)
-- [Conceptual Overview](https://5.docs.plone.org/working-with-content/introduction/conceptual-overview.html)
+Plone documentation on [docs.plone.org](https://docs.plone.org/)  
+Demo installation on [demo.plone.org](https://demo.plone.org/)
 ```
 
 ## Core concepts
@@ -41,38 +43,43 @@ The modular and open component architecture of Plone allows you to change or ext
 Here are the technical concepts that Plone uses.
 They make Plone special and distinguish it from most other systems.
 
+
+(what-is-plone-traversal-label)=
+
 ### Traversal
 
-- Plone uses [Traversal](https://5.docs.plone.org/develop/plone/serving/traversing.html) (portal/folder/document) instead of URL dispatch.
-- Python objects exists in a object tree that looks like a huge nested dictionary:
+- Plone uses {ref}`Traversal<plone6docs:backend-traversal-label>` (portal/news/conference-site-online) instead of URL dispatch.
+- Python objects exists in an object tree that looks like a huge nested dictionary:
 
 ```python
-{'site': {'folder': {'page': page_object}}}
+{'site': {'news': {'conference-website-online': page_object}}}
 ```
 
-- Objects can be accessed like walking through a file-system:
+- Objects can be accessed like walking through a file system:
 
 ```python
-root['site']['folder']['page']
+portal['news']['conference-site-online']
 ```
 
 ```python
 >>> from plone import api
 >>> portal = api.portal.get()
 >>> portal.keys()
-['folder1', 'document1']
->>> portal['folder1']
-<Folder at xxxx>
+['news', 'events', 'talks']
+>>> portal['news']
+<Document at /Plone/news>
 ```
+
+(what-is-plone-object-publishing-label)=
 
 ### Object publishing
 
 Objects can be called and return a representation of itself - usually HTML.
 
 ```python
->>> obj = portal['folder1']['a-newsitem']
+>>> obj = portal['news']['conference-site-online']
 >>> obj
-<FolderishNewsItem at /Plone/folder1/a-newsitem>
+<NewsItem at /Plone/news/conference-site-online>
 >>> obj()
 '\n<!DOCTYPE html>\n\n<html xmlns="http://www.w3.org/1999/xhtml...'
 ```
@@ -81,9 +88,10 @@ Objects can be called and return a representation of itself - usually HTML.
 
 ### Schema-driven content
 
-Plone comes with a list of pre-defined content-types.
+Plone comes with a list of pre-defined content types.
 
-Content types are defined in models/schemas. A schema can define fields to store data.
+Content types are defined in schemas.
+A schema defines fields to store data.
 
 Values of these fields are attributes on content objects.
 
@@ -92,7 +100,7 @@ Values of these fields are attributes on content objects.
 'A Newsitem'
 >>> obj.description
 'Some description'
->>> obj.description = u'A new description'
+>>> obj.description = 'A new description'
 >>> obj.description
 'A new description'
 >>> obj.image
@@ -123,6 +131,9 @@ Each `behavior` schema can define fields.
 The values of these fields are again attributes on content objects.
 Plone creates forms for all these schemata to add and edit content.
 
+
+(what-is-plone-component-architecture-label)=
+
 ### Component Architecture
 
 - Plone logic is wired together by a component architecture.
@@ -131,23 +142,25 @@ Plone creates forms for all these schemata to add and edit content.
 
 ```{seealso}
 - [Zope Component Architecture](https://zopecomponent.readthedocs.io/en/latest/narr.html)
-- The Keynote by Cris Ewing at PyCon 2016: <https://www.youtube.com/watch?v=eGRJbBI_H2w&feature=youtu.be&t=21m47s>
+- The [Keynote](https://youtu.be/eGRJbBI_H2w?t=1308) by Cris Ewing at PyCon 2016
 ```
 
-(intro-architecture)=
+
+(what-is-plone-traversal-architecture-label)=
 
 ## Architecture
 
-Plone started as an extension for CMF, which is a extension for Zope... wait, what?
+Plone is a Python CMS with an object oriented database based on Zope with a React frontend.
+Wait, what?
 
 ```
-  VOLTO
+  Volto
     ↑
-  RESTAPI
+  REST API
     ↑
-  PLONE
+  Plone
     ↑
-  ZOPE
+  Zope
     ↑
   ZODB
     ↑
@@ -157,14 +170,27 @@ Plone started as an extension for CMF, which is a extension for Zope... wait, wh
 
 ### Python
 
-Python is an easy to learn, powerful programming language.
+Python is an easy to learn, powerful programming language with a huge ecosystem of feature dedicated packages.
 It ranks consistently as one of the most popular programming languages.
 
-Plone 6 supports Python 3.8 and newer.
+
+(what-is-plone-traversal-architecture-zodb-label)=
+
+% TODO Review ZODB, Zope
+% TODO ZODB: How to address (no SQL, but…).
+% TODO ZODB: Default. Short hint on RelStorage  
 
 ### Database (ZODB)
 
-To store data Plone uses a database called `ZODB`.
+Data is stored in an object oriented database called `ZODB`: Zope object data base.
+
+- Key features of ZODB https://zodb.org/en/latest/introduction.html
+- ZEO is a client-server storage for ZODB for sharing a single storage among many clients.
+  % TODO explain clients
+- Storing data in a relational database: RelStorage leverages RDBMS servers to provide a client-server storage.
+
+---
+
 
 - [ZODB](https://zodb.org/en/latest/): A native object database for Python
 
@@ -195,6 +221,8 @@ class Account(persistent.Persistent):
 - [RelStorage](https://relstorage.readthedocs.io/en/latest/) (store pickles in a relational database) for Postgres, MySQL etc.
 - blobstorage (binary large objects) in filesystem
 
+
+(what-is-plone-traversal-architecture-zope-label)=
 
 ### Zope
 
@@ -270,26 +298,29 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 ```
 ````
 
-### CMF
 
-- `CMF` was an add-on for Zope to build Content Management Systems (like Plone).
-- It provides libraries for building content management applications together with the Zope Application Server.
+(what-is-plone-traversal-architecture-plone-label)=
 
-### Plone (the backend)
+### Plone content management system
 
 This is the backend of the CMS.
-This is what we are extending and using during this training.
+Indeed it is a collection of Python packages extending a Zope application.
+
+Plone adds to a Zope application: workflows, a framework to define content types, the feature to maintain multi language content, a catalog indexing content, and many more features.
 
 
-### Rest API
+(what-is-plone-traversal-architecture-rest-api-label)=
+
+### REST API
 
 {doc}`plone6docs:plone.restapi/docs/source/index`
 is a hypermedia API to access Plone content using REST (Representational State Transfer).
 
-It is used to connect the Volto frontend with Plone.
+It is used to connect the Volto frontend with Plone backend.
 
 
 (volto-basics-label)=
+
 ### Volto Frontend
 
 [Volto](https://github.com/plone/volto) is the default frontend for Plone 6 written in ReactJS.
@@ -302,14 +333,13 @@ Here are some basics that you need to understand if you are new to Volto:
 - Volto is built in [ReactJS](https://www.reactjs.dev), a modern Javascript Framework.
 - Volto uses {doc}`plone6docs:plone.restapi/docs/source/index` to communicate with the Plone backend.
 - Volto is installed separately from the Plone backend.
-  See chapter {ref}`instructions-install-frontend-label` for instructions.
+  See chapter {ref}`installation-install-frontend-label` for instructions.
 - Volto runs in a different process than the Plone backend.
   By default Volto runs on port 3000. If you start Volto with `yarn start` you can see the frontend on <http://localhost:3000>.
   The Plone backend runs by default on <http://localhost:8080>
 - You create a new Plone instance in an already set up Zope environment via the backend.
   This is by now not possible in Volto.
 - Volto takes advantage of [Semantic UI React components](https://react.semantic-ui.com/) to compose most of the views.
-  For example the component [Image](https://react.semantic-ui.com/elements/image/) is used to render images.
 - The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://www.youtube.com/watch?v=wW9mTl1Tavc&t=133s).
 - Same as Plone Classic, Volto is highly extendable with add-ons for further features.
 - Existing Volto components are customizable with a technology similar to `z3c.jbot` called {ref}`volto-overrides-componentshadowing-label`.
@@ -340,11 +370,11 @@ Here are some pointers that may help you decide:
 - Existing projects that are updated to Plone 6 can decide which frontend to use.
   If a lot of customizations were done and you don't want to reimplement a lot of custom templates and features in Volto, it is a good idea to use Plone Classic.
 - For a selection of awesome Volto add-ons see <https://github.com/collective/awesome-volto/>
-- There are a growing ecosystem of add-ons for the React frontend.
+- There is a growing ecosystem of add-ons for the React frontend.
   Be aware that a Plone Classic add-on may not have value for your project, if it has a theming component or anything that concerns the UI.
   That could be for example a backend add-on that implements the logic and storage of bookmarks.
   The UI needs to be implemented in React, be it an open source add-on or your custom add-on.
   Both, frontend and backend, communicate via REST API.
 - Most existing add-ons for Plone will have to be adapted to Volto if they touch the UI (e.g. templates for content types, control panels or viewlets).
-- Ask the community for advice if you are not certain what to choose.
+- Ask the community for advice if you are not certain what to choose: https://community.plone.org/
 ```

@@ -140,8 +140,7 @@ master_doc = "index"
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [
-]
+exclude_patterns = []
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -154,6 +153,9 @@ html_logo = "_static/logo.svg"
 html_favicon = "_static/favicon.ico"
 
 html_css_files = ["custom.css", ("print.css", {"media": "print"})]
+html_js_files = [
+    "patch_scrollToActive.js",
+]
 
 html_extra_path = [
     "robots.txt",
@@ -179,6 +181,7 @@ html_theme_options = {
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
+    "article_header_start": ["toggle-primary-sidebar", "chapter-title"],
 }
 
 
@@ -238,7 +241,8 @@ def source_replace(app, docname, source):
 
 # Dict of replacements.
 source_replacements = {
-    "{PLONE_BACKEND_VERSION}": "6.0.0b3",
+    "{PLONE_BACKEND_VERSION}": "6.0.7",
+    "{VOLTO_FRONTEND_VERSION}": "17.0.0-alpha.27",
 }
 
 

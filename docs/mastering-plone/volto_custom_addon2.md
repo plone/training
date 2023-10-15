@@ -11,11 +11,7 @@ myst:
 
 # Extending Volto With a FAQ Block Type
 
-````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
+````{card} Frontend chapter
 
 Creating a new block type
 ````
@@ -577,7 +573,7 @@ The configuration file {file}`mrs.developer.json` instructs mrs.developer from w
 ```shell
 {
     "greenthumb-volto-custom-addon": {
-        "package": "@greenthumb/volto-custom-addon",
+        "package": "volto-custom-addon",
         "url": "git@github.com:greenthumb/volto-custom-addon.git",
         "path": "src"
     }
@@ -587,7 +583,7 @@ The configuration file {file}`mrs.developer.json` instructs mrs.developer from w
 Run
 
 ```shell
-yarn develop
+make develop
 ```
 
 An official release is done on npm. Switch to section {ref}`Release a Volto add-on <volto-custom-addon-final-label>`.

@@ -1,18 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Creating a release of an add-on"
+    "property=og:description": "Creating a release of an add-on"
+    "property=og:title": "Releasing your code"
+    "keywords": "Plone, Volto, release, open source"
 ---
 
-# Releasing Your Code
+# Releasing your code
 
-```{todo}
-- Release frontend add-on: See https://www.npmjs.com/package/release
-- How to use released an unreleased frontend add-on
-```
+## Releasing your backend add-on
 
 > - zest.releaser
 > - pypi-test egg deployment
@@ -24,7 +21,7 @@ Let's see. You want to have a sensible version number. By looking at the version
 
 Sometimes, you cannot upgrade to a newer version, but you need a hotfix or whatever. It is crucial that you are able to checkout the exact version you use for your egg.
 
-These are a lot of steps, and there are a lot of actions that can go wrong. Luckily, there is a way to automate it. zest.releaser provides scripts to release an egg, to check what has changed since the release and to check if the documentation has errors.
+These are a lot of steps, and there are a lot of actions that can go wrong. Luckily, there is a way to automate it. zest.releaser provides scripts to release an egg, to check what has changed since the release and to check if the documentation can be build.
 
 There once was a book on python. Among other things, it had a chapter on releasing an egg with sample code. The sample code was about a printer of nested lists. This resulted in a lot of packages to print out nested lists on pypi.
 
@@ -39,3 +36,9 @@ Now that we are prepared, let's install zest.releaser.
 - prerelease
 - release
 - postrelease
+
+% TODO Finish section on releasing backend add-on
+
+
+% TODO Release frontend add-on: See https://www.npmjs.com/package/release
+% On how to use released an unreleased frontend add-on. See {doc}`volto_custom_addon`

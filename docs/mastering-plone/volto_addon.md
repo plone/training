@@ -11,14 +11,11 @@ myst:
 
 # Using Volto add-ons
 
-````{sidebar} Plone Frontend Chapter
-```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend
-:class: logo
-```
+````{card} Frontend chapter
 
 For Plone backend add-ons see chapter {ref}`add-ons-label`
 ````
+
 
 (add-ons-volto-overview-label)=
 
@@ -86,7 +83,7 @@ Add-ons that are **not yet released** on `npm` but available on `Github`:
 Install new add-on with `yarn` and restart Volto:
 
 ```shell
-$ yarn
+$ make install
 $ yarn start
 ```
 

@@ -10,12 +10,9 @@ myst:
 (user-content-label)=
 
 # Workflow, Roles and Permissions
+How do prospective speakers submit talks? We let them register on the site and grant right to create talks. For this we go back to changing the site through-the-web.
 
-````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
-```
+````{card} Backend chapter
 
 Get the code! ({doc}`More info <code>`)
 
@@ -32,14 +29,15 @@ git checkout user_generated_content
 ```
 ````
 
-How do prospective speakers submit talks? We let them register on the site and grant right to create talks. For this we go back to changing the site through-the-web.
-
+```{card}
 In this chapter we:
 
 - allow self-registration
 - constrain which content types can be added to the talk folder
 - grant local roles
 - create a custom workflow for talks
+```
+
 
 (user-content-self-reg-label)=
 

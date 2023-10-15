@@ -23,9 +23,8 @@ To run Volto's Storybook, with a clone of Volto you can run:
 yarn storybook
 ```
 
-The generated Volto project scaffold also provides integration with Volto
-addons, so any stories contained in addons are discovered an properly
-published.
+Volto project generated using the scaffold also provide integration of
+Storybook with Volto addons, so the stories contained in addons are discovered and included in the generated Storybook build.
 
 A Volto storybook story would look like this:
 
@@ -57,3 +56,10 @@ export const Breadcrumb = injectIntl(({ children, ...args }) => {
 ```
 
 Notice the `<Wrapper>` component, which provides a minimal Volto "environment context" that to ensure that the deeply-integrated Volto components can function.
+
+To create a static build of your storybook (which you can publish to a static
+http server, for example github.io pages), you need to run:
+
+```
+yarn build-storybook
+```

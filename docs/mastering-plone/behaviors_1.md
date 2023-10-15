@@ -11,29 +11,20 @@ myst:
 
 # Behaviors
 
-````{sidebar} Plone Backend Chapter
-```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend
-:class: logo
-```
+Enhance content types to be selectable for presentation on the front page.
 
-Get the code! ({doc}`More info <code>`)
+````{card} Backend chapter
 
-Code for the beginning of this chapter:
-
-```shell
-git checkout talks
-```
-
-Code for the end of this chapter:
+Get the code: https://github.com/collective/ploneconf.site
 
 ```shell
 git checkout behaviors_1
 ```
+
+More info in {doc}`code`
 ````
 
-Enhance content types to be selectable for presentation on the front page.
-
+```{card}
 In this part you will:
 
 - Add a field to talks and other content types by using a behavior
@@ -43,6 +34,7 @@ Topics covered:
 
 - Behaviors
 - Catalog indexes and catalog metadata columns
+```
 
 ```{only} not presentation
 A first approach would be to extend the functionality of a content type by writing an adapter that adapts an object of this type to add an additional attribute or feature.
