@@ -224,7 +224,7 @@ Then, we replace the `Footer` component content to match the one from plone.org.
     </div>
 ```
 
-And we Add this styling to the `custom.overrides` file:
+And add this styling to the `custom.overrides` file:
 
 ```less
 //Footer
