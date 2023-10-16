@@ -116,7 +116,7 @@ export { SliderBlockEdit, SliderBlockView };
 We need to configure the project to make it aware of a new block by adding it to the object configuration for that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser. This will again be done in the projects config file:
 
 ```js
-import { SliderBlockView, SliderBlockEdit } from "./customizations/components/index.js";
+import { SliderBlockView, SliderBlockEdit } from "./components/";
 import heroSVG from "@plone/volto/icons/hero.svg";
 ```
 
