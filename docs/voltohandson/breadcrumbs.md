@@ -15,7 +15,7 @@ myst:
 
 We want to hide breadcrumbs from the homepage and change the styling a bit.
 
-We can do it by using bare styling, since Volto injects CSS classes in the body that help us to style depending on the object, the content type and the path.
+We can do it by using bare styling, since Volto injects CSS classes in the body that help us to style, depending on the object, the content type, and the path.
 Volto does it very much like Plone does.
 
 ```less
