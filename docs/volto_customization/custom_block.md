@@ -13,81 +13,78 @@ Let's create a volto block that will display weather information for Eibar. For 
 
 Creating a basic block in Volto involves several steps. Below, I'll outline the steps to create a Volto block that displays the weather forecast in Eibar.
 
-1. **Setup Your Volto Project:** If you haven't already, set up a Volto project. You can use the instructions presented in [Installation -> Bootstrap a new Volto project](installation.md#bootstrap-a-new-volto-project) section.
+1. **Setup Your Volto Project:** If you haven't already, set up a Volto project. You can use the instructions presented in [Installation -> Bootstrap a new Volto project](installation.md) section.
 
 2. **Create a New Block:** In your Volto project directory, navigate to the "src/components" folder and locate/create the "Blocks" directory. Create a new folder for your custom block; let's name it "Weather".
 
 3. **Define the Block Schema:** Inside the "Weather" folder, create a "schema.js" file to define your block's schema. Here's a basic schema for our block needs:
 
-```{code-block} js
+```js
 export const weatherBlockSchema = (props) => {
   return {
-    title: 'Weather Block',
-    description: 'Display weather information for location.',
+    title: "Weather Block",
+    description: "Display weather information for location.",
     fieldsets: [
       {
-        id: 'default',
-        title: 'Default',
-        fields: ['latitude', 'longitude', 'location'],
+        id: "default",
+        title: "Default",
+        fields: ["latitude", "longitude", "location"],
       },
     ],
     properties: {
       latitude: {
-        title: 'Latitude',
+        title: "Latitude",
         description:
-          'Enter the latitude of the location for which you want to display the weather (e.g., 43.1849).',
-        widget: 'text',
+          "Enter the latitude of the location for which you want to display the weather (e.g., 43.1849).",
+        widget: "text",
       },
       longitude: {
-        title: 'Longitude',
+        title: "Longitude",
         description:
-          'Enter the longitude of the location for which you want to display the weather (e.g., -2.4716).',
-        widget: 'text',
+          "Enter the longitude of the location for which you want to display the weather (e.g., -2.4716).",
+        widget: "text",
       },
       location: {
-        title: 'Location',
+        title: "Location",
         description:
-          'Enter the name of the location for which you want to display the weather (e.g., Eibar, Basque Country).',
-        widget: 'text',
+          "Enter the name of the location for which you want to display the weather (e.g., Eibar, Basque Country).",
+        widget: "text",
       },
     },
-    required: ['latitude', 'longitude', 'location'],
+    required: ["latitude", "longitude", "location"],
   };
 };
 
 export default weatherBlockSchema;
-
 ```
 
 4. **Create the Block Component:** Inside the "Weather" folder, create a "View.jsx" file to define your block's React component. This component will make an API request to fetch the weather data and display it:
 
-```{code-block} jsx
-
-import React, { useEffect, useState } from 'react';
+```jsx
+import React, { useEffect, useState } from "react";
 
 const View = (props) => {
   const { data = {} } = props;
-  const location = data.location || 'Eibar, Basque Country';
+  const location = data.location || "Eibar, Basque Country";
 
   const [weatherData, setWeatherData] = useState(null);
-
   useEffect(() => {
-    const latitude = data.latitude || '43.1849'; // Default Eibar latitude if no latitude is provided
-    const longitude = data.longitude || '-2.4716'; // Default to longitude if no longitude is provided
+    const latitude = data.latitude || "43.1849"; // Default Eibar latitude if no latitude is provided
+    const longitude = data.longitude || "-2.4716"; // Default to longitude if no longitude is provided
 
     const abortController = new AbortController(); // creating an AbortController
 
     fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=auto`,
-      { signal: abortController.signal }, // passing the signal to the query
+      { signal: abortController.signal } // passing the signal to the query
     )
       .then((response) => response.json())
       .then((data) => {
         setWeatherData(data);
       })
       .catch((error) => {
-        if (error.name === 'AbortError') return;
-        console.error('Error fetching weather data:', error);
+        if (error.name === "AbortError") return;
+        console.error("Error fetching weather data:", error);
         throw error;
       });
 
@@ -101,7 +98,7 @@ const View = (props) => {
       {weatherData ? (
         <div>
           <h2>Weather in {location}</h2>
-          <p>Temperature: {weatherData.current_weather.temperature} °C</p>
+          <p>Temperature: {weatherData.current_weather.temperature} &deg;C</p>
         </div>
       ) : (
         <p>Loading weather data...</p>
@@ -109,19 +106,17 @@ const View = (props) => {
     </>
   );
 };
-
 export default View;
 ```
 
 You should also create a "Edit.jsx" file. The BlockDataForm component will transform the schema.js data into a usable sidebar.
 
-```{code-block} jsx
-
-import React, { useMemo } from 'react';
-import { SidebarPortal } from '@plone/volto/components';
-import BlockDataForm from '@plone/volto/components/manage/Form/BlockDataForm';
-import weatherBlockSchema from './schema';
-import View from './View';
+```jsx
+import React, { useMemo } from "react";
+import { SidebarPortal } from "@plone/volto/components";
+import BlockDataForm from "@plone/volto/components/manage/Form/BlockDataForm";
+import weatherBlockSchema from "./schema";
+import View from "./View";
 
 const Edit = (props) => {
   const schema = useMemo(() => weatherBlockSchema(props), [props]);
@@ -150,12 +145,11 @@ const Edit = (props) => {
 };
 
 export default Edit;
-
 ```
 
 5. **Register the Block:** In your Volto project, locate the "components/index.js" file and add an the entries for your "Weather Block"
 
-```{code-block} js
+```js
 ...
 import WeatherEdit from './components/Blocks/Weather/Edit';
 import WeatherView from './components/Blocks/Weather/View';
@@ -167,7 +161,7 @@ export { WeatherView, WeatherEdit };
 
 We need to configure the project to make it aware of a new block by adding it to the object configuration that is located in "src/config.js". For that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser.
 
-```{code-block} js
+```js
 import WeatherEdit from './components/Blocks/Weather/Edit';
 import WeatherView from './components/Blocks/Weather/View';
 import worldSVG from '@plone/volto/icons/world.svg';

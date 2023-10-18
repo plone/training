@@ -15,8 +15,8 @@ First of all let's add a styling fieldset in the current schema of volto's defau
 
 In your addon config:
 
-```{code-block} js
-import { addStylingFieldset } from 'volto-teaser-tutorial/components/helpers';
+```js
+import { addStylingFieldset } from "volto-teaser-tutorial/components/helpers";
 
 if (config.blocks.blocksConfig.listing) {
   config.blocks.blocksConfig.listing.title = "Listing (Tutorial)";
@@ -26,7 +26,7 @@ if (config.blocks.blocksConfig.listing) {
 
 Create a file named `helpers.js` inside `components/` folder and add the relevant schema enhancer for it:
 
-```{code-block} js
+```js
 import { cloneDeep } from "lodash";
 import imageNarrowSVG from "@plone/volto/icons/image-narrow.svg";
 import imageFitSVG from "@plone/volto/icons/image-fit.svg";
@@ -82,7 +82,7 @@ export const addStylingFieldset = ({ schema }) => {
 
 This function will inject styles field into the schema if isn't present already. We can add relevant styling here. Volto will build classNames based on the styles as mentioned in the earlier chapters. We will have to provide our own css for the generated classNames.
 
-```{code-block} less
+```less
 :force: true
 
 #main .has--size--narrow_width,
@@ -102,44 +102,41 @@ This function will inject styles field into the schema if isn't present already.
 
 In order to have a control over individual items in the listing let's create a sample variation of listing block.
 
-```{code-block} js
+```js
+import ListingVariation from "volto-teaser-tutorial/components/ListingBlockVariation";
 
-import ListingVariation from 'volto-teaser-tutorial/components/ListingBlockVariation';
-
-
- config.blocks.blocksConfig.listing.variations = [
-    ...(config.blocks.blocksConfig.listing.variations || []),
-    {
-      id: 'tutorial',
-      isDefault: false,
-      title: 'Sample Variation',
-      template: ListingVariation,
-      schemaEnhancer: ({ schema, FormData, intl }) => {
-        const extension = 'cardTemplates';
-        schema.fieldsets.push({
-          id: 'Cards',
-          title: 'Cards',
-          fields: [],
-        });
-        addExtensionFieldToSchema({
-          schema,
-          name: extension,
-          items: config.blocks.blocksConfig.teaser.extensions[extension]?.items,
-          intl,
-          title: { id: 'Card Type' },
-          insertFieldToOrder: (schema, extension) => {
-            const cardFieldSet = schema.fieldsets.find(
-              (item) => item.id === 'Cards',
-            ).fields;
-            if (cardFieldSet.indexOf(extension) === -1)
-              cardFieldSet.unshift(extension);
-          },
-        });
-        return schema;
-      },
+config.blocks.blocksConfig.listing.variations = [
+  ...(config.blocks.blocksConfig.listing.variations || []),
+  {
+    id: "tutorial",
+    isDefault: false,
+    title: "Sample Variation",
+    template: ListingVariation,
+    schemaEnhancer: ({ schema, FormData, intl }) => {
+      const extension = "cardTemplates";
+      schema.fieldsets.push({
+        id: "Cards",
+        title: "Cards",
+        fields: [],
+      });
+      addExtensionFieldToSchema({
+        schema,
+        name: extension,
+        items: config.blocks.blocksConfig.teaser.extensions[extension]?.items,
+        intl,
+        title: { id: "Card Type" },
+        insertFieldToOrder: (schema, extension) => {
+          const cardFieldSet = schema.fieldsets.find(
+            (item) => item.id === "Cards"
+          ).fields;
+          if (cardFieldSet.indexOf(extension) === -1)
+            cardFieldSet.unshift(extension);
+        },
+      });
+      return schema;
     },
- ]
-
+  },
+];
 ```
 
 Notice that here we will keep the schemaEnhancer configuration of teaser extensions. For better readability we can also move these lines of code into a `baseSchemaEnhancer` which will serve for both listing and teaser block extensions. But we can leave it up to the user for now.
@@ -148,7 +145,7 @@ Finally we write our own variation for ListingBlock:
 
 ListingBlockVariation.jsx
 
-```{code-block} jsx
+```jsx
 import React from "react";
 import PropTypes from "prop-types";
 import cloneDeep from "lodash/cloneDeep";
