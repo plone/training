@@ -34,7 +34,7 @@ return(
 )
 }
 
-export default PlonereleaseView;
+export default PloneReleaseView;
 ```
 
 Import and export this file in `components/index.js` to make it easier accessible throughout the project:
