@@ -28,6 +28,7 @@ People pick editors themselves. Use whatever you are comfortable and productive 
 - [PyCharm](https://www.jetbrains.com/pycharm/)
 - [Vim](https://www.vim.org/)
 - [Emacs](https://www.gnu.org/software/emacs/)
+- [CodeLobster](https://codelobster.com/)
 
 Some features that most editors have in one form or another are essential when developing with Plone.
 
