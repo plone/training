@@ -701,7 +701,7 @@ class IMyEvent(model.Schema):
             required=False)
 
     @invariant
-    def validate_start_end(data):
+    def validate_start_end(data): 
         if data.start is not None and data.end is not None:
             if data.start > data.end:
                 raise Invalid(_('Start must be before the end.'))
