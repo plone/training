@@ -14,7 +14,7 @@ myst:
 % TODO Short appetizer on all the fancy features.
 
 Now we create a Plone instance and take a look at all the features you can use as an integrator.
-Developers get a glimps on the features that can be modified easily.
+Developers get a glimpse on the features that can be modified easily.
 
 (features-start-stop-label)=
 
@@ -44,7 +44,7 @@ Zope instance is up and running, ready to create a Plone instance.
 
 We now have a running Zope with a database, but no content.
 
-Push the botton {guilabel}`Create a new Plone site`.
+Push the button {guilabel}`Create a new Plone site`.
 Log in with `admin` and password `secret`.
 The initial login is defined in file `instance.yaml`.
 You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
@@ -213,7 +213,7 @@ Edit the front page:
 - Change the title to `Plone Conference 2050, Solis Lacus, Mars`.
 - Remove the text blocks below the title by selecting all and deleting them.
 - Add some dummy text.
-- Click somewhere in the text, press return and see the block beeing splitted.
+- Click somewhere in the text, press return and see the block being splitted.
 - Save the page.
 
 If you have already content in your instance, you may want to delete it.
@@ -554,7 +554,7 @@ You can even make a page, with or without sub pages, editable only by a group of
 Plone has an integrated mechanism to remember urls that where modified.
 A moved page is still available via the former url.
 
-Additional to this behavior, a page can be explicitly made available under further urls.
+Additional to this behaviour, a page can be explicitly made available under further urls.
 
 You can find the UI for adding alternative urls following the context menu {guilabel}`...`.
 

@@ -198,6 +198,6 @@ We must add the behavior to {file}`profiles/default/types/talk.xml`:
 </object>
 ```
 
-[plone5_fieldset]: https://5.docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/fieldsets.html?highlight=fieldset
+[plone5_fieldset]: https://5.docs.plone.org/develop/addons/schema-driven-forms/customizing-form-behaviour/fieldsets.html?highlight=fieldset
 [plone5_iformfieldprovider]: https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/custom-add-and-edit-forms.html?highlight=iformfieldprovider#edit-forms
 [plone5_plone.supermodel]: https://5.docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-interfaces-vs-other-interfaces

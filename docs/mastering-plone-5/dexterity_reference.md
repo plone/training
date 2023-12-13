@@ -711,7 +711,7 @@ class IMyEvent(model.Schema):
 To learn more about directives, validators and default values, refer to the following:
 
 - [Form schema hints and directives](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html)
-- [Validation](https://5.docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html) (this documentation unfortunately still uses the obsolete grok technology)
+- [Validation](https://5.docs.plone.org/develop/addons/schema-driven-forms/customizing-form-behaviour/validation.html) (this documentation unfortunately still uses the obsolete grok technology)
 - [z3c.form documentation](https://z3cform.readthedocs.io/en/latest/advanced/validator.html)
 - [Default values for fields on add forms](https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html)
 ```
