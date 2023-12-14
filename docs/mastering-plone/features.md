@@ -554,7 +554,7 @@ You can even make a page, with or without sub pages, editable only by a group of
 Plone has an integrated mechanism to remember urls that where modified.
 A moved page is still available via the former url.
 
-Additional to this behaviour, a page can be explicitly made available under further urls.
+Additional to this behavior, a page can be explicitly made available under further urls.
 
 You can find the UI for adding alternative urls following the context menu {guilabel}`...`.
 
