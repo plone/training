@@ -28,7 +28,7 @@ ZODB
     [A native object database for Python](https://zodb.org/en/latest/).
 
 Barceloneta
-    The Default Theme for Plone 5.
+    The default theme for Plone 5.
 
 CMS
     Content Management System
@@ -59,7 +59,7 @@ NFS
     [Network File System](https://en.wikipedia.org/wiki/Network_File_System).
 
 Amazon Opsworks
-    [AWS OpsWorks](https://aws.amazon.com/opsworks/) is a configuration management service which uses Chef, an automation platform that treats server configurations as code.
+    [AWS OpsWorks](https://aws.amazon.com/opsworks/) is a configuration management service that uses Chef, an automation platform that treats server configurations as code.
 
 Ansible
     [Ansible](https://www.ansible.com/) is an open source automation platform.
@@ -69,10 +69,10 @@ Archetypes
     The deprecated framework for building content types in Plone.
 
 Chef
-    [A configuration management tool in Ruby and Erlang](https://www.chef.io/products/chef-infra/).
+    [A configuration management tool written in Ruby and Erlang](https://www.chef.io/products/chef-infra/).
 
 CloudFormation
-    [AWS CloudFormation](https://aws.amazon.com/cloudformation/) gives developers and systems administrators a powerful way to create and manage a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion.
+    [AWS CloudFormation](https://aws.amazon.com/cloudformation/) gives developers and systems administrators a way to create and manage a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion.
 
 Travis CI
     Travis CI is a hosted, distributed continuous integration service used to build and test software projects hosted at GitHub.
@@ -92,7 +92,8 @@ Dexterity
     [Dexterity](https://github.com/plone/plone.dexterity), the base framework for building content types, both through-the-web and as filesystem code for Zope.
 
 Dublin Core
-    The Dublin Core Schema is a small set of vocabulary terms that can be used to describe web resources (video, images, web pages, etc.). It can also be used to describe physical resources such as books or CDs, and objects like artworks.
+    The Dublin Core Schema is a small set of vocabulary terms that can be used to describe web resources (video, images, web pages, and other online content). 
+    It can also be used to describe physical resources such as books or CDs, and objects like artworks.
 
 ZMI
     The Zope Management Interface.
@@ -158,11 +159,11 @@ Webpack entrypoint
     They can contain code to automatically trigger the load of other JavaScript code files called "chunks".
 
 Babel
-    A JavaScript compiler that "translates" newer standards JavaScript to something that any browser can load.
+    A JavaScript compiler that "transpiles" newer standards JavaScript to something that any browser can load.
 
 Express
-    A JavaScript HTTP server with a simple API, to build custom applications.
-    Volto uses it as its web server.
+    [Express](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+    Volto uses Express.
 
 Server-Side Rendering (SSR)
     When first loading any Plone page, users will get HTML markup that closely matches the final DOM structure of the React components used to render that page.
@@ -184,7 +185,9 @@ Transpilation
     The transformation of JavaScript code that uses advanced language features, unavailable for some browsers, to code rewritten to support them.
 
 ES6
-    ECMAScript 6 (ES6), a newer version of the JavaScript language that introduces features like arrow functions and classes.
+ECMAScript 6
+    [ECMAScript 6 (ES6)](https://262.ecma-international.org/6.0/) is a scripting language specification on which [JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/JavaScript) is based.
+    [Ecma International](https://www.ecma-international.org/) is in charge of standardizing ECMAScript.
 
 mrs-developer
     Also called "missdev", a tool similar to buildout's `mr.developer`.
@@ -279,7 +282,7 @@ GenericSetup
     It provides XML-based rules to change the configuration settings.
 
 cookiecutter-plone-starter
-    [cookiecutter-plone-starter](https://github.com/collective/cookiecutter-plone-starter) is a `cookiecutter`-template, created by the Plone community, to bootstrap
+    [cookiecutter-plone-starter](https://github.com/collective/cookiecutter-plone-starter) is a `cookiecutter` template, created by the Plone community, to bootstrap
     a new Plone 6 project using Volto and a relational database.
 
 Traefik
