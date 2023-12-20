@@ -1,6 +1,6 @@
 [![Testing Status](https://github.com/plone/training/actions/workflows/test.yml/badge.svg?branch=main "Testing Status")](https://github.com/plone/training/actions/workflows/test.yml)
 
-# Training
+# Training1
 
 [training.plone.org](https://training.plone.org/) is a collection of different trainings, developed and created by the Plone Community.
 
