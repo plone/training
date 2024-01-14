@@ -216,8 +216,8 @@ Edit the front page:
 - Click somewhere in the text, press return and see the block being splitted.
 - Save the page.
 
-If you have already content in your instance, you may want to delete it.
-Go to `/contents` by clicking the folder icon in the toolbar.
+If there is existing content in your instance, you might consider removing it. 
+Navigate to `/contents` by clicking the folder icon in the toolbar. 
 Select all objects and delete them.
 
 Create a site structure:
