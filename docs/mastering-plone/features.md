@@ -289,7 +289,7 @@ Event
 Image
 
 : Like file but png, jpeg or other image types.
-  The Image content typ has an image field.
+  The Image content type has an image field.
   Values of the image field are saved in multiple scales to be accessible easily when rendering.
 
   ```{figure} _static/features_add_a_image.png
