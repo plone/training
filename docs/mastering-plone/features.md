@@ -243,6 +243,7 @@ We want a registration page and an a protected section for the conference team.
 - Add a page "News"
 - In `/news`: Add a News Item "Conference Website online!" with some image
 - In `/news`: Add a News Item "Submit your talks!"
+ To display the "Conference Website online!" and "Submit your talks!" News Item on /news, create a listing block on the /news page.
 - Add a page "Events"
 - In `/events`: Add an Event "Deadline for talk submission" Date: 2025/08/10
 - Add a page "Registration"
