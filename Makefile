@@ -3,8 +3,8 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    = 
-SPHINXBUILD     = $(realpath bin/sphinx-build)
-SPHINXAUTOBUILD = $(realpath bin/sphinx-autobuild)
+SPHINXBUILD     = "$(realpath bin/sphinx-build)"
+SPHINXAUTOBUILD = "$(realpath bin/sphinx-autobuild)"
 PAPER         =
 DOCS_DIR      = ./docs/
 BUILDDIR      = ../_build
