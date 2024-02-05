@@ -18,7 +18,10 @@ To create our first volto project we will install the volto generator tool (http
 ```shell
 yo @plone/volto
 ```
-The dialogue in the console will ask you first to prompt a name for your project. When choosing an apropriate name, please note that due to a current bug your name should not begin with a number. After you have given a name to your project, you will be a wether you want to install any addons. You can skip by pressing the `enter` button, as we dont want to use any 3rd party addons for the training.
+The dialogue in the console will first prompt you for a name for your project.
+When choosing an appropriate name, please note that due to a current bug, your name should not begin with a number.
+After you have given a name to your project, you will be asked whether you want to install any add-ons.
+You can skip ahead by pressing the {kbd}`enter` button, as we don't want to use any third-party add-ons for the training.
 
 ```{hint}
 In case you want to install any addons you can find a curated list of addons of all different sorts here: https://github.com/collective/awesome-volto
