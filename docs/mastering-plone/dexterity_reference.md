@@ -691,7 +691,7 @@ import datetime
 
 
 def future_date(value):
-    if value and not value.date() >= datetime.date.today():
+    if value and not value >= datetime.date.today():
         raise Invalid('Meeting date can not be before today.')
     return True
 
