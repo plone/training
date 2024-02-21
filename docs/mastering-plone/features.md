@@ -238,7 +238,7 @@ The view of the newly created site structure
 ```
 
 Additional to these conference pages we also want some news and events.
-We want a registration page and an a protected section for the conference team.
+We want a registration page and a protected section for the conference team.
 
 - Add a page "News"
 - In `/news`: Add a News Item "Conference Website online!" with some image
@@ -274,7 +274,7 @@ Page
 
 News Item
 
-: Basically a page with an image and an image caption to be used for press releases an such.
+: Basically a page with an image and an image caption to be used for press releases and such.
 
   ```{figure} _static/features_add_a_news_item.png
   ```
