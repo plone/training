@@ -274,7 +274,7 @@ Page
 
 News Item
 
-: Basically a page with an image and an image caption to be used for press releases an such.
+: Basically a page with an image and an image caption to be used for press releases as such.
 
   ```{figure} _static/features_add_a_news_item.png
   ```
