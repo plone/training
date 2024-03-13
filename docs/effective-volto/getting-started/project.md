@@ -29,7 +29,7 @@ pip install cookiecutter
 
 ### nvm, Node.JS, Yeoman, and Yarn
 
-First install `nvm` and latest Node.JS according to the [Plone documentation](https://6.docs.plone.org/install/create-project.html#pre-requisites-for-installation).
+First install `nvm` and latest Node.JS according to the [Plone documentation](https://6.docs.plone.org/install/create-project.html#nvm).
 
 After that, install Yeoman according to the [Plone documentation](https://6.docs.plone.org/install/create-project.html#yeoman-and-the-volto-boilerplate-generator).
 
