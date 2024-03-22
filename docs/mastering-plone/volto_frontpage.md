@@ -57,7 +57,7 @@ To understand why we need a collection criterion for a dynamic frontpage in Volt
 :align: left
 ```
 
-In the sidebar we see the `criteria` selection and if we click there, it'll show some of the selectable criteria ordered in categories like the following:
+In the sidebar, we see the {guilabel}`Criteria` select menu, and if we click there, it'll show some of the selectable criteria ordered in categories like the following:
 
 - `Metadata` contains indexes that are counting as metadata like Type (means Portal Types) and Review State
 - `Text` contains indexes that are counting as text-data like Description and Searchable Text
