@@ -1,4 +1,4 @@
-name: build/deploy training.plone.org
+name: build/deploy to 2023.training.plone.org
 
 on:
   push:
