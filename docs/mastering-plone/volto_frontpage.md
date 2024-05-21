@@ -57,14 +57,14 @@ To understand why we need a collection criterion for a dynamic frontpage in Volt
 :align: left
 ```
 
-In the sidebar we see the `criteria` selection and if we click there, it'll show some of the selectable criterions ordered in categories like the following:
+In the sidebar, we see the {guilabel}`Criteria` select menu, and if we click there, it'll show some of the selectable criteria ordered in categories like the following:
 
 - `Metadata` contains indexes that are counting as metadata like Type (means Portal Types) and Review State
 - `Text` contains indexes that are counting as text-data like Description and Searchable Text
 - `Dates` contains indexes which are working with date-data like Effective Date and Creation Date
 
 To get all talks we marked as `featured` we have to get the listing block to recognize our newly created index.
-This means we have to add our index to the collection criterions, so we can select it.
+This means we have to add our index to the collection criteria, so we can select it.
 
 To add our new index as a criterion to be appliable in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by adding a new file {file}`profiles/default/registry/querystring.xml`:
 

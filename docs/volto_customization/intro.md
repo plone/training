@@ -25,10 +25,10 @@ Additionally, if you have any specific questions, challenges, or expectations fo
 
 Some technologies and tools we use during the training:
 
-- React <https://react.dev/>
-- Yarn <https://yarnpkg.com>
+- React <a target="_blank" href="https://react.dev/">https://react.dev/</a>
+- Yarn <a target="_blank" href="https://yarnpkg.com">https://yarnpkg.com</a>
 - JSX
-- Volto <https://github.com/plone/volto>
+- Volto <a target="_blank" href="https://github.com/plone/volto">https://github.com/plone/volto</a>
 - Volto Generator
 - Plone 6!
 
@@ -44,7 +44,7 @@ Of course, if you're already familiar with Volto and React, that's fantastic, an
 
 To follow the training as smoothly as possible it is recommended that you have the following software installed on your computer:
 
-- [node.js](https://nodejs.org/en/) >= 16
-- [yarn](https://yarnpkg.com/getting-started/install)
-- [node version manager](https://github.com/nvm-sh/nvm)
-- [docker](https://www.docker.com/get-started/)
+- <a target="_blank" href="https://nodejs.org/en/">node.js</a> >= 16
+- <a target="_blank" href="https://yarnpkg.com/getting-started/install">yarn</a>
+- <a target="_blank" href="https://github.com/nvm-sh/nvm">node version manager</a>
+- <a target="_blank" href="https://www.docker.com/get-started/">docker</a>

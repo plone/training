@@ -220,10 +220,6 @@ ogp_custom_meta_tags = [
     '<meta property="og:locale" content="en_US" />',
 ]
 
-# -- sphinx_copybutton -----------------------
-copybutton_prompt_text = r"^ {0,2}\d{1,3}"
-copybutton_prompt_is_regexp = True
-
 
 # -- sphinx.ext.todo -----------------------
 todo_include_todos = True  # Uncomment to show todos.

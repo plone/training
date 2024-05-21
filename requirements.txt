@@ -1,7 +1,6 @@
 -c constraints.txt
 
 Sphinx
-jsx-lexer
 lesscpy
 linkify-it-py
 myst-parser
@@ -13,3 +12,4 @@ sphinx-sitemap
 sphinx-togglebutton
 sphinxcontrib-spelling
 sphinxext-opengraph
+vale==2.30.0

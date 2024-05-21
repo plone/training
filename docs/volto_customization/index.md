@@ -7,7 +7,7 @@ myst:
     "keywords": "Plone, Volto, Training"
 ---
 
-(effective-volto-label)=
+(volto-customization-label)=
 
 # Volto Customization for JavaScript Beginners
 

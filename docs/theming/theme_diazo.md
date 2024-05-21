@@ -707,9 +707,9 @@ For example if you install a JQuery library you will find all JavaScript and CSS
 
 ## Adjust the layout and manifest files
 
-We need to adjust a bit the `manifest.ini`, to reflect the layout structure of the Bootstrap theme we got.
+We need to adjust a bit the `manifest.cfg`, to reflect the layout structure of the Bootstrap theme we got.
 
-By default the `manifest.ini` will look like this:
+By default the `manifest.cfg` will look like this:
 
 ```ini
 [theme]

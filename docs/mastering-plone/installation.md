@@ -146,7 +146,7 @@ You have two options:
 ### Option 1: Frontend from scratch with Volto generator
 
 
-{ref}`plone6docs:frontend-getting-started-installing-volto-label`
+Follow the instructions of `docs.plone.org`: {doc}`plone6docs:volto/recipes/creating-project`.
 
 
 ### Option 2. Start with prepared training project `volto-ploneconf` with all code for the training

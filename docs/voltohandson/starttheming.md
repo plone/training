@@ -25,7 +25,7 @@ Finally edit your `theme.config` and change the `@siteFolder` variable to contai
 
 ## Basic font family
 
-[plone.org](plone.org) uses the "Assisstant" font instead of the Volto default "Poppins". You can use Semantic UI variables for customizing the font, as it's a valuable feature.
+[plone.org](plone.org) uses the "Assistant" font instead of the Volto default "Poppins". You can use Semantic UI variables for customizing the font, as it's a valuable feature.
 
 Create a file called `site.variables`in the following path `src/addons/<your-addon-name>/theme/globals/`.
 
@@ -38,13 +38,13 @@ Everytime you add a new file to your project you will have to restart your devel
 Edit the new file and add this:
 
 ```less
-@fontName: "Asisstant";
+@fontName: "Assistant";
 ```
 
 You can set it to any Google font available, and the online version of the font will be used.
 You can also set other variables concerning the font used, such as the sizes available.
 In case you want to use more than one font or a font that is self-hosted,
-you should define it as usual in CSS and set the variable `importGoogleFonts` appropriately. As `Assisstant` is Google Font we will set:
+you should define it as usual in CSS and set the variable `importGoogleFonts` appropriately. As `Assistant` is a Google Font we will set:
 
 ```less
 @importGoogleFonts: true;
@@ -56,7 +56,8 @@ Two more important variables that are changed in plone.org are:
 @largeMonitorBreakpoint: 1330px;
 @emSize: 16px;
 ```
-This changes the width of the default container. Add them as well.
+These two variables change the width of the default container.
+Add them as well.
 
 
 ```{tip}

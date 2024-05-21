@@ -34,29 +34,31 @@ Then, we replace the `Footer` component content to match the one from plone.org.
             <Grid.Column>
               <List>
                 <List.Header>
-                  <Link to="/why-plone">About Plone</Link>
+                  <UniversalLink href="/why-plone">About Plone</UniversalLink>
                 </List.Header>
                 <List.Content>
                   <List.Item>
-                    <Link to="/try-plone">Try Plone</Link>
+                    <UniversalLink href="/try-plone">Try Plone</UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/download">Download Plone</Link>
+                    <UniversalLink href="/download">
+                      Download Plone
+                    </UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <a href="https://6.docs.plone.org">Documentation</a>
+                    <UniversalLink href="https://6.docs.plone.org">Documentation</UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <a href="https://training.plone.org">Training</a>
+                    <UniversalLink href="https://training.plone.org">Training</UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/security">Security</Link>
+                    <UniversalLink href="/security">Security</UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/roadmap">Roadmap</Link>
+                    <UniversalLink href="/roadmap">Roadmap</UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <a href="https://github.com/plone">Github</a>
+                    <UniversalLink href="https://github.com/plone">Github</UniversalLink>
                   </List.Item>
                 </List.Content>
               </List>
@@ -64,26 +66,30 @@ Then, we replace the `Footer` component content to match the one from plone.org.
             <Grid.Column>
               <List>
                 <List.Header>
-                  <Link to="/community">Community</Link>
+                  <UniversalLink href="/community">Community</UniversalLink>
                 </List.Header>
                 <List.Content>
                   <List.Item>
-                    <a href="https://community.plone.org/">Forum</a>
+                    <UniversalLink href="https://community.plone.org/">Forum</UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/community/chat">Chat</Link>
+                    <UniversalLink href="/community/chat">Chat</UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/contribute">Contribute code</Link>
+                    <UniversalLink href="/contribute">
+                      Contribute code
+                    </UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <a href="/community/bugs">Report an issue</a>
+                    <UniversalLink href="/community/bugs">Report an issue</UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/news-and-events">News and events</Link>
+                    <UniversalLink href="/news-and-events">
+                      News and events
+                    </UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <a href="https://ploneconf.org">Conference</a>
+                    <UniversalLink href="https://ploneconf.org">Conference</UniversalLink>
                   </List.Item>
                 </List.Content>
               </List>
@@ -91,33 +97,39 @@ Then, we replace the `Footer` component content to match the one from plone.org.
             <Grid.Column>
               <List>
                 <List.Header>
-                  <Link to="/foundation">Foundation</Link>
+                  <UniversalLink href="/foundation">Foundation</UniversalLink>
                 </List.Header>
                 <List.Content>
                   <List.Item>
-                    <Link to="/foundation/members/application-procedure">
+                    <UniversalLink href="/foundation/members/application-procedure">
                       Join the foundation
-                    </Link>
+                    </UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/foundation/board">Board</Link>
+                    <UniversalLink href="/foundation/board">
+                      Board
+                    </UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <a href="https://github.com/sponsors/plone">Donate</a>
+                    <UniversalLink href="https://github.com/sponsors/plone">Donate</UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/foundation/sponsorship">Sponsors</Link>
+                    <UniversalLink href="/foundation/sponsorship">
+                      Sponsors
+                    </UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/foundation/materials/foundation-resolutions/code-of-conduct">
+                    <UniversalLink href="/foundation/materials/foundation-resolutions/code-of-conduct">
                       Code of conduct
-                    </Link>
+                    </UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <Link to="/foundation/members">Foundation members</Link>
+                    <UniversalLink href="/foundation/members">
+                      Foundation members
+                    </UniversalLink>
                   </List.Item>
                   <List.Item>
-                    <a href="https://plone.teemill.com/">Shop</a>
+                    <UniversalLink href="https://plone.teemill.com/">Shop</UniversalLink>
                   </List.Item>
                 </List.Content>
               </List>
@@ -125,9 +137,9 @@ Then, we replace the `Footer` component content to match the one from plone.org.
             <Grid.Column className="separated">
               <List>
                 <List.Header>
-                  <Link to="/news-and-events/plone-in-social-media">
+                  <UniversalLink href="/news-and-events/plone-in-social-media">
                     Follow us
-                  </Link>
+                  </UniversalLink>
                 </List.Header>
                 <List.Content>
                   <Grid textAlign="left" columns={2}>
@@ -135,17 +147,17 @@ Then, we replace the `Footer` component content to match the one from plone.org.
                       <List>
                         <List.Content>
                           <List.Item>
-                            <a href="https://plone.social/@plone" rel="me">
+                            <UniversalLink href="https://plone.social/@plone" rel="me">
                               Mastodon
-                            </a>
+                            </UniversalLink>
                           </List.Item>
                           <List.Item>
-                            <a href="https://twitter.com/plone">Twitter</a>
+                            <UniversalLink href="https://twitter.com/plone">Twitter</UniversalLink>
                           </List.Item>
                           <List.Item>
-                            <a href="https://www.instagram.com/plonecms/">
+                            <UniversalLink href="https://www.instagram.com/plonecms/">
                               Instagram
-                            </a>
+                            </UniversalLink>
                           </List.Item>
                         </List.Content>
                       </List>
@@ -154,19 +166,19 @@ Then, we replace the `Footer` component content to match the one from plone.org.
                       <List>
                         <List.Content>
                           <List.Item>
-                            <a href="https://www.youtube.com/@plonecms">
+                            <UniversalLink href="https://www.youtube.com/@plonecms">
                               YouTube
-                            </a>
+                            </UniversalLink>
                           </List.Item>
                           <List.Item>
-                            <a href="https://www.linkedin.com/company/plone-foundation/">
+                            <UniversalLink href="https://www.linkedin.com/company/plone-foundation/">
                               Linkedin
-                            </a>
+                            </UniversalLink>
                           </List.Item>
                           <List.Item>
-                            <a href="https://www.facebook.com/plonecms">
+                            <UniversalLink href="https://www.facebook.com/plonecms">
                               Facebook
-                            </a>
+                            </UniversalLink>
                           </List.Item>
                         </List.Content>
                       </List>
@@ -177,7 +189,9 @@ Then, we replace the `Footer` component content to match the one from plone.org.
               <List>
                 <List.Header>
                   <List.Item>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    <UniversalLink href="/privacy-policy">
+                      Privacy Policy
+                    </UniversalLink>
                   </List.Item>
                 </List.Header>
                 <List.Content>
@@ -210,7 +224,7 @@ Then, we replace the `Footer` component content to match the one from plone.org.
     </div>
 ```
 
-and add this styling to the `custom.overrides` file:
+And add this styling to the `custom.overrides` file:
 
 ```less
 //Footer
