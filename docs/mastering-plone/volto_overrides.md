@@ -11,24 +11,18 @@ myst:
 
 # Customizing Volto Components
 
-````{sidebar} Plone Frontend Chapter
----
+````{card} Frontend chapter
 
-Get the code! ({doc}`More info <code>`)
-
-Code for the beginning of this chapter:
-
-```shell
-git checkout initial
-```
-
-Code for the end of this chapter:
+Get the code: https://github.com/collective/volto-ploneconf
 
 ```shell
 git checkout overrides
 ```
+
+More info in {doc}`code`
 ````
 
+```{card}
 In this part you will:
 
 Customize existing components and views
@@ -36,8 +30,8 @@ Customize existing components and views
 Topics covered:
 
 - Component shadowing
-- Content type views
-- Blocks
+- Content type view
+```
 
 
 (volto-overrides-componentshadowing-label)=
@@ -55,16 +49,17 @@ You can customize any module in Volto, including actions and reducers, not only 
 The Volto code can be found in {file}`/omelette/`.
 
 
-## The logo
+## The footer
 
-You can use component shadowing to change the logo.
+The React developer tools provide a selector to find the component we need to override.
 
-Create your own logo as a svg image and add it to your Volto app using this path and name: {file}`/src/customizations/components/theme/Logo/Logo.svg`.
+```{figure} _static/inspect_components_1.png
+:alt: Footer component.
+```
 
-After a restart of Volto ({kbd}`ctrl + c` and {kbd}`yarn start`) your page should show the new logo.
-
-
-## The Footer
+```{figure} _static/inspect_components_2.png
+:alt: Footer component file.
+```
 
 Customize the footer by copying {file}`omelette/src/components/theme/Footer/Footer.jsx` to your customization folder at {file}`/src/customizations/components/theme/Footer/Footer.jsx`.  
 After a restart you can change this Footer component and the changes are shown immediately due to hot module reloading.
@@ -79,7 +74,7 @@ So you need to customize the way a News Item is rendered.
 
 A News Item has date attributes.
 The attributes of a content type instance are defined by the schema of a content type and possible behaviors.
-We will have a look at schemas in {doc}`dexterity` and {doc}`dexterity_2_talk`.
+We had a look at schemas in {doc}`dexterity` and {doc}`dexterity_2_talk`.
 Behaviors are being described in {doc}`behaviors_1`.
 These date attributes are available when the content is fetched by the frontend.
 But let's first have a look how these attributes are used in a Volto component.
@@ -301,7 +296,7 @@ Now another issue appears. There are various dates associated with any content o
 - The date the item is last modified `content.modified`
 - The date the item is published `content.effective`
 
-In fact you most likely want to show the date when the item was published.
+In fact you most likely want to show the date when the item has been published.
 But while the item is not yet published, that value is not yet set and you will get an error.
 So we'll add some simple logic to show the effective date only if it exists.
 
@@ -315,87 +310,6 @@ So we'll add some simple logic to show the effective date only if it exists.
 
 As we are in the HTML part of our React component, we surround the JavaScript code with curly braces.
 Inside Javascript we embrace html in rounded braces.
-
-
-## The Listing Block
-
-When you edited the frontpage in {ref}`features-content-types-label`, you may have added a listing block to the front page.
-If not, please do so now.
-
-You will see that the listing block does not display a date as well as the News Item view.
-
-The React developer tools provide a selector to find the component we need to override.
-
-```{figure} _static/inspect_components.png
-:alt: A News Item with publishing date.
-```
-
-Copy `omelette/src/components/manage/Blocks/Listing/DefaultTemplate.jsx` to `src/customizations/components/manage/Blocks/Listing/DefaultTemplate.jsx` and add the date inside the iteration over list items.
-
-```{code-block} jsx
-:emphasize-lines: 3,30-34
-:linenos:
-
-import React from 'react';
-import PropTypes from 'prop-types';
-import { ConditionalLink, FormattedDate } from '@plone/volto/components';
-import { flattenToAppURL } from '@plone/volto/helpers';
-
-import { isInternalURL } from '@plone/volto/helpers/Url/Url';
-
-const DefaultTemplate = ({ items, linkTitle, linkHref, isEditMode }) => {
-  let link = null;
-  let href = linkHref?.[0]?.['@id'] || '';
-
-  if (isInternalURL(href)) {
-    link = (
-      <ConditionalLink to={flattenToAppURL(href)} condition={!isEditMode}>
-        {linkTitle || href}
-      </ConditionalLink>
-    );
-  } else if (href) {
-    link = <a href={href}>{linkTitle || href}</a>;
-  }
-
-  return (
-    <>
-      <div className="items">
-        {items.map((item) => (
-          <div className="listing-item" key={item['@id']}>
-            <ConditionalLink item={item} condition={!isEditMode}>
-              <div className="listing-body">
-                <h4>{item.title ? item.title : item.id}</h4>
-                {item.review_state === 'published' && item.effective && (
-                  <p className="discreet">
-                    <FormattedDate date={item.effective} includeTime />
-                  </p>
-                )}
-                <p>{item.description}</p>
-              </div>
-            </ConditionalLink>
-          </div>
-        ))}
-      </div>
-
-      {link && <div className="footer">{link}</div>}
-    </>
-  );
-};
-
-DefaultTemplate.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.any).isRequired,
-  linkMore: PropTypes.any,
-  isEditMode: PropTypes.bool,
-};
-
-export default DefaultTemplate;
-```
-
-The resulting listing of two News Items, one unpublished and one published, should look like this:
-
-```{figure} _static/volto_customized_listing_block.png
-:alt: The customized Listing Block.
-```
 
 
 ## Summary

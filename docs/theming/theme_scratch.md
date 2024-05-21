@@ -132,7 +132,7 @@ If everything works as expected next step is to start up your instance for the f
 
 ## Startup
 
-We recommend to swith to your SDK here. If you're using Visual Studio Code you can open a terminal `Terminal > New Terminal` and run the following commands inside your editor. This helps you to keep track of windows and processes.
+We recommend to switch to your IDE here. If you're using Visual Studio Code you can open a terminal `Terminal > New Terminal` and run the following commands inside your editor. This helps you to keep track of windows and processes.
 
 Start your instance for the very first time:
 

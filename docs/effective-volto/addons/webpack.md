@@ -11,8 +11,11 @@ myst:
 
 Just like you can extend Razzle's configuration from the project, you can do so
 with an addon, as well. You should provide a `razzle.extend.js` file in your
-addon root folder. An example of such file where the theme.config alias is
-changed, to enable a custom Semantic theme inside the addon:
+addon root folder. Here's an example of such file, where we achieve two things:
+
+- we add a new webpack plugin, the
+  [bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer)
+- we reconfigure the `theme.config` alias, to enable a custom Semantic theme inside the addon:
 
 ```js
 const analyzerPlugin = {
@@ -42,3 +45,6 @@ module.exports = {
   modify,
 };
 ```
+
+Check
+[volto-searchlib razzle.extend.js](https://github.com/eea/volto-searchlib/blob/d84fec8eec1def0088d8025eaf5d7197074b95a7/razzle.extend.js) file for an example on how to include additional paths to the Babel configuration and how to add additional webpack name aliases.

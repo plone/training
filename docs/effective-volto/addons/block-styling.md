@@ -25,39 +25,72 @@ See below for an example.
 ## Enabling Style Wrapper in a block
 
 The wrapper is always present in the rendering of both the view and edit components.
-If you want to add the default set of styles, you need to enable them with the following flag:
-
-```js
-  // (in your block config object)
-  my_custom_block: {
-    // (more block settings)
-    enableStyling: true,
-  }
-```
+The wrapper expects an object field `styles` in the block's schema, so there's a helper available to enable it via a block `schemaEnhancer` that does this for you called `addStyling`.
 
 ```{note}
-This will work if your block uses the `BlocksForm` component to define schema-driven block configuration settings.
+The style wrapper only will work if your block uses the `BlocksForm` component to define schema-driven block configuration settings.
 ```
 
-This will add a new fieldset `Styling` at the end of your block schema settings with a single `styles` object field in it.
-By default, this object field has only one field: `align`. It is configured by `defaultSchema` in `src/components/manage/Blocks/Block/StylesSchema.jsx`.
-
-## Extending the default `styles` field in `Styling` fieldset
-
-You can modify the default set of styles by using a `schemaEnhancer` function in the same way that you would for any block schema enhancer.
-Use the `stylesSchema` key in your block configuration object as follows:
-
 ```js
-  // (in your block config object)
-  my_custom_block: {
-    // (more block settings)
-    enableStyling: true,
-    stylesSchema: myCustomStyleSchema
-  }
+import { addStyling } from '@plone/volto/helpers/Extensions/withBlockSchemaEnhancer';
+
+export const defaultStylingSchema = ({ schema, formData, intl }) => {
+
+  addStyling({ schema, intl });
+
+  return schema;
+};
 ```
 
 ```{note}
 The signature for a `schemaEnhancer` is `({schema, formData, intl})`. You can find the reference of the default schema in `@plone/volto/components/manage/Blocks/Block/StylesSchema`.
+```
+
+Then in the block's config:
+
+```js
+  config.blocks.blocksConfig.myBlock = {
+    ...config.blocks.blocksConfig.myBlock,
+    schemaEnhancer: defaultStylingSchema,
+  };
+```
+
+This will add a new fieldset `Styling` at the end of your block schema settings with a single `styles` object field in it.
+
+## Extending the default `styles` field in `Styling` fieldset
+
+You can modify the default set of styles by using the `schemaEnhancer` function previously mentioned like this:
+
+```js
+import { addStyling } from '@plone/volto/helpers/Extensions/withBlockSchemaEnhancer';
+
+export const defaultStylingSchema = ({ schema, formData, intl }) => {
+  const BG_COLORS = [
+    { name: 'transparent', label: 'Transparent' },
+    { name: 'grey', label: 'Grey' },
+  ];
+
+  const colors =
+    config.blocks?.blocksConfig?.[formData['@type']]?.colors || BG_COLORS;
+
+  const defaultBGColor =
+    config.blocks?.blocksConfig?.[formData['@type']]?.defaultBGColor;
+
+  addStyling({ schema, intl });
+
+  schema.properties.styles.schema.fieldsets[0].fields = [
+    ...schema.properties.styles.schema.fieldsets[0].fields,
+    'backgroundColor',
+  ];
+  schema.properties.styles.schema.properties.backgroundColor = {
+    widget: 'color_picker',
+    title: intl.formatMessage(messages.backgroundColor),
+    colors,
+    default: defaultBGColor,
+  };
+
+  return schema;
+};
 ```
 
 ## The `styles` field
@@ -78,7 +111,7 @@ The `stylesSchema` adds the fields into this field, creating an object that is t
 }
 ```
 
-## Using `className` in your block
+## Using `className` in your block view component
 
 The resultant class names are injected as a `className` prop into the wrapped block.
 Thus you can use it in the root component of your block view and edit components as follows:
@@ -91,7 +124,6 @@ const BlockView = (props)=> (
 )
 ```
 
-Same for the block edit component.
 The resultant HTML would be the following:
 
 ```html
@@ -99,6 +131,97 @@ The resultant HTML would be the following:
 ```
 
 Then it's at your discretion how you define the CSS class names in your theme.
+
+The block editor wrapper does the same for the block edit component, but it's automatically injected into the wrapper containers.
+
+```html
+<div data-rbd-draggable-context-id="0" data-rbd-draggable-id="9949a5fa-5d57-4e0c-a150-71149a31096c" class="block-editor-listing has--backgroundColor--ee22ee has--myCustomStyleField--red has--myCustom2StyleField--color--black has--myCustom2StyleField--color--MyGradient">
+  ...
+</div>
+```
+
+## `styleClassNameConverters`
+
+If you need other style of classnames generated, you can use the classname
+converters defined in `config.settings.styleClassNameConverters`, by
+registering fieldnames suffixed with the converter name. For example, a style
+data like:
+
+```
+{
+  "styles": {
+    "theme:noprefix": "primary",
+    "inverted:bool": true,
+  }
+}
+```
+
+will generate classnames `primary inverted`. This relies on the `noprefix` and `bool` converters that are registered in Volto.
+
+## `styleClassNameExtenders`
+
+An array containing functions that extends how the StyleWrapper builds a list of styles. These functions have the signature `({ block, content, data, classNames }) => classNames`. Here are some examples of useful ones, for simplicity, they are compacted in one extender:
+
+```js
+  import { getPreviousNextBlock } from '@plone/volto/helpers';
+
+  config.settings.styleClassNameExtenders = [
+    ({ block, content, data, classNames }) => {
+      let styles = [];
+      const [previousBlock, nextBlock] = getPreviousNextBlock({
+        content,
+        block,
+      });
+
+      // Inject a class depending of which type is the next block
+      if (nextBlock?.['@type']) {
+        styles.push(`next--is--${nextBlock['@type']}`);
+      }
+
+      // Inject a class depending if previous is the same type of block
+      if (data?.['@type'] === previousBlock?.['@type']) {
+        styles.push('previous--is--same--block-type');
+      }
+
+      // Inject a class depending if next is the same type of block
+      if (data?.['@type'] === nextBlock?.['@type']) {
+        styles.push('next--is--same--block-type');
+      }
+
+      // Inject a class depending if it's the first of block type
+      if (data?.['@type'] !== previousBlock?.['@type']) {
+        styles.push('is--first--of--block-type');
+      }
+
+      // Inject a class depending if it's the last of block type
+      if (data?.['@type'] !== nextBlock?.['@type']) {
+        styles.push('is--last--of--block-type');
+      }
+
+      // Given a StyleWrapper defined `backgroundColor` style
+      const previousColor =
+        previousBlock?.styles?.backgroundColor ?? 'transparent';
+      const currentColor = data?.styles?.backgroundColor ?? 'transparent';
+      const nextColor = nextBlock?.styles?.backgroundColor ?? 'transparent';
+
+      // Inject a class depending if the previous block has the same `backgroundColor`
+      if (currentColor === previousColor) {
+        styles.push('previous--has--same--backgroundColor');
+      } else if (currentColor !== previousColor) {
+        styles.push('previous--has--different--backgroundColor');
+      }
+
+      // Inject a class depending if the next block has the same `backgroundColor`
+      if (currentColor === nextColor) {
+        styles.push('next--has--same--backgroundColor');
+      } else if (currentColor !== nextColor) {
+        styles.push('next--has--different--backgroundColor');
+      }
+
+      return [...classNames, ...styles];
+    },
+  ];
+```
 
 ### Using CSS variables
 
@@ -116,17 +239,13 @@ a fixed number of lines.
 We'll have the following styles schema:
 
 ```js
-const StyleSchema = () => (
-  {
-    fieldsets: [
-      {
+const maxLinesSchemaEnhancer = (schema) => {
+  schema.properties.styles.schema.fieldsets.push({
         title: 'Styling',
         id: 'default',
         fields: ['maxLines'],
-      }
-    ],
-    properties: {
-      maxLines: {
+      });
+  schema.properties.styles.schema.properties.maxLines = {
         title: 'Max lines',
         description:
           "Limit description to a maximum number of lines by adding trailing '...'",
@@ -134,17 +253,22 @@ const StyleSchema = () => (
         default: 2,
         minimum: 0,
         maximum: 5,
-      },
-    },
-    required: [],
-  });
+      };
+  return schema;
+}
 ```
 
 We'll assign it to the listing block:
 
 ```
-config.blocks.blocksConfig.listing.enableStyling = true;
-config.blocks.blocksConfig.listing.stylesSchema = StyleSchema;
+import { composeSchema } from '@plone/volto/helpers';
+
+// ... somewhere in the configuration function
+  config.blocks.blocksConfig.listing.schemaEnhancer = composeSchema(
+    config.blocks.blocksConfig.listing.schemaEnhancer,
+    maxLinesSchemaEnhancer
+  );
+// ...
 ```
 
 For the CSS part, we add the following code:

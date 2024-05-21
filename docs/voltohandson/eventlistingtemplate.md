@@ -11,7 +11,7 @@ myst:
 
 One of the most used blocks in Volto is the listing block. It allows editors to automatically list contents on a page that fit a certain criteria (e.g. all pages of a specific content type). To always display content in the most visually useful way (you might want a list of upcoming events look different to a list of the latest projects of your company) the listing has the possibility to appear in different visual templates. In vanilla volto those are the `default`, `summary` and `image gallery` templates. To learn how to create a new listing template we will recreate the Plone upcoming events listing from a bit further down the page.
 
-```{image} /_static/ploneorg-event-listing.png
+```{image} _static/ploneorg-event-listing.png
 :align: center
 :alt: plone.org event listing
 ```

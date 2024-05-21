@@ -14,7 +14,7 @@ myst:
 % TODO Short appetizer on all the fancy features.
 
 Now we create a Plone instance and take a look at all the features you can use as an integrator.
-Developers get a glimps on the features that can be modified easily.
+Developers get a glimpse on the features that can be modified easily.
 
 (features-start-stop-label)=
 
@@ -44,7 +44,7 @@ Zope instance is up and running, ready to create a Plone instance.
 
 We now have a running Zope with a database, but no content.
 
-Push the botton {guilabel}`Create a new Plone site`.
+Push the button {guilabel}`Create a new Plone site`.
 Log in with `admin` and password `secret`.
 The initial login is defined in file `instance.yaml`.
 You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
@@ -213,11 +213,11 @@ Edit the front page:
 - Change the title to `Plone Conference 2050, Solis Lacus, Mars`.
 - Remove the text blocks below the title by selecting all and deleting them.
 - Add some dummy text.
-- Click somewhere in the text, press return and see the block beeing splitted.
+- Click somewhere in the text, press return and see the block being splitted.
 - Save the page.
 
-If you have already content in your instance, you may want to delete it.
-Go to `/contents` by clicking the folder icon in the toolbar.
+If there is existing content in your instance, you might consider removing it. 
+Navigate to `/contents` by clicking the folder icon in the toolbar. 
 Select all objects and delete them.
 
 Create a site structure:
@@ -238,7 +238,7 @@ The view of the newly created site structure
 ```
 
 Additional to these conference pages we also want some news and events.
-We want a registration page and an a protected section for the conference team.
+We want a registration page and a protected section for the conference team.
 
 - Add a page "News"
 - In `/news`: Add a News Item "Conference Website online!" with some image
@@ -274,7 +274,7 @@ Page
 
 News Item
 
-: Basically a page with an image and an image caption to be used for press releases an such.
+: Basically a page with an image and an image caption to be used for press releases and such.
 
   ```{figure} _static/features_add_a_news_item.png
   ```
@@ -289,7 +289,7 @@ Event
 Image
 
 : Like file but png, jpeg or other image types.
-  The Image content typ has an image field.
+  The Image content type has an image field.
   Values of the image field are saved in multiple scales to be accessible easily when rendering.
 
   ```{figure} _static/features_add_a_image.png

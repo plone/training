@@ -11,10 +11,11 @@ myst:
 
 # Extending Plone with add-on packages
 
-````{sidebar} Plone Backend Chapter
+```{card}
+Backend chapter
 
 For frontend add-ons see chapter {ref}`volto-addon-label`
-````
+```
 
 
 Plone add-ons enrich the CMS by
@@ -39,7 +40,7 @@ Plone frontent add-ons provide
 - a theme to design the layout of a site
 - components independent of blocks like a dropdown navigation
 
-Both can be tightly coupled, if a frontend feature depends on an new or enriched content type or any other change needed in data structure.
+Both can be tightly coupled, if a frontend feature depends on a new content type, a new behavior or any other change needed in data structure.
 For example an add-on that has the goal to provide a bookmarking feature depends on a backend add-on that handels the storing of the bookmarks.
 
 Have a look at the curated lists of add-ons:  

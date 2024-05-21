@@ -9,7 +9,7 @@ myst:
 
 # Configure an unreleased add-on from an existing repository
 
-We use `mrs-developer` tool to manage the development cycle.
+We use `mrs-developer` tool to manage the development cycle of Volto add-ons.
 This tool help us to pull the remote code and configure the current project to have the add-on(s) available for the build.
 
 ## Add mrs-developer dependency and related script
@@ -25,26 +25,18 @@ By doing this, you can develop both the project and the add-on product as if
 they were both part of the current codebase. Once the add-on development is
 done, you can publish the package to an npm repository.
 
+`mrs-developer` is included and installed by default when you generate a project with the generator.
+There is a `Makefile` command that installs the configuration of `mrs.developer.json` in your project.
+
 ```shell
-yarn add mrs-developer
+make install
 ```
-
-Then, in `package.json`:
-
-```json hl_lines="2"
-  "scripts": {
-    "develop": "missdev --config=jsconfig.json --output=addons",
-  }
-```
-
-We can configure `mrs-developer` to use any directory that you want. Here we
-are telling it to create the directory `src/addons` and put the packages
-managed by `mrs-developer` inside.
 
 ## mrs.developer.json
 
 This is the configuration file that instructs `mrs-developer` from where it has
-to pull the packages. So, create `mrs.developer.json` and add:
+to pull the packages.
+The generator includes an empty one for you, edit `mrs.developer.json` and add:
 
 ```json
 {
@@ -59,13 +51,13 @@ to pull the packages. So, create `mrs.developer.json` and add:
 Then run:
 
 ```bash
-yarn develop
+make install
 ```
 
 Now the addon is found in `src/addons/`.
 
 ```{note}
-`package` property is optional, set it up only if your package has a scope.
+`package` property is optional, set it up only if your package has a scope (namespace).
 `src` is required if the content of your addon is located in the `src`
 directory (but, as that is the convention recommended for all Volto add-on
 packages, you will always include it)
@@ -76,7 +68,7 @@ If you want to know more about `mrs-developer` config options, please refer to
 
 ## tsconfig.json / jsconfig.json
 
-`mrs-developer` automatically creates this file for you, but if you choose not
+`mrs-developer` automatically manages the contents of this file for you, but if you choose not
 to use mrs-developer, you'll have to add something like this to your
 `tsconfig.json` or `jsconfig.json` file in the Volto project root:
 
@@ -92,6 +84,8 @@ to use mrs-developer, you'll have to add something like this to your
     }
 }
 ```
+
+This is required so the project "knows" about your package in development and the imports to work correctly.
 
 ```{warning}
 Please note that both `paths` and `baseUrl` are required to match your
@@ -120,7 +114,7 @@ you can set its developing status by adding a `develop` key:
 }
 ```
 
-You can toggle that key to `false` and run `yarn develop` again.
+You can toggle that key to `false` and run `make install` again.
 
 ### Addon dependencies, yarn workspaces
 
@@ -145,3 +139,4 @@ It is common practice to use a star glob pattern for the workspaces:
 If you do this, make sure to always cleanup the `src/addons` folder whenever
 you toggle the development status of an addon, as the existence of the addon
 folder under the `src/addons` will still influence yarn.
+Running `make install` again will do the trick and remove the not required anymore package.

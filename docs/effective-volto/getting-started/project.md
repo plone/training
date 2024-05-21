@@ -11,7 +11,7 @@ myst:
 
 # Bootstrapping a full Plone 6 project
 
-We can use the new [cookiecutter-plone-starter](https://github.com/collective/cookiecutter-plone-starter) repository.
+We will use the official [cookiecutter-plone-starter](https://github.com/collective/cookiecutter-plone-starter) repository.
 
 ```{note}
 The introduction of more tools are in store in order to ease the creation of the boilerplate for a full Plone 6 project, but they might revolve around this cookiecutter template.
@@ -29,17 +29,15 @@ pip install cookiecutter
 
 ### nvm, Node.JS, Yeoman, and Yarn
 
-First install `nvm` and latest Node.JS according to the [Plone documentation](https://6.docs.plone.org/volto/getting-started/install.html#install-nvm-nodejs-version-manager).
+First install `nvm` and latest Node.JS according to the [Plone documentation](https://6.docs.plone.org/install/create-project.html#nvm).
 
-After that, install Yeoman according to the [Plone documentation](https://6.docs.plone.org/volto/getting-started/install.html#yeoman).
+After that, install Yeoman according to the [Plone documentation](https://6.docs.plone.org/install/create-project.html#yeoman-and-the-volto-boilerplate-generator).
 
-Finally, install `yarn` according to the [Plone documentation](https://6.docs.plone.org/volto/getting-started/install.html#yarn-nodejs-package-manager).
+Finally, install `yarn` according to the [Plone documentation](https://6.docs.plone.org/install/create-project.html#yarn).
 
-
-### Docker (optional)
+### Docker (optional, but recommended)
 
 Install `Docker` according to the [official documentation](https://docs.docker.com/get-docker/).
-
 
 Generate a new Plone 6 Project:
 
@@ -79,17 +77,13 @@ make build
 
 and restart backend and frontend by stopping and re-running
 
-
 ```shell
 make start-backend
 ```
 
-
 ```shell
 make start-frontend
 ```
-
-
 
 ## Project Generation Options
 

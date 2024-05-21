@@ -11,7 +11,7 @@ myst:
 
 Redux is the app-state store that Volto uses.
 It's been the gold standard in this matter since years ago.
-It's deep integration into React lifecycle allows the app to update the wired components and adapt each time that the store updates.
+It's deep integration into React lifecycle allows the app to update the "live-wired components" and re-render them every time the store updates information that is relevant to that component.
 
 It's based in actions/reducers pattern and it's used all across Volto.
 Volto uses it also to store server-state on it, updating every time that the server state changes.
@@ -19,7 +19,8 @@ Volto uses it also to store server-state on it, updating every time that the ser
 Volto's use of Redux is "typical" and you can find plenty examples in Volto's code base.
 
 In modern Redux, a component can connect with a value in the store.
-In class components:
+When developing a class component, you have to wrap it in the `connect` HOC,
+which injects a sliced state as a React component prop.
 
 ```jsx
 export default compose(
@@ -37,7 +38,7 @@ export default compose(
 )(ContactForm);
 ```
 
-and in functional components using `useSelector` hook:
+In functional components you need to use the `useSelector` hook:
 
 ```jsx
 import React from 'react';
@@ -82,3 +83,23 @@ const FormattedDate = ({
 };
 ```
 
+## Alternatives to Redux
+
+Volto ships with [jotai](https://jotai.org/) as a dependency. Jotai is
+a light-weight alternative to React, using an API inspired by `React.useState`.
+Unlike `useState()`, the jotai state can be shared by components across
+different render trees, similar to Redux.
+
+```
+import { atom, useAtom } from 'jotai'
+
+const mySharedStateAtom = atom();
+
+function MyComponent(props) {
+  const [myVal, setMyVal] = useAtom(mySharedStateAtom);
+  return <button onClick={() => setMyVal(val + 1)}>Count up</button>
+}
+```
+
+Another alternative is the `React.useContext()` and the context providers,
+which are used in several places in Volto, for example for the Slate richtext editor.

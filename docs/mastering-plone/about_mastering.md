@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
+    "description": "What to expect. Trainings on site. Training videos."
+    "property=og:description": "What to expect. Trainings on site. Training videos."
     "property=og:title": "About Mastering Plone development"
-    "keywords": ""
+    "keywords": "Plone, training, develop"
 ---
 
 (about-mastering-label)=
@@ -31,7 +31,7 @@ Thank you for reading and your charity with non-native English speakers / writer
 
 ## Upcoming Trainings
 
-Next Plone Conference, usually in october.
+Next Plone Conference, usually in October.
 Announced on [plone.org](https://plone.org)
 
 If you want to have an on-site training or want to attend a public training, please ask for trainings on [community.plone.org](https://community.plone.org) or one of the {ref}`trainers<about-trainers-label>`.

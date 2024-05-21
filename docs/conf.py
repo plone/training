@@ -140,8 +140,7 @@ master_doc = "index"
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [
-]
+exclude_patterns = []
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -221,10 +220,6 @@ ogp_custom_meta_tags = [
     '<meta property="og:locale" content="en_US" />',
 ]
 
-# -- sphinx_copybutton -----------------------
-copybutton_prompt_text = r"^ {0,2}\d{1,3}"
-copybutton_prompt_is_regexp = True
-
 
 # -- sphinx.ext.todo -----------------------
 todo_include_todos = True  # Uncomment to show todos.
@@ -242,8 +237,8 @@ def source_replace(app, docname, source):
 
 # Dict of replacements.
 source_replacements = {
-    "{PLONE_BACKEND_VERSION}": "6.0.6",
-    "{VOLTO_FRONTEND_VERSION}": "16.22.1",
+    "{PLONE_BACKEND_VERSION}": "6.0.7",
+    "{VOLTO_FRONTEND_VERSION}": "17.0.0-alpha.27",
 }
 
 

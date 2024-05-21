@@ -111,7 +111,7 @@ directives.widget(
 )
 ```
 
-`basePath` can also be a method. In this exmaple we use the helper-method `plone.app.multilingual.browser.interfaces.make_relation_root_path`.
+`basePath` can also be a method. In this example we use the helper-method `plone.app.multilingual.browser.interfaces.make_relation_root_path`.
 
 ```{code-block} python
 :emphasize-lines: 13
@@ -129,14 +129,16 @@ relationlist_field = RelationList(
 directives.widget(
     "relationlist_field",
     RelatedItemsFieldWidget,
-    pattern_options=make_relation_root_path,
+    pattern_options={
+        "basePath": make_relation_root_path,
+    }
 )
 ```
 
 ### Using the search mode of the Related Items Widget
 
 ```{note}
-These settings only have a effect in Plone 6 Classic.
+These settings only have an effect in Plone 6 Classic.
 ```
 
 So far we only used the vocabulary `plone.app.vocabularies.Catalog` that returns the full content tree.
@@ -300,10 +302,6 @@ RelationList:
 ```
 
 ## Using different widgets for relations
-
-```{todo}
-Support for `StaticCatalogVocabulary` in Volto is currently still missing.
-```
 
 Often the standard widget for relations is not what you want since it can be hard to navigate to the content you want to relate to.
 
