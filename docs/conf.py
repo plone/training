@@ -173,7 +173,7 @@ html_static_path = ["_static"]
 
 html_theme_options = {
     "logo": {
-        "text": "Plone Training 2023",
+        "text": "Plone Training 2024",
     },
     "path_to_docs": "docs",
     "repository_branch": "main",
@@ -201,6 +201,7 @@ intersphinx_mapping = {
     "plone5docs": ("https://5.docs.plone.org/", None),
     "plone6docs": ("https://6.docs.plone.org/", None),
     "python": ("https://docs.python.org/3/", None),
+    "training2023": ("https://2023.training.plone.org/", None),
 }
 
 

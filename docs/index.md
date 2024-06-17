@@ -120,6 +120,39 @@ Beginning in 2022, after every Plone Conference, we take a snapshot and archive 
 Because we began this practice in 2022, all previous trainings that have documentation were archived.
 
 
+### 2023
+
+#### Development and Customization
+
+-   {doc}`training2023:mastering-plone/index`
+-   {doc}`training2023:mastering-plone-5/index`
+-   {doc}`training2023:testing/index`
+
+
+#### Volto, React, and Javascript
+
+-   {doc}`training2023:voltohandson/index`
+-   {doc}`training2023:voltoaddons/index`
+-   {doc}`training2023:volto_customization/index`
+-   {doc}`training2023:effective-volto/index`
+-   [Use, Integrate and develop Patterns for Plone 6 Classic](https://patternslib.github.io/patternslib-training)
+
+
+#### Theming
+
+-   {doc}`training2023:theming/index`
+
+
+#### Deployment
+
+-   {doc}`training2023:plone-deployment/index`
+
+
+#### Other
+
+-   {doc}`training2023:migrations/index`
+
+
 ### 2022
 
 #### Development and Customization
