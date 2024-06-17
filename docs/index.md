@@ -157,31 +157,32 @@ Because we began this practice in 2022, all previous trainings that have documen
 
 #### Development and Customization
 
--   [Through-The-Web Plone Customization](https://2022.training.plone.org/ttw/index.html)
+-   {doc}`training2022:ttw/index`
 
 
 #### Volto, React, and Javascript
 
--   [Volto](https://2022.training.plone.org/volto/index.html)
--   [Angular SDK for Plone](https://2022.training.plone.org/angular/index.html)
--   [GatsbyJS](https://2022.training.plone.org/gatsby/index.html)
--   [JavaScript For Plone Developers (up to Plone 5)](https://2022.training.plone.org/javascript/index.html)
--   [React](https://2022.training.plone.org/react/index.html)
+-   {doc}`training2022:volto/index`
+-   {doc}`training2022:angular/index`
+-   {doc}`training2022:gatsby/index`
+-   {doc}`training2022:javascript/index`
+-   {doc}`training2022:react/index`
+
 
 #### Theming
 
--   [Plone 5 Theming](https://2022.training.plone.org/theming_plone_5/index.html)
+-   {doc}`training2022:theming_plone_5/index`
 
 
 #### Deployment
 
--   [Deploying and Operating Plone on WSGI](https://2022.training.plone.org/wsgi/index.html)
--   [Automating Plone Deployment](https://2022.training.plone.org/deployment/index.html)
--   [Plone Deployments With Amazon OpsWorks](https://2022.training.plone.org/deployment/opsworks/index.html)
+-   {doc}`training2022:wsgi/index`
+-   {doc}`training2022:deployment/index`
+-   {doc}`training2022:deployment/opsworks/index`
 
 
 #### Other
 
--   [Build your own webframework from scratch](https://2022.training.plone.org/advanced-python/index.html)
--   [Migrating Content with Transmogrifier](https://2022.training.plone.org/transmogrifier/index.html)
--   [Plone Training Solr](https://2022.training.plone.org/solr/index.html)
+-   {doc}`training2022:advanced-python/index`
+-   {doc}`training2022:transmogrifier/index`
+-   {doc}`training2022:solr/index`

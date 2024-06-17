@@ -202,6 +202,7 @@ intersphinx_mapping = {
     "plone6docs": ("https://6.docs.plone.org/", None),
     "python": ("https://docs.python.org/3/", None),
     "training2023": ("https://2023.training.plone.org/", None),
+    "training2022": ("https://2022.training.plone.org/", None),
 }
 
 
