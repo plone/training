@@ -30,7 +30,7 @@ Tell us about yourselves:
 - Tell us, if we speak too fast, too slow or not loud enough.
 - Please give us a sign if you are stuck.
 - Take notes.
-- If you have questions later on, community.plone.org is the Plone forum with many experienced developers.
+- If you have questions later on, https://community.plone.org is the Plone forum with many experienced developers.
 - For coaching, please contact us.  
   See {ref}`trainers<about-trainers-label>` section below.
 

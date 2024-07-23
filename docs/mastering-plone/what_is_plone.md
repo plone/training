@@ -34,7 +34,7 @@ Plone has a multitude of powerful features, is easily accessible to editors, but
 The modular and open component architecture of Plone allows you to change or extend Plone in every aspect!
 
 ```{seealso}
-Plone documentation on [docs.plone.org](https://docs.plone.org/)  
+Plone documentation on [docs.plone.org](https://6.docs.plone.org/)  
 Demo installation on [demo.plone.org](https://demo.plone.org/)
 ```
 

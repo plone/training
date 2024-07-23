@@ -39,7 +39,7 @@ There you can choose a content type to edit and enable `Blocks` in the `Behavior
 
 ## Blocks anatomy
 
-The first Block we will create is the Slider Block at the top of the plone.org frontpage.
+The first Block we will create is the Slider Block at the top of the https://plone.org frontpage.
 
 ```{image} _static/slider_screenshot.png
 :align: center

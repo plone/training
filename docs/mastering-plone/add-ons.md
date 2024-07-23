@@ -46,8 +46,8 @@ For example an add-on that has the goal to provide a bookmarking feature depends
 Have a look at the curated lists of add-ons:  
 
 
-[backend add-ons](https://github.com/collective/awesome-plone#readme)  
-[frontend add-ons](https://github.com/collective/awesome-volto#readme)
+[backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)  
+[frontend add-ons](https://github.com/collective/awesome-volto/blob/main/README.md)
 
 
 
@@ -62,7 +62,7 @@ Here are some tips.
 
 - Find candidates on PyPi, npm  or Github:
 
-  - curated list of [backend add-ons](https://github.com/collective/awesome-plone#readme)
+  - curated list of [backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)
   - curated list of [frontend add-ons](https://github.com/collective/awesome-volto#readme)
   - Python packages on Pypi: <https://pypi.org/search/?c=Framework+%3A%3A+Plone>
   - Plone add-ons on Github: <https://github.com/collective>

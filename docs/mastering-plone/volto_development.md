@@ -24,7 +24,7 @@ Some of the most used editors in the Plone community are listed here.
 - [VSCode](https://code.visualstudio.com/)
 - [Sublime](https://www.sublimetext.com/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
-- [Wing IDE](http://wingide.com/)
+- [Wing IDE](https://wingware.com/)
 
 Some features that most editors have in one form or another, are essential when developing with Plone.
 
@@ -65,12 +65,12 @@ Checkout VSCode documentation for topics like [code navigation](https://code.vis
 
 React components can be inspected with `React Developer Tools`: props, hierarchy, and a lot more.
 
-- [React Developer Tools Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- [React Developer Tools Chrome](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 - [React Developer Tools Firefox](https://addons.mozilla.org/de/firefox/addon/react-devtools/)
 
 The Redux store and actions can be inspected with `Redux Developer Tools`.
 
-- [Redux Developer Tools Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+- [Redux Developer Tools Chrome](https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 - [Redux Developer Tools Firefox](https://addons.mozilla.org/de/firefox/addon/reduxdevtools/)
 
 

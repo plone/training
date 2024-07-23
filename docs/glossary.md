@@ -184,7 +184,7 @@ Transpilation
 ES6
 ECMAScript 6
     [ECMAScript 6 (ES6)](https://262.ecma-international.org/6.0/) is a scripting language specification on which [JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/JavaScript) is based.
-    [Ecma International](https://www.ecma-international.org/) is in charge of standardizing ECMAScript.
+    [Ecma International](https://ecma-international.org/) is in charge of standardizing ECMAScript.
 
 mrs-developer
     Also called "missdev", a tool similar to buildout's `mr.developer`.

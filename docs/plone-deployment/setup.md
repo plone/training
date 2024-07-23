@@ -16,7 +16,7 @@ Ensure a seamless learning experience by preparing your computer with the necess
 ### 1. **Operating System**
 
 - **Linux/macOS:** A recent version is preferred. macOS users should have [Homebrew](https://brew.sh/) installed.
-- **Windows:** Consider using [WSL2 with Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10), though it’s not officially tested for this training.
+- **Windows:** Consider using [WSL2 with Ubuntu](https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/), though it’s not officially tested for this training.
 
 ### 2. **Code Editor**
 
@@ -124,7 +124,7 @@ docker system prune -a
 ```
 
 ```{seealso}
-[docker system prune](https://docs.docker.com/engine/reference/commandline/system_prune/)
+[docker system prune](https://docs.docker.com/reference/cli/docker/system/prune/)
 ```
 
 You can also configure settings for Docker Desktop.
