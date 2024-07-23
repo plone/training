@@ -25,7 +25,7 @@ Finally edit your `theme.config` and change the `@siteFolder` variable to contai
 
 ## Basic font family
 
-[plone.org](plone.org) uses the "Assistant" font instead of the Volto default "Poppins". You can use Semantic UI variables for customizing the font, as it's a valuable feature.
+[plone.org](https://plone.org) uses the "Assistant" font instead of the Volto default "Poppins". You can use Semantic UI variables for customizing the font, as it's a valuable feature.
 
 Create a file called `site.variables`in the following path `src/addons/<your-addon-name>/theme/globals/`.
 
