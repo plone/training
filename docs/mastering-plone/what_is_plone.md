@@ -142,7 +142,7 @@ Plone creates forms for all these schemata to add and edit content.
 
 ```{seealso}
 - [Zope Component Architecture](https://zopecomponent.readthedocs.io/en/latest/narr.html)
-- The [Keynote](https://youtu.be/eGRJbBI_H2w?t=1308) by Cris Ewing at PyCon 2016
+- The [Keynote](https://www.youtube.com/watch?t=1308&v=eGRJbBI_H2w) by Cris Ewing at PyCon 2016
 ```
 
 
