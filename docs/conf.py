@@ -89,36 +89,26 @@ pygments_style = "sphinx"
 # Options for the linkcheck builder
 # Ignore localhost
 linkcheck_ignore = [
-    r"http://localhost",
+    r"https?://.*localhost.*",
     r"http://0.0.0.0",
     r"http://127.0.0.1",
     r"http://example.com",
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
-    r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
     r"https://www.dipf.de/.*",  # a timeout from time to time
-    r"https?://plone-conference.localhost.*",
+    r"https://www.linode.com/.*",  # test say 500 Server Error but manually they work
+    r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
     # GitHub rewrites anchors with JavaScript.
     # See https://github.com/plone/training/issues/598#issuecomment-1105168109
-    "https://github.com/collective/awesome-volto#addons",
-    "https://github.com/collective/collective.easyform#collectivez3cformnorobots-support",
-    "https://github.com/collective/collective.easyform#recaptcha-support",
-    "https://github.com/plone/plone.app.contentlisting/#methods-of-contentlistingobjects",
-    "https://github.com/plone/plone.app.contenttypes#changing-the-base-class-for-existing-objects",
-    "https://plone.github.io/mockup/dev/#pattern/autotoc",
-    "https://plone.github.io/mockup/dev/#pattern/modal",
-    "https://plone.github.io/mockup/dev/#pattern/moment",
-    "https://github.com/collective/collective.exportimport#faq-tips-and-tricks",
-    "https://github.com/plone/plone.app.contenttypes/tree/2.2.x#migration",
+    # Ignore github.com pages with anchors
+    r"https://github.com/.*#.*",
+    r"https://plone.github.io/mockup/dev/.*#.*",
+    # Ignore other specific anchors
     "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
-    "https://github.com/plone/plone.restapi/blob/afde2a940d2518e061eb3fe30093093af55e3a50/src/plone/restapi/services/content/configure.zcml#L15-L20",
-    "https://github.com/plone/plone.rest#cors",
-    "https://github.com/plone/plone.docker#for-basic-usage",
-    "https://github.com/nodejs/release#release-schedule",
     # ### End of list of anchored links
 ]
 linkcheck_allowed_redirects = {
