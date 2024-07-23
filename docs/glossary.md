@@ -58,9 +58,6 @@ S3
 NFS
     [Network File System](https://en.wikipedia.org/wiki/Network_File_System).
 
-Amazon Opsworks
-    [AWS OpsWorks](https://aws.amazon.com/opsworks/) is a configuration management service that uses Chef, an automation platform that treats server configurations as code.
-
 Ansible
     [Ansible](https://www.ansible.com/) is an open source automation platform.
     Ansible can help you with configuration management, application deployment, task automation.
