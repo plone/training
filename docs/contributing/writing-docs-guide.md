@@ -255,7 +255,7 @@ This will greatly improve the editing and maintenance of your documentation.
 ## General Documentation Writing References
 
 - [Write the Docs - Documentation Guide](https://www.writethedocs.org/guide/)
-- [A Guide to Em Dashes, En Dashes, and Hyphens](https://www.merriam-webster.com/words-at-play/em-dash-en-dash-how-to-use)
+- [A Guide to Em Dashes, En Dashes, and Hyphens](https://www.merriam-webster.com/grammar/em-dash-en-dash-how-to-use)
 
 
 ### English grammar, spelling, punctuation, and syntax

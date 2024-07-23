@@ -167,7 +167,7 @@ export default NewsItemView;
 
 - The view displays various attributes of the News Item using `content.title`, `content.description` or `content.text.data`.
 
-- You can inspect all data hold by `content` using the React Developer Tools for [Firefox](https://addons.mozilla.org/de/firefox/addon/react-devtools/) or [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
+- You can inspect all data hold by `content` using the React Developer Tools for [Firefox](https://addons.mozilla.org/de/firefox/addon/react-devtools/) or [Chrome](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
 
 ```{figure} _static/volto_react_devtools.png
 :align: center

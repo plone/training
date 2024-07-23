@@ -448,7 +448,7 @@ const TalkView = (props) => {
         {content.twitter && (
           <p>
             Twitter:{' '}
-            <a href={`https://twitter.com/${content.twitter}`}>
+            <a href={`https://x.com/${content.twitter}`}>
               {content.twitter.startsWith('@')
                 ? content.twitter
                 : '@' + content.twitter}

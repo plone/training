@@ -9,7 +9,7 @@ myst:
 
 # Start the Project
 
-The {term}`cookiecutter-plone-starter` equips you with essential tools to initiate a local development environment. The [new project](new-project) offers two methods to launch your project: manually starting the Backend and Frontend servers, or utilizing a Docker Compose stack.
+The {term}`cookiecutter-plone-starter` equips you with essential tools to initiate a local development environment. The {doc}`project-new` offers two methods to launch your project: manually starting the Backend and Frontend servers, or utilizing a Docker Compose stack.
 
 ## Running Local Servers
 

@@ -46,7 +46,7 @@ path).
 
 Volto's theme is called Pastanaga. It's a typical Semantic-UI theme. For
 the new elements and components that don't exist in Semantic-UI, the Pastanaga
-theme uses the [extras](https://github.com/plone/volto/tree/master/theme/themes/pastanaga/extras) folder. The downside is that they aren't fully using the Semantic-UI theming engine.
+theme uses the [extras](https://github.com/plone/volto/tree/main/packages/volto/theme/themes/pastanaga/extras) folder. The downside is that they aren't fully using the Semantic-UI theming engine.
 
 The key to success in Volto theming is to understand how Semantic-UI's theming
 engine works and how to manipulate it. Reading the `theme.less` and

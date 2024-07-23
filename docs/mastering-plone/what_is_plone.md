@@ -34,7 +34,7 @@ Plone has a multitude of powerful features, is easily accessible to editors, but
 The modular and open component architecture of Plone allows you to change or extend Plone in every aspect!
 
 ```{seealso}
-Plone documentation on [docs.plone.org](https://docs.plone.org/)  
+Plone documentation on [docs.plone.org](https://6.docs.plone.org/)  
 Demo installation on [demo.plone.org](https://demo.plone.org/)
 ```
 
@@ -142,7 +142,7 @@ Plone creates forms for all these schemata to add and edit content.
 
 ```{seealso}
 - [Zope Component Architecture](https://zopecomponent.readthedocs.io/en/latest/narr.html)
-- The [Keynote](https://youtu.be/eGRJbBI_H2w?t=1308) by Cris Ewing at PyCon 2016
+- The [Keynote](https://www.youtube.com/watch?t=1308&v=eGRJbBI_H2w) by Cris Ewing at PyCon 2016
 ```
 
 

@@ -57,8 +57,7 @@ export const Breadcrumb = injectIntl(({ children, ...args }) => {
 
 Notice the `<Wrapper>` component, which provides a minimal Volto "environment context" that to ensure that the deeply-integrated Volto components can function.
 
-To create a static build of your storybook (which you can publish to a static
-http server, for example github.io pages), you need to run:
+To create a static build of your storybook (where you can publish to a static http server, for example [GitHub pages](https://pages.github.com/)), you need to run:
 
 ```
 yarn build-storybook

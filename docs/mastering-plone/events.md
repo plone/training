@@ -201,7 +201,7 @@ const TalkView = ({ content }) => {
           )}
           {content.twitter && (
             <p>
-              <a href={`https://twitter.com/${content.twitter}`}>
+              <a href={`https://x.com/${content.twitter}`}>
                 <Icon name="twitter" />{' '}
                 {content.twitter.startsWith('@')
                   ? content.twitter

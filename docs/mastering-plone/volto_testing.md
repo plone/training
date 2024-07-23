@@ -41,7 +41,7 @@ We already added a content type `talk`. Let's write a test 'An editor can add a 
    >   },
    > ```
 
-3. Get some helper functions for an autologin, etc. from [Volto](https://github.com/plone/volto/tree/master/cypress/support).
+3. Get some helper functions for an autologin, etc. from [Volto](https://github.com/plone/volto/tree/main/packages/volto/cypress/support).
 
 4. Create a folder {file}`cypress/integration/` with a file {file}`content.js`
 

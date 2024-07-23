@@ -16,7 +16,7 @@ It is recommended that you follow the best practices explained in the "Installin
 
 You'll find in the Volto repository a simple `docker-compose` example:
 
-https://github.com/plone/volto/blob/main/docker-compose.yml
+https://github.com/plone/volto/blob/main/packages/volto/docker-compose.yml
 
 ```shell
 docker-compose -f <following_snippet.yml> up
