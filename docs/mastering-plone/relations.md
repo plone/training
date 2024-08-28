@@ -152,7 +152,7 @@ Setting the mode of the widget to `search` makes it easier to select from the co
 
 The problem is that in the default mode of the Related Items wisget items that are in container s are not shown unless you add thes types of contaibers to the query.
 
-Therefore is is recommended to use CatalogSource only in in `search` mode.
+Therefore it is recommended to use CatalogSource only in in `search` mode.
 
 ```{code-block} python
 :emphasize-lines: 10
