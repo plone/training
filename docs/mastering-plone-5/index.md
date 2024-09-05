@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Documentation for the 'Mastering Plone 5' training"
+    "property=og:description": "Documentation for the 'Mastering Plone 5' training"
+    "property=og:title": "Mastering Plone 5 development"
+    "keywords": "Plone"
 ---
 
 (mastering-plone5-label)=
@@ -29,8 +29,7 @@ about_mastering
 intro
 what_is_plone
 installation
-../plone_training_config/instructions_plone5
-../plone_training_config/what_vagrant_does
+instructions_plone5
 case
 features
 anatomy
