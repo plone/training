@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Add event features to a content type"
+    "property=og:description": "Add event features to a content type"
+    "property=og:title": "Turning Talks into Events"
+    "keywords": "Plone, event, content type, date"
 ---
 
 (events-label)=

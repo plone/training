@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
+    "description": "Simple block architecture"
+    "property=og:description": "Simple block architecture"
     "property=og:title": "Creating a custom block"
     "keywords": "Plone, Volto, block, add-on"
 ---

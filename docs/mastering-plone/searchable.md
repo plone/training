@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Include fields in search"
+    "property=og:description": "Include fields in search"
+    "property=og:title": "Search for additional fields"
+    "keywords": "search, Plone, index"
 ---
 
 (searchable-label)=

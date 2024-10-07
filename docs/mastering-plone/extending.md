@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone architecture and concepts"
+    "property=og:description": "Plone architecture and concepts"
+    "property=og:title": "Extending Plone"
+    "keywords": "Plone, architecture, zcml, Generic Setup"
 ---
 
 (extending-label)=

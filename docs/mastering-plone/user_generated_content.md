@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
+    "description": "Configure who can edit what"
+    "property=og:description": "Configure who can edit what"
     "property=og:title": "Workflow, Roles and Permissions"
     "keywords": "Plone, Volto, workflow, role, local role, permission"
 ---

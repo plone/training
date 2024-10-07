@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "How to enhance your Plone site with additional features from existing add-ons"
+    "property=og:description": "How to enhance your Plone site with additional features from existing add-ons"
+    "property=og:title": "Using Volto add-ons"
+    "keywords": "Plone, frontend, add-on"
 ---
 
 (volto-addon-label)=

@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Customize the layout of the search results"
+    "property=og:description": "Customize the layout of the search results"
+    "property=og:title": "Search block variation"
+    "keywords": "Plone, search, results, meta data"
 ---
 
 (search-block-variation-label)=
