@@ -20,6 +20,11 @@ It's a good practice to write tests for the main requirements of a project. The 
 
 This chapter is meant as a starting point for testing in Volto.
 
+<!-- 
+
+% TODO Configure backend acceptance server with backend add-on 'training.votable' from repo.
+% Until this is done, exclude this section 'cypress testing' of chapter testing.
+
 (testing-cypress)=
 
 ## Testing permissions, features and UI topics
@@ -101,6 +106,7 @@ All sessions should start from the `frontend` directory.
 2.  In the main Cypress runner section, you will see all of the test specs.
 
 3.  To run a test, interact with the file based tree that displays all possible tests to run, and click on the test spec you need to run.
+-->
 
 
 (testing-jest)=
@@ -191,10 +197,11 @@ exports[`renders a talk view component with only required props 1`] = `
   <div
     className="ui clearing segment"
   >
-    <p />
-    <img
-      className="ui small avatar right floated image"
-    />
+    <div
+      className="ui dividing header"
+    >
+      Speaker
+    </div>
   </div>
 </div>
 `;
