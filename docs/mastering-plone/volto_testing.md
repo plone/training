@@ -1,19 +1,19 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "testing basics"
+    "property=og:description": "testing basics"
+    "property=og:title": "Testing Volto add-on"
+    "keywords": "testing, Volto"
 ---
 
 (volto-testing-label)=
 
-# Testing in Plone
+# Testing
 
 ````{card} Frontend chapter
 
-For information on testing Plone backend see the separate training: {ref}`testing-plone-label`
+For information on testing **backend** code, see the separate training: {ref}`testing-plone-label`
 ````
 
 It's a good practice to write tests for the main requirements of a project. The **requirements are getting clearer and a path for the development is pointed**.
@@ -26,42 +26,24 @@ This chapter is meant as a starting point for testing in Volto.
 
 We already added a content type `talk`. Let's write a test 'An editor can add a talk'.
 
-1. Install cypress with
+1. Install docker.
 
-   > ```
-   > yarn add cypress cypress-axe cypress-file-upload --dev -W
-   > ```
+2. Have a look at some helper functions for an autologin, etc. from [Volto](https://github.com/plone/volto/tree/main/packages/volto/cypress/support).
 
-2. Add a yarn script in your {file}`package.json`
+3. Create a test file {file}`cypress/tests/content.cy.js`
 
-   > ```
-   > "scripts": {
-   >     ...
-   >     "cypress:open": "CYPRESS_API=plone cypress open"
-   >   },
-   > ```
-
-3. Get some helper functions for an autologin, etc. from [Volto](https://github.com/plone/volto/tree/main/packages/volto/cypress/support).
-
-4. Create a folder {file}`cypress/integration/` with a file {file}`content.js`
-
-{file}`content.js`:
+{file}`content.cy.js`:
 
 ```{code-block} js
-:emphasize-lines: 4,12, 32-33
+:emphasize-lines: 4,9-10, 27-28
 
 describe('Add talk tests', () => {
   beforeEach(() => {
     // given a logged in editor and the site root
     cy.autologin();
-    cy.visit('/');
-    cy.waitForResourceToLoad('@navigation');
-    cy.waitForResourceToLoad('@breadcrumbs');
-    cy.waitForResourceToLoad('@actions');
-    cy.waitForResourceToLoad('@types');
-    cy.waitForResourceToLoad('?fullobjects');
   });
   it('As editor I can add a talk.', function () {
+    cy.visit('/');
     // when I add a talk with title, type and details
     cy.get('#toolbar-add').click();
     cy.get('#toolbar-add-talk').click();
@@ -87,68 +69,52 @@ describe('Add talk tests', () => {
 });
 ```
 
-Go to your **backend folder**, open `Makefile` and add test commands:
+Go to your **frontend folder**, start the test backend and the test frontend.
+Then run the acceptance tests:
 
-% TODO Update makefile code example
+It's recommended to start three individual terminal sessions, one each for running the Plone backend, the Volto frontend, and the acceptance tests.
+All sessions should start from the `frontend` directory.
 
-```text
-# Volto cypress tests
+1.  In the first session, start the backend server.
 
-.PHONY: start-test-backend
-start-test-backend: ## Start Test Plone Backend
-  ZSERVER_PORT=55001 CONFIGURE_PACKAGES=plone.app.contenttypes,plone.restapi,kitconcept.volto,kitconcept.volto.cors APPLY_PROFILES=plone.app.contenttypes:plone-content,plone.restapi:default,kitconcept.volto:default-homepage ./bin/robot-server plone.app.robotframework.testing.PLONE_ROBOT_TESTING
+    ```shell
+    make acceptance-backend-start
+    ```
 
-.PHONY: start-test-frontend
-start-test-frontend: ## Start Test Volto Frontend
-  cd ../volto-ploneconf; RAZZLE_API_PATH=http://localhost:55001/plone yarn build && NODE_ENV=production node build/server.js
+1.  In the second session, start the frontend server.
 
-.PHONY: start-test
-start-test: ## Start Test
-  cd ../volto-ploneconf; yarn cypress:open
-```
+    ```shell
+    make acceptance-frontend-dev-start
+    ```
 
-Start the test backend
+1.  In the third session, start the Cypress tests runner.
 
-```shell
-make start-test-backend
-```
+    ```shell
+    make acceptance-test
+    ```
 
-Start the test frontend
+1.  In the Cypress pop-up test style, choose `E2E Testing`, since Volto's tests are end-to-end tests.
 
-```shell
-make start-test-frontend
-```
+1.  In the next section, select the browser you want Cypress to run in.
+    Although the core tests use `headless Electron` by default, you can choose your preferred browser for the tests development.
 
-Start cypress
+2.  In the main Cypress runner section, you will see all of the test specs.
 
-```shell
-make start-test
-```
+3.  To run a test, interact with the file based tree that displays all possible tests to run, and click on the test spec you need to run.
 
-You can step through each command of a test.
-
-```{figure} _static/cypress_running.png
-
-```
-
-Cypress provides a helper to find the right selector.
-
-```{figure} _static/cypress_selector.png
-
-```
 
 (testing-jest)=
 
 ## Testing the rendering of a component
 
 - Create a {file}`Talk.test.js` file as a sibling of Talk.jsx
-- The component to test is `Talk`. We let the test render this component with some props:
+- The component to test is `Talk`.
+  We let the test render this component with some props:
 
 ```{code-block} jsx
-:emphasize-lines: 18-24
+:emphasize-lines: 17-23
 :linenos:
 
-import React from 'react';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-intl-redux';
 import configureStore from 'redux-mock-store';
@@ -182,19 +148,54 @@ test('renders a talk view component with only required props', () => {
 If you now run the test, a snaphot of the rendered component will be created.
 
 ```shell
-yarn test
+make test
 ```
 
 See the snaphot in folder `__snapshots__`.
 If this is a rendering you expected, you are good to go.
 
 ```html
-// Jest Snapshot v1, https://goo.gl/fbAQLP exports[`renders a talk view
-component with only required props 1`] = `
-<div className="ui container" id="page-talk">
-  <h1 className="documentFirstHeading">Talk : Security of Plone</h1>
-  <div className="ui right floated segment" />
-  <p className="documentDescription">What makes Plone secure?</p>
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a talk view component with only required props 1`] = `
+<div
+  className="ui container"
+  id="view-wrapper talk-view"
+>
+  <h1
+    className="documentFirstHeading"
+  >
+    <span
+      className="type_of_talk"
+    >
+      Talk
+      : 
+    </span>
+    Security of Plone
+  </h1>
+  <p
+    className="documentDescription"
+  >
+    What makes Plone secure?
+  </p>
+  <div
+    className="ui right floated segment"
+  />
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>some details about this <strong>talk</strong>.</p>",
+      }
+    }
+  />
+  <div
+    className="ui clearing segment"
+  >
+    <p />
+    <img
+      className="ui small avatar right floated image"
+    />
+  </div>
 </div>
 `;
 ```

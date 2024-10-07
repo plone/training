@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Fields and widgets"
+    "property=og:description": "Fields and widgets"
+    "property=og:title": "Content types: Reference"
+    "keywords": "field, widget, schema"
 ---
 
 (dexterity-reference-label)=
@@ -360,8 +360,10 @@ Example is a custom history:
 Add a `JSONField` field to your content type schema.
 
 ```{code-block} python
-:emphasize-lines: 1-6, 33, 37, 38
+:emphasize-lines: 1-8, 35, 39, 40
 :linenos:
+
+from plone.schema import JSONField
 
 MIXEDFIELD_SCHEMA = json.dumps(
     {
@@ -410,10 +412,8 @@ class IExample(model.Schema):
 Provide a widget in your favorite add-on with a schema of elementary fields you need.
 
 ```{code-block} jsx
-:emphasize-lines: 3,37,39
+:emphasize-lines: 1,35,37
 :linenos:
-
-import React from 'react';
 
 import ObjectListWidget from '@plone/volto/components/manage/Widgets/ObjectListWidget';
 
@@ -681,7 +681,7 @@ class IMeeting(model.Schema):
     )
 ```
 
-### Validation and default values
+## Validation and default values
 
 In the following example we add a validator and a default value.
 
@@ -710,7 +710,7 @@ class IMeeting(model.Schema):
     )
 ```
 
-Validators and defaults can be also be made aware of the context (i.e. to check against the values of other fields).
+Validators and defaults can also be made aware of the context (i.e. to check against the values of other fields).
 
 For context aware defaults you need to use a {py:class}`IContextAwareDefaultFactory`. It will be passed the container for which the add form is being displayed:
 

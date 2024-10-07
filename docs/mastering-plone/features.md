@@ -11,8 +11,6 @@ myst:
 
 # The Features of Plone
 
-% TODO Short appetizer on all the fancy features.
-
 Now we create a Plone instance and take a look at all the features you can use as an integrator.
 Developers get a glimpse on the features that can be modified easily.
 
@@ -23,7 +21,7 @@ Developers get a glimpse on the features that can be modified easily.
 We control Plone with `make`. Start your Zope instance with:
 
 ```shell
-$ make start
+make start
 ```
 
 The Zope instance starts up with `Ready to handle requests`.
@@ -52,7 +50,7 @@ You should change your password in production sites via `http://localhost:8080/a
 If you ever have the need to create an emergency user, create one with:
 
 ```shell
-venv/bin/addzopeuser masterofdesaster VXT+zif -c ./instance/etc/zope.conf
+venv/bin/addzopeuser masterofdesaster mypassworD£xyz2 -c ./instance/etc/zope.conf
 ```
 
 ```{figure} _static/features_create_site_form.png
@@ -77,7 +75,7 @@ The front page of your site
 Start the frontend of your new Plone site by switching to directory `frontend` and enter:
 
 ```shell
-yarn start
+make start
 ```
 
 Opening `http://localhost:3000`, you are facing the front page of your Plone site.
@@ -109,13 +107,13 @@ You will also have to tell the frontend that the backend is now running on a dif
 You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base url of the backend:
 
 ```shell
-RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone yarn start
+RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone pnpm start
 ```
 
 When your Plone instance is not called `Plone` you can use the same approach:
 
 ```shell
-RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
+RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite pnpm start
 ```
 
 #### frontend
@@ -125,7 +123,7 @@ Change the port of the frontend to 1234
 By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
 
 ```shell
-HOST=localhost PORT=1234 yarn start
+HOST=localhost PORT=1234 pnpm start
 ```
 
 
@@ -229,7 +227,6 @@ Create a site structure:
 - Add a Page "Sprint"
 - Add a Page "Contact"
 
-% TODO Can the number of pages be reduced to fit in the browser window width?
 
 ```{figure} _static/features_site_structure.png
 :alt: The view of the newly created site structure.
@@ -497,6 +494,7 @@ Access and modifications of this instance is defined by the role/permission mapp
 As each user, including the anonymous, has a set of roles, the circle is closed and each user has access and or can modify a content type instance or not, according to their roles.
 
 ```{seealso}
+- {doc}`user_generated_content`
 - Training {doc}`/workflow/index`
 - Plone 5 Documentation [Collaboration and Workflow](https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html)
 ```
@@ -584,5 +582,3 @@ Unless activated, check-in/check-out options are not visible.
 
 
 % TODO section about the discussion/commenting feature
-
-% TODO "Features of Plone" is a short overview of out of the box features. Plone can be extended by add-ons…

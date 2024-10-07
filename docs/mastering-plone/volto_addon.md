@@ -50,41 +50,61 @@ Add-ons that are already released on [npm](https://www.npmjs.com):
 
 : Update `package.json`:
   ```{code-block} json
-  :emphasize-lines: 2,7
-
-  "addons": [
-    "@eeacms/volto-matomo"
-  ],
+  :emphasize-lines: 5
 
   "dependencies": {
-    "@plone/volto": "8.3.0",
-    "@eeacms/volto-matomo": "^2.0.9"
+    "@plone/volto": "workspace:*",
+    "@plone/registry": "workspace:*",
+    "volto-ploneconf": "workspace:*",
+    "@eeacms/volto-matomo": "^5.0.0"
   },
+  ```
+
+: Update `volto.config.js`:
+  ```{code-block} js
+  :emphasize-lines: 1
+
+  const addons = ['@eeacms/volto-matomo', 'volto-ploneconf'];
+  const theme = '';
+
+  module.exports = {
+    addons,
+    theme,
+  };
   ```
 
 Add-ons that are **not yet released** on `npm` but available on `Github`:
 
 : Update `package.json`:
-
   ```{code-block} json
-  :emphasize-lines: 2,7
-
-  "addons": [
-    "@foo/volto-bar-block"
-  ],
+  :emphasize-lines: 5
 
   "dependencies": {
-    "@plone/volto": "16.0.1",
+    "@plone/volto": "workspace:*",
+    "@plone/registry": "workspace:*",
+    "volto-ploneconf": "workspace:*",
     "@foo/volto-bar-block": "github:foo/volto-bar-block#x.y.z"
   },
   ```
 
+: Update `volto.config.js`:
+  ```{code-block} js
+  :emphasize-lines: 1
 
-Install new add-on with `yarn` and restart Volto:
+  const addons = ['@foo/volto-bar-block', 'volto-ploneconf'];
+  const theme = '';
+
+  module.exports = {
+    addons,
+    theme,
+  };
+  ```
+
+Install the new add-on and restart Volto:
 
 ```shell
-$ make install
-$ yarn start
+make install
+make start
 ```
 
 

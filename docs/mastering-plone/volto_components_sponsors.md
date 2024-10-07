@@ -11,26 +11,7 @@ myst:
 
 # The Sponsors Component
 
-Create a React component for content fetched from the backend
-
-````{card} Frontend chapter
-
-Get the code! ({doc}`More info <code>`)
-
-Code for the beginning of this chapter:
-
-```shell
-git checkout event
-```
-
-Code for the end of this chapter:
-
-```shell
-git checkout sponsors
-```
-````
-
-In the previous chapter {doc}`dexterity_3` you created the `sponsor` content type.
+In a previous chapter {doc}`dexterity_3` you created the `sponsor` content type.
 Now let's learn how to display content of this type.
 
 ```{card}
@@ -45,9 +26,27 @@ In this part you will:
 Topics covered:
 
 - Create React component
-- Use React action of Volto to fetch data from Plone via REST API
+- Use React action of Volto to fetch data from Plone backend via REST API
 - Style component with Semantic UI
 ```
+
+````{card} Frontend chapter
+
+Checkout `volto-ploneconf` at tag "listing_variation":
+
+```shell
+git checkout listing_variation
+```
+
+The code at the end of the chapter:
+
+```shell
+git checkout sponsors
+```
+
+More info in {doc}`code`
+````
+
 
 ```{figure} _static/volto_component_sponsors.png
 :alt: Sponsors component
@@ -55,7 +54,6 @@ Topics covered:
 
 ```{only} not presentation
 For sponsors we will stay with the default view as we will only display the sponsors in the footer and do not modify their own pages.
-The default-view of Volto does not show any of the custom fields you added to the sponsors.
 Using what you learned in {doc}`volto_talkview` you should be able to write a view for sponsors if you wanted to.
 ```
 
@@ -66,29 +64,27 @@ Using what you learned in {doc}`volto_talkview` you should be able to write a vi
 React components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
 
 - You can write a view component for the current context - like the `TalkView`.
-- You can write a view component that can be selected as view for a set of content objects like the TalkListView.
-- You can also write components that are visible on all content objects. In classic Plone we use _viewlets_ for that.
+- You can also write components that are visible on all views of content objects.
 - Volto comes with several components like header, footer, sidebar. In fact everything of the UI is build of nested components.
 - Inspect existing components with the React Developer Tools.
+
 
 (volto-component-sponsors-label)=
 
 ## The Sponsors Component
 
-We will now see how to achieve in Volto frontend the equivalent to the Plone viewlet of chapter {doc}`dexterity_3`.
-
 **Steps to take**
 
-- Copy and customize Footer component.
+- Copy and customize the Footer component.
 - Create component to fetch data from backend and to display the fetched data.
 
 (volto-component-customizing-label)=
 
 ### Customizing the Footer
 
-You can override any component that lives inside Volto's source folder `frontend/omelette/src/components` and adapt it to your needs, without touching the original component.
+You can override any component that lives inside Volto's source folder `core/packages/volto/src/components` and adapt it to your needs, without touching the original component.
 
-The sponsors shall live in the footer of a page. To customize the given footer component we copy the `Footer.jsx` file {file}`frontend/omelette/src/components/theme/Footer/Footer.jsx` from Volto. We insert the copied file to our app regarding the original folder structure but inside our customizations folder {file}`frontend/src/customizations/components/theme/Footer/Footer.jsx`.
+The sponsors shall live in the footer of a page. To customize the given footer component we copy the `Footer.jsx` file {file}`core/packages/volto/src/components/theme/Footer/Footer.jsx` from Volto. We insert the copied file to our app regarding the original folder structure but inside our customizations folder {file}`packages/ploneconf.site/src/customizations/components/theme/Footer/Footer.jsx`.
 
 In this file `Footer.jsx` we can now modify the to be rendered html by adding a subcomponent `Sponsors`.
 
@@ -111,16 +107,16 @@ const Footer = ({ intl }) => (
       >
 ```
 
-This will show an additional component. It is visible on all pages as it is a subcomponent of the `Footer` component. Later on it can be made conditional if necessary.
+This will show an additional component.
+It is visible on all pages as it is a subcomponent of the `Footer` component.
+Later on it can be made conditional if necessary.
 
-To create the component `Sponsors` we add a folder {file}`frontend/src/components/Sponsors/` with a file {file}`Sponsors.jsx`. In this file we can now define our new component.
+To create the component `Sponsors` we add a folder {file}`src/components/Sponsors/` with a file {file}`Sponsors.jsx`. In this file we can now define our new component.
 
 Start with a placeholder to see that your registration actually works:
 
 ```{code-block} jsx
 :linenos:
-
-import React from 'react';
 
 const Sponsors = () => {
   return <h3>Our sponsors</h3>;
@@ -135,7 +131,7 @@ Go back to your modified `Footer` component.
 The `Footer` component needs to know where to find the added `Sponsor` component.
 We import the `Sponsor` component at the top of our modified `Footer` component.
 
-{file}`frontend/src/customizations/components/theme/Footer/Footer.jsx`:
+{file}`src/customizations/components/theme/Footer/Footer.jsx`:
 
 ```{code-block} jsx
 :linenos:
@@ -143,7 +139,16 @@ We import the `Sponsor` component at the top of our modified `Footer` component.
 import { Sponsors } from '@package/components';
 ```
 
-After restarting the frontend with `yarn start`, we are now ready to visit an arbitrary page to see the new component.
+For an import using the alias '@package/components', we need to add a conveniance import in the root `src/components/index.js`.
+
+```{code-block} jsx
+import TalkView from './Views/Talk';
+import Sponsors from './Sponsors/Sponsors';
+
+export { Sponsors, TalkView };
+```
+
+After restarting the frontend with `make start`, we are now ready to visit an arbitrary page to see the new component.
 A restart is necessary on newly added files. As long as you just edit existing files of your app, your browser is updating automagically by app configuration.
 
 (volto-component-datafetching-label)=
@@ -158,7 +163,7 @@ A Redux action communicates with the backend and has a common pattern:
 It addresses the backend via REST API and updates the global app store according to the response of the backend.
 A component calls an action and has hereupon access to the global app store (shortened: store) with the fetched data.
 
-For more information which actions are already provided by Volto have a look at {file}`frontend/omelette/src/actions`.
+For more information which actions are already provided by Volto have a look at {file}`core/packages/volto/src/actions`.
 
 Our component will use the action `searchContent` to fetch data of all sponsors.
 It takes as arguments the path where to search, the information what to search and an argument with which key the data should be stored in the store.
@@ -173,7 +178,7 @@ The Hook `useEffect` lets you perform side effects in `function components`. We 
 
 const dispatch = useDispatch();
 
-React.useEffect(() => {
+useEffect(() => {
   dispatch(
     searchContent(
       '/',
@@ -192,7 +197,7 @@ React.useEffect(() => {
 
 - The default representation for search results is a summary that contains only the most basic information like **title, review state, type, path and description**.
 - With the option `fullobjects` all available field values are present in the fetched data.
-- Another option is `metadata_fields`, which allows to get more attributes (selection of Plone catalog metadata columns) than the default search without a performance expensive fetch via option fullobjects.
+- Another option is `metadata_fields`, which allows to get more attributes (selection of Plone catalog metadata columns) than the default search. The search is done without a performance expensive fetch via option `fullobjects` as soon as the attributes are available from catalog as metadata.
 
 Possible **sort criterions** are indices of the Plone catalog.
 
@@ -203,7 +208,7 @@ Possible **sort criterions** are indices of the Plone catalog.
 
 const dispatch = useDispatch();
 
-React.useEffect(() => {
+useEffect(() => {
   dispatch(
     searchContent(
       '/',
@@ -218,8 +223,14 @@ React.useEffect(() => {
 }, [dispatch]);
 ```
 
+Check which info you get with the search request in Google developer tools:
+
+```{figure} _static/search_response.png
+:alt: search response
+```
+
 ```{seealso}
-{doc}`plone6docs:plone.restapi/docs/source/endpoints/searching`
+REST API Documentation {doc}`plone6docs:plone.restapi/docs/source/endpoints/searching`
 ```
 
 
@@ -256,7 +267,7 @@ To subscribe to these changes in sponsorship, we extend our already defined conn
 
 const content = useSelector((state) => state.workflow.transition);
 
-React.useEffect(() => {
+useEffect(() => {
   dispatch(
     searchContent(
       '/',
@@ -304,35 +315,28 @@ With the subscription `sponsors` we can now show a nested list.
 ```{code-block} jsx
 :linenos:
 
-<List>
-  {keys(sponsors).map((level) => {
-    return (
-      <List.Item key={level} className={'sponsorlevel ' + level}>
-        <h3>{level.toUpperCase()}</h3>
-        <List horizontal>
+{keys(sponsors).map((level) => {
+  return (
+    <div key={level} className={'sponsorlevel ' + level}>
+      <h3>{level.toUpperCase()}</h3>
+      <Grid centered>
+        <Grid.Row centered>
           {sponsors[level].map((item) => (
-            <List.Item key={item['@id']} className="sponsor">
-              {item.logo ? (
-                <Image
-                  className="logo"
-                  as="a"
-                  href={item.url}
-                  target="_blank"
-                  src={flattenToAppURL(item.logo.scales.preview.download)}
-                  size="small"
-                  alt={item.title}
-                  title={item.title}
-                />
-              ) : (
-                <a href={item['@id']}>{item.title}</a>
-              )}
-            </List.Item>
+            <Grid.Column key={item['@id']} className="sponsor">
+              <Component
+                componentName="PreviewImage"
+                item={item}
+                alt={item.title}
+                responsive={true}
+                className="ui image"
+              />
+            </Grid.Column>
           ))}
-        </List>
-      </List.Item>
-    );
-  })}
-</List>
+        </Grid.Row>
+      </Grid>
+    </div>
+  );
+})}
 ```
 
 ````{dropdown} Complete code of the Sponsors component
@@ -342,17 +346,17 @@ With the subscription `sponsors` we can now show a nested list.
 ```{code-block} jsx
 :linenos:
 
-import React from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Segment, List, Image } from 'semantic-ui-react';
+import { Segment, Grid } from 'semantic-ui-react';
 import { keys, isEmpty } from 'lodash';
 
-import { flattenToAppURL } from '@plone/volto/helpers';
+import { ConditionalLink, Component } from '@plone/volto/components';
 import { searchContent } from '@plone/volto/actions';
 
 const groupedSponsorsByLevel = (array = []) =>
   array.reduce((obj, item) => {
-    let token = item.level?.token || 'bronze';
+    let token = item.level || 'bronze';
     obj[token] ? obj[token].push(item) : (obj[token] = [item]);
     return obj;
   }, {});
@@ -363,53 +367,48 @@ const Sponsors = () => {
     groupedSponsorsByLevel(state.search.subrequests.sponsors?.items),
   );
 
-  const content = useSelector((state) => state.workflow.transition);
-
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(
       searchContent(
         '/',
         {
           portal_type: ['sponsor'],
           review_state: 'published',
-          fullobjects: true,
+          sort_on: 'effective',
+          metadata_fields: ['level', 'url'],
         },
         'sponsors',
       ),
     );
-  }, [dispatch, content]);
+  }, [dispatch]);
 
   return !isEmpty(sponsors) ? (
-    <Segment basic textAlign="center" className="sponsors" inverted>
+    <Segment basic textAlign="center" className="sponsors">
       <div className="sponsorheader">
-        <h3 className="subheadline">SPONSORS</h3>
+        <h2 className="subheadline">SPONSORS</h2>
       </div>
-      <List>
-        {keys(sponsors).map((level) => {
-          return (
-            <List.Item key={level} className={'sponsorlevel ' + level}>
-              <h3>{level.toUpperCase()}</h3>
-              <List horizontal>
+      {keys(sponsors).map((level) => {
+        return (
+          <div key={level} className={'sponsorlevel ' + level}>
+            <h3>{level.toUpperCase()}</h3>
+            <Grid centered>
+              <Grid.Row centered>
                 {sponsors[level].map((item) => (
-                  <List.Item key={item['@id']} className="sponsor">
-                    {item.logo ? (
-                      <Image
-                        className="logo"
-                        src={flattenToAppURL(item.logo.scales.preview.download)}
-                        size="small"
-                        alt={item.title}
-                        title={item.title}
-                      />
-                    ) : (
-                      <span>{item.title}</span>
-                    )}
-                  </List.Item>
+                  <Grid.Column key={item['@id']} className="sponsor">
+                    <Component
+                      componentName="PreviewImage"
+                      item={item}
+                      alt={item.title}
+                      responsive={true}
+                      className="ui image"
+                    />
+                  </Grid.Column>
                 ))}
-              </List>
-            </List.Item>
-          );
-        })}
-      </List>
+              </Grid.Row>
+            </Grid>
+          </div>
+        );
+      })}
     </Segment>
   ) : (
     <></>
@@ -424,13 +423,10 @@ We group the sponsors by sponsorship level.
 
 An Object `sponsors` using the sponsorship level as key helps to build rows with sponsors by sponsorship level.
 
-The Semantic UI compontent _Image_ is used to display the logo. It cares about the markup of an html image node with all necessary attributes in place.
+The Volto component `Image` is used to display the logo.
+It cares about the markup of an html image node with all necessary attributes in place.
 
-We also benefit from Semantic UI component _List_ to build our list of sponsors. The styling can be customized but these predefined components help simplifying the code and achieve an app wide harmonic style.
-
-```{seealso}
-Chapter {doc}`volto_semantic_ui`
-```
+We also benefit from [Semantic UI React](https://react.semantic-ui.com/) component `Grid` to build our list of sponsors. The styling can be customized but these predefined components help simplifying the code and achieve an app wide harmonic style.
 
 See the new footer. A restart is not necessary as we didn't add a new file. The browser updates automagically by configuration.
 
@@ -443,39 +439,47 @@ See the new footer. A restart is not necessary as we didn't add a new file. The 
 
 ## Exercise
 
-Modify the component to display a sponsor logo as a link to the sponsors website. The address is set in sponsor field "url". See the documentation of [Semantic UI React](https://react.semantic-ui.com/elements/image/#types-link).
+Modify the component to display a sponsor logo as a link to the sponsors website. The address is set in sponsor field "url".
 
 ````{dropdown} Solution
 :animate: fade-in-slide-down
 :icon: question
 
 ```{code-block} jsx
-:emphasize-lines: 3-5
+:emphasize-lines: 1-5, 13
 
-<Image
-  className="logo"
-  as="a"
-  href={item.url}
-  target="_blank"
-  src={flattenToAppURL(item.logo.scales.preview.download)}
-  size="small"
-  alt={item.title}
-  title={item.title}
-/>
+<ConditionalLink
+  to={item.url}
+  openLinkInNewTab={true}
+  condition={item.url}
+>
+  <Component
+    componentName="PreviewImage"
+    item={item}
+    alt={item.title}
+    responsive={true}
+    className="ui image"
+  />
+</ConditionalLink>
 ```
 
-The Semantic Image component is now rendered with a wrapping anchor tag.
+The image component is now rendered with a wrapping anchor tag.
 
 ```{code-block} html
-
 <a
+  href="https://www.rohberg.ch" 
   target="_blank"
-  title="Gold Sponsor Violetta Systems"
-  class="ui small image logo"
-  href="https://www.nzz.ch">
+  rel="noopener noreferrer"
+  class="external">
     <img
-      src="/sponsors/violetta-systems/@@images/d1db77a4-448d-4df3-af5a-bc944c182094.png"
-      alt="Violetta Systems">
+    src="/sponsors/orangenkiste/@@images/image-170-1914fccf158dd627126054f9c7bb1b17.png"
+    width="170" height="170"
+    class="ui image responsive"
+    srcset="/sponsors/orangenkiste/@@images/image-32-36422a6365defe3ee485bbecaa5cfeda.png 32w, /sponsors/orangenkiste/@@images/image-64-c28b7f3d3c5b0c1de514fbf81091c43c.png 64w, /sponsors/orangenkiste/@@images/image-128-307f157f27fecd23ec2896b44f6ac4aa.png 128w"
+    fetchpriority="high"
+    alt="Orangenkiste"
+    image_field="image"
+    >
 </a>
 ```
 ````

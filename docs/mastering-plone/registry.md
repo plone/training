@@ -11,17 +11,6 @@ myst:
 
 # Vocabularies, Registry-Settings and Control Panels
 
-````{card} Backend chapter
-
-Get the code: https://github.com/collective/ploneconf.site
-
-```shell
-git checkout vocabularies
-```
-
-More info in {doc}`code`
-````
-
 ```{card} 
 In this part you will:
 
@@ -36,6 +25,23 @@ Topics covered:
 - Vocabularies
 - Control panels
 ```
+
+````{card} Backend chapter
+
+Checkout `ploneconf.site` at tag "event":
+
+```shell
+git checkout event
+```
+
+The code at the end of the chapter:
+
+```shell
+git checkout vocabularies
+```
+
+More info in {doc}`code`
+````
 
 
 ## Introduction
@@ -120,16 +126,17 @@ While we're at it we can also add new settings `types_of_talk` and `audiences` t
 
 To define custom records, you write the same type of schema as you already did for content types or for behaviors:
 
-Add a file {file}`browser/controlpanel.py`:
+Add a file {file}`controlpanel/controlpanel.py`:
 
 ```{code-block} python
 :linenos:
 
-from plone.autoform import directives
 from plone import schema
+from plone.autoform import directives
 from zope.interface import Interface
 
 import json
+
 
 VOCABULARY_SCHEMA = json.dumps(
     {
@@ -157,7 +164,6 @@ VOCABULARY_SCHEMA = json.dumps(
 
 
 class IPloneconfSettings(Interface):
-
     talk_submission_open = schema.Bool(
         title="Allow talk submission",
         description="Allow the submission of talks for anonymous user",
@@ -274,6 +280,7 @@ class IPloneconfSettings(Interface):
             "widget": "vocabularyterms",
         },
     )
+
 ```
 
 The motivation to use `schema.JSONField` instead of `schema.List` is described as follows.
@@ -334,16 +341,15 @@ With this statement the registry is extended by one record per `IPloneconfSettin
     i18n:domain="ploneconf.site">
 
   <records
-      interface="ploneconf.site.browser.controlpanel.IPloneconfSettings"
+      interface="ploneconf.site.controlpanel.controlpanel.IPloneconfSettings"
       prefix="ploneconf" />
 
 </registry>
-
 ```
 
 ```{note}
 The `prefix` allows you to access these records with a shortcut:
-You can use `ploneconf.rooms` instead of `ploneconf.site.browser.controlpanel.IPloneconfSettings.rooms`.
+You can use `ploneconf.rooms` instead of `ploneconf.site.controlpanel.controlpanel.IPloneconfSettings.rooms`.
 ```
 
 After reinstalling the package to apply the registry changes, you can access and modify these registry records as described above.
@@ -388,44 +394,15 @@ Now you will add a custom control panel to edit all settings related to our pack
 To register a control panel for the frontend and Plone Classic you need quite a bit of boiler-plate:
 
 ```{code-block} python
-:emphasize-lines: 3, 154-163
+:emphasize-lines: 1-2, 16-25
 :linenos:
 
-from plone import schema
-from plone.autoform import directives
 from plone.restapi.controlpanels import RegistryConfigletPanel
 from zope.component import adapter
-from zope.interface import Interface
 
-import json
-
-VOCABULARY_SCHEMA = json.dumps(
-    {
-        "type": "object",
-        "properties": {
-            "items": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "token": {"type": "string"},
-                        "titles": {
-                            "type": "object",
-                            "properties": {
-                                "lang": {"type": "string"},
-                                "title": {"type": "string"},
-                            },
-                        },
-                    },
-                },
-            }
-        },
-    }
-)
-
+# …
 
 class IPloneconfSettings(Interface):
-
     talk_submission_open = schema.Bool(
         title="Allow talk submission",
         description="Allow the submission of talks for anonymous user",
@@ -433,116 +410,7 @@ class IPloneconfSettings(Interface):
         required=False,
     )
 
-    types_of_talk = schema.JSONField(
-        title="Types of Talk",
-        description="Available types of a talk",
-        required=False,
-        schema=VOCABULARY_SCHEMA,
-        default={
-            "items": [
-                {
-                    "token": "talk",
-                    "titles": {
-                        "en": "Talk",
-                        "de": "Vortrag",
-                    },
-                },
-                {
-                    "token": "lightning-talk",
-                    "titles": {
-                        "en": "Lightning-Talk",
-                        "de": "Lightning-Talk",
-                    },
-                },
-            ]
-        },
-        missing_value={"items": []},
-    )
-    directives.widget(
-        "types_of_talk",
-        frontendOptions={
-            "widget": "vocabularyterms",
-        },
-    )
-
-    audiences = schema.JSONField(
-        title="Audience",
-        description="Available audiences of a talk",
-        required=False,
-        schema=VOCABULARY_SCHEMA,
-        default={
-            "items": [
-                {
-                    "token": "beginner",
-                    "titles": {
-                        "en": "Beginner",
-                        "de": "Anfänger",
-                    },
-                },
-                {
-                    "token": "advanced",
-                    "titles": {
-                        "en": "Advanced",
-                        "de": "Fortgeschrittene",
-                    },
-                },
-                {
-                    "token": "professional",
-                    "titles": {
-                        "en": "Professional",
-                        "de": "Profi",
-                    },
-                },
-            ]
-        },
-        missing_value={"items": []},
-    )
-    directives.widget(
-        "audiences",
-        frontendOptions={
-            "widget": "vocabularyterms",
-        },
-    )
-
-    rooms = schema.JSONField(
-        title="Rooms",
-        description="Available rooms of the conference",
-        required=False,
-        schema=VOCABULARY_SCHEMA,
-        default={
-            "items": [
-                {
-                    "token": "101",
-                    "titles": {
-                        "en": "101",
-                        "de": "101",
-                    },
-                },
-                {
-                    "token": "201",
-                    "titles": {
-                        "en": "201",
-                        "de": "201",
-                    },
-                },
-                {
-                    "token": "auditorium",
-                    "titles": {
-                        "en": "Auditorium",
-                        "de": "Auditorium",
-                    },
-                },
-            ]
-        },
-        missing_value={"items": []},
-    )
-    directives.widget(
-        "rooms",
-        frontendOptions={
-            "widget": "vocabularyterms",
-        },
-    )
-
+# …
 
 @adapter(Interface, Interface)
 class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
@@ -556,34 +424,35 @@ class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
     group = "Products"
 ```
 
-You also need to register the adapter in {file}`browser/configure.zcml`:
+You also need to register the adapter in {file}`controlpanel/configure.zcml`:
 
 ```{code-block} xml
 :linenos:
 
   <adapter
-    factory="ploneconf.site.browser.controlpanel.PloneConfRegistryConfigletPanel"
+    factory="ploneconf.site.controlpanel.controlpanel.PloneConfRegistryConfigletPanel"
     name="ploneconf-controlpanel" />
 ```
 
-Finally register the configlet with Generic Setup so that it gets listed in the {guilabel}`Site Setups` panels list.
+Finally register the configlet with Generic Setup so that it gets listed in the {guilabel}`Site Setups` panels list (often called 'control panel').
 Add a file {file}`profiles/default/controlpanel.xml`:
 
 ```{code-block} xml
 :linenos:
 :emphasize-lines: 9
 
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <object name="portal_controlpanel">
-  <configlet
-      title="Ploneconf Settings"
-      action_id="ploneconf-controlpanel"
-      appId="ploneconf-controlpanel"
-      category="Products"
-      visible="True">
+  <configlet action_id="ploneconf-controlpanel"
+             appId="ploneconf-controlpanel"
+             category="Products"
+             title="Ploneconf Settings"
+             visible="True"
+  >
     <permission>Manage portal</permission>
   </configlet>
 </object>
+
 ```
 
 After applying the profile (for example, by reinstalling the package), your control panel shows up on <http://localhost:3000/controlpanel/ploneconf-controlpanel>
@@ -637,7 +506,7 @@ They have many benefits:
 - A vocabulary can even be set dynamically.
   The available options can change depending on existing content, the role of the user, or even the time of day.
 
-Create a file {file}`vocabularies.py` and write code that generates vocabularies from these settings:
+Create a file {file}`vocabularies/talk.py` and write code that generates vocabularies from these settings:
 
 ```{code-block} python
 :linenos:
@@ -706,19 +575,19 @@ The `SimpleVocabulary.fromItems()` is a method that takes the list of dictionari
 and creates a Zope vocabulary.
 This `SimpleVocabulary` instance has methods that Plone uses to display select widgets, display the rendered content type instance according the user language, etc..
 
-You can now register these vocabularies as named utilities in {file}`configure.zcml`:
+You can now register these vocabularies as named utilities in {file}`vocabularies/configure.zcml`:
 
 ```xml
 
 <utility
     name="ploneconf.types_of_talk"
-    component="ploneconf.site.vocabularies.TalkTypesVocabulary" />
+    component="ploneconf.site.vocabularies.talk.TalkTypesVocabulary" />
 <utility
     name="ploneconf.audiences"
-    component="ploneconf.site.vocabularies.AudiencesVocabulary" />
+    component="ploneconf.site.vocabularies.talk.AudiencesVocabulary" />
 <utility
     name="ploneconf.rooms"
-    component="ploneconf.site.vocabularies.RoomsVocabularyFactory" />
+    component="ploneconf.site.vocabularies.talk.RoomsVocabularyFactory" />
 ```
 
 From now on you can use these vocabulary by referring to their name, e.g. `ploneconf.rooms`.
@@ -768,81 +637,83 @@ from plone.schema.email import Email
 from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from z3c.form.browser.radio import RadioFieldWidget
-from plone import schema
+from zope import schema
 from zope.interface import implementer
 
 
 class ITalk(model.Schema):
-    """Define a content type schema for Talks"""
+    """Dexterity-Schema for Talks"""
 
     directives.widget(type_of_talk=RadioFieldWidget)
     type_of_talk = schema.Choice(
-        title='Type of talk',
-        vocabulary='ploneconf.types_of_talk',
+        title="Type of talk",
+        vocabulary="ploneconf.types_of_talk",
         required=True,
     )
 
     details = RichText(
-        title='Details',
-        description='Description of the talk (max. 2000 characters)',
+        title="Details",
+        description="Description of the talk (max. 2000 characters)",
         max_length=2000,
         required=True,
     )
 
     directives.widget(audience=CheckBoxFieldWidget)
     audience = schema.Set(
-        title='Audience',
-        value_type=schema.Choice(vocabulary='ploneconf.audiences'),
+        title="Audience",
+        value_type=schema.Choice(
+            vocabulary="ploneconf.audiences",
+        ),
         required=False,
     )
 
     speaker = schema.TextLine(
-        title='Speaker',
-        description='Name (or names) of the speaker',
+        title="Speaker",
+        description="Name (or names) of the speaker",
         required=False,
     )
 
     company = schema.TextLine(
-        title='Company',
+        title="Company",
         required=False,
     )
 
     email = Email(
-        title='Email',
-        description='Email adress of the speaker',
+        title="Email",
+        description="Email address of the speaker",
         required=False,
     )
 
     website = schema.TextLine(
-        title='Website',
+        title="Website",
         required=False,
     )
 
     twitter = schema.TextLine(
-        title='Twitter name',
+        title="Twitter name",
         required=False,
     )
 
     github = schema.TextLine(
-        title='Github username',
+        title="Github username",
         required=False,
     )
 
     image = NamedBlobImage(
-        title='Image',
-        description='Portrait of the speaker',
+        title="Image",
+        description="Portrait of the speaker",
         required=False,
     )
 
     speaker_biography = RichText(
-        title='Speaker Biography (max. 1000 characters)',
+        title="Speaker Biography (max. 1000 characters)",
         max_length=1000,
         required=False,
     )
 
     room = schema.Choice(
-        title='Room',
-        vocabulary='ploneconf.rooms',
+        title="Room",
+        vocabulary="ploneconf.rooms",
         required=False,
     )
 
@@ -875,33 +746,35 @@ Modify {file}`frontend/src/components/Views/Talk.jsx` an add this after the `Whe
 :icon: question
 
 ```jsx
-import React from 'react';
-import { flattenToAppURL } from '@plone/volto/helpers';
 import {
-  Container,
+  Container as SemanticContainer,
   Header,
   Image,
-  Icon,
   Label,
   Segment,
 } from 'semantic-ui-react';
-import { Helmet } from '@plone/volto/helpers';
+import { flattenToAppURL } from '@plone/volto/helpers';
 import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
+import config from '@plone/volto/registry';
 
 const TalkView = (props) => {
   const { content } = props;
+  const Container =
+    config.getComponent({ name: 'Container' }).component || SemanticContainer;
   const color_mapping = {
-    Beginner: 'green',
-    Advanced: 'yellow',
-    Professional: 'red',
+    beginner: 'green',
+    advanced: 'yellow',
+    professional: 'purple',
   };
-
   return (
-    <Container id="page-talk">
-      <Helmet title={content.title} />
+    <Container id="view-wrapper talk-view">
       <h1 className="documentFirstHeading">
-        {content.type_of_talk.title}: {content.title}
+        <span className="type_of_talk">{content.type_of_talk.title}: </span>
+        {content.title}
       </h1>
+      {content.description && (
+        <p className="documentDescription">{content.description}</p>
+      )}
       <Segment floated="right">
         {content.start && !content.hide_date && (
           <>
@@ -925,77 +798,70 @@ const TalkView = (props) => {
           </>
         )}
         {content.audience && (
-          <Header dividing sub>
-            Audience
-          </Header>
+          <>
+            <Header dividing sub>
+              Audience
+            </Header>
+            {content.audience?.map((item) => {
+              let audience = item.title;
+              let color = color_mapping[audience] || 'green';
+              return (
+                <Label key={audience} color={color}>
+                  {audience}
+                </Label>
+              );
+            })}
+          </>
         )}
-        {content.audience.map((item) => {
-          let audience = item.title;
-          let color = color_mapping[audience] || 'green';
-          return (
-            <Label key={audience} color={color}>
-              {audience}
-            </Label>
-          );
-        })}
       </Segment>
-      {content.description && (
-        <p className="documentDescription">{content.description}</p>
-      )}
-      {content.details && (
-        <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
-      )}
-      {content.speaker && (
-        <Segment clearing>
-          <Header dividing>{content.speaker}</Header>
-          {content.website ? (
-            <p>
-              <a href={content.website}>{content.company}</a>
-            </p>
-          ) : (
-            <p>{content.company}</p>
-          )}
-          {content.email && (
-            <p>
-              Email: <a href={`mailto:${content.email}`}>{content.email}</a>
-            </p>
-          )}
-          {content.twitter && (
-            <p>
-              Twitter:{' '}
-              <a href={`https://x.com/${content.twitter}`}>
-                {content.twitter.startsWith('@')
-                  ? content.twitter
-                  : '@' + content.twitter}
-              </a>
-            </p>
-          )}
-          {content.github && (
-            <p>
-              Github:{' '}
-              <a href={`https://github.com/${content.github}`}>
-                {content.github}
-              </a>
-            </p>
-          )}
-          {content.image && (
-            <Image
-              src={flattenToAppURL(content.image.scales.preview.download)}
-              size="small"
-              floated="right"
-              alt={content.image_caption}
-              avatar
-            />
-          )}
-          {content.speaker_biography && (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: content.speaker_biography.data,
-              }}
-            />
-          )}
-        </Segment>
-      )}
+      <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
+      <Segment clearing>
+        {content.speaker && <Header dividing>{content.speaker}</Header>}
+        {content.website ? (
+          <p>
+            <a href={content.website}>{content.company || content.website}</a>
+          </p>
+        ) : (
+          <p>{content.company}</p>
+        )}
+        {content.email && (
+          <p>
+            Email: <a href={`mailto:${content.email}`}>{content.email}</a>
+          </p>
+        )}
+        {content.twitter && (
+          <p>
+            X:{' '}
+            <a href={`https://x.com/${content.twitter}`}>
+              {content.twitter.startsWith('@')
+                ? content.twitter
+                : '@' + content.twitter}
+            </a>
+          </p>
+        )}
+        {content.github && (
+          <p>
+            Github:{' '}
+            <a href={`https://github.com/${content.github}`}>
+              {content.github}
+            </a>
+          </p>
+        )}
+        <Image
+          src={flattenToAppURL(content.image?.scales?.preview?.download)}
+          size="small"
+          floated="right"
+          alt={content.speaker}
+          avatar
+        />
+        {content.speaker_biography && (
+          <div
+            dangerouslySetInnerHTML={{
+              __html: content.speaker_biography.data,
+            }}
+          />
+        )}
+      </Segment>
     </Container>
   );
 };

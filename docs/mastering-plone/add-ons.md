@@ -1,9 +1,9 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
+    "description": "Extending Plone with features via existing backend add-ons"
+    "property=og:description": "Extending Plone with features via existing backend add-ons"
+    "property=og:title": "Extending Plone with add-on packages"
     "keywords": "Plone, Volto, add-on, customizing"
 ---
 
@@ -14,7 +14,9 @@ myst:
 ```{card}
 Backend chapter
 
-For frontend add-ons see chapter {ref}`volto-addon-label`
+For frontend add-ons see chapter {ref}`volto-addon-label`.
+
+The creation of a custom backend add-on is explained in {doc}`voting-story/index`
 ```
 
 
@@ -46,8 +48,8 @@ For example an add-on that has the goal to provide a bookmarking feature depends
 Have a look at the curated lists of add-ons:  
 
 
-[backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)  
-[frontend add-ons](https://github.com/collective/awesome-volto/blob/main/README.md)
+[Awesome Plone – backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)  
+[Awesome Volto – frontend add-ons](https://github.com/collective/awesome-volto/blob/main/README.md)
 
 
 

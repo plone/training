@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "How to install Plone 6 for the training"
     "property=og:description": "How to install Plone 6 for the training"
-    "property=og:title": ""
+    "property=og:title": "Installation"
     "keywords": "Installation and Setup of Plone 6 for the training 'Mastering Plone Development'"
 ---
 
@@ -146,12 +146,13 @@ You have two options:
 ### Option 1: Frontend from scratch with Volto generator
 
 
-Follow the instructions of `docs.plone.org`: {doc}`plone6docs:volto/recipes/creating-project`.
+Follow the instructions of `docs.plone.org`: {doc}`plone6docs:volto/development/creating-project`.
 
 
 ### Option 2. Start with prepared training project `volto-ploneconf` with all code for the training
 
 Prepare the pre-requisites explained in {ref}`plone6docs:install-packages-prerequisites-label`.
+Be aware that Volto 18 recommends `pnpm` instead of `yarn` as package manager and project manager. See https://6.docs.plone.org/volto/contributing/developing-core.html?highlight=pnpm#pnpm for installation instructions.
 
 Get the code for the frontend from GitHub and install:
 
@@ -164,8 +165,14 @@ make install
 
 Now you can start the app with:
 
+```shell
+make start
 ```
-$ yarn start
+
+which is a 
+
+```shell
+pnpm start
 ```
 
 Point your browser to <http://localhost:3000> and see that the app is up and running, albeit without content.

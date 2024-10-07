@@ -7,8 +7,6 @@ myst:
     "keywords": ""
 ---
 
-% TODO 1st prio: Complete overhaul of "extending" on backend side. Spans this and next two chapters. Zope component architecture, generic setup, overriding, layers, zcml, pipapo.
-
 (extending-label)=
 
 # Extending Plone

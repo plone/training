@@ -1,37 +1,49 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Registration and configuration of content types"
+    "property=og:description": "Registration and configuration of content types"
+    "property=og:title": "Content types II: Talk"
+    "keywords": "content type, schema, field, widget"
 ---
 
 (dexterity-2-talk-label)=
 
 # Content types II: Talk
 
-> **Backend chapter**
-> 
-> Get the code of `ploneconf.site` at branch 'base'.  
-> {doc}`more info on how to get the code <code>`
+```{card}
+In this part you will:
 
+Create a content type 'talk' to store all the data required for a talk.
 
-In this part you will solve the following task:
-
-- Create a content type 'talk' to store all the data required for a talk
-
-Topics covered:
+Tools and techniques covered:
 
 - Registration and configuration of content types
 - Schema
 - Fields
 - Widgets
+```
+
+````{card} Backend chapter
+
+Checkout `ploneconf.site` at tag "initial":
+
+```shell
+git checkout initial
+```
+
+The code at the end of the chapter:
+
+```shell
+git checkout talks
+```
+
+More info in {doc}`code`
+````
 
 ## The type registration
 
 Add a new file {file}`types.xml` to your add-on package in {file}`profiles/default/`.
-That is {file}`backend/src/ploneconf.site/sources/ploneconf/site/profiles/default/types.xml`
 
 The following lines will tell Plone that there is a new content type defined.
 
@@ -46,8 +58,8 @@ Plone will now expect a file {file}`profiles/default/types/talk.xml` and will r
 
 ## The FTI
 
-Add the file `ploneconf/site/profiles/default/types/talk.xml`.
-Note that there is a file _types_ and a folder _types_.
+Add the file `profiles/default/types/talk.xml`.
+Note there is a file _types_ and a folder _types_.
 
 This is the **Factory Type Information** that holds the configuration for the content type **talk**.
 
@@ -116,8 +128,9 @@ It is also the place where you would add widget options per field to control the
 
 In the FTI we referenced the Python path `ploneconf.site.content.talk.ITalk`.
 
-The module {py:mod}`content` does not exist. Create a folder {file}`content` and add an empty {file}`__init__.py` in it.
-From the training root that is {file}`backend/src/ploneconf.site/src/ploneconf/site/content/__init__.py`.
+The module {py:mod}`content` does not exist.
+Create a folder {file}`content` and add an empty {file}`__init__.py` in it.
+From the training root that is {file}`backend/sources/ploneconf.site/src/ploneconf/site/content/__init__.py`.
 
 In this new folder add a file {file}`talk.py` with the following content:
 
@@ -221,18 +234,8 @@ The first class {py:class}`ITalk` is the schema for talks and defines quite a lo
 - In the next chapter you will find a reference of all field-types available in Plone.
 - The widget directives can be ignored by now, as we are implementing for a frontend app.
     The widget directives like above do control the rendering of the fields in Plone Classic.
-    In the rare case that you need to tweak the rendering of a field in frontend, this can be done like described in {doc}`plone6docs:volto/recipes/widget`
+    In the rare case that you need to tweak the rendering of a field in frontend, this can be done like described in {doc}`plone6docs:volto/development/widget`
 
-
-```{eval-rst}
-.. todo::
-
-    * As a first step use a simplified schema without directives or vocabularies
-    * Then add some simple widget-directives
-    * In the sponsors-chapter discuss all fields, directives, permissions, defaults.
-    * Extend to the final version like https://github.com/collective/ploneconf.site/pull/1/files in a later chapter
-
-```
 
 ## The instance class
 
@@ -282,7 +285,7 @@ In one of the next chapters we will create a custom view for the new type.
 
 
 ```{seealso}
-Documentation {doc}`plone6docs:backend/fields`
-[Example content type](https://github.com/collective/example.contenttype)
+- Documentation {doc}`plone6docs:backend/fields`
+- [Example content type](https://github.com/collective/example.contenttype/tree/training-mastering-plone-development)
 A Plone content type with all available fields
 ```

@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Add features to existing content types"
+    "property=og:description": "Add features to existing content types"
+    "property=og:title": "Behaviors"
+    "keywords": "behavior, Plone, field, feature"
 ---
 
 (behaviors1-label)=
@@ -13,9 +13,27 @@ myst:
 
 Enhance content types to be selectable for presentation on the front page.
 
+```{card}
+In this part you will:
+
+- Add a field to talks and other content types by using a behavior
+- Make the field values available via catalog search
+
+Tools and techniques covered:
+
+- Behaviors
+- Catalog indexes and catalog metadata columns
+```
+
 ````{card} Backend chapter
 
-Get the code: https://github.com/collective/ploneconf.site
+Checkout `ploneconf.site` at tag "talks":
+
+```shell
+git checkout talks
+```
+
+The code at the end of the chapter:
 
 ```shell
 git checkout behaviors_1
@@ -23,18 +41,6 @@ git checkout behaviors_1
 
 More info in {doc}`code`
 ````
-
-```{card}
-In this part you will:
-
-- Add a field to talks and other content types by using a behavior
-- Make the field values available via catalog search
-
-Topics covered:
-
-- Behaviors
-- Catalog indexes and catalog metadata columns
-```
 
 ```{only} not presentation
 A first approach would be to extend the functionality of a content type by writing an adapter that adapts an object of this type to add an additional attribute or feature.
@@ -163,7 +169,7 @@ The object is equipped by a storage where behaviors do store values with a key u
 
 Furthermore a `marker interface` is needed as soon as we want to register components for objects that do adapt this behavior, e.g. REST API endpoints.
 
-We will see `marker interfaces` and `AnnotationStorages` in chapter {doc}`behaviors_2`.
+We will see `marker interfaces` and `AnnotationStorages` in chapter {doc}`./voting-story/behaviors_2`.
 ```
 
 (behaviors1-adding-label)=
@@ -293,7 +299,7 @@ To add a metadata column for "featured", we have to add one more line in the `ca
 </object>
 ```
 
-After another restart and another import of the xml-profile, the new metadata column can be found in the `portal_catalog` in your `ZMI` on the tab `Metadata`.
+After a restart and reinstallation of the product, the new metadata column can be found in the `portal_catalog` in your `ZMI` on the tab `Metadata`.
 
 
 (behaviors1-exercise-label)=

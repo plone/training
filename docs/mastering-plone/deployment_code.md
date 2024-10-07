@@ -9,36 +9,60 @@ myst:
 
 # Releasing your code
 
+We finally have some working code!
+Depending on your policies, you need repeatable deployments and definitive versions of software.
+That means you don't just run your production site with your latest source code from your source repository.
+You want to work with Python wheels/eggs and npm releases.
+
+```{note}
+You may want to move your add-on from your repository to the [Plone collective of add-ons](https://github.com/collective/) if it's relevant for general use cases.
+
+Please contact the community on [community.plone.org](https://community.plone.org/) for a release.
+```
+
+
 ## Releasing your backend add-on
 
-> - zest.releaser
-> - pypi-test egg deployment
+When you are ready with development and tests are OK, you can release your package.
 
-We finally have some working code! Depending on your policies, you need repeatable deployments and definitive versions of software. That means you don't just run your production site with your latest source code from your source repository. You want to work with eggs.
+Test your add-on with 
 
-Making eggs is easy, making them properly not so much. There are a number of good practices that you should ensure.
-Let's see. You want to have a sensible version number. By looking at the version number alone one should get a good idea how many changes there are (semantic version number scheme). Of course you always document everything, but for upgrades it is even more important to have complete changelogs.
+```shell
+make check
+```
 
-Sometimes, you cannot upgrade to a newer version, but you need a hotfix or whatever. It is crucial that you are able to checkout the exact version you use for your egg.
+We are releasing the Python package on 'pypi'.
+Go to [pypi.org](https://pypi.org) and create an account as explained in https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#create-an-account.
 
-These are a lot of steps, and there are a lot of actions that can go wrong. Luckily, there is a way to automate it. zest.releaser provides scripts to release an egg, to check what has changed since the release and to check if the documentation can be build.
+The package created with cookieplone is prepared for releasing with [`zest.releaser`](https://github.com/zestsoftware/zest.releaser/).
+Run `fullrelease` in the root directory of your add-on.
 
-There once was a book on python. Among other things, it had a chapter on releasing an egg with sample code. The sample code was about a printer of nested lists. This resulted in a lot of packages to print out nested lists on pypi.
+```shell
+fullrelease
+```
 
-We will avoid this. Everybody, go to [test.pypi.org](https://test.pypi.org) and create an account now.
-
-Next, copy the pypirc_sample file to ~/.pypirc, modify it to contain your real username and password.
-
-Now that we are prepared, let's install zest.releaser.
-
-- lasttagdiff
-- longtest
-- prerelease
-- release
-- postrelease
-
-% TODO Finish section on releasing backend add-on
+% TODO Finish section on releasing backend add-on. Package is generated with cookieplone.
 
 
-% TODO Release frontend add-on: See https://www.npmjs.com/package/release
-% On how to use released an unreleased frontend add-on. See {doc}`volto_custom_addon`
+## Releasing your frontend add-on
+
+When you are ready with development and tests are OK, you can release your package.
+
+Frontend add-ons are node packages and are released on https://www.npmjs.com.
+So, please create an account (https://docs.npmjs.com/getting-started/setting-up-your-npm-user-account) and configure your local environment (https://docs.npmjs.com/getting-started/configuring-your-local-environment).
+
+Have a look at the Makefile of your add-on.
+You'll see that it is already prepared for a release.
+The following command starts a dialog to release the package.
+
+```{code-block} console
+make release
+```
+
+You may want to trigger a test run before with
+
+```{code-block} console
+make release-dry-run
+```
+
+Congratulation!
