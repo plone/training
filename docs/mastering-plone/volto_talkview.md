@@ -120,7 +120,7 @@ export default TalkView;
 We will now add the content from the field `details` after the `DefaultView`.
 
 ```{code-block} jsx
-:emphasize-lines: 5,7,9-10
+:emphasize-lines: 5,7,8
 
 import { DefaultView } from '@plone/volto/components';
 
@@ -196,7 +196,8 @@ This has multiple benefits:
   The speaker portrait is picked up by the DefaultView because the fields name is `image`, which is the same as the image from the behavior `plone.leadimage`.
 
 ```{code-block} jsx
-:emphasize-lines: 2
+:emphasize-lines: 9,18
+:linenos:
 
 import { Container as SemanticContainer } from 'semantic-ui-react';
 import config from '@plone/volto/registry';
