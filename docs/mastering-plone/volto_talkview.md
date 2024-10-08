@@ -42,6 +42,8 @@ git checkout talkview
 More info in {doc}`code`
 ````
 
+## Creating and registering a new view component
+
 The default visualization for our new content type `talk` lists the field values according to the type schema.
 
 Since we want to show the talk data in a nice way, display the speaker portrait and add some components, we write a custom view for type talk.
@@ -97,6 +99,9 @@ export default applyConfig;
 - It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to take the default settings and overrides what needs to be overridden.
 
 When Volto is restarted (with `make start`) it picks up these configuration modifications and displays the placeholder in place of the previously used default view.
+
+
+## Enhancing the view
 
 Now we will improve this view step by step.
 First we reuse the component `DefaultView.jsx` in our custom view:
@@ -508,5 +513,5 @@ export default TalkView;
 
 ## Summary
 
-- We created a view for a content type to display its data
-- We treated the case of missing values
+- We create a view for a content type to display the data of an instance.
+- We handle the case of missing values.

@@ -108,8 +108,8 @@ These are the tags of the backend add-on 'ploneconf.site' and frontend add-on 'v
 | {doc}`behaviors_1` | behaviors_1 | ploneconf.site |
 | {doc}`volto_frontpage` | frontpage | ploneconf.site |
 | {doc}`api` | |
-| {doc}`events` | event | ploneconf.site and volto-ploneconf |
-| {doc}`registry` | vocabularies | ploneconf.site |
+| {doc}`events` | events | ploneconf.site and volto-ploneconf |
+| {doc}`registry` | vocabularies | ploneconf.site and volto-ploneconf |
 | {doc}`custom_search` | search | ploneconf.site |
 | {doc}`volto_testing` | testing | volto-ploneconf |
 | {doc}`dexterity_3` | schema | ploneconf.site |
@@ -121,7 +121,7 @@ These are the tags of the backend add-on 'ploneconf.site' and frontend add-on 'v
 | {doc}`volto_custom_addon` | |
 | {doc}`volto_custom_addon2` | |
 | {doc}`user_generated_content` | user_generated_content | ploneconf.site |
-| {doc}`relations` | relations | ploneconf.site |
+| {doc}`relations` | relations | ploneconf.site and volto-ploneconf |
 | {doc}`voting-story/index` | | training.votable, volto-training-votable |
 | {doc}`deployment_code` | |
 | {doc}`code` | |

@@ -28,10 +28,10 @@ Topics covered:
 
 ````{card} Backend chapter
 
-Checkout `ploneconf.site` at tag "event":
+Checkout `ploneconf.site` at tag "events":
 
 ```shell
-git checkout event
+git checkout events
 ```
 
 The code at the end of the chapter:
@@ -723,13 +723,27 @@ class Talk(Container):
     """Talk instance class"""
 ```
 
+## Adjust frontend according schema changes
+
+With the new key value pairs (token/title) we adjust the component accordingly:
+
+```jsx
+      {content.audience?.map((item) => {
+        let color = color_mapping[item.token] || 'green';
+        return (
+          <Label key={item.token} color={color}>
+            {item.title}
+          </Label>
+        );
+      })}
+```
+
 One tiny thing is still missing: We should display the room.
 
 Modify {file}`frontend/src/components/Views/Talk.jsx` an add this after the `When` component:
 
 ```{code-block}
 :emphasize-lines: 6
-:linenos:
 
     {content.room && (
       <>
@@ -803,11 +817,10 @@ const TalkView = (props) => {
               Audience
             </Header>
             {content.audience?.map((item) => {
-              let audience = item.title;
-              let color = color_mapping[audience] || 'green';
+              let color = color_mapping[item.token] || 'green';
               return (
-                <Label key={audience} color={color}>
-                  {audience}
+                <Label key={item.token} color={color}>
+                  {item.title}
                 </Label>
               );
             })}
@@ -868,7 +881,6 @@ const TalkView = (props) => {
 export default TalkView;
 ```
 
-By the way: When using a vocabulary you can also drop the annoying `item.title || item.token` pattern.
 ````
 
 ## Summary

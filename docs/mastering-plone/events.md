@@ -33,12 +33,12 @@ Code for the end of this chapter:
 
 ```shell
 # frontend
-git checkout event
+git checkout events
 ```
 
 ```shell
 # backend
-git checkout event
+git checkout events
 ```
 
 More info in {doc}`code`
