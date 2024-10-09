@@ -263,7 +263,7 @@ Now we can include the component `Voting` in a talk view from chapter {doc}`../v
 
 ```{code-block} jsx
 :linenos:
-:emphasize-lines: 1-2,23-28
+:emphasize-lines: 1-2,24-37
 
 import { Container as SemanticContainer } from 'semantic-ui-react';
 import { ContentTypeCondition } from '@plone/volto/helpers';
