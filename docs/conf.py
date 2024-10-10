@@ -94,6 +94,7 @@ linkcheck_ignore = [
     r"http://127.0.0.1",
     r"http://example.com",
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
+    r"https://github.com/search",  # always rate limited, causes linkcheck to stall
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
     r"https://www.dipf.de/.*",  # a timeout from time to time
@@ -118,7 +119,7 @@ linkcheck_allowed_redirects = {
 linkcheck_anchors = True
 linkcheck_timeout = 5
 linkcheck_retries = 1
-linkcheck_rate_limit_timeout = 10
+linkcheck_rate_limit_timeout = 10.0
 
 # The suffix of source filenames.
 source_suffix = {
