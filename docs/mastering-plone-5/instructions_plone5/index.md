@@ -216,10 +216,10 @@ You can choose to skip this step if you encounter any problems with it.
 vagrant plugin install vagrant-vbguest
 ```
 
-Now download {download}`plone_training_config.zip <../_static/plone_training_config.zip>` and copy its contents into your training directory.
+Now download {download}`plone_training_config.zip <../../_static/plone_training_config.zip>` and copy its contents into your training directory.
 
 ```shell
-wget https://github.com/plone/training/raw/master/_static/plone_training_config.zip
+wget https://github.com/plone/training/raw/refs/heads/main/docs/_static/plone_training_config.zip
 unzip plone_training_config.zip
 ```
 
