@@ -19,5 +19,5 @@ It defines the Babel configuration baseline, and allows you to extend it as well
 It has all the modern development tools (HMR, etc) and a plugin system that you can use from your projects.
 
 ```{note}
-While Razzle is stable, it doesn't see a lot of active development. A possible replacement could be [vite.js](https://vitejs.dev/) and there's already a Proof of Concept that integrates it with Volto.
+While Razzle is stable, it doesn't see a lot of active development. A possible replacement could be [vite.js](https://vite.dev/) and there's already a Proof of Concept that integrates it with Volto.
 ```

@@ -137,7 +137,7 @@ In case you need production ready deployment, check the training {doc}`/plone-de
 The example above does not persist yet any changes you make through Volto in
 the Plone docker container backend! For this you need to map the /data directory
 in the container properly. Check Docker
-[storage documentation](https://docs.docker.com/storage/) for more information.
+[storage documentation](https://docs.docker.com/engine/storage/) for more information.
 
 As a quick example: if you add
 `--mount type=bind,source="$(pwd)/plone-data",target=/data`
