@@ -130,9 +130,7 @@ branch=main
 Adding the package to `instance.yaml` causes the generation of the Zope configuration to make the package available in a Zope app.
 
 ```yaml
-  load_zcml:
-    package_includes:
-      ["ploneconf.site",]
+  zcml_package_includes: training.votable, ploneconf.site
 ```
 
 Running `make build` has three effects:
@@ -143,7 +141,7 @@ Running `make build` has three effects:
   So an add-on can be enabled per Plone instance.
 
 ```{seealso}
-Documentation {doc}`plone6docs:install/manage-add-ons-packages`
+Documentation {doc}`plone6docs:manage/backend`
 ```
 
 ### Enabling add-ons in your Plone site

@@ -83,7 +83,7 @@ By creating and working with a **Python virtual environment**, we are independen
 
 The build generates a file structure to be prepared to install **Plone from packages** with `pip` and `mxdev`. The tool `mxdev` helps with configuration files to define which add-ons and which versions to install.
 It also allows to override Plone core package versions or force a checkout from `github`.
-The documentation {ref}`plone6docs:manage-plone-backend-packages-with-mxdev-label` provides information on common tasks.
+The documentation {doc}`plone6docs:manage/backend` provides information on common tasks.
 
 The build generates **Zope configuration** files with cookiecutter `cookiecutter-zope-instance`.
 The file we will modify to update our Zope / Plone configuration is `instance.yaml`.
