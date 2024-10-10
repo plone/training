@@ -16,7 +16,7 @@ Ensure a seamless learning experience by preparing your computer with the necess
 ### 1. **Operating System**
 
 - **Linux/macOS:** A recent version is preferred. macOS users should have [Homebrew](https://brew.sh/) installed.
-- **Windows:** Consider using [WSL2 with Ubuntu](https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/), though it’s not officially tested for this training.
+- **Windows:** Consider using [WSL2 with Ubuntu](https://documentation.ubuntu.com/wsl/en/latest/), though it’s not officially tested for this training.
 
 ### 2. **Code Editor**
 
@@ -131,9 +131,9 @@ You can also configure settings for Docker Desktop.
 Under {guilabel}`Prefences > Resources > Advanced`, you can configure appropriate settings for virtual disk limit and memory.
 
 ```{seealso}
-- [Change Docker Desktop settings on Mac](https://docs.docker.com/desktop/settings/mac/#advanced)
-- [Change Docker Desktop settings on Windows](https://docs.docker.com/desktop/settings/windows/#advanced)
-- [Change Docker Desktop settings on Linux](https://docs.docker.com/desktop/settings/linux/#advanced)
+- [Change Docker Desktop settings on Mac](https://docs.docker.com/desktop/settings/#advanced)
+- [Change Docker Desktop settings on Windows](https://docs.docker.com/desktop/settings/#advanced)
+- [Change Docker Desktop settings on Linux](https://docs.docker.com/desktop/settings/#advanced)
 ```
 
 #### Insufficient Docker virtual memory

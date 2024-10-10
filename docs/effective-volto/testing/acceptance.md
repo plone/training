@@ -97,7 +97,7 @@ dispatch(
 );
 ```
 
-More information about this: https://www.cypress.io/blog/2018/11/14/testing-redux-store/
+More information about this: https://www.cypress.io/blog/testing-redux-store
 
 #### Volto settings
 
