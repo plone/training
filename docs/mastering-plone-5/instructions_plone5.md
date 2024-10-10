@@ -40,7 +40,7 @@ If you feel comfortable, please work on your own machine with your own Python.
 
 ```{note}
 If you also want to follow the JavaScript training and install the JavaScript development tools,
-you need [NodeJS](https://nodejs.org/en/download/) installed on your development computer.
+you need [NodeJS](https://nodejs.org/en/download/package-manager) installed on your development computer.
 ```
 
 ```{note}
@@ -193,7 +193,7 @@ We use VirtualBox 6.0.x
 
 ### Install and configure Vagrant
 
-Get the latest version from <https://developer.hashicorp.com/vagrant/downloads> for your operating system and install it.
+Get the latest version from <https://developer.hashicorp.com/vagrant/install> for your operating system and install it.
 
 Now your system has a command {command}`vagrant` that you can run in the terminal.
 
