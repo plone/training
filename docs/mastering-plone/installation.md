@@ -139,11 +139,11 @@ You can stop the running instance anytime using {kbd}`ctrl c`.
 
 You have two options:
 
-> 1. Create the frontend from scratch using the Volto generator.
+> 1. Create the frontend from scratch using {term}`Cookieplone`.
 > 2. Use the prepared Volto project [volto-ploneconf](https://github.com/collective/volto-ploneconf) with all the code for the training.
 
 
-### Option 1: Frontend from scratch with Volto generator
+### Option 1: Frontend from scratch
 
 
 Follow the instructions of `docs.plone.org`: {doc}`plone6docs:volto/development/creating-project`.
@@ -152,7 +152,8 @@ Follow the instructions of `docs.plone.org`: {doc}`plone6docs:volto/development/
 ### Option 2. Start with prepared training project `volto-ploneconf` with all code for the training
 
 Prepare the pre-requisites explained in {ref}`plone6docs:install-packages-prerequisites-label`.
-Be aware that Volto 18 recommends `pnpm` instead of `yarn` as package manager and project manager. See https://6.docs.plone.org/volto/contributing/developing-core.html?highlight=pnpm#pnpm for installation instructions.
+Be aware that Volto 18 recommends `pnpm` instead of `yarn` as package manager and project manager.
+See {doc}`plone6docs:volto/contributing/developing-core` for installation instructions for `pnpm`.
 
 Get the code for the frontend from GitHub and install:
 
