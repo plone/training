@@ -37,7 +37,7 @@ Finally, install `yarn` according to the [Plone documentation](https://6.docs.pl
 
 ### Docker (optional, but recommended)
 
-Install `Docker` according to the [official documentation](https://docs.docker.com/get-docker/).
+Install `Docker` according to the [official documentation](https://docs.docker.com/get-started/get-docker/).
 
 Generate a new Plone 6 Project:
 

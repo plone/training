@@ -118,6 +118,7 @@ linkcheck_allowed_redirects = {
 linkcheck_anchors = True
 linkcheck_timeout = 5
 linkcheck_retries = 1
+linkcheck_rate_limit_timeout = 10
 
 # The suffix of source filenames.
 source_suffix = {
