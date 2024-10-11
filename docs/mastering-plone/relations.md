@@ -12,7 +12,7 @@ myst:
 
 # Relations
 
-You can model relationships between content items by placing them in a hierarchy (e.g. a (folderish) page _speakers_ containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in blocks.
+You can model relationships between content items by placing them in a hierarchy (for example a (folderish) page _speakers_ containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in blocks.
 But where would you then store a talk that two speakers give together?
 
 Relations allow developers to model relationships between objects without using links or a hierarchy.
@@ -161,7 +161,7 @@ The default and only widget by now in Volto is the `select` widget.
 It opens the tree of content to be selected by the editor.
 On saving the talk, the selection is validated according the vocabulary.
 
-For a more sophisticated widget see the explanation on how to write a custom widet in {doc}`plone6docs:volto/development/widget`.
+For a more sophisticated widget see the explanation on how to write a custom widget in {doc}`plone6docs:volto/development/widget`.
 
 
 ## Accessing and displaying related items
@@ -256,7 +256,7 @@ Available attributes of the speakers are:
 
 ## Inspecting relations
 
-In Plone 6 Volto you can inspect all relations and backrelations in your site using the control panel `relations` <http://localhost:3000/controlpanel/relations>.
+In Plone 6 Volto you can inspect all relations and inverse relations in your site using the control panel `relations` <http://localhost:3000/controlpanel/relations>.
 You can even edit the relations.
 
 ```{figure} _static/inspect-relations_volto_annotations.png
@@ -265,7 +265,7 @@ You can even edit the relations.
 The relations controlpanel
 ```
 
-You can find the backrelations of a content instance via the menu item {guilabel}`Links and references`
+You can find the inverse relations of a content instance via the menu item {guilabel}`Links and references`
 
 
 
@@ -284,7 +284,7 @@ Links and references
 
 ## Programming with relations
 
-Since Plone 6 `plone.api` has methods to create, read, and delete relations and backrelations.
+Since Plone 6 `plone.api` has methods to create, read, and delete relations and inverse relations.
 
 ```{code-block} python
 :linenos:
@@ -322,7 +322,7 @@ See the chapter {ref}`plone6docs:chapter-relation` of the docs for `plone.api`  
 
 ### Plone 5.2 and older
 
-In older Plone versions you can use [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers) to create and read relations and backrelations in a very similar way.
+In older Plone versions you can use [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers) to create and read relations and inverse relations in a very similar way.
 
 
 ## Exercise 1
@@ -337,7 +337,7 @@ The code can be found in backend add-on `ploneconf.site` at tag `relations`.
 
 The speaker is now a relation on talk.
 Available on the TalkView is a subset of attributes of the speaker.
-How would you achieve to show the github handle of the speaker?
+How would you achieve to show the GitHub handle of the speaker?
 It is by now not included in the available attributes.
 
 
