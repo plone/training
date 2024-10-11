@@ -208,10 +208,10 @@ test: clean linkcheckbroken  ## Clean docs build, then run linkcheckbroken
 .PHONY: deploy
 deploy: clean html
 
-.PHONY: netlify
-netlify:
+.PHONY: rtd-pr-preview
+rtd-pr-preview:  ## Build pull request preview on Read the Docs
 	pip install -r requirements.txt
-	cd $(DOCS_DIR) && sphinx-build -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	cd $(DOCS_DIR) && sphinx-build -b html $(ALLSPHINXOPTS) ${READTHEDOCS_OUTPUT}/html/
 
 .PHONY: all
 all: clean vale linkcheck html ## Run checks and build html

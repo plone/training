@@ -142,6 +142,13 @@ make vale
 
 See the output on the console for suggestions.
 
+You can also pass options to vale in the `VALEOPTS` environment variable.
+In the following example, vale will not return a non-zero exit code when there are errors and will display warnings or errors only, not suggestions.
+
+```shell
+make vale VALEOPTS="--no-exit --minAlertLevel='warning'"
+```
+
 
 ### `html_meta`
 
