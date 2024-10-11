@@ -1,6 +1,6 @@
-===============
-Plone Trainigns
-===============
+==============
+Plone Training
+==============
 
-Plone Trainings have moved to http://training.plone.org
+Plone Training has moved to https://training.plone.org/
 =======================================================

@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Plone Trainings'
+project = u'Plone Training'
 copyright = u'''The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license.'''
 trademark_name = "Plone"
 # The version info for the project you're documenting, acts as replacement for
