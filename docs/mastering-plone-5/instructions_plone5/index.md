@@ -1,9 +1,9 @@
 ---
 myst:
   html_meta:
-    "description": "Set up environment for development"
-    "property=og:description": "Set up environment for development"
-    "property=og:title": "Installing Plone for the Training"
+    "description": "Set up environment for development of Plone 5"
+    "property=og:description": "Set up environment for development of Plone 5"
+    "property=og:title": "Installing Plone 5 for the Training"
     "keywords": "Plone 5"
 ---
 
@@ -40,7 +40,7 @@ If you feel comfortable, please work on your own machine with your own Python.
 
 ```{note}
 If you also want to follow the JavaScript training and install the JavaScript development tools,
-you need [NodeJS](https://nodejs.org/en/download/package-manager) installed on your development computer.
+you need [Node.js](https://nodejs.org/en/download/package-manager) installed on your development computer.
 ```
 
 ```{note}
@@ -65,7 +65,7 @@ sudo apt-get install libreadline-dev wv poppler-utils
 sudo apt-get install git
 ```
 
-On macOS you at least need to install some dependencies with [Homebrew](https://brew.sh/)
+On macOS you at least need to install some dependencies with [Homebrew](https://brew.sh/).
 
 ```shell
 brew install zlib git readline jpeg libpng libyaml
@@ -84,7 +84,7 @@ python3.9 -m venv .
 ./bin/pip install -r requirements.txt
 ```
 
-This creates a virtualenv with Python 3.9 in the folder {file}`buildout` and installs some requirements in it.
+This creates a Python virtual environment with Python 3.9 in the folder {file}`buildout` and installs some requirements in it.
 
 Now you can run the buildout for the first time:
 
@@ -157,14 +157,14 @@ If you point your browser at <http://localhost:8080> you see that Plone is runni
 A running plone instance.
 ```
 
-There is no Plone site yet - we will create one in chapter 6.
+There is no Plone site yet - we will create one in {doc}`/mastering-plone-5/instructions_plone5/features`.
 
 Now you have a working Plone site up and running and can continue with the next chapter.
 
 You can stop the running instance anytime using {kbd}`ctrl + c`.
 
 ```{warning}
-If there is an error message you should either try to fix it or use vagrant and continue in this chapter.
+If there is an error message you should either try to fix it or use Vagrant and continue in this chapter.
 ```
 
 (plone5-instructions-vagrant-label)=
@@ -187,7 +187,7 @@ Vagrant uses Oracle’s VirtualBox to create virtual environments.
 
 Here is a link directly to the download page: <https://www.virtualbox.org/wiki/Downloads>.
 
-We use VirtualBox 6.0.x
+We use VirtualBox 6.0.x.
 
 (plone5-instructions-configure-vagrant-label)=
 
@@ -200,7 +200,7 @@ Now your system has a command {command}`vagrant` that you can run in the termina
 First, create a directory in which you want to do the training.
 
 ```{warning}
-If you already have a {file}`training` directory because you followed the **Installing Plone without vagrant** instructions above,
+If you already have a {file}`training` directory because you followed the {ref}`plone5-instructions-no-vagrant-label` instructions above,
 you should either delete it, rename it, or use a different name below.
 ```
 
@@ -231,13 +231,13 @@ Now start setting up the virtual machine (VM) that is configured in {file}`Vagra
 vagrant up
 ```
 
-This takes a **veeeeery loooong time** (between 10 minutes and 1h depending on your Internet connection and system speed) since it does all the following steps:
+This takes a **veeeeery loooong time** (between 10 minutes and 1 hour depending on your Internet connection and system speed) since it does all the following steps:
 
 - downloads a virtual machine (Official Ubuntu Server 18.04 LTS, also called "Bionic Beaver")
 - sets up the VM
 - updates the VM
 - installs various system-packages needed for Plone development
-- clones the training buildout into /vagrant/buildout
+- clones the training buildout into `/vagrant/buildout`
 - builds Plone annd installs all dependencies
 
 ````{note}
@@ -257,7 +257,7 @@ This will only repeat steps that have not finished correctly.
 vagrant provision
 ```
 
-You can do this multiple times to fix problems, e.g. if your network connection was down and steps could not finish because of this.
+You can do this multiple times to fix problems, for example, if your network connection was down and steps could not finish because of this.
 
 ````{note}
 If while bringing vagrant up you get an error similar to:
@@ -328,8 +328,8 @@ ValueError: unknown locale: UTF-8
 ```
 ````
 
-In that case you have to put the localized keyboard and language settings in the .bash_profile
-of the vagrant user to your locale (like `en_US.UTF-8` or `de_DE.UTF-8`)
+In that case you have to put the localized keyboard and language settings in the {file}`.bash_profile`
+of the Vagrant user to your locale (like `en_US.UTF-8` or `de_DE.UTF-8`).
 
 ```shell
 export LC_ALL=en_US.UTF-8
@@ -341,23 +341,23 @@ You can stop the running instance anytime using {kbd}`ctrl + c`.
 
 If it doesn't, don't worry, your shell isn't blocked.
 
-Type {kbd}`reset` (even if you can't see the prompt) and press RETURN, and it should become visible again.
+Type {kbd}`reset` (even if you can't see the prompt) and press {kbd}`return`, and it should become visible again.
 
 If you point your local browser at <http://localhost:8080> you see that Plone is running in Vagrant.
 
-This works because VirtualBox forwards the port 8080 from the guest system (the vagrant Ubuntu) to the host system (your normal operating system).
+This works because VirtualBox forwards the port 8080 from the guest system (the Vagrant Ubuntu) to the host system (your normal operating system).
 
-There is no Plone site yet - we will create one in chapter 6.
+There is no Plone site yet - we will create one in {doc}`/mastering-plone-5/features`.
 
 The Buildout for this Plone is in a shared folder.
-This means we run it in the vagrant box from {file}`/vagrant/buildout` but we can also access it in our own operating system and use our favorite editor.
+This means we run it in the Vagrant box from {file}`/vagrant/buildout` but we can also access it in our own operating system and use our favorite editor.
 
 You will find the directory {file}`buildout` in the directory {file}`training` that you created in the beginning
 next to {file}`Vagrantfile` and {file}`manifests`.
 
 ```{note}
-The database and the python packages are not accessible in your own system since large files cannot make use of symlinks in shared folders.
-The database lies in `/home/vagrant/var`, the python packages are in `/home/vagrant/packages`.
+The database and the Python packages are not accessible in your own system since large files cannot make use of symlinks in shared folders.
+The database lies in `/home/vagrant/var`, the Python packages are in `/home/vagrant/packages`.
 ```
 
 If you have any problems or questions please mail us at <mailto:team@starzel.de> or create a ticket at <https://github.com/plone/training/issues>.
@@ -366,7 +366,7 @@ If you have any problems or questions please mail us at <mailto:team@starzel.de>
 
 ### What Vagrant does
 
-Installation is done automatically by vagrant and puppet.
+Installation is done automatically by Vagrant and Puppet.
 If you want to know which steps are actually done please see the chapter {doc}`what_vagrant_does`.
 
 (plone5-instructions-vagrant-care-handling-label)=
@@ -377,6 +377,6 @@ If you want to know which steps are actually done please see the chapter {doc}`w
 Keep in mind the following recommendations for using your Vagrant VirtualBoxes:
 
 - Use the {command}`vagrant suspend` or {command}`vagrant halt` commands to put the VirtualBox to "sleep" or to "power it off" before attempting to start another Plone instance anywhere else on your machine, if it uses the same port.  That's because vagrant "reserves" port 8080, and even if you stopped Plone in vagrant, that port is still in use by the guest OS.
-- If you are done with a vagrant box, and want to delete it, always remember to run {command}`vagrant destroy` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by vagrant and possibly taking up disk space on your machine.
+- If you are done with a vagrant box, and want to delete it, always remember to run {command}`vagrant destroy` on it before actually deleting the directory containing it.  Otherwise you'll leave its "ghost" in the list of boxes managed by Vagrant and possibly taking up disk space on your machine.
 - See {command}`vagrant help` for all available commands, including {command}`suspend`, {command}`halt`, {command}`destroy`, {command}`up`, {command}`ssh` and {command}`resume`.
 ```
