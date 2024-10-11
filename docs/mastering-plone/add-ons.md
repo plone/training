@@ -29,7 +29,7 @@ Plone add-ons enrich the CMS by
 - customizing the editor experience
 - adding content assembling features for overview pages
 
-Plone 6 knows two groups of add-ons: Add-ons for Plone and such for the frontend Volto.
+Plone 6 knows two groups of add-ons: add-ons for Plone and such for the frontend Volto.
 
 Plone backend add-ons provide
 

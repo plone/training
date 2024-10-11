@@ -10,7 +10,7 @@ myst:
 
 (behaviors2-label)=
 
-# Complex Behaviors [voting story]
+# Complex behaviors [voting story]
 
 A group of jury members vote on talks to be accepted for the conference.
 
@@ -31,7 +31,7 @@ Topics covered:
 
 (behaviors2-schema-label)=
 
-## Schema and Annotation
+## Schema and annotation
 
 The talks are being voted.
 So we provide an additional field with our behavior to store the votes on a talk.
@@ -40,14 +40,14 @@ Therefore the behavior will have a schema with a field "votes".
 We mark the field "votes" as an omitted field as this field should not be edited directly.
 
 We are going to store the information about "votes" in an `annotation`.
-Imagine an add-on that unfortunately uses the same field name "votes" like we do for another purpose.
+Imagine an add-on that uses the same field name "votes" like we do for another purpose.
 Here the AnnotationStorage comes in.
 The content type instance is equipped by a storage where behaviors do store values with a key unique per behavior.
 
 
 (behaviors2-code-label)=
 
-## The Code
+## The code
 
 Open your backend add-on you have been creating in the last chapter in your editor.
 

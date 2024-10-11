@@ -13,14 +13,14 @@ myst:
 
 Keep in mind that you need a fast Internet connection during installation since you'll have to download a lot of data!
 
-(plone5-instructions-no-vagrant-label)=
-
 ```{warning}
 If you feel the desire to try out both methods below (with Vagrant and without),
 make sure you use different {file}`training` directories!
 
 The two installations do not coexist well.
 ```
+
+(plone5-instructions-no-vagrant-label)=
 
 ## Installing Plone without vagrant
 
@@ -32,7 +32,7 @@ If you **are** experienced with running Plone on your own laptop, we encourage y
 
 - You can use the editor you are used to.
 - You can use *omelette* to have all the code of Plone at your fingertips.
-- You do not have to switch between different operating systems during the training.
+- You don't have to switch between different operating systems during the training.
 
 If you feel comfortable, please work on your own machine with your own Python.
 

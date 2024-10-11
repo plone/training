@@ -9,7 +9,7 @@ myst:
 
 (volto-actions)=
 
-# Volto Actions and Component State [voting story]
+# Volto Actions and component state [voting story]
 
 ````{card} Frontend chapter
 
@@ -489,7 +489,7 @@ export default function votes(state = initialState, action = {}) {
 ```
 
 
-## Component State
+## Component state
 
 Next step is the feature for developers to clear votes of a talk while preparing the app.
 We want to offer a button to clear votes and integrate a hurdle to prevent unwanted clearing.
