@@ -13,3 +13,4 @@ relateable
 repo
 repos
 restapi
+styleguide
