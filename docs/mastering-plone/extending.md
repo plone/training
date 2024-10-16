@@ -1,13 +1,11 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Plone architecture and concepts"
+    "property=og:description": "Plone architecture and concepts"
+    "property=og:title": "Extending Plone"
+    "keywords": "Plone, architecture, zcml, Generic Setup"
 ---
-
-% TODO 1st prio: Complete overhaul of "extending" on backend side. Spans this and next two chapters. Zope component architecture, generic setup, overriding, layers, zcml, pipapo.
 
 (extending-label)=
 
@@ -38,16 +36,16 @@ Instead it is the core of its architecture.
 
 Therefore we create two different extension packages to customize and extend Plone:
 
-1. One is a Python package that holds e.g. content types, behaviors and configuration.
-2. The other is a Javascript package that hold views, styling and customization of the frontend.
+1. One is a Python package that holds for example content types, behaviors and configuration.
+2. The other is a JavaScript package that hold views, styling and customization of the frontend.
 
 Sometimes it is easy to know, which layer needs to be customized to achieve a certain result.
 
-- All styling and javascript-based interaction is customized on the Volto side of Plone.
+- All styling and JavaScript-based interaction is customized on the Volto side of Plone.
 - Content types and other persistent data is customized or created in a Python package.
 
 For more complex use cases you will need to add code to both parts of our customization story.
-For example a content type is defined in the Python package and its visualization is defined in the Javascript package.
+For example a content type is defined in the Python package and its visualization is defined in the JavaScript package.
 
 
 (extending-technologies-label)=

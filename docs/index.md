@@ -44,7 +44,7 @@ teaching/index
 
 {ref}`mastering-plone-label`
 
-: `Mastering Plone 6 development training` teaches the best practices of Plone development.
+: Best practices of Plone development, backend and frontend.
 
 {ref}`mastering-plone5-label`
 

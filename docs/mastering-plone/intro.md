@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
+    "description": "How to proceed with the training"
+    "property=og:description": "How to proceed with the training"
     "property=og:title": "Introduction of the trainees and the trainers"
-    "keywords": ""
+    "keywords": "Plone, training"
 ---
 
 (intro-label)=

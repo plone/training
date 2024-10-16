@@ -67,7 +67,7 @@ During the course of the training you will solve the following tasks.
 - Create a view to display a talk in a nice way
 - Create a Volto block variation that shows a list of talks to allow an easy overview
 - Create a new field to mark arbitrary content as 'featured'
-- Display this featured content on a dynamic frontpage
+- Display this featured content on a dynamic front page
 - Add date and time to talks to assign them in a schedule
 - Display date and time on talks
 - Allow potential speakers to self-register and then create and submit talks

@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Documentation for the 'Mastering Plone 5' training"
+    "property=og:description": "Documentation for the 'Mastering Plone 5' training"
+    "property=og:title": "Mastering Plone 5 development"
+    "keywords": "Plone"
 ---
 
 (mastering-plone5-label)=
@@ -21,16 +21,18 @@ Mastering Plone is intended as a week-long training for people who are new to Pl
 At conferences a shortened 2-day version of the advanced training with a slightly modified order is held.
 
 ```{toctree}
-:caption: Mastering Plone 5
-:maxdepth: 2
-:numbered: true
+---
+caption: Mastering Plone 5 Development
+name: toc-mastering5
+maxdepth: 3
+numbered: 2
+---
 
 about_mastering
 intro
 what_is_plone
 installation
-../plone_training_config/instructions_plone5
-../plone_training_config/what_vagrant_does
+instructions_plone5/index
 case
 features
 anatomy

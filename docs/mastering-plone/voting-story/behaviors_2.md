@@ -10,17 +10,12 @@ myst:
 
 (behaviors2-label)=
 
-# Complex Behaviors [voting story]
+# Complex behaviors [voting story]
 
 A group of jury members vote on talks to be accepted for the conference.
 
-````{card} Backend chapter
+```{card} Backend chapter
 
-Get the backend code! 
-[training.votable](https://github.com/collective/training.votable)
-````
-
-```{card}
 In this part you will:
 
 - Write a behavior that enables voting on content
@@ -36,23 +31,23 @@ Topics covered:
 
 (behaviors2-schema-label)=
 
-## Schema and Annotation
+## Schema and annotation
 
 The talks are being voted.
 So we provide an additional field with our behavior to store the votes on a talk.
-Therefore the behavior will have a schema with a field "votes".
+Therefore the behavior will have a schema with a field `votes`.
 
 We mark the field "votes" as an omitted field as this field should not be edited directly.
 
 We are going to store the information about "votes" in an `annotation`.
-Imagine an add-on that unfortunately uses the same field name "votes" like we do for another purpose.
+Imagine an add-on that uses the same field name "votes" like we do for another purpose.
 Here the AnnotationStorage comes in.
 The content type instance is equipped by a storage where behaviors do store values with a key unique per behavior.
 
 
 (behaviors2-code-label)=
 
-## The Code
+## The code
 
 Open your backend add-on you have been creating in the last chapter in your editor.
 
@@ -113,7 +108,7 @@ The first simple behavior discussed in {ref}`behaviors1-label` has been register
 <plone:behavior
     title="Featured"
     name="ploneconf.featured"
-    description="Control if a item is shown on the frontpage"
+    description="Control if a item is shown on the front page"
     provides=".featured.IFeatured"
     />
 ```
@@ -231,6 +226,8 @@ The factory is an adapter that adapts a talk to the behavior interface `IVotable
 ```{code-block} python
 :linenos:
 
+from persistent.mapping import PersistentMapping
+from persistent.list import PersistentList
 
 KEY = "training.votable.behaviors.votable.Votable"
 
@@ -244,8 +241,8 @@ class Votable(object):
         annotations = IAnnotations(context)
         if KEY not in annotations.keys():
             # You know what happens if we don't use persistent classes here?
-            annotations[KEY] = PersistentDict(
-                {"voted": PersistentList(), "votes": PersistentDict()}
+            annotations[KEY] = PersistentMapping(
+                {"voted": PersistentList(), "votes": PersistentMapping()}
             )
         self.annotations = annotations[KEY]
 
@@ -306,8 +303,8 @@ class Votable(object):
 
     def clear(self):
         annotations = IAnnotations(self.context)
-        annotations[KEY] = PersistentDict(
-            {"voted": PersistentList(), "votes": PersistentDict()}
+        annotations[KEY] = PersistentMapping(
+            {"voted": PersistentList(), "votes": PersistentMapping()}
         )
         self.annotations = annotations[KEY]
 
@@ -317,9 +314,7 @@ In our `__init__` method we get *annotations* from the object.
 We look for data with a key unique for this behavior.
 
 If the annotation with this key does not exist, cause the object is not already voted, we create it.
-We work with `PersistentDict` and `PersistentList`.
-
-% TODO Explain  `PersistentDict` and `PersistentList` in short.
+We work with `PersistentMapping` and `PersistentList`. A PersistentMapping is simply an implementation of the Python dict type (via the standard library UserDict base class) adjusted for the persistence semantics of the ZODB.
 
 Next we provide the internal fields via properties.
 Using this form of property makes them read-only properties, as we do not define write handlers.
@@ -328,7 +323,7 @@ As you have seen in the Schema declaration, if you run your site in debug mode, 
 But trying to change these fields will throw an exception.
 
 
-Let's continue with the bahavior adapter:
+Let's continue with the behavior adapter:
 
 ```{code-block} python
 :linenos:
@@ -369,8 +364,8 @@ Let's continue with the bahavior adapter:
 
     def clear(self):
         annotations = IAnnotations(self.context)
-        annotations[KEY] = PersistentDict(
-            {"voted": PersistentList(), "votes": PersistentDict()}
+        annotations[KEY] = PersistentMapping(
+            {"voted": PersistentList(), "votes": PersistentMapping()}
         )
         self.annotations = annotations[KEY]
 ```
@@ -387,3 +382,25 @@ The logic belongs to the behavior not the service.
 
 The method `clear` allows to reset votes.
 Therefore the annotation of the context is set to an empty value like the `__init__`method does.
+
+
+## Enable the behavior
+
+Enable the behavior 'training.votable.votable' on content type 'talk':
+
+Add the behavior in `src/ploneconf/site/profiles/default/types/talk.xml`.
+
+```xml
+
+  <property name="behaviors">
+    <element value="plone.dublincore" />
+    <element value="plone.namefromtitle" />
+    <element value="plone.versioning" />
+    <element value="ploneconf.featured" />
+    <element value="plone.eventbasic" />
+    <element value="plone.textindexer" />
+    <element value="training.votable.votable" />
+  </property>
+```
+
+Restart your backend and re-install the package `ploneconf.site`.

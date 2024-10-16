@@ -3,31 +3,15 @@ myst:
   html_meta:
     "description": "How to use the listing block with a custom criterion"
     "property=og:description": "How to use the listing block with a custom criterion"
-    "property=og:title": "Creating a dynamic frontpage with Volto blocks"
+    "property=og:title": "Creating a dynamic front page with Volto blocks"
     "keywords": "Volto, catalog, index, listing, criteria"
 ---
 
 (volto-frontpage-label)=
 
-# Creating a dynamic frontpage with Volto blocks
+# Creating a dynamic front page with Volto blocks
 
 Show selected content on the front page by criterion.
-
-````{card} Frontend chapter
-
-Get the code: https://github.com/collective/ploneconf.site
-
-```{note}
-Despite this is a frontend chapter, we are working on backend code in `ploneconf.site`.
-```
-
-```shell
-git checkout frontpage
-```
-
-More info in {doc}`code`
-````
-
 
 ```{card}
 In this part you will:
@@ -35,10 +19,29 @@ In this part you will:
 - Use a listing block to show content marked as "featured"
 - Configure additional criterion for a listing block
 
-Topics covered
+Tools and techniques covered:
 
-- collection criterion
+- listing criterion
 ```
+
+````{card} Frontend chapter
+
+Despite this is a frontend chapter, we are working on **backend** code in `ploneconf.site`.
+
+Checkout `ploneconf.site` at tag "initial":
+
+```shell
+git checkout behaviors_1
+```
+
+The code at the end of the chapter:
+
+```shell
+git checkout frontpage
+```
+
+More info in {doc}`code`
+````
 
 
 We prepared a behavior for content types to store the information if the content should be featured in the previous  chapter.
@@ -50,11 +53,10 @@ Now we turn this into a criterion for a listing block that shows featured conten
 
 ## Add Index as collection criterion
 
-To understand why we need a collection criterion for a dynamic frontpage in Volto and what a collection criterion is, we have to look at the listing block of Volto.
+To understand why we need a collection criterion for a dynamic front page in Volto and what a collection criterion is, we have to look at the listing block of Volto.
 
 ```{figure} _static/volto_frontpage.png
 :alt: Listing Block sidebar
-:align: left
 ```
 
 In the sidebar, we see the {guilabel}`Criteria` select menu, and if we click there, it'll show some of the selectable criteria ordered in categories like the following:
@@ -64,9 +66,9 @@ In the sidebar, we see the {guilabel}`Criteria` select menu, and if we click the
 - `Dates` contains indexes which are working with date-data like Effective Date and Creation Date
 
 To get all talks we marked as `featured` we have to get the listing block to recognize our newly created index.
-This means we have to add our index to the collection criteria, so we can select it.
+This means we have to add our index to the collection criteria, to be selectable by the editor.
 
-To add our new index as a criterion to be appliable in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by adding a new file {file}`profiles/default/registry/querystring.xml`:
+To add our new index as a criterion to be applicable in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by adding a new file {file}`profiles/default/registry/querystring.xml`:
 
 ```{code-block} xml
 :linenos:
@@ -100,12 +102,12 @@ To understand this code snippet, we have to know the information and tags we are
 For a list of existing QueryField declarations and operations see https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml
 ```
 
-Like explained in the last chapter we can now restart the instance and import the newly added profile by using the `portal_setup` in our ZMI.
+We can now restart the instance and re-install the add-on.
 
 
 ## Add a listing block to show the featured content
 
-Now we will go back to our frontend.
+Now we go back to our frontend.
 To create a new listing block on the front-page we have to click on `edit` and then create one new block.
 Now you choose the block `Listing` from the menu:
 
@@ -114,14 +116,14 @@ Now you choose the block `Listing` from the menu:
 :align: left
 ```
 
-You will gain a new block and sidebar looking like this:
+You can select the 'featured' criterion:
 
 ```{figure} _static/volto_frontpage_3.png
 :alt: listing block with featured content
 :align: left
 ```
 
-## Outlook: block variations
+## Outlook: Block variations
 
 The listing block comes with default variations for the display.
 The editor can choose from these variations to change the template for the listing: with thumbnail image or without, etc..

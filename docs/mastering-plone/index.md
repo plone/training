@@ -48,11 +48,11 @@ configuring_customizing
 add-ons
 extending
 dexterity
+volto_development
 dexterity_2_talk
 dexterity_reference
 volto_overrides
 volto_talkview
-volto_development
 behaviors_1
 volto_frontpage
 api
@@ -60,9 +60,10 @@ events
 registry
 custom_search
 volto_testing
-thirdparty_behaviors
 dexterity_3
 upgrade_steps
+volto_listing_variation
+searchable
 volto_components_sponsors
 volto_addon
 volto_custom_addon

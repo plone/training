@@ -1,15 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Simple block architecture"
+    "property=og:description": "Simple block architecture"
+    "property=og:title": "Creating a custom block"
+    "keywords": "Plone, Volto, block, add-on"
 ---
 
 (volto-custom-addon2-label)=
 
-# Extending Volto With a FAQ Block Type
+# Creating a custom block 
 
 ````{card} Frontend chapter
 
@@ -231,7 +231,7 @@ export const FAQSchema = {
 };
 ```
 
-The field _faq_list_ has a type _'faqlist'_. This has to be registered as a _widget_ in {file}`src/config.js`. This configuration is the central place where your add-on can customize the hosting Volto app. It's the place where we later also register our new block type with information about its view and edit form.
+The field _faq_list_ has a type _'faqlist'_. This has to be registered as a _widget_ in {file}`src/index.js`. This configuration is the central place where your add-on can customize the hosting Volto app. It's the place where we later also register our new block type with information about its view and edit form.
 
 ```{code-block} jsx
 :linenos:
@@ -459,7 +459,7 @@ export default injectIntl(FAQListEditWidget);
 
 ````
 
-The form is fructified by the schema QuestionAnswerPairSchema. It's simple, just a string field with a textarea widget for the question and a such for the answer, but with a richtext widget to have some editing and styling tools available.
+The form is fructified by the schema QuestionAnswerPairSchema. It's simple, just a string field with a TextArea widget for the question and a such for the answer, but with a RichText widget to have some editing and styling tools available.
 
 {file}`src/FAQ/schema.js`
 
@@ -497,7 +497,7 @@ export const QuestionAnswerPairSchema = (title_question, title_answer) => {
 What's left to do?
 You created a block type with view and edit form and even a nice widget for the editor to fill in questions and answers. Register the block type and you are good to start your app and create an FAQ for the conference speakers.
 
-Go to {file}`config.js` and register your block type.
+Go to {file}`src/index.js` and register your block type.
 
 ```{code-block} jsx
 :emphasize-lines: 8-22
@@ -534,20 +534,10 @@ export default function applyConfig(config) {
 
 As we now apply our configuration of the new block type, the app is enriched with an accordion block.
 
-{file}`index.js`
-
-```{code-block} jsx
-:linenos:
-
-import applyConfig from './config';
-
-export default applyConfig;
-```
-
 Run
 
 ```shell
-yarn start
+make start
 ```
 
 ```{figure} _static/volto_addon_accordion_add.png
@@ -558,37 +548,9 @@ See the complete add-on code @rohberg/volto-accordion-block [^id3]
 
 ## Save your work to Github
 
-Your add-on is ready to use. As by now your repository is on Github. As long as it is published, you can share it with others.
-
-A Volto project uses this add-on via 'mrs.developer' [^id4]
-
-Install mrs.developer to let the project know about the _source_ of your add-on.
-
-```shell
-yarn add mrs-developer -WD
-```
-
-The configuration file {file}`mrs.developer.json` instructs mrs.developer from where it has to pull the package. So, create mrs.developer.json and add:
-
-```shell
-{
-    "greenthumb-volto-custom-addon": {
-        "package": "volto-custom-addon",
-        "url": "git@github.com:greenthumb/volto-custom-addon.git",
-        "path": "src"
-    }
-}
-```
-
-Run
-
-```shell
-make develop
-```
+Your add-on is ready to use. As by now your repository is on GitHub. As soon as it is published, you can share it with others.
 
 An official release is done on npm. Switch to section {ref}`Release a Volto add-on <volto-custom-addon-final-label>`.
 
 [^id3]: [Volto accordion block](https://www.npmjs.com/package/@rohberg/volto-accordion-block)
     Started as an example for the training it is ready to use for creating a questions and answer sections.
-
-[^id4]: [mrs.developer](https://www.npmjs.com/package/mrs-developer) Pull a package from git and set it up as a dependency for the current project codebase.

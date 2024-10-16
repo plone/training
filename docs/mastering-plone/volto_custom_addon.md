@@ -16,133 +16,93 @@ myst:
 See {ref}`voting-story-backend-package-label` for extending Plone with backend add-ons.
 ````
 
-As soon as you have repeating needs in Volto projects, you will want to move the code to an add-on that can be applied to multiple projects. One of several ways to start with a new add-on is the Yeoman generator we already used to initiate a Volto app.
+As soon as you have repeating needs in Volto projects, you will want to move the code to an add-on that can be applied to multiple projects. One of several ways to start with a new add-on is the [cookieplone](https://github.com/plone/cookieplone) Cookiecutter template.
+
 
 (volto-custom-addon-preparation-label)=
 
-If you haven't prepared Yeoman and the generator:
+If you haven't prepared 'cookieplone' already, see https://github.com/plone/cookieplone?tab=readme-ov-file#installation- for installation.
+
+
+'cookieplone' creates an add-on that comes with a Volto app.
+So you can start a Volto app right after creation of the add-on and proceed with developing your add-on.
 
 ```shell
-npm install -g yo
-npm install -g @plone/generator-volto
+pipx run cookieplone
 ```
 
-Create a Volto sandbox app:
+Go to the app folder and run the embedding app with:
 
 ```shell
-yo @plone/volto sandbox-for-addon
+make start
 ```
 
-You see a dialog like this
+You now have a Volto app running which includes the new add-on.
 
-```{code-block} console
-:emphasize-lines: 6,9
-:linenos:
+Open `packages/your-add-on` and start coding.
 
-yo @plone/volto sandbox-for-addon
-Getting latest Volto version
-Retrieving Volto's yarn.lock
-Using latest released Volto version: 11.1.0
-? Project description A Volto-powered Plone frontend
-? Would you like to add addons? true
-? Addon name, plus extra loaders, like: volto-addon:loadExtra,loadAnotherExtra volto-custom-addon
-? Would you like to add another addon? false
-? Would you like to add workspaces? true
-```
-
-Go to the app folder:
-
-```shell
-cd sandbox-for-addon
-```
-
-You now have a Volto app configured for an add-on.
-An add-on is a Node package.
-It will live in the folder: {file}`src/addons/volto-custom-addon`.
-
-Create your add-on with the generator:
-
-```shell
-yo @plone/volto:addon volto-custom-addon
-```
-
-Check {file}`package.json` to include the add-on in your app:
-
-```shell
-"private": true,
-"workspaces": [
-    "src/addons/*"
-],
-"addons": [
-    "volto-custom-addon"
-],
-```
-
-Install and start
-
-```shell
-make install
-yarn start
-```
 
 (volto-custom-addon-final-label)=
 
 ```{note} Step to the next chapter and come back here for a release.
-We will create a new block type in the next chapter {doc}`volto_custom_addon2`. We will do this in an add-on to apply the feature to multiple projects.
+We will create a new block type in the next chapter {doc}`volto_custom_addon2`.
+We will do this in an add-on to apply the feature to multiple projects.
 ```
 
-```{note}
-Coming back here with the new block type, you can now release the new add-on to npm. @greenthumb is your space. See <https://www.npmjs.com/package/release>
-```
+````{note}
+Coming back here with the new block type, you can now release the new add-on to npm. 
+
+```{code-block} console
+make release
+````
+
+(volto-custom-addon-include-label)=
 
 ## Enrich an existing project with your new released add-on
 
-You already released your add-on. Go on with {file}`package.json` and add your new add-on.
+You already released your add-on. Go on with {file}`package.json` and {file}`volto.config.js` and include your new add-on.
 
-Update `package.json`:
+: Update `package.json`:
+  ```{code-block} json
+  :emphasize-lines: 5
 
-```shell
-"addons": [
-  …
-  "volto-custom-addon"
-],
-"workspaces": [
-  "src/addons/*"
-],
-"dependencies": {
-  …
-  "volto-custom-addon": "1.0.1"
-},
-```
+  "dependencies": {
+    "@plone/volto": "workspace:*",
+    "@plone/registry": "workspace:*",
+    "volto-ploneconf": "workspace:*",
+    "@greenthumb/volto-qa-block": "^1.0.0"
+  },
+  ```
+
+: Update `volto.config.js`:
+  ```{code-block} js
+  :emphasize-lines: 1
+
+  const addons = ['@greenthumb/volto-qa-block', 'volto-ploneconf'];
+  const theme = '';
+
+  module.exports = {
+    addons,
+    theme,
+  };
+  ```
 
 Modify versions as necessary.
 
 Install new add-on and restart Volto:
 
 ```shell
-$ make install
-$ yarn start
+make install
+make start
 ```
+
 
 ## Create a new project with your new released add-on
 
-```shell
-yo @plone/volto my-volto-project --addon collective/volto-custom-addon
-```
-
-Install and start
+This is the same procedure as creating an add-on.
 
 ```shell
-$ make install
-$ yarn start
+pipx run cookieplone
 ```
 
-## Footnotes
-
-[yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
-
-: Workspaces are a new way to set up your package architecture. It allows you to setup multiple packages in such a way that you only need to run yarn install once to install all of them in a single pass.
-
-[mrs.developer](https://www.npmjs.com/package/mrs-developer)
-
-: Pull a package from git and set it up as a dependency for the current project codebase.
+Follow the steps from previous section {ref}`volto-custom-addon-include-label`.

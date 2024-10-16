@@ -29,7 +29,7 @@ Thank you for reading and your charity with non-native English speakers / writer
 
 (about-upcoming-label)=
 
-## Upcoming Trainings
+## Upcoming trainings
 
 Next Plone Conference, usually in October.
 Announced on [plone.org](https://plone.org)
@@ -39,10 +39,10 @@ If you want to have an on-site training or want to attend a public training, ple
 
 (video-label)=
 
-## Watch the Training Video
+## Watch the training video
 
-At Ploneconf 2021 the Mastering Plone Development Training was recorded.
-It is a shortened version of the training, given by Philip Bauer and Katja Süss.
+At Ploneconf 2021 the Mastering Plone Development training has been recorded.
+It's a shortened version of the training, given by Philip Bauer and Katja Süss.
 
 [Part 1 – Mastering Plone Development Training](https://www.youtube.com/watch?v=Jzuw3uWtzzI)  
 [Part 2 – Mastering Plone Development Training](https://www.youtube.com/watch?v=IEcGKzo3PO0)  
@@ -63,7 +63,7 @@ Philip Bauer
 
 Katja Süss
 
-: If not gardening she is developing with Python, Svelte and ReactJS.
+: If not gardening she is developing with Python, Svelte, and ReactJS.
   Katja is active member of teams Volto, documentation and training.
   She lifted the Plone Classic Training to Plone 6.  
   With a background in mathematical logic she turned towards web development and runs the web agency [Rohberg](https://rohberg.ch/) in Zurich.
@@ -77,7 +77,7 @@ Patrick Gerken
 
 Steve McMahon
 
-: Steve McMahon is a long-time Plone community member, contributor and trainer.
+: Steve McMahon is a long-time Plone community member, contributor, and trainer.
   He is the creator of PloneFormGen and maintainer of the Unified installer.
   Steve also wrote several chapters of Practical Plone and is an experienced speaker and instructor.
 
@@ -120,9 +120,9 @@ Fred van Dijk
 Leonardo Caballero
 
 : Leonardo J. Caballero G. of Maracaibo, Venezuela, is a Technical Director at Covantec R.L. and Conectivo C.A.
-  Leonardo maintains the Spanish translations of more than 49 Plone Add-ons as well as Spanish-language documentation for Plone itself.
+  Leonardo maintains the Spanish translations of more than 49 Plone add-ons as well as Spanish-language documentation for Plone itself.
 
-  He has contributed several Plone Add-ons that are part of PloneGov.
+  He has contributed several Plone add-ons that are part of PloneGov.
   Currently serving the Plone Board as a Plone Ambassador, Leonardo has also served as an Advisory Board member
   and has spoken at or helped organize Plone and open-source events throughout South America.
 

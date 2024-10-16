@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "How to enhance your Plone site with additional features from existing add-ons"
+    "property=og:description": "How to enhance your Plone site with additional features from existing add-ons"
+    "property=og:title": "Using Volto add-ons"
+    "keywords": "Plone, frontend, add-on"
 ---
 
 (volto-addon-label)=
@@ -19,14 +19,14 @@ For Plone backend add-ons see chapter {ref}`add-ons-label`
 
 (add-ons-volto-overview-label)=
 
-## Awesome Volto Add-ons
+## Awesome Volto add-ons
 
-Add-ons enrich a Volto app with specialized blocks, themes, integration of non-Volto Node packages, and more.
+add-ons enrich a Volto app with specialized blocks, themes, integration of non-Volto Node packages, and more.
 A selection of add-ons can be found on:
 
 - [Awesome Volto](https://github.com/collective/awesome-volto/blob/main/README.md#addons)
 - [npm #volto-addon](https://www.npmjs.com/search?q=keywords:volto-addon)
-- [github #volto-addon](https://github.com/search?o=desc&q=%23volto-addon&s=&type=Repositories)
+- [GitHub #volto-addon](https://github.com/search?o=desc&q=%23volto-addon&s=&type=Repositories)
 
 Some add-ons do require a backend add-on, some do not.
 A backend add-on is needed for a content type or a `REST API endpoint`.
@@ -46,45 +46,65 @@ The Volto add-on provides, aside from the tooltips, a UI to edit the glossary.
 
 Here is how you would install a Volto add-on in your app:
 
-Add-ons that are already released on [npm](https://www.npmjs.com):
+add-ons that are already released on [npm](https://www.npmjs.com):
 
 : Update `package.json`:
   ```{code-block} json
-  :emphasize-lines: 2,7
-
-  "addons": [
-    "@eeacms/volto-matomo"
-  ],
+  :emphasize-lines: 5
 
   "dependencies": {
-    "@plone/volto": "8.3.0",
-    "@eeacms/volto-matomo": "^2.0.9"
+    "@plone/volto": "workspace:*",
+    "@plone/registry": "workspace:*",
+    "volto-ploneconf": "workspace:*",
+    "@eeacms/volto-matomo": "^5.0.0"
   },
+  ```
+
+: Update `volto.config.js`:
+  ```{code-block} js
+  :emphasize-lines: 1
+
+  const addons = ['@eeacms/volto-matomo', 'volto-ploneconf'];
+  const theme = '';
+
+  module.exports = {
+    addons,
+    theme,
+  };
   ```
 
 Add-ons that are **not yet released** on `npm` but available on `Github`:
 
 : Update `package.json`:
-
   ```{code-block} json
-  :emphasize-lines: 2,7
-
-  "addons": [
-    "@foo/volto-bar-block"
-  ],
+  :emphasize-lines: 5
 
   "dependencies": {
-    "@plone/volto": "16.0.1",
+    "@plone/volto": "workspace:*",
+    "@plone/registry": "workspace:*",
+    "volto-ploneconf": "workspace:*",
     "@foo/volto-bar-block": "github:foo/volto-bar-block#x.y.z"
   },
   ```
 
+: Update `volto.config.js`:
+  ```{code-block} js
+  :emphasize-lines: 1
 
-Install new add-on with `yarn` and restart Volto:
+  const addons = ['@foo/volto-bar-block', 'volto-ploneconf'];
+  const theme = '';
+
+  module.exports = {
+    addons,
+    theme,
+  };
+  ```
+
+Install the new add-on and restart Volto:
 
 ```shell
-$ make install
-$ yarn start
+make install
+make start
 ```
 
 

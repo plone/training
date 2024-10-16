@@ -1,17 +1,17 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Provide a customized search"
+    "property=og:description": "Provide a customized search"
+    "property=og:title": "Custom search"
+    "keywords": "filter, faceted search"
 ---
 
 (custom-search-label)=
 
 # Custom Search
 
-Volto has a search block that allows you to build custom searches without additional addons.
+Volto has a search block that allows you to build custom searches without additional add-ons.
 
 ## Exercise
 
@@ -30,14 +30,14 @@ Remember what we did to show featured content on the front page.
 - The field `type_of_talk` needs to be indexed in catalog.
 - `type_of_talk` needs to be a collection criterion.
 
-After adding an index and a criterion, and restarting the backend, and re-installing the add-on, the index is present in catalog but empty.
+After adding an index and a criterion, restarting the backend, and re-installing the add-on, the index is present in catalog but empty.
 
 For populating the index you can go to http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes and reindex the new index.
 
 In case you want to change something of the index, the index can be deleted.
 A re-start of the backend, a re-install of the add-on and a new re-index of the index will populate the index.
 
-Check the entries by switching to "Browse" button.
+Check the entries by switching to the "Browse" tab.
 ```
 
 ````{dropdown} Solution
@@ -71,4 +71,5 @@ Check the entries by switching to "Browse" button.
   </records>
 ```
 
+Checkout `ploneconf.site` at tag "search" to see the updated code.
 ````

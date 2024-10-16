@@ -16,7 +16,7 @@ This feature has to be enabled and configured both in the backend and in the fro
 ### Backend
 
 Volto provides support for Plone's Multilingual feature.
-You need to install Multiligual support in Plone (plone.app.multilingual add-on), that comes available by default since Plone 5 and can be installed in Plone's Add-ons control panel.
+You need to install Multiligual support in Plone (plone.app.multilingual add-on), that comes available by default since Plone 5 and can be installed in Plone's add-ons control panel.
 This will setup the backend and it will create the Language Root Folders (LRFs) (/de, /en, etc.)
 
 From your Python policy add-on in `profiles/default/registry.xml`:
