@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "How to use the listing block with a custom criterion"
     "property=og:description": "How to use the listing block with a custom criterion"
-    "property=og:title": "Creating a dynamic frontpage with Volto blocks"
+    "property=og:title": "Creating a dynamic front page with Volto blocks"
     "keywords": "Volto, catalog, index, listing, criteria"
 ---
 
 (volto-frontpage-label)=
 
-# Creating a dynamic frontpage with Volto blocks
+# Creating a dynamic front page with Volto blocks
 
 Show selected content on the front page by criterion.
 
@@ -53,7 +53,7 @@ Now we turn this into a criterion for a listing block that shows featured conten
 
 ## Add Index as collection criterion
 
-To understand why we need a collection criterion for a dynamic frontpage in Volto and what a collection criterion is, we have to look at the listing block of Volto.
+To understand why we need a collection criterion for a dynamic front page in Volto and what a collection criterion is, we have to look at the listing block of Volto.
 
 ```{figure} _static/volto_frontpage.png
 :alt: Listing Block sidebar

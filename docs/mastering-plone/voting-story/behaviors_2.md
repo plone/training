@@ -108,7 +108,7 @@ The first simple behavior discussed in {ref}`behaviors1-label` has been register
 <plone:behavior
     title="Featured"
     name="ploneconf.featured"
-    description="Control if a item is shown on the frontpage"
+    description="Control if a item is shown on the front page"
     provides=".featured.IFeatured"
     />
 ```
