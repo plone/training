@@ -31,7 +31,7 @@ Test your add-on with
 make check
 ```
 
-We are releasing the Python package on 'pypi'.
+We are releasing the Python package on PyPI.
 Go to [pypi.org](https://pypi.org) and create an account as explained in https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#create-an-account.
 
 The package created with cookieplone is prepared for releasing with [`zest.releaser`](https://github.com/zestsoftware/zest.releaser/).
@@ -48,7 +48,7 @@ fullrelease
 
 When you are ready with development and tests are OK, you can release your package.
 
-Frontend add-ons are node packages and are released on https://www.npmjs.com.
+Frontend add-ons are Node packages and are released on https://www.npmjs.com.
 So, please create an account (https://docs.npmjs.com/getting-started/setting-up-your-npm-user-account) and configure your local environment (https://docs.npmjs.com/getting-started/configuring-your-local-environment).
 
 Have a look at the Makefile of your add-on.

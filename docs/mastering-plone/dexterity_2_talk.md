@@ -248,7 +248,7 @@ It does nothing so far but it can be useful later when we want to add methods or
 
 Now all pieces should be in place and you can enable the new type `Talk`.
 
-- Restart Plone (to load the new Python code and the changed zcml)
+- Restart Plone (to load the new Python code and the changed ZCML)
 - You do not need to restart the Volto frontend since we did not do any changes there.
 - Re-install the package ploneconf.site (deactivate and activate) to load the type registration and type configuration:
     Follow the link "SITE SETUP" in the bottom of the toolbar and switch to "Add-Ons".

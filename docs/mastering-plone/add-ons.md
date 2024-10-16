@@ -36,20 +36,20 @@ Plone backend add-ons provide
 - content types
 - behaviors to enrich content types
 
-Plone frontent add-ons provide
+Plone frontend add-ons provide
 - new blocks
 - variations and enhancements of blocks
 - a theme to design the layout of a site
 - components independent of blocks like a dropdown navigation
 
-Both can be tightly coupled, if a frontend feature depends on a new content type, a new behavior or any other change needed in data structure.
-For example an add-on that has the goal to provide a bookmarking feature depends on a backend add-on that handels the storing of the bookmarks.
+Both can be coupled, if a frontend feature depends on a new content type, a new behavior or any other change needed in data structure.
+For example an add-on that has the goal to provide a bookmarking feature depends on a backend add-on that handles the storing of the bookmarks.
 
 Have a look at the curated lists of add-ons:  
 
 
-[Awesome Plone – backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)  
-[Awesome Volto – frontend add-ons](https://github.com/collective/awesome-volto/blob/main/README.md)
+[Awesome Plone: backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)  
+[Awesome Volto: frontend add-ons](https://github.com/collective/awesome-volto/blob/main/README.md)
 
 
 
@@ -57,20 +57,20 @@ Have a look at the curated lists of add-ons:
 
 ## How to find appropriate add-ons
 
-It can be very hard to find the right add-on for your requirements.
+It can be hard to find the right add-on for your requirements.
 Here are some tips.
 
 - Make a list of required features.
 
-- Find candidates on PyPi, npm  or Github:
+- Find candidates on PyPI, npm  or GitHub:
 
   - curated list of [backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)
   - curated list of [frontend add-ons](https://github.com/collective/awesome-volto#readme)
-  - Python packages on Pypi: <https://pypi.org/search/?c=Framework+%3A%3A+Plone>
-  - Plone add-ons on Github: <https://github.com/collective>
-  - Plone core packages on Github: <https://github.com/plone>
-  - Google (e.g. [Plone+Slider](http://www.google.com/?q=Plone+slider))
-  - Javascript packages on npm: <https://www.npmjs.com/search?q=Volto>
+  - Python packages on PyPI: <https://pypi.org/search/?c=Framework+%3A%3A+Plone>
+  - Plone add-ons on GitHub: <https://github.com/collective>
+  - Plone core packages on GitHub: <https://github.com/plone>
+  - Google (for example [Plone+Slider](http://www.google.com/?q=Plone+slider))
+  - JavaScript packages on npm: <https://www.npmjs.com/search?q=Volto>
 
 - Once you have a shortlist, test these add-ons.
   Here are the main issues you need to test before you install an add-on on a production site:
@@ -100,7 +100,7 @@ Here are some tips.
 We have two groups of add-ons: backend and frontend.
 
 The training setup starts without any frontend add-on.
-Later on we will add features via a frontend addon.
+Later on we will add features via a frontend add-on.
 See chapter {doc}`volto_addon` how to install a frontend add-on.
 
 The training setup starts with one backend add-on `ploneconf.site`.

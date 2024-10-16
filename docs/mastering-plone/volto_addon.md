@@ -19,14 +19,14 @@ For Plone backend add-ons see chapter {ref}`add-ons-label`
 
 (add-ons-volto-overview-label)=
 
-## Awesome Volto Add-ons
+## Awesome Volto add-ons
 
-Add-ons enrich a Volto app with specialized blocks, themes, integration of non-Volto Node packages, and more.
+add-ons enrich a Volto app with specialized blocks, themes, integration of non-Volto Node packages, and more.
 A selection of add-ons can be found on:
 
 - [Awesome Volto](https://github.com/collective/awesome-volto/blob/main/README.md#addons)
 - [npm #volto-addon](https://www.npmjs.com/search?q=keywords:volto-addon)
-- [github #volto-addon](https://github.com/search?o=desc&q=%23volto-addon&s=&type=Repositories)
+- [GitHub #volto-addon](https://github.com/search?o=desc&q=%23volto-addon&s=&type=Repositories)
 
 Some add-ons do require a backend add-on, some do not.
 A backend add-on is needed for a content type or a `REST API endpoint`.
@@ -46,7 +46,7 @@ The Volto add-on provides, aside from the tooltips, a UI to edit the glossary.
 
 Here is how you would install a Volto add-on in your app:
 
-Add-ons that are already released on [npm](https://www.npmjs.com):
+add-ons that are already released on [npm](https://www.npmjs.com):
 
 : Update `package.json`:
   ```{code-block} json

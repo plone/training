@@ -104,7 +104,7 @@ Change the address to `localhost:9080` and restart your instance.
 
 You will also have to tell the frontend that the backend is now running on a different port!
 
-You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base url of the backend:
+You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base URL of the backend:
 
 ```shell
 RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone pnpm start
@@ -120,7 +120,7 @@ RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite pnpm start
 
 Change the port of the frontend to 1234
 
-By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
+By default the frontend will start on port 3000. You can change the port and/or host name for the frontend by specifying the environment variables `PORT` and/or `HOST`:
 
 ```shell
 HOST=localhost PORT=1234 pnpm start
@@ -169,10 +169,10 @@ For example, {guilabel}`edit` is only shown if the current user has the permissi
 
 (features-mailserver-label)=
 
-## Configure a Mailserver
+## Configure a mail server
 
 ```{only} not presentation
-For production level deployments you have to configure a mailserver.
+For production level deployments you have to configure a mail server.
 Later in the training we will create some content rules that send emails when new content is put on our site.
 
 For the training you don't have to configure a working mailserver since the Plone add-on `Products.PrintingMailHost` is installed which will redirect all emails to the console.
@@ -285,7 +285,7 @@ Event
 
 Image
 
-: Like file but png, jpeg or other image types.
+: Like file but PNG, JPEG or other image types.
   The Image content type has an image field.
   Values of the image field are saved in multiple scales to be accessible easily when rendering.
 
@@ -294,7 +294,7 @@ Image
 
 File
 
-: A file like a pdf, video or Word document.
+: A file like a PDF, video or Word document.
 
   ```{figure} _static/features_add_a_file.png
   ```
@@ -309,12 +309,12 @@ Link
 
 (features-containers-label)=
 
-## Folderish content
+## folderish content
 
 Go to "News".
 
 Earlier we created this page with its title "News".
-Therfore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
+Therefore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
 
 A page is folderish.
 To see its contained items, we change to '/contents' by clicking the folder icon.
@@ -335,7 +335,7 @@ This is useful for adding components that should be shown independent of how an 
 
 Per default the page does not show its contained items but just the title and the blocks an editor creates.
 The contained items can be shown by creating a listing block.
-A listing block without any criterias lists the contained items.
+A listing block without any criteria lists the contained items.
 
 
 ```{figure} _static/listingblock.png
@@ -547,14 +547,14 @@ You can even make a page, with or without sub pages, editable only by a group of
 
 (features-url-management-label)=
 
-## Url management
+## URL management
 
-Plone has an integrated mechanism to remember urls that where modified.
-A moved page is still available via the former url.
+Plone has an integrated mechanism to remember URLs that where modified.
+A moved page is still available via the former URL.
 
-Additional to this behavior, a page can be explicitly made available under further urls.
+Additional to this behavior, a page can be explicitly made available under further URLs.
 
-You can find the UI for adding alternative urls following the context menu {guilabel}`...`.
+You can find the UI for adding alternative URLs following the context menu {guilabel}`...`.
 
 
 (features-wc-label)=

@@ -140,7 +140,7 @@ export default TalkView;
   As the TalkView component is registered as a content type view, it receives the content data and some more.
   We will use the content part.
   So we introduce a constant `content` to be more explicit.
-- `content.details` is the value of the richtext field `details` with mime type, encoding and the data:
+- `content.details` is the value of the RichText field `details` with mime type, encoding and the data:
 
   ```jsx
   {
@@ -152,7 +152,7 @@ export default TalkView;
 
   See {doc}`plone6docs:plone.restapi/docs/source/usage/serialization`.
 
-- `content.details.data` holds the raw html. To render it properly we use `dangerouslySetInnerHTML` (see https://legacy.reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml).
+- `content.details.data` holds the raw HTML. To render it, we use `dangerouslySetInnerHTML` (see https://legacy.reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml).
 
 Please check the 'components' tab of Google developer tools for property `content` of the `TalkView` component to see the field values of your talk instance.
 
@@ -184,13 +184,13 @@ export default TalkView;
 
 `Container` is either a registered component or a component from [Semantic UI React](https://react.semantic-ui.com/elements/container/) and needs to be imported before it is used.
 
-We now decide to display the type of talk in the title (E.g. "Keynote: The Future of Plone").
+We now decide to display the type of talk in the title (for example: "Keynote: The Future of Plone").
 This means we cannot use `DefaultView` anymore since that displays the title like this: `<h1 className="documentFirstHeading">{content.title}</h1>`.
 Instead we display the title and description in a custom way.
 
 This has multiple benefits:
 
-- All content can now be wrapped in the same `Container` which cleans up the html.
+- All content can now be wrapped in the same `Container` which cleans up the HTML.
 - We can control where the speaker portrait is displayed.
   We can now move all information on the speaker into a separate box.
   The speaker portrait is picked up by the DefaultView because the fields name is `image`, which is the same as the image from the behavior `plone.leadimage`.
@@ -335,10 +335,10 @@ export default TalkView;
 ```
 
 - We use the Semantic UI component [Image](https://react.semantic-ui.com/elements/image/#variations-avatar)
-- We use `flattenToAppURL` to turn the Plone url of the image to the Volto url, e.g. it turns <http://localhost:8080/Plone/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg> into <http://localhost:3000/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg>.
+- We use `flattenToAppURL` to turn the Plone URL of the image to the Volto URL, for example it turns <http://localhost:8080/Plone/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg> into <http://localhost:3000/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg>.
 - Open the React Developer Tools in your browser and inspect the property `content` of the TalkView component, its attribute `image` and its attribute `scales`. If you look at the [documentation for the serialization of image-fields](https://6.docs.plone.org/plone.restapi/docs/source/usage/serialization.html#file-image-fields) you can find out where that information comes from.
 - To deal with talks without speaker image, we check for the existence of the image with `content.image?.scales?.preview?.download`.
-  The expression with question marks returns `undefined` if `content` has no `image` key or `content.image` has no `scales` key and so on.
+  The expression with question marks returns `undefined` if `content` has no `image` key or `content.image` has no `scales` key and so forth.
   `?.` is the [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) operator.
 
 Next we add the audience:

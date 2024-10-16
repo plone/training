@@ -190,4 +190,4 @@ make install
 make start
 ```
 
-We are now ready to implement our voting behavior in our new frontend add-on created in `frontend/packages/volto-training-votable/`.
+You are now ready to implement your voting behavior in your new frontend add-on created in `frontend/packages/volto-training-votable/`.

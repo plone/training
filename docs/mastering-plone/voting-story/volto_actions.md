@@ -406,7 +406,7 @@ export function vote(url, vote) {
 }
 ```
 
-As the corresponding reducer updates the app store, the subscribed component `Voting` **reacts by updating itself**. The subsription is done by:
+As the corresponding reducer updates the app store, the subscribed component `Voting` **reacts by updating itself**. The subscription is done by:
 
 ```jsx
 const votes = useSelector((store) => store.votes);
@@ -553,7 +553,7 @@ After a successful `clearVotes` action the corresponding reducer updates the sto
 As the component is subscribed to the store via `const votes = useSelector((store) => store.votes);` the component updates itself ( is rendered with the updated values ).
 And the voting buttons are visible again.
 
-For completnes, the action.
+For completeness, the action.
 You have already guessed, it does a `DEL` request to the `@votes` endpoint.
 And the endpoint service from last chapter knows what to do.
 

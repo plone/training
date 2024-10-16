@@ -212,7 +212,7 @@ class Account(persistent.Persistent):
 - [ZEO](https://github.com/zopefoundation/ZEO): Server + many clients
 - [ZRS](https://github.com/zopefoundation/zc.zrs): DB-Replication
 - [RelStorage](https://relstorage.readthedocs.io/en/latest/) (store pickles in a relational database) for Postgres, MySQL etc.
-- blobstorage (binary large objects) in filesystem
+- `blobstorage` (binary large objects) in filesystem
 
 
 (what-is-plone-traversal-architecture-zope-label)=
@@ -317,7 +317,7 @@ It is used to connect the Volto frontend with Plone backend.
 ### Volto Frontend
 
 [Volto](https://github.com/plone/volto) is the default frontend for Plone 6 written in ReactJS.
-It uses the Rest API to communicate with the backend and offers a modern editing experience.
+It uses the REST API to communicate with the backend and offers a modern editing experience.
 
 Here are some basics that you need to understand if you are new to Volto:
 

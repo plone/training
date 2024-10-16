@@ -21,7 +21,7 @@ The frontend code can be found at [volto-ploneconf](https://github.com/collectiv
 Further add-ons are build or used while stepping through advanced training chapters.
 For the sake of completion we are mentioning them here.
 There is no need to check them out as they are dependencies in backend or frontend.
-They will be added by name in backend configuration or frontend configuratin, than fetched by building the backend or the frontend.
+They will be added by name in backend configuration or frontend configuration, than fetched by building the backend or the frontend.
 
 - [training.votable](https://github.com/collective/training.votable)
 - [volto-training-votable](https://github.com/collective/volto-training-votable)

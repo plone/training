@@ -459,7 +459,7 @@ export default injectIntl(FAQListEditWidget);
 
 ````
 
-The form is fructified by the schema QuestionAnswerPairSchema. It's simple, just a string field with a textarea widget for the question and a such for the answer, but with a richtext widget to have some editing and styling tools available.
+The form is fructified by the schema QuestionAnswerPairSchema. It's simple, just a string field with a TextArea widget for the question and a such for the answer, but with a RichText widget to have some editing and styling tools available.
 
 {file}`src/FAQ/schema.js`
 
@@ -548,7 +548,7 @@ See the complete add-on code @rohberg/volto-accordion-block [^id3]
 
 ## Save your work to Github
 
-Your add-on is ready to use. As by now your repository is on Github. As soon as it is published, you can share it with others.
+Your add-on is ready to use. As by now your repository is on GitHub. As soon as it is published, you can share it with others.
 
 An official release is done on npm. Switch to section {ref}`Release a Volto add-on <volto-custom-addon-final-label>`.
 

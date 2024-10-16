@@ -11,7 +11,7 @@ myst:
 
 # Custom Search
 
-Volto has a search block that allows you to build custom searches without additional addons.
+Volto has a search block that allows you to build custom searches without additional add-ons.
 
 ## Exercise
 

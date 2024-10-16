@@ -59,7 +59,7 @@ Dexterity has special adapters that are called and registered by the name behavi
 
 A behavior can be enabled for any content type through the web UI and at runtime.
 
-All default views (e.g. the add and edit forms) know about the concept of behaviors.
+All default views (for example the add and edit forms) know about the concept of behaviors.
 When rendering forms, the views check whether there are behaviors referenced with the current context and if these behaviors have a schema of their own, these fields get shown in addition.
 
 
@@ -92,7 +92,7 @@ We want some selected talks, news items or other content to be presented on the 
 So for now, our behavior just adds a new field to store the information if an object should be listed on the front page.
 ```
 
-We want to keep a clean structure, so we create a {file}`behaviors` directory first, and include it into the zcml declarations of our {file}`configure.zcml`.
+We want to keep a clean structure, so we create a {file}`behaviors` directory first, and include it into the ZCML declarations of our {file}`configure.zcml`.
 
 ```xml
 <include package=".behaviors" />
@@ -278,7 +278,7 @@ As soon as you edit content, you can also see the values of "featured" listed on
 ## Add a metadata column for the new field
 
 The same rules and methods shown above for indexes apply for metadata columns.
-The difference with metadata is that it is not used as criterions for searching the catalog, but is mandatory for displaying of search results returned from the catalog.
+The difference with metadata is that it is not used as criteria for searching the catalog, but is mandatory for displaying of search results returned from the catalog.
 
 We will see that in fact every attribute of an object can be accessed in search results by explicitly requesting objects.
 A way more performant search is requesting what is stored in the catalog.

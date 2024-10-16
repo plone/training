@@ -326,7 +326,7 @@ The field is fitted with a schema describing the valid form of the field values.
     )
 ```
 
-The frontendOptions forces Volto to display on editing the field with a widget prepared for vocabulary terms.
+The `frontendOptions` forces Volto to display on editing the field with a widget prepared for vocabulary terms.
 More correct, it forces Volto to lookup the widget in `Volto's` widget mapping to find the corresponding widget.
 
 

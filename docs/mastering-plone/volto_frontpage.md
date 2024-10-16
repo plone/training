@@ -68,7 +68,7 @@ In the sidebar, we see the {guilabel}`Criteria` select menu, and if we click the
 To get all talks we marked as `featured` we have to get the listing block to recognize our newly created index.
 This means we have to add our index to the collection criteria, to be selectable by the editor.
 
-To add our new index as a criterion to be appliable in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by adding a new file {file}`profiles/default/registry/querystring.xml`:
+To add our new index as a criterion to be applicable in a listing block or a collection, we have to switch to our `backend`. There we have to create a plone.app.registry record for our index. This can be achieved by adding a new file {file}`profiles/default/registry/querystring.xml`:
 
 ```{code-block} xml
 :linenos:
@@ -123,7 +123,7 @@ You can select the 'featured' criterion:
 :align: left
 ```
 
-## Outlook: block variations
+## Outlook: Block variations
 
 The listing block comes with default variations for the display.
 The editor can choose from these variations to change the template for the listing: with thumbnail image or without, etc..

@@ -199,7 +199,7 @@ useEffect(() => {
 - With the option `fullobjects` all available field values are present in the fetched data.
 - Another option is `metadata_fields`, which allows to get more attributes (selection of Plone catalog metadata columns) than the default search. The search is done without a performance expensive fetch via option `fullobjects` as soon as the attributes are available from catalog as metadata.
 
-Possible **sort criterions** are indices of the Plone catalog.
+Possible **sort criteria** are indices of the Plone catalog.
 
 
 ```{code-block} jsx

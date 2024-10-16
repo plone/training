@@ -89,7 +89,7 @@ The new workflow will only let them see and edit talks they created themselves a
 - Rename the new workflow from _copy_of_simple_publication_workflow_ to _talks_workflow_.
 - Edit the workflow by clicking on it: Change the Title to _Talks Workflow_.
 - Click on the tab {guilabel}`States` and click on {guilabel}`private` to edit this state. In the next view select the tab {guilabel}`Permissions`.
-- Find the table column for the role {guilabel}`Contributor` and remove the permissions for {guilabel}`Access contents information` and {guilabel}`View`. Note that the {guilabel}`Owner` (i.e. the Creator) still has some permissions.
+- Find the table column for the role {guilabel}`Contributor` and remove the permissions for {guilabel}`Access contents information` and {guilabel}`View`. Note that the {guilabel}`Owner` (that's the creator) still has some permissions.
 - Do the same for the state {guilabel}`pending`
 - Go back to {file}`portal_workflow` and set the new workflow {file}`talks_workflow` for talks. Click {file}`Change` and then {file}`Update security settings`.
 

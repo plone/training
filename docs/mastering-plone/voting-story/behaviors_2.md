@@ -35,7 +35,7 @@ Topics covered:
 
 The talks are being voted.
 So we provide an additional field with our behavior to store the votes on a talk.
-Therefore the behavior will have a schema with a field "votes".
+Therefore the behavior will have a schema with a field `votes`.
 
 We mark the field "votes" as an omitted field as this field should not be edited directly.
 
@@ -323,7 +323,7 @@ As you have seen in the Schema declaration, if you run your site in debug mode, 
 But trying to change these fields will throw an exception.
 
 
-Let's continue with the bahavior adapter:
+Let's continue with the behavior adapter:
 
 ```{code-block} python
 :linenos:

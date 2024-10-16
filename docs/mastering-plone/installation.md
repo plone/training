@@ -77,7 +77,7 @@ This build executes multiple tasks.
 The build
 - creates a Python virtual environment and installs prerequisites
 - generates a file structure to be prepared to install Plone packages with pip
-- generates Zope configuration with cookiecutter
+- generates Zope configuration with Cookiecutter
 
 By creating and working with a **Python virtual environment**, we are independent of the system Python installation. We install packages and its version according to our needs.
 
@@ -85,7 +85,7 @@ The build generates a file structure to be prepared to install **Plone from pack
 It also allows to override Plone core package versions or force a checkout from `github`.
 The documentation {doc}`plone6docs:manage/backend` provides information on common tasks.
 
-The build generates **Zope configuration** files with cookiecutter `cookiecutter-zope-instance`.
+The build generates **Zope configuration** files with Cookiecutter `cookiecutter-zope-instance`.
 The file we will modify to update our Zope / Plone configuration is `instance.yaml`.
 In this file we will add add-ons that are installed as Python packages and shall be loaded in our instance.
 `instance.yaml` is the one configuration file for our Zope / Plone instance.
@@ -116,7 +116,7 @@ Starting server in PID 28745.
 2022-09-27 08:57:23,963 INFO    [waitress:486][MainThread] Serving on http://127.0.0.1:8080
 ```
 
-Troubleshooting: We are here to help: Please file an issue in [training repo](https://github.com/plone/training/issues). 
+Troubleshooting: We are here to help: Please file an issue in [training repository](https://github.com/plone/training/issues). 
 
 Point your browser to <http://localhost:8080> to see `Plone` running.
 

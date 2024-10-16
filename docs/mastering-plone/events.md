@@ -259,7 +259,7 @@ The problem now appears that speakers submitting their talks should not be able 
 
 Sadly it is not easy to modify permissions of fields provided by behaviors unless you write the behavior yourself.
 At least in this case we can take the easy way out since the field does not contain secret information:
-We can simply hide the fields from contributors using css and show them for reviewers.
+We can simply hide the fields from contributors using CSS and show them for reviewers.
 
 ```{warning}
 This trick does not yet work in Volto because some css-classes are still missing from the body-tag (see <https://github.com/plone/volto/issues/1189>). Skip ahead!

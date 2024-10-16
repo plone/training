@@ -175,7 +175,7 @@ def cleanup_site_structure(setup_tool):
 
 We create the required site structure if it does not exist yet making extensive use of `plone.api` as discussed in the chapter {doc}`api`.
 
-Have a look at ZMI import steps http://localhost:8080/Plone/portal_setup/manage_importSteps to find the updgrade step id for the type uprade.
+Have a look at ZMI import steps http://localhost:8080/Plone/portal_setup/manage_importSteps to find the upgrade step id for the type upgrade.
 
 ```{figure} _static/import_steps.png
 :alt: Import steps
@@ -223,8 +223,8 @@ Add the new meta data columns 'level' and 'url' to {file}`profiles/default/catal
   <column value="url" />
 ```
 
-While we are at it, we also add some more indexes and criterions for fields of type talk.
-With these indexes and criterions we can create listing and search blocks with facets.
+While we are at it, we also add some more indexes and criteria for fields of type talk.
+With these indexes and criteria we can create listing and search blocks with facets.
 
 ```{code-block} xml
 :emphasize-lines: 18-36
@@ -276,7 +276,7 @@ This adds new indexes for the three fields we want to show in the listing.
 Note that _audience_ is a {py:class}`KeywordIndex` because the field is multi-valued, but we want a separate index entry for every value in an object.
 
 A reinstallation of the add-on would leave the new catalog indexes empty.
-Therefore we write an upgrade step to not only add indexes and criterions, but also reindex all talks:
+Therefore we write an upgrade step to not only add indexes and criteria, but also reindex all talks:
 
 `src/ploneconf/site/upgrades/v1001.py`:
 
@@ -284,7 +284,7 @@ Therefore we write an upgrade step to not only add indexes and criterions, but a
 def update_indexes(setup_tool):
     # Indexes and metadata
     setup_tool.runImportStepFromProfile(default_profile, "catalog")
-    # Criterions
+    # Criteria
     setup_tool.runImportStepFromProfile(default_profile, "plone.app.registry")
     # Reindexing content
     for brain in api.content.find(portal_type=["talk", "sponsor"]):
@@ -319,7 +319,7 @@ def update_indexes(setup_tool):
         />
     <genericsetup:upgradeStep
         title="Update catalog"
-        description="Add and populate new indexes. Add criterions."
+        description="Add and populate new indexes. Add criteria."
         handler="ploneconf.site.upgrades.v1001.update_indexes"
         />
   </genericsetup:upgradeSteps>

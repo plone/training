@@ -19,7 +19,7 @@ Content types are often called dexterity types which refers to the rework of the
 
 This is a schema with examples for all field-types that are shipped with Plone by default. They are arranged in fieldsets:
 
-Text, Boolean, Email
+Text, boolean, email
 
 : Textline, RichText, Boolean, Email, URI
 
@@ -343,10 +343,10 @@ File fields
 ```
 
 
-## mixedfield (Datagrid field)
+## mixedfield (datagrid field)
 
 The mixedfield empowers your user to create a list of objects of mixed value types sharing the same schema.
-If you are familliar with the Plone Classic datagrid field this is the complementary field / widget combo for Plone.
+If you are familiar with the Plone Classic datagrid field this is the complementary field / widget combo for Plone.
 **mixedfield** is a combination of a Plone Classic JSONField and a widget for Plone. Nothing new, just a term to talk about linking backend and frontend.
 
 Example is a custom history:
@@ -500,7 +500,7 @@ export default function applyConfig(config) {
 
 The user can now edit the values of the new field _history_field_.
 
-Thats what you did to accomplish this:
+That's what you did to accomplish this:
 
 - You added a new field of type JSONField with widget "history_widget" and default schema to your content type schema.
 - You registered the custom Plone widget for widget name "history_widget".
