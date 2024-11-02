@@ -26,6 +26,16 @@ Before you start working with this training, ensure you have the following prere
 - <a target="_blank" href="https://www.gnu.org/software/make/">GNU make</a>
 - <a target="_blank" href="https://www.docker.com/get-started">Docker</a> (if using the Plone docker images - <a target="_blank" href="https://6.docs.plone.org/install/containers/index.html">see instructions for installation and usage</a>)
 
+The versions of Python that are supported in Volto depend on the version of Plone that you use.
+
+| Plone | Python       | Volto        |
+| ----- | ------------ | ------------ |
+| 6.0   | 3.8-3.12     | 17.0 or 18.0 |
+| 5.2   | 2.7, 3.6-3.8 | 15.0         |
+
+Depending on the operating system that you are using, some of the following pre-requisites might change.
+They assume you have a macOS/Linux machine.
+
 ## Bootstrap a new Plone stack
 
 To bootstrap a new Plone project(with both backend and frontend), you can use [Cookieplone](https://github.com/plone/cookieplone).
