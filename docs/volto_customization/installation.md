@@ -17,63 +17,14 @@ Getting started with Volto involves setting up a development environment, unders
 
 ## Prerequisites
 
-Before you start working with Volto, ensure you have the following prerequisites:
+Before you start working with this training, ensure you have the following prerequisites:
 
-- <a target="_blank" href="https://nodejs.org/en">Node.js LTS (<=20.x)</a> - (<a target="_blank" href="https://6.docs.plone.org/install/install-from-packages.html#nvm">see instructions for installation</a>)
+- <a target="_blank" href="https://nodejs.org/en">Node.js LTS (>=20.x)</a> - (<a target="_blank" href="https://6.docs.plone.org/install/install-from-packages.html#nvm">see instructions for installation</a>)
 - <a target="_blank" href="https://www.python.org/">Python</a> - See below for specific versions.
 - <a target="_blank" href="https://pipx.pypa.io/stable/">pipx</a>
 - <a target="_blank" href="https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating">nvm</a>
 - <a target="_blank" href="https://www.gnu.org/software/make/">GNU make</a>
 - <a target="_blank" href="https://www.docker.com/get-started">Docker</a> (if using the Plone docker images - <a target="_blank" href="https://6.docs.plone.org/install/containers/index.html">see instructions for installation and usage</a>)
-
-The versions of Python that are supported in Volto depend on the version of Plone that you use.
-
-| Plone | Python       | Volto        |
-| ----- | ------------ | ------------ |
-| 6.0   | 3.8-3.12     | 17.0 or 18.0 |
-| 5.2   | 2.7, 3.6-3.8 | 15.0         |
-
-Depending on the operating system that you are using, some of the following pre-requisites might change.
-They assume you have a macOS/Linux machine.
-
-### Python
-
-Installing Python is beyond the scope of this training. However, it is recommended to use a Python version manager, pyenv, that allows you to install multiple versions of Python on your development environment without destroying your system's Python.
-
-Plone requires Python version 3.8, 3.9, 3.10, 3.11, or 3.12.
-
-### pipx
-
-Install [pipx](https://pipx.pypa.io/stable/).
-
-```shell
-pip install pipx
-
-```
-
-### Node.js
-
-1.  Install or update the supported LTS versions of Node.js, then activate the version supported in Volto.
-
-    ```shell
-    nvm install --lts
-    nvm use --lts
-    ```
-
-2.  Verify that the supported version of Node.js is activated.
-
-    ```shell
-    node -v
-    ```
-
-### Make
-
-`Make` comes installed on most Linux distributions.
-On macOS, you must first [install Xcode](https://developer.apple.com/xcode/resources/), then install its command line tools.
-On Windows, it is strongly recommended to [Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install), which will include `make`.
-
-Finally, it is a good idea to update your system's version of `make`, because some distributions, especially macOS, have an outdated version.
-Use your favorite search engine or trusted online resource for how to update `make`.
 
 ## Bootstrap a new Plone stack
 
@@ -122,19 +73,6 @@ In the currently open session, issue the following command.
 make backend-start
 ```
 
-The Plone backend server starts up and emits messages to the console.
-
-```console
-2024-09-25 16:47:15,699 INFO    [chameleon.config:39][MainThread] directory cache: /<path-to-project>/backend/instance/var/cache.
-2024-09-25 16:47:16,387 WARNING [ZODB.FileStorage:412][MainThread] Ignoring index for /<path-to-project>/backend/instance/var/filestorage/Data.fs
-2024-09-25 16:47:16,508 INFO    [plone.restapi.patches:16][MainThread] PATCH: Disabled ZPublisher.HTTPRequest.ZopeFieldStorage.VALUE_LIMIT. This enables file uploads larger than 1MB.
-2024-09-25 16:47:17,018 INFO    [plone.volto:23][MainThread] Aliasing collective.folderish classes to plone.volto classes.
-2024-09-25 16:47:17,760 INFO    [Zope:42][MainThread] Ready to handle requests
-Starting server in PID 20912.
-2024-09-25 16:47:17,772 INFO    [waitress:486][MainThread] Serving on http://[::1]:8080
-2024-09-25 16:47:17,772 INFO    [waitress:486][MainThread] Serving on http://127.0.0.1:8080
-```
-
 ### Start Plone frontend
 
 Create a second shell session in a new window.
@@ -142,18 +80,6 @@ Start the Plone frontend with the following command.
 
 ```shell
 make frontend-start
-```
-
-The Plone frontend server starts up and emits messages to the console, and should end with the following.
-
-```console
-webpack 5.90.1 compiled successfully in 11004 ms
-sswp> Handling Hot Module Reloading
-Using volto.config.js in: /<path-to-project>/frontend/volto.config.js
-✅  Server-side HMR Enabled!
-Volto is running in SEAMLESS mode
-Proxying API requests from http://localhost:3000/++api++ to http://localhost:8080/Plone
-🎭 Volto started at 0.0.0.0:3000 🚀
 ```
 
 Open a browser at the following URL to visit your Plone site.
