@@ -11,7 +11,7 @@ myst:
 
 In the previous chapter we just replaced or enhanced our View component by directly mutating the View in the Blocks engine. Now since all the blocks in principle should be schema based and should use `BlockDataForm` we do have another concept of extending Blocks with respect to schema.
 
-The `BlockDataForm` renders a schemaEnhanced form ready to be used along with the variations support.
+The `BlockDataForm` renders a schemaEnhanced form ready to be used with support for validations and variations.
 
 The variations are various "View" mode options that your block might have whether its layout, the designs or a completely enhanced form of a block.
 

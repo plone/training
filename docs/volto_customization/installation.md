@@ -19,148 +19,184 @@ Getting started with Volto involves setting up a development environment, unders
 
 Before you start working with Volto, ensure you have the following prerequisites:
 
-- <a target="_blank" href="https://nodejs.org/en">Node.js LTS (16.x)</a> - (<a target="_blank" href="https://6.docs.plone.org/install/install-from-packages.html#nvm">see instructions for installation</a>)
+- <a target="_blank" href="https://nodejs.org/en">Node.js LTS (<=20.x)</a> - (<a target="_blank" href="https://6.docs.plone.org/install/install-from-packages.html#nvm">see instructions for installation</a>)
 - <a target="_blank" href="https://www.python.org/">Python</a> - See below for specific versions.
+- <a target="_blank" href="https://pipx.pypa.io/stable/">pipx</a>
+- <a target="_blank" href="https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating">nvm</a>
+- <a target="_blank" href="https://www.gnu.org/software/make/">GNU make</a>
 - <a target="_blank" href="https://www.docker.com/get-started">Docker</a> (if using the Plone docker images - <a target="_blank" href="https://6.docs.plone.org/install/containers/index.html">see instructions for installation and usage</a>)
 
 The versions of Python that are supported in Volto depend on the version of Plone that you use.
 
 | Plone | Python       | Volto        |
 | ----- | ------------ | ------------ |
-| 6.0   | 3.8-3.11     | 16.0 or 17.0 |
+| 6.0   | 3.8-3.12     | 17.0 or 18.0 |
 | 5.2   | 2.7, 3.6-3.8 | 15.0         |
 
 Depending on the operating system that you are using, some of the following pre-requisites might change.
 They assume you have a macOS/Linux machine.
 
-## Bootstrap a new Volto project
+### Python
 
-To bootstrap a new Volto project, you can use Yeoman [@plone/generator-volto](https://github.com/plone/generator-volto).
-First, install it as a global tool (<a target="_blank" href="https://6.docs.plone.org/volto/recipes/creating-project.html">see instructions for installation</a>):
+Installing Python is beyond the scope of this documentation. However, it is recommended to use a Python version manager, pyenv, that allows you to install multiple versions of Python on your development environment without destroying your system's Python.
 
-```shell
-npm install -g yo
-npm install -g @plone/generator-volto
-```
+Plone requires Python version 3.8, 3.9, 3.10, 3.11, or 3.12.
 
-Then you can bootstrap the project with:
+### pipx
+
+Install [pipx](https://pipx.pypa.io/stable/).
 
 ```shell
-yo @plone/volto volto-tutorial-project
+pip install pipx
+
 ```
 
-The yo-based generator partially integrates add-ons (it can generate a
-`package.json` with add-ons and workspaces already specified). When prompted
-to add add-ons, choose `false`.
+### Node.js
 
-Now you can start your newly created Volto project:
+1.  Install or update the supported LTS versions of Node.js, then activate the version supported in Volto.
+
+    ```shell
+    nvm install --lts
+    nvm use --lts
+    ```
+
+2.  Verify that the supported version of Node.js is activated.
+
+    ```shell
+    node -v
+    ```
+
+### Make
+
+`Make` comes installed on most Linux distributions.
+On macOS, you must first [install Xcode](https://developer.apple.com/xcode/resources/), then install its command line tools.
+On Windows, it is strongly recommended to [Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install), which will include `make`.
+
+Finally, it is a good idea to update your system's version of `make`, because some distributions, especially macOS, have an outdated version.
+Use your favorite search engine or trusted online resource for how to update `make`.
+
+## Bootstrap a new Plone stack
+
+To bootstrap a new Plone project(with both backend and frontend), you can use [Cookieplone](https://github.com/plone/cookieplone).
+You can use pipx to run cookieplone (<a target="_blank" href="https://6.docs.plone.org/install/create-project-cookieplone.html#generate-the-project">see instructions for installation</a>):
 
 ```shell
-cd volto-tutorial-project
-yarn start
+pipx run cookieplone tutorial-project
 ```
+
+You will be presented with a series of prompts. You can also specify the addons you want to install along with the project. You can type `volto-teaser-tutorial` when prompted for the addons.
+
+```shell
+[11/17] Volto Addon Name (volto-project-title): volto-teaser-tutorial
+```
+
+You can accept the rest of the default values in square brackets (`[default-option]`) by hitting the {kbd}`Enter` key, or enter your preferred values.
+For the training, we will use the default values for the rest of the prompts.
+
+```{tip}
+See the cookiecutter's README for how to [Use options to avoid prompts](https://github.com/collective/cookieplone/?tab=readme-ov-file#use-options-to-avoid-prompts).
+```
+
+## Install the project
+
+To work on your project, you need to install both the frontend and backend.
+
+Change your current working directory to `tutorial-project`.
+
+```shell
+cd tutorial-project
+```
+
+To install both the Plone backend and frontend, use the following command.
+
+```shell
+make install
+```
+
+## Start Plone
+
+Plone 6 has two servers: one for the frontend, and one for the backend.
+As such, we need to maintain two active shell sessions, one for each server, to start your Plone site.
+
+### Start Plone backend
+
+In the currently open session, issue the following command.
+
+```shell
+make backend-start
+```
+
+The Plone backend server starts up and emits messages to the console.
+
+```console
+2024-09-25 16:47:15,699 INFO    [chameleon.config:39][MainThread] directory cache: /<path-to-project>/backend/instance/var/cache.
+2024-09-25 16:47:16,387 WARNING [ZODB.FileStorage:412][MainThread] Ignoring index for /<path-to-project>/backend/instance/var/filestorage/Data.fs
+2024-09-25 16:47:16,508 INFO    [plone.restapi.patches:16][MainThread] PATCH: Disabled ZPublisher.HTTPRequest.ZopeFieldStorage.VALUE_LIMIT. This enables file uploads larger than 1MB.
+2024-09-25 16:47:17,018 INFO    [plone.volto:23][MainThread] Aliasing collective.folderish classes to plone.volto classes.
+2024-09-25 16:47:17,760 INFO    [Zope:42][MainThread] Ready to handle requests
+Starting server in PID 20912.
+2024-09-25 16:47:17,772 INFO    [waitress:486][MainThread] Serving on http://[::1]:8080
+2024-09-25 16:47:17,772 INFO    [waitress:486][MainThread] Serving on http://127.0.0.1:8080
+```
+
+### Start Plone frontend
+
+Create a second shell session in a new window.
+Start the Plone frontend with the following command.
+
+```shell
+make frontend-start
+```
+
+The Plone frontend server starts up and emits messages to the console, and should end with the following.
+
+```console
+webpack 5.90.1 compiled successfully in 11004 ms
+sswp> Handling Hot Module Reloading
+Using volto.config.js in: /<path-to-project>/frontend/volto.config.js
+✅  Server-side HMR Enabled!
+Volto is running in SEAMLESS mode
+Proxying API requests from http://localhost:3000/++api++ to http://localhost:8080/Plone
+🎭 Volto started at 0.0.0.0:3000 🚀
+```
+
+Open a browser at the following URL to visit your Plone site.
+
+http://localhost:3000
 
 You can then login with admin/admin at <a target="_blank" href="http://localhost:3000/login">http://localhost:3000/login</a>.
 
-## Bootstrap an add-on
+## Volto addon
 
-Let's start creating an add-on. We'll create a new package:
-`volto-teaser-tutorial`. Inside your Volto project, bootstrap
-the add-on by running (in the Volto project root):
-
-```shell
-yo @plone/volto:addon
-```
-
-Note: You can also use the namespace like `@plone-collective/volto-teaser-tutorial` (or any other) is not required and is
-optional. We're using namespaces for scoped package under some organisation.
-
-Use `volto-teaser-tutorial` as the package name. After the
-scaffolding of the add-on completes, you can check the created files in
-`src/addons/volto-teaser-tutorial`.
-
-Back to the project, you can edit `jsconfig.json` and add your add-on:
-
-```json
-{
-  "compilerOptions": {
-    "baseUrl": "src",
-    "paths": {
-      "volto-teaser-tutorial": ["addons/volto-teaser-tutorial/src"]
-    }
-  }
-}
-```
+Using Cookieplone we should already have a working Volto project with provided addon. You can find the addon in packages/volto-teaser-tutorial.
 
 ```{note}
-The `jsconfig.json` file is needed by Volto to identify development
-packages. You are not strictly limited to Volto add-ons in its use, you
-could, for example, use this to make it easier to debug third-party
-JavaScript packages that are shipped transpiled.
+You might have noticed that we have `volto.config.js` in the root of the project. This is the volto configuration file allowing us to configure Volto and register addons.The addons list points to the addon we just installed. Cookieplone takes care of registering the addon for us.
 ```
 
-### Volto addon script
+## Workspaces
 
-Alternatively, if you already have an addon pushed to a remote repository and you want to create a volto development stack with it, you can use our addon script to easily scaffold a dev environment without creating a project externally.
+pnpm workspaces are a way to manage multiple packages in a single repository. Volto is a monorepo, so we use workspaces to manage the Volto project and its addons along with other packages.
 
-```shell
-npx -p @plone/scripts addon clone [options] <source> [destination]
+We can define workspaces directly in the package.json file of a our project. However, it's common practice to use the `pnpm-workspace.yaml` file for more complex workspace configurations. This is taken care for us by Cookieplone.
+
+```yaml
+packages:
+  # all packages in direct subdirs of packages/
+  - "core/packages/*"
+  - "packages/*"
 ```
 
-This command downloads the volto-teaser-tutorial add-on from its git repository's main branch, and will generate a project with the latest Volto version.
+All the packages in the `packages` directory will be included in the workspace.
 
-```shell
-npx -p @plone/scripts addon clone https://github.com/kitconcept/volto-teaser-tutorial.git --branch main
-```
-
-### (Optional) Use mrs-developer to sync add-on to GitHub
-
-You can also immediately push the package to GitHub, then use `[mrs-developer]`
-to manage the package and `jsconfig.json` changes.
-
-Install mrs-developer as a development dependency by running:
-
-```shell
-yarn add -W -D mrs-developer
-```
-
-Create a `mrs.developer.json` in your project with the following content (adjust it according
-to your names and repository location):
+The dependencies section maps the package names to the workspace. The `workspace:*` specifier tells pnpm to resolve these dependencies from other packages within the same workspace rather than fetching them from the npm registry.
 
 ```json
-{
-  "volto-teaser-tutorial": {
-    "url": "https://github.com/<namespace>/volto-teaser-tutorial.git",
-    "path": "src",
-    "package": "volto-teaser-tutorial",
-    "branch": "main"
-  }
-}
-```
-
-Then run `yarn develop`, which will bring the package in `src/addons` and
-adjust `jsconfig.json`.
-
-### Add the add-on as workspace
-
-The Volto project becomes a monorepo, with the Volto project being the "workspace root" and each add-on needs to be a "workspace", so that yarn knows that it should include that add-on location as a package and install its dependencies.
-
-You could treat workspaces as major "working environment" for your project. So a yarn install would also install dependencies from `src/addons/*`
-
-Change the Volto project's `package.json` to include something like:
-
-```json
-{
-  "private": "true",
-  "workspaces": [
-    "src/addons/volto-teaser-tutorial" // or simply src/addons/*
-  ]
-}
-```
-
-```{note}
-Don't be scared by that `"private": "true"` in the Volto project `package.json`.
-It's only needed to make sure you can't accidentally publish the package to NPM.
+  "dependencies": {
+    "@plone/volto": "workspace:*",
+    "@plone/registry": "workspace:*",
+    "volto-teaser-tutorial": "workspace:*"
+  },
 ```
 
 ### Managing add-on dependencies
@@ -169,41 +205,11 @@ To be able to add dependencies to the add-on, you need to add them via the
 workspaces machinery by running something like (at the Volto project root):
 
 ```shell
-yarn workspaces info
-yarn workspace volto-teaser-tutorial add papaparse
+pnpm workspaces info
+pnpm workspace volto-teaser-tutorial add papaparse
 ```
 
-````{note}
-There are several other add-on templates, such as
-<a target="_blank" href="https://github.com/nzambello/voltocli">voltocli</a> or
-<a target="_blank" href="https://github.com/eea/volto-addon-template">eea/volto-addon-template</a>.
-You could very well decide not to use any of them, and instead bootstrap a new
-add-on by running:
-
-```shell
-mkdir -p src/addons/volto-teaser-tutorial
-cd src/addons/volto-teaser-tutorial
-npm init
-```
-
-Remember, an add-on is just a JavaScript package that exports
-a configuration loader. Just make sure to point the `main` in
-`package.json` to `src/index.js`.
-
-````
-
-### Load the add-on in Volto
-
-To tell Volto about our new add-on, add it to the `addons` key of the Volto
-project `package.json`:
-
-```js
-// ...
-"addons": ["volto-teaser-tutorial"]
-// ...
-```
-
-## Add-ons - first look
+## Addons - first look
 
 Volto add-ons are just plain JavaScript packages with an
 additional feature: they provide helper functions that mutate Volto's
@@ -219,31 +225,29 @@ export default (config) => {
 };
 ```
 
-**Pro-Tip 💡**
+### typescript configuration
 
-```{note}
-If you want to register a specific profile of an addon, wrap the configuration in a function and provide it after a colon(:) next to addon name. You can also provde a comma seperated multiple loaders profiles. Note the main configuration will be loaded always.
-```
+Every addon supports custom typescript configuration using `tsconfig.json` in the root of the addon package. This file defines how the typeScript compiler should process the code in our addon.
 
-```js
-export function simpleLink(config) {
-  return installSimpleLink(config);
-}
+You can inspect the tsconfig.json file in the volto-teaser-tutorial package.
 
-export function tableButton(config) {
-  return installTableButton(config);
-}
-```
+The basic ones are self explanatory. Note that we have path mapping inside `compilerOptions` for all the packages that this addon depends on.
 
 ```js
- ...
-"addons": [
-  "volto-slate:tableButton,simpleLink",
-  "@eeacms/volto-tabs-block",
-]
-...
-
+{
+  "compilerOptions": {
+    "paths": {
+      "@plone/volto/*": ["../../core/packages/volto/src/*"],
+      "volto-teaser-tutorial/*": ["./src/*"]
+    }
+  },
+}
 ```
+
+This option allows you to set up module resolution paths. The mappings provided allow typescript to resolve modules using custom paths:
+
+`@plone/volto/*` maps to files in ../../core/packages/volto/src/_, allowing us to import from this directory using the @plone/volto prefix.
+volto-teaser-tutorial/_ maps to ./src/\*, allowing local imports from the src directory of the volto-teaser-tutorial package.
 
 ## Documentation and Resources
 
@@ -253,4 +257,8 @@ Join the Volto community, participate in discussions, and ask questions on the V
 
 ```{warning}
 Getting started with Volto may seem complex at first, but with practice and exploration, you'll become more comfortable with its features and capabilities. It offers a powerful and flexible platform for building modern web applications with React and Plone.
+```
+
+```
+
 ```

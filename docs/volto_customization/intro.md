@@ -29,7 +29,7 @@ Some technologies and tools we use during the training:
 - Yarn <a target="_blank" href="https://yarnpkg.com">https://yarnpkg.com</a>
 - JSX
 - Volto <a target="_blank" href="https://github.com/plone/volto">https://github.com/plone/volto</a>
-- Volto Generator
+- Cookieplone <a target="_blank" href="https://github.com/plone/cookieplone">https://github.com/plone/cookieplone</a>
 - Plone 6!
 
 Before we dive into the content of this training, I'd like to make a helpful suggestion. If you're new to Volto and React or feel like you could benefit from a refresher, it might be a great idea to <a target="_blank" href="https://www.youtube.com/playlist?list=PLGN9BI-OAQkTVkkJfSMHu-l-_AVW_uoRf">explore some existing Volto and React training resources</a> that can provide you with a solid foundation. These resources can serve as valuable supplements to what we'll cover here.
@@ -44,7 +44,7 @@ Of course, if you're already familiar with Volto and React, that's fantastic, an
 
 To follow the training as smoothly as possible it is recommended that you have the following software installed on your computer:
 
-- <a target="_blank" href="https://nodejs.org/en/">node.js</a> >= 16
-- <a target="_blank" href="https://yarnpkg.com/getting-started/install">yarn</a>
+- <a target="_blank" href="https://nodejs.org/en/">node.js</a> >= 20
+- <a target="_blank" href="https://pnpm.io/installation">pnpm</a>
 - <a target="_blank" href="https://github.com/nvm-sh/nvm">node version manager</a>
 - <a target="_blank" href="https://www.docker.com/get-started/">docker</a>

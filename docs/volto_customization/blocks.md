@@ -21,7 +21,7 @@ Instead of shadowing components we can:
 Let us first change the View of the teaser block which we already have in volto core by changing the block-configuration.
 In our addon `volto-teaser-tutorial` we will step by step extend each component that we have in volto core.
 
-The most simple customization is the View of the Teaser. The volto core teaser block configration (in `omelette/src/config/Blocks.jsx`) looks like:
+The most simple customization is the View of the Teaser. The volto core teaser block configration (in `/frontend/core/packages/volto/src/config/Blocks.jsx`) looks like:
 
 ```js
   teaser: {
@@ -62,10 +62,9 @@ export default applyConfig;
 ```
 
 Of course we need to add our custom `MyTeaserView` component in our addon.
-From the root of the project that is `src/addon/volto-teaser-tutorial/src/components/Blocks/Teaser/View.jsx`:
+From the root of the project that is `packages/volto-teaser-tutorial/src/components/Blocks/Teaser/View.jsx`:
 
 ```jsx
-import React from "react";
 import TeaserBody from "@plone/volto/components/manage/Blocks/Teaser/Body";
 import { withBlockExtensions } from "@plone/volto/helpers";
 
