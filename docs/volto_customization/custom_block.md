@@ -69,8 +69,8 @@ const View = (props) => {
 
   const [weatherData, setWeatherData] = useState(null);
   useEffect(() => {
-    const latitude = data.latitude || "43.1849"; // Default Eibar latitude if no latitude is provided
-    const longitude = data.longitude || "-2.4716"; // Default to longitude if no longitude is provided
+    const latitude = data.latitude || "-15.7797"; // Default latitude if no latitude is provided
+    const longitude = data.longitude || "-47.9297"; // Default to longitude if no longitude is provided
 
     const abortController = new AbortController(); // creating an AbortController
 
