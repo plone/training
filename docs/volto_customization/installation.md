@@ -190,7 +190,3 @@ Join the Volto community, participate in discussions, and ask questions on the V
 ```{warning}
 Getting started with Volto may seem complex at first, but with practice and exploration, you'll become more comfortable with its features and capabilities. It offers a powerful and flexible platform for building modern web applications with React and Plone.
 ```
-
-```
-
-```
