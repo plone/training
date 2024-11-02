@@ -137,7 +137,14 @@ const TeaserBlockImageDefault = (props) => {
                 : null
             }
           >
-            <div className="teaser-item default">
+            <div
+              className="teaser-item default"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
                   <Image
@@ -177,9 +184,8 @@ export default TeaserBlockImageDefault;
 ```
 
 After this you will be able to choose variations for this block from the Blocks Settings sidebar.
-Right now this variation only shows default variation of Teaser block.
-You could decide to modify the template here already though.
-In the coming chapter we are gonna enhance this variation with extension per teaser.
+Right now this variation only shows image top variation of Teaser block.
+You could decide to modify the template here in any way though.
 
 ```{note}
 The <a target="blank" href="https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Body.jsx#L13">Body</a> component in Teaser block also supports adding variations from component registry. You can read more about component registry in following chapters.

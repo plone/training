@@ -78,7 +78,7 @@ Here are some more setting you might use in your projects:
 - `maxFileUploadSize` - Limit the size of uploads
 - `nonContentRoutes` - A list of path strings which are considered to be outside of plone-restapi's content serialization. For example: `/controlpanel, /login,/sitemap,/personal-information` are all nonContentRoutes.
 
-You can find all existing options in the file <a target="_blank" href="https://github.com/plone/volto/blob/main/packages/volto/src/config/index.js#L73">config/index.js</a> of Volto itself which is available in your projects in `frontend/omelette/src/config/index.js`.
+You can find all existing options in the file <a target="_blank" href="https://github.com/plone/volto/blob/main/packages/volto/src/config/index.js#L73">config/index.js</a> of Volto itself which is available in your projects in `frontend/core/packages/volto/src/config/index.js`.
 
 ```{seealso}
 Many options are explained in the {doc}`plone6docs:volto/configuration/settings-reference`

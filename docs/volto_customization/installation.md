@@ -38,7 +38,7 @@ They assume you have a macOS/Linux machine.
 
 ### Python
 
-Installing Python is beyond the scope of this documentation. However, it is recommended to use a Python version manager, pyenv, that allows you to install multiple versions of Python on your development environment without destroying your system's Python.
+Installing Python is beyond the scope of this training. However, it is recommended to use a Python version manager, pyenv, that allows you to install multiple versions of Python on your development environment without destroying your system's Python.
 
 Plone requires Python version 3.8, 3.9, 3.10, 3.11, or 3.12.
 
@@ -81,10 +81,10 @@ To bootstrap a new Plone project(with both backend and frontend), you can use [C
 You can use pipx to run cookieplone (<a target="_blank" href="https://6.docs.plone.org/install/create-project-cookieplone.html#generate-the-project">see instructions for installation</a>):
 
 ```shell
-pipx run cookieplone tutorial-project
+pipx run cookieplone project
 ```
 
-You will be presented with a series of prompts. You can also specify the addons you want to install along with the project. You can type `volto-teaser-tutorial` when prompted for the addons.
+You will be presented with a series of prompts. You can also specify the addons you want to install along with the project. You can type the name of the project as `tutorial-project` and name of the addon as `volto-teaser-tutorial` when prompted for the addons.
 
 ```shell
 [11/17] Volto Addon Name (volto-project-title): volto-teaser-tutorial
@@ -92,10 +92,6 @@ You will be presented with a series of prompts. You can also specify the addons 
 
 You can accept the rest of the default values in square brackets (`[default-option]`) by hitting the {kbd}`Enter` key, or enter your preferred values.
 For the training, we will use the default values for the rest of the prompts.
-
-```{tip}
-See the cookiecutter's README for how to [Use options to avoid prompts](https://github.com/collective/cookieplone/?tab=readme-ov-file#use-options-to-avoid-prompts).
-```
 
 ## Install the project
 
