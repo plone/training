@@ -178,8 +178,8 @@ The basic ones are self explanatory. Note that we have path mapping inside `comp
 
 This option allows you to set up module resolution paths. The mappings provided allow typescript to resolve modules using custom paths:
 
-`@plone/volto/*` maps to files in ../../core/packages/volto/src/_, allowing us to import from this directory using the @plone/volto prefix.
-volto-teaser-tutorial/_ maps to ./src/\*, allowing local imports from the src directory of the volto-teaser-tutorial package.
+`@plone/volto/*` maps to files in `../../core/packages/volto/src/*`, allowing us to import from this directory using the @plone/volto prefix.
+`volto-teaser-tutorial/*` maps to `./src/*`, allowing local imports from the src directory of the volto-teaser-tutorial package.
 
 ## Documentation and Resources
 
