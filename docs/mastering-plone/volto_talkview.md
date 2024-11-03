@@ -9,7 +9,7 @@ myst:
 
 (volto-talkview-label)=
 
-# Volto View Component: A Default View for a "Talk"
+# Volto view component: A default view for a "Talk"
 
 ```{card}
 In this part we will:
@@ -44,9 +44,9 @@ More info in {doc}`code`
 
 ## Creating and registering a new view component
 
-The default visualization for our new content type `talk` lists the field values according to the type schema.
+The default visualization for the new content type `talk` lists the field values according to the type schema.
 
-Since we want to show the talk data in a nice way, display the speaker portrait and add some components, we write a custom view for type talk.
+To show the talk data in a nice way, display the speaker portrait and add some components, we create a custom view for type talk.
 
 In the folder {file}`frontend` you need to add a new file {file}`packages/volto-ploneconf/src/components/Views/Talk.jsx`.
 Create the folder {file}`Views` first.
@@ -72,7 +72,7 @@ import TalkView from './Views/Talk';
 export { TalkView };
 ```
 
-This is a common practice and allows us to import the new view component as `import { TalkView } from './components';` instead of `import { TalkView } from './components/Views/Talk';`.
+This is a common practice and allows to import the new view component as `import { TalkView } from './components';` instead of `import { TalkView } from './components/Views/Talk';`.
 
 Now register the new component as the default view for `talks` in {file}`packages/volto-ploneconfig/src/index.js`.
 
@@ -98,12 +98,12 @@ export default applyConfig;
 - This extends the Volto default setting `config.views.contentTypesViews` with the key/value pair `talk: TalkView`.
 - It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to take the default settings and overrides what needs to be overridden.
 
-When Volto is restarted (with `make start`) it picks up these configuration modifications and displays the placeholder in place of the previously used default view.
+A restarted Volto (with `make start`) picks up these configuration modifications and displays the placeholder in place of the previously used default view.
 
 
 ## Enhancing the view
 
-Now we will improve this view step by step.
+Now we're improving this view step by step.
 First we reuse the component `DefaultView.jsx` in our custom view:
 
 ```{code-block} jsx
@@ -136,7 +136,7 @@ export default TalkView;
 ```
 
 - `<> </>` is a fragment. The return value of React needs to be one single element.
-- The variable `props` is used to receive data from the parent component.
+- The variable `props` receives data from the parent component.
   As the TalkView component is registered as a content type view, it receives the content data and some more.
   We will use the content part.
   So we introduce a constant `content` to be more explicit.
@@ -156,7 +156,7 @@ export default TalkView;
 
 Please check the 'components' tab of Google developer tools for property `content` of the `TalkView` component to see the field values of your talk instance.
 
-The result is not really beautiful, because the text sticks to the left border of the page.
+The result isn't beautiful, because the text sticks to the left border of the page.
 You need to wrap it in a `Container` to get the same styling as the content of `DefaultView`:
 
 ```{code-block} jsx

@@ -75,7 +75,7 @@ After a restart you can change this Footer component and the changes are shown i
 
 We want to show the date a News Item is published.
 This way visitors can see at a glance if they are looking at current news.
-This information is not shown by default.
+This information isn't shown by default.
 So you need to customize the way a News Item is rendered.
 
 A News Item has date attributes.
@@ -198,7 +198,7 @@ To display the date add the following before the text:
 ```
 
 This will render something like *2022-10-02T21:58:54*.
-Not very user friendly.
+This isn't user friendly.
 Let's use one of many helpers available in Volto.
 
 Import the component `FormattedDate` from `@plone/volto/components` at the top of the file and use it to format the date in a human readable format.
@@ -301,7 +301,7 @@ Now another issue appears. There are various dates associated with any content o
 - The date the item is published `content.effective`
 
 In fact you most likely want to show the date when the item has been published.
-But while the item is not yet published, that value is not yet set and you will get an error.
+But while the item isn't yet published, this value isn't yet set and you will get an error.
 So we'll add some simple logic to show the effective date only if it exists.
 
 ```jsx
@@ -312,14 +312,14 @@ So we'll add some simple logic to show the effective date only if it exists.
 )}
 ```
 
-As we are in the HTML part of our React component, we surround the JavaScript code with curly braces.
+As we're in the HTML part of our React component, we surround the JavaScript code with curly braces.
 Inside JavaScript we embrace HTML in rounded braces.
 
 
 ## Summary
 
-- Component shadowing allows you to modify and extend views and other components in Volto.
-- It is a powerful mechanism making changes without the need of complex configuration or maintaining a fork of the code.
+- With component shadowing views and other components in Volto can be modified and extended.
+- Component shadowing a powerful mechanism making changes without the need of complex configuration or maintaining a fork of the code.
 - You need to restart Volto when you add a new overriding.
 
 ```{seealso}

@@ -198,5 +198,5 @@ TalkListingBlockVariation.propTypes = {
 export default TalkListingBlockVariation;
 ```
 
-This is a very basic block variation.
+This is a basic block variation.
 Block variations can have variations: See {doc}`plone6docs:volto/blocks/extensions` for advanced techniques.
