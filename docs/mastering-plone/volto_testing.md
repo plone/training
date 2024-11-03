@@ -44,7 +44,9 @@ More info in {doc}`code`
 
 ## Testing the rendering of a component
 
-With `jest` you can create rendering snapshots of components.
+With `jest` you can create snapshots of components.
+
+Does this snapshot change after a change in the code, you can check if this snapshot change is intentionally caused, and if not, rethink your changes.
 
 - Create a {file}`Talk.test.js` file as a sibling of {file}`Talk.jsx`
 - You are testing the component `Talk`.
@@ -154,54 +156,57 @@ exports[`renders a talk view component with only required props 1`] = `
 
 With `Cypress` you can run browser-based acceptance tests.
 
-You added a content type `talk`.
-Now write a test 'An editor can add a talk'.
+The following simple test checks if an editor can add an instance of the custom content type `talk`.
 
-1. Create a test file {file}`cypress/tests/content.cy.js`
+The test mimics the editor visiting her site and adding a talk via the appropriate menu action.
 
-    ```{code-block} js
-    :emphasize-lines: 3-4,8 , 25-28
+**Prerequisites**:
 
-    describe('talk tests', () => {
-      beforeEach(() => {
-        // Login as editor
-        cy.autologin();
-      });
-      it('As editor I can add a talk.', function () {
-        cy.visit('/');
-        // when I add a talk with title, type and details
-        cy.get('#toolbar-add').click();
-        cy.get('#toolbar-add-talk').click();
-        // title
-        cy.get('input[name="title"]')
-          .type('Security in Plone')
-          .should('have.value', 'Security in Plone');
-        // type of talk
-        cy.get(
-          '#field-type_of_talk > .react-select__control > .react-select__value-container',
-        )
-          .click()
-          .type('talk{enter}');
-        // details
-        cy.get('.field-wrapper-details .slate-editor').type('This is the text.');
-        cy.get('#toolbar-save').click();
+{ref}`Install docker<plone6docs:install-prerequisites-docker-label>`
 
-        // Then a new talk should have been created
-        cy.url().should('eq', Cypress.config().baseUrl + '/security-in-plone');
-        // Then the title should read 'Talk: Security in Plone' with the type of talk mentioned
-        cy.get('body').contains('Talk: Security in Plone');
-      });
-    });
-    ```
+Create a test file {file}`cypress/tests/content.cy.js`
 
-2. {ref}`Install docker<plone6docs:install-prerequisites-docker-label>`.
+```{code-block} js
+:emphasize-lines: 3-4,8 , 25-28
 
-3. Have a look at some helper functions for an auto login, etc. from [Volto](https://github.com/plone/volto/tree/main/packages/volto/cypress/support).
+describe('talk tests', () => {
+  beforeEach(() => {
+    // Login as editor
+    cy.autologin();
+  });
+  it('As editor I can add a talk.', function () {
+    cy.visit('/');
+    // when I add a talk with title, type and details
+    cy.get('#toolbar-add').click();
+    cy.get('#toolbar-add-talk').click();
+    // title
+    cy.get('input[name="title"]')
+      .type('Security in Plone')
+      .should('have.value', 'Security in Plone');
+    // type of talk
+    cy.get(
+      '#field-type_of_talk > .react-select__control > .react-select__value-container',
+    )
+      .click()
+      .type('talk{enter}');
+    // details
+    cy.get('.field-wrapper-details .slate-editor').type('This is the text.');
+    cy.get('#toolbar-save').click();
 
-With this you are good to go with a frontend package that does not rely on a backend package.
-As you want to test with talks, you need a backend with your backend package installed.
+    // Then a new talk should have been created
+    cy.url().should('eq', Cypress.config().baseUrl + '/security-in-plone');
+    // Then the title should read 'Talk: Security in Plone' with the type of talk mentioned
+    cy.get('body').contains('Talk: Security in Plone');
+  });
+});
+```
 
-Have a look at the code and see that we use docker compose to assemble a backend with the package `ploneconf-site` installed.
+With a simple test file you would be good to go with a frontend package that doesn't rely on a backend package.
+You could proceed with {ref}`testing-cypress-run`.
+
+For a test like this with talks, the acceptance backend needs the backend package with content type talk to be installed.
+
+Have a look at the code and see `docker compose` used to assemble a backend with the package `ploneconf-site` installed.
 The Dockerfile instructs docker to install the package from the main branch of its repository.
 So you can proceed with development of the backend package while working on the frontend package.
 
@@ -219,7 +224,6 @@ All sessions should start from the `frontend` directory.
 1.  In the first session, start the backend server.
 
     ```shell
-    make build-acceptance
     make acceptance-backend-start
     ```
 
@@ -242,7 +246,11 @@ All sessions should start from the `frontend` directory.
 
 6.  In the main Cypress runner section, you will see all test specs.
 
-7.  To run a test, interact with the file based tree that displays all possible tests to run, and click on the test spec you need to run.
+7.  To run a test, interact with the file based tree that displays all possible tests to run, and click on the test spec you want to run.
 
 Have a look in the code of `volto-ploneconf` to see that the continuous integration includes these cypress tests: `.github/workflows/acceptance.yml`
 Commits to pull requests trigger a run of the tests.
+
+```{note}
+Find helper functions for an auto login, create content, etc. from [Volto](https://github.com/plone/volto/tree/main/packages/volto/cypress/support).
+```
