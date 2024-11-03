@@ -274,6 +274,14 @@ mxdev
 plonecli
     A Plone CLI for creating Plone packages. [plonecli usage](https://github.com/plone/plonecli)
 
+Cookieplone
+    [Cookieplone](https://github.com/plone/cookieplone) is the method to create a Plone project.
+    You can use Cookieplone to build a backend add-on, a new Volto add-on, or a full project with both backend and frontend.
+    Cookieplone simplifies the process using robust Cookiecutter templates from {term}`cookieplone-templates`.
+
+cookieplone-templates
+    [`cookieplone-templates`](https://github.com/plone/cookieplone-templates) is a collection of templates used by {term}`Cookieplone`.
+
 GenericSetup
     [GenericSetup](https://5.docs.plone.org/develop/addons/components/genericsetup.html) is a framework to modify the Plone site during add-on package installation and uninstallation.
     It provides XML-based rules to change the configuration settings.

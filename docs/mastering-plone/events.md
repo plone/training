@@ -1,46 +1,49 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Add event features to a content type"
+    "property=og:description": "Add event features to a content type"
+    "property=og:title": "Turning Talks into Events"
+    "keywords": "Plone, event, content type, date"
 ---
 
 (events-label)=
 
 # Turning Talks into Events
 
+Save and show date and time of a talk.
+
 ````{card} Frontend chapter
 
-Get the code! ({doc}`More info <code>`)
+Check out the code at the relevant tags!
 
 Code for the beginning of this chapter:
 
 ```shell
 # frontend
-git checkout registry
+git checkout talkview
 ```
 
 ```shell
 # backend
-git checkout registry
+git checkout frontpage
 ```
 
 Code for the end of this chapter:
 
 ```shell
 # frontend
-git checkout event
+git checkout events
 ```
 
 ```shell
 # backend
-git checkout event
+git checkout events
 ```
+
+More info in {doc}`code`
 ````
 
-Show date and time of a talk.
 
 We need a schedule and for this we need to store the information when a talk will happen.
 
@@ -121,32 +124,42 @@ The component is called `When` and is defined in `frontend/node_modules/@plone/v
 />
 ```
 
-We'll reuse it in {file}`frontend/src/components/Views/Talk.jsx`. We'll let us inspire by the event-view and add a `<Segment floated="right">` that will contain the date and also the room and the audience. In this box we will also use `<Header dividing sub>` (from [seamantic-ui](https://react.semantic-ui.com/elements/header/#types-subheaders) to separate the data.
+We'll reuse it in {file}`frontend/src/components/Views/Talk.jsx`. We'll let us inspire by the event-view and add a `<Segment floated="right">` that will contain the date and the audience. In this box we will also use `<Header dividing sub>` from [seamantic-ui](https://react.semantic-ui.com/elements/header/#types-subheaders) to separate the data.
 
 {file}`frontend/src/components/Views/Talk.jsx`:
 
 ```{code-block} jsx
-:emphasize-lines: 4,20-48
+:emphasize-lines: 9,30-58
 
-import React from 'react';
+import {
+  Container as SemanticContainer,
+  Header,
+  Image,
+  Label,
+  Segment,
+} from 'semantic-ui-react';
 import { flattenToAppURL } from '@plone/volto/helpers';
-import { Container, Header, Image, Label, Segment } from 'semantic-ui-react';
 import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
+import config from '@plone/volto/registry';
 
-const TalkView = ({ content }) => {
+const TalkView = (props) => {
+  const { content } = props;
+  const Container =
+    config.getComponent({ name: 'Container' }).component || SemanticContainer;
   const color_mapping = {
-    Beginner: 'green',
-    Advanced: 'yellow',
-    Professional: 'purple',
+    beginner: 'green',
+    advanced: 'yellow',
+    professional: 'purple',
   };
-
   return (
-    <Container id="page-talk">
-      <Helmet title={content.title} />
+    <Container id="view-wrapper talk-view">
       <h1 className="documentFirstHeading">
-        {content.type_of_talk.title || content.type_of_talk.token}:{' '}
+        <span className="type_of_talk">{content.type_of_talk.token}: </span>
         {content.title}
       </h1>
+      {content.description && (
+        <p className="documentDescription">{content.description}</p>
+      )}
       <Segment floated="right">
         {content.start && !content.hide_date && (
           <>
@@ -166,7 +179,7 @@ const TalkView = ({ content }) => {
             Audience
           </Header>
         )}
-        {content.audience?.map(item => {
+        {content.audience?.map((item) => {
           let audience = item.title || item.token;
           let color = color_mapping[audience] || 'green';
           return (
@@ -176,64 +189,54 @@ const TalkView = ({ content }) => {
           );
         })}
       </Segment>
-      {content.description && (
-        <p className="documentDescription">{content.description}</p>
-      )}
-      {content.details && (
-        <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
-      )}
-      {content.speaker && (
-        <Segment clearing>
-          <Header dividing>{content.speaker}</Header>
-          {content.website ? (
-            <p>
-              <a href={content.website}>{content.company}</a>
-            </p>
-          ) : (
-            <p>{content.company}</p>
-          )}
-          {content.email && (
-            <p>
-              <a href={`mailto:${content.email}`}>
-                <Icon name="mail" /> {content.email}
-              </a>
-            </p>
-          )}
-          {content.twitter && (
-            <p>
-              <a href={`https://x.com/${content.twitter}`}>
-                <Icon name="twitter" />{' '}
-                {content.twitter.startsWith('@')
-                  ? content.twitter
-                  : '@' + content.twitter}
-              </a>
-            </p>
-          )}
-          {content.github && (
-            <p>
-              <a href={`https://github.com/${content.github}`}>
-                <Icon name="github" /> {content.github}
-              </a>
-            </p>
-          )}
-          {content.image && (
-            <Image
-              src={flattenToAppURL(content.image.scales.preview.download)}
-              size="small"
-              floated="right"
-              alt={content.image_caption}
-              avatar
-            />
-          )}
-          {content.speaker_biography && (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: content.speaker_biography.data,
-              }}
-            />
-          )}
-        </Segment>
-      )}
+      <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
+      <Segment clearing>
+        {content.speaker && <Header dividing>{content.speaker}</Header>}
+        {content.website ? (
+          <p>
+            <a href={content.website}>{content.company || content.website}</a>
+          </p>
+        ) : (
+          <p>{content.company}</p>
+        )}
+        {content.email && (
+          <p>
+            Email: <a href={`mailto:${content.email}`}>{content.email}</a>
+          </p>
+        )}
+        {content.twitter && (
+          <p>
+            X:{' '}
+            <a href={`https://x.com/${content.twitter}`}>
+              {content.twitter.startsWith('@')
+                ? content.twitter
+                : '@' + content.twitter}
+            </a>
+          </p>
+        )}
+        {content.github && (
+          <p>
+            Github:{' '}
+            <a href={`https://github.com/${content.github}`}>
+              {content.github}
+            </a>
+          </p>
+        )}
+        <Image
+          src={flattenToAppURL(content.image?.scales?.preview?.download)}
+          size="small"
+          floated="right"
+          alt={content.speaker}
+          avatar
+        />
+        {content.speaker_biography && (
+          <div
+            dangerouslySetInnerHTML={{
+              __html: content.speaker_biography.data,
+            }}
+          />
+        )}
+      </Segment>
     </Container>
   );
 };
@@ -256,7 +259,7 @@ The problem now appears that speakers submitting their talks should not be able 
 
 Sadly it is not easy to modify permissions of fields provided by behaviors unless you write the behavior yourself.
 At least in this case we can take the easy way out since the field does not contain secret information:
-We can simply hide the fields from contributors using css and show them for reviewers.
+We can simply hide the fields from contributors using CSS and show them for reviewers.
 
 ```{warning}
 This trick does not yet work in Volto because some css-classes are still missing from the body-tag (see <https://github.com/plone/volto/issues/1189>). Skip ahead!

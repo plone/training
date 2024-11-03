@@ -305,7 +305,7 @@ So the API for getting the target is:
 In addition, the relation value knows under which attribute it has been stored as `from_attribute`. It is usually the name of the field with which the relation is created.
 But it can also be the name of a relation that is created by code, e.g. linkintegrity relations (`isReferencing`) or the relation between a working copy and the original (`iterate-working-copy`).
 
-## Accessing relations and backrelations from code
+## Accessing relations and inverse relations from code
 
 If you want to find out which objects are related to each other, you use the relation catalog. Here is a convenience method that allows you to find all kinds of relations.
 
@@ -316,19 +316,19 @@ from zope.intid.interfaces import IIntIds
 from plone.app.linkintegrity.handlers import referencedRelationship
 
 
-def example_get_backlinks(obj):
-    backlinks = []
-    for rel in get_backrelations(attribute=referencedRelationship):
+def example_get_inverselinks(obj):
+    inverselinks = []
+    for rel in get_inverserelations(attribute=referencedRelationship):
         if rel.isBroken():
-            backlinks.append(dict(href='',
+            inverselinks.append(dict(href='',
                                   title='broken reference',
                                   relation=rel.from_attribute))
         else:
             obj = rel.from_object
-            backlinks.append(dict(href=obj.absolute_url(),
+            inverselinks.append(dict(href=obj.absolute_url(),
                                   title=obj.title,
                                   relation=rel.from_attribute))
-    return backlinks
+    return inverselinks
 
 def get_relations(obj, attribute=None, backrefs=False):
     """Get any kind of references and backreferences"""
@@ -353,7 +353,7 @@ def get_relations(obj, attribute=None, backrefs=False):
     return relation_catalog.findRelations(query)
 
 
-def get_backrelations(obj, attribute=None):
+def get_inverserelations(obj, attribute=None):
     return get_relations(obj, attribute=attribute, backrefs=True)
 
 

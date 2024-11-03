@@ -1,19 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Utilities for programming with Plone"
+    "property=og:description": "Utilities for programming with Plone"
+    "property=og:title": "Programming Plone"
+    "keywords": "utilities, tools, techniques, programming, API"
 ---
 
 (api-label)=
 
 # Programming Plone
-
-% TODO Discuss backend development versus frontend development
-% TODO Discuss plone.restapi
-
 
 ```{card} Backend chapter
 
@@ -22,7 +18,7 @@ In this part you will:
 - Learn about the recommended ways to do something in backend code in Plone.
 - Learn to debug
 
-Topics covered:
+Tools and techniques covered:
 
 - {py:mod}`plone.api`
 - Portal tools
