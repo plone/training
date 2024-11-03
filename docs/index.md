@@ -48,7 +48,7 @@ teaching/index
 
 {ref}`mastering-plone5-label`
 
-: `Mastering Plone 5 development training` is the predecessor of the Plone 6 version. It includes also `Plone Classic` topics like viewlets, views, portlets, etc..
+: *Mastering Plone 5 development training* is the predecessor of the Plone 6 version. It includes also *Plone Classic* topics like viewlets, views, portlets, etc..
 
 {doc}`testing/index`
 
