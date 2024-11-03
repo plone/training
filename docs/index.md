@@ -21,6 +21,7 @@ mastering-plone-5/index
 voltohandson/index
 voltoaddons/index
 volto_customization/index
+volto-light-theme/index
 effective-volto/index
 testing/index
 theming/index
