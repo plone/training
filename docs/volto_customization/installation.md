@@ -110,7 +110,7 @@ You might have noticed that we have `volto.config.js` in the root of the project
 
 pnpm workspaces are a way to manage multiple packages in a single repository. Volto is a monorepo, so we use workspaces to manage the Volto project and its addons along with other packages.
 
-We can define workspaces directly in the package.json file of a our project. However, it's common practice to use the `pnpm-workspace.yaml` file for more complex workspace configurations. This is taken care for us by Cookieplone.
+We can define workspaces using the `pnpm-workspace.yaml` file in root of our project. This is taken care for us by Cookieplone.
 
 ```yaml
 packages:
@@ -129,6 +129,11 @@ The dependencies section maps the package names to the workspace. The `workspace
     "@plone/registry": "workspace:*",
     "volto-teaser-tutorial": "workspace:*"
   },
+```
+
+```{note}
+We don't need to pin specific workspace before we publish/release our project. pnpm takes care of dynamically updating the versions of these packages when you do `pnpm pack` or `pnpm publish`.
+
 ```
 
 ### Managing add-on dependencies
