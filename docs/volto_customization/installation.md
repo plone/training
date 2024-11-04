@@ -137,8 +137,7 @@ To be able to add dependencies to the add-on, you need to add them via the
 workspaces machinery by running something like (at the Volto project root):
 
 ```shell
-pnpm workspaces info
-pnpm workspace volto-teaser-tutorial add papaparse
+pnpm --filter volto-teaser-tutorial add papaparse
 ```
 
 ## Addons - first look
