@@ -11,8 +11,6 @@ myst:
 
 # The Features of Plone
 
-% TODO Short appetizer on all the fancy features.
-
 Now we create a Plone instance and take a look at all the features you can use as an integrator.
 Developers get a glimpse on the features that can be modified easily.
 
@@ -23,7 +21,7 @@ Developers get a glimpse on the features that can be modified easily.
 We control Plone with `make`. Start your Zope instance with:
 
 ```shell
-$ make start
+make start
 ```
 
 The Zope instance starts up with `Ready to handle requests`.
@@ -52,7 +50,7 @@ You should change your password in production sites via `http://localhost:8080/a
 If you ever have the need to create an emergency user, create one with:
 
 ```shell
-venv/bin/addzopeuser masterofdesaster VXT+zif -c ./instance/etc/zope.conf
+venv/bin/addzopeuser masterofdesaster mypassworD£xyz2 -c ./instance/etc/zope.conf
 ```
 
 ```{figure} _static/features_create_site_form.png
@@ -77,7 +75,7 @@ The front page of your site
 Start the frontend of your new Plone site by switching to directory `frontend` and enter:
 
 ```shell
-yarn start
+make start
 ```
 
 Opening `http://localhost:3000`, you are facing the front page of your Plone site.
@@ -106,26 +104,26 @@ Change the address to `localhost:9080` and restart your instance.
 
 You will also have to tell the frontend that the backend is now running on a different port!
 
-You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base url of the backend:
+You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base URL of the backend:
 
 ```shell
-RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone yarn start
+RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone pnpm start
 ```
 
 When your Plone instance is not called `Plone` you can use the same approach:
 
 ```shell
-RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
+RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite pnpm start
 ```
 
 #### frontend
 
 Change the port of the frontend to 1234
 
-By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
+By default the frontend will start on port 3000. You can change the port and/or host name for the frontend by specifying the environment variables `PORT` and/or `HOST`:
 
 ```shell
-HOST=localhost PORT=1234 yarn start
+HOST=localhost PORT=1234 pnpm start
 ```
 
 
@@ -171,10 +169,10 @@ For example, {guilabel}`edit` is only shown if the current user has the permissi
 
 (features-mailserver-label)=
 
-## Configure a Mailserver
+## Configure a mail server
 
 ```{only} not presentation
-For production level deployments you have to configure a mailserver.
+For production level deployments you have to configure a mail server.
 Later in the training we will create some content rules that send emails when new content is put on our site.
 
 For the training you don't have to configure a working mailserver since the Plone add-on `Products.PrintingMailHost` is installed which will redirect all emails to the console.
@@ -229,7 +227,6 @@ Create a site structure:
 - Add a Page "Sprint"
 - Add a Page "Contact"
 
-% TODO Can the number of pages be reduced to fit in the browser window width?
 
 ```{figure} _static/features_site_structure.png
 :alt: The view of the newly created site structure.
@@ -288,7 +285,7 @@ Event
 
 Image
 
-: Like file but png, jpeg or other image types.
+: Like file but PNG, JPEG or other image types.
   The Image content type has an image field.
   Values of the image field are saved in multiple scales to be accessible easily when rendering.
 
@@ -297,7 +294,7 @@ Image
 
 File
 
-: A file like a pdf, video or Word document.
+: A file like a PDF, video or Word document.
 
   ```{figure} _static/features_add_a_file.png
   ```
@@ -312,12 +309,12 @@ Link
 
 (features-containers-label)=
 
-## Folderish content
+## folderish content
 
 Go to "News".
 
 Earlier we created this page with its title "News".
-Therfore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
+Therefore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
 
 A page is folderish.
 To see its contained items, we change to '/contents' by clicking the folder icon.
@@ -338,7 +335,7 @@ This is useful for adding components that should be shown independent of how an 
 
 Per default the page does not show its contained items but just the title and the blocks an editor creates.
 The contained items can be shown by creating a listing block.
-A listing block without any criterias lists the contained items.
+A listing block without any criteria lists the contained items.
 
 
 ```{figure} _static/listingblock.png
@@ -497,6 +494,7 @@ Access and modifications of this instance is defined by the role/permission mapp
 As each user, including the anonymous, has a set of roles, the circle is closed and each user has access and or can modify a content type instance or not, according to their roles.
 
 ```{seealso}
+- {doc}`user_generated_content`
 - Training {doc}`/workflow/index`
 - Plone 5 Documentation [Collaboration and Workflow](https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html)
 ```
@@ -549,14 +547,14 @@ You can even make a page, with or without sub pages, editable only by a group of
 
 (features-url-management-label)=
 
-## Url management
+## URL management
 
-Plone has an integrated mechanism to remember urls that where modified.
-A moved page is still available via the former url.
+Plone has an integrated mechanism to remember URLs that where modified.
+A moved page is still available via the former URL.
 
-Additional to this behavior, a page can be explicitly made available under further urls.
+Additional to this behavior, a page can be explicitly made available under further URLs.
 
-You can find the UI for adding alternative urls following the context menu {guilabel}`...`.
+You can find the UI for adding alternative URLs following the context menu {guilabel}`...`.
 
 
 (features-wc-label)=
@@ -584,5 +582,3 @@ Unless activated, check-in/check-out options are not visible.
 
 
 % TODO section about the discussion/commenting feature
-
-% TODO "Features of Plone" is a short overview of out of the box features. Plone can be extended by add-ons…

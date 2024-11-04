@@ -124,6 +124,7 @@ PLIPs
 Plomino
 Plone
 `plone.api`
+`plone.org`
 `plone.restapi`
 `plone.volto`
 pluggability
@@ -194,6 +195,7 @@ Todos
 traceback
 tracebacks
 Traefik
+`training.plone.org`
 transmogrifier
 transpile
 transpiled

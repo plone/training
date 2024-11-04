@@ -11,13 +11,8 @@ myst:
 
 # REST API endpoints [voting story]
 
-````{card} Backend chapter
+```{card} Backend chapter
 
-Get the code! 
-[training.votable](https://github.com/collective/training.votable)
-````
-
-```{card}
 To be solved task in this part:
 
 - Provide access to voting for the Volto frontend
@@ -152,7 +147,7 @@ How can the service use the features we implemented with the behavior?
 We will register the services for the behaviors' marker interface.
 With that an instance of a content type that has the behavior enabled, can be adapted by `IVotable(context)`.
 
-We skip the permissions and talk about this in a later chapter {doc}`reusable`.
+We skip the permissions and talk about this in a later chapter {doc}`permissions`.
 
 
 With a registration in {file}`configure.zcml` the endpoint is addressable.
@@ -204,4 +199,3 @@ The services are all only available on content that provides the behaviors' mark
 
 If you have `postman` installed, you can address the new endpoint for testing purpose.
 Be sure to authenticate and add a header to accept `JSON`.
-

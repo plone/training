@@ -44,11 +44,11 @@ teaching/index
 
 {ref}`mastering-plone-label`
 
-: `Mastering Plone 6 development training` teaches the best practices of Plone development.
+: Best practices of Plone development, backend and frontend.
 
 {ref}`mastering-plone5-label`
 
-: `Mastering Plone 5 development training` is the predecessor of the Plone 6 version. It includes also `Plone Classic` topics like viewlets, views, portlets, etc..
+: *Mastering Plone 5 development training* is the predecessor of the Plone 6 version. It includes also *Plone Classic* topics like viewlets, views, portlets, etc..
 
 {doc}`testing/index`
 

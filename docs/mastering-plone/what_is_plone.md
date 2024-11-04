@@ -7,8 +7,6 @@ myst:
     "keywords": "Plone, Zope, security, CMS, REST, React, traversing, object publishing, database, object oriented, acquisition"
 ---
 
-% TODO Review Plone/Zope techniques
-
 (intro-what-is-plone-label)=
 
 # What is Plone?
@@ -176,17 +174,12 @@ It ranks consistently as one of the most popular programming languages.
 
 (what-is-plone-traversal-architecture-zodb-label)=
 
-% TODO Review ZODB, Zope
-% TODO ZODB: How to address (no SQL, but…).
-% TODO ZODB: Default. Short hint on RelStorage  
-
 ### Database (ZODB)
 
 Data is stored in an object oriented database called `ZODB`: Zope object data base.
 
 - Key features of ZODB https://zodb.org/en/latest/introduction.html
 - ZEO is a client-server storage for ZODB for sharing a single storage among many clients.
-  % TODO explain clients
 - Storing data in a relational database: RelStorage leverages RDBMS servers to provide a client-server storage.
 
 ---
@@ -219,7 +212,7 @@ class Account(persistent.Persistent):
 - [ZEO](https://github.com/zopefoundation/ZEO): Server + many clients
 - [ZRS](https://github.com/zopefoundation/zc.zrs): DB-Replication
 - [RelStorage](https://relstorage.readthedocs.io/en/latest/) (store pickles in a relational database) for Postgres, MySQL etc.
-- blobstorage (binary large objects) in filesystem
+- `blobstorage` (binary large objects) in filesystem
 
 
 (what-is-plone-traversal-architecture-zope-label)=
@@ -324,7 +317,7 @@ It is used to connect the Volto frontend with Plone backend.
 ### Volto Frontend
 
 [Volto](https://github.com/plone/volto) is the default frontend for Plone 6 written in ReactJS.
-It uses the Rest API to communicate with the backend and offers a modern editing experience.
+It uses the REST API to communicate with the backend and offers a modern editing experience.
 
 Here are some basics that you need to understand if you are new to Volto:
 
@@ -335,7 +328,7 @@ Here are some basics that you need to understand if you are new to Volto:
 - Volto is installed separately from the Plone backend.
   See chapter {ref}`installation-install-frontend-label` for instructions.
 - Volto runs in a different process than the Plone backend.
-  By default Volto runs on port 3000. If you start Volto with `yarn start` you can see the frontend on <http://localhost:3000>.
+  By default Volto runs on port 3000. If you start Volto with `make start` you can see the frontend on <http://localhost:3000>.
   The Plone backend runs by default on <http://localhost:8080>
 - You create a new Plone instance in an already set up Zope environment via the backend.
   This is by now not possible in Volto.
