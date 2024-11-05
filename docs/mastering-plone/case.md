@@ -4,7 +4,7 @@ myst:
     "description": "Our training story"
     "property=og:description": "Our training story"
     "property=og:title": "The Case Study"
-    "keywords": ""
+    "keywords": "Plone, training"
 ---
 
 (case-label)=
