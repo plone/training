@@ -28,10 +28,11 @@ Before you start working with this training, ensure you have the following prere
 
 The versions of Python that are supported in Volto depend on the version of Plone that you use.
 
-| Plone | Python       | Volto        |
-| ----- | ------------ | ------------ |
-| 6.0   | 3.8-3.12     | 17.0 or 18.0 |
-| 5.2   | 2.7, 3.6-3.8 | 15.0         |
+| Plone | Python       | Volto          |
+| ----- | ------------ | -------------- |
+| 6.1   | 3.10-3.12    | 18.0           |
+| 6.0   | 3.8-3.12     | 16.0,17.0,18.0 |
+| 5.2   | 2.7, 3.6-3.8 | 15.0           |
 
 Depending on the operating system that you are using, some of the following pre-requisites might change.
 They assume you have a macOS/Linux machine.
