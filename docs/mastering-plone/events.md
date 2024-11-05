@@ -81,7 +81,7 @@ While we're editing behaviors we can also add our own featured-behavior to News 
 
 Add {file}`profiles/default/types/News_Item.xml`:
 
-```
+```xml
 <?xml version="1.0"?>
 <object name="News Item" meta_type="Dexterity FTI" i18n:domain="plone"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
