@@ -141,7 +141,7 @@ Running `make build` has three effects:
   So an add-on can be enabled per Plone instance.
 
 ```{seealso}
-Documentation {doc}`plone6docs:manage/backend`
+Documentation {doc}`plone6docs:admin-guide/add-ons`
 ```
 
 ### Enabling add-ons in your Plone site
