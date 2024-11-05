@@ -99,7 +99,7 @@ make test
 
 See the snapshot in folder `__snapshots__`.
 If this is a rendering you expect, you are good to go.
-For example you see that the heading is the talk title with preceding type.
+For example you see that the heading is the talk title with preceding type of talk.
 
 {file}`packages/volto-ploneconf/src/components/Views/__snapshots__/Talk.test.js.snap`
 
@@ -150,6 +150,10 @@ exports[`renders a talk view component with only required props 1`] = `
 `;
 ```
 
+```{seealso}
+{doc}`plone6docs:volto/contributing/testing` in docs.plone.org.
+```
+
 (testing-cypress)=
 
 ## Testing permissions, features and user interface topics
@@ -160,22 +164,34 @@ The following simple test checks if an editor can add an instance of the custom 
 
 The test mimics the editor visiting her site and adding a talk via the appropriate menu action.
 
-**Prerequisites**:
-
-{ref}`Install docker<plone6docs:install-prerequisites-docker-label>`
-
 Create a test file {file}`cypress/tests/content.cy.js`
 
 ```{code-block} js
-:emphasize-lines: 3-4,8 , 25-28
+:emphasize-lines: 4, 18, 23, 40
+:linenos:
 
-describe('talk tests', () => {
+describe('content type tests', () => {
   beforeEach(() => {
-    // Login as editor
-    cy.autologin();
-  });
-  it('As editor I can add a talk.', function () {
+    cy.intercept('GET', `/**/*?expand*`).as('content');
+    cy.createUser({
+      username: 'editor',
+      fullname: 'Editor',
+      roles: ['Member', 'Reader', 'Contributor'],
+    });
     cy.visit('/');
+    cy.wait('@content');
+  });
+
+  afterEach(() => {
+    cy.removeUser('editor', 'password');
+  });
+
+  it('As editor I can add a talk.', function () {
+    cy.autologin('editor', 'password');
+
+    cy.visit('/');
+    cy.wait('@content');
+
     // when I add a talk with title, type and details
     cy.get('#toolbar-add').click();
     cy.get('#toolbar-add-talk').click();
@@ -201,14 +217,16 @@ describe('talk tests', () => {
 });
 ```
 
-With a simple test file you would be good to go with a frontend package that doesn't rely on a backend package.
-You could proceed with {ref}`testing-cypress-run`.
+With a frontend package NOT relying on a backend package, you could proceed with next step {ref}`testing-cypress-run`.
 
-For a test like this with talks, the acceptance backend needs the backend package with content type talk to be installed.
+### Preparing acceptance backend with add-ons
 
-Have a look at the code and see `docker compose` used to assemble a backend with the package `ploneconf-site` installed.
-The Dockerfile instructs docker to install the package from the main branch of its repository.
-So you can proceed with development of the backend package while working on the frontend package.
+For a test like above, with talks, the acceptance backend needs the backend package with content type talk to be installed.
+
+Have a look at `/frontend/backend/`, where a backend with the add-on `ploneconf-site` is configured.
+The configuration instructs to install the package from its repository and editable.
+So you can proceed developing the backend package while working on the frontend package.
+Necessary changes of the backend package while developing the couple of backend add-on and frontend add-on can be committed right out of `/frontend/backend/sources/ploneconf.site`.
 
 
 (testing-cypress-run)=
@@ -224,33 +242,34 @@ All sessions should start from the `frontend` directory.
 1.  In the first session, start the backend server.
 
     ```shell
+    make backend-install
     make acceptance-backend-start
     ```
 
-2.  In the second session, start the frontend server.
+1.  In the second session, start the frontend server.
 
     ```shell
     make acceptance-frontend-dev-start
     ```
 
-3.  In the third session, start the Cypress tests runner.
+1.  In the third session, start the Cypress tests runner.
 
     ```shell
     make acceptance-test
     ```
 
-4.  In the Cypress pop-up test style, choose `E2E Testing`, since Volto's tests are end-to-end tests.
+1.  In the Cypress pop-up test style, choose `E2E Testing`, since Volto's tests are end-to-end tests.
 
-5.  In the next section, select the browser you want Cypress to run in.
+1.  In the next section, select the browser you want Cypress to run in.
     Although the core tests use `headless Electron` by default, you can choose your preferred browser for the tests development.
 
-6.  In the main Cypress runner section, you will see all test specs.
+1.  In the main Cypress runner section, you will see all test specs.
 
-7.  To run a test, interact with the file based tree that displays all possible tests to run, and click on the test spec you want to run.
+1.  To run a test, interact with the file based tree that displays all possible tests to run, and click on the test spec you want to run.
 
-Have a look in the code of `volto-ploneconf` to see that the continuous integration includes these cypress tests: `.github/workflows/acceptance.yml`
+Have a look in the code of `volto-ploneconf` to see that the continuous integration includes these cypress tests: `.github/workflows/acceptance.yml`.
 Commits to pull requests trigger a run of the tests.
 
-```{note}
-Find helper functions for an auto login, create content, etc. from [Volto](https://github.com/plone/volto/tree/main/packages/volto/cypress/support).
+```{seealso}
+Helper functions for an auto login, creating content, etc. from [Volto](https://github.com/plone/volto/tree/main/packages/volto/cypress/support).
 ```
