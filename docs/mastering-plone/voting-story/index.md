@@ -37,7 +37,6 @@ The jury votes for talks to be accepted or rejected.
   ---
   name: toc-voting-story
   maxdepth: 2
-  numbered: 1
   ---
 
   behaviors_2
@@ -158,7 +157,7 @@ module.exports = {
 };
 ```
 
-Be sure keep the main package at the end of the array `addons`.
+Be sure keep the main (project policy) package at the end of the array `addons`.
 By this the main package can override add-ons configurations.
 
 Check {file}`packages.json` to include the add-on in your app:
