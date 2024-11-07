@@ -184,7 +184,7 @@ export default TeaserBlockImageDefault;
 ```
 
 After this you will be able to choose variations for this block from the Blocks Settings sidebar.
-Right now this variation only shows image top variation of Teaser block.
+Right now this variation only shows the image top variation of the Teaser block.
 You could decide to modify the template here in any way though.
 
 ```{note}

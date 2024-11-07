@@ -25,14 +25,13 @@ Before you start working with this training, ensure you have the following prere
 - <a target="_blank" href="https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating">nvm</a>
 - <a target="_blank" href="https://www.gnu.org/software/make/">GNU make</a>
 - <a target="_blank" href="https://www.docker.com/get-started">Docker</a> (if using the Plone docker images - <a target="_blank" href="https://6.docs.plone.org/install/containers/index.html">see instructions for installation and usage</a>)
-
+Follow the guide in Plone 6 Documentation, {ref}`create-project-cookieplone-prerequisites-for-installation-label`.
 The versions of Python that are supported in Volto depend on the version of Plone that you use.
 
 | Plone | Python       | Volto          |
 | ----- | ------------ | -------------- |
 | 6.1   | 3.10-3.12    | 18.0           |
 | 6.0   | 3.8-3.12     | 16.0,17.0,18.0 |
-| 5.2   | 2.7, 3.6-3.8 | 15.0           |
 
 Depending on the operating system that you are using, some of the following pre-requisites might change.
 They assume you have a macOS/Linux machine.
@@ -40,13 +39,15 @@ They assume you have a macOS/Linux machine.
 ## Bootstrap a new Plone stack
 
 To bootstrap a new Plone project(with both backend and frontend), you can use [Cookieplone](https://github.com/plone/cookieplone).
-You can use pipx to run cookieplone (<a target="_blank" href="https://6.docs.plone.org/install/create-project-cookieplone.html#generate-the-project">see instructions for installation</a>):
+You can use pipx to run Cookieplone to generate a project.
 
 ```shell
 pipx run cookieplone project
 ```
 
-You will be presented with a series of prompts. You can also specify the addons you want to install along with the project. You can type the name of the project as `tutorial-project` and name of the addon as `volto-teaser-tutorial` when prompted for the addons.
+You will be presented with a series of prompts.
+You can also specify the add-ons you want to install along with the project.
+When prompted for {guilabel}`Volto Addon Name`, enter `volto-teaser-tutorial`.
 
 ```shell
 [11/17] Volto Addon Name (volto-project-title): volto-teaser-tutorial
@@ -59,7 +60,7 @@ For the training, we will use the default values for the rest of the prompts.
 
 To work on your project, you need to install both the frontend and backend.
 
-Change your current working directory to `tutorial-project`.
+Change your current working directory to `project-title`.
 
 ```shell
 cd tutorial-project
@@ -104,7 +105,7 @@ You can then login with admin/admin at <a target="_blank" href="http://localhost
 Using Cookieplone we should already have a working Volto project with provided addon. You can find the addon in packages/volto-teaser-tutorial.
 
 ```{note}
-You might have noticed that we have `volto.config.js` in the root of the project. This is the volto configuration file allowing us to configure Volto and register addons.The addons list points to the addon we just installed. Cookieplone takes care of registering the addon for us.
+You might have noticed that we have {file}`volto.config.js` in the root of the project. This is the Volto configuration file allowing us to configure Volto and register add-ons. The add-ons list points to the add-on we just installed. Cookieplone takes care of registering the add-on for us.
 ```
 
 ## Workspaces
@@ -120,7 +121,7 @@ packages:
   - "packages/*"
 ```
 
-All the packages in the `packages` directory will be included in the workspace.
+All the packages in the {file}`packages` directory will be included in the workspace.
 
 The dependencies section maps the package names to the workspace. The `workspace:*` specifier tells pnpm to resolve these dependencies from other packages within the same workspace rather than fetching them from the npm registry.
 
@@ -133,7 +134,7 @@ The dependencies section maps the package names to the workspace. The `workspace
 ```
 
 ```{note}
-We don't need to pin specific workspace before we publish/release our project. pnpm takes care of dynamically updating the versions of these packages when you do `pnpm pack` or `pnpm publish`.
+We don't need to pin a specific workspace before we publish or release our project. pnpm takes care of dynamically updating the versions of these packages when you do `pnpm pack` or `pnpm publish`.
 
 ```
 
@@ -162,7 +163,7 @@ export default (config) => {
 };
 ```
 
-### typescript configuration
+### TypeScript configuration
 
 Every addon supports custom typescript configuration using `tsconfig.json` in the root of the addon package. This file defines how the typeScript compiler should process the code in our addon.
 
