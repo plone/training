@@ -11,7 +11,7 @@ myst:
 
 This chapter provides instructions on how to install **Plone with the training code**.
 
-For installation, deployment and hosting of Plone in general, see {ref}`Installation<plone6docs:install-index-label>` on `docs.plone.org`.
+For installation, deployment and hosting of Plone in general, see {doc}`plone6docs:admin-guide/index` on `docs.plone.org`.
 
 
 (installation-tools-label)=
@@ -83,7 +83,7 @@ By creating and working with a **Python virtual environment**, we are independen
 
 The build generates a file structure to be prepared to install **Plone from packages** with `pip` and `mxdev`. The tool `mxdev` helps with configuration files to define which add-ons and which versions to install.
 It also allows to override Plone core package versions or force a checkout from `github`.
-The documentation {doc}`plone6docs:manage/backend` provides information on common tasks.
+The documentation {doc}`plone6docs:admin-guide/add-ons` provides information on common tasks.
 
 The build generates **Zope configuration** files with Cookiecutter `cookiecutter-zope-instance`.
 The file we will modify to update our Zope / Plone configuration is `instance.yaml`.
