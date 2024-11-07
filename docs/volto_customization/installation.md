@@ -25,13 +25,13 @@ Before you start working with this training, ensure you have the following prere
 - <a target="_blank" href="https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating">nvm</a>
 - <a target="_blank" href="https://www.gnu.org/software/make/">GNU make</a>
 - <a target="_blank" href="https://www.docker.com/get-started">Docker</a> (if using the Plone docker images - <a target="_blank" href="https://6.docs.plone.org/install/containers/index.html">see instructions for installation and usage</a>)
-Follow the guide in Plone 6 Documentation, {ref}`create-project-cookieplone-prerequisites-for-installation-label`.
-The versions of Python that are supported in Volto depend on the version of Plone that you use.
+  Follow the guide in Plone 6 Documentation, {ref}`create-project-cookieplone-prerequisites-for-installation-label`.
+  The versions of Python that are supported in Volto depend on the version of Plone that you use.
 
-| Plone | Python       | Volto          |
-| ----- | ------------ | -------------- |
-| 6.1   | 3.10-3.12    | 18.0           |
-| 6.0   | 3.8-3.12     | 16.0,17.0,18.0 |
+| Plone | Python    | Volto          |
+| ----- | --------- | -------------- |
+| 6.1   | 3.10-3.12 | 18.0           |
+| 6.0   | 3.8-3.12  | 16.0,17.0,18.0 |
 
 Depending on the operating system that you are using, some of the following pre-requisites might change.
 They assume you have a macOS/Linux machine.
@@ -63,7 +63,7 @@ To work on your project, you need to install both the frontend and backend.
 Change your current working directory to `project-title`.
 
 ```shell
-cd tutorial-project
+cd project-title
 ```
 
 To install both the Plone backend and frontend, use the following command.
@@ -98,7 +98,7 @@ Open a browser at the following URL to visit your Plone site.
 
 http://localhost:3000
 
-You can then login with admin/admin at <a target="_blank" href="http://localhost:3000/login">http://localhost:3000/login</a>.
+You can then login with admin/admin at http://localhost:3000/login
 
 ## Volto addon
 
