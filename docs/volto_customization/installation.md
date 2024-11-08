@@ -19,12 +19,12 @@ Getting started with Volto involves setting up a development environment, unders
 
 Before you start working with this training, ensure you have the following prerequisites:
 
-- <a target="_blank" href="https://nodejs.org/en">Node.js LTS (>=20.x)</a> - (<a target="_blank" href="https://6.docs.plone.org/install/install-from-packages.html#nvm">see instructions for installation</a>)
-- <a target="_blank" href="https://www.python.org/">Python</a> - See below for specific versions.
-- <a target="_blank" href="https://pipx.pypa.io/stable/">pipx</a>
-- <a target="_blank" href="https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating">nvm</a>
-- <a target="_blank" href="https://www.gnu.org/software/make/">GNU make</a>
-- <a target="_blank" href="https://www.docker.com/get-started">Docker</a> (if using the Plone docker images - <a target="_blank" href="https://6.docs.plone.org/install/containers/index.html">see instructions for installation and usage</a>)
+- [Node.js LTS (>=20.x)](https://nodejs.org/en) [see instructions for installation](https://6.docs.plone.org/install/install-from-packages.html#nvm)
+- [Python](https://www.python.org/) - See below for specific versions.
+- [pipx](https://pipx.pypa.io/stable/)
+- [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+- [GNU make](https://www.gnu.org/software/make/)
+- [Docker](https://www.docker.com/get-started)(if using the Plone docker images - [see instructions for installation and usage](https://6.docs.plone.org/install/containers/index.html))
   Follow the guide in Plone 6 Documentation, {ref}`create-project-cookieplone-prerequisites-for-installation-label`.
   The versions of Python that are supported in Volto depend on the version of Plone that you use.
 
@@ -189,9 +189,9 @@ This option allows you to set up module resolution paths. The mappings provided 
 
 ## Documentation and Resources
 
-Refer to the <a target="_blank" href="https://6.docs.plone.org/volto/index.html">official Volto documentation</a> for in-depth guides, tutorials, and examples.
+Refer to the [official Volto documentation](https://6.docs.plone.org/volto/index.html) for in-depth guides, tutorials, and examples.
 
-Join the Volto community, participate in discussions, and ask questions on the Volto GitHub repository or the <a target="_blank" href="https://plone.org/news-and-events/news/2021/join-plone-chat-now-at-discord">Plone community chat on Discord</a>.
+Join the Volto community, participate in discussions, and ask questions on the Volto GitHub repository or the [Plone community chat on Discord](https://plone.org/news-and-events/news/2021/join-plone-chat-now-at-discord)
 
 ```{warning}
 Getting started with Volto may seem complex at first, but with practice and exploration, you'll become more comfortable with its features and capabilities. It offers a powerful and flexible platform for building modern web applications with React and Plone.
