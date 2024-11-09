@@ -10,7 +10,7 @@ myst:
 
 # Internationalization
 
-Though plone.org is currently an exception to this, many Plone sites are available in more than one language. For the sake of this training you can make our version of plone.org available in at least another language than english.
+Though https://plone.org/ is currently an exception to this, many Plone sites are available in more than one language. For the sake of this training you can make our version of https://plone.org/ available in at least another language than english.
 
 ## Set up site to be multilingual
 

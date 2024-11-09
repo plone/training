@@ -24,8 +24,4 @@ jobs:
         run: make test
 
       - name: Run Vale
-        run: |
-          git clone https://github.com/errata-ai/Microsoft.git
-          cp -r ./Microsoft/Microsoft ./styles
-          VALEFILES=$(find ./docs/ -type f -name "*.md" -print)
-          vale --no-exit $VALEFILES
+        run: make vale VALEOPTS="--no-exit --minAlertLevel='warning'"

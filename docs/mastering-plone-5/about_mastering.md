@@ -42,7 +42,7 @@ The Mastering Plone Training was so far held publicly at the following occasions
 - [Plone Conference 2015, Bucharest](https://2015.ploneconf.org/)
 - [March 2015, Munich](https://www.starzel.de/blog/mastering-plone-training-march-2015)
 - Plone Conference 2014, Bristol
-- [June 2014, Caracas](https://twitter.com/hellfish2/status/476906131970068480)
+- [June 2014, Caracas](https://x.com/hellfish2/status/476906131970068480)
 - [May 2014, Munich](https://www.starzel.de/blog/mastering-plone)
 - [PythonBrasil/Plone Conference 2013, Brasilia](http://2013.pythonbrasil.org.br/)
 - PyCon DE 2012, Leipzig

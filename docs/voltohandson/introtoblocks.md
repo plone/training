@@ -28,7 +28,7 @@ However, the `plone.volto` package, which comes with a default Plone 6 site enab
 ## How to manually enable Blocks on a content type
 
 There is a behavior called `Blocks` made available by `plone.volto`.
-To enable it you need to access the types [controlpanel](localhost:3000/controlpanel/dexterity-types).
+To enable it you need to access the types [control panel](http://localhost:3000/controlpanel/dexterity-types).
 
 There you can choose a content type to edit and enable `Blocks` in the `Behaviors` tab.
 
@@ -39,7 +39,7 @@ There you can choose a content type to edit and enable `Blocks` in the `Behavior
 
 ## Blocks anatomy
 
-The first Block we will create is the Slider Block at the top of the plone.org frontpage.
+The first Block we will create is the Slider Block at the top of the https://plone.org frontpage.
 
 ```{image} _static/slider_screenshot.png
 :align: center

@@ -16,6 +16,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 VALEFILES       := $(shell find $(DOCS_DIR) -type f -name "*.md" -print)
+VALEOPTS        ?=
 
 # Add the following 'help' target to your Makefile
 # And add help text after each target name starting with '\#\#'
@@ -186,8 +187,8 @@ linkcheckbroken: bin/python  ## Run linkcheck and show only broken links
 
 .PHONY: vale
 vale: bin/python  ## Run Vale style, grammar, and spell checks
-	vale sync
-	vale --no-wrap $(VALEFILES)
+	bin/vale sync
+	bin/vale --no-wrap $(VALEOPTS) $(VALEFILES)
 	@echo
 	@echo "Vale is finished; look for any errors in the above output."
 
@@ -207,10 +208,10 @@ test: clean linkcheckbroken  ## Clean docs build, then run linkcheckbroken
 .PHONY: deploy
 deploy: clean html
 
-.PHONY: netlify
-netlify:
+.PHONY: rtd-pr-preview
+rtd-pr-preview:  ## Build pull request preview on Read the Docs
 	pip install -r requirements.txt
-	cd $(DOCS_DIR) && sphinx-build -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	cd $(DOCS_DIR) && sphinx-build -b html $(ALLSPHINXOPTS) ${READTHEDOCS_OUTPUT}/html/
 
 .PHONY: all
 all: clean vale linkcheck html ## Run checks and build html

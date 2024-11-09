@@ -24,7 +24,7 @@ We also need the `Grid` component from Semantic UI:
 import { Container, List, Grid } from 'semantic-ui-react';
 ```
 
-Then, we replace the `Footer` component content to match the one from plone.org.
+Then, we replace the `Footer` component content to match the one from https://plone.org.
 
 ```jsx
 <div id="footer">
@@ -152,7 +152,7 @@ Then, we replace the `Footer` component content to match the one from plone.org.
                             </UniversalLink>
                           </List.Item>
                           <List.Item>
-                            <UniversalLink href="https://twitter.com/plone">Twitter</UniversalLink>
+                            <UniversalLink href="https://x.com/plone">Twitter</UniversalLink>
                           </List.Item>
                           <List.Item>
                             <UniversalLink href="https://www.instagram.com/plonecms/">
