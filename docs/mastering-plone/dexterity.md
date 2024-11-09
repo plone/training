@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Content type basics"
+    "property=og:description": "Content type basics"
+    "property=og:title": "Content types I"
+    "keywords": "data model, content type"
 ---
 
 (dexterity1-label)=
@@ -88,7 +88,7 @@ They are meant to be used across content types to add shared functionality.
 
 One example is the ability of most content types to allow them to be excluded from the navigation.
 The field is available on all types even though it is not defined in their schema.
-Instead is is provided by the behavior `plone.excludefromnavigation` that most content types use.
+Instead it is provided by the behavior `plone.excludefromnavigation` that most content types use.
 
 Each behavior schema can define fields. The values of these fields are again attributes on content objects.
 

@@ -18,7 +18,7 @@ This is a file containing LESS declarations. It's loaded more quickly than the t
 
 ## Some dummy content
 
-So that our Navigation shows more than just the homepage, you should add some dummy pages like on [plone.org](plone.org) to your site using the add page menu in the top left of the page. Add some pages like:
+So that our Navigation shows more than just the homepage, you should add some dummy pages like on [plone.org](https://plone.org) to your site using the add page menu in the top left of the page. Add some pages like:
 
 - Why Plone?
 - Get Started

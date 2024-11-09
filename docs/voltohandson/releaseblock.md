@@ -196,7 +196,7 @@ export default ReleaseView;
 
 Note that all the fields defined in the schema and filled via the sidebar can now be accessed from the `data` key of the blocks props. You can use `console.log(data)` to see the details.
 
-To make the block look like its twin on plone.org we only need to add the following CSS to our `custom.overrides`:
+To make the block look like its twin on https://plone.org, we only need to add the following CSS to our `custom.overrides`:
 
 ```less
 // Release block

@@ -58,9 +58,6 @@ S3
 NFS
     [Network File System](https://en.wikipedia.org/wiki/Network_File_System).
 
-Amazon Opsworks
-    [AWS OpsWorks](https://aws.amazon.com/opsworks/) is a configuration management service that uses Chef, an automation platform that treats server configurations as code.
-
 Ansible
     [Ansible](https://www.ansible.com/) is an open source automation platform.
     Ansible can help you with configuration management, application deployment, task automation.
@@ -187,7 +184,7 @@ Transpilation
 ES6
 ECMAScript 6
     [ECMAScript 6 (ES6)](https://262.ecma-international.org/6.0/) is a scripting language specification on which [JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/JavaScript) is based.
-    [Ecma International](https://www.ecma-international.org/) is in charge of standardizing ECMAScript.
+    [Ecma International](https://ecma-international.org/) is in charge of standardizing ECMAScript.
 
 mrs-developer
     Also called "missdev", a tool similar to buildout's `mr.developer`.
@@ -276,6 +273,14 @@ mxdev
 
 plonecli
     A Plone CLI for creating Plone packages. [plonecli usage](https://github.com/plone/plonecli)
+
+Cookieplone
+    [Cookieplone](https://github.com/plone/cookieplone) is the method to create a Plone project.
+    You can use Cookieplone to build a backend add-on, a new Volto add-on, or a full project with both backend and frontend.
+    Cookieplone simplifies the process using robust Cookiecutter templates from {term}`cookieplone-templates`.
+
+cookieplone-templates
+    [`cookieplone-templates`](https://github.com/plone/cookieplone-templates) is a collection of templates used by {term}`Cookieplone`.
 
 GenericSetup
     [GenericSetup](https://5.docs.plone.org/develop/addons/components/genericsetup.html) is a framework to modify the Plone site during add-on package installation and uninstallation.

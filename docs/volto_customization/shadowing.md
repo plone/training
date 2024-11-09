@@ -35,6 +35,6 @@ Both paths work fine though, we just want to go all-in with the addon-approach.
 
 ```{seealso}
 - {ref}`voltohandson-header-component-label` (Volto Hands-On Training)
-- {doc}`plone6docs:volto/recipes/customizing-components` (Plone Frontend Documentation)
-- {doc}`plone6docs:volto/recipes/customizing-views` (Plone Frontend Documentation)
+- {doc}`plone6docs:volto/development/customizing-components` (Plone Frontend Documentation)
+- {doc}`plone6docs:volto/development/customizing-views` (Plone Frontend Documentation)
 ```

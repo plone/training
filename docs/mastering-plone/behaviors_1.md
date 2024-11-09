@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Add features to existing content types"
+    "property=og:description": "Add features to existing content types"
+    "property=og:title": "Behaviors"
+    "keywords": "behavior, Plone, field, feature"
 ---
 
 (behaviors1-label)=
@@ -13,9 +13,27 @@ myst:
 
 Enhance content types to be selectable for presentation on the front page.
 
+```{card}
+In this part you will:
+
+- Add a field to talks and other content types by using a behavior
+- Make the field values available via catalog search
+
+Tools and techniques covered:
+
+- Behaviors
+- Catalog indexes and catalog metadata columns
+```
+
 ````{card} Backend chapter
 
-Get the code: https://github.com/collective/ploneconf.site
+Checkout `ploneconf.site` at tag "talks":
+
+```shell
+git checkout talks
+```
+
+The code at the end of the chapter:
 
 ```shell
 git checkout behaviors_1
@@ -23,18 +41,6 @@ git checkout behaviors_1
 
 More info in {doc}`code`
 ````
-
-```{card}
-In this part you will:
-
-- Add a field to talks and other content types by using a behavior
-- Make the field values available via catalog search
-
-Topics covered:
-
-- Behaviors
-- Catalog indexes and catalog metadata columns
-```
 
 ```{only} not presentation
 A first approach would be to extend the functionality of a content type by writing an adapter that adapts an object of this type to add an additional attribute or feature.
@@ -53,7 +59,7 @@ Dexterity has special adapters that are called and registered by the name behavi
 
 A behavior can be enabled for any content type through the web UI and at runtime.
 
-All default views (e.g. the add and edit forms) know about the concept of behaviors.
+All default views (for example the add and edit forms) know about the concept of behaviors.
 When rendering forms, the views check whether there are behaviors referenced with the current context and if these behaviors have a schema of their own, these fields get shown in addition.
 
 
@@ -86,7 +92,7 @@ We want some selected talks, news items or other content to be presented on the 
 So for now, our behavior just adds a new field to store the information if an object should be listed on the front page.
 ```
 
-We want to keep a clean structure, so we create a {file}`behaviors` directory first, and include it into the zcml declarations of our {file}`configure.zcml`.
+We want to keep a clean structure, so we create a {file}`behaviors` directory first, and include it into the ZCML declarations of our {file}`configure.zcml`.
 
 ```xml
 <include package=".behaviors" />
@@ -152,7 +158,7 @@ Let's go through this step by step.
 3. We mark our schema as a class that also provides the {py:class}`IFormFieldProvider` interface using a decorator.
    The schema class itself provides the interface, not its instance!
 4. We also add a `fieldset` so that our field is not mixed with the normal fields of the object.
-5. We add a normal [Bool](https://zopeschema.readthedocs.io/en/latest/api.html#zope.schema.interfaces.IBool) schema field to control if an item should be displayed on the frontpage.
+5. We add a normal [Bool](https://zopeschema.readthedocs.io/en/latest/api.html#zope.schema.interfaces.IBool) schema field to control if an item should be displayed on the front page.
 
 ```{note}
 For simplicity we do not use the so called `AnnotationStorage`.
@@ -163,7 +169,7 @@ The object is equipped by a storage where behaviors do store values with a key u
 
 Furthermore a `marker interface` is needed as soon as we want to register components for objects that do adapt this behavior, e.g. REST API endpoints.
 
-We will see `marker interfaces` and `AnnotationStorages` in chapter {doc}`behaviors_2`.
+We will see `marker interfaces` and `AnnotationStorages` in chapter {doc}`./voting-story/behaviors_2`.
 ```
 
 (behaviors1-adding-label)=
@@ -272,7 +278,7 @@ As soon as you edit content, you can also see the values of "featured" listed on
 ## Add a metadata column for the new field
 
 The same rules and methods shown above for indexes apply for metadata columns.
-The difference with metadata is that it is not used as criterions for searching the catalog, but is mandatory for displaying of search results returned from the catalog.
+The difference with metadata is that it is not used as criteria for searching the catalog, but is mandatory for displaying of search results returned from the catalog.
 
 We will see that in fact every attribute of an object can be accessed in search results by explicitly requesting objects.
 A way more performant search is requesting what is stored in the catalog.
@@ -293,7 +299,7 @@ To add a metadata column for "featured", we have to add one more line in the `ca
 </object>
 ```
 
-After another restart and another import of the xml-profile, the new metadata column can be found in the `portal_catalog` in your `ZMI` on the tab `Metadata`.
+After a restart and reinstallation of the product, the new metadata column can be found in the `portal_catalog` in your `ZMI` on the tab `Metadata`.
 
 
 (behaviors1-exercise-label)=

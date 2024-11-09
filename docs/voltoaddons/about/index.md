@@ -9,8 +9,8 @@ myst:
 
 # About
 
-This training was created by [Tiberiu Ichim](https://twitter.com/ichim_tiberiu)
-in collaboration with [Víctor Fernández de Alba](https://twitter.com/sneridagh).
+This training was created by [Tiberiu Ichim](https://x.com/ichim_tiberiu)
+in collaboration with [Víctor Fernández de Alba](https://x.com/sneridagh).
 
 > I have been a web developer since the turn of the millennium, primarily
 > as a Zope and Plone developer. That didn't stop me from working on projects
