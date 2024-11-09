@@ -22,7 +22,7 @@
 <!-- Adding the widget to search result page -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const queryInput = document.getElementById("search-input").value;
+    const queryInput = document.querySelector('form.bd-search input').value;
 
     const script = document.createElement("script");
     script.src = "https://cdn.nuclia.cloud/nuclia-video-widget.umd.js";
@@ -52,7 +52,8 @@
 <nuclia-search-bar mode = "dark"
   knowledgebox="62407006-2711-4631-9c03-761d156de289"
   zone="europe-1"
-  features="answers,navigateToLink,hideThumbnails"
+  features="answers,navigateToLink,hideThumbnails,rephrase"
+  reranker="predict"
 ></nuclia-search-bar>
 
 <!-- Search results -->
