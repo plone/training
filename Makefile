@@ -191,8 +191,8 @@ linkcheckbroken: venv/bin/python  ## Run linkcheck and show only broken links
 
 .PHONY: vale
 vale: venv/bin/python  ## Run Vale style, grammar, and spell checks
-	bin/vale sync
-	bin/vale --no-wrap $(VALEOPTS) $(VALEFILES)
+	venv/bin/vale sync
+	venv/bin/vale --no-wrap $(VALEOPTS) $(VALEFILES)
 	@echo
 	@echo "Vale is finished; look for any errors in the above output."
 
