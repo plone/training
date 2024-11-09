@@ -1,14 +1,13 @@
 -c constraints.txt
 
 Sphinx
-jsx-lexer
 lesscpy
 linkify-it-py
 myst-parser
 nuclia
 nucliadb-sdk
+plone-sphinx-theme
 sphinx-autobuild
-sphinx-book-theme
 sphinx-copybutton
 sphinx-design
 sphinx-sitemap
