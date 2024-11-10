@@ -29,7 +29,7 @@ clean:  ## Clean build directory
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/*
 
 .PHONY: distclean
-distclean:  ## Clean docs build directory and Python virtual environment, then install requirements
+distclean:  ## Clean docs build directory and Python virtual environment
 	rm -rf venv
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/
 
