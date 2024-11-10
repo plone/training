@@ -14,8 +14,7 @@
         {% trans %}Searching for multiple words only shows matches that contain
         all words.{% endtrans %}
       </div>
-    {% endblock %}
-</div>
+      <div class="nuclia-search">
 <script src="https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js"></script>
 <script src="https://unpkg.com/@nuclia/core@latest/umd/index.js"></script>
 
@@ -37,7 +36,7 @@
       const script2 = document.createElement("script"); // Call searchtester script after we get search results
       script2.src = "{{ pathto('_static/searchtester.js', 1) }}";
 
-      // On searchtester.js load call function to add breadcrumbs 
+      // On searchtester.js load call function to add breadcrumbs
       script2.onload = () => {
         addBreadcrumbsToResults();
       };
@@ -69,6 +68,9 @@
     console.log("[PST]: Set focus on search field.");
   }
 </script>
+    {% endblock %}
+  </div>
+</div>
 {% endblock docs_body %}
 {# Below sections just re-create the behavior of Sphinx default search #}
 {# Page metadata #}

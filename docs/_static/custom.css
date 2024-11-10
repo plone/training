@@ -1,12 +1,12 @@
-html[data-theme=light], html[data-theme=dark] {
-  --sbt-color-announcement: #3f0000;
-}
-a:hover {
-  --pst-color-link-hover: var(--pst-color-link);
-}
-.bd-header-announcement__content > a {
-  color: #66e5ff;
-}
+/*html[data-theme=light], html[data-theme=dark] {*/
+/*  --sbt-color-announcement: #3f0000;*/
+/*}*/
+/*a:hover {*/
+/*  --pst-color-link-hover: var(--pst-color-link);*/
+/*}*/
+/*.bd-header-announcement__content > a {*/
+/*  color: #66e5ff;*/
+/*}*/
 /*:root {*/
 /*  --highlight-searchresult-color: #b9ee9e;*/
 /*  --codeblock-color: #aad993;*/
@@ -179,9 +179,9 @@ a:hover {
 /*  margin-bottom: 1em;*/
 /*}*/
 
-#search-results .breadcrumbs .pathseparator {
-  padding: 0 .5em;
-}
+/*#search-results .breadcrumbs .pathseparator {*/
+/*  padding: 0 .5em;*/
+/*}*/
 
 /*ul.search li span.highlighted {*/
 /*  background-color: var(--highlight-searchresult-color);*/
@@ -258,10 +258,10 @@ a:hover {
 /*}*/
 
 /* Fix title in sticky header on mobile */
-.header-article-item-chapter-title {
-  overflow-y: hidden;
-  max-height: 100%;
-}
+/*.header-article-item-chapter-title {*/
+/*  overflow-y: hidden;*/
+/*  max-height: 100%;*/
+/*}*/
 
 /*!* submenu *!*/
 /*.bd-toc {*/
@@ -379,3 +379,5 @@ a:hover {
 /*  font-style: italic;*/
 /*  white-space: nowrap;*/
 /*}*/
+/* Nuclia search styles */
+div.nuclia-search {margin-top: 1em;}
