@@ -7,36 +7,62 @@ myst:
     "keywords": "Plone, Volto, Training"
 ---
 
+
 # Installing Volto Light Theme
 
-First for installing volto light theme.
+Follow the steps below to install and configure **Volto Light Theme** in your project. Volto Light Theme provides a clean and modern design with ready-to-use blocks and components.
 
-Go to your addon project. It is present in frontend/packages/volto-my-project and install volto-light-theme
+### Step 1: Install Volto Light Theme
 
+To install the **Volto Light Theme** in your project, navigate to the `frontend/packages/volto-my-project` folder and run the following command:
 
-```
+```bash
 pnpm install @kitconcept/volto-light-theme
-
 ```
 
-After installing vlt you will see this diff with some additional but this one is most important.
+### Step 2: Add Addons (Optional)
 
-```
-diff --git a/frontend/packages/volto-my-project/package.json b/frontend/packages/volto-my-project/package.json
-index e256491..373386e 100644
---- a/frontend/packages/volto-my-project/package.json
-+++ b/frontend/packages/volto-my-project/package.json
-@@ -26,7 +26,9 @@
-     "release-major-alpha": "release-it major --preRelease=alpha",
-     "release-alpha": "release-it --preRelease=alpha"
-   ,
--  "dependencies": {},
-+  "dependencies": {
-+    "@kitconcept/volto-light-theme": "^5.0.1"
-+  },
-   "peerDependencies":
-     "react": "18.2.0",
-     "react-dom": "18.2.0"
+Volto Light Theme comes with several pre-configured addons that provide basic blocks for your website. If you'd like to include them, you can add them to the `addons` section in your `package.json`.
 
+Here is the list of available addons you can include:
+
+```json
+  "addons": [
+    "@eeacms/volto-accordion-block",
+    "@kitconcept/volto-button-block",
+    "@kitconcept/volto-heading-block",
+    "@kitconcept/volto-highlight-block",
+    "@kitconcept/volto-introduction-block",
+    "@kitconcept/volto-separator-block",
+    "@kitconcept/volto-slider-block",
+    "@kitconcept/volto-light-theme"
+  ],
 ```
 
+If you don’t need any of these addons, you can skip adding them to the `addons` list.
+
+### Step 3: Configure Volto Light Theme as the Theme Provider
+
+To leverage a cohesive set of styles, components, and design patterns that align with Volto’s best practices, you need to set the Volto Light Theme as your theme provider.
+
+Open the `volto.config.js` file in your `frontend` folder and modify it as shown below:
+
+```diff
+diff --git a/frontend/volto.config.js b/frontend/volto.config.js
+index 56feec6..41aa96b 100644
+--- a/frontend/volto.config.js
++++ b/frontend/volto.config.js
+@@ -1,7 +1,7 @@
+ const addons = ['volto-my-project'];
+-const theme = '';
++const theme = '@kitconcept/volto-light-theme';
+
+ module.exports = {
+   addons,
+-  theme
++  theme,
+ };
+ ```
+
+
+That's it! Your project should now be using Volto Light Theme with the additional blocks and components.
