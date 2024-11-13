@@ -16,13 +16,13 @@ Follow the steps below to install and configure **Volto Light Theme** in your pr
 
 To install the **Volto Light Theme** in your project, navigate to the `frontend/packages/volto-my-project` folder and run the following command:
 
-```bash
+```shell
 pnpm install @kitconcept/volto-light-theme
 ```
 
 ### Step 2: Add Addons (Optional)
 
-Volto Light Theme comes with several pre-configured addons that provide basic blocks for your website. If you'd like to include them, you can add them to the `addons` section in your `package.json`.
+Volto Light Theme comes with several pre-configured add-ons that provide basic blocks for your website. If you'd like to include them, you can add them to the `addons` section in your {file}`package.json`.
 
 Here is the list of available addons you can include:
 

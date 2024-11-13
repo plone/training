@@ -16,7 +16,7 @@ In this training module, we will learn how to integrate the @plone-collective/vo
 
 To install the related items block, use the following command:
 
-```bash
+```shell
 pnpm install @plone-collective/volto-relateditems-block
 ```
 
@@ -34,6 +34,6 @@ After installation, ensure that the addon is included in the addons key of your 
     "@kitconcept/volto-light-theme",
     "@plone-collective/volto-relateditems-block"
   ],
-  ```
+```
 
   That's it! Your project should now be using @plone-collective/volto-relateditems-block which shows the relateditems as link for this content.
