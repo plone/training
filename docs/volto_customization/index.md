@@ -55,8 +55,6 @@ schema
 teaser_variations
 data_adapters
 styling
-extending_teasers
-listing_block
 
 ```
 
