@@ -13,12 +13,12 @@ Its essential to also control the styling of Blocks and most importantly if the 
 
 ## StyleWrapper(Styling Schemas)
 
-In Volto we have a central wrapper named [StyleWrapper](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Block/StyleWrapper.jsx#L1) which wraps around all the View template of Blocks. The job of stylewrapper is to build and inject style classNames into its children.
+In Volto we have a central wrapper named [`StyleWrapper`](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Block/StyleWrapper.jsx#L1) which wraps around all the View template of Blocks. The job of stylewrapper is to build and inject style classNames into its children.
 
-In the schema at any point in time, we can call a volto helper which adds `styles` fields. Which then gets converted into classNames with the prefix `--has`. Its upto the theme owner in which way they want to add css for it.
+In the schema at any point in time, we can call a Volto helper which adds `styles` fields. Which then gets converted into classNames with the prefix `--has`. Its upto the theme owner in which way they want to add css for it.
 Simply, the job of StyleWrapper is to inject classNames(build from schema) into their children.
 
-We see that in our Teaser config volto already calls the [addStyling](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/helpers/Extensions/withBlockSchemaEnhancer.js#L297) in the schema. The job of this function is to add styles field in the styling fieldset in schema provided.
+We see that in our Teaser config Volto already calls the [`addStyling`](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/helpers/Extensions/withBlockSchemaEnhancer.js#L297) in the schema. The job of this function is to add styles field in the styling fieldset in schema provided.
 
 ```jsx
 export const TeaserSchema = ({ intl }) => {

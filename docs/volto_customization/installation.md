@@ -102,7 +102,7 @@ You can then login with admin/admin at http://localhost:3000/login
 
 ## Volto addon
 
-Using Cookieplone we should already have a working Volto project with provided addon. You can find the addon in packages/volto-teaser-tutorial.
+Using Cookieplone we should already have a working Volto project with provided add-on. You can find the add-on in packages/volto-teaser-tutorial.
 
 ```{note}
 You might have noticed that we have {file}`volto.config.js` in the root of the project. This is the Volto configuration file allowing us to configure Volto and register add-ons. The add-ons list points to the add-on we just installed. Cookieplone takes care of registering the add-on for us.
@@ -110,7 +110,7 @@ You might have noticed that we have {file}`volto.config.js` in the root of the p
 
 ## Workspaces
 
-pnpm workspaces are a way to manage multiple packages in a single repository. Volto is a monorepo, so we use workspaces to manage the Volto project and its addons along with other packages.
+pnpm workspaces are a way to manage multiple packages in a single repository. Volto is a monorepo, so we use workspaces to manage the Volto project and its add-ons along with other packages.
 
 We can define workspaces using the `pnpm-workspace.yaml` file in root of our project. This is taken care for us by Cookieplone.
 
@@ -165,11 +165,11 @@ export default (config) => {
 
 ### TypeScript configuration
 
-Every addon supports custom typescript configuration using `tsconfig.json` in the root of the addon package. This file defines how the typeScript compiler should process the code in our addon.
+Every add-on supports custom typescript configuration using `tsconfig.json` in the root of the add-on package. This file defines how the typeScript compiler should process the code in our add-on.
 
 You can inspect the tsconfig.json file in the volto-teaser-tutorial package.
 
-The basic ones are self explanatory. Note that we have path mapping inside `compilerOptions` for all the packages that this addon depends on.
+The basic ones are self explanatory. Note that we have path mapping inside `compilerOptions` for all the packages that this add-on depends on.
 
 ```js
 {

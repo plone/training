@@ -7,10 +7,10 @@ myst:
     "keywords": "Volto, Training, Extend block"
 ---
 
-# Extend volto blocks
+# Extend Volto blocks
 
 There are various ways of extending Volto blocks.
-Component shadowing (see last chapter) is a very basic to customize components in volto.
+Component shadowing (see last chapter) is a very basic to customize components in Volto.
 But it comes with its own problems like keeping the shadowed component up to date with latest fixes and features of newer Volto versions.
 Instead of shadowing components we can:
 
@@ -18,10 +18,10 @@ Instead of shadowing components we can:
 - Extend blocks by adding new block-variations
 - Write add schemaEnhancer to modify blocks schema
 
-Let us first change the View of the teaser block which we already have in volto core by changing the block-configuration.
-In our addon `volto-teaser-tutorial` we will step by step extend each component that we have in volto core.
+Let us first change the View of the teaser block which we already have in Volto core by changing the block-configuration.
+In our add-on `volto-teaser-tutorial` we will step by step extend each component that we have in Volto core.
 
-The most simple customization is the View of the Teaser. The volto core teaser block configration (in `/frontend/core/packages/volto/src/config/Blocks.jsx`) looks like:
+The most simple customization is the View of the Teaser. The Volto core teaser block configration (in `/frontend/core/packages/volto/src/config/Blocks.jsx`) looks like:
 
 ```js
   teaser: {
@@ -48,7 +48,7 @@ The most simple customization is the View of the Teaser. The volto core teaser b
 ```
 
 Every block in Volto has Edit and View components.
-You can customize these individually by either shadowing or directly in the confuguration (`index.js` of your addon) like this:
+You can customize these individually by either shadowing or directly in the confuguration (`index.js` of your add-on) like this:
 
 ```js
 import MyTeaserView from "volto-teaser-tutorial/components/Blocks/Teaser/View";
@@ -61,7 +61,7 @@ const applyConfig = (config) => {
 export default applyConfig;
 ```
 
-Of course we need to add our custom `MyTeaserView` component in our addon.
+Of course we need to add our custom `MyTeaserView` component in our add-on.
 From the root of the project that is `packages/volto-teaser-tutorial/src/components/Blocks/Teaser/View.jsx`:
 
 ```jsx

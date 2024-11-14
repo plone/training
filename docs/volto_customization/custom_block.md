@@ -9,7 +9,7 @@ myst:
 
 # Volto Weather Block (custom block)
 
-Let's create a volto block that will display weather information for Brasilia. For this we can use [Open-Meteo API](https://open-meteo.com/). Open-Meteo is an open-source weather API and offers free access for non-commercial use. No API key required.
+Let's create a Volto block that will display weather information for Brasilia. For this we can use [Open-Meteo API](https://open-meteo.com/). Open-Meteo is an open-source weather API and offers free access for non-commercial use. No API key required.
 
 Creating a basic block in Volto involves several steps. Below, I'll outline the steps to create a Volto block that displays the weather forecast in Brasilia.
 
