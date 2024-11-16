@@ -13,7 +13,7 @@ Follow the steps below to create a new project using Plone 6 and Volto. This gui
 
 ### Step 1: Install CookiePlone
 
-First, install `cookieplone`, a tool for setting up new Plone projects, using `pipx`:
+First, install `cookieplone`—a tool for setting up new Plone projects—using `pipx`:
 
 ```shell
 pipx install cookieplone
@@ -31,7 +31,7 @@ You’ll be prompted with several questions.
 For this tutorial, you should accept the default values by pressing {kbd}`Enter`, except for the following.
 [Insert exceptions here.]
 
-Here are the prompts you’ll encounter
+Here are the prompts you will encounter:
 
 ```console
 [1/17] Project Title (Project Title): my-vlt-project
@@ -47,7 +47,7 @@ Here are the prompts you’ll encounter
 [11/17] Volto Addon Name (volto-my-project):
 ```
 
-After answering the prompts, the project will be created.
+After answering these prompts, the project will be created.
 
 ### Step 3: Install Dependencies
 
@@ -82,7 +82,7 @@ git commit -m 'initial-commit' --no-verify
 
 ### Summary
 
-- `cookieplone` is used to create a new Plone project.
+- Use `cookieplone` to create a new Plone project.
 - Use `make install` to install dependencies.
 - Start backend with `make backend-start` and frontend with `make frontend-start`.
 - Commit the initial files to version control using Git.

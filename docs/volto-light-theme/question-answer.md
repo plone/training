@@ -7,4 +7,4 @@ myst:
     "keywords": "Plone, Volto, Training"
 ---
 
-# Questions And Answer
+# Question and Answer

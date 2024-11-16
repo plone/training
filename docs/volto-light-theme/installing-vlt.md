@@ -10,21 +10,27 @@ myst:
 
 # Installing Volto Light Theme
 
-Follow the steps below to install and configure **Volto Light Theme** in your project. Volto Light Theme provides a clean and modern design with ready-to-use blocks and components.
+Follow the steps below to install and configure VLT in your project. VLT provides a clean and modern design with ready-to-use blocks and components.
 
 ### Step 1: Install Volto Light Theme
 
-To install the **Volto Light Theme** in your project, navigate to the `frontend/packages/volto-my-project` folder and run the following command:
+To install VLT, navigate to the `frontend/packages/volto-my-project` folder and run the following command:
 
 ```shell
 pnpm install @kitconcept/volto-light-theme
 ```
 
-### Step 2: Add Addons (Optional)
+While in your project package folder, add VLT to the `addons` list in your {file}`package.json`, as follows:
 
-Volto Light Theme comes with several pre-configured add-ons that provide basic blocks for your website. If you'd like to include them, you can add them to the `addons` section in your {file}`package.json`.
+```
+  "addons": ["@kitconcept/volto-light-theme"],
+```
 
-Here is the list of available addons you can include:
+### Step 2: Install Block Addons (Recommended)
+
+Volto Light Theme comes with several pre-configured add-ons that provide basic blocks for your website. If you'd like to include them you can add them to the `addons` section in your {file}`package.json`, but this is not required.
+
+Here is the list of recommended addons to install, including VLT—which should be the last element:
 
 ```json
   "addons": [
@@ -39,11 +45,9 @@ Here is the list of available addons you can include:
   ],
 ```
 
-If you don’t need any of these addons, you can skip adding them to the `addons` list.
-
 ### Step 3: Configure Volto Light Theme as the Theme Provider
 
-To leverage a cohesive set of styles, components, and design patterns that align with Volto’s best practices, you need to set the Volto Light Theme as your theme provider.
+To leverage a cohesive set of styles, components, and design patterns that align with Volto’s best practices, you need to set VLT as your theme provider.
 
 Open the `volto.config.js` file in your `frontend` folder and modify it as shown below:
 
@@ -65,4 +69,4 @@ index 56feec6..41aa96b 100644
  ```
 
 
-That's it! Your project should now be using Volto Light Theme with the additional blocks and components.
+That's it! Your project should now be using Volto Light Theme with its additional blocks and components.

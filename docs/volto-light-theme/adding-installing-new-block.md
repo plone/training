@@ -8,13 +8,13 @@ myst:
 ---
 
 
-# Adding A New Block
+# Adding a New Block
 
-In this training module, we will learn how to integrate the @plone-collective/volto-relateditems-block into the Volto-light-theme. This block allows you to easily create links to related content in your Plone site.
+In this training module, we'll learn how to integrate the @plone-collective/volto-relateditems-block into VLT. This block allows you to easily create links to related content in your Plone site.
 
 ## Installing *@plone-collective/volto-relateditems-block*
 
-To install the related items block, use the following command:
+To install the related items block, make sure you are in the `frontend/packages/volto-my-project` folder, and use the following command:
 
 ```shell
 pnpm install @plone-collective/volto-relateditems-block
@@ -31,9 +31,9 @@ After installation, ensure that the addon is included in the addons key of your 
     "@kitconcept/volto-introduction-block",
     "@kitconcept/volto-separator-block",
     "@kitconcept/volto-slider-block",
-    "@kitconcept/volto-light-theme",
-    "@plone-collective/volto-relateditems-block"
+    "@plone-collective/volto-relateditems-block",
+    "@kitconcept/volto-light-theme"
   ],
 ```
 
-  That's it! Your project should now be using @plone-collective/volto-relateditems-block which shows the relateditems as link for this content.
+  That's it! Your project should now be using @plone-collective/volto-relateditems-block, which shows related items for the content as a list of links.
