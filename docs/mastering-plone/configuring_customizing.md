@@ -1,8 +1,8 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
+    "description": "What you can do through the web without touching the code"
+    "property=og:description": "What you can do through the web without touching the code"
     "property=og:title": "Configuring and Customizing Plone 'Through The Web'"
     "keywords": "Plone, configuration"
 ---
@@ -10,9 +10,6 @@ myst:
 (configuring-customizing-label)=
 
 # Configuring and Customizing Plone "Through The Web"
-
-% TODO Update for Plone 6!
-% TODO Add Volto screenshots for control panels
 
 (customizing-controlpanel-label)=
 
