@@ -3,8 +3,8 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    = 
-SPHINXBUILD     = "$(realpath bin/sphinx-build)"
-SPHINXAUTOBUILD = "$(realpath bin/sphinx-autobuild)"
+SPHINXBUILD     = "$(realpath venv/bin/sphinx-build)"
+SPHINXAUTOBUILD = "$(realpath venv/bin/sphinx-autobuild)"
 PAPER         =
 DOCS_DIR      = ./docs/
 BUILDDIR      = ../_build
@@ -30,75 +30,75 @@ clean:  ## Clean build directory
 
 .PHONY: distclean
 distclean:  ## Clean docs build directory and Python virtual environment
+	rm -rf venv
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/
-	rm -rf ./bin/ ./lib/ ./lib64 ./include ./pyvenv.cfg
 
-bin/python:  ## Set up training: Install requirements
-	python3 -m venv . || virtualenv --clear --python=python3 .
-	bin/python -m pip install --upgrade pip
-	bin/pip install -r requirements.txt
+venv/bin/python:  ## Set up training: Install requirements
+	python3 -m venv venv
+	venv/bin/python -m pip install --upgrade pip
+	venv/bin/pip install -r requirements.txt
 	@echo
 	@echo "Installation of requirements completed."
 
 .PHONY: html
-html: bin/python  ## Build html
+html: venv/bin/python  ## Build html
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
 .PHONY: livehtml
-livehtml: bin/python  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
+livehtml: venv/bin/python  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
 	cd "$(DOCS_DIR)" && $(SPHINXAUTOBUILD) \
 		--ignore "*.swp" \
 		-b html . "$(BUILDDIR)/html" $(SPHINXOPTS) $(O)
 
 .PHONY: manual
-manual: bin/python
+manual: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b html -t manual . manual
 
 .PHONY: presentation
-presentation: bin/python  ## Build html for presentation
+presentation: venv/bin/python  ## Build html for presentation
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b html -t presentation . $(BUILDDIR)/presentation
 
 .PHONY: livepresentation
-livepresentation: bin/python  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
+livepresentation: venv/bin/python  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
 	cd "$(DOCS_DIR)" && $(SPHINXAUTOBUILD) \
 		--ignore "*.swp" \
 		-b html -t presentation . "$(BUILDDIR)/presentation" $(SPHINXOPTS) $(O)
 
 .PHONY: dirhtml
-dirhtml: bin/python
+dirhtml: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/dirhtml."
 
 .PHONY: singlehtml
-singlehtml: bin/python
+singlehtml: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml
 	@echo
 	@echo "Build finished. The HTML page is in $(BUILDDIR)/singlehtml."
 
 .PHONY: pickle
-pickle: bin/python
+pickle: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b pickle $(ALLSPHINXOPTS) $(BUILDDIR)/pickle
 	@echo
 	@echo "Build finished; now you can process the pickle files."
 
 .PHONY: json
-json: bin/python
+json: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b json $(ALLSPHINXOPTS) $(BUILDDIR)/json
 	@echo
 	@echo "Build finished; now you can process the JSON files."
 
 .PHONY: htmlhelp
-htmlhelp: bin/python
+htmlhelp: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b htmlhelp $(ALLSPHINXOPTS) $(BUILDDIR)/htmlhelp
 	@echo
 	@echo "Build finished; now you can run HTML Help Workshop with the" \
 	      ".hhp project file in $(BUILDDIR)/htmlhelp."
 
 .PHONY: qthelp
-qthelp: bin/python
+qthelp: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b qthelp $(ALLSPHINXOPTS) $(BUILDDIR)/qthelp
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
@@ -108,7 +108,7 @@ qthelp: bin/python
 	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/MasteringPlone.qhc"
 
 .PHONY: devhelp
-devhelp: bin/python
+devhelp: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
@@ -118,13 +118,13 @@ devhelp: bin/python
 	@echo "# devhelp"
 
 .PHONY: epub
-epub: bin/python
+epub: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b epub $(ALLSPHINXOPTS) $(BUILDDIR)/epub
 	@echo
 	@echo "Build finished. The epub file is in $(BUILDDIR)/epub."
 
 .PHONY: latex
-latex: bin/python
+latex: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo
 	@echo "Build finished; the LaTeX files are in $(BUILDDIR)/latex."
@@ -132,26 +132,26 @@ latex: bin/python
 	      "(use \`make latexpdf' here to do that automatically)."
 
 .PHONY: latexpdf
-latexpdf: bin/python
+latexpdf: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex all-pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
 
 .PHONY: text
-text: bin/python
+text: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
 	@echo
 	@echo "Build finished. The text files are in $(BUILDDIR)/text."
 
 .PHONY: man
-man: bin/python
+man: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b man $(ALLSPHINXOPTS) $(BUILDDIR)/man
 	@echo
 	@echo "Build finished. The manual pages are in $(BUILDDIR)/man."
 
 .PHONY: texinfo
-texinfo: bin/python
+texinfo: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b texinfo $(ALLSPHINXOPTS) $(BUILDDIR)/texinfo
 	@echo
 	@echo "Build finished. The Texinfo files are in $(BUILDDIR)/texinfo."
@@ -159,36 +159,36 @@ texinfo: bin/python
 	      "(use \`make info' here to do that automatically)."
 
 .PHONY: info
-info: bin/python
+info: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b texinfo $(ALLSPHINXOPTS) $(BUILDDIR)/texinfo
 	@echo "Running Texinfo files through makeinfo..."
 	make -C $(BUILDDIR)/texinfo info
 	@echo "makeinfo finished; the Info files are in $(BUILDDIR)/texinfo."
 
 .PHONY: changes
-changes: bin/python
+changes: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b changes $(ALLSPHINXOPTS) $(BUILDDIR)/changes
 	@echo
 	@echo "The overview file is in $(BUILDDIR)/changes."
 
 .PHONY: linkcheck
-linkcheck: bin/python  ## Run linkcheck
+linkcheck: venv/bin/python  ## Run linkcheck
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
 		"or in $(BUILDDIR)/linkcheck/ ."
 
 .PHONY: linkcheckbroken
-linkcheckbroken: bin/python  ## Run linkcheck and show only broken links
+linkcheckbroken: venv/bin/python  ## Run linkcheck and show only broken links
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck | GREP_COLORS='0;31' grep -wi "broken\|redirect" --color=auto || test $$? = 1
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
 		"or in $(BUILDDIR)/linkcheck/ ."
 
 .PHONY: vale
-vale: bin/python  ## Run Vale style, grammar, and spell checks
-	bin/vale sync
-	bin/vale --no-wrap $(VALEOPTS) $(VALEFILES)
+vale: venv/bin/python  ## Run Vale style, grammar, and spell checks
+	venv/bin/vale sync
+	venv/bin/vale --no-wrap $(VALEOPTS) $(VALEFILES)
 	@echo
 	@echo "Vale is finished; look for any errors in the above output."
 
@@ -197,7 +197,7 @@ html_meta:  ## Add meta data headers to all Markdown pages
 	python ./docs/addMetaData.py
 
 .PHONY: doctest
-doctest: bin/python
+doctest: venv/bin/python
 	cd $(DOCS_DIR) && $(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
 	@echo "Testing of doctests in the sources finished, look at the " \
 	      "results in $(BUILDDIR)/doctest/output.txt."

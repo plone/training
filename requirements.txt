@@ -4,6 +4,7 @@ Sphinx
 lesscpy
 linkify-it-py
 myst-parser
+plone-sphinx-theme
 sphinx-autobuild
 sphinx-book-theme
 sphinx-copybutton
