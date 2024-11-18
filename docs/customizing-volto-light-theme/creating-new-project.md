@@ -1,25 +1,25 @@
 ---
 myst:
   html_meta:
-    'description': 'Learn How to customize the Footer of the page'
-    'property=og:description': 'Learn How to customize the Footer of the page'
-    'property=og:title': 'Footer customization'
-    'keywords': 'Plone, Volto, Training, Theme, Footer'
+    "description": "Create a new project with Plone and Volto"
+    "property=og:description": "Create a new project with Plone and Volto"
+    "property=og:title": "Create a new project with Plone and Volto"
+    "keywords": "Plone, Volto, Training, Theme, Footer"
 ---
 
-# Creating a New Project with Plone and Volto
+# Create a new project with Plone and Volto
 
 Follow the steps below to create a new project using Plone 6 and Volto. This guide assumes you have `pipx` installed.
 
-### Step 1: Install CookiePlone
+## Step 1: install Cookieplone
 
-First, install `cookieplone`—a tool for setting up new Plone projects—using `pipx`:
+First, install Cookieplone—a tool for setting up new Plone projects—using `pipx`:
 
 ```shell
 pipx install cookieplone
 ```
 
-### Step 2: Create the Project
+## Step 2: create the project
 
 Once Cookieplone is installed, run the command below to start the project creation process:
 
@@ -49,42 +49,42 @@ Here are the prompts you will encounter:
 
 After answering these prompts, the project will be created.
 
-### Step 3: Install Dependencies
+## Step 3: install dependencies
 
 Once the project is created, you need to install dependencies for both the backend and frontend.
 
-1. **Install the backend and frontend dependencies**:
+1.  Install the backend and frontend dependencies:
 
-```shell
-make install
-```
+    ```shell
+    make install
+    ```
 
-2. **Start the backend**:
+2.  Start the backend:
 
-```shell
-make backend-start
-```
+    ```shell
+    make backend-start
+    ```
 
-3. **Start the frontend**:
+3.  Start the frontend:
 
-```shell
-make frontend-start
-```
+    ```shell
+    make frontend-start
+    ```
 
-### Step 4: Commit the Initial Changes
+## Step 4: commit the initial changes
 
-To commit your initial project files to Git, run the following commands:
+To commit your initial project files to git, run the following commands:
 
 ```shell
 git add .
 git commit -m 'initial-commit' --no-verify
 ```
 
-### Summary
+## Summary
 
 - Use `cookieplone` to create a new Plone project.
 - Use `make install` to install dependencies.
 - Start backend with `make backend-start` and frontend with `make frontend-start`.
-- Commit the initial files to version control using Git.
+- Commit the initial files to version control using git.
 
 That's it! You've successfully set up your Plone project with Volto.
