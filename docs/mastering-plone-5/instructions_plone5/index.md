@@ -157,7 +157,7 @@ If you point your browser at <http://localhost:8080> you see that Plone is runni
 A running plone instance.
 ```
 
-There is no Plone site yet - we will create one in {doc}`/mastering-plone-5/instructions_plone5/features`.
+There is no Plone site yet - we will create one in {doc}`/mastering-plone-5/features`.
 
 Now you have a working Plone site up and running and can continue with the next chapter.
 

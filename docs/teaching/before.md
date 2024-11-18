@@ -1,15 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Before the training: Create material, invite trainees, preparation"
+    "property=og:description": "Before the training: Create material, invite trainees, preparation"
+    "property=og:title": "Before the training: Create material, invite trainees, preparation"
+    "keywords": "Plone, Training, material, invite, trainees, preparation"
 ---
 
 (trainthetrainers-before-the-training-label)=
 
-# Before the training: Create  material, invite trainees, preparation
+# Before the training: Create material, invite trainees, preparation
 
 ```{warning}
 This chapter is a first version.

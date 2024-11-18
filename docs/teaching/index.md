@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Teaching Plone Trainings"
+    "property=og:description": "Teaching Plone Trainings"
+    "property=og:title": "Teaching Plone Trainings"
+    "keywords": "Teaching, training"
 ---
 
 (teaching-index-label)=
