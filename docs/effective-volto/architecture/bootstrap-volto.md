@@ -19,7 +19,7 @@ A copy of this information is placed here, with the caveat that it may be out of
 If you have a working Node JavaScript development already set up on your machine or you prefer
 another management tool to install/maintain node this step is not needed. If you have less
 experience with setting up JavaScript, it's a good idea to integrate nvm for development, as
-it provides easy access to any NodeJS released version.
+it provides easy access to any Node.js released version.
 
 1.  Open a terminal console and type:
 
