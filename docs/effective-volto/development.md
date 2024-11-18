@@ -11,12 +11,10 @@ myst:
 
 
 ```{toctree}
----
-caption: Development tools
-name: toc-effective-volto-development
-maxdepth: 2
-numbered: true
----
+:caption: Development tools
+:name: toc-effective-volto-development
+:maxdepth: 2
+:numbered:
 
 development/setup
 development/environmentvariables
