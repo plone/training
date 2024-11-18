@@ -47,7 +47,7 @@ Here is the list of recommended addons to install, including VLT—which should 
 
 ### Step 3: Configure Volto Light Theme as the Theme Provider
 
-To leverage a cohesive set of styles, components, and design patterns that align with Volto’s best practices, you need to set VLT as your theme provider.
+To leverage a cohesive set of styles, components, and design patterns that align with Volto's best practices, you need to set VLT as your theme provider.
 
 Open the `volto.config.js` file in your `frontend` folder and modify it as shown below:
 

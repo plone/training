@@ -27,7 +27,7 @@ Once Cookieplone is installed, run the command below to start the project creati
 pipx run cookieplone
 ```
 
-You’ll be prompted with several questions.
+You'll be prompted with several questions.
 For this tutorial, you should accept the default values by pressing {kbd}`Enter`, except for the following.
 [Insert exceptions here.]
 

@@ -7,7 +7,7 @@ myst:
     "keywords": "Plone, Volto, Training"
 ---
 
-# Volto-light-theme Concepts
+# Volto Light Theme Concepts
 
 ## Introduction
 
