@@ -28,11 +28,11 @@ Edit {file}`frontend/src/addons/volto-ploneconf2023/package.json` and append `@p
 
 ```json
 "addons": [
-  ...,
+  "...more add-ons",
   "@plonegovbr/volto-code-block"
 ],
 "dependencies": {
-  ...,
+  "...more dependencies": "*",
   "@plonegovbr/volto-code-block": "*"
 }
 ```
