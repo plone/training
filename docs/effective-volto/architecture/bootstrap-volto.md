@@ -42,7 +42,7 @@ it provides easy access to any Node.js released version.
     nvm version
     ```
 
-4.  Install any active LTS version of NodeJS (https://github.com/nodejs/release#release-schedule):
+4.  Install any active LTS version of Node.js (https://github.com/nodejs/release#release-schedule):
 
     ```bash
     nvm install 18
