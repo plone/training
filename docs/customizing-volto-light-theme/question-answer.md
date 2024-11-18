@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": "Questions And Answer"
-    "property=og:description": "Questions And Answer"
-    "property=og:title": "Questions And Answer"
-    "keywords": "Plone, Volto, Training"
+    "description": "Questions and answers"
+    "property=og:description": "Questions and answers"
+    "property=og:title": "Questions and answers"
+    "keywords": "Plone, Volto, Training, Volto Light Theme"
 ---
 
-# Question and Answer
+# Questions and answers
