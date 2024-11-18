@@ -30,7 +30,7 @@ This training is best suited for developers who have prior experience with Volto
 concepts
 creating-new-project
 installing-vlt
-adding-installing-new-block
+integrate-new-block
 theming
 question-answer
 ```
