@@ -10,12 +10,10 @@ myst:
 # Testing
 
 ```{toctree}
----
-caption: Testing
-name: toc-effective-volto-testing
-maxdepth: 2
-numbered: true
----
+:caption: Testing
+:name: toc-effective-volto-testing
+:maxdepth: 2
+:numbered:
 
 testing/acceptance
 testing/jest

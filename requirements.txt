@@ -1,7 +1,6 @@
 -c constraints.txt
 
 Sphinx
-lesscpy
 linkify-it-py
 myst-parser
 plone-sphinx-theme

@@ -35,7 +35,7 @@ A linux based laptop (Ubuntu, macOS) with code editor of your choice (we recomme
 ```{toctree}
 :caption: Plone Theming
 :maxdepth: 1
-:numbered: true
+:numbered:
 
 preparation
 ttw_customizations

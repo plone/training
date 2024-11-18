@@ -1,15 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "During training days: what to expect, do's and don'ts"
+    "property=og:description": "During training days: what to expect, do's and don'ts"
+    "property=og:title": "During training days: what to expect, do's and don'ts"
+    "keywords": "Training, Plone"
 ---
 
 (trainthetrainers-during-training-day-label)=
 
-# During training day(s): what to expect, do's and don'ts
+# During training days: what to expect, do's and don'ts
 
 ```{warning}
 This chapter is a work in progress
@@ -17,14 +17,14 @@ This chapter is a work in progress
 
 This chapter will touch on subjects like:
 
-> - How to structure your training day
-> - Getting your trainees 'in sync'
-> - Correcting students when they stray or get noisy
-> - Using material, beamers, etc
-> - breaks and attention span
-> - What if you run out of time
-> - Student and trainer fatigue
-> - Trainers high
+- How to structure your training day
+- Getting your trainees 'in sync'
+- Correcting students when they stray or get noisy
+- Using material, beamers, etc
+- breaks and attention span
+- What if you run out of time
+- Student and trainer fatigue
+- Trainers high
 
 ## Structure of your training day
 

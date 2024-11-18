@@ -31,12 +31,10 @@ For Plone Classic see training {doc}`/theming/index`, training {doc}`/mastering-
 ```
 
 ```{toctree}
----
-caption: Mastering Plone 6 Development
-name: toc-mastering
-maxdepth: 3
-numbered: 2
----
+:caption: Mastering Plone 6 Development
+:name: toc-mastering
+:maxdepth: 3
+:numbered: 2
 
 about_mastering
 intro

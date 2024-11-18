@@ -21,12 +21,10 @@ Mastering Plone is intended as a week-long training for people who are new to Pl
 At conferences a shortened 2-day version of the advanced training with a slightly modified order is held.
 
 ```{toctree}
----
-caption: Mastering Plone 5 Development
-name: toc-mastering5
-maxdepth: 3
-numbered: 2
----
+:caption: Mastering Plone 5 Development
+:name: toc-mastering5
+:maxdepth: 3
+:numbered: 2
 
 about_mastering
 intro

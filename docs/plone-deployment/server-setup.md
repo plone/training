@@ -29,7 +29,7 @@ cp .env_dist .env
 
 Customize the {file}`.env` file to match your specific deployment environment. Here’s an example configuration:
 
-```plaintext
+```shell
 DEPLOY_ENV=prod
 DEPLOY_HOST=ploneconf2023-<user>.tangrama.com.br
 DEPLOY_PORT=22

@@ -23,7 +23,7 @@ which is intended as a half to full day training for people who already know the
 ```{toctree}
 :caption: Volto Hands-On
 :maxdepth: 2
-:numbered: true
+:numbered:
 
 intro
 quickstart

@@ -142,13 +142,6 @@ make vale
 
 See the output on the console for suggestions.
 
-You can also pass options to vale in the `VALEOPTS` environment variable.
-In the following example, vale will not return a non-zero exit code when there are errors and will display warnings or errors only, not suggestions.
-
-```shell
-make vale VALEOPTS="--no-exit --minAlertLevel='warning'"
-```
-
 
 ### `html_meta`
 
@@ -157,4 +150,30 @@ See {ref}`authors-html-meta-data-label` for more info.
 
 ```shell
 make html_meta
+```
+
+
+## Overriding configuration options
+
+Both Sphinx and vale support overriding configuration options.
+The following examples serve as tips for spotting mistakes in your training.
+
+In Sphinx, you can use the `SPHINXOPTS` environment variable to set [configuration options](https://www.sphinx-doc.org/en/master/usage/configuration.html) of [`sphinx-build`](https://www.sphinx-doc.org/en/master/man/sphinx-build.html).
+Syntax is in the following form.
+
+```shell
+make SPHINXOPTS="OPTION VALUE" BUILDER
+```
+
+The following example shows how to clean then build a live HTML preview of the trainings while suppressing syntax highlighting failures.
+
+```shell
+make SPHINXOPTS="-D suppress_warnings=['misc.highlighting_failure']" clean livehtml
+```
+
+You can also pass options to vale in the `VALEOPTS` environment variable.
+In the following example, vale will not return a non-zero exit code when there are errors and will display warnings or errors only, not suggestions.
+
+```shell
+make vale VALEOPTS="--no-exit --minAlertLevel='warning'"
 ```
