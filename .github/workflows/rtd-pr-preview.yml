@@ -18,5 +18,5 @@ jobs:
     steps:
       - uses: readthedocs/actions/preview@v1
         with:
-          project-slug: "plonetraining"
+          project-slug: "plone-training"
           single-version: "true"
