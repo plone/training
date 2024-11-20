@@ -165,5 +165,5 @@ Written by smart people:
 - ...
 
 ```{seealso}
-- The Keynote by Cris Ewing at PyCon 2016: <https://www.youtube.com/watch?v=eGRJbBI_H2w&feature=youtu.be&t=21m47s>
+- The Keynote by Cris Ewing at PyCon 2016: <https://www.youtube-nocookie.com/embed/eGRJbBI_H2w?feature=youtu.be&t=21m47s&privacy_mode=1>
 ```
