@@ -85,6 +85,23 @@ def normalize_path(path):
 def create_url(origin_url, url_path):
     return f"{origin_url.rstrip('/')}/{url_path}"
 
+def transform_path_to_url(path, base_url):
+    """
+    Transform a file path to a URL, replacing underscores with hyphens in folder names only.
+
+    Args:
+        path (str): The path to the HTML file.
+        base_url (str): The base URL.
+    
+    Returns:
+        str: The transformed URL.
+    """
+    transformed_path = '/'.join(
+        part.replace('_', '-') if '.html' not in part else part
+        for part in path.replace('./_build/html/', '').split('/')
+    )
+    return f"{base_url.rstrip('/')}/{transformed_path}"
+
 
 def generate_breadcrumb_for_path(path):
     """
@@ -143,7 +160,7 @@ def upload_doc(path):
     """
     slug = get_slug(path)
     title, article = extract_content(path)
-    origin_url = f"{PUBLIC_URL}{path.replace('./_build/html/', '')}"  # noqa
+    origin_url = transform_path_to_url(path, PUBLIC_URL)
     sdk.NucliaUpload().text (
         path=path,
         format="HTML",
