@@ -77,14 +77,6 @@ def get_slug(path):
     return slug
 
 
-def normalize_path(path):
-    path = path.replace('./_build/html/', '')
-    return path.replace('.html', '').lstrip('/')
-
-
-def create_url(origin_url, url_path):
-    return f"{origin_url.rstrip('/')}/{url_path}"
-
 def transform_path_to_url(path, base_url):
     """
     Transform a file path to a URL, replacing underscores with hyphens in folder names only.
@@ -137,7 +129,7 @@ def generate_breadcrumb_for_path(path):
             label = title.get_text() if title else path_item
             
             new_data = {
-                "url": create_url(PUBLIC_URL, current_path.rstrip('/')),
+                "url": transform_path_to_url(current_path.rstrip('/'),PUBLIC_URL),
                 "label": label
             }
 
