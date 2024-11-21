@@ -68,4 +68,6 @@ index 56feec6..41aa96b 100644
  };
  ```
 
+You'll need to restart your Plone frontend to see the changes.
+
 That's it! Your project should now be using Volto Light Theme with its additional blocks and components.
