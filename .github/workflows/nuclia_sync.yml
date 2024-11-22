@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Nuclia Sync
         env:
-          DEPLOY_NUCLIA_URL: ${{github.repository.DEPLOY_NUCLIA_URL}}
+          DEPLOY_NUCLIA_URL: ${{vars.DEPLOY_NUCLIA_URL}}
           DEPLOY_NUCLIA_TOKEN: ${{secrets.DEPLOY_NUCLIA_TOKEN}}
         run: |
           python3 upload.py
