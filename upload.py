@@ -101,7 +101,7 @@ def delete_doc(path):
     res = sdk.NucliaResource()
     try:
         res.delete(
-            rid=res.id,
+            slug=slug,
             url=KB,
             api_key=API_KEY,
         )
