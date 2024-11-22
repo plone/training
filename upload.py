@@ -98,10 +98,9 @@ def upload_doc(path):
 def delete_doc(path):
     slug = get_slug(path)
     print(f"Deleting {slug}")
-    kb = sdk.NucliaKB()
+    res = sdk.NucliaResource()
     try:
-        res = kb.get_resource_by_slug(slug=slug, url=KB, api_key=API_KEY)
-        kb.delete(
+        res.delete(
             rid=res.id,
             url=KB,
             api_key=API_KEY,
