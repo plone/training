@@ -5,6 +5,7 @@ myst:
     "property=og:description": ""
     "property=og:title": ""
     "keywords": ""
+orphan:
 ---
 
 # What Vagrant is and does

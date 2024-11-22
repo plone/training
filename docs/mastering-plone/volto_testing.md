@@ -103,7 +103,7 @@ For example you see that the heading is the talk title with preceding type of ta
 
 {file}`packages/volto-ploneconf/src/components/Views/__snapshots__/Talk.test.js.snap`
 
-```html
+```js
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders a talk view component with only required props 1`] = `

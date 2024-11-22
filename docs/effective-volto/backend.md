@@ -12,12 +12,10 @@ myst:
 Intro
 
 ```{toctree}
----
-caption: Backend
-name: toc-effective-volto-backend
-maxdepth: 2
-numbered: true
----
+:caption: Backend
+:name: toc-effective-volto-backend
+:maxdepth: 2
+:numbered:
 
 backend/plone-restapi-endpoints
 backend/writing-endpoint

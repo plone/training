@@ -17,12 +17,10 @@ So, we will be bootstrapping a Full Plone 6 project in order to follow the train
 
 
 ```{toctree}
----
-caption: Getting Started
-name: toc-effective-volto-getting-started
-maxdepth: 2
-numbered: true
----
+:caption: Getting Started
+:name: toc-effective-volto-getting-started
+:maxdepth: 2
+:numbered:
 
 getting-started/project
 getting-started/add-on

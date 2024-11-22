@@ -618,9 +618,9 @@ Keep in mind though that in a very strict sense you are lying to the users since
 
 Talks:
 
-* [A new hope for migrations and upgrades](https://www.youtube.com/watch?v=6xoXXyGnk4U) - Talk at Ploneconf 2021 (online).
-* [collective.exportimport: Tips, tricks and deploying staging content](https://www.youtube.com/watch?v=SfHPKgeA0I0) - Talk at Ploneconf 2021 (online).
-* [Make Plone Migrations fun again with collective.exportimport](https://www.youtube.com/watch?v=HEBF5VqlUc8) - Talk at World Plone Day 2021
+* [A new hope for migrations and upgrades](https://www.youtube-nocookie.com/embed/6xoXXyGnk4U?privacy_mode=1) - Talk at Ploneconf 2021 (online).
+* [collective.exportimport: Tips, tricks and deploying staging content](https://www.youtube-nocookie.com/embed/SfHPKgeA0I0?privacy_mode=1) - Talk at Ploneconf 2021 (online).
+* [Make Plone Migrations fun again with collective.exportimport](https://www.youtube-nocookie.com/embed/HEBF5VqlUc8?privacy_mode=1) - Talk at World Plone Day 2021
 
 [Migrating Content with Transmogrifier](https://2022.training.plone.org/transmogrifier/index.html)
 ```
