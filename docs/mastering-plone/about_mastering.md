@@ -44,8 +44,8 @@ If you want to have an on-site training or want to attend a public training, ple
 At Ploneconf 2021 the Mastering Plone Development training has been recorded.
 It's a shortened version of the training, given by Philip Bauer and Katja Süss.
 
-[Part 1 – Mastering Plone Development Training](https://www.youtube.com/watch?v=Jzuw3uWtzzI)  
-[Part 2 – Mastering Plone Development Training](https://www.youtube.com/watch?v=IEcGKzo3PO0)  
+[Part 1 – Mastering Plone Development Training](https://www.youtube-nocookie.com/embed/Jzuw3uWtzzI?privacy_mode=1)  
+[Part 2 – Mastering Plone Development Training](https://www.youtube-nocookie.com/embed/IEcGKzo3PO0?privacy_mode=1)  
 
 
 (about-trainers-label)=

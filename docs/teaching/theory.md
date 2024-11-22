@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Training theory: education, how people learn and process information"
+    "property=og:description": "Training theory: education, how people learn and process information"
+    "property=og:title": "Training theory: education, how people learn and process information"
+    "keywords": "Training, theory, education, learn, process, information, Plone"
 ---
 
 (trainthetrainers-training-theory-label)=

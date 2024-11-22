@@ -14,19 +14,63 @@
         {% trans %}Searching for multiple words only shows matches that contain
         all words.{% endtrans %}
       </div>
+      <div class="nuclia-search">
+<script src="https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js"></script>
+<script src="https://unpkg.com/@nuclia/core@latest/umd/index.js"></script>
+
+<!-- Adding the widget to search result page -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const queryInput = document.querySelector('form.bd-search input').value;
+
+    const script = document.createElement("script");
+    script.src = "https://cdn.nuclia.cloud/nuclia-video-widget.umd.js";
+    script.async = true; // adding this to maybe load nuclia widget faster
+
+    // Initialize the Nuclia widget once it's loaded
+    script.onload = () => {
+      const widget = document.getElementsByTagName("nuclia-search-bar")[0]; // get the widget
+      // Pass the query to the Nuclia Search Widget
+      widget.search(queryInput);
+
+      const script2 = document.createElement("script"); // Call searchtester script after we get search results
+      script2.src = "{{ pathto('_static/searchtester.js', 1) }}";
+
+      // On searchtester.js load call function to add breadcrumbs
+      script2.onload = () => {
+        addBreadcrumbsToResults();
+      };
+      document.head.appendChild(script2);
+    };
+
+    document.head.appendChild(script);
+  });
+</script>
+
+<!-- Nuclia Widget -->
+<nuclia-search-bar mode = "dark"
+  knowledgebox="62407006-2711-4631-9c03-761d156de289"
+  zone="europe-1"
+  features="answers,navigateToLink,hideThumbnails,rephrase"
+  reranker="predict"
+></nuclia-search-bar>
+
+<!-- Search results -->
+<nuclia-search-results mode = "dark"></nuclia-search-results>
+
+<!-- Optional script below-->
+<script>
+  // Activate the search field on page load
+  let searchInput = document.querySelector("form.bd-search input");
+  if (searchInput) {
+    searchInput.focus();
+    searchInput.select();
+    console.log("[PST]: Set focus on search field.");
+  }
+</script>
     {% endblock %}
-    {% include "components/search-field.html" %}
-    <div id="search-results"></div>
   </div>
-  <script>
-    // Activate the search field on page load
-    let searchInput = document.querySelector("form.bd-search input");
-    if (searchInput) {
-        searchInput.focus();
-        searchInput.select();
-        console.log("[PST]: Set focus on search field.");
-    }
-  </script>
+</div>
 {% endblock docs_body %}
 {# Below sections just re-create the behavior of Sphinx default search #}
 {# Page metadata #}

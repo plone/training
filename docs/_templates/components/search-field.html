@@ -16,30 +16,4 @@
            spellcheck="false"/>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
   </div>
-  <div class="d-flex visually-hidden">
-    <label for="training">Filter by training</label>
-  </div>
-  <div class="d-flex">
-    <select class="form-control" name="training" id="training" onchange="this.form.submit()">
-      <option value="all">all trainings</option>
-      {% for id, title in
-        [
-        ['mastering-plone', 'Mastering Plone development'],
-        ['mastering-plone-5', 'Mastering Plone development (Plone 5)'],
-        ['voltohandson','Volto hands-On (beginner)'],
-        ['voltoaddons','Volto add-ons'],
-        ['volto_customization','Volto customization for JavaScript beginners'],
-        ['effective-volto','Effective Volto (advanced)'],
-        ['testing','Testing'],
-        ['theming','Plone 6 Classic UI theming'],
-        ['plone-deployment','Deployment'],
-        ['workflow','Workflow'],
-        ['migrations','Migration best practice'],
-
-        ['contributing', 'Contributing to Plone'],
-        ] %}
-        <option value="{{id}}">{{ title }}</option>
-      {% endfor %}
-    </select>
-  </div>
 </form>

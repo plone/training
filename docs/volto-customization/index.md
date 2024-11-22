@@ -43,7 +43,7 @@ Prerequisites:
 :caption: Volto Customization for JavaScript Beginners
 :name: toc-voltocustomization
 :maxdepth: 3
-:numbered: true
+:numbered:
 
 intro
 installation
@@ -55,8 +55,6 @@ schema
 teaser_variations
 data_adapters
 styling
-extending_teasers
-listing_block
 
 ```
 
