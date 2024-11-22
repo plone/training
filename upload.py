@@ -79,7 +79,7 @@ def get_slug(path):
 
 def transform_path_to_url(path, base_url):
     """
-    Transform a file path to a URL, replacing underscores with hyphens in folder names only.
+    Transform a file path to a URL.
 
     Args:
         path (str): The path to the HTML file.
@@ -89,8 +89,7 @@ def transform_path_to_url(path, base_url):
         str: The transformed URL.
     """
     transformed_path = '/'.join(
-        part.replace('_', '-') if '.html' not in part else part
-        for part in path.replace('./_build/html/', '').split('/')
+        part for part in path.replace('./_build/html/', '').split('/')
     )
     return f"{base_url.rstrip('/')}/{transformed_path}"
 
