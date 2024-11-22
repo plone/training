@@ -22,11 +22,9 @@ Tips and tricks will be also covered, providing a good amount of insights for th
 This training is intended for an intermediate audience that already has some contact with Volto and tried it out, or has a decent amount of experience with it. Even experienced Volto developers will find this training useful, as less known areas of Volto are exposed.
 
 ```{toctree}
----
-caption: Effective Volto
-name: toc-effective-volto
-maxdepth: 3
----
+:caption: Effective Volto
+:name: toc-effective-volto
+:maxdepth: 3
 
 about_effective_volto
 getting-started

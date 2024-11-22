@@ -29,13 +29,9 @@ clean:  ## Clean build directory
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/*
 
 .PHONY: distclean
-distclean:  ## Clean docs build directory and Python virtual environment, then install requirements
+distclean:  ## Clean docs build directory and Python virtual environment
+	rm -rf venv
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/
-	python3 -m venv venv --clear
-	venv/bin/python -m pip install --upgrade pip
-	venv/bin/pip install -r requirements.txt
-	@echo
-	@echo "Installation of requirements completed."
 
 venv/bin/python:  ## Set up training: Install requirements
 	python3 -m venv venv

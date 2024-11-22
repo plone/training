@@ -24,7 +24,7 @@ ReactJS and Volto.
 ```{toctree}
 :caption: Volto Add-ons Development
 :maxdepth: 1
-:numbered: true
+:numbered:
 
 intro
 

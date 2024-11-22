@@ -18,9 +18,9 @@ A collection of trainings developed and created by the Plone community.
 
 mastering-plone/index
 mastering-plone-5/index
+volto-customization/index
 voltohandson/index
 voltoaddons/index
-volto_customization/index
 effective-volto/index
 testing/index
 theming/index
@@ -44,74 +44,76 @@ teaching/index
 
 {ref}`mastering-plone-label`
 
-: Best practices of Plone development, backend and frontend.
+:   Best practices of Plone development for both the backend and frontend.
 
 {ref}`mastering-plone5-label`
 
-: *Mastering Plone 5 development training* is the predecessor of the Plone 6 version. It includes also *Plone Classic* topics like viewlets, views, portlets, etc..
+:   Mastering Plone 5 development training is the predecessor of the Plone 6 version.
+    It includes also Plone Classic UI topics including viewlets, views, portlets, and other customizations.
 
 {doc}`testing/index`
 
-: Best practices for testing Plone add-ons.
+:   Best practices for testing Plone add-ons.
 
 
 ## Volto, React, and Javascript
 
+{doc}`volto-customization/index`
+
+:   Are you new to JavaScript development and eager to explore the world of Volto customization?
+    Unlock the power of Volto, the modern React-based CMS framework for Plone, by joining our comprehensive half-day training designed specifically for JavaScript beginners.
+
 {doc}`voltohandson/index`
 
-: Learn how to quickly bootstrap and customize a Volto project
+:   Learn how to quickly bootstrap and customize a Volto project
 
 {doc}`voltoaddons/index`
 
-: Build custom Volto add-ons, explore more advanced Volto topics.
-
-{doc}`volto_customization/index`
-
-: Are you new to JavaScript development and eager to explore the world of Volto customization? Unlock the power of Volto, the modern React-based CMS framework for Plone, by joining our comprehensive half day training designed specifically for JavaScript beginners.
+:   Build custom Volto add-ons, explore more advanced Volto topics.
 
 {doc}`effective-volto/index`
 
-: Learn proven practices of Plone frontend development.
-  The training covers essential concepts, as well as good practices and notions of how Volto works under the hood.
-  Tips and tricks are also covered, providing a good amount of insights for those who want to learn more beyond the Volto basics.
-  Training for intermediate/advanced developers.
+:   Learn proven practices of Plone frontend development.
+    The training covers essential concepts, as well as good practices and notions of how Volto works under the hood.
+    Tips and tricks are also covered, providing a good amount of insights for those who want to learn more beyond the Volto basics.
+    Training for intermediate/advanced developers.
 
 [Use, Integrate and develop Patterns for Plone 6 Classic](https://patternslib.github.io/patternslib-training)
 
-: Use, create and integrate JavaScript functionality based on [Patternslib](https://patternslib.com/) into Plone 6.
+:   Use, create and integrate JavaScript functionality based on [Patternslib](https://patternslib.com/) into Plone 6.
 
 
 ## Theming
 
 {doc}`theming/index`
 
-: Theming Plone 6 Classic UI
+:   Theming Plone 6 Classic UI
 
 
 ## Deployment
 
 {doc}`plone-deployment/index`
 
-: Deploying Plone 6 for production purposes with Ansible and Docker
+:   Deploying Plone 6 for production purposes with Ansible and Docker
 
 
 ## Other
 
 {doc}`workflow/index`
 
-: How to create and make optimum use of custom Plone workflows
+:   How to create and make optimum use of custom Plone workflows
 
 {doc}`migrations/index`
 
-: Upgrading and migrating Plone sites using `collective.exportimport` and other methods.
+:   Upgrading and migrating Plone sites using `collective.exportimport` and other methods.
 
 {doc}`contributing/index`
 
-: All about contributing to documentation
+:   All about contributing to documentation
 
 {doc}`teaching/index`
 
-: How To Give Technical Trainings
+:   How To Give Technical Trainings
 
 
 ## Archived trainings

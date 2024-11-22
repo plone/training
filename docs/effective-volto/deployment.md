@@ -10,12 +10,10 @@ myst:
 # Deployment
 
 ```{toctree}
----
-caption: Deployment
-name: toc-effective-volto-deployment
-maxdepth: 2
-numbered: true
----
+:caption: Deployment
+:name: toc-effective-volto-deployment
+:maxdepth: 2
+:numbered:
 
 deployment/seamlessmode
 deployment/simple

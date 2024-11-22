@@ -7,11 +7,11 @@ myst:
     "keywords": "Volto, configuration"
 ---
 
-# Most useful volto settings
+# Most useful Volto settings
 
 You can configure Volto by modifying settings in a js-file.
 
-In our addon we can modify the `index.js`
+In our add-on we can modify the `index.js`
 
 ```js
 const applyConfig = (config) => {
@@ -38,11 +38,11 @@ export default applyConfig;
 ```
 
 ```{note}
-The `...` is a use of the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">spread-syntax</a> that "expands" the configuration into its elements and allows to change existing values and add new ones.
+The `...` is a use of the [spread-syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) that "expands" the configuration into its elements and allows to change existing values and add new ones.
 ```
 
 ```{note}
-If you instead make your changes in the project (i.e. not using a addon) you make the same changes in the file `config.js` of the project.
+If you instead make your changes in the project (i.e. not using a add-on) you make the same changes in the file `config.js` of the project.
 ```
 
 Some of the settings are duplicates of settings that exist in the Plone backend.
@@ -70,7 +70,7 @@ export default applyConfig;
 
 Here are some more setting you might use in your projects:
 
-- `contentIcons` - configure Content Types icons. See <a target="_blank" href="https://6.docs.plone.org/volto/configuration/settings-reference.html#term-contentIcons">documentation</a>.
+- `contentIcons` - configure Content Types icons. See [documentation](https://6.docs.plone.org/volto/configuration/settings-reference.html#term-contentIcons).
 - `navDepth` - Navigation levels depth used in the navigation endpoint calls. Increasing this is useful for implementing fat navigation menus.
 - `workflowMapping` - Configure colors for workflow states/transitions - if you have a custom workflow or want to change the default colors.
 - `openExternalLinkInNewTab` - Kind of self-explaining, isn't it?
@@ -78,7 +78,7 @@ Here are some more setting you might use in your projects:
 - `maxFileUploadSize` - Limit the size of uploads
 - `nonContentRoutes` - A list of path strings which are considered to be outside of plone-restapi's content serialization. For example: `/controlpanel, /login,/sitemap,/personal-information` are all nonContentRoutes.
 
-You can find all existing options in the file <a target="_blank" href="https://github.com/plone/volto/blob/main/packages/volto/src/config/index.js#L73">config/index.js</a> of Volto itself which is available in your projects in `frontend/omelette/src/config/index.js`.
+You can find all existing options in the file [`config/index.js`](https://github.com/plone/volto/blob/main/packages/volto/src/config/index.js#L73) of Volto itself which is available in your projects in `frontend/core/packages/volto/src/config/index.js`.
 
 ```{seealso}
 Many options are explained in the {doc}`plone6docs:volto/configuration/settings-reference`

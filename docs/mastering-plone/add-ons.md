@@ -88,7 +88,7 @@ Here are some tips.
 - Once you found an add-on you like, you can ask the community if you made a good choice or if you missed something:
 
   - Message Board: <https://community.plone.org>
-  - There is also a talk that discusses in depth how to find the right add-on: <https://www.youtube.com/watch?v=Sc6NkqaSjqw>
+  - There is also a talk that discusses in depth how to find the right add-on: <https://www.youtube-nocookie.com/embed/Sc6NkqaSjqw?privacy_mode=1>
 
 - Either extend an existing add-on to ﬁt your needs or create a new add-on that does exactly what you need.
 

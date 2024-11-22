@@ -10,12 +10,10 @@ myst:
 # Add-ons
 
 ```{toctree}
----
-caption: Add-ons
-name: toc-effective-volto-addons
-maxdepth: 2
-numbered: true
----
+:caption: Add-ons
+:name: toc-effective-volto-addons
+:maxdepth: 2
+:numbered:
 
 addons/what-is-an-addon
 addons/bootstrap

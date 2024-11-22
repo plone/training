@@ -70,7 +70,7 @@ We can register our own dataAdapter in place of this by maintaining the same def
 In order for dataAdapters to work make sure the code of your block allows and consumes it in its implementation.
 ```
 
-The above Adapter gets consumed in <a target="_blank" href="https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Data.jsx#L47">Data</a> component of teaser block.
+The above Adapter gets consumed in [`Data`](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/components/manage/Blocks/Teaser/Data.jsx#L47) component of teaser block.
 
 Let's register a new `dataAdapter` our config:
 

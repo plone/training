@@ -130,7 +130,14 @@ const TeaserBlockImageDefault = (props) => {
                 : null
             }
           >
-            <div className="teaser-item default">
+            <div
+              className="teaser-item default"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
                   <Image
