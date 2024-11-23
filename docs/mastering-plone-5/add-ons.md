@@ -107,7 +107,7 @@ Once you found an add-on you like you should ask the community if you made a goo
 - Message Board: <https://community.plone.org>
 - Chat: <https://plone.org/support/chat>
 
-There is also a talk that discusses in depth how to find the right add-on: <https://www.youtube.com/watch?v=Sc6NkqaSjqw>
+There is also a talk that discusses in depth how to find the right add-on: <https://www.youtube-nocookie.com/embed/Sc6NkqaSjqw?privacy_mode=1>
 
 (plone5-add-ons-installing-label)=
 

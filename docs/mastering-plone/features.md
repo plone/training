@@ -474,7 +474,7 @@ A content type instance like a page is in a state, for example published.
 The state can be changed.
 Which workflow states a content type instance can be switched to is determined by the workflow transactions.
 
-Have look at one of the news items we created earlier.
+Have a look at one of the news items we created earlier.
 The state is "private" and can be changed to "published" by selecting the "publish" transaction.
 
 The state of a content type instance determines if a user can view, edit or is allowed to execute other modifications like moving or even changing the workflow.
