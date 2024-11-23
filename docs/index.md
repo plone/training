@@ -59,6 +59,10 @@ teaching/index
 
 ## Volto, React, and Javascript
 
+{doc}`customizing-volto-light-theme/index`
+
+:   This training provides comprehensive knowledge and practical skills for theming in Plone 6's Volto frontend by using and extending Volto Light Theme.
+
 {doc}`volto-customization/index`
 
 :   Are you new to JavaScript development and eager to explore the world of Volto customization?
