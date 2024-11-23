@@ -19,6 +19,7 @@ A collection of trainings developed and created by the Plone community.
 mastering-plone/index
 mastering-plone-5/index
 volto-customization/index
+customizing-volto-light-theme/index
 voltohandson/index
 voltoaddons/index
 effective-volto/index
