@@ -176,16 +176,66 @@ sitemap_url_scheme = "{link}"
 html_static_path = ["_static"]
 
 html_theme_options = {
+    "article_header_start": ["toggle-primary-sidebar", "chapter-title"],
+    "extra_footer": """<p>The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license. Plone and the Plone® logo are registered trademarks of the Plone Foundation, registered in the United States and other countries. For guidelines on the permitted uses of the Plone trademarks, see <a href="https://plone.org/foundation/logo">https://plone.org/foundation/logo</a>. All other trademarks are owned by their respective owners.</p>
+    <p>Pull request previews by <a href="https://readthedocs.org/">Read the Docs</a>.</p>""",
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/plone/documentation",
+            "icon": "fa-brands fa-square-github",
+            "type": "fontawesome",
+            "attributes": {
+                "target": "_blank",
+                "rel": "noopener me",
+                "class": "nav-link custom-fancy-css"
+            }
+        },
+        {
+            "name": "Mastodon",
+            "url": "https://plone.social/@plone",
+            "icon": "fa-brands fa-mastodon",
+            "type": "fontawesome",
+            "attributes": {
+                "target": "_blank",
+                "rel": "noopener me",
+                "class": "nav-link custom-fancy-css"
+            }
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/@PloneCMS",
+            "icon": "fa-brands fa-youtube",
+            "type": "fontawesome",
+            "attributes": {
+                "target": "_blank",
+                "rel": "noopener me",
+                "class": "nav-link custom-fancy-css"
+            }
+        },
+        {
+            "name": "X (formerly Twitter)",
+            "url": "https://x.com/plone",
+            "icon": "fa-brands fa-square-x-twitter",
+            "type": "fontawesome",
+            "attributes": {
+                "target": "_blank",
+                "rel": "noopener me",
+                "class": "nav-link custom-fancy-css"
+            }
+        },
+    ],
     "logo": {
         "text": "Plone Training 2024",
     },
+    "navigation_with_keys": True,
     "path_to_docs": "docs",
     "repository_branch": "main",
     "repository_url": "https://github.com/plone/training",
+    "show_toc_level": 2,
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
-    "article_header_start": ["toggle-primary-sidebar", "chapter-title"],
 }
 
 

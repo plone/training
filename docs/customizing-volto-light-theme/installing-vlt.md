@@ -12,7 +12,7 @@ myst:
 
 Follow the steps below to install and configure VLT in your project. VLT provides a clean and modern design with ready-to-use blocks and components.
 
-### Step 1: Install Volto Light Theme
+## Step 1: Install Volto Light Theme
 
 To install VLT, navigate to the {file}`frontend/packages/volto-my-project` folder and run the following command:
 
@@ -30,7 +30,7 @@ While in your project package folder, add VLT to the `addons` list in your {file
 "addons": ["@kitconcept/volto-light-theme"],
 ```
 
-### Step 2: install block add-ons
+## Step 2: install block add-ons
 
 Volto Light Theme comes with several pre-configured add-ons that provide basic blocks for your website. If you'd like to include them, you can add them in the `addons` section in your {file}`package.json`, but this is not required.
 
@@ -49,7 +49,7 @@ Here is the list of recommended addons to install, including VLT, which should b
 ],
 ```
 
-### Step 3: configure Volto Light Theme as the theme provider
+## Step 3: configure Volto Light Theme as the theme provider
 
 To leverage a cohesive set of styles, components, and design patterns that align with Volto's best practices, you need to set VLT as your theme provider.
 
