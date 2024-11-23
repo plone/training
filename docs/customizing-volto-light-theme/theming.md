@@ -25,6 +25,8 @@ src/
     └── _variables.scss
 ```
 
+Remember that if you add new files to your ptoject, it will be necessary to restart your Plone frontend.
+
 ### `_variables.scss`
 
 {file}`_variables.scss` is where you can override the base theme SCSS variables.
@@ -135,7 +137,7 @@ Usually we would want to keep the schema enhancers in individual files per block
 ```js
 import { defineMessages } from 'react-intl';
 import { composeSchema } from '@plone/volto/helpers/Extensions';
-import { defaultStylingSchema } from '@kitconcept/volto-light-theme/packages/volto-light-theme/components/Blocks/schema';
+import { defaultStylingSchema } from '@kitconcept/volto-light-theme/components/Blocks/schema';
 import { addStyling } from '@plone/volto/helpers/Extensions/withBlockSchemaEnhancer';
 
 const messages = defineMessages({
@@ -254,7 +256,7 @@ To demonstrate this feature, we'll add a custom list of themes just for the Rela
 ```js
 import { defineMessages } from 'react-intl';
 import { composeSchema } from '@plone/volto/helpers/Extensions';
-import { defaultStylingSchema } from '@kitconcept/volto-light-theme/packages/volto-light-theme/components/Blocks/schema';
+import { defaultStylingSchema } from '@kitconcept/volto-light-theme/components/Blocks/schema';
 import { addStyling } from '@plone/volto/helpers/Extensions/withBlockSchemaEnhancer';
 
 const messages = defineMessages({

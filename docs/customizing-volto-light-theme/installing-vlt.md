@@ -16,8 +16,12 @@ Follow the steps below to install and configure VLT in your project. VLT provide
 
 To install VLT, navigate to the {file}`frontend/packages/volto-my-project` folder and run the following command:
 
+```{note}
+For now we'll be using an `alpha` release, so we need to specify the correct version.
+```
+
 ```shell
-pnpm install @kitconcept/volto-light-theme
+pnpm install @kitconcept/volto-light-theme@6.0.0-alpha.1
 ```
 
 While in your project package folder, add VLT to the `addons` list in your {file}`package.json`, as follows:

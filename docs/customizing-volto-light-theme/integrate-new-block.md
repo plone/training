@@ -15,8 +15,12 @@ In this training module, we'll learn how to integrate the `@plone-collective/vol
 
 To install the related items block, make sure you are in the {file}`frontend/packages/volto-my-project` folder, and use the following command:
 
+```{note}
+For now we'll be using an `alpha` release, so we need to specify the correct version.
+```
+
 ```shell
-pnpm install @plone-collective/volto-relateditems-block
+pnpm install @plone-collective/volto-relateditems-block@1.0.0-alpha.1
 ```
 
 After installation, ensure that the add-on is included in the `addons` key of your project's {file}`package.json`:
@@ -34,5 +38,7 @@ After installation, ensure that the add-on is included in the `addons` key of yo
   "@kitconcept/volto-light-theme"
 ],
 ```
+
+You'll need to restart your Plone frontend to see the changes.
 
 That's it! Your project should now be using `@plone-collective/volto-relateditems-block`, which shows related items for the content as a list of links.
