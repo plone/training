@@ -25,7 +25,7 @@ src/
     └── _variables.scss
 ```
 
-Remember that if you add new files to your ptoject, it will be necessary to restart your Plone frontend.
+Remember that if you add new files to your project, it will be necessary to restart your Plone frontend.
 
 ### `_variables.scss`
 
