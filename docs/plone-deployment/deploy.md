@@ -18,7 +18,7 @@ This guide outlines the steps to deploy the project using a Docker stack compris
 - **Plone Backend:** The API service.
 - **Postgres 14 Database:** Handles data persistence.
 
-You can find this stack at {file}`devops/stacks/<url>.yml`. It's modular, allowing easy integration of additional services like {term}`Varnish`, `Solr`, or `ElasticSearch`.
+You can find this stack at {file}`devops/stacks/ploneconf2024-<your-github-username>.tangrama.com.br.yml`. It's modular, allowing easy integration of additional services like {term}`Varnish`, `Solr`, or `ElasticSearch`.
 
 ## Building Docker Images
 
@@ -28,8 +28,7 @@ Ensure you build the Docker images for the Frontend and Backend servers before d
 Before deploying, push all code changes and ensure GitHub Actions successfully complete their runs. Execute these commands to format the code and run tests:
 
 ```shell
-make format
-make i18n
+make check
 make test
 ```
 ````
@@ -41,7 +40,7 @@ Utilize the `Makefile` at {file}`devops/Makefile` for manual deployment.
 
 ### Deploying the Stack
 
-Execute the following command to deploy the stack defined in {file}`devops/stacks/<url>.yml` to the remote server:
+Execute the following command to deploy the stack defined in {file}`devops/stacks/ploneconf2024-<your-github-username>.tangrama.com.br.yml` to the remote server:
 
 ```shell
 make stack-deploy
@@ -73,7 +72,7 @@ Monitor the logs of each service with these commands:
 
 ## Automating Deployment with GitHub Actions
 
-{term}`cookiecutter-plone-starter` includes a GitHub Actions Workflow, located at {file}`.github/workflows/manual_deploy.yml`, enabling deployment directly from the GitHub UI.
+{term}`cookieplone` includes a GitHub Actions Workflow, located at {file}`.github/workflows/manual_deploy.yml`, enabling deployment directly from the GitHub UI.
 
 ### Repository Configuration
 

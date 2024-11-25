@@ -9,7 +9,7 @@ myst:
 
 # Start the Project
 
-The {term}`cookiecutter-plone-starter` equips you with essential tools to initiate a local development environment. The {doc}`project-new` offers two methods to launch your project: manually starting the Backend and Frontend servers, or utilizing a Docker Compose stack.
+The {term}`cookieplone` equips you with essential tools to initiate a local development environment. The {doc}`project-new` offers two methods to launch your project: manually starting the Backend and Frontend servers, or utilizing a Docker Compose stack.
 
 ## Running Local Servers
 
@@ -20,7 +20,7 @@ This method requires two terminals as both Backend and Frontend operate in `fore
 Navigate to the project's root folder and execute:
 
 ```shell
-make start-backend
+make backend-start
 ```
 
 This command initiates the Backend server. Upon successful startup, you'll observe:
@@ -43,7 +43,7 @@ Backend server initiation at http://localhost:8080
 In a new terminal at the project root, execute:
 
 ```shell
-make start-frontend
+make frontend-start
 ```
 
 The Frontend initiation takes longer due to the initial codebase compilation. A successful startup displays:
@@ -84,7 +84,7 @@ Ensure port 80 is free, then initiate the stack with:
 make stack-start
 ```
 
-Docker will download necessary images, build Frontend and Backend images, and initiate all services. Upon completion, a message prompts you to visit [http://ploneconf2023.localhost](http://ploneconf2023.localhost).
+Docker will download necessary images, build Frontend and Backend images, and initiate all services. Upon completion, a message prompts you to visit [http://ploneconf2024.localhost](http://ploneconf2024.localhost).
 
 ### Checking the Stack Status
 
@@ -108,12 +108,12 @@ Re-run `make stack-status`, and both Backend and Frontend should now display a *
 
 ### Accessing the Site
 
-Your website is accessible at [http://ploneconf2023.localhost](http://ploneconf2023.localhost).
+Your website is accessible at [http://ploneconf2024.localhost](http://ploneconf2024.localhost).
 
 ```{figure} _static/start_stack_localhost.png
-:alt: Accessing the site at http://ploneconf2023.localhost
+:alt: Accessing the site at http://ploneconf2024.localhost
 
-Accessing the site at http://ploneconf2023.localhost
+Accessing the site at http://ploneconf2024.localhost
 ```
 
 ### Updating the Codebase

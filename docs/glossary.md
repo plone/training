@@ -89,7 +89,7 @@ Dexterity
     [Dexterity](https://github.com/plone/plone.dexterity), the base framework for building content types, both through-the-web and as filesystem code for Zope.
 
 Dublin Core
-    The Dublin Core Schema is a small set of vocabulary terms that can be used to describe web resources (video, images, web pages, and other online content). 
+    The Dublin Core Schema is a small set of vocabulary terms that can be used to describe web resources (video, images, web pages, and other online content).
     It can also be used to describe physical resources such as books or CDs, and objects like artworks.
 
 ZMI
@@ -289,6 +289,12 @@ GenericSetup
 cookiecutter-plone-starter
     [cookiecutter-plone-starter](https://github.com/collective/cookiecutter-plone-starter) is a `cookiecutter` template, created by the Plone community, to bootstrap
     a new Plone 6 project using Volto and a relational database.
+
+Cookiecutter
+    [Cookiecutter](https://github.com/cookiecutter/cookiecutter) is tool used to generate codebases / projects.
+
+cookieplone
+    [cookieplone](https://github.com/plone/cookieplone) is a wrapper around {term}`Cookiecutter` designed to streamline the development of Plone codebases
 
 Traefik
     [Traefik](https://doc.traefik.io/traefik/) is an open-source reverse proxy and load balancer designed to handle HTTP and TCP applications.

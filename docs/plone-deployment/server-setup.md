@@ -31,11 +31,11 @@ Customize the {file}`.env` file to match your specific deployment environment. H
 
 ```shell
 DEPLOY_ENV=prod
-DEPLOY_HOST=ploneconf2023-<user>.tangrama.com.br
+DEPLOY_HOST=ploneconf2024-<your-github-username>.tangrama.com.br
 DEPLOY_PORT=22
 DEPLOY_USER=plone
 DOCKER_CONFIG=.docker
-STACK_NAME=ploneconf2023
+STACK_NAME=ploneconf2024
 ```
 
 ```{note}
@@ -58,10 +58,10 @@ Update the {file}`inventory/hosts.yml` file with the appropriate server details:
 ---
 prod:
   hosts:
-    ploneconf2023-<user>.tangrama.com.br:
+    ploneconf2024-<your-github-username>.tangrama.com.br:
       ansible_user: root
-      host: ploneconf2023-<user>
-      hostname: ploneconf2023-<user>.tangrama.com.br
+      host: ploneconf2024-<your-github-username>
+      hostname: ploneconf2024-<your-github-username>.tangrama.com.br
 ```
 
 ## Initiating Server Setup
@@ -77,8 +77,8 @@ make server-setup
 You should now be able to SSH into the remote server as both **root** and **plone** users:
 
 ```shell
-ssh root@ploneconf2023-<user>.tangrama.com.br
-ssh plone@ploneconf2023-<user>.tangrama.com.br
+ssh root@ploneconf2024-<your-github-username>.tangrama.com.br
+ssh plone@ploneconf2024-<your-github-username>.tangrama.com.br
 ```
 
 ## Setting Up Docker

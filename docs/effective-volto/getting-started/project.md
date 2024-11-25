@@ -58,13 +58,13 @@ In two separate terminal sessions, start backend and frontend:
 To start backend:
 
 ```shell
-make start-backend
+make backend-start
 ```
 
 To start frontend:
 
 ```shell
-make start-frontend
+make frontend-start
 ```
 
 You can stop each one with {kbd}`ctrl-c`.
@@ -78,11 +78,11 @@ make build
 and restart backend and frontend by stopping and re-running
 
 ```shell
-make start-backend
+make backend-start
 ```
 
 ```shell
-make start-frontend
+make frontend-start
 ```
 
 ## Project Generation Options
