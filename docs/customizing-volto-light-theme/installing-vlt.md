@@ -53,24 +53,19 @@ Here is the list of recommended addons to install, including VLT, which should b
 
 To leverage a cohesive set of styles, components, and design patterns that align with Volto's best practices, you need to set VLT as your theme provider.
 
-Open the {file}`volto.config.js` file in your {file}`frontend` folder, and modify it as shown below:
+Open the {file}`volto.config.js` file in your {file}`frontend` folder, and modify it as shown below.
 
-```diff
-diff --git a/frontend/volto.config.js b/frontend/volto.config.js
-index 56feec6..41aa96b 100644
---- a/frontend/volto.config.js
-+++ b/frontend/volto.config.js
-@@ -1,7 +1,7 @@
- const addons = ['volto-my-project'];
--const theme = '';
-+const theme = '@kitconcept/volto-light-theme';
+```{code-block} js
+:emphasize-lines: 2
 
- module.exports = {
-   addons,
--  theme
-+  theme,
- };
- ```
+const addons = ['volto-project-title'];
+const theme = '@kitconcept/volto-light-theme';
+
+module.exports = {
+  addons,
+  theme
+};
+```
 
 You'll need to restart your Plone frontend to see the changes.
 
