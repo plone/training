@@ -24,16 +24,16 @@ Choose a code editor you’re comfortable with, such as VSCode, PyCharm, Sublime
 
 ### 3. **Python**
 
-Install Python version 3.10.x or 3.11.x, ensuring that `pip` is included and updated.
+Install Python version 3.11.x or 3.12.x, ensuring that `pip` is included and updated.
 
 ```shell
 python -m pip install --upgrade pip
 ```
 
-Install `pipx` for managing Python applications:
+Install `pipx` and `uv` for managing Python applications:
 
 ```shell
-python -m pip install --upgrade install pipx
+python -m pip install --upgrade install pipx uv
 ```
 
 ```{tip}
@@ -42,7 +42,7 @@ Use [Pyenv](https://github.com/pyenv/pyenv) if your system doesn’t provide the
 
 ### 4. **Docker**
 
-Ensure Docker version 20.10.18 or above is installed. Verify with:
+Ensure Docker version 27.2.0 or above is installed. Verify with:
 
 ```shell
 docker --version
@@ -63,11 +63,11 @@ nvm install "lts/*"
 ```
 
 ```{warning}
-Ensure to use the Node LTS Version (18) that is officially supported by Volto.
+Ensure to use the Node LTS Version (22) that is officially supported by Volto.
 ```
 
 ```shell
-nvm install "18"
+nvm install "22"
 ```
 
 ````{todo}
@@ -78,13 +78,6 @@ nvm install
 nvm use
 ```
 ````
-
-Install Yeoman globally:
-
-```shell
-nvm alias default "lts/*"
-npm install -g yo
-```
 
 ### 6. **External Services**
 
@@ -104,9 +97,9 @@ We'll use the GitHub Container Registry during the training. The concepts are al
   docker login
   ```
 
-### 7. **Cookiecutter**
+### 7. **Cookieplone**
 
-The latest version of {term}`Cookiecutter` will be used, and it doesn’t require a separate installation as we’ll use `pipx`.
+The latest version of {term}`Cookieplone` will be used, and it doesn’t require a separate installation as we’ll use `pipx`.
 
 ### 8. **Make**
 
@@ -139,4 +132,3 @@ Under {guilabel}`Prefences > Resources > Advanced`, you can configure appropriat
 #### Insufficient Docker virtual memory
 
 Docker requires sufficient memory to install and build images. See the previous item for details.
-

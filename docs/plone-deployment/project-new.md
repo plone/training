@@ -14,70 +14,70 @@ The steps can be adapted for other providers like GitLab.
 
 ## Generating the Codebase
 
-Execute `cookiecutter` to generate a Plone project skeleton using the Cookiecutter {term}`cookiecutter-plone-starter` with the command below.
+Execute `Cookieplone` to generate a Plone project skeleton with the command below.
 
 ```shell
-pipx run cookiecutter gh:collective/cookiecutter-plone-starter
+pipx run cookieplone project
 ```
 
 Answer the prompts as they appear. You can either accept the default values or enter your own.
 
 ```{warning}
-For participants of **Plone Conference 2023**, please use the following settings:
+For participants of **Plone Conference 2024**, please use the following settings:
 
 - `Project Title`: **Plone Conference Training**
-- `Project Slug`: **ploneconf2023**
-- `Project URL`: **ploneconf2023-\<your-github-username\>.tangrama.com.br**
+- `Project Slug`: **ploneconf2024**
+- `Project URL`: **ploneconf2024-\<your-github-username\>.tangrama.com.br**
 - `GitHub Username or Organization`: **\<your-github-username\>**
 ```
 
-An example interaction with the `cookiecutter-plone-starter` wizard is shown below:
+An example interaction with the `Cookieplone` wizard is shown below:
 
 ```{code-block} console
-:emphasize-lines: 1,3,4,25
-  [1/18] Project Title (Project Title): Plone Conference Training
-  [2/18] Project Description (A new project using Plone 6.):
-  [3/18] Project Slug (Used for repository id) (plone-conference-training): ploneconf2023
-  [4/18] Project URL (without protocol) (ploneconf2023.example.com): ploneconf2023-<your-github-username>.tangrama.com.br
-  [5/18] Author (Plone Foundation): Your Name
-  [6/18] Author E-mail (collective@plone.org): <your-github-username>@plone.org
-  [7/18] Python Package Name (ploneconf2023):
-  [8/18] Volto Addon Name (volto-ploneconf2023):
-  [9/18] Choose a Python Test Framework
-    1 - pytest
-    2 - unittest
-    Choose from [1/2] (1):
-  [10/18] Plone Version (6.0.7):
-  [11/18] Should we use Volto Alpha Versions? (Yes):
-  [12/18] Volto Version (17.0.0):
-  [13/18] Volto Generator Version (7.0.1):
-  [14/18] Language
+:emphasize-lines: 1,3,4,10,11,19,
+  [1/17] Project Title (Project Title): Plone Conference Training
+  [2/17] Project Description (A new project using Plone 6.):
+  [3/17] Project Slug (Used for repository id) (plone-conference-training): ploneconf2024
+  [4/17] Project URL (without protocol) (ploneconf2024.example.com): ploneconf2024-<your-github-username>.tangrama.com.br
+  [5/17] Author (Plone Foundation): <Your Name>
+  [6/17] Author E-mail (foo@plone.org): <Your Email>
+  [7/17] Should we use prerelease versions? (No):
+  [8/17] Plone Version (6.0.13):
+  [9/17] Volto Version (18.1.1):
+  [10/17] Python Package Name (ploneconf2024):
+  [11/17] Volto Addon Name (volto-ploneconf2024):
+  [12/17] Language
     1 - English
     2 - Deutsch
     3 - Español
     4 - Português (Brasil)
     5 - Nederlands
     6 - Suomi
-    Choose from [1/2/3/4/5/6] (1):
-  [15/18] GitHub Username or Organization (collective): <your-github-username>
-  [16/18] Container Registry
+    Choose from [1/2/3/4/5/6] (1): 1
+  [13/17] GitHub or GitLab Username or Organization (collective): <your-github-username>
+  [14/17] Container Registry
     1 - GitHub Container Registry
     2 - Docker Hub
-    Choose from [1/2] (1):
-  [17/18] Add Ansible playbooks?
+    3 - GitLab
+    Choose from [1/2/3] (1): 1
+  [15/17] Should we setup a caching server?
     1 - Yes
     2 - No
-    Choose from [1/2] (1):
-  [18/18] Add GitHub Action to Deploy this project?
+    Choose from [1/2] (1): 1
+  [16/17] Add Ansible playbooks?
     1 - Yes
     2 - No
-    Choose from [1/2] (1):
+    Choose from [1/2] (1): 1
+  [17/17] Add GitHub Action to Deploy this project?
+    1 - Yes
+    2 - No
+    Choose from [1/2] (1): 1
 ```
 
 Navigate to your project directory:
 
 ```shell
-cd ploneconf2023
+cd ploneconf2024
 ```
 
 ### Understanding the Codebase
@@ -111,13 +111,7 @@ This process will take a few minutes. Once completed, a success message will app
 Ensure all tests pass on GitHub Actions after pushing the repository by running:
 
 ```shell
-make format
-```
-
-Due to output differences in translations built by `@plone/generator-volto`, execute the following in the root directory:
-
-```shell
-make i18n
+make check
 ```
 
 ## Create a Repository on GitHub
@@ -130,8 +124,8 @@ Visit [GitHub](https://github.com) and log in.
 
 Click the '+' icon in the upper right corner, select 'New repository', and fill in the details:
 
-- **Repository name:** ploneconf2023
-- **Description:** Plone Conference 2023 Training
+- **Repository name:** ploneconf2024
+- **Description:** Plone Conference 2024 Training
 - **Visibility:** Public
 
 Click 'Create repository'.
@@ -169,7 +163,7 @@ Connect your local repository to the remote server. First replace `<your-github-
 'origin' is the default name given to the remote repository, and we also set the default branch to be `main`.
 
 ```shell
-git remote add origin git@github.com:<your-github-username>/ploneconf2023.git
+git remote add origin git@github.com:<your-github-username>/ploneconf2024.git
 git branch -M main
 ```
 

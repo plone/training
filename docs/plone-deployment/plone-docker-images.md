@@ -22,68 +22,37 @@ like the one below:
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
-FROM node:18-slim as base
-FROM base as builder
+ARG VOLTO_VERSION
+FROM plone/frontend-builder:${VOLTO_VERSION} AS builder
 
-RUN <<EOT
+COPY --chown=node packages/volto-project-title /app/packages/volto-project-title
+COPY --chown=node volto.config.js /app/
+COPY --chown=node package.json /app/package.json.temp
+
+RUN --mount=type=cache,id=pnpm,target=/app/.pnpm-store,uid=1000 <<EOT
     set -e
-    apt update
-    apt install -y --no-install-recommends python3 build-essential
-    mkdir /app
-    chown -R node:node /app
-    rm -rf /var/lib/apt/lists/*
+    python3 -c "import json; orig_data = json.load(open('package.json.temp')); orig_deps = orig_data['dependencies']; data = json.load(open('package.json')); data['dependencies'].update(orig_deps); json.dump(data, open('package.json', 'w'), indent=2)"
+    rm package.json.temp
+    pnpm install && pnpm build:deps
+    pnpm build
+    pnpm install --prod
 EOT
 
-COPY --chown=node . /build/
-RUN corepack enable
+FROM plone/frontend-prod-config:${VOLTO_VERSION}
 
-USER node
-WORKDIR /build
-RUN <<EOT
-    set -e
-    make install
-    yarn build
-EOT
-
-FROM base
-
-LABEL maintainer="Plone Community <collective@plone.org>" \
-      org.label-schema.name="ploneconf2023-training-frontend" \
-      org.label-schema.description="Plone Conference Training Frontend." \
+LABEL maintainer="Plone Community <dev@plone.org>" \
+      org.label-schema.name="project-title-frontend" \
+      org.label-schema.description="Project Title frontend image." \
       org.label-schema.vendor="Plone Community"
 
-# Install busybox and wget
+COPY --from=builder /app/ /app/
+
 RUN <<EOT
     set -e
-    apt update
-    apt install -y --no-install-recommends busybox wget
-    busybox --install -s
-    rm -rf /var/lib/apt/lists/*
-    mkdir /app
-    chown -R node:node /app
+    corepack enable pnpm
+    corepack use pnpm@9.1.1
+    corepack prepare pnpm@9.1.1 --activate
 EOT
-
-# Run the image with user node
-USER node
-
-# Copy -
-COPY --from=builder /build/ /app/
-
-# Set working directory to /app
-WORKDIR /app
-
-# Expose default Express port
-EXPOSE 3000
-
-# Set healthcheck to port 3000
-HEALTHCHECK --interval=10s --timeout=5s --start-period=30s CMD [ -n "$LISTEN_PORT" ] || LISTEN_PORT=3000 ; wget -q http://127.0.0.1:"$LISTEN_PORT" -O - || exit 1
-
-# Entrypoint would be yarn
-ENTRYPOINT [ "yarn" ]
-
-# And the image will run in production mode
-CMD ["start:prod"]
-
 ```
 
 ## plone/plone-backend
@@ -97,34 +66,39 @@ One example of such extension would be:
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
-ARG PLONE_VERSION=6.0.7
-FROM plone/server-builder:${PLONE_VERSION} as builder
+ARG PLONE_VERSION=6.0.13
+FROM plone/server-builder:${PLONE_VERSION} AS builder
 
 WORKDIR /app
 
+
 # Add local code
-COPY . .
+COPY scripts/ scripts/
+COPY . src
 
 # Install local requirements and pre-compile mo files
 RUN <<EOT
     set -e
-    bin/pip install mxdev
-    mv requirements-docker.txt requirements.txt
-    sed -i 's/-e src\/ploneconf2023_training\[test\]/src\/ploneconf2023_training/g' mx.ini
-    bin/mxdev -c mx.ini
-    bin/pip install -r requirements-mxdev.txt
-    bin/python /compile_mo.py
+    bin/pip install mxdev uv
+    sed -i 's/-e .\[test\]/./g' src/mx.ini
+    cd /app/src
+    # remove potentially existing virtualenv from local build
+    rm -rf .venv
+    ../bin/mxdev -c mx.ini
+    ../bin/uv pip install -r requirements-mxdev.txt
+    ../bin/python /compile_mo.py
+    cd /app
     rm -Rf src/
 EOT
 
 FROM plone/server-prod-config:${PLONE_VERSION}
 
 LABEL maintainer="Plone Community <collective@plone.org>" \
-      org.label-schema.name="ploneconf2023-training-backend" \
+      org.label-schema.name="ploneconf2024-training-backend" \
       org.label-schema.description="Plone Conference Training Backend." \
       org.label-schema.vendor="Plone Community"
 
-# Copy /app from builder -
+# Copy /app from builder
 COPY --from=builder /app /app
 
 RUN <<EOT
