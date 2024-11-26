@@ -33,7 +33,7 @@ python -m pip install --upgrade pip
 Install `pipx` and `uv` for managing Python applications:
 
 ```shell
-python -m pip install --upgrade install pipx uv
+python -m pip install --upgrade pipx uv
 ```
 
 ```{tip}
