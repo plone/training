@@ -19,7 +19,7 @@ Getting started with Volto involves setting up a development environment, unders
 
 Before you start working with this training, ensure you have the following prerequisites:
 
-- [Node.js LTS (>=20.x)](https://nodejs.org/en) [see instructions for installation](https://6.docs.plone.org/install/install-from-packages.html#nvm)
+- [Node.js LTS (>=20.x)](https://nodejs.org/en) [see instructions for installation](https://6.docs.plone.org/install/create-project.html#nvm)
 - [Python](https://www.python.org/) - See below for specific versions.
 - [pipx](https://pipx.pypa.io/stable/)
 - [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)

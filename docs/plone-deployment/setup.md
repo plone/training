@@ -127,9 +127,7 @@ You can also configure settings for Docker Desktop.
 Under {guilabel}`Prefences > Resources > Advanced`, you can configure appropriate settings for virtual disk limit and memory.
 
 ```{seealso}
-- [Change Docker Desktop settings on Mac](https://docs.docker.com/desktop/settings/#advanced)
-- [Change Docker Desktop settings on Windows](https://docs.docker.com/desktop/settings/#advanced)
-- [Change Docker Desktop settings on Linux](https://docs.docker.com/desktop/settings/#advanced)
+- [Change Docker Desktop settings](https://docs.docker.com/desktop/settings-and-maintenance/settings/)
 ```
 
 ### Insufficient Docker virtual memory

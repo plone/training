@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "Virtual Hosting Services"
     "property=og:description": "Understand how to use Zope infrastructure to rewrite URLs in run time."
-    "property=og:title": ""Virtual Hosting Services"
+    "property=og:title": "Virtual Hosting Services"
     "keywords": "Plone, Deployment, Stack, Configuration, Guide, Virtual Host Monster, VHM"
 ---
 
