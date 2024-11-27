@@ -36,7 +36,7 @@ make test
 
 ## Manual Deployment with `devops/Makefile`
 
-Utilize the `Makefile` at {file}`devops/Makefile` for manual deployment.
+Utilize the {file}`Makefile` at {file}`devops/Makefile` for manual deployment.
 
 ### Deploying the Stack
 
@@ -66,9 +66,9 @@ make stack-create-site
 
 Monitor the logs of each service with these commands:
 
-- Traefik: ```make logs-webserver```
-- Frontend: ```make logs-frontend```
-- Backend: ```make logs-backend```
+-   Traefik: `make logs-webserver`
+-   Frontend: `make logs-frontend`
+-   Backend: `make logs-backend`
 
 ## Automating Deployment with GitHub Actions
 
@@ -88,17 +88,17 @@ Monitor the logs of each service with these commands:
 
 Add secrets in the `Secrets` section of your environment. Refer to the table below:
 
-| Secret Name | Secret Value | Description |
-|-------------|--------------|-------------|
-| DEPLOY_HOST | Your hostname or IP | The Docker Swarm manager's address. |
-| DEPLOY_PORT | 22 | The SSHD port. |
-| DEPLOY_USER | Your username | A user with Docker command permissions. |
-| DEPLOY_SSH  | Content of `devops/etc/keys/plone_prod_deploy_rsa` | The private SSH key for connection. |
-| ENV_FILE    | Content of {file}`devops/.env_file_gha` | File containing environment variables for the stack file. |
+| Secret Name | Secret Value                                             | Description                                               |
+|-------------|----------------------------------------------------------|-----------------------------------------------------------|
+| DEPLOY_HOST | Your hostname or IP                                      | The Docker Swarm manager's address.                       |
+| DEPLOY_PORT | 22                                                       | The SSHD port.                                            |
+| DEPLOY_USER | Your username                                            | A user with Docker command permissions.                   |
+| DEPLOY_SSH  | Content of {file}`devops/etc/keys/plone_prod_deploy_rsa` | The private SSH key for connection.                       |
+| ENV_FILE    | Content of {file}`devops/.env_file_gha`                  | File containing environment variables for the stack file. |
 
 #### Adding Repository Variables
 
-Navigate to `Settings` > `Secrets and Variables` > `Actions`. Under `Variables`, add the repository variable:
+Navigate to {menuselection}`Settings --> Secrets and Variables --> Actions`. Under {guilabel}`Variables`, add the repository variable:
 
 | Name     | Value |
 |----------|-------|
@@ -111,15 +111,15 @@ This variable is referenced in {file}`.github/workflows/manual_deploy.yml`.
 Ensure both Backend and Frontend tests are successful and images for both servers are available.
 
 1. Go to the project's repository on GitHub.
-2. Click the `Actions` tab.
-3. Find **Manual Deployment...** and click `Run workflow`.
-4. Select `Branch: main` under **Use workflow from**.
-5. Press `Run workflow`.
+2. Click the {guilabel}`Actions` tab.
+3. Find {guilabel}`Manual Deployment...` and click {guilabel}`Run workflow`.
+4. Select {guilabel}`Branch: main` under {guilabel}`Use workflow from`.
+5. Press {guilabel}`Run workflow`.
 
-The workflow connects to **DEPLOY_HOST** using **DEPLOY_USER** and **DEPLOY_SSH** key, initiates a new deployment using the specified stack, and provides a detailed deployment report.
+The workflow connects to `DEPLOY_HOST` using `DEPLOY_USER` and `DEPLOY_SSH` key, initiates a new deployment using the specified stack, and provides a detailed deployment report.
 
 ## Accessing the Site
 
 Your site should now be accessible via the defined public URL.
 
-Note: Ensure to replace placeholders like `<url>` with actual values as per your project's specifics. Also, ensure that the paths to files and directories are correct and exist in your project structure.
+Note: Ensure you replace placeholders, such as `<url>`, with actual values per your project's specifics. Also, ensure that the paths to files and directories are correct and exist in your project structure.
