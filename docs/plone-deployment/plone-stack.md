@@ -10,7 +10,7 @@ myst:
 
 Explore the intricate components of the Plone stack, tailored for deploying a modern Plone 6 site with a ReactJS-powered frontend.
 For deployments focusing on Plone Classic UI with server-side HTML rendering, the frontend component is excluded.
-This guide won’t cover the integration of a web accelerator or the setup of an edge caching service.
+This guide won't cover the integration of a web accelerator or the setup of an edge caching service.
 
 ## Components of the Plone Stack
 
@@ -18,7 +18,7 @@ This guide won’t cover the integration of a web accelerator or the setup of an
 
 The webserver, accessible externally on ports 80 and 443, handles the routing and rewriting of HTTP requests to the Plone frontend and backend, and is tasked with TLS termination. While {term}`Nginx` and {term}`Traefik` are recommended, other webservers can also be employed. This training will exclusively utilize Traefik.
 
-To understand the rewrite rules used in Traefik, please read our reference about {term}`Zope`'s [Virtual Hosting Services](./virtual_host).
+To understand the rewrite rules used in Traefik, please read our reference about {term}`Zope`'s {doc}`virtual-host`.
 
 ### Web Accelerator
 
@@ -30,7 +30,7 @@ Hosted on a Node HTTP-server running on port 3000, the Plone frontend constitute
 
 ### Plone Backend
 
-Operating on port 8080, the Plone Backend, a WSGI process, serves as the HTTP server hosting the Plone API. It’s optimal to pair it with a specialized database like ZEO server or a relational database via RelStorage, supporting PostgreSQL, MySQL/MariaDB, and Oracle. A separate shared file system is essential for storing binary data if ZEO is employed.
+Operating on port 8080, the Plone Backend, a WSGI process, serves as the HTTP server hosting the Plone API. It's optimal to pair it with a specialized database like ZEO server or a relational database via RelStorage, supporting PostgreSQL, MySQL/MariaDB, and Oracle. A separate shared file system is essential for storing binary data if ZEO is employed.
 
 ### Database
 

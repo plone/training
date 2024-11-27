@@ -20,7 +20,7 @@ Both Plone Frontend and Backend in your project support add-on integration. Add-
 
 ### Adding a New Block to the Frontend
 
-We’ll illustrate the process of integrating a Frontend add-on, `@plonegovbr/volto-code-block`, which renders highlighted source code blocks. We’ll centralize all modifications within our project's add-on, `volto-ploneconf2024`, to streamline future Volto version upgrades.
+We'll illustrate the process of integrating a Frontend add-on, `@plonegovbr/volto-code-block`, which renders highlighted source code blocks. We'll centralize all modifications within our project's add-on, `volto-ploneconf2024`, to streamline future Volto version upgrades.
 
 #### Incorporating a New Dependency
 
@@ -59,7 +59,7 @@ git push
 
 ## Implementing OAuth Support with GitHub
 
-We’ll now add GitHub OAuth authentication, involving both Backend and Frontend add-ons and GitHub OAuth application creation.
+We'll now add GitHub OAuth authentication, involving both Backend and Frontend add-ons and GitHub OAuth application creation.
 
 ### Creating a GitHub OAuth Application
 
@@ -88,7 +88,7 @@ To ensure the name `ploneconf24.localhost` points to the address `127.0.0.1`, we
 1. Open the Start Menu and search for **Notepad**.
    Right-click on it and choose **Run as administrator**.
    If Windows asks if you want the application to make changes to the system, click **Yes**.
-   (If you don’t open Notepad as an administrator, you won’t be able to modify the `hosts` file.)
+   (If you don't open Notepad as an administrator, you won't be able to modify the `hosts` file.)
 
 2. In Notepad, click **File » Open**.
    Then navigate to the following folder:
@@ -114,7 +114,7 @@ ping ploneconf24.localhost
 
 Start the Docker Compose stack with `make stack-start`. Navigate to [http://ploneconf2024.localhost/ClassicUI/login](http://ploneconf2024.localhost/ClassicUI/login) and authenticate.
 
-Install `pas.plugins.authomatic` from the {guilabel}`Add-ons` control panel and configure it with the following JSON configuration, replacing `KEYHERE` and `SECRETHERE` with your GitHub OAuth application’s client ID and secret.
+Install `pas.plugins.authomatic` from the {guilabel}`Add-ons` control panel and configure it with the following JSON configuration, replacing `KEYHERE` and `SECRETHERE` with your GitHub OAuth application's client ID and secret.
 
 ```json
 {

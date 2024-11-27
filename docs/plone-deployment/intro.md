@@ -55,9 +55,9 @@ simplifies the setup process, making it accessible even for beginners.
 
 #### GitHub and GitHub Actions
 
-With Plone’s development anchored on GitHub, the community is gravitating towards GitHub Actions for new packages.
+With Plone's development anchored on GitHub, the community is gravitating towards GitHub Actions for new packages.
 The principles outlined are adaptable to GitLab, Jenkins, and similar platforms.
 
 #### Kubernetes
 
-While the current training edition doesn’t cover Kubernetes, we anticipate its inclusion in future updates.
+While the current training edition doesn't cover Kubernetes, we anticipate its inclusion in future updates.

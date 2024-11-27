@@ -19,11 +19,11 @@ Linux/macOS
 :   A recent version is preferred. macOS users should have [Homebrew](https://brew.sh/) installed.
 
 Windows
-:   Consider using [WSL2 with Ubuntu](https://documentation.ubuntu.com/wsl/en/latest/), though it’s not officially tested for this training.
+:   Consider using [WSL2 with Ubuntu](https://documentation.ubuntu.com/wsl/en/latest/), though it's not officially tested for this training.
 
 ### 2. Code Editor
 
-Choose a code editor you’re comfortable with, such as VSCode, PyCharm, Sublime, VI, or Emacs.
+Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, VI, or Emacs.
 
 ### 3. Python
 
@@ -40,7 +40,7 @@ python -m pip install --upgrade pipx uv
 ```
 
 ```{tip}
-Use [Pyenv](https://github.com/pyenv/pyenv) if your system doesn’t provide the required Python version.
+Use [Pyenv](https://github.com/pyenv/pyenv) if your system doesn't provide the required Python version.
 ```
 
 ### 4. Docker
@@ -102,7 +102,7 @@ We'll use the GitHub Container Registry during the training. The concepts are al
 
 ### 7. Cookieplone
 
-The latest version of {term}`Cookieplone` will be used, and it doesn’t require a separate installation as we’ll use `pipx`.
+The latest version of {term}`Cookieplone` will be used, and it doesn't require a separate installation as we'll use `pipx`.
 
 ### 8. Make
 

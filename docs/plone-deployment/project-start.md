@@ -88,7 +88,7 @@ Docker will download necessary images, build Frontend and Backend images, and in
 
 ### Checking the Stack Status
 
-Verify the stack’s operational status with:
+Verify the stack's operational status with:
 
 ```shell
 make stack-status
@@ -118,7 +118,7 @@ Accessing the site at http://ploneconf2024.localhost
 
 ### Updating the Codebase
 
-For codebase modifications, re-run `make stack-start` to rebuild the affected containers, ensuring your site’s behavior aligns with the updates.
+For codebase modifications, re-run `make stack-start` to rebuild the affected containers, ensuring your site's behavior aligns with the updates.
 
 ### Stopping the Stack
 

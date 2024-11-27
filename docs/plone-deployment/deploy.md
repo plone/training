@@ -90,7 +90,7 @@ Add secrets in the `Secrets` section of your environment. Refer to the table bel
 
 | Secret Name | Secret Value | Description |
 |-------------|--------------|-------------|
-| DEPLOY_HOST | Your hostname or IP | The Docker Swarm manager’s address. |
+| DEPLOY_HOST | Your hostname or IP | The Docker Swarm manager's address. |
 | DEPLOY_PORT | 22 | The SSHD port. |
 | DEPLOY_USER | Your username | A user with Docker command permissions. |
 | DEPLOY_SSH  | Content of `devops/etc/keys/plone_prod_deploy_rsa` | The private SSH key for connection. |
