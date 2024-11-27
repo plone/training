@@ -34,7 +34,8 @@ For participants in **Plone Conference 2024**, please use the following settings
 An example interaction with the `Cookieplone` wizard is shown below:
 
 ```{code-block} console
-:emphasize-lines: 1,3,4,10,11,19,
+:emphasize-lines: 1,3,4,10,11,20
+
   [1/17] Project Title (Project Title): Plone Conference Training
   [2/17] Project Description (A new project using Plone 6.):
   [3/17] Project Slug (Used for repository id) (plone-conference-training): ploneconf2024
