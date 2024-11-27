@@ -60,4 +60,4 @@ The principles outlined are adaptable to GitLab, Jenkins, and similar platforms.
 
 #### Kubernetes
 
-While the current training edition doesn’t cover Kubernetes, we anticipate its inclusion in upcoming updates.
+While the current training edition doesn’t cover Kubernetes, we anticipate its inclusion in future updates.
