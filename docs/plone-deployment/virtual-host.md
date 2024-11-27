@@ -13,7 +13,7 @@ Zope comes with one object that helps you do virtual hosting: *Virtual Host Mons
 
 ## Virtual Host Monster
 
-Zope objects need to generate their own URLs from time to time. For instance, when a Zope object has its "absolute_url" method called, it needs to return a URL which is appropriate for itself. This URL typically contains a hostname, a port, and a path. In a "default" Zope installation, this hostname, port, and path is typically what you want. But when it comes time to serve multiple websites out of a single Zope instance, each with their own "top-level" domain name, or when it comes time to integrate a Zope Folder within an existing website using Apache or another webserver, the URLs that Zope objects generate need to change to suit your configuration.
+Zope objects need to generate their own URLs from time to time. For instance, when a Zope object has its "absolute_url" method called, it needs to return a URL which is appropriate for itself. This URL typically contains a hostname, a port, and a path. In a "default" Zope installation, this hostname, port, and path is typically what you want. But when it comes time to serve multiple websites out of a single Zope instance, each with their own "top-level" domain name, or when it comes time to integrate a Zope Folder within an existing website using Apache or another web server, the URLs that Zope objects generate need to change to suit your configuration.
 
 A Virtual Host Monster's only job is to change the URLs which your Zope objects generate. This allows you to customize the URLs that are displayed within your Zope application, allowing an object to have a different URL when accessed in a different way. This is most typically useful, for example, when you wish to "publish" the contents of a single Zope Folder (e.g. `/FooFolder`) as a URL that does not actually contain this Folder's name (for example, as the hostname `www.foofolder.com`).
 
@@ -26,7 +26,7 @@ Virtual Host Monster configuration can be complicated because it requires that y
 
 ### Configuring the Virtual Host Monster
 
-The default mode for configuring the Virtual Host Monster is not to do any configuration at all! Rather, the external router or webserver modifies the request URL to signal what the *real* public URL for the request should be.
+The default mode for configuring the Virtual Host Monster is not to do any configuration at all! Rather, the external router or web server modifies the request URL to signal what the *real* public URL for the request should be.
 
 If you *do* choose to change the settings of your VHM, the easiest method to do so is to use the VHM`s ZMI interface.
 

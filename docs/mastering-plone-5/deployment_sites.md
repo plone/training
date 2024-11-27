@@ -64,7 +64,7 @@ Load balancer (nginx or haproxy)
 
      |
 
-Webserver (nginx)
+Web server (nginx)
 ```
 
 Deploying Plone and production-setups are outside the scope for this training.

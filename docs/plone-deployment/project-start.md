@@ -70,7 +70,7 @@ In both terminals, press {kbd}`Ctrl-C`.
 
 ## Running Docker Compose
 
-Docker Compose is suitable for reviewing your development progress or exploring the project. It comprises four services: {term}`Traefik` webserver, Frontend, Backend, and a `Postgres` database, mimicking a production environment.
+Docker Compose is suitable for reviewing your development progress or exploring the project. It comprises four services: {term}`Traefik` web server, Frontend, Backend, and a `Postgres` database, mimicking a production environment.
 
 ```{note}
 A secondary Backend route, `/ClassicUI`, mirrors `http://localhost:8080/Plone`. It's secured with Basic Authentication, default credentials being **admin/admin**.

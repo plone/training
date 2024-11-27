@@ -104,7 +104,7 @@ Even in smaller buildouts this is a useful feature. We are using [collective.rec
 
 The omelette recipe needs to know which eggs to reference. We want the same eggs that our instance uses, so we reference the eggs of the instance instead of repeating the whole list.
 
-Another example: Say you create configuration files for a webserver like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
+Another example: Say you create configuration files for a web server like nginx, you can define the target port for the reverse proxy by looking it up from the zope2instance recipe.
 
 Configuring complex systems always involves a lot of duplication of information. Using references in the buildout configuration allows you to minimize these duplications.
 ```

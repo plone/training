@@ -51,4 +51,4 @@ The default backend will live in `http://localhost:8080/Plone` and the frontend 
 RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite
 ```
 
-In production, you'll probably will be using Volto's Seamless mode, so you won't be defining any custom `API_PATH` but using `++api++` traversal, and reverse proxying it through your webserver.
+In production, you'll probably will be using Volto's Seamless mode, so you won't be defining any custom `API_PATH` but using `++api++` traversal, and reverse proxying it through your web server.

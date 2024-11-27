@@ -143,7 +143,7 @@ A big advantage of Vue.js over other frameworks for our purpose is that it doesn
 NodeJS..
 
 Our focus is Plone and interacting with {py:mod}`plone.restapi`, and `Vue.js` perfectly suits our needs
-because it simply lets us use Plone as our development webserver.
+because it simply lets us use Plone as our development web server.
 
 To get started, we create a new subdirectory of {file}`browser` named {file}`talklist`.
 
