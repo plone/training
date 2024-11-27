@@ -274,7 +274,14 @@ mxdev
 plonecli
     A Plone CLI for creating Plone packages. [plonecli usage](https://github.com/plone/plonecli)
 
+Cookiecutter
+    A command-line utility that creates projects from cookiecutters (project templates), for example, creating a Python package project from a Python package project template.
+    [See Cookiecutter's documentation](https://cookiecutter.readthedocs.io/en/stable/).
+
 Cookieplone
+    ```{versionadded} Volto 18.0.0-alpha.43
+    ```
+
     [Cookieplone](https://github.com/plone/cookieplone) is the method to create a Plone project.
     You can use Cookieplone to build a backend add-on, a new Volto add-on, or a full project with both backend and frontend.
     Cookieplone simplifies the process using robust Cookiecutter templates from {term}`cookieplone-templates`.
@@ -289,12 +296,6 @@ GenericSetup
 cookiecutter-plone-starter
     [cookiecutter-plone-starter](https://github.com/collective/cookiecutter-plone-starter) is a `cookiecutter` template, created by the Plone community, to bootstrap
     a new Plone 6 project using Volto and a relational database.
-
-Cookiecutter
-    [Cookiecutter](https://github.com/cookiecutter/cookiecutter) is tool used to generate codebases / projects.
-
-cookieplone
-    [cookieplone](https://github.com/plone/cookieplone) is a wrapper around {term}`Cookiecutter` designed to streamline the development of Plone codebases
 
 Traefik
     [Traefik](https://doc.traefik.io/traefik/) is an open-source reverse proxy and load balancer designed to handle HTTP and TCP applications.
