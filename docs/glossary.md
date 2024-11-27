@@ -302,8 +302,8 @@ Traefik
     It simplifies the deployment and routing of services and is particularly well-suited for cloud-native and containerized environments,
     offering features like automatic service discovery, middleware plugins, and robust security options.
 
-Nginx
-    [Nginx](https://nginx.org/en/) is a high-performance web server, reverse proxy, and load balancer that is known for its speed, reliability, and flexibility.
+nginx
+    [nginx](https://nginx.org/en/) is a high-performance web server, reverse proxy, and load balancer that is known for its speed, reliability, and flexibility.
     It can also serve as a mail proxy server and provides features for HTTP and TCP/UDP applications, making it a popular choice for serving web content,
     optimizing resource utilization, and enhancing web performance and security.
 

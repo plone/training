@@ -100,7 +100,7 @@ See all the ways you can [set up Plone](https://plone.org/download)
 The way we are setting up a Plone site during this class may be adequate for a small site
 — or even a large one that's not very busy — but you are likely to want to do much more if you are using Plone for anything demanding.
 
-- Using a production web server like Apache or Nginx for URL rewriting, SSL and combining multiple, best-of-breed solutions into a single web site.
+- Using a production web server like Apache or nginx for URL rewriting, SSL and combining multiple, best-of-breed solutions into a single web site.
 - Reverse proxy caching with a tool like Varnish to improve site performance.
 - Load balancing to make best use of multiple core CPUs and even multiple servers.
 - Optimizing cache headers and Plone's internal caching schemes with plone.app.caching.

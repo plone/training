@@ -16,7 +16,7 @@ This guide won't cover the integration of a web accelerator or the setup of an e
 
 ### Web server
 
-The web server, accessible externally on ports 80 and 443, handles the routing and rewriting of HTTP requests to the Plone frontend and backend, and is tasked with TLS termination. While {term}`Nginx` and {term}`Traefik` are recommended, other web servers can also be employed. This training will exclusively utilize Traefik.
+The web server, accessible externally on ports 80 and 443, handles the routing and rewriting of HTTP requests to the Plone frontend and backend, and is tasked with TLS termination. While {term}`nginx` and {term}`Traefik` are recommended, other web servers can also be employed. This training will exclusively utilize Traefik.
 
 To understand the rewrite rules used in Traefik, please read our reference about {term}`Zope`'s {doc}`virtual-host`.
 
