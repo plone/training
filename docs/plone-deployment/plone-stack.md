@@ -26,7 +26,7 @@ To understand the rewrite rules used in Traefik, please read our reference about
 
 ### Plone Frontend
 
-Hosted on a Node HTTP-server running on port 3000, the Plone frontend constitutes the default user interface and requires access to the Plone Backend and the web server.
+Hosted on a Node.js HTTP-server running on port 3000, the Plone frontend constitutes the default user interface and requires access to the Plone Backend and the web server.
 
 ### Plone Backend
 
@@ -43,7 +43,7 @@ The database layer can range from a simple ZODB with file storage to more scalab
 #### Without Specialized Database
 
 ```
-Web server -> Plone Frontend -> Plone Backend (file storage).
+Web server → Plone Frontend → Plone Backend (file storage)
 ```
 
 ```{note}
@@ -71,7 +71,7 @@ Web server → Web Accelerator → Plone Frontend → Plone Backend → Database
 In a multi-server environment, load distribution and redundancy are achieved through various configurations, enabling horizontal scaling.
 
 ```{figure} _static/request_flow.png
-:alt: Flow of a request to https://example.com
+:alt: Flow of a request to `https://example.com`
 
 Flow of a request to https://example.com
 ```

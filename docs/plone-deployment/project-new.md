@@ -9,7 +9,7 @@ myst:
 
 # Create a new Project
 
-As highlighted in the {doc}`intro`'s Training Choices, GitHub is essential for building Docker images automatically in this training.
+As highlighted in the {doc}`intro`'s {ref}`deployment-training-choices`, GitHub is essential for building Docker images automatically in this training.
 The steps can be adapted for other providers like GitLab.
 
 ## Generating the Codebase
@@ -23,12 +23,12 @@ pipx run cookieplone project
 Answer the prompts as they appear. You can either accept the default values or enter your own.
 
 ```{warning}
-For participants of **Plone Conference 2024**, please use the following settings:
+For participants in **Plone Conference 2024**, please use the following settings:
 
-- `Project Title`: **Plone Conference Training**
-- `Project Slug`: **ploneconf2024**
-- `Project URL`: **ploneconf2024-\<your-github-username\>.tangrama.com.br**
-- `GitHub Username or Organization`: **\<your-github-username\>**
+-   {guilabel}`Project Title`: **Plone Conference Training**
+-   {guilabel}`Project Slug`: **ploneconf2024**
+-   {guilabel}`Project URL`: **ploneconf2024-\<your-github-username\>.tangrama.com.br**
+-   {guilabel}`GitHub Username or Organization`: **\<your-github-username\>**
 ```
 
 An example interaction with the `Cookieplone` wizard is shown below:
@@ -116,30 +116,30 @@ make check
 
 ## Create a Repository on GitHub
 
-### 1. **Login to GitHub**
+### 1. Login to GitHub
 
 Visit [GitHub](https://github.com) and log in.
 
-### 2. **Create a New Repository**
+### 2. Create a New Repository
 
 Click the '+' icon in the upper right corner, select 'New repository', and fill in the details:
 
-- **Repository name:** ploneconf2024
-- **Description:** Plone Conference 2024 Training
-- **Visibility:** Public
+-   {guilabel}`Repository name`: `ploneconf2024`
+-   {guilabel}`Description`: `Plone Conference 2024 Training`
+-   {guilabel}`Visibility`: `Public`
 
 Click 'Create repository'.
 
 ## Initialize and Push to the Git Repository
 
-### 1. **Initialize Git**
+### 1. Initialize Git
 
 Initializes a new Git repository and begins tracking an existing directory.
 
 ```shell
 git init .
 ```
-### 2. **Add Files**
+### 2. Add Files
 
 stages changes for commit, meaning it tracks the new files (in this case, all files in the directory with `.`). Staging lets you select which changes you want to commit.
 
@@ -147,27 +147,27 @@ stages changes for commit, meaning it tracks the new files (in this case, all fi
 git add .
 ```
 
-### 3. **Initial Commit**
+### 3. Initial Commit
 
 Saves the staged changes along with a brief log message describing the changes.
-Replace `"Initial commit"` with a descriptive message if needed. It's the first commit,
+Replace "`Initial commit`" with a descriptive message if needed. It's the first commit,
 so we typically label it as the "Initial commit."
 
 ```shell
 git commit -m "Initial commit"
 ```
 
-### 4. **Link Local Repository to Remote Repository**
+### 4. Link Local Repository to Remote Repository
 
 Connect your local repository to the remote server. First replace `<your-github-username>` with your actual GitHub username.
-'origin' is the default name given to the remote repository, and we also set the default branch to be `main`.
+`origin` is the default name given to the remote repository, and we also set the default branch to be `main`.
 
 ```shell
 git remote add origin git@github.com:<your-github-username>/ploneconf2024.git
 git branch -M main
 ```
 
-### 4. **Push to GitHub**
+### 4. Push to GitHub
 
 Push your commits to the remote repository hosted on GitHub. This command will trigger the GitHub Actions that test the codebase and
 generate Docker images for the Backend and for the Frontend.

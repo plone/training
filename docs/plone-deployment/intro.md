@@ -28,6 +28,8 @@ or considering a virtual machine on your personal computer for testing, this tra
 
 We will delve into a basic setup, scalable to accommodate extensive Plone installations.
 
+(deployment-training-choices)=
+
 ### Training Choices
 
 #### Linux
