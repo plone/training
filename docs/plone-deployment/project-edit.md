@@ -65,54 +65,52 @@ We'll now add GitHub OAuth authentication, involving both Backend and Frontend a
 
 Follow GitHub's guide on [Creating an OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app), using the following configurations:
 
-- **Application Name**: `plone-conference-local`
-- **Homepage URL**: `http://ploneconf2024.localhost`
-- **Application Description**: `Plone Conference 2024`
-- **Authorization Callback URL**: `http://ploneconf2024.localhost/`
+-   {guilabel}`Application Name`: `plone-conference-local`
+-   {guilabel}`Homepage URL`: `http://ploneconf2024.localhost`
+-   {guilabel}`Application Description`: `Plone Conference 2024`
+-   {guilabel}`Authorization Callback URL`: `http://ploneconf2024.localhost/`
 
 ### Backend: Installing `pas.plugins.authomatic`
 
-Modify `backend/setup.py` to include `pas.plugins.authomatic` in `install_requires`. Also, update `backend/src/ploneconf2024/dependencies.zcml` to load the package configuration during Plone Backend startup.
+Modify {file}`backend/setup.py` to include `pas.plugins.authomatic` in `install_requires`. Also, update {file}`backend/src/ploneconf2024/dependencies.zcml` to load the package configuration during Plone Backend startup.
 
 ### Frontend: Installing `volto-authomatic`
 
-Add `@plone-collective/volto-authomatic` to the `addons` and `dependencies` sections of `frontend/packages/volto-ploneconf2024/package.json`. Run `make frontend-install` to update the dependencies.
+Add `@plone-collective/volto-authomatic` to the `addons` and `dependencies` sections of {file}`frontend/packages/volto-ploneconf2024/package.json`. Run `make frontend-install` to update the dependencies.
 
 ### Activating and Configuring the Add-on
 
 ````{note}
-To ensure the name `ploneconf24.localhost` points to the address `127.0.0.1`, we need to edit the file located at:
+To ensure the name `ploneconf24.localhost` points to the address `127.0.0.1`, we need to edit the file located at {file}`C:\Windows\System32\Drivers\etc\hosts`.
 
-`C:\Windows\System32\Drivers\etc\hosts`
+1.  Open the {guilabel}`Start Menu` and search for "Notepad".
+    Right-click on it and choose {guilabel}`Run as administrator`.
+    If Windows asks if you want the application to make changes to the system, click {guilabel}`Yes`.
+    (If you don't open Notepad as an administrator, you won't be able to modify the `hosts` file.)
 
-1. Open the Start Menu and search for **Notepad**.
-   Right-click on it and choose **Run as administrator**.
-   If Windows asks if you want the application to make changes to the system, click **Yes**.
-   (If you don't open Notepad as an administrator, you won't be able to modify the `hosts` file.)
+2.  In Notepad, click {menuselection}`File --> Open`.
+    Then navigate to the folder {file}`C:\Windows\System32\Drivers\etc`.
 
-2. In Notepad, click **File » Open**.
-   Then navigate to the following folder:
-   `C:` » `Windows` » `System32` » `Drivers` » `etc`.
+3.  In the file dialog, change the filter from {guilabel}`Text Documents (*.txt)` to {guilabel}`All Files (*.*)`.
+    You should now see the `hosts` file.
+    Select it and click {guilabel}`Open`.
 
-3. In the file dialog, change the filter from **Text Documents (*.txt)** to **All Files (*.*)**.
-   You should now see the `hosts` file. Select it and click **Open**.
+4.  At the end of the file, add the following line:
 
-4. At the end of the file, add the following line:
+    ```text
+    127.0.0.1 ploneconf24.localhost
+    ```
 
-```
-127.0.0.1 ploneconf24.localhost
-```
+5.  Save the file.
 
-5. Save the file.
+6.  Open PowerShell and confirm that the name resolution is working correctly by typing:
 
-6. Open PowerShell and confirm that the name resolution is working correctly by typing:
-
-```shell
-ping ploneconf24.localhost
-```
+    ```shell
+    ping ploneconf24.localhost
+    ```
 ````
 
-Start the Docker Compose stack with `make stack-start`. Navigate to [http://ploneconf2024.localhost/ClassicUI/login](http://ploneconf2024.localhost/ClassicUI/login) and authenticate.
+Start the Docker Compose stack with `make stack-start`. Navigate to http://ploneconf2024.localhost/ClassicUI/login.
 
 Install `pas.plugins.authomatic` from the {guilabel}`Add-ons` control panel and configure it with the following JSON configuration, replacing `KEYHERE` and `SECRETHERE` with your GitHub OAuth application's client ID and secret.
 
@@ -146,19 +144,19 @@ Install `pas.plugins.authomatic` from the {guilabel}`Add-ons` control panel and 
 
 ### Authenticating with GitHub
 
-Visit [http://ploneconf2024.localhost/login](http://ploneconf2024.localhost/login) and log in using GitHub.
+Visit http://ploneconf2024.localhost/login and log in using GitHub.
 
 ### Configure the OAuth user permissions
 
-By default, `pas.plugins.authomatic` will not assign any role or group to an user authenticated with GitHub, but you can, using an existing user (i.e. `admin`), assign the OAuthed user to groups and grant permissions.
+By default, `pas.plugins.authomatic` will not assign any role or group to an user authenticated with GitHub, but you can, using an existing user such as `admin`, assign the OAuthed user to groups and grant permissions.
 
-Back in the tab you are using to access the `ClassicUI`, visit the control panel {guilabel}`Users > Users`.
+Back in the tab you are using to access the `ClassicUI`, visit the control panel {menuselection}`Users --> Users`.
 For the {guilabel}`User name` row, check appropriate permissions.
 For the purpose of this training, check {guilabel}`Manager`, then click {guilabel}`Apply changes`.
 
 ```{warning}
 If you need to authenticate bypassing OAuth, there are fallback login forms:
-* Backend: Available at [http://ploneconf2024.localhost/ClassicUI/failsafe_login](http://ploneconf2024.localhost/ClassicUI/failsafe_login).
-* Frontend: Available at [http://ploneconf2024.localhost/fallback_login](http://ploneconf2024.localhost/fallback_login).
+-   Backend: Available at http://ploneconf2024.localhost/ClassicUI/failsafe_login.
+-   Frontend: Available at http://ploneconf2024.localhost/fallback_login.
 
 ```
