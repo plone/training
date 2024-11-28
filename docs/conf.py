@@ -18,9 +18,6 @@ from datetime import datetime
 # -- Project information -----------------------------------------------------
 
 project = "Plone Training"
-copyright = """The text and illustrations in this website are licensed
- by the Plone Foundation under a Creative Commons Attribution 4.0
- International license"""
 author = "Plone community"
 trademark_name = "Plone"
 
@@ -48,31 +45,18 @@ release = year
 
 # -- General configuration ----------------------------------------------------
 
-# Add any paths that contain templates here, relative to this directory.
-# templates_path = ["_templates"]
-
 # Add any Sphinx extension module names here, as strings.
 # They can be extensions coming with Sphinx (named "sphinx.ext.*")
 # or your custom ones.
 extensions = [
     "myst_parser",
-    # "sphinx.ext.autodoc",
-    # "sphinx.ext.intersphinx",
-    # "sphinx.ext.todo",
-    # "sphinx_copybutton",
-    # "sphinx_design",
-    # "sphinx_sitemap",
-    # "sphinxext.opengraph",
+    "sphinx_reredirects",
 ]
 
 # For more information see:
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
 myst_enable_extensions = [
-    # "deflist",  # You will be able to utilise definition lists
-    # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#definition-lists
     "linkify",  # Identify “bare” web URLs and add hyperlinks.
-    # "colon_fence",  # You can also use ::: delimiters to denote code fences,\
-    #  instead of ```.
 ]
 
 # If true, the Docutils Smart Quotes transform, originally based on SmartyPants
@@ -81,10 +65,6 @@ myst_enable_extensions = [
 # Note to maintainers: setting this to `True` will cause contractions and
 # hyphenated words to be marked as misspelled by spellchecker.
 smartquotes = False
-
-# The name of the Pygments (syntax highlighting) style to use.
-# pygments_style = "sphinx.pygments_styles.PyramidStyle"
-pygments_style = "sphinx"
 
 # The suffix of source filenames.
 source_suffix = {
@@ -109,39 +89,89 @@ html_extra_path = [
 
 # Used by sphinx_sitemap to generate a sitemap
 html_baseurl = "https://training.plone.org/"
-# https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#customizing-the-url-scheme
-sitemap_url_scheme = "{link}"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
+# The default value includes icon-links, so override it with that one omitted, and add it to html_theme_options[footer_content_items].
+html_sidebars = {
+    "**": [
+        "navbar-logo",
+    ]
+}
 html_theme_options = {
+    "article_header_start": ["toggle-primary-sidebar"],
+    "footer_content_items": [
+        "author",
+        "copyright",
+        "last-updated",
+        "extra-footer",
+        "icon-links",
+    ],
+    "extra_footer": """<p>The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license. Plone and the Plone® logo are registered trademarks of the Plone Foundation, registered in the United States and other countries. For guidelines on the permitted uses of the Plone trademarks, see <a href="https://plone.org/foundation/logo">https://plone.org/foundation/logo</a>. All other trademarks are owned by their respective owners.</p>
+    <p>Pull request previews by <a href="https://readthedocs.org/">Read the Docs</a>.</p>""",
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/plone/training",
+            "icon": "fa-brands fa-square-github",
+            "type": "fontawesome",
+            "attributes": {
+                "target": "_blank",
+                "rel": "noopener me",
+                "class": "nav-link custom-fancy-css"
+            }
+        },
+        {
+            "name": "Mastodon",
+            "url": "https://plone.social/@plone",
+            "icon": "fa-brands fa-mastodon",
+            "type": "fontawesome",
+            "attributes": {
+                "target": "_blank",
+                "rel": "noopener me",
+                "class": "nav-link custom-fancy-css"
+            }
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/@PloneCMS",
+            "icon": "fa-brands fa-youtube",
+            "type": "fontawesome",
+            "attributes": {
+                "target": "_blank",
+                "rel": "noopener me",
+                "class": "nav-link custom-fancy-css"
+            }
+        },
+        {
+            "name": "X (formerly Twitter)",
+            "url": "https://x.com/plone",
+            "icon": "fa-brands fa-square-x-twitter",
+            "type": "fontawesome",
+            "attributes": {
+                "target": "_blank",
+                "rel": "noopener me",
+                "class": "nav-link custom-fancy-css"
+            }
+        },
+    ],
     "logo": {
-        "text": "Plone Training - Legacy",
+        "text": "Plone Training",
     },
+    "navigation_with_keys": True,
     "path_to_docs": "docs",
-    "repository_branch": "legacy",
+    "repository_branch": "main",
     "repository_url": "https://github.com/plone/training",
     "use_issues_button": True,
     "use_repository_button": True,
-    "article_header_start": ["toggle-primary-sidebar", "chapter-title"],
 }
 
 
-# -- Intersphinx configuration ----------------------------------
-
-# This extension can generate automatic links to the documentation of objects
-# in other projects. Usage is simple: whenever Sphinx encounters a
-# cross-reference that has no matching target in the current documentation set,
-# it looks for targets in the documentation sets configured in
-# intersphinx_mapping. A reference like :py:class:`zipfile.ZipFile` can then
-# linkto the Python documentation for the ZipFile class, without you having to
-# specify where it is located exactly.
-#
-# https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html
-#
-intersphinx_mapping = {
-    "plone6docs": ("https://6.docs.plone.org/", None),
+# -- sphinx-reredirects configuration ----------------------------------
+# https://documatt.com/sphinx-reredirects/usage.html
+redirects = {
+    "**": "https://training.plone.org/",
 }

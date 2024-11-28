@@ -1,3 +1,2 @@
-# Plone Training
+# Visit Plone Training at<br>https://training.plone.org/
 
-## Plone Training has moved to https://training.plone.org/
