@@ -17,7 +17,6 @@ A collection of trainings developed and created by the Plone community.
 :hidden: true
 
 mastering-plone/index
-mastering-plone-5/index
 volto-customization/index
 customizing-volto-light-theme/index
 voltohandson/index
@@ -46,11 +45,6 @@ teaching/index
 {ref}`mastering-plone-label`
 
 :   Best practices of Plone development for both the backend and frontend.
-
-{ref}`mastering-plone5-label`
-
-:   Mastering Plone 5 development training is the predecessor of the Plone 6 version.
-    It includes also Plone Classic UI topics including viewlets, views, portlets, and other customizations.
 
 {doc}`testing/index`
 
