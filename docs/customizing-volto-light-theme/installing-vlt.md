@@ -1,12 +1,11 @@
 ---
 myst:
   html_meta:
-    "description": "Installing Volto Light Theme"
-    "property=og:description": "Installing Volto Light Theme"
-    "property=og:title": "Installing Volto Light Theme"
-    "keywords": "Plone, Volto, Training, Volto Light Theme"
+    'description': 'Installing Volto Light Theme'
+    'property=og:description': 'Installing Volto Light Theme'
+    'property=og:title': 'Installing Volto Light Theme'
+    'keywords': 'Plone, Volto, Training, Volto Light Theme'
 ---
-
 
 # Installing Volto Light Theme
 
@@ -21,7 +20,7 @@ For now we'll be using an `alpha` release, so we need to specify the correct ver
 ```
 
 ```shell
-pnpm install @kitconcept/volto-light-theme@6.0.0-alpha.1
+pnpm install @kitconcept/volto-light-theme@6.0.0-alpha.2
 ```
 
 While in your project package folder, add VLT to the `addons` list in your {file}`package.json`, as follows:
