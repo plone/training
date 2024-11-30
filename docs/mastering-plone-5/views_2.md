@@ -113,7 +113,7 @@ class DemoView(BrowserView):
              'subjects': ('content-types', 'dexterity')},
             {'title': 'Mosaic will be the next big thing.',
              'subjects': ('layout', 'deco', 'views'),
-             'url': 'https://www.youtube.com/watch?v=QSNufxaYb1M'},
+             'url': 'https://www.youtube-nocookie.com/embed/QSNufxaYb1M?privacy_mode=1'},
             {'title': 'The State of Plone',
              'subjects': ('keynote',)},
             {'title': 'Diazo is a powerful tool for theming!',

@@ -287,7 +287,7 @@ When you browse to the [publish.twitter.com](https://publish.twitter.com/) and h
   </div>
 
   <div class="col-lg-6">
-    <a class="twitter-timeline" data-height="600" data-dnt="true" href="https://twitter.com/ploneconf?ref_src=twsrc%5Etfw">Tweets by ploneconf</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <a class="twitter-timeline" data-height="600" data-dnt="true" href="https://x.com/ploneconf?ref_src=twsrc%5Etfw">Tweets by ploneconf</a> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
   </div>
 
 </metal:content-core>
