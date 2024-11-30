@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    'description': 'Installing Volto Light Theme'
-    'property=og:description': 'Installing Volto Light Theme'
-    'property=og:title': 'Installing Volto Light Theme'
-    'keywords': 'Plone, Volto, Training, Volto Light Theme'
+    "description": "Installing Volto Light Theme"
+    "property=og:description": "Installing Volto Light Theme"
+    "property=og:title": "Installing Volto Light Theme"
+    "keywords": "Plone, Volto, Training, Volto Light Theme"
 ---
 
 # Installing Volto Light Theme
