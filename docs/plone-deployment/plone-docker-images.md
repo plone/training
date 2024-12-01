@@ -9,16 +9,15 @@ myst:
 
 # Plone Docker Images
 
-Since the release of Plone 6, the community has a new set of Docker images -- and offering more base options.
+Since the release of Plone 6, the community has a new set of Docker images offering more base options.
 
-## plone/plone-frontend
+## `plone/plone-frontend`
 
-Repository available at [https://github.com/plone/plone-frontend/](https://github.com/plone/plone-frontend/)
+Repository available at https://github.com/plone/plone-frontend/.
 
-Installs the Plone 6 default user-experience (Using the React-powered frontend: Volto).
+Installs the Plone 6 user-experience using the React-powered frontend, Volto.
 
-Should be used to showcase the default Plone 6 experience, as new projects will probably implement their own Docker images (with a similar Dockerfile),
-like the one below:
+Should be used to showcase the Plone 6 experience, as new projects will probably implement their own Docker images (with a similar Dockerfile), like the one below:
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
@@ -55,9 +54,9 @@ RUN <<EOT
 EOT
 ```
 
-## plone/plone-backend
+## `plone/plone-backend`
 
-Repository available at [https://github.com/plone/plone-backend/](https://github.com/plone/plone-backend/)
+Repository available at https://github.com/plone/plone-backend/.
 
 Installs the Plone 6 backend using a pip-based installation.
 This approach makes it easier and faster to extend this image in your own project.
@@ -107,8 +106,8 @@ RUN <<EOT
 EOT
 ```
 
-## plone/plone-zeo
+## `plone/plone-zeo`
 
-Repository available at [https://github.com/plone/plone-zeo/](https://github.com/plone/plone-zeo/)
+Repository available at https://github.com/plone/plone-zeo/.
 
 Installs a ZEO database server.

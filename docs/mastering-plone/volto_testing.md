@@ -151,7 +151,7 @@ exports[`renders a talk view component with only required props 1`] = `
 ```
 
 ```{seealso}
-{doc}`plone6docs:volto/contributing/testing` in docs.plone.org.
+{doc}`plone6docs:volto/contributing/testing`
 ```
 
 (testing-cypress)=

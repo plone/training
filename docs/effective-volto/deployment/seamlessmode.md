@@ -30,11 +30,11 @@ The first question, *"what is my domain name?"* can be answered by looking at th
 The second question is a lot harder to answer, there can be so many unknowns, so, instead, we have a few layers of conventions and configuration variables.
 
 - If you're running Volto for development, the Plone backend is exposed from the frontend (`localhost:3000`) via a "devproxy" that assumes that the Plone backend is at `http://localhost:8080/Plone`. You can override it with [`RAZZLE_DEV_PROXY_API_PATH`](https://github.com/plone/volto/blob/5eb332829956dbf0505283b176008c9364ccf2f9/src/config/index.js#L101).
-- If you're running in production, the Plone backend is assumed to be exposed at the same domain, but available via the special traversal path, the `++api++`. So you need to add aditional rewrite rules in your Apache or Nginx proxy server to directly redirect those requests to the Plone backend.
+- If you're running in production, the Plone backend is assumed to be exposed at the same domain, but available via the special traversal path, the `++api++`. So you need to add aditional rewrite rules in your Apache or nginx proxy server to directly redirect those requests to the Plone backend.
 - Before the `++api++` traverser was developed, we would configure the proxy server to serve Plone directly via a `/api` subpath and the `_vh_api` VirtualHostMonster suffix. Then we would configure Volto with the `RAZZLE_API_PATH` variable. This is still available and works.
 - If you want the Volto nodejs server to communicate directly with the Plone backend via the internal network (for example, when running a Docker stack), you can use the `RAZZLE_INTERNAL_API_PATH` setting to configure the address of the Plone backend.
 
-## Nginx example config for seamless mode deployments
+## nginx example config for seamless mode deployments
 
 ```nginx
 upstream backend {

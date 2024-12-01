@@ -9,11 +9,11 @@ myst:
 
 # Start the Project
 
-The {term}`cookieplone` equips you with essential tools to initiate a local development environment. The {doc}`project-new` offers two methods to launch your project: manually starting the Backend and Frontend servers, or utilizing a Docker Compose stack.
+The {term}`cookieplone` equips you with essential tools to initiate a local development environment. {doc}`project-new` offers two methods to launch your project: manually starting the Backend and Frontend servers, or utilizing a Docker Compose stack.
 
 ## Running Local Servers
 
-This method requires two terminals as both Backend and Frontend operate in `foreground mode`. It's optimal for local development due to its swift change and restart cycle. However, accessing each server on their internal ports can lead to CORS issues in real-world deployments.
+This method requires two terminals as both Backend and Frontend operate in "foreground mode". It's optimal for local development due to its swift change and restart cycle. However, accessing each server on their internal ports can lead to CORS issues in real-world deployments.
 
 ### Starting the Backend
 
@@ -25,11 +25,11 @@ make backend-start
 
 This command initiates the Backend server. Upon successful startup, you'll observe:
 
-```
+```console
 ... INFO    [waitress:486][MainThread] Serving on http://127.0.0.1:8080
 ```
 
-Indicating the server is operational and awaiting requests on port 8080. Visit [http://localhost:8080](http://localhost:8080) to explore.
+Indicating the server is operational and awaiting requests on port 8080. Visit http://localhost:8080 to explore.
 
 ```{figure} _static/start_backend_localhost.png
 :alt: Backend server initiation at http://localhost:8080
@@ -52,7 +52,7 @@ The Frontend initiation takes longer due to the initial codebase compilation. A 
 🎭 Volto started at 0.0.0.0:3000 🚀
 ```
 
-Signifying the Frontend server is active on port 3000. Access it via [http://localhost:3000](http://localhost:3000).
+Signifying the Frontend server is active on port 3000. Access it via http://localhost:3000.
 
 ```{figure} _static/start_frontend_localhost.png
 :alt: Frontend server initiation at http://localhost:3000
@@ -70,7 +70,7 @@ In both terminals, press {kbd}`Ctrl-C`.
 
 ## Running Docker Compose
 
-Docker Compose is suitable for reviewing your development progress or exploring the project. It comprises four services: {term}`Traefik` webserver, Frontend, Backend, and a `Postgres` database, mimicking a production environment.
+Docker Compose is suitable for reviewing your development progress or exploring the project. It comprises four services: {term}`Traefik` web server, Frontend, Backend, and a `Postgres` database, mimicking a production environment.
 
 ```{note}
 A secondary Backend route, `/ClassicUI`, mirrors `http://localhost:8080/Plone`. It's secured with Basic Authentication, default credentials being **admin/admin**.
@@ -88,7 +88,7 @@ Docker will download necessary images, build Frontend and Backend images, and in
 
 ### Checking the Stack Status
 
-Verify the stack’s operational status with:
+Verify the stack's operational status with:
 
 ```shell
 make stack-status
@@ -108,7 +108,7 @@ Re-run `make stack-status`, and both Backend and Frontend should now display a *
 
 ### Accessing the Site
 
-Your website is accessible at [http://ploneconf2024.localhost](http://ploneconf2024.localhost).
+Your website is accessible at http://ploneconf2024.localhost.
 
 ```{figure} _static/start_stack_localhost.png
 :alt: Accessing the site at http://ploneconf2024.localhost
@@ -118,7 +118,7 @@ Accessing the site at http://ploneconf2024.localhost
 
 ### Updating the Codebase
 
-For codebase modifications, re-run `make stack-start` to rebuild the affected containers, ensuring your site’s behavior aligns with the updates.
+For codebase modifications, re-run `make stack-start` to rebuild the affected containers, ensuring your site's behavior aligns with the updates.
 
 ### Stopping the Stack
 

@@ -27,7 +27,7 @@ Create a new {file}`.env` file by copying the content from the existing `.env_di
 cp .env_dist .env
 ```
 
-Customize the {file}`.env` file to match your specific deployment environment. Here’s an example configuration:
+Customize the {file}`.env` file to match your specific deployment environment. Here's an example configuration:
 
 ```shell
 DEPLOY_ENV=prod
@@ -83,7 +83,7 @@ ssh plone@ploneconf2024-<your-github-username>.tangrama.com.br
 
 ## Setting Up Docker
 
-Ensure you’re logged into Docker, as the deployment process uses public images. Create a new Docker context for the remote server:
+Ensure you're logged into Docker, as the deployment process uses public images. Create a new Docker context for the remote server:
 
 ```shell
 make docker-setup
@@ -97,6 +97,6 @@ make docker-info
 
 # Review
 
-By now you’ve now successfully set up a Plone deployment server using Ansible for automated provisioning, Docker for containerization, and Docker Swarm for scalability and availability.
+By now you've now successfully set up a Plone deployment server using Ansible for automated provisioning, Docker for containerization, and Docker Swarm for scalability and availability.
 
 The next step is to deploy your project to this server.
