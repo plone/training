@@ -27,7 +27,7 @@ For Volto development see training {doc}`/effective-volto/index`.
 
 We expect you to work with the Plone React frontend (former called Volto).
 Therefore we do not deal with Plone Classic topics here.
-For Plone Classic see training {doc}`/theming/index`, training {doc}`/mastering-plone-5/index` and documentation {doc}`plone6docs:classic-ui/index`
+For Plone Classic see training {doc}`/theming/index`, training {doc}`training2023:mastering-plone-5/index` and documentation {doc}`plone6docs:classic-ui/index`
 ```
 
 ```{toctree}
