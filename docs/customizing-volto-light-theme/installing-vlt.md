@@ -7,7 +7,6 @@ myst:
     "keywords": "Plone, Volto, Training, Volto Light Theme"
 ---
 
-
 # Installing Volto Light Theme
 
 Follow the steps below to install and configure VLT in your project. VLT provides a clean and modern design with ready-to-use blocks and components.
@@ -21,7 +20,7 @@ For now we'll be using an `alpha` release, so we need to specify the correct ver
 ```
 
 ```shell
-pnpm install @kitconcept/volto-light-theme@6.0.0-alpha.1
+pnpm install @kitconcept/volto-light-theme@6.0.0-alpha.2
 ```
 
 While in your project package folder, add VLT to the `addons` list in your {file}`package.json`, as follows:

@@ -1,13 +1,16 @@
 # Makefile for Sphinx documentation
-#
+.DEFAULT_GOAL   = help
+SHELL           = bash
 
 # You can set these variables from the command line.
-SPHINXOPTS    = 
+SPHINXOPTS      ?=
+VALEOPTS        ?=
+
 SPHINXBUILD     = "$(realpath venv/bin/sphinx-build)"
 SPHINXAUTOBUILD = "$(realpath venv/bin/sphinx-autobuild)"
-PAPER         =
-DOCS_DIR      = ./docs/
-BUILDDIR      = ../_build
+PAPER           =
+DOCS_DIR        = ./docs/
+BUILDDIR        = ../_build
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -16,7 +19,6 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 VALEFILES       := $(shell find $(DOCS_DIR) -type f -name "*.md" -print)
-VALEOPTS        ?=
 
 # Add the following 'help' target to your Makefile
 # And add help text after each target name starting with '\#\#'
@@ -48,7 +50,7 @@ html: venv/bin/python  ## Build html
 
 .PHONY: livehtml
 livehtml: venv/bin/python  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
-	cd "$(DOCS_DIR)" && $(SPHINXAUTOBUILD) \
+	cd "$(DOCS_DIR)" && ${SPHINXAUTOBUILD} \
 		--ignore "*.swp" \
 		-b html . "$(BUILDDIR)/html" $(SPHINXOPTS) $(O)
 
