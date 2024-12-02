@@ -133,11 +133,9 @@ master_doc = "index"
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    "mastering-plone-5/timing.md",
     "theming/diazo-notes.md",
     "voltohandson/blocksdownload.md",
     "voltohandson/blocksedit.md",
-    "voltohandson/contenttypesviews.md",
     "voltohandson/contenttypesviews.md",
     "voltohandson/contenttypeview.md",
     "voltohandson/eventlistingtemplate.md",
