@@ -168,7 +168,7 @@ git remote add origin git@github.com:<your-github-username>/ploneconf2024.git
 git branch -M main
 ```
 
-### 4. Push to GitHub
+### 5. Push to GitHub
 
 Push your commits to the remote repository hosted on GitHub. This command will trigger the GitHub Actions that test the codebase and
 generate Docker images for the Backend and for the Frontend.

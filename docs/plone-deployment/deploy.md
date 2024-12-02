@@ -20,6 +20,10 @@ This guide outlines the steps to deploy the project using a Docker stack compris
 
 You can find this stack at {file}`devops/stacks/ploneconf2024-<your-github-username>.tangrama.com.br.yml`. It's modular, allowing easy integration of additional services like {term}`Varnish`, `Solr`, or `ElasticSearch`.
 
+```{seealso}
+[Traefik Proxy with HTTPS](https://dockerswarm.rocks/traefik/)
+```
+
 ## Building Docker Images
 
 Ensure you build the Docker images for the Frontend and Backend servers before deployment. GitHub Actions, configured in {file}`.github/workflows/backend.yml` and {file}`.github/workflows/frontend.yml`, facilitate this process.
