@@ -39,6 +39,13 @@ contributing/index
 teaching/index
 ```
 
+```{toctree}
+:caption: Plone 6 Documentation
+:maxdepth: 1
+:hidden: true
+
+documentation/index
+```
 
 ## Development and Customization
 
