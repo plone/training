@@ -172,7 +172,7 @@ Ready to use production builds (e.g. vanila Volto built, ready for testing), con
 
 ![How Plone 6 works](HowPlone6Works001.png)
 
-![How Plone 6 works](./HowPlone6Works002.png)
+![How Plone 6 works](HowPlone6Works002.png)
 
 # Requisites for using Seamless mode
 
