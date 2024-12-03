@@ -16,6 +16,7 @@ A collection of trainings developed and created by the Plone community.
 :maxdepth: 2
 :hidden: true
 
+content-editing/index
 mastering-plone/index
 volto-customization/index
 customizing-volto-light-theme/index
@@ -46,6 +47,11 @@ teaching/index
 
 documentation/index
 ```
+
+## Using Plone
+{doc}`content-editing/index`
+
+:   How to edit content and manage a Plone site.
 
 ## Development and Customization
 
