@@ -67,6 +67,7 @@ Here are additional resources for this class:
 tour-of-plone
 logging-in-and-out
 content-creation-to-publication
+pages
 ```
 
 ```{toctree}
