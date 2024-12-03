@@ -68,6 +68,7 @@ tour-of-plone
 logging-in-and-out
 content-creation-to-publication
 pages
+use-pages-to-organize-content
 ```
 
 ```{toctree}
