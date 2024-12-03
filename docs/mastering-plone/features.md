@@ -520,6 +520,8 @@ Since it has effect in a "place" in a site, this mechanism is often called "Plac
 `Placeful Workflow` ships with Plone but needs to be activated via the add-on configuration page.
 Once it is added, a {guilabel}`Policy` option appears in the state menu to allow setting a placeful workflow policy.
 
+For more information see training "Plone workflow" {doc}`/workflow/placeful-workflow`.
+
 
 (features-publishing-date-label)=
 
