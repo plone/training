@@ -70,6 +70,16 @@ content-creation-to-publication
 pages
 use-pages-to-organize-content
 add-a-file
+add-a-link
+add-an-image
+add-an-image-block-to-a-page
+add-a-video-block
+deleting-a-block
+search
+contents-view
+moving-content-automatically-using-content-rules
+personal-profile-and-settings
+site-setup-and-configuration
 ```
 
 ```{toctree}
