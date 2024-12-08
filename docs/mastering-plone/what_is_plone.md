@@ -333,7 +333,7 @@ Here are some basics that you need to understand if you are new to Volto:
 - You create a new Plone instance in an already set up Zope environment via the backend.
   This is by now not possible in Volto.
 - Volto takes advantage of [Semantic UI React components](https://react.semantic-ui.com/) to compose most of the views.
-- The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://www.youtube-nocookie.com/embed/wW9mTl1Tavc&t=133s&privacy_mode=1).
+- The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://www.youtube-nocookie.com/embed/wW9mTl1Tavc?t=133s&privacy_mode=1).
 - Same as Plone Classic, Volto is highly extendable with add-ons for further features.
 - Existing Volto components are customizable with a technology similar to `z3c.jbot` called {ref}`volto-overrides-componentshadowing-label`.
 - Volto provides server side rendering (SSR), important for SEO-purposes.
