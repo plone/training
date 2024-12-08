@@ -36,7 +36,6 @@ If you have any feedback or suggestions, please contact us at:
 
 Here are additional resources for this class:
 - Documentation and training materials
-  - This user guide: https://plone.org/userguide 
   - Older "Working with Content" documentation https://5.docs.plone.org/working-with-content/index.html
   - Plone Training home https://training.plone.org/
   - Plone 6 documentation https://6-dev-docs.plone.org/ 
