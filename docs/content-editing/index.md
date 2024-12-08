@@ -26,7 +26,7 @@ Noteworthy feature of Plone include:
 
 In this user guide, we will show how to use Plone to create, edit, and manage content.
 
-### For Attendees of the Plone Conference Training
+## For Attendees of the Plone Conference Training
 
 If you're reading this because you attended the Plone Conference training for Content Editors, thank you for coming to our class, and we hope you will have come away with practical techniques and ideas!
 
