@@ -69,7 +69,7 @@ Tags can be assigned to multiple content items, and are indexed by Plone's built
 
 8\. You can select existing tags.
 
-To create new tags, you type each one followed by [[enter]].
+To create new tags, you type each one followed by {kbd}`enter`.
 
 For example, type "zope [[enter]] zope3 [[enter]] unit tests [[enter]] introduction [[enter]]"
 
