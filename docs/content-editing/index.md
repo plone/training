@@ -38,7 +38,7 @@ Here are additional resources for this class:
 - Documentation and training materials
   - Older "Working with Content" documentation https://5.docs.plone.org/working-with-content/index.html
   - Plone Training home https://training.plone.org/
-  - Plone 6 documentation https://6-dev-docs.plone.org/ 
+  - Plone 6 documentation https://6.docs.plone.org/ 
 - Demo sites
   - Plone 6 Volto https://demo.plone.org/
     - Volto 18.1.0
