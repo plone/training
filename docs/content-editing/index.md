@@ -54,7 +54,8 @@ Here are additional resources for this class:
     - Plone 6.0.10
     - plone.restapi 9.5.0
     - kitconcept.volto add-on version:  3.0.0a9.dev0 https://github.com/kitconcept/kitconcept.volto
-- Awesome Volto, the ecosystem of add-ons https://github.com/collective/awesome-volto
+- Awesome Volto, a curated list of Node.js add-ons, sites, and companies that use Volto. https://github.com/collective/awesome-volto
+- Awesome Plone, a curated list of Python add-ons and resources. https://github.com/collective/awesome-plone
 - Plone 6 Classic demo site https://classic.demo.plone.org/
 
 ```{toctree}
