@@ -15,7 +15,7 @@ You could follow this method to add an image, but rather than add an image as a 
 
 ## Add a File
 
-[//]: # (#### [Made by T. Kim Nguyen with Scribe]&#40;https://scribehow.com/shared/Add_a_File__Yh-Avk1hQwatZwoP5HAGkA&#41;)
+% (#### [Made by T. Kim Nguyen with Scribe]&#40;https://scribehow.com/shared/Add_a_File__Yh-Avk1hQwatZwoP5HAGkA&#41;)
 We add a file and look at other metadata that can be set on it and all content items in general.
 
 1\. Click the "add item" button.
