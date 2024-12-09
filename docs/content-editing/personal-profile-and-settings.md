@@ -17,13 +17,12 @@ We saw earlier how to use the personal menu to log out of Plone, but the persona
 
 ## Using the Personal Menu
 
-[//]: # (#### [Made by T. Kim Nguyen with Scribe]&#40;https://scribehow.com/shared/Use_the_Personal_Menu__9hosFbUuSye3ZHLE7QUdaQ&#41;)
 The personal menu lets you log out, edit your profile and preferences, and view the site's control panels.
 
 1\. Navigate to <https://demo.plone.org/> and log in.
 
 
-2\. Click on the personal menu icon at the bottom left corner of the page.
+2\. Click on the {guilabel}`personal menu` button at the bottom left corner of the page.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/d71417c4-442d-4e0d-ac7b-f91ae1cb09f2/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=20,543)
 
@@ -33,7 +32,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/00526125-1c5a-4846-906f-f185ee9ecfe1/ascreenshot.jpeg?tl_px=0,991&br_px=1719,1952&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=108,276)
 
 
-4\. To log out, click on the red "off" icon.
+4\. To log out, click on the red {guilabel}`off` button.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/7ed83c8d-8286-4f1f-a960-79fdd1d4b57a/ascreenshot.jpeg?tl_px=0,991&br_px=1719,1952&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=438,276)
 
@@ -43,7 +42,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/efbbb2dd-f87a-4b2e-a0a5-aeb78a43237d/ascreenshot.jpeg?tl_px=0,1273&br_px=1719,2234&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=271,277)
 
 
-6\. To set a profile image and other profile settings, click "Profile"
+6\. To set a profile image and other profile settings, click {guilabel}`Profile`
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/de9a2ba5-349c-4182-b397-3ca5b9827599/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=135,424)
 
@@ -73,37 +72,37 @@ The personal menu lets you log out, edit your profile and preferences, and view 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/eea42785-db91-4837-9456-4190b09de0d6/ascreenshot.jpeg?tl_px=154,937&br_px=1873,1898&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,277)
 
 
-12\. You can set your profile photo by clicking "Choose a file" or by dragging an image onto the "Drop file here to upload a new file" target area.
+12\. You can set your profile photo by clicking {guilabel}`Choose a file` or by dragging an image onto the {guilabel}`Drop file here to upload a new file` target area.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/4e6a0801-730f-4803-b1d1-3d093fcf902b/ascreenshot.jpeg?tl_px=919,1193&br_px=2639,2154&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,277)
 
 
-13\. To save your changes, click the right arrow -&gt; icon.
+13\. To save your changes, click the {guilabel}`right arrow` button.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/bb96e0b6-4af9-466c-990f-83307522d5df/ascreenshot.jpeg?tl_px=1140,1334&br_px=2860,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=1016,507)
 
 
-14\. To discard your changes, click the X icon.
+14\. To discard your changes, click the {guilabel}`X` button.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/914bda0d-0788-4288-b652-88d9e1942546/ascreenshot.jpeg?tl_px=1140,1221&br_px=2860,2182&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=943,276)
 
 
-15\. You can set your language preference by clicking "Preferences".
+15\. You can set your language preference by clicking {guilabel}`Preferences`.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/aebbbcda-535d-4201-ab67-3992bc62f3d7/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=105,488)
 
 
-16\. You can choose a language from this list. This language will be use to XXX.
+16\. You can choose a language from this list.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/7ffb3753-1e2a-40ac-8b07-8d6122b219c4/ascreenshot.jpeg?tl_px=0,1001&br_px=1719,1962&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=345,276)
 
 
-17\. For example, click "English".
+17\. For example, click {guilabel}`English`.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/0f258390-bd52-4195-8534-37bffaa29e09/ascreenshot.jpeg?tl_px=0,1303&br_px=1719,2264&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=276,276)
 
 
-18\. To save your changes, click the right arrow -&gt; icon.
+18\. To save your changes, click the {guilabel}`right arrow` button.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/a12cba6c-5d43-4701-8c25-7ac42b46b2ba/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=425,533)
 
@@ -113,10 +112,6 @@ The personal menu lets you log out, edit your profile and preferences, and view 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/067f09d0-1540-45ba-aad7-ca26fc23d2bd/ascreenshot.jpeg?tl_px=286,1334&br_px=2005,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,541)
 
 
-20\. You can view the site's control panels by clicking on "Site Setup".
+20\. You can view the site's control panels by clicking on {guilabel}`Site Setup`.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/6409ed90-591e-4ab2-abe9-555f12939457/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=163,540)
-
-[//]: # (#### [Made with Scribe]&#40;https://scribehow.com/shared/Use_the_Personal_Menu__9hosFbUuSye3ZHLE7QUdaQ&#41;)
-
-

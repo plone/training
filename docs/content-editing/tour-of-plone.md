@@ -11,8 +11,6 @@ myst:
 
 Let's take a look at what you see on a typical Plone page.
 
-[//]: # (#### [Made by T. Kim Nguyen with Scribe]&#40;https://scribehow.com/shared/A_Tour_of_Plone__FABeMAcKSnqglMJfKFSlqA&#41;)
-
 1\. Navigate to [https://demo.plone.org/](https://demo.plone.org/)
 
 
@@ -41,7 +39,7 @@ These navigation links are usually to top level pages (pages at the top, or root
 
 5\. The header also includes the search tool. 
 
-Clicking on this button lets you search the site.
+Clicking on the {guilabel}`Search` button lets you search the site.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-23/4f1b0d95-a4f0-458c-82bf-3b7170dbcc14/ascreenshot.jpeg?tl_px=1090,0&br_px=2810,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=951,92)
 
@@ -75,7 +73,5 @@ Clicking on the slider controls lets visitors change which featured item to view
 Clicking on the footer logo seen in this example takes you to https://plone.org, not the home of this site.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-23/8d57de52-529e-4a2d-bb39-bc00eb1e3cc0/ascreenshot.jpeg?tl_px=0,385&br_px=1719,1346&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=326,277)
-
-[//]: # (#### [Made with Scribe]&#40;https://scribehow.com/shared/A_Tour_of_Plone__FABeMAcKSnqglMJfKFSlqA&#41;)
 
 
