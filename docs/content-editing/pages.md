@@ -34,13 +34,25 @@ You must be logged in.
 
 1. Click the {guilabel}`add item` button.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/a2594574-9928-4e08-8b9b-23270d86592f/File.jpeg?tl_px=0,0&br_px=1719,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=12,164)
-
+   ````{card}
+   ```{image} _static/pages-01.jpeg
+   :alt: The add item button
+   :target: _static/pages-01.jpeg
+   ```
+   +++
+   _The add item button_
+   ````
 
 2. Click {guilabel}`Page`.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/863efce7-0ca0-4891-9f07-800e6459dd2b/File.jpeg?tl_px=0,161&br_px=1719,1122&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=99,276)
-
+   ````{card}
+   ```{image} _static/pages-02.jpeg
+   :alt: Add a Page
+   :target: _static/pages-02.jpeg
+   ```
+   +++
+   _Add a Page_
+   ````
 
 3. Click {guilabel}`Type the title...` and type a title, e.g., "My New Page!", then press {kbd}`Enter` .
 
@@ -48,17 +60,33 @@ You must be logged in.
 
     You can format the text using the editor shortcuts and the markdown shortcuts shown in the right column.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/b0497749-33d8-4067-9c45-3be7ed3f0d21/File.jpeg?tl_px=1102,70&br_px=2822,1031&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=372,306)
-
+   ````{card}
+   ```{image} _static/pages-03.jpeg
+   :alt: Editing and markdown shortcuts
+   :target: _static/pages-03.jpeg
+   ```
+   +++
+   _Editing and markdown shortcuts_
+   ````
 
 5. You can drag a block up or down the page using the {guilabel}`drag handle` to the left of each block.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/ab5ceb74-8b81-4848-88fb-3238d35d4060/File.jpeg?tl_px=0,887&br_px=1719,1848&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=95,277)
-
+   ````{card}
+   ```{image} _static/pages-04.jpeg
+   :alt: A block drag handle
+   :target: _static/pages-04.jpeg
+   ```
+   +++
+   _A block drag handle_
+   ````
 
 6. Click the {guilabel}`Save` button at the top left corner to save the page.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/93b66886-6299-49c4-9302-64d63201f48c/File.jpeg?tl_px=0,0&br_px=1719,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=16,23)
-
-
-
+   ````{card}
+   ```{image} _static/pages-05.jpeg
+   :alt: The Save button
+   :target: _static/pages-05.jpeg
+   ```
+   +++
+   _The Save button_
+   ````
