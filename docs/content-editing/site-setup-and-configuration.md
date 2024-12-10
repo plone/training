@@ -7,6 +7,8 @@ myst:
     "keywords": "Plone, Site, Setup, Configuration"
 ---
 
+(site-setup-and-configuration-label)=
+
 # Site Setup and Configuration
 
 Plone configuration is done through control panels available in Site Setup.
@@ -119,7 +121,7 @@ The personal menu lets you navigate to the site's control panels.
    _The left arrow button_
    ````
 
-## Using the Add-ons Control Panel
+## Use the Add-ons Control Panel
 
 You use the Add-ons control panel to see the details of which add-ons are installed on your site and which ones are available to be installed.
 
@@ -249,7 +251,7 @@ You use the Add-ons control panel to see the details of which add-ons are instal
    _Click to exit the control panel_
    ````
 
-## Using the Database Control Panel
+## Use the Database Control Panel
 
 The Database control panel displays information about the database used by your site.
 
@@ -286,7 +288,7 @@ The Database control panel displays information about the database used by your 
    _Details about the database cache_
    ````
 
-## Using the Date and Time Control Panel
+## Use the Date and Time Control Panel
 
 The Date and Time control panels lets you change timezones and day of the week settings.
 
