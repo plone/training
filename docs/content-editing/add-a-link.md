@@ -119,7 +119,11 @@ Here we show how to create a Link object that sends a visitor to an arbitrary we
    ````
 
 10. As soon as you are logged out of Plone, your browser reloads the page. 
-   Because you are logged out, when your browser attempts to render the Link item and Plone recognizes that you do not have edit permissions on the Link, it redirects you to the web address of the video.
+
+    Because you are logged out, when your browser attempts to render the Link item and Plone recognizes that you do not have edit permissions on the Link, it redirects you to the web address of the video.
+    
+    Anyone visiting the Link will get redirected as well.
+
     ````{card}
     ```{image} _static/add-a-link-10.jpeg
     :alt: The linked-to video
