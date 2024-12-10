@@ -96,44 +96,44 @@ Here we demonstrate how Plone's built in search works, by searching (unsuccessfu
 
 11. Click {guilabel}`Save`.
 
-   ````{card}
-   ```{image} _static/search-07.jpeg
-   :alt: The Save button
-   :target: _static/search-07.jpeg
-   ```
-   +++
-   _The Save button_
-   ````
+      ````{card}
+      ```{image} _static/search-07.jpeg
+      :alt: The Save button
+      :target: _static/search-07.jpeg
+      ```
+      +++
+      _The Save button_
+      ````
 
 12. Click {guilabel}`Search`.
 
-   ````{card}
-   ```{image} _static/search-08.jpeg
-   :alt: The Search button
-   :target: _static/search-08.jpeg
-   ```
-   +++
-   _The Search button_
-   ````
+      ````{card}
+      ```{image} _static/search-08.jpeg
+      :alt: The Search button
+      :target: _static/search-08.jpeg
+      ```
+      +++
+      _The Search button_
+      ````
 
 13. Click the {guilabel}`Search Site` field and type {kbd}`Oshkosh` (case does not matter), then press {kbd}`Enter`.
 
-   ````{card}
-   ```{image} _static/search-09.jpeg
-   :alt: The Search Site text field
-   :target: _static/search-09.jpeg
-   ```
-   +++
-   _The Search Site text field_
-   ````
+      ````{card}
+      ```{image} _static/search-09.jpeg
+      :alt: The Search Site text field
+      :target: _static/search-09.jpeg
+      ```
+      +++
+      _The Search Site text field_
+      ````
 
 14. You will see one page listed in the search results. Clicking on a search result takes you to the item.
 
-   ````{card}
-   ```{image} _static/search-10.jpeg
-   :alt: The search results listing
-   :target: _static/search-10.jpeg
-   ```
-   +++
-   _The search results listing_
-   ````
+      ````{card}
+      ```{image} _static/search-10.jpeg
+      :alt: The search results listing
+      :target: _static/search-10.jpeg
+      ```
+      +++
+      _The search results listing_
+      ````

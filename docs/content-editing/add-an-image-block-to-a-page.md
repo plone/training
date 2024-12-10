@@ -128,136 +128,136 @@ Here we add a new page then add an image block to it.
 
     Try them all out!
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-09.jpeg
-   :alt: Set the image alignment
-   :target: _static/add-an-image-block-to-a-page-09.jpeg
-   ```
-   +++
-   _Set the image alignment_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-09.jpeg
+      :alt: Set the image alignment
+      :target: _static/add-an-image-block-to-a-page-09.jpeg
+      ```
+      +++
+      _Set the image alignment_
+      ````
 
 11. The {guilabel}`Link to` field lets you specify, optionally, where on the site to navigate to if a user clicks on the image block.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-10.jpeg
-   :alt: Set the image's optional link
-   :target: _static/add-an-image-block-to-a-page-10.jpeg
-   ```
-   +++
-   _Set the image's optional link_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-10.jpeg
+      :alt: Set the image's optional link
+      :target: _static/add-an-image-block-to-a-page-10.jpeg
+      ```
+      +++
+      _Set the image's optional link_
+      ````
 
 12. To set the Link to item, click the {guilabel}`navigate` button.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-11.jpeg
-   :alt: Navigate to the linked item
-   :target: _static/add-an-image-block-to-a-page-11.jpeg
-   ```
-   +++
-   _Navigate to the linked item_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-11.jpeg
+      :alt: Navigate to the linked item
+      :target: _static/add-an-image-block-to-a-page-11.jpeg
+      ```
+      +++
+      _Navigate to the linked item_
+      ````
 
 13. We search or navigate to the item we want to set as the Link to item. 
 
     In this example, we click {guilabel}`wxyz bar`.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-12.jpeg
-   :alt: Choose the linked item
-   :target: _static/add-an-image-block-to-a-page-12.jpeg
-   ```
-   +++
-   _Choose the linked item_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-12.jpeg
+      :alt: Choose the linked item
+      :target: _static/add-an-image-block-to-a-page-12.jpeg
+      ```
+      +++
+      _Choose the linked item_
+      ````
 
 14. Click the {guilabel}`X` button to close the navigation panel.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-13.jpeg
-   :alt: Close the navigation panel
-   :target: _static/add-an-image-block-to-a-page-13.jpeg
-   ```
-   +++
-   _Close the navigation panel_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-13.jpeg
+      :alt: Close the navigation panel
+      :target: _static/add-an-image-block-to-a-page-13.jpeg
+      ```
+      +++
+      _Close the navigation panel_
+      ````
 
 15. You can see what the Link has been set to.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-14.jpeg
-   :alt: The linked item
-   :target: _static/add-an-image-block-to-a-page-14.jpeg
-   ```
-   +++
-   _The linked item_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-14.jpeg
+      :alt: The linked item
+      :target: _static/add-an-image-block-to-a-page-14.jpeg
+      ```
+      +++
+      _The linked item_
+      ````
 
 16. If you'd like the linked item to appear in a new tab when clicked, check the box {guilabel}`Open in a new tab`.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-15.jpeg
-   :alt: Checkbox to open link in a new tab
-   :target: _static/add-an-image-block-to-a-page-15.jpeg
-   ```
-   +++
-   _Checkbox to open link in a new tab_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-15.jpeg
+      :alt: Checkbox to open link in a new tab
+      :target: _static/add-an-image-block-to-a-page-15.jpeg
+      ```
+      +++
+      _Checkbox to open link in a new tab_
+      ````
 
 17. Click the {guilabel}`Save` button.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-16.jpeg
-   :alt: The Save button
-   :target: _static/add-an-image-block-to-a-page-16.jpeg
-   ```
-   +++
-   _The Save button_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-16.jpeg
+      :alt: The Save button
+      :target: _static/add-an-image-block-to-a-page-16.jpeg
+      ```
+      +++
+      _The Save button_
+      ````
 
 18. The image block has been added to the page.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-17.jpeg
-   :alt: The image block
-   :target: _static/add-an-image-block-to-a-page-17.jpeg
-   ```
-   +++
-   _The image block_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-17.jpeg
+      :alt: The image block
+      :target: _static/add-an-image-block-to-a-page-17.jpeg
+      ```
+      +++
+      _The image block_
+      ````
 
 19. The image block displays the title and description you provided.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-18.jpeg
-   :alt: The image's title and description
-   :target: _static/add-an-image-block-to-a-page-18.jpeg
-   ```
-   +++
-   _The image's title and description_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-18.jpeg
+      :alt: The image's title and description
+      :target: _static/add-an-image-block-to-a-page-18.jpeg
+      ```
+      +++
+      _The image's title and description_
+      ````
 
 20. Click on the image block.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-19.jpeg
-   :alt: Click on the image block
-   :target: _static/add-an-image-block-to-a-page-19.jpeg
-   ```
-   +++
-   _Click on the image block_
-   ````
+      ````{card}
+      ```{image} _static/add-an-image-block-to-a-page-19.jpeg
+      :alt: Click on the image block
+      :target: _static/add-an-image-block-to-a-page-19.jpeg
+      ```
+      +++
+      _Click on the image block_
+      ````
 
 21. You should be taken to the linked item in a new browser tab.
 
-   Confirm that this is the linked item by looking at the breadcrumbs.
+    Confirm that this is the linked item by looking at the breadcrumbs.
 
-   ````{card}
-   ```{image} _static/add-an-image-block-to-a-page-20.jpeg
-   :alt: The linked item
-   :target: _static/add-an-image-block-to-a-page-20.jpeg
-   ```
-   +++
-   _The linked item_
-   ````
+    ````{card}
+    ```{image} _static/add-an-image-block-to-a-page-20.jpeg
+    :alt: The linked item
+    :target: _static/add-an-image-block-to-a-page-20.jpeg
+    ```
+    +++
+    _The linked item_
+    ````

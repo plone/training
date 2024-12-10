@@ -13,7 +13,7 @@ Pages can contain other items, and can be nested to any depth.
 
 Here we show how to create a page that will contain Event content items, and how to create an Event content item.
 
-## Create an Events "Folder" and an Event Inside it
+## Create an Events "Folder"
 
 We create a page called "Events" to contain all the site's events, then we create an event inside it.
 
@@ -68,7 +68,9 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The Save button_
    ````
 
-6. We are now looking at the new "Events" page. 
+## Add an Event Inside the Folder
+
+1. We are now looking at the new "Events" page. 
 
     We will create an Event inside it. 
 
@@ -83,7 +85,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The add item button_
    ````
 
-7. Click {guilabel}`Event`
+2. Click {guilabel}`Event`
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-06.jpeg
@@ -94,7 +96,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _Add an Event_
    ````
 
-8. Click {guilabel}`Type the title...`
+3. Click {guilabel}`Type the title...`
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-07.jpeg
@@ -105,10 +107,9 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The title field_
    ````
 
-9. Type "Plone Conference 2024" to set the title of the event.
+4. Type "Plone Conference 2024" to set the title of the event.
 
-
-10. Click in the text block below, where it says {guilabel}`Type text...`
+5. Click in the text block below, where it says {guilabel}`Type text...`
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-08.jpeg
@@ -119,10 +120,10 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The event body field_
    ````
 
-11. Type some text describing the event, e.g., "The Plone Conference, the annual gathering of the vibrant Plone community, has been a cornerstone of the open-source CMS world for nearly two decades. From the first edition, back in 2003 to its latest edition in 2023, the conference has evolved into a global celebration of collaboration, innovation, and knowledge sharing."
+6. Type some text describing the event, e.g., "The Plone Conference, the annual gathering of the vibrant Plone community, has been a cornerstone of the open-source CMS world for nearly two decades. From the first edition, back in 2003 to its latest edition in 2023, the conference has evolved into a global celebration of collaboration, innovation, and knowledge sharing."
 
 
-12. Click the {guilabel}`Summary` field and type some text that describes the event.
+7. Click the {guilabel}`Summary` field and type some text that describes the event.
 
     Summaries should be brief, typically 1-2 sentences.
 
@@ -137,7 +138,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The event summary field_
    ````
 
-13. An event should have a start and (usually) an end date. 
+8. An event should have a start and (usually) an end date. 
 
     By default, it is set to the date and time when you created the event.
 
@@ -152,7 +153,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The event start date_
    ````
 
-14. Use the calendar widget to set the event's start date.
+9. Use the calendar widget to set the event's start date.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-11.jpeg
@@ -163,7 +164,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The calendar widget_
    ````
 
-15. Click the {guilabel}`Time` field.
+10. Click the {guilabel}`Time` field.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-12.jpeg
@@ -174,7 +175,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The event start time field_
    ````
 
-16. Use the time widget to set the event's start time.
+11. Use the time widget to set the event's start time.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-13.jpeg
@@ -185,10 +186,10 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The time widget_
    ````
 
-17. Type {kbd}`Escape` or click elsewhere on the page to hide the widget.
+12. Type {kbd}`Escape` or click elsewhere on the page to hide the widget.
 
 
-18. Click the {guilabel}`Event Ends` date field.
+13. Click the {guilabel}`Event Ends` date field.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-14.jpeg
@@ -199,7 +200,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The event end date_
    ````
 
-19. Use the calendar widget to set the event's end date.
+14. Use the calendar widget to set the event's end date.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-15.jpeg
@@ -210,7 +211,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The calendar widget_
    ````
 
-20. Click the {guilabel}`Event Ends` time field.
+15. Click the {guilabel}`Event Ends` time field.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-16.jpeg
@@ -221,7 +222,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The event end time_
    ````
 
-21. Use the time widget to set the event's end time.
+16. Use the time widget to set the event's end time.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-17.jpeg
@@ -232,7 +233,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The time widget_
    ````
 
-22. You can click {guilabel}`Whole Day` if the event takes place the entire day or if you don't want to have to set start and end times.
+17. You can click {guilabel}`Whole Day` if the event takes place the entire day or if you don't want to have to set start and end times.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-18.jpeg
@@ -243,7 +244,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The Whole Day checkbox_
    ````
 
-23. You can use the {guilabel}`Location` field to enter the location of the event.
+18. You can use the {guilabel}`Location` field to enter the location of the event.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-19.jpeg
@@ -254,7 +255,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The event location_
    ````
 
-24. You can enter the organizer's contact information using the {guilabel}`Contact Name`, {guilabel}`Contact E-mail`, and {guilabel}`Contact Phone` fields.
+19. You can enter the organizer's contact information using the {guilabel}`Contact Name`, {guilabel}`Contact E-mail`, and {guilabel}`Contact Phone` fields.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-20.jpeg
@@ -265,7 +266,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The event contact person's name_
    ````
 
-25. If the event has its own web page, you can enter it in the {guilabel}`Event URL` field. 
+20. If the event has its own web page, you can enter it in the {guilabel}`Event URL` field. 
 
     For example, it could be "<https://2024.ploneconf.org>".
 
@@ -278,7 +279,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The event's website address_
    ````
 
-26. You can set a preview image for the event. Click {guilabel}`Choose a file` or drop an image file onto the {guilabel}`Drop file here` target area
+21. You can set a preview image for the event. Click {guilabel}`Choose a file` or drop an image file onto the {guilabel}`Drop file here` target area
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-22.jpeg
@@ -289,7 +290,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _Set the event's preview image_
    ````
 
-27. Click the {guilabel}`Save` button.
+22. Click the {guilabel}`Save` button.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-23.jpeg
@@ -300,7 +301,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The Save button_
    ````
 
-28. You can see the "Events" page (folder, really) you created first.
+23. You can see the Events page you created earlier, though it acts as a folder.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-24.jpeg
@@ -311,7 +312,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    _The Events "folder"_
    ````
 
-29. Your new event has been created inside the "Events" folder, as shown by the breadcrumbs above the event dates and title.
+24. Your new event has been created inside the "Events" folder, as shown by the breadcrumbs above the event dates and title.
 
    ````{card}
    ```{image} _static/use-pages-to-organize-content-25.jpeg

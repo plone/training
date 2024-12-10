@@ -15,7 +15,7 @@ We saw earlier how to use the personal menu to log out of Plone, but the persona
 - set your full name, email address, home page, location, and short bio
 - set your language preference
 
-## Using the Personal Menu
+## Use the Personal Menu
 
 The personal menu lets you log out, edit your profile and preferences, and view the site's control panels.
 
@@ -65,8 +65,9 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    +++
    _Your profile image_
    ````
+## Setup Your Profile
 
-6. To set a profile image and other profile settings, click {guilabel}`Profile`
+1. To set a profile image and other profile settings, click {guilabel}`Profile`
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-05.jpeg
@@ -77,7 +78,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Click to modify your profile_
    ````
 
-7. You can set your full name.
+2. You can set your full name.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-06.jpeg
@@ -88,7 +89,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Set your full name_
    ````
 
-8. You can set your email address.
+3. You can set your email address.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-07.jpeg
@@ -99,7 +100,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Set your email address_
    ````
 
-9. You can set your home page.
+4. You can set your home page.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-08.jpeg
@@ -110,7 +111,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Set your home page_
    ````
 
-10. You can set your biography, which can be viewed by other users of the site.
+5. You can set your biography, which can be viewed by other users of the site.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-09.jpeg
@@ -121,7 +122,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Set your biography_
    ````
 
-11. You can set your location.
+6. You can set your location.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-10.jpeg
@@ -132,7 +133,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Set your location_
    ````
 
-12. You can set your profile photo by clicking {guilabel}`Choose a file` or by dragging an image onto the {guilabel}`Drop file here to upload a new file` target area.
+7. You can set your profile photo by clicking {guilabel}`Choose a file` or by dragging an image onto the {guilabel}`Drop file here to upload a new file` target area.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-11.jpeg
@@ -143,7 +144,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Set your profile photo_
    ````
 
-13. To save your changes, click the {guilabel}`right arrow` button.
+8. To save your changes, click the {guilabel}`right arrow` button.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-12.jpeg
@@ -154,7 +155,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _The right arrow button_
    ````
 
-14. To discard your changes, click the {guilabel}`X` button.
+9. To discard your changes, click the {guilabel}`X` button.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-13.jpeg
@@ -164,8 +165,9 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    +++
    _The Cancel button_
    ````
+## Set Your Language
 
-15. You can set your language preference by clicking {guilabel}`Preferences`.
+1. You can set your language preference by clicking {guilabel}`Preferences`.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-14.jpeg
@@ -176,7 +178,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Set your language preference_
    ````
 
-16. You can choose a language from this list.
+2. You can choose a language from this list.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-15.jpeg
@@ -187,7 +189,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Click to choose a language_
    ````
 
-17. For example, click {guilabel}`English`.
+3. For example, click {guilabel}`English`.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-16.jpeg
@@ -198,7 +200,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _Choose English_
    ````
 
-18. To save your changes, click the {guilabel}`right arrow` button.
+4. To save your changes, click the {guilabel}`right arrow` button.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-17.jpeg
@@ -209,7 +211,7 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _The right arrow button_
    ````
 
-19. You will see a "Changes saved" message appear.
+5. You will see a "Changes saved" message appear.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-18.jpeg
@@ -220,7 +222,9 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    _The "Changes saved" confirmation message_
    ````
 
-20. You can view the site's control panels by clicking on {guilabel}`Site Setup`.
+## Site Setup (Control Panels)
+
+1. You can view the site's control panels by clicking on {guilabel}`Site Setup`.
 
    ````{card}
    ```{image} _static/personal-profile-and-settings-19.jpeg
@@ -230,3 +234,5 @@ The personal menu lets you log out, edit your profile and preferences, and view 
    +++
    _Click to view Site Setup_
    ````
+   
+   The Site Setup control panels are described in {ref}`Site Setup and Configuration <site-setup-and-configuration-label>`.

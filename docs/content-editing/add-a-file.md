@@ -80,7 +80,9 @@ We add a file and look at other metadata that can be set on it and all content i
    _Choose a file_
    ````
 
-6. Let's look at the other metadata you can set.
+## Set Categorization Metadata (Tags, Language, Related Items)
+
+1. Let's look at the other metadata you can set.
 
     Click {guilabel}`Categorization`.
 
@@ -93,7 +95,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _Categorization settings_
    ````
 
-7. This lets you assign tags, or keywords, to the current content item. 
+2. This lets you assign tags, or keywords, to the current content item. 
 
     Tags are another way to describe the current content item.
 
@@ -108,13 +110,13 @@ We add a file and look at other metadata that can be set on it and all content i
    _Set tags_
    ````
 
-8. You can select existing tags.
+3. You can select existing tags.
 
     To create new tags, you type each one followed by {kbd}`enter`.
 
     For example, type "zope {kbd}`Enter` zope3 {kbd}`Enter` unit tests {kbd}`Enter` introduction {kbd}`Enter`"
 
-9. Click on the {guilabel}`Language` drop down list to specify the language of the content item.
+4. Click on the {guilabel}`Language` drop down list to specify the language of the content item.
 
    ````{card}
    ```{image} _static/add-a-file-08.jpeg
@@ -125,7 +127,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _Set the language_
    ````
 
-10. Click on the {guilabel}`Related Items` field to select other content items on the current site that are related to this one. 
+5. Click on the {guilabel}`Related Items` field to select other content items on the current site that are related to this one. 
 
     This lets you guide users to other content that may also be of interest to them.
 
@@ -138,7 +140,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _Set related items_
    ````
 
-11. You can select one or more related items by navigating and by searching the site.
+6. You can select one or more related items by navigating and by searching the site.
 
     In this example, we select as a related item the page "Content Types" by clicking on its icon.
 
@@ -151,7 +153,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _Choose the related item_
    ````
 
-12. Click the {guilabel}`X` button to exit from the related items selection widget.
+7. Click the {guilabel}`X` button to exit from the related items selection widget.
 
    ````{card}
    ```{image} _static/add-a-file-11.jpeg
@@ -161,8 +163,9 @@ We add a file and look at other metadata that can be set on it and all content i
    +++
    _Close the related item chooser panel_
    ````
+## Set Dates Metadata (Publication and Expiration Dates)
 
-13. Click {guilabel}`Dates`
+1. Click {guilabel}`Dates`
 
    ````{card}
    ```{image} _static/add-a-file-12.jpeg
@@ -173,7 +176,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _Date settings_
    ````
 
-14. The Expiration Date lets you set when this item should no longer be shown in the site's navigation, e.g., in site headings.
+2. The Expiration Date lets you set when this item should no longer be shown in the site's navigation, e.g., in site headings.
 
    ````{card}
    ```{image} _static/add-a-file-13.jpeg
@@ -184,7 +187,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _The expiration date_
    ````
 
-15. Set the expiration date by clicking on the {guilabel}`Date` field. You can set the expiration time by clicking on the {guilabel}`Time` field.
+3. Set the expiration date by clicking on the {guilabel}`Date` field. You can set the expiration time by clicking on the {guilabel}`Time` field.
 
    ````{card}
    ```{image} _static/add-a-file-14.jpeg
@@ -195,7 +198,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _The calendar widget_
    ````
 
-16. The "Publishing Date" will be set automatically when you publish the item, so there is usually no need to set it.
+4. The "Publishing Date" will be set automatically when you publish the item, so there is usually no need to set it.
 
     You can set a publishing date in the future if you want to publish the item now but not have it highlighted in the site navigation until that future date and time.
 
@@ -207,8 +210,9 @@ We add a file and look at other metadata that can be set on it and all content i
    +++
    _The publication date_
    ````
+## Set Ownership Metadata (Creators, Contributors, Rights)
 
-17. Click {guilabel}`Ownership`
+1. Click {guilabel}`Ownership`
 
    ````{card}
    ```{image} _static/add-a-file-15.jpeg
@@ -219,7 +223,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _Ownership settings_
    ````
 
-18. The Ownership fields let you set who created and contributed to the item. You can also set a copyright statement.
+2. The Ownership fields let you set who created and contributed to the item. You can also set a copyright statement.
 
     Click {guilabel}`Settings`.
 
@@ -231,8 +235,9 @@ We add a file and look at other metadata that can be set on it and all content i
    +++
    _Other settings_
    ````
+## Set Other Metadata (Short Name, Exclude from Navigation)
 
-19. The "short name" for an item is what appears as part of the web address of the item. 
+1. The "short name" for an item is what appears as part of the web address of the item. 
 
     By default, Plone takes the title of the item, lower cases it, and replaces spaces and other punctuation with hyphens ("-").
 
@@ -249,7 +254,9 @@ We add a file and look at other metadata that can be set on it and all content i
    _The Save button_
    ````
 
-20. You see the saved file's title, description (summary), a link to download the file, the file type and size.
+## Review the Added File
+
+1. You see the saved file's title, description (summary), a link to download the file, the file type and size.
 
    ````{card}
    ```{image} _static/add-a-file-18.jpeg
@@ -260,7 +267,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _The saved file_
    ````
 
-21. Click {guilabel}`demo1.pdf` to download the file.
+2. Click {guilabel}`demo1.pdf` to download the file.
 
    ````{card}
    ```{image} _static/add-a-file-19.jpeg
@@ -271,7 +278,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _The file download link_
    ````
 
-22. You also see the tags or keywords you assigned to the item.
+3. You also see the tags or keywords you assigned to the item.
 
    ````{card}
    ```{image} _static/add-a-file-20.jpeg
@@ -282,7 +289,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _The clickable tags_
    ````
 
-23. Click a tag to see other content items that have been assigned that tag.
+4. Click a tag to see other content items that have been assigned that tag.
 
    ````{card}
    ```{image} _static/add-a-file-21.jpeg
@@ -293,7 +300,7 @@ We add a file and look at other metadata that can be set on it and all content i
    _Click on a tag_
    ````
 
-24. You see a list of all content items on the site that have been assigned that tag.
+5. You see a list of all content items on the site that have been assigned that tag.
 
    ````{card}
    ```{image} _static/add-a-file-22.jpeg

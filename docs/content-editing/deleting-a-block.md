@@ -7,7 +7,7 @@ myst:
     "keywords": "Plone, Deleting, Delete, Block"
 ---
 
-# Deleting a Block
+# Delete a Block
 
 Here we show how to delete any block.
 

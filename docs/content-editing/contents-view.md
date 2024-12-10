@@ -21,7 +21,7 @@ Those actions include:
 
 Here we look at how to use the Contents View.
 
-## Use the Contents View
+## Navigate Using the Contents View
 
 The contents view of an item shows you what it contains and lets you perform operations on the contained items.
 
@@ -130,7 +130,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Home in the breadcrumbs_
    ````
 
-10. To change the order of items in the folder, click the {guilabel}`drag handle` on the left of an item and drag it to its new position.
+## Reorder Items Using the Contents View
+
+1. To change the order of items in the folder, click the {guilabel}`drag handle` on the left of an item and drag it to its new position.
 
    ````{card}
    ```{image} _static/contents-view-09.jpeg
@@ -141,7 +143,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The drag handle for an item_
    ````
 
-11. Note the current order of the items highlighted at the top of the page.
+2. Note the current order of the items highlighted at the top of the page.
 
    ````{card}
    ```{image} _static/contents-view-10.jpeg
@@ -152,7 +154,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Note the order of these links_
    ````
 
-12. Move the Blocks page down.
+3. Move the Blocks page down.
 
    ````{card}
    ```{image} _static/contents-view-11.jpeg
@@ -163,7 +165,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Use the drag handle_
    ````
 
-13. Once the Blocks page has moved, you will see a "Success" message at the bottom of the page.
+4. Once the Blocks page has moved, you will see a "Success" message at the bottom of the page.
 
    ````{card}
    ```{image} _static/contents-view-12.jpeg
@@ -174,7 +176,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The success message_
    ````
 
-14. You may have to reload the page. Note the changed order of items at the top of the page.
+5. You may have to reload the page. Note the changed order of items at the top of the page.
 
    ````{card}
    ```{image} _static/contents-view-13.jpeg
@@ -185,7 +187,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The order of links changed (may have to reload the page)_
    ````
 
-15. You can upload images and files to the folder. Click the {guilabel}`Upload` button.
+## Upload Images and Files Using the Contents View
+
+1. You can upload images and files to the folder. Click the {guilabel}`Upload` button.
 
    ````{card}
    ```{image} _static/contents-view-14.jpeg
@@ -196,7 +200,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The upload button_
    ````
 
-16. Click {guilabel}`Browse` to select the image or file to upload from your computer. 
+2. Click {guilabel}`Browse` to select the image or file to upload from your computer. 
 
     Alternatively, you can drag one or more images or files to the target area shown.
 
@@ -209,7 +213,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Browse button_
    ````
 
-17. To complete the upload, press the {guilabel}`right arrow` button.
+3. To complete the upload, press the {guilabel}`right arrow` button.
 
    ````{card}
    ```{image} _static/contents-view-16.jpeg
@@ -220,7 +224,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The right arrow button_
    ````
 
-18. You see the new image added at the bottom of the folder.
+4. You see the new image added at the bottom of the folder.
 
    ````{card}
    ```{image} _static/contents-view-17.jpeg
@@ -231,7 +235,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The new image_
    ````
 
-19. You perform operations on an item by clicking on the {guilabel}`checkbox` next to the item.
+## Move Items Using the Contents View
+
+1. You perform operations on an item by clicking on the {guilabel}`checkbox` next to the item.
 
    ````{card}
    ```{image} _static/contents-view-18.jpeg
@@ -242,7 +248,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Use the checkbox to select one or more items_
    ````
 
-20. To move an item, you must Cut it, navigate to its intended location, then paste it there. 
+2. To move an item, you must Cut it, navigate to its intended location, then paste it there. 
 
     Click the {guilabel}`Cut` button.
 
@@ -255,7 +261,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Cut button_
    ````
 
-21. We are moving the image to the Images folder, so Click {guilabel}`Images`.
+3. We are moving the image to the Images folder, so Click {guilabel}`Images`.
 
    ````{card}
    ```{image} _static/contents-view-20.jpeg
@@ -266,7 +272,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Click on the Images page_
    ````
 
-22. Click the {guilabel}`Paste` button.
+4. Click the {guilabel}`Paste` button.
 
    ````{card}
    ```{image} _static/contents-view-21.jpeg
@@ -277,7 +283,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Paste button_
    ````
 
-23. You see that the image has been pasted here and is no longer in the Home folder.
+5. You see that the image has been pasted here and is no longer in the Home folder.
 
    ````{card}
    ```{image} _static/contents-view-22.jpeg
@@ -288,7 +294,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The pasted image_
    ````
 
-24. You can duplicate (or make even more copies) of an item by using the {guilabel}`Copy` and {guilabel}`Paste` button. 
+## Duplicate Items Using the Contents View
+
+1. You can duplicate (or make even more copies) of an item by using the {guilabel}`Copy` and {guilabel}`Paste` button. 
 
     Select the item you want to duplicate:
 
@@ -301,7 +309,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Use the checkbox to select one or more items_
    ````
 
-25. Click the {guilabel}`Copy` button.
+2. Click the {guilabel}`Copy` button.
 
    ````{card}
    ```{image} _static/contents-view-24.jpeg
@@ -312,7 +320,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Copy button_
    ````
 
-26. Click the {guilabel}`Paste` button.
+3. Click the {guilabel}`Paste` button.
 
    ````{card}
    ```{image} _static/contents-view-25.jpeg
@@ -323,7 +331,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Paste button_
    ````
 
-27. You see the duplicated item.
+4. You see the duplicated item.
 
    ````{card}
    ```{image} _static/contents-view-26.jpeg
@@ -334,7 +342,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The duplicated image_
    ````
 
-28. To delete an item, select the item.
+## Delete Items Using the Contents View
+
+1. To delete an item, select the item.
 
    ````{card}
    ```{image} _static/contents-view-27.jpeg
@@ -345,7 +355,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Use the checkbox to select one or more items_
    ````
 
-29. Click the {guilabel}`trash can` button.
+2. Click the {guilabel}`trash can` button.
 
    ````{card}
    ```{image} _static/contents-view-28.jpeg
@@ -356,7 +366,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The trash can button_
    ````
 
-30. Click {guilabel}`Delete` to confirm.
+3. Click {guilabel}`Delete` to confirm.
 
    ````{card}
    ```{image} _static/contents-view-29.jpeg
@@ -367,9 +377,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Delete confirmation button_
    ````
 
-31. The duplicate item has been deleted.
-
-    Select the remaining item.
+4. The duplicate item has been deleted.
 
    ````{card}
    ```{image} _static/contents-view-30.jpeg
@@ -380,7 +388,20 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The item has been deleted_
    ````
 
-32. You can rename selected items by clicking on the {guilabel}`Rename` button.
+## Rename Items Using the Contents View
+
+1. Select the remaining item.
+
+   ````{card}
+   ```{image} _static/contents-view-30.jpeg
+   :alt: Select one or more items to rename
+   :target: _static/contents-view-30.jpeg
+   ```
+   +++
+   _Select one or more items to rename_
+   ````
+
+2. You can rename selected items by clicking on the {guilabel}`Rename` button.
 
    ````{card}
    ```{image} _static/contents-view-31.jpeg
@@ -391,7 +412,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Rename button_
    ````
 
-33. Click the {guilabel}`Title` field and replace the current title with "Catedral de Brasilia".
+3. Click the {guilabel}`Title` field and replace the current title with "Catedral de Brasilia".
 
    ````{card}
    ```{image} _static/contents-view-32.jpeg
@@ -402,7 +423,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The title field_
    ````
 
-34. Click the {guilabel}`right arrow` button to complete the action.
+4. Click the {guilabel}`right arrow` button to complete the action.
 
    ````{card}
    ```{image} _static/contents-view-33.jpeg
@@ -413,9 +434,20 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The right arrow button_
    ````
 
-35. The item has been renamed.
+5. The item has been renamed.
 
-    You can perform other operations on selected items.
+   ````{card}
+   ```{image} _static/contents-view-34.jpeg
+   :alt: The renamed item
+   :target: _static/contents-view-34.jpeg
+   ```
+   +++
+   _The renamed_ item
+   ````
+
+## Change Workflow State Using the Contents View
+
+1. You can change the workflow state of selected items.
 
    ````{card}
    ```{image} _static/contents-view-34.jpeg
@@ -426,7 +458,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Use the checkbox to select one or more items_
    ````
 
-36. Click the {guilabel}`State` button to change the item's workflow state, if applicable.
+2. Click the {guilabel}`State` button to change the item's workflow state, if applicable.
 
    ````{card}
    ```{image} _static/contents-view-35.jpeg
@@ -437,7 +469,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The State button_
    ````
 
-37. Click {guilabel}`Select...` to choose the item's new workflow state.
+3. Click {guilabel}`Select...` to choose the item's new workflow state.
 
    ````{card}
    ```{image} _static/contents-view-36.jpeg
@@ -448,7 +480,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The state drop down list_
    ````
 
-38. In the case of images, which have no workflow state of their own, no choices are available.
+4. In the case of images, which have no workflow state of their own, no choices are available.
 
    ````{card}
    ```{image} _static/contents-view-37.jpeg
@@ -459,7 +491,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _No states are available_
    ````
 
-39. Click the {guilabel}`X` button to cancel the operation.
+5. Click the {guilabel}`X` button to cancel the operation.
 
    ````{card}
    ```{image} _static/contents-view-38.jpeg
@@ -470,7 +502,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Cancel button_
    ````
 
-40. You can apply or remove tags from selected items using the {guilabel}`Tags` button.
+## Set and Remove Tags Using the Contents View
+
+1. You can apply or remove tags from selected items using the {guilabel}`Tags` button.
 
    ````{card}
    ```{image} _static/contents-view-39.jpeg
@@ -481,7 +515,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Tags button_
    ````
 
-41. Click {guilabel}`Select...` to add tags. 
+2. Click {guilabel}`Select...` to add tags. 
     Press {kbd}`Enter` or {kbd}`,` between tags.
 
    ````{card}
@@ -493,10 +527,10 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The tags to add_
    ````
 
-42. Type "Brazil {kbd}`Enter` architecture {kbd}`Enter`"
+3. Type "Brazil {kbd}`Enter` architecture {kbd}`Enter`"
 
 
-43. Click the {guilabel}`right arrow` button to apply the changes.
+4. Click the {guilabel}`right arrow` button to apply the changes.
 
    ````{card}
    ```{image} _static/contents-view-41.jpeg
@@ -507,7 +541,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The right arrow button_
    ````
 
-44. You can change the columns shown in the contents view. Click the {guilabel}`More` button.
+## Change the Display Columns in the Contents View
+
+1. You can change the columns shown in the contents view. Click the {guilabel}`More` button.
 
    ````{card}
    ```{image} _static/contents-view-42.jpeg
@@ -518,7 +554,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The More button_
    ````
 
-45. Check the box for "Tags".
+2. Check the box for "Tags".
 
    ````{card}
    ```{image} _static/contents-view-43.jpeg
@@ -529,7 +565,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Check the box next to Tages_
    ````
 
-46. You now see the tags, if any, on the items in the folder.
+3. You now see the tags, if any, on the items in the folder.
 
    ````{card}
    ```{image} _static/contents-view-44.jpeg
@@ -540,7 +576,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The tags column_
    ````
 
-47. You can view the properties of items. 
+## Change Item Properties Using the Contents View 
+
+1. You can view the properties of items. 
     Select an item.
 
    ````{card}
@@ -552,7 +590,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Use the checkbox to select one or more items_
    ````
 
-48. Click the {guilabel}`Properties` button.
+2. Click the {guilabel}`Properties` button.
 
    ````{card}
    ```{image} _static/contents-view-46.jpeg
@@ -563,7 +601,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Properties button_
    ````
 
-49. You can view and change the publishing date.
+3. You can view and change the publishing date.
 
    ````{card}
    ```{image} _static/contents-view-47.jpeg
@@ -574,7 +612,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The publishing date_
    ````
 
-50. You can view and change the expiration date.
+4. You can view and change the expiration date.
 
    ````{card}
    ```{image} _static/contents-view-48.jpeg
@@ -585,7 +623,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The expiration date_
    ````
 
-51. The {guilabel}`Rights` field is informational only.
+5. The {guilabel}`Rights` field is informational only.
 
    ````{card}
    ```{image} _static/contents-view-49.jpeg
@@ -596,7 +634,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The rights field_
    ````
 
-52. The {guilabel}`Creators` field is informational only.
+6. The {guilabel}`Creators` field is informational only.
 
    ````{card}
    ```{image} _static/contents-view-50.jpeg
@@ -607,7 +645,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Creators drop down list_
    ````
 
-53. You can enable or disable {guilabel}`Exclude from navigation`, which hides the item from visible navigation, such as the headings at the top of each page.
+7. You can enable or disable {guilabel}`Exclude from navigation`, which hides the item from visible navigation, such as the headings at the top of each page.
 
    ````{card}
    ```{image} _static/contents-view-51.jpeg
@@ -618,7 +656,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Checkbox to exclude item from navigation_
    ````
 
-54. Click the {guilabel}`X` button to cancel without applying your changes, or the {guilabel}`right arrow` button to apply your changes.
+8. Click the {guilabel}`X` button to cancel without applying your changes, or the {guilabel}`right arrow` button to apply your changes.
 
    ````{card}
    ```{image} _static/contents-view-52.jpeg
@@ -629,7 +667,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Cancel button_
    ````
 
-55. You can filter the items you see in the contents view, using the {guilabel}`Filter...` field.
+## Filter Items in the Contents View
+
+1. You can filter the items you see in the contents view, using the {guilabel}`Filter...` field.
 
    ````{card}
    ```{image} _static/contents-view-53.jpeg
@@ -640,7 +680,9 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The Filter text field_
    ````
 
-56. To leave the contents view and return to the default view, click the {guilabel}`left arrow` button.
+## Exit the Contents View
+
+1. To leave the contents view and return to the default view, click the {guilabel}`left arrow` button.
 
    ````{card}
    ```{image} _static/contents-view-54.jpeg
@@ -651,9 +693,7 @@ The contents view of an item shows you what it contains and lets you perform ope
    _The left arrow button_
    ````
 
-57. To leave the contents view and return to the default view, click the {guilabel}`left arrow` button.
-
-    This is the default view for the "Accordion" page.
+2. Now you see the item's default view.
 
    ````{card}
    ```{image} _static/contents-view-55.webp
@@ -664,83 +704,3 @@ The contents view of an item shows you what it contains and lets you perform ope
    _Click the left arrow button to return to the item's normal view_
    ````
 
-## Use the Contents View to Delete Items
-
-Here we show how to use the Contents view to delete items.
-
-1. In this example, we would like to delete this content item.
-
-   ````{card}
-   ```{image} _static/contents-view-56.jpeg
-   :alt: The item we want to delete
-   :target: _static/contents-view-56.jpeg
-   ```
-   +++
-   _The item we want to delete_
-   ````
-
-2. To delete content items, click on the {guilabel}`Contents` button.
-
-   ````{card}
-   ```{image} _static/contents-view-57.jpeg
-   :alt: The contents button
-   :target: _static/contents-view-57.jpeg
-   ```
-   +++
-   _The contents button_
-   ````
-
-3. Check the box next to the item(s) you want to delete.
-
-   ````{card}
-   ```{image} _static/contents-view-58.jpeg
-   :alt: Use the checkbox to select one or more items
-   :target: _static/contents-view-58.jpeg
-   ```
-   +++
-   _Use the checkbox to select one or more items_
-   ````
-
-4. Click the {guilabel}`trash can` button.
-
-   ````{card}
-   ```{image} _static/contents-view-59.jpeg
-   :alt: The trash can button
-   :target: _static/contents-view-59.jpeg
-   ```
-   +++
-   _The trash can button_
-   ````
-
-5. Confirm by clicking {guilabel}`Delete`.
-
-   ````{card}
-   ```{image} _static/contents-view-60.jpeg
-   :alt: The Delete confirmation button
-   :target: _static/contents-view-60.jpeg
-   ```
-   +++
-   _The Delete confirmation button_
-   ````
-
-6. Click the {guilabel}`left arrow` button to exit the Contents view.
-
-   ````{card}
-   ```{image} _static/contents-view-61.jpeg
-   :alt: The left arrow button
-   :target: _static/contents-view-61.jpeg
-   ```
-   +++
-   _The left arrow button_
-   ````
-
-7. Note how the item we wanted to delete has, in fact, been deleted.
-
-   ````{card}
-   ```{image} _static/contents-view-62.jpeg
-   :alt: The item has been deleted
-   :target: _static/contents-view-62.jpeg
-   ```
-   +++
-   _The item has been deleted_
-   ````
