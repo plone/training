@@ -112,14 +112,14 @@ The personal menu lets you navigate to the site's control panels.
 
 10. To exit the Site Setup view of control panels, click the {guilabel}`left arrow` button at the top left of the page.
 
-   ````{card}
-   ```{image} _static/site-setup-and-configuration-09.jpeg
-   :alt: The left arrow button
-   :target: _static/site-setup-and-configuration-09.jpeg
-   ```
-   +++
-   _The left arrow button_
-   ````
+      ````{card}
+      ```{image} _static/site-setup-and-configuration-09.jpeg
+      :alt: The left arrow button
+      :target: _static/site-setup-and-configuration-09.jpeg
+      ```
+      +++
+      _The left arrow button_
+      ````
 
 ## Use the Add-ons Control Panel
 
@@ -218,38 +218,38 @@ You use the Add-ons control panel to see the details of which add-ons are instal
 
 10. Click the {guilabel}`up arrow` button to hide the details of an add-on.
 
-   ````{card}
-   ```{image} _static/site-setup-and-configuration-18.jpeg
-   :alt: Click to hide the details
-   :target: _static/site-setup-and-configuration-18.jpeg
-   ```
-   +++
-   _Click to hide the details_
-   ````
+      ````{card}
+      ```{image} _static/site-setup-and-configuration-18.jpeg
+      :alt: Click to hide the details
+      :target: _static/site-setup-and-configuration-18.jpeg
+      ```
+      +++
+      _Click to hide the details_
+      ````
 
 11. If the add-on is already installed, the {guilabel}`Uninstall` button lets you uninstall it.
 
     Beware: uninstalling an add-on may have unintended consequences!
 
-   ````{card}
-   ```{image} _static/site-setup-and-configuration-19.jpeg
-   :alt: Click to uninstall an add-on
-   :target: _static/site-setup-and-configuration-19.jpeg
-   ```
-   +++
-   _Click to uninstall an add-on_
-   ````
+      ````{card}
+      ```{image} _static/site-setup-and-configuration-19.jpeg
+      :alt: Click to uninstall an add-on
+      :target: _static/site-setup-and-configuration-19.jpeg
+      ```
+      +++
+      _Click to uninstall an add-on_
+      ````
 
 12. Click the {guilabel}`left arrow` button to exit from this control panel.
 
-   ````{card}
-   ```{image} _static/site-setup-and-configuration-20.jpeg
-   :alt: Click to exit the control panel
-   :target: _static/site-setup-and-configuration-20.jpeg
-   ```
-   +++
-   _Click to exit the control panel_
-   ````
+      ````{card}
+      ```{image} _static/site-setup-and-configuration-20.jpeg
+      :alt: Click to exit the control panel
+      :target: _static/site-setup-and-configuration-20.jpeg
+      ```
+      +++
+      _Click to exit the control panel_
+      ````
 
 ## Use the Database Control Panel
 

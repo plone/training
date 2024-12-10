@@ -165,61 +165,61 @@ Then we create a content rule that automatically moves PDF files to the "Resourc
 
 10. Click {guilabel}`Select...`
 
-   ````{card}
-   ```{image} _static/moving-content-automatically-using-content-rules-14.jpeg
-   :alt: Select the triggering event
-   :target: _static/moving-content-automatically-using-content-rules-14.jpeg
-   ```
-   +++
-   _Select the triggering event_
-   ````
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-14.jpeg
+      :alt: Select the triggering event
+      :target: _static/moving-content-automatically-using-content-rules-14.jpeg
+      ```
+      +++
+      _Select the triggering event_
+      ````
 
 11. Click {guilabel}`Object added to this container`
 
-   ````{card}
-   ```{image} _static/moving-content-automatically-using-content-rules-15.jpeg
-   :alt: Choose "Object added to this container"
-   :target: _static/moving-content-automatically-using-content-rules-15.jpeg
-   ```
-   +++
-   _Choose "Object added to this container"_
-   ````
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-15.jpeg
+      :alt: Choose "Object added to this container"
+      :target: _static/moving-content-automatically-using-content-rules-15.jpeg
+      ```
+      +++
+      _Choose "Object added to this container"_
+      ````
 
 12. Click {guilabel}`Enabled`
 
-   ````{card}
-   ```{image} _static/moving-content-automatically-using-content-rules-16.jpeg
-   :alt: Enable the content rule
-   :target: _static/moving-content-automatically-using-content-rules-16.jpeg
-   ```
-   +++
-   _Enable the content rule_
-   ````
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-16.jpeg
+      :alt: Enable the content rule
+      :target: _static/moving-content-automatically-using-content-rules-16.jpeg
+      ```
+      +++
+      _Enable the content rule_
+      ````
 
 13. Click {guilabel}`Stop Executing rules`.
 
     In many cases you want Content Rules to be stopping as soon as possible, especially when moving content items. 
     You may have multiple content rules if they are unrelated in their effect, i.e. sending out an email when a PDF is added.
 
-   ````{card}
-   ```{image} _static/moving-content-automatically-using-content-rules-17.jpeg
-   :alt: Check "Stop Executing Rules"
-   :target: _static/moving-content-automatically-using-content-rules-17.jpeg
-   ```
-   +++
-   _Check "Stop Executing Rules"_
-   ````
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-17.jpeg
+      :alt: Check "Stop Executing Rules"
+      :target: _static/moving-content-automatically-using-content-rules-17.jpeg
+      ```
+      +++
+      _Check "Stop Executing Rules"_
+      ````
 
 14. Click {guilabel}`Save`
 
-   ````{card}
-   ```{image} _static/moving-content-automatically-using-content-rules-18.jpeg
-   :alt: Save the content rule
-   :target: _static/moving-content-automatically-using-content-rules-18.jpeg
-   ```
-   +++
-   _Save the content rule_
-   ````
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-18.jpeg
+      :alt: Save the content rule
+      :target: _static/moving-content-automatically-using-content-rules-18.jpeg
+      ```
+      +++
+      _Save the content rule_
+      ````
 ## Configure the Content Rule
 
 1. Click {guilabel}`Configure`
@@ -315,38 +315,38 @@ Then we create a content rule that automatically moves PDF files to the "Resourc
 
 10. Click the {guilabel}`Navigate` button.
 
-   ````{card}
-   ```{image} _static/moving-content-automatically-using-content-rules-27.jpeg
-   :alt: The navigate button
-   :target: _static/moving-content-automatically-using-content-rules-27.jpeg
-   ```
-   +++
-   _The navigate button_
-   ````
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-27.jpeg
+      :alt: The navigate button
+      :target: _static/moving-content-automatically-using-content-rules-27.jpeg
+      ```
+      +++
+      _The navigate button_
+      ````
 
 11. Click {guilabel}`Resources`.
 
     This is the content item we created earlier.
 
-   ````{card}
-   ```{image} _static/moving-content-automatically-using-content-rules-28.jpeg
-   :alt: Choose the target location
-   :target: _static/moving-content-automatically-using-content-rules-28.jpeg
-   ```
-   +++
-   _Choose the target location_
-   ````
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-28.jpeg
+      :alt: Choose the target location
+      :target: _static/moving-content-automatically-using-content-rules-28.jpeg
+      ```
+      +++
+      _Choose the target location_
+      ````
 
 12. Click the {guilabel}`right arrow` button to apply the changes.
 
-   ````{card}
-   ```{image} _static/moving-content-automatically-using-content-rules-29.jpeg
-   :alt: The right arrow button
-   :target: _static/moving-content-automatically-using-content-rules-29.jpeg
-   ```
-   +++
-   _The right arrow button_
-   ````
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-29.jpeg
+      :alt: The right arrow button
+      :target: _static/moving-content-automatically-using-content-rules-29.jpeg
+      ```
+      +++
+      _The right arrow button_
+      ````
 
 ## Assign the Content Rule
 

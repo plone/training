@@ -98,90 +98,90 @@ Here we show how to add an embedded video block.
 
     The "Video URL" field lets you view or change the URL of the embedded video.
 
-   ````{card}
-   ```{image} _static/add-a-video-block-08.jpeg
-   :alt: The video web address
-   :target: _static/add-a-video-block-08.jpeg
-   ```
-   +++
-   _The video web address_
-   ````
+      ````{card}
+      ```{image} _static/add-a-video-block-08.jpeg
+      :alt: The video web address
+      :target: _static/add-a-video-block-08.jpeg
+      ```
+      +++
+      _The video web address_
+      ````
 
 11. The "Preview Image URL" lets you set a preview image for the video block, if you don't want to use the one provided. 
 
     To change the preview image, click the {guilabel}`navigate` button to the right to navigate to or search for the preview image on the site.
 
-   ````{card}
-   ```{image} _static/add-a-video-block-09.jpeg
-   :alt: The preview image web address
-   :target: _static/add-a-video-block-09.jpeg
-   ```
-   +++
-   _The preview image web address_
-   ````
+      ````{card}
+      ```{image} _static/add-a-video-block-09.jpeg
+      :alt: The preview image web address
+      :target: _static/add-a-video-block-09.jpeg
+      ```
+      +++
+      _The preview image web address_
+      ````
 
 12. The {guilabel}`Alignment` buttons let you set how the video block should be placed, relative to other blocks on the page.
 
-   ````{card}
-   ```{image} _static/add-a-video-block-10.jpeg
-   :alt: The video block alignment controls
-   :target: _static/add-a-video-block-10.jpeg
-   ```
-   +++
-   _The video block alignment controls_
-   ````
+      ````{card}
+      ```{image} _static/add-a-video-block-10.jpeg
+      :alt: The video block alignment controls
+      :target: _static/add-a-video-block-10.jpeg
+      ```
+      +++
+      _The video block alignment controls_
+      ````
 
 13. You can change the background color of the video block.
 
-   ````{card}
-   ```{image} _static/add-a-video-block-11.jpeg
-   :alt: The background color choice
-   :target: _static/add-a-video-block-11.jpeg
-   ```
-   +++
-   _The background color choice_
-   ````
+      ````{card}
+      ```{image} _static/add-a-video-block-11.jpeg
+      :alt: The background color choice
+      :target: _static/add-a-video-block-11.jpeg
+      ```
+      +++
+      _The background color choice_
+      ````
 
 14. Click the {guilabel}`Save` button.
 
-   ````{card}
-   ```{image} _static/add-a-video-block-12.jpeg
-   :alt: The Save button
-   :target: _static/add-a-video-block-12.jpeg
-   ```
-   +++
-   _The Save button_
-   ````
+      ````{card}
+      ```{image} _static/add-a-video-block-12.jpeg
+      :alt: The Save button
+      :target: _static/add-a-video-block-12.jpeg
+      ```
+      +++
+      _The Save button_
+      ````
 
 15. To view the video, click the {guilabel}`play` button in the center of the video block.
 
-   ````{card}
-   ```{image} _static/add-a-video-block-13.jpeg
-   :alt: The play button
-   :target: _static/add-a-video-block-13.jpeg
-   ```
-   +++
-   _The play button_
-   ````
+      ````{card}
+      ```{image} _static/add-a-video-block-13.jpeg
+      :alt: The play button
+      :target: _static/add-a-video-block-13.jpeg
+      ```
+      +++
+      _The play button_
+      ````
 
 16. In the case of YouTube videos, this loads the YouTube player. To continue viewing the video, click the YouTube {guilabel}`play` button.
 
-   ````{card}
-   ```{image} _static/add-a-video-block-14.jpeg
-   :alt: The YouTube play button
-   :target: _static/add-a-video-block-14.jpeg
-   ```
-   +++
-   _The YouTube play button_
-   ````
+      ````{card}
+      ```{image} _static/add-a-video-block-14.jpeg
+      :alt: The YouTube play button
+      :target: _static/add-a-video-block-14.jpeg
+      ```
+      +++
+      _The YouTube play button_
+      ````
 
 17. Video display controls are provided by the video host's player.
 
-   ````{card}
-   ```{image} _static/add-a-video-block-15.jpeg
-   :alt: Video playback controls
-   :target: _static/add-a-video-block-15.jpeg
-   ```
-   +++
-   _Video playback controls_
-   ````
+      ````{card}
+      ```{image} _static/add-a-video-block-15.jpeg
+      :alt: Video playback controls
+      :target: _static/add-a-video-block-15.jpeg
+      ```
+      +++
+      _Video playback controls_
+      ````
