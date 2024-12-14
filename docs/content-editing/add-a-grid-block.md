@@ -9,7 +9,9 @@ myst:
 
 # Add a Grid Block
 
-We add a grid block and show how to select blocks to fill its columns.
+You can add a grid block to create columns on a page.
+
+Here we add a grid block and show how to select blocks to fill its columns.
 
 1. Click in a new block. 
 
