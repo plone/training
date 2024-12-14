@@ -60,6 +60,7 @@ add-a-link
 add-an-image
 add-an-image-block-to-a-page
 add-a-video-block
+add-html-block
 deleting-a-block
 search
 contents-view
