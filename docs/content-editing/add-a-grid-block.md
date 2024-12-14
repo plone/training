@@ -15,7 +15,7 @@ Here we add a grid block and show how to select blocks to fill its columns.
 
 1. Click in a new block. 
 
-    To create a new block, click in an existing block and press Enter.
+    To create a new block, click in an existing block and press {kbd}`Enter`.
 
    ````{card}
    ```{image} _static/add-a-grid-block-01.jpeg
