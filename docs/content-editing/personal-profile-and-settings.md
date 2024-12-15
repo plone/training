@@ -15,7 +15,7 @@ We saw earlier how to use the personal menu to log out of Plone, but the persona
 - set your full name, email address, home page, location, and short bio
 - set your language preference
 
-## Using the Personal Menu
+## Use the Personal Menu
 
 The personal menu lets you log out, edit your profile and preferences, and view the site's control panels.
 
@@ -24,94 +24,215 @@ The personal menu lets you log out, edit your profile and preferences, and view 
 
 2. Click on the {guilabel}`personal menu` button at the bottom left corner of the page.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/d71417c4-442d-4e0d-ac7b-f91ae1cb09f2/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=20,543)
-
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-01.jpeg
+   :alt: The personal menu button
+   :target: _static/personal-profile-and-settings-01.jpeg
+   ```
+   +++
+   _The personal menu button_
+   ````
 
 3. A menu appears, the top of which shows your login name.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/00526125-1c5a-4846-906f-f185ee9ecfe1/ascreenshot.jpeg?tl_px=0,991&br_px=1719,1952&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=108,276)
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-02.jpeg
+   :alt: Your login name
+   :target: _static/personal-profile-and-settings-02.jpeg
+   ```
+   +++
+   _Your login name_
+   ````
 
+4. To log out, click on the red {guilabel}`Logout` button.
 
-4. To log out, click on the red {guilabel}`off` button.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/7ed83c8d-8286-4f1f-a960-79fdd1d4b57a/ascreenshot.jpeg?tl_px=0,991&br_px=1719,1952&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=438,276)
-
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-03.jpeg
+   :alt: The Logout button
+   :target: _static/personal-profile-and-settings-03.jpeg
+   ```
+   +++
+   _The Logout button_
+   ````
 
 5. The personal menu will display your profile image, if you have set one.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/efbbb2dd-f87a-4b2e-a0a5-aeb78a43237d/ascreenshot.jpeg?tl_px=0,1273&br_px=1719,2234&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=271,277)
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-04.jpeg
+   :alt: Your profile image
+   :target: _static/personal-profile-and-settings-04.jpeg
+   ```
+   +++
+   _Your profile image_
+   ````
+## Setup Your Profile
 
+1. To set a profile image and other profile settings, click {guilabel}`Profile`
 
-6. To set a profile image and other profile settings, click {guilabel}`Profile`
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-05.jpeg
+   :alt: Click to modify your profile
+   :target: _static/personal-profile-and-settings-05.jpeg
+   ```
+   +++
+   _Click to modify your profile_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/de9a2ba5-349c-4182-b397-3ca5b9827599/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=135,424)
+2. You can set your full name.
 
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-06.jpeg
+   :alt: Set your full name
+   :target: _static/personal-profile-and-settings-06.jpeg
+   ```
+   +++
+   _Set your full name_
+   ````
 
-7. You can set your full name.
+3. You can set your email address.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/e2ceb4c5-ab03-451c-aff8-70065fb61ad3/ascreenshot.jpeg?tl_px=346,0&br_px=2066,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,244)
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-07.jpeg
+   :alt: Set your email address
+   :target: _static/personal-profile-and-settings-07.jpeg
+   ```
+   +++
+   _Set your email address_
+   ````
 
+4. You can set your home page.
 
-8. You can set your email address.
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-08.jpeg
+   :alt: Set your home page
+   :target: _static/personal-profile-and-settings-08.jpeg
+   ```
+   +++
+   _Set your home page_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/3725d95e-0c9d-4ee0-89a6-754812e0dc54/ascreenshot.jpeg?tl_px=194,195&br_px=1913,1156&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,277)
+5. You can set your biography, which can be viewed by other users of the site.
 
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-09.jpeg
+   :alt: Set your biography
+   :target: _static/personal-profile-and-settings-09.jpeg
+   ```
+   +++
+   _Set your biography_
+   ````
 
-9. You can set your home page.
+6. You can set your location.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/de75ab93-9e3d-49fc-b1c9-0eca2bce262a/ascreenshot.jpeg?tl_px=160,429&br_px=1879,1390&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,277)
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-10.jpeg
+   :alt: Set your location
+   :target: _static/personal-profile-and-settings-10.jpeg
+   ```
+   +++
+   _Set your location_
+   ````
 
+7. You can set your profile photo by clicking {guilabel}`Choose a file` or by dragging an image onto the {guilabel}`Drop file here to upload a new file` target area.
 
-10. You can set your biography, which can be viewed by other users of the site.
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-11.jpeg
+   :alt: Set your profile photo
+   :target: _static/personal-profile-and-settings-11.jpeg
+   ```
+   +++
+   _Set your profile photo_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/7e272e6e-fdd3-41f8-9235-30207a4bc17c/ascreenshot.jpeg?tl_px=176,965&br_px=1896,1926&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,276)
+8. To save your changes, click the {guilabel}`right arrow` button.
 
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-12.jpeg
+   :alt: The right arrow button
+   :target: _static/personal-profile-and-settings-12.jpeg
+   ```
+   +++
+   _The right arrow button_
+   ````
 
-11. You can set your location.
+9. To discard your changes, click the {guilabel}`X` button.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/eea42785-db91-4837-9456-4190b09de0d6/ascreenshot.jpeg?tl_px=154,937&br_px=1873,1898&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,277)
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-13.jpeg
+   :alt: The Cancel button
+   :target: _static/personal-profile-and-settings-13.jpeg
+   ```
+   +++
+   _The Cancel button_
+   ````
+## Set Your Language
 
+1. You can set your language preference by clicking {guilabel}`Preferences`.
 
-12. You can set your profile photo by clicking {guilabel}`Choose a file` or by dragging an image onto the {guilabel}`Drop file here to upload a new file` target area.
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-14.jpeg
+   :alt: Set your language preference
+   :target: _static/personal-profile-and-settings-14.jpeg
+   ```
+   +++
+   _Set your language preference_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/4e6a0801-730f-4803-b1d1-3d093fcf902b/ascreenshot.jpeg?tl_px=919,1193&br_px=2639,2154&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,277)
+2. You can choose a language from this list.
 
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-15.jpeg
+   :alt: Click to choose a language
+   :target: _static/personal-profile-and-settings-15.jpeg
+   ```
+   +++
+   _Click to choose a language_
+   ````
 
-13. To save your changes, click the {guilabel}`right arrow` button.
+3. For example, click {guilabel}`English`.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/bb96e0b6-4af9-466c-990f-83307522d5df/ascreenshot.jpeg?tl_px=1140,1334&br_px=2860,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=1016,507)
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-16.jpeg
+   :alt: Choose English
+   :target: _static/personal-profile-and-settings-16.jpeg
+   ```
+   +++
+   _Choose English_
+   ````
 
+4. To save your changes, click the {guilabel}`right arrow` button.
 
-14. To discard your changes, click the {guilabel}`X` button.
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-17.jpeg
+   :alt: The right arrow button
+   :target: _static/personal-profile-and-settings-17.jpeg
+   ```
+   +++
+   _The right arrow button_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/914bda0d-0788-4288-b652-88d9e1942546/ascreenshot.jpeg?tl_px=1140,1221&br_px=2860,2182&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=943,276)
+5. You will see a "Changes saved" message appear.
 
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-18.jpeg
+   :alt: The "Changes saved" confirmation message
+   :target: _static/personal-profile-and-settings-18.jpeg
+   ```
+   +++
+   _The "Changes saved" confirmation message_
+   ````
 
-15. You can set your language preference by clicking {guilabel}`Preferences`.
+## Site Setup (Control Panels)
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/aebbbcda-535d-4201-ab67-3992bc62f3d7/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=105,488)
+1. You can view the site's control panels by clicking on {guilabel}`Site Setup`.
 
-
-16. You can choose a language from this list.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/7ffb3753-1e2a-40ac-8b07-8d6122b219c4/ascreenshot.jpeg?tl_px=0,1001&br_px=1719,1962&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=345,276)
-
-
-17. For example, click {guilabel}`English`.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/0f258390-bd52-4195-8534-37bffaa29e09/ascreenshot.jpeg?tl_px=0,1303&br_px=1719,2264&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=276,276)
-
-
-18. To save your changes, click the {guilabel}`right arrow` button.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/a12cba6c-5d43-4701-8c25-7ac42b46b2ba/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=425,533)
-
-
-19. You will see a "Changes saved" message appear.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/067f09d0-1540-45ba-aad7-ca26fc23d2bd/ascreenshot.jpeg?tl_px=286,1334&br_px=2005,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,541)
-
-
-20. You can view the site's control panels by clicking on {guilabel}`Site Setup`.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-09/6409ed90-591e-4ab2-abe9-555f12939457/ascreenshot.jpeg?tl_px=0,1334&br_px=1719,2296&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=163,540)
+   ````{card}
+   ```{image} _static/personal-profile-and-settings-19.jpeg
+   :alt: Click to view Site Setup
+   :target: _static/personal-profile-and-settings-19.jpeg
+   ```
+   +++
+   _Click to view Site Setup_
+   ````
+   
+   The Site Setup control panels are described in {ref}`Site Setup and Configuration <site-setup-and-configuration-label>`.

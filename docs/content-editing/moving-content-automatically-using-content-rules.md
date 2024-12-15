@@ -7,7 +7,7 @@ myst:
     "keywords": "Plone, Moving, Content, Automatically, Content, Rules"
 ---
 
-# Moving Content Automatically Using Content Rules
+# Move Content Automatically Using Content Rules
 
 Here we show how to use a content rule to move content items automatically to a particular folder on your site. 
 
@@ -15,231 +15,429 @@ This helps keep the site content well organized.
 
 In this example, we create a page called "Resources" that will act as a folder.
 
-We create a content rule that automatically moves PDF files automatically to the "Resources" folder.
+Then we create a content rule that automatically moves PDF files to the "Resources" folder.
+
+## Create the Resources "Folder"
 
 1. Click the {guilabel}`add item` button.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/db3eb521-3455-4a2b-83e8-6df9afaa53fd/ascreenshot.jpeg?tl_px=0,0&br_px=1075,600&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=5,145)
-
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-01.jpeg
+   :alt: The add item button
+   :target: _static/moving-content-automatically-using-content-rules-01.jpeg
+   ```
+   +++
+   _The add item button_
+   ````
 
 2. Click {guilabel}`Page`
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/a9b802e0-0d12-4b57-96c2-926f22b0ee7b/ascreenshot.jpeg?tl_px=0,105&br_px=1075,706&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=130,265)
-
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-02.jpeg
+   :alt: Add a Page
+   :target: _static/moving-content-automatically-using-content-rules-02.jpeg
+   ```
+   +++
+   _Add a Page_
+   ````
 
 3. Click {guilabel}`Type the title...`
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/ae0321e4-155c-4b4a-be01-f86a7f48a41a/ascreenshot.jpeg?tl_px=0,0&br_px=1075,600&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=342,246)
-
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-03.jpeg
+   :alt: The title field
+   :target: _static/moving-content-automatically-using-content-rules-03.jpeg
+   ```
+   +++
+   The title field_
+   ````
 
 4. Type {guilabel}`Resources`
 
 
 5. If you'd like to hide "Resources" in the header navigation, click {guilabel}`Exclude from navigation`.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/c0122895-f012-4d10-a4af-3d8d58730418/ascreenshot.jpeg?tl_px=1012,801&br_px=2087,1402&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=610,265)
-
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-04.jpeg
+   :alt: Check the box to exclude the item from navigation
+   :target: _static/moving-content-automatically-using-content-rules-04.jpeg
+   ```
+   +++
+   _Check the box to exclude the item from navigation_
+   ````
 
 6. Click the {guilabel}`Save` button.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/764e838c-a046-4b26-bbb1-b3b8e10bfe6b/ascreenshot.jpeg?tl_px=0,0&br_px=1075,600&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=26,20)
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-05.jpeg
+   :alt: The Save button
+   :target: _static/moving-content-automatically-using-content-rules-05.jpeg
+   ```
+   +++
+   _The Save button_
+   ````
+## Create the Content Rule
 
+1. Click the {guilabel}`personal menu` button.
 
-7. Click the {guilabel}`site logo` to return to the home page.
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-07.jpeg
+   :alt: The personal menu button
+   :target: _static/moving-content-automatically-using-content-rules-07.jpeg
+   ```
+   +++
+   _The personal menu button_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/f0364181-443b-43a0-a215-8e5a8aeefc47/ascreenshot.jpeg?tl_px=0,0&br_px=1075,600&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=221,92)
+2. Click {guilabel}`Site Setup`
 
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-08.jpeg
+   :alt: Choose Site Setup
+   :target: _static/moving-content-automatically-using-content-rules-08.jpeg
+   ```
+   +++
+   _Choose Site Setup_
+   ````
 
-8. Click the {guilabel}`personal menu` button.
+3. Click the {guilabel}`Content Rules` control panel icon.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/4521d57d-ca90-4bb5-8525-54c4265991e8/ascreenshot.jpeg?tl_px=0,851&br_px=1075,1452&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=6,530)
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-09.jpeg
+   :alt: The Content Rules control panel
+   :target: _static/moving-content-automatically-using-content-rules-09.jpeg
+   ```
+   +++
+   _The Content Rules control panel_
+   ````
 
-
-9. Click {guilabel}`Site Setup`
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/74c42e26-8c11-4ed6-828c-790776788ecc/ascreenshot.jpeg?tl_px=0,851&br_px=1075,1452&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=155,530)
-
-
-10. Click the {guilabel}`Content Rules` control panel icon.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/4f07c92d-8d44-4627-b5b7-8907bf1979f0/ascreenshot.jpeg?tl_px=0,529&br_px=1075,1130&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=338,265)
-
-
-11. We first have to create a content rule. Later on, we will assign it.
+4. We first have to create a content rule. Later on, we will assign it.
 
     Click {guilabel}`Object added to this container`.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/2ef2cf7d-c620-45f2-8e27-8d490bd822b4/ascreenshot.jpeg?tl_px=183,212&br_px=1258,813&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-10.jpeg
+   :alt: Choose "Object added to this container"
+   :target: _static/moving-content-automatically-using-content-rules-10.jpeg
+   ```
+   +++
+   _Choose "Object added to this container"_
+   ````
+
+5. Click {guilabel}`Add content rule`
+
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-11.jpeg
+   :alt: Click to add the content rule
+   :target: _static/moving-content-automatically-using-content-rules-11.jpeg
+   ```
+   +++
+   _Click to add the content rule_
+   ````
+
+6. Click the {guilabel}`Title` field.
+
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-12.jpeg
+   :alt: The content rule title field
+   :target: _static/moving-content-automatically-using-content-rules-12.jpeg
+   ```
+   +++
+   _The content rule title field_
+   ````
+
+7. Type "{kbd}`Add PDFs to the "Resources" content object`"
 
 
-12. Click {guilabel}`Add content rule`
+8. Click the {guilabel}`Description` field.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/bbd8305e-82ba-4590-9185-9b7254f6e85c/ascreenshot.jpeg?tl_px=0,402&br_px=1075,1003&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=342,265)
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-13.jpeg
+   :alt: The content rule description field
+   :target: _static/moving-content-automatically-using-content-rules-13.jpeg
+   ```
+   +++
+   _The content rule description field_
+   ````
 
-
-13. Click the {guilabel}`Title` field.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/711ab0da-9fc2-4d44-afd0-a060c3e2b938/ascreenshot.jpeg?tl_px=382,119&br_px=1457,720&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
-
-
-14. Type "{kbd}`Add PDFs to the "Resources" content object`"
-
-
-15. Click the {guilabel}`Description` field.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/4208ad51-f1ee-4258-b1a6-fe2d49a3464c/ascreenshot.jpeg?tl_px=453,240&br_px=1528,841&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
+9. Type "{kbd}`To keep PDFs organized, we will put them in one central place`"
 
 
-16. Type "{kbd}`To keep PDFs organized, we will put them in one central place`"
+10. Click {guilabel}`Select...`
 
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-14.jpeg
+      :alt: Select the triggering event
+      :target: _static/moving-content-automatically-using-content-rules-14.jpeg
+      ```
+      +++
+      _Select the triggering event_
+      ````
 
-17. Click {guilabel}`Select...`
+11. Click {guilabel}`Object added to this container`
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/3a0c7abd-0d72-4362-9e61-8a5fe761fdc2/ascreenshot.jpeg?tl_px=364,356&br_px=1439,957&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-15.jpeg
+      :alt: Choose "Object added to this container"
+      :target: _static/moving-content-automatically-using-content-rules-15.jpeg
+      ```
+      +++
+      _Choose "Object added to this container"_
+      ````
 
+12. Click {guilabel}`Enabled`
 
-18. Click {guilabel}`Object added to this container`
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-16.jpeg
+      :alt: Enable the content rule
+      :target: _static/moving-content-automatically-using-content-rules-16.jpeg
+      ```
+      +++
+      _Enable the content rule_
+      ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/ec3c705a-6276-4b1c-be6b-6d6ba5a53dcb/ascreenshot.jpeg?tl_px=454,530&br_px=1529,1131&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
-
-
-19. Click {guilabel}`Enabled`
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/26a321ac-e865-4675-857d-7f2a2bc649c0/ascreenshot.jpeg?tl_px=0,520&br_px=1075,1121&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=237,265)
-
-
-20. Click {guilabel}`Stop Executing rules`.
+13. Click {guilabel}`Stop Executing rules`.
 
     In many cases you want Content Rules to be stopping as soon as possible, especially when moving content items. 
     You may have multiple content rules if they are unrelated in their effect, i.e. sending out an email when a PDF is added.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/89aad944-eed2-4d64-8d74-195b47ac4e51/ascreenshot.jpeg?tl_px=0,650&br_px=1075,1251&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=235,265)
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-17.jpeg
+      :alt: Check "Stop Executing Rules"
+      :target: _static/moving-content-automatically-using-content-rules-17.jpeg
+      ```
+      +++
+      _Check "Stop Executing Rules"_
+      ````
+
+14. Click {guilabel}`Save`
+
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-18.jpeg
+      :alt: Save the content rule
+      :target: _static/moving-content-automatically-using-content-rules-18.jpeg
+      ```
+      +++
+      _Save the content rule_
+      ````
+## Configure the Content Rule
+
+1. Click {guilabel}`Configure`
+
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-19.jpeg
+   :alt: Configure the content rule actions
+   :target: _static/moving-content-automatically-using-content-rules-19.jpeg
+   ```
+   +++
+   _Configure the content rule actions_
+   ````
+
+2. Click the {guilabel}`Condition" drop down list.
+
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-20.jpeg
+   :alt: Click to set a condition
+   :target: _static/moving-content-automatically-using-content-rules-20.jpeg
+   ```
+   +++
+   _Click to set a condition_
+   ````
+
+3. Click {guilabel}`File Extension`
+
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-21.jpeg
+   :alt: Choose "File Extension"
+   :target: _static/moving-content-automatically-using-content-rules-21.jpeg
+   ```
+   +++
+   _Choose "File Extension"_
+   ````
+
+4. Click {guilabel}`Add`
+
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-22.jpeg
+   :alt: Add the condition
+   :target: _static/moving-content-automatically-using-content-rules-22.jpeg
+   ```
+   +++
+   _Add the condition_
+   ````
+
+5. Type {kbd}`pdf`
 
 
-21. Click {guilabel}`Save`
+6. Click the {guilabel}`right arrow` button.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/18860932-8a5a-4854-b8f9-0b4ff9558152/ascreenshot.jpeg?tl_px=0,851&br_px=1075,1452&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=312,345)
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-23.jpeg
+   :alt: The right arrow button
+   :target: _static/moving-content-automatically-using-content-rules-23.jpeg
+   ```
+   +++
+   _The right arrow button_
+   ````
 
+7. Click the {guilabel}`Action` drop down list.
 
-22. Click {guilabel}`Configure`
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-24.jpeg
+   :alt: Click to set the action
+   :target: _static/moving-content-automatically-using-content-rules-24.jpeg
+   ```
+   +++
+   _Click to set the action_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/75172052-af17-45c5-98fb-b74f9b39da32/ascreenshot.jpeg?tl_px=1012,426&br_px=2087,1027&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=538,265)
+8. Click {guilabel}`Move to folder`
 
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-25.jpeg
+   :alt: Choose "Move to folder"
+   :target: _static/moving-content-automatically-using-content-rules-25.jpeg
+   ```
+   +++
+   _Choose "Move to folder"_
+   ````
 
-23. Click the {guilabel}`Condition" drop down list.
+9. Click {guilabel}`Add`
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/e658a809-01fe-4d8a-ad9a-526d1ef2b211/ascreenshot.jpeg?tl_px=0,200&br_px=1075,801&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=456,265)
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-26.jpeg
+   :alt: Add the action
+   :target: _static/moving-content-automatically-using-content-rules-26.jpeg
+   ```
+   +++
+   _Add the action_
+   ````
 
+10. Click the {guilabel}`Navigate` button.
 
-24. Click {guilabel}`File Extension`
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-27.jpeg
+      :alt: The navigate button
+      :target: _static/moving-content-automatically-using-content-rules-27.jpeg
+      ```
+      +++
+      _The navigate button_
+      ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/d6300859-9256-431a-a0cb-1444addcef1a/ascreenshot.jpeg?tl_px=0,305&br_px=1075,906&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=368,265)
-
-
-25. Click the {guilabel}`File Extension` drop down list.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/dfb27cdb-e94c-459e-a31a-51235bc4e5aa/ascreenshot.jpeg?tl_px=0,199&br_px=1075,800&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=390,265)
-
-
-26. Click {guilabel}`File Extension`
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/4f32826c-be8b-4fd7-8868-cbe1cf02315a/ascreenshot.jpeg?tl_px=0,305&br_px=1075,906&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=323,265)
-
-
-27. Click {guilabel}`Add`
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/e9216eaf-5956-4fc9-bdd2-5d5392749300/ascreenshot.jpeg?tl_px=0,245&br_px=1075,846&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=312,265)
-
-
-28. Type {kbd}`pdf`
-
-
-29. Click the {guilabel}`right arrow` button.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/52cb2e11-76a0-4cf1-acd2-3ec44c59c3a9/ascreenshot.jpeg?tl_px=1010,576&br_px=2085,1177&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
-
-
-30. Click the {guilabel}`Action` drop down list.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/634837c5-3e3a-4cc8-9619-ba980e4fb478/ascreenshot.jpeg?tl_px=719,192&br_px=1794,793&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
-
-
-31. Click {guilabel}`Move to folder`
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/f00e1f0c-392f-446e-bd1c-1aad58802589/ascreenshot.jpeg?tl_px=667,425&br_px=1742,1026&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
-
-
-32. Click {guilabel}`Add`
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/73fd5645-65f2-4491-9bec-caa25484e17e/ascreenshot.jpeg?tl_px=628,249&br_px=1703,850&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
-
-
-33. Click the {guilabel}`Navigate` button.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/8cd00d09-a457-4707-b64f-2c11871fb7c9/ascreenshot.jpeg?tl_px=1000,395&br_px=2075,996&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
-
-
-34. Click {guilabel}`Resources`.
+11. Click {guilabel}`Resources`.
 
     This is the content item we created earlier.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/1f6da4ce-a061-4b40-a8d4-ca54858f2841/ascreenshot.jpeg?tl_px=1012,142&br_px=2087,743&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=678,265)
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-28.jpeg
+      :alt: Choose the target location
+      :target: _static/moving-content-automatically-using-content-rules-28.jpeg
+      ```
+      +++
+      _Choose the target location_
+      ````
 
+12. Click the {guilabel}`right arrow` button to apply the changes.
 
-35. Click the {guilabel}`right arrow` button to apply the changes.
+      ````{card}
+      ```{image} _static/moving-content-automatically-using-content-rules-29.jpeg
+      :alt: The right arrow button
+      :target: _static/moving-content-automatically-using-content-rules-29.jpeg
+      ```
+      +++
+      _The right arrow button_
+      ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/3c351f13-a83a-47ba-abc0-ffdec37a2f25/ascreenshot.jpeg?tl_px=1012,581&br_px=2087,1182&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=510,265)
+## Assign the Content Rule
 
+1. Click the {guilabel}`site logo` to return to the home page.
 
-36. Click the {guilabel}`left arrow` button to return to the content rule view.
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-32.jpeg
+   :alt: Return to the home page
+   :target: _static/moving-content-automatically-using-content-rules-32.jpeg
+   ```
+   +++
+   _Return to the home page_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/9520ee8a-e19e-4f81-a328-a01277f4316d/ascreenshot.jpeg?tl_px=0,0&br_px=1075,600&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=30,21)
-
-
-37. Click the {guilabel}`left arrow` button to return to Site Setup.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/c76690a9-3d83-45c9-bd1f-c9acdfce4816/ascreenshot.jpeg?tl_px=0,0&br_px=1075,600&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=30,21)
-
-
-38. Click the {guilabel}`site logo` to return to the home page.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/52d605de-4739-4646-8ef3-3163fc3961b6/ascreenshot.jpeg?tl_px=0,0&br_px=1075,600&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=276,90)
-
-
-39. We want to apply the new content rule here, the root of the site.
+2. We want to apply the new content rule here, the root of the site.
 
     Click the {guilabel}`More` button.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/76786bc6-1cc8-4cbe-9616-e5f9ccab3743/ascreenshot.jpeg?tl_px=0,0&br_px=1075,600&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=10,212)
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-33.jpeg
+   :alt: The More button
+   :target: _static/moving-content-automatically-using-content-rules-33.jpeg
+   ```
+   +++
+   _The More button_
+   ````
 
+3. Click {guilabel}`Rules`
 
-40. Click {guilabel}`Rules`
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-34.jpeg
+   :alt: Choose Rules
+   :target: _static/moving-content-automatically-using-content-rules-34.jpeg
+   ```
+   +++
+   _Choose Rules_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/b73e62d3-5839-487d-aea3-3fc6caae6db5/ascreenshot.jpeg?tl_px=0,0&br_px=1075,600&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=112,136)
+4. Click the {guilabel}`Select rule` drop down list.
 
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-35.jpeg
+   :alt: Click to select a content rule
+   :target: _static/moving-content-automatically-using-content-rules-35.jpeg
+   ```
+   +++
+   _Click to select a content rule_
+   ````
 
-41. Click the {guilabel}`Select rule` drop down list.
+5. Click "{guilabel}`Add PDFs to the "Resources" content object`"
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/83be0668-979f-463e-941c-9de6297a6c65/ascreenshot.jpeg?tl_px=0,140&br_px=1075,741&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=405,265)
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-36.jpeg
+   :alt: Choose the content rule
+   :target: _static/moving-content-automatically-using-content-rules-36.jpeg
+   ```
+   +++
+   _Choose the content rule_
+   ````
 
+6. Click {guilabel}`Add`
 
-42. Click "{guilabel}`Add PDFs to the "Resources" content object`"
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-37.jpeg
+   :alt: Add the content rule here
+   :target: _static/moving-content-automatically-using-content-rules-37.jpeg
+   ```
+   +++
+   _Add the content rule here_
+   ````
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/c46dc104-aa23-4d03-808a-54179de199e0/ascreenshot.jpeg?tl_px=0,196&br_px=1075,797&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=342,265)
+7. Click the checkbox next to the rule.
 
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-38.jpeg
+   :alt: Check the box to select the rule
+   :target: _static/moving-content-automatically-using-content-rules-38.jpeg
+   ```
+   +++
+   _Check the box to select the rule_
+   ````
 
-46. Click {guilabel}`Add`
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/51d6a892-3e47-45ac-adf2-32d034a8518d/ascreenshot.jpeg?tl_px=292,154&br_px=1367,755&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=502,265)
-
-
-47. Click the checkbox next to the rule.
-
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/17212095-b799-455c-baa5-ad26bdc50b43/ascreenshot.jpeg?tl_px=0,127&br_px=1075,728&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=237,265)
-
-
-48. Click {guilabel}`Enable`.
+8. Click {guilabel}`Enable`.
 
     The content rule is now enabled for the entire site.
 
-    ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2024-11-21/d444b9eb-bf8e-4e26-bfea-7ad316b791c0/ascreenshot.jpeg?tl_px=0,219&br_px=1075,820&force_format=jpeg&q=100&wat_scale=95&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=267,265)
+   ````{card}
+   ```{image} _static/moving-content-automatically-using-content-rules-39.jpeg
+   :alt: Enable the selected rule
+   :target: _static/moving-content-automatically-using-content-rules-39.jpeg
+   ```
+   +++
+   _Enable the selected rule_
+   ````

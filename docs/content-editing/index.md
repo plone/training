@@ -60,6 +60,8 @@ add-a-link
 add-an-image
 add-an-image-block-to-a-page
 add-a-video-block
+add-html-block
+add-a-grid-block
 deleting-a-block
 search
 contents-view
