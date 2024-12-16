@@ -54,6 +54,8 @@ tour-of-plone
 logging-in-and-out
 content-creation-to-publication
 pages
+format-block-text
+create-a-link
 use-pages-to-organize-content
 add-a-file
 add-a-link
