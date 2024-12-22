@@ -359,9 +359,24 @@ The content rule therefore defines an action that subscribes to an event.
 
 ### Exercise
 
-Create a new rule "Notify moderators on new news items".
-Apply this rule to content type "News Item".
-Apply this rule globally by switching to your site root and following context menu item "rules".
+The goal of this exercise is to implement a content rule that will notify a moderator of a new news item.
+
+From within the site setup menu, click "Content Rules". This will open a window containing the content rules and several options to filter the rules by event trigger. For now, there are no rules yet, but we will create one now.
+Click the button "Add content rule" and enter the title "Notify moderators on new news items".
+Select the triggering event "Object added to this container". Later on, we will apply the rule to a specific container.
+Enable the "Enabled" check box to make sure the rule will run when applied.
+Click Save to save the new content rule and return to the content rules overview.
+
+At this point, we have to configure the rule and tell it to send an e-mail to a moderator when a news item has been added to the container.
+Click "Configure" and start by selecting the "Content type" condition.
+Click the "Add" button below the content type, select "News Item" and click the right arrow.
+Select "Send email" in the Action selection field.
+Click the "Add" button below the action selection field and fill out the form. Make sure the mandatory fields (subject, Email recipients, Message) have content and click the right arrow to save the changes.
+
+The rule has been created, but has not been applied to a container yet. Let's do that now.
+Click the left arrow button in the top left corner three times to return to the site.
+If you want to apply the rule to all news items globally for your site, go to your home page, click the context menu button (three dots in the sidebar) and click "Rules".
+From the "Available content rules" dropdown list, select the rule you created earlier and click "Add".
 
 Verify that your rule works by creating a new news item.
 See your backend log or your mail for a notification.
