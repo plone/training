@@ -4,7 +4,7 @@ myst:
     "description": "Technical view"
     "property=og:description": "Technical view"
     "property=og:title": "What is Plone?"
-    "keywords": "Plone, Zope, security, CMS, REST, React, traversing, object publishing, database, object oriented, acquisition"
+    "keywords": "Plone, Zope, security, CMS, REST, React, traversing, database, object oriented, acquisition"
 ---
 
 (intro-what-is-plone-label)=
@@ -66,20 +66,6 @@ portal['news']['conference-site-online']
 ['news', 'events', 'talks']
 >>> portal['news']
 <Document at /Plone/news>
-```
-
-(what-is-plone-object-publishing-label)=
-
-### Object publishing
-
-Objects can be called and return a representation of itself - usually HTML.
-
-```python
->>> obj = portal['news']['conference-site-online']
->>> obj
-<NewsItem at /Plone/news/conference-site-online>
->>> obj()
-'\n<!DOCTYPE html>\n\n<html xmlns="http://www.w3.org/1999/xhtml...'
 ```
 
 (schema-driven-types-label)=
