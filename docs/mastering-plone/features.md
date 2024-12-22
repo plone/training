@@ -331,11 +331,11 @@ We can modify their title and id, publish them, etc.. in one step by selecting t
 
 A page has per default the view displaying the blocks of the page.
 As for all content types, you as a developer can provide multiple views or replace the default view.
-This is useful for adding components that should be shown independent of how an editor assembles a page with blocks.
+This is useful for adding components that should be shown, regardless of how an editor assembles a page with blocks.
 
-Per default the page does not show its contained items but just the title and the blocks an editor creates.
-The contained items can be shown by creating a listing block.
-A listing block without any criteria lists the contained items.
+By default, the page doesn't show its contained items but only the title and blocks created by an editor.
+To reveal contained items, you can create a listing block.
+If you use a listing block without any specific criteria, it lists every contained items.
 
 
 ```{figure} _static/listingblock.png
