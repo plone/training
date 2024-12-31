@@ -64,6 +64,7 @@ add-an-image-block-to-a-page
 add-a-video-block
 add-html-block
 add-a-grid-block
+add-a-listing-block
 deleting-a-block
 search
 contents-view
