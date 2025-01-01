@@ -66,6 +66,7 @@ add-html-block
 add-a-grid-block
 add-a-listing-block
 deleting-a-block
+block-operations
 search
 contents-view
 moving-content-automatically-using-content-rules
