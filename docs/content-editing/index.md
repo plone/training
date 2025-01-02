@@ -64,10 +64,7 @@ add-an-image-block-to-a-page
 add-a-video-block
 add-html-block
 add-a-grid-block
-add-a-listing-block
-add-a-map-block
 deleting-a-block
-block-operations
 search
 contents-view
 moving-content-automatically-using-content-rules
