@@ -85,9 +85,9 @@ Opening `http://localhost:3000`, you are facing the front page of your Plone sit
 
 You can stop the frontend any time using {kbd}`ctrl c`.
 
-While developing it's not necessary to restart the frontend unless you are adding a new file.
+While developing it's not necessary to restart the frontend unless you're adding a new file.
 
-Login to your new site with "admin" and password "secret".
+Login to your new site with `admin` and password `secret`.
 
 ```{figure} _static/frontpage_volto_logged_in.png
 ```
@@ -97,7 +97,7 @@ Login to your new site with "admin" and password "secret".
 
 #### backend
 
-If you want Plone to listen on port 9080 instead of the default 8080, open the file `backend/instance.yml` in your favorite editor.
+If you want Plone to listen on port 9080 instead of the default 8080, open the file {file}`backend/instance.yml` in your favorite editor.
 
 ```yaml
 wsgi_listen: localhost:8080
@@ -300,7 +300,7 @@ Earlier we created this page with its title "News".
 Therefore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
 
 A page is folderish.
-To inspect its contained items, we change to '/contents' by clicking the folder icon.
+To inspect its contained items, we change to `/contents` by clicking the folder icon.
 
 We can change the order of the two contained items by dragging and dropping.
 
