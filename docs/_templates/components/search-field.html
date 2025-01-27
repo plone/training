@@ -24,19 +24,19 @@
       <option value="all">all trainings</option>
       {% for id, title in
         [
-        ['mastering-plone', 'Mastering Plone development'],
-        ['mastering-plone-5', 'Mastering Plone development (Plone 5)'],
-        ['voltohandson','Volto hands-On (beginner)'],
-        ['voltoaddons','Volto add-ons'],
-        ['volto_customization','Volto customization for JavaScript beginners'],
-        ['effective-volto','Effective Volto (advanced)'],
-        ['testing','Testing'],
-        ['theming','Plone 6 Classic UI theming'],
-        ['plone-deployment','Deployment'],
-        ['workflow','Workflow'],
-        ['migrations','Migration best practice'],
-
-        ['contributing', 'Contributing to Plone'],
+          ['content-editing', 'Content Editing for Plone'],
+          ['mastering-plone', 'Mastering Plone development'],
+          ['volto_customization','Volto customization for JavaScript beginners'],
+          ['customizing-volto-light-theme','Customizing Volto Light Theme'],
+          ['voltohandson','Volto Hands-On (beginner)'],
+          ['voltoaddons','Volto add-ons'],
+          ['effective-volto','Effective Volto (advanced)'],
+          ['testing','Testing'],
+          ['theming','Plone 6 Classic UI Theming'],
+          ['plone-deployment','Deployment'],
+          ['workflow','Workflow'],
+          ['migrations','Migration best practice'],
+          ['contributing', 'Contributing to Plone'],
         ] %}
         <option value="{{id}}">{{ title }}</option>
       {% endfor %}
