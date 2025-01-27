@@ -27,7 +27,7 @@ make start
 The Zope instance starts up with `Ready to handle requests`.
 Later on the instance can be stopped by {kbd}`ctrl c`.
 
-A standard installation listens on port 8080, so lets have a look at <http://localhost:8080>
+A standard installation listens on port 8080, so let's have a look at <http://localhost:8080>
 
 ```{figure} _static/features_plone_running.png
 :alt: Zope instance is up and running, ready to create a Plone instance.
@@ -85,19 +85,22 @@ Opening `http://localhost:3000`, you are facing the front page of your Plone sit
 
 You can stop the frontend any time using {kbd}`ctrl c`.
 
-While developing it is not necessary to restart the frontend unless you are adding a new file.
+While developing it's not necessary to restart the frontend unless you are adding a new file.
+
+Login to your new site with "admin" and password "secret".
+
+```{figure} _static/frontpage_volto_logged_in.png
+```
 
 
 ### Change ports
 
 #### backend
 
-Now let's say you want Plone to listen on port 9080 instead of the default 8080.
-Open the file `backend/instance.yml` in your favorite editor.
-How could you do this?
+If you want Plone to listen on port 9080 instead of the default 8080, open the file `backend/instance.yml` in your favorite editor.
 
 ```yaml
-wsgi_listen: localhost:9080
+wsgi_listen: localhost:8080
 ```
 
 Change the address to `localhost:9080` and restart your instance.
@@ -110,7 +113,7 @@ You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the b
 RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone pnpm start
 ```
 
-When your Plone instance is not called `Plone` you can use the same approach:
+When your Plone instance isn't called `Plone` you can use the same approach:
 
 ```shell
 RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite pnpm start
@@ -129,9 +132,9 @@ HOST=localhost PORT=1234 pnpm start
 
 (features-walkthrough-label)=
 
-## Walkthrough of the UI
+## Walk through the user interface
 
-Let's see what is there...
+These are the main elements of the user interface:
 
 - {guilabel}`header`:
 
@@ -149,12 +152,13 @@ On the toolbar, we find options affecting the current context...
 - {guilabel}`folder contents`
 - {guilabel}`add`
 
-There is a context menu with three dots that holds additional options:
+There is a context menu with additional options:
 
 - {guilabel}`review state`
 - {guilabel}`history`
 - {guilabel}`sharing`
 - {guilabel}`url management`
+- {guilabel}`links and references`
 
 At the bottom of the toolbar is a silhouette-icon that holds a menu with the following links:
 
@@ -164,7 +168,7 @@ At the bottom of the toolbar is a silhouette-icon that holds a menu with the fol
 - {guilabel}`site setup`
 
 Some toolbar options only show when appropriate.
-For example, {guilabel}`edit` is only shown if the current user has the permission to edit.
+For example, {guilabel}`edit` is only shown if the current user has the permission to edit the current page.
 
 
 (features-mailserver-label)=
@@ -245,66 +249,45 @@ We want a registration page and a protected section for the conference team.
 - Add a page "Registration"
 - Add a page "Intranet"
 
-```{figure} _static/features_new_navigation.png
-:alt: The view of the extended navigation bar.
-
-The view of the extended navigation bar.
-```
-
 
 (features-content-types-label)=
 
 ## Default content types
 
-The default Plone content types are:
+The most used default Plone content types are Page, News item, and Event.
 
-Page
+### Page
 
-: A Page is the most flexible content type.
-  You can use the editor to create, edit and arrange blocks on a page.
-  You can choose from blocks for Text, Image, Video, List of existing content and many more.
-  Pages are folderish, they can contain other content.
-  This means you can use them to structure your site.
+A Page is the most flexible content type.
+You can use the editor to create, edit and arrange blocks on a page.
+You can choose from blocks for text, an image, a video, a list of existing content and many more.
+Pages are folderish, they can contain other content.
+This means you can use pages to structure your site.
 
-  ```{figure} _static/features_add_a_page.png
-  ```
+```{figure} _static/features_add_a_page.png
+```
 
-News Item
+### News Item
 
-: Basically a page with an image and an image caption to be used for press releases and such.
+Basically a page with an image and an image caption to be used for press releases and such.
 
-  ```{figure} _static/features_add_a_news_item.png
-  ```
+```{figure} _static/features_add_a_news_item.png
+```
 
-Event
+### Event
 
-: These are basically pages with start and end dates and some additional fields for whole day or recurring events.
+Basically a page with start and end dates and some additional fields for whole day or recurring events.
 
-  ```{figure} _static/features_add_a_event.png
-  ```
+```{figure} _static/features_add_a_event.png
+```
 
-Image
+### Other available content types
 
-: Like file but PNG, JPEG or other image types.
-  The Image content type has an image field.
-  Values of the image field are saved in multiple scales to be accessible easily when rendering.
+There are more content types per default available: file, image, link.
 
-  ```{figure} _static/features_add_a_image.png
-  ```
+### Content editing
 
-File
-
-: A file like a PDF, video or Word document.
-
-  ```{figure} _static/features_add_a_file.png
-  ```
-
-Link
-
-: A link to an internal or external target.
-
-  ```{figure} _static/features_add_a_link.png
-  ```
+For more information on how to edit content, see the training {doc}`/content-editing/index`.
 
 
 (features-containers-label)=
@@ -317,7 +300,7 @@ Earlier we created this page with its title "News".
 Therefore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
 
 A page is folderish.
-To see its contained items, we change to '/contents' by clicking the folder icon.
+To inspect its contained items, we change to '/contents' by clicking the folder icon.
 
 We can change the order of the two contained items by dragging and dropping.
 
@@ -335,7 +318,7 @@ This is useful for adding components that should be shown, regardless of how an 
 
 By default, the page doesn't show its contained items but only the title and blocks created by an editor.
 To reveal contained items, you can create a listing block.
-If you use a listing block without any specific criteria, it lists every contained items.
+If you use a listing block without any specific criteria, it lists all contained items.
 
 
 ```{figure} _static/listingblock.png
