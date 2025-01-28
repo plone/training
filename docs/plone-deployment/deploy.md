@@ -92,7 +92,7 @@ Monitor the logs of each service with these commands:
 -   Traefik: `make stack-logs-webserver`
 -   Frontend: `make stack-logs-frontend`
 -   Backend: `make stack-logs-backend`
--   Backend: `make stack-logs-db`
+-   Postgres: `make stack-logs-db`
 
 ## Automating Deployment with GitHub Actions
 
