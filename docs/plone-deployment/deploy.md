@@ -26,22 +26,21 @@ You can find this stack at {file}`devops/stacks/ploneconf2024-<your-github-usern
 
 ## Building Docker Images
 
-Ensure you build the Docker images for the Frontend and Backend servers before deployment. GitHub Actions, configured in {file}`.github/workflows/backend.yml` and {file}`.github/workflows/frontend.yml`, facilitate this process.
+Ensure you build the Docker images for the Frontend and Backend servers before deployment.
+GitHub Actions, configured in {file}`.github/workflows/backend.yml` and {file}`.github/workflows/frontend.yml`, facilitate this process.
 
 ````{important}
-Before deploying, **push all code changes** and ensure GitHub Actions successfully complete their runs. Execute these commands to format the code and run tests.
+Before deploying, run the following commands from your project's root directory to format the code and run tests.
 
-Make sure you are in the project root directory:
 ```shell
 make check
 make test
 ```
-````
-Expected To be added here:
-- Hints to interpret the interactive output after `make test` was run and the options to execute the test and interpret the result.
 
-example terminal output
-```
+The output from `make test` may vary according to changes in code.
+The following console output indicates that no tests were run, and prompts you to choose an action.
+
+```console
 No tests found related to files changed since last commit.
 Press `a` to run all tests, or run Jest with `--watchAll`.
 
@@ -54,15 +53,17 @@ Watch Usage
  › Press Enter to trigger a test run.
 ```
 
+After these commands succeed, commit all code changes, push to GitHub, and ensure all GitHub Actions successfully complete their runs.
+````
+
+
 ## Manual Deployment with `devops/Makefile`
 
 Utilize the {file}`Makefile` at {file}`devops/Makefile` for manual deployment.
 
 ### Deploying the Stack
 
-Execute the following command to deploy the stack defined in {file}`devops/stacks/ploneconf2024-<your-github-username>.tangrama.com.br.yml` to the remote server:
-
-Make sure you are in the project `devops` directory:
+Execute the following command from your project's {file}`devops` directory to deploy the stack defined in {file}`devops/stacks/ploneconf2024-<your-github-username>.tangrama.com.br.yml` to the remote server.
 
 ```shell
 make stack-deploy
