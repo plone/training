@@ -117,6 +117,10 @@ make check
 
 ## Create a Repository on GitHub
 
+```{warning}
+Make sure you use a public repository or at least Github Pro for a private repo or you will **not** see the `Environment` option in Settings required for setting up the secrets and variables for the Github Actions.`
+```
+
 ### 1. Login to GitHub
 
 Visit [GitHub](https://github.com) and log in.
