@@ -117,6 +117,11 @@ make check
 
 ## Create a Repository on GitHub
 
+```{warning}
+You must either have a public repository or a [GitHub Team plan](https://github.com/pricing#compare-features) or a [GitHub Pro plan](https://docs.github.com/en/get-started/learning-about-github/githubs-plans) for a private repository.
+Otherwise you will not see the {guilabel}`Environment` option in {guilabel}`Settings`, which is required for setting up the secrets and variables for the GitHub Actions.`
+```
+
 ### 1. Login to GitHub
 
 Visit [GitHub](https://github.com) and log in.
