@@ -102,9 +102,11 @@ Monitor the logs of each service with these commands:
 
 #### Creating a New Environment
 
-````{important}
-When you cannot see the Environment option on the left in the Settings of your Github repo, you may have a private repo in a free account. You either need to use a public repo in a free account or upgrade to at least Github Pro. If you use a free additional organisation under control of a payed accout, the Environment is also not visible in the above situation.
-````
+```{important}
+If you can't see the {guilabel}`Environment` option on the left in the {guilabel}`Settings` of your GitHub repository, you may have a private repository in a free account.
+You must either have a public repository or a [GitHub Team plan](https://github.com/pricing#compare-features) for a private repository.
+If you use a free additional organization under control of a paid GitHub account, the {guilabel}`Environment` will also not be visible.
+```
 
 1. Log in to [GitHub](https://github.com/).
 2. Navigate to the project repository.
@@ -112,9 +114,10 @@ When you cannot see the Environment option on the left in the Settings of your G
 4. Select `Environments`, then `New environment`.
 5. Name it after the public URL of the deployment server and configure the environment.
 
-````{important}
-**Tip:** You find exlicit instructions which values to fill into these fields for your particular project in the provided `devops/README-GHA.md` file
-````
+```{seealso}
+In the generated project's file {file}`devops/README-GHA.md`, you can find the exact values to use for your project when completing the {guilabel}`New environment` form.
+```
+
 #### Adding Environment Secrets
 
 Add secrets in the `Secrets` section of your environment. Refer to the table below:
