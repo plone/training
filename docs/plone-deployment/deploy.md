@@ -104,7 +104,7 @@ Monitor the logs of each service with these commands:
 
 ```{important}
 If you can't see the {guilabel}`Environment` option on the left in the {guilabel}`Settings` of your GitHub repository, you may have a private repository in a free account.
-You must either have a public repository or a [GitHub Team plan](https://github.com/pricing#compare-features) for a private repository.
+You must either have a public repository or a [GitHub Team plan](https://github.com/pricing#compare-features) or a [GitHub Pro plan](https://docs.github.com/en/get-started/learning-about-github/githubs-plans) for a private repository.
 If you use a free additional organization under control of a paid GitHub account, the {guilabel}`Environment` will also not be visible.
 ```
 
