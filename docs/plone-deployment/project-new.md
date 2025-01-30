@@ -118,7 +118,8 @@ make check
 ## Create a Repository on GitHub
 
 ```{warning}
-Make sure you use a public repository or at least Github Pro for a private repo or you will **not** see the `Environment` option in Settings required for setting up the secrets and variables for the Github Actions.`
+You must either have a public repository or a [GitHub Team plan](https://github.com/pricing#compare-features) or a [GitHub Pro plan](https://docs.github.com/en/get-started/learning-about-github/githubs-plans) for a private repository.
+Otherwise you will not see the {guilabel}`Environment` option in {guilabel}`Settings`, which is required for setting up the secrets and variables for the GitHub Actions.`
 ```
 
 ### 1. Login to GitHub
