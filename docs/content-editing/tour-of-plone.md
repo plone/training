@@ -118,7 +118,7 @@ Let's take a look at what you see on a typical Plone page.
 
 10. The footer contains an optional message, as well as links to the same site map and contact form as appeared in the header.
 
-    Clicking on the footer logo seen in this example takes you to https://plone.org, not the home of this site.
+    Clicking on the footer logo takes you to the home page of this site.
 
    ````{card}
    ```{image} _static/tour-of-plone-09.jpeg
