@@ -75,3 +75,13 @@ Create a new Plone site in the backend container with the following command.
 ```shell
 make stack-create-site
 ```
+
+## Entering a Docker container and run classic local zope commands for debugging
+
+
+A step by step instruction how to enter a running Docker container with a bash and execute commands in context of your config is included in this ticket:
+```{seealso}
+[How can plone-exporter be called manually inside a docker based Plone 6.0 Volto deployment?](https://github.com/plone/plone.exportimport/issues/51)
+- It covers how to manually run the `plone_exporter` command inside the backend container with a relstorage.conf
+**TODO:** Wrapping this up generically and replace this hint with regular docs.
+```
