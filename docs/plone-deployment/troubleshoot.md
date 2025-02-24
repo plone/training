@@ -28,9 +28,49 @@ Under {menuselection}`Prefences --> Resources --> Advanced`, you can configure a
 -   [Change Docker Desktop settings](https://docs.docker.com/desktop/settings-and-maintenance/settings/)
 ```
 
-
 ## Docker memory usage
 
 Docker requires sufficient memory to install and build images.
 2GB of RAM is usually sufficient.
 See the previous section for settings details.
+
+## Frontend containers are build successfully but starting over and over every minute after an initial deployment
+
+You get constantly restarting frontend containers with a similar footprint when visiting the logs with `make stack-logs-frontend` from the devops folder:
+
+==> Stack my-plone-volto-project-com: Logs for frontend in context prod 
+...
+my-volto-project-com_frontend.1.3u0sqs69nmwh@kwk    | Command failed with signal "SIGTERM"
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | 
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | > project-dev@1.0.0-alpha.0 start:prod /app
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | > pnpm --filter @plone/volto start:prod
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | 
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | 
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | > @plone/volto@18.8.2 start:prod /app/core/packages/volto
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | > NODE_ENV=production node build/server.js
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | 
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | API server (API_PATH) is set to: https://my.plone.volto.project.com
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | Proxying API requests from https://my.plone.volto.project.com/++api++ to http://backend:8080/Plone
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | 🎭 Volto started at 0.0.0.0:3000 🚀
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    |  ELIFECYCLE  Command failed.
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | /app/core/packages/volto:
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    |  ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @plone/volto@18.8.2 start:prod: `NODE_ENV=production node build/server.js`
+my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | Command failed with signal "SIGTERM"
+my-volto-project-com_frontend.2.v5wziasy1xyn@kwk    | 
+...
+
+```{note} 
+This repeats forever for every reincarnation of the stalling container after ~60 seconds
+```
+### Possible cause: `make stack-create-site` was omitted
+
+The frontend needs a corresponsing running backend site to work properly. Until then it restarts.
+
+```{note}
+If youhave wiped the swarm for initial redeployment using e.g. something radical like `docker service rm $(docker service ls -q)` on the server, an existing site is gone and needs recreation as well.
+```
+
+### Solution
+
+```{tip}
+Without redeployment you can execute the missing step `make stack-create-site` from the `devops` folder and you are set.
