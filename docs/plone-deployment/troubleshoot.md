@@ -28,16 +28,24 @@ Under {menuselection}`Prefences --> Resources --> Advanced`, you can configure a
 -   [Change Docker Desktop settings](https://docs.docker.com/desktop/settings-and-maintenance/settings/)
 ```
 
+
 ## Docker memory usage
 
 Docker requires sufficient memory to install and build images.
 2GB of RAM is usually sufficient.
 See the previous section for settings details.
 
-## Frontend containers are build successfully but starting over and over every minute after an initial deployment
 
-You get constantly restarting frontend containers with a similar footprint when visiting the logs with `make stack-logs-frontend` from the devops folder:
+## Frontend containers restart every minute
 
+If your frontend containers built successfully, but restart every 60 seconds after an initial deployment, you can view the frontend container's log files with the following command.
+
+```shell
+cd devops
+make stack-logs-frontend
+```
+
+```console
 ==> Stack my-plone-volto-project-com: Logs for frontend in context prod 
 ...
 my-volto-project-com_frontend.1.3u0sqs69nmwh@kwk    | Command failed with signal "SIGTERM"
@@ -56,21 +64,14 @@ my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    |  ELIFECYCLE  Command faile
 my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | /app/core/packages/volto:
 my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    |  ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @plone/volto@18.8.2 start:prod: `NODE_ENV=production node build/server.js`
 my-volto-project-com_frontend.1.4e3ajerpdxpm@kwk    | Command failed with signal "SIGTERM"
-my-volto-project-com_frontend.2.v5wziasy1xyn@kwk    | 
 ...
-
-```{note} 
-This repeats forever for every reincarnation of the stalling container after ~60 seconds
-```
-### Possible cause: `make stack-create-site` was omitted
-
-The frontend needs a corresponsing running backend site to work properly. Until then it restarts.
-
-```{note}
-If youhave wiped the swarm for initial redeployment using e.g. something radical like `docker service rm $(docker service ls -q)` on the server, an existing site is gone and needs recreation as well.
 ```
 
-### Solution
+If deploying for the first time, the frontend containers might not be healthy due to the absence of a configured Plone site on the backend.
+Or if you've wiped the swarm for an initial redeployment using, for example, `docker service rm $(docker service ls -q)` on the server, then the existing site is gone and needs recreation as well.
 
-```{tip}
-Without redeployment you can execute the missing step `make stack-create-site` from the `devops` folder and you are set.
+Create a new Plone site in the backend container with the following command.
+
+```shell
+make stack-create-site
+```
