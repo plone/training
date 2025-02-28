@@ -151,9 +151,8 @@ Follow the instructions of `docs.plone.org`: {doc}`plone6docs:volto/development/
 
 ### Option 2. Start with prepared training project `volto-ploneconf` with all code for the training
 
-Prepare the pre-requisites explained in {ref}`plone6docs:install-packages-prerequisites-label`.
+Prepare the prerequisites explained in {ref}`plone6docs:create-project-cookieplone-prerequisites-for-installation-label`.
 Be aware that Volto 18 recommends `pnpm` instead of `yarn` as package manager and project manager.
-See {doc}`plone6docs:volto/contributing/developing-core` for installation instructions for `pnpm`.
 
 Get the code for the frontend from GitHub and install:
 
