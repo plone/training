@@ -174,6 +174,6 @@ To move tags after changes you do:
 
 The final result should look like this:
 
-```{figure} ../_static/code_tree.png
+```{figure} _static/code_tree.png
 :align: center
 ```
