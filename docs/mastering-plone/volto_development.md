@@ -92,7 +92,7 @@ Just include `{JSON.stringify(var_name_object)}` in your components `html` code.
 
 **Troubleshooting "Python import cannot be resolved"**
 
-```{image} _static/couldnotberesolved.png
+```{figure} _static/couldnotberesolved.png
 :alt: Python import cannot be resolved
 ```
 
