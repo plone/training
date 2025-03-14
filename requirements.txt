@@ -9,6 +9,7 @@ sphinx-book-theme
 sphinx-copybutton
 sphinx-design
 sphinx-sitemap
+sphinx-tippy
 sphinx-togglebutton
 sphinxcontrib-spelling
 sphinxext-opengraph
