@@ -107,7 +107,7 @@ Use `@plone-collective/volto-datatable-tutorial` as the package name. After the
 scaffolding of the add-on completes, you can check the created files in
 `src/addons/volto-datatable-tutorial`.
 
-Back to the project, you can edit `jsconfig.json` and add your add-on:
+Back to the project, you can edit `tsconfig.json` and add your add-on:
 
 ```json
 {
@@ -123,16 +123,16 @@ Back to the project, you can edit `jsconfig.json` and add your add-on:
 ```
 
 ```{note}
-The `jsconfig.json` file is needed by Volto to identify development
+The `tsconfig.json` file is needed by Volto to identify development
 packages. You are not strictly limited to Volto add-ons in its use, you
 could, for example, use this to make it easier to debug third-party
-JavaScript packages that are shipped transpiled.
+JavaScript packages that are shipped transpiled. Projects using Volto versions before 17 should still refer to `jsconfig.json`.
 ```
 
 ### (Optional) Use mrs-developer to sync add-on to GitHub
 
 You can also immediately push the package to GitHub, then use `[mrs-developer]`
-to manage the package and `jsconfig.json` changes.
+to manage the package and `tsconfig.json` changes.
 
 Install mrs-developer as a development dependency by running:
 
@@ -155,7 +155,7 @@ to your names and repository location):
 ```
 
 Then run `yarn develop`, which will bring the package in `src/addons` and
-adjust `jsconfig.json`.
+adjust `tsconfig.json`.
 
 ### Add the add-on as workspace
 
