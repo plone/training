@@ -282,7 +282,7 @@ enabling the project to override any configuration.
 So: {guilabel}`Volto → add-ons → project`.
 
 To load an add-on, the project needs to specify the add-on in the `addons` key
-of `project.json`. Optional configuration loaders are specified as
+of `package.json`. Optional configuration loaders are specified as
 a comma-separated list after the `:` colon symbol.
 
 ```js
