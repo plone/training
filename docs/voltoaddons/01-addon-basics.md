@@ -126,7 +126,11 @@ Back to the project, you can edit `tsconfig.json` and add your add-on:
 The `tsconfig.json` file is needed by Volto to identify development
 packages. You are not strictly limited to Volto add-ons in its use, you
 could, for example, use this to make it easier to debug third-party
-JavaScript packages that are shipped transpiled. Projects using Volto versions before 17 should still refer to `jsconfig.json`.
+JavaScript packages that are shipped transpiled.
+```
+
+```{attention}
+Projects using Volto versions before 17 should still refer to {file}`jsconfig.json`.
 ```
 
 ### (Optional) Use mrs-developer to sync add-on to GitHub
