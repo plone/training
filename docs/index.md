@@ -38,6 +38,7 @@ migrations/index
 glossary
 contributing/index
 teaching/index
+genindex
 ```
 
 ```{toctree}
@@ -49,6 +50,7 @@ documentation/index
 ```
 
 ## Using Plone
+
 {doc}`content-editing/index`
 
 :   How to edit content and manage a Plone site.
@@ -127,6 +129,9 @@ documentation/index
 
 :   How To Give Technical Trainings
 
+## Index
+
+{ref}`genindex`
 
 ## Archived trainings
 

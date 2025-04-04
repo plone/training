@@ -8,6 +8,7 @@ sphinx-autobuild
 sphinx-book-theme
 sphinx-copybutton
 sphinx-design
+sphinx-notfound-page
 sphinx-sitemap
 sphinx-tippy
 sphinx-togglebutton
