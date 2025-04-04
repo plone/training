@@ -55,6 +55,7 @@ documentation/index
 
 :   How to edit content and manage a Plone site.
 
+
 ## Development and Customization
 
 {ref}`mastering-plone-label`
@@ -129,9 +130,11 @@ documentation/index
 
 :   How To Give Technical Trainings
 
+
 ## Index
 
 {ref}`genindex`
+
 
 ## Archived trainings
 
