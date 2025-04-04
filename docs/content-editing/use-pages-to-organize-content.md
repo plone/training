@@ -296,7 +296,7 @@ We create a page called "Events" to contain all the site's events, then we creat
    ```{image} _static/use-pages-to-organize-content-23.jpeg
    :alt: The Save button
    :target: _static/use-pages-to-organize-content-23.jpeg
-   ```23
+   ```
    +++
    _The Save button_
    ````
