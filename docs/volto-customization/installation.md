@@ -10,31 +10,17 @@ myst:
 # Installation
 
 ```{warning}
-For the most up-to-date information on how to get started with Volto you can check the [official documentation](https://6.docs.plone.org/volto/index.html).
+For the most up-to-date information on how to get started with Volto you can check the {doc}`official documentation <plone6docs:volto/index>`.
 ```
 
 Getting started with Volto involves setting up a development environment, understanding its core concepts, and exploring its features. Here's a step-by-step guide to help you begin your journey with Volto:
 
 ## Prerequisites
 
-Before you start working with this training, ensure you have the following prerequisites:
+Before you start working with this training, ensure you have the following prerequisites, according to Plone 6 Documentation.
 
-- [Node.js LTS (>=20.x)](https://nodejs.org/en) [see instructions for installation](https://6.docs.plone.org/install/create-project.html#nvm)
-- [Python](https://www.python.org/) - See below for specific versions.
-- [pipx](https://pipx.pypa.io/stable/)
-- [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
-- [GNU make](https://www.gnu.org/software/make/)
-- [Docker](https://www.docker.com/get-started)(if using the Plone docker images - [see instructions for installation and usage](https://6.docs.plone.org/install/containers/index.html))
-  Follow the guide in Plone 6 Documentation, {ref}`create-project-cookieplone-prerequisites-for-installation-label`.
-  The versions of Python that are supported in Volto depend on the version of Plone that you use.
+{doc}`plone6docs:install/create-project-cookieplone`
 
-| Plone | Python    | Volto          |
-| ----- | --------- | -------------- |
-| 6.1   | 3.10-3.12 | 18.0           |
-| 6.0   | 3.8-3.12  | 16.0,17.0,18.0 |
-
-Depending on the operating system that you are using, some of the following pre-requisites might change.
-They assume you have a macOS/Linux machine.
 
 ## Bootstrap a new Plone stack
 
