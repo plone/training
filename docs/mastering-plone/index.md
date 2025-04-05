@@ -23,11 +23,11 @@ The story of a conference platform provides a training of several development to
 *Mastering Plone 6 Development Training* focuses on Plone backend architecture and topics of Volto development as long as the backend is involved.
 
 We do not deal with pure Volto topics here.
-For Volto development see training {doc}`/effective-volto/index`.
+For Volto development see training {doc}`training2024:effective-volto/index`.
 
-We expect you to work with the Plone React frontend (former called Volto).
+We expect you to work with the Plone React frontend called Volto.
 Therefore we do not deal with Plone Classic topics here.
-For Plone Classic see training {doc}`/theming/index`, training {doc}`training2023:mastering-plone-5/index` and documentation {doc}`plone6docs:classic-ui/index`
+For Plone Classic see training {doc}`training2024:theming/index`, training {doc}`training2023:mastering-plone-5/index` and documentation {doc}`plone6docs:classic-ui/index`
 ```
 
 ```{toctree}
