@@ -43,7 +43,7 @@ Here are additional resources for this class:
   - See and try [various Plone demo sites](https://6.docs.plone.org/install/index.html#try-a-plone-demo)
 - Awesome Volto, a curated list of Node.js add-ons, sites, and companies that use Volto. https://github.com/collective/awesome-volto
 - Awesome Plone, a curated list of Python add-ons and resources. https://github.com/collective/awesome-plone
-- Plone 6 Classic demo site https://classic.demo.plone.org/
+- Plone 6 Classic demo site https://classic.demo.plone.org/en
 
 ```{toctree}
 :caption: Content Editing for Plone

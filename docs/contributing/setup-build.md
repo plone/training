@@ -35,11 +35,11 @@ Vale is a linter for narrative text.
 It checks spelling, English grammar, and style guides.
 Plone documentation uses a custom spelling dictionary, with accepted and rejected spellings in `styles/Vocab/Plone`.
 
-Use your operating system's package manager to [install Vale](https://vale.sh/docs/vale-cli/installation/).
+Use your operating system's package manager to [install Vale](https://vale.sh/docs/install).
 
-Vale also has [integrations](https://vale.sh/docs/integrations/guide/) with various IDEs.
+Vale also has integrations with various IDEs.
 
--   [JetBrains](https://vale.sh/docs/integrations/jetbrains/)
+-   [JetBrains](https://plugins.jetbrains.com/plugin/19613-vale-cli/docs)
 -   [Vim](https://github.com/dense-analysis/ale)
 -   [VS Code](https://github.com/errata-ai/vale-vscode)
 
