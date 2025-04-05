@@ -493,8 +493,8 @@ As each user, including the anonymous, has a set of roles, the circle is closed 
 
 ```{seealso}
 - {doc}`user_generated_content`
-- Training {doc}`/workflow/index`
-- Plone 5 Documentation [Collaboration and Workflow](https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html)
+- Training {doc}`training2024:workflow/index`
+- Plone 5 Documentation {doc}`plone5docs:working-with-content/collaboration-and-workflow/index`
 ```
 
 
@@ -518,7 +518,7 @@ Since it has effect in a "place" in a site, this mechanism is often called "Plac
 `Placeful Workflow` ships with Plone but needs to be activated via the add-on configuration page.
 Once it is added, a {guilabel}`Policy` option appears in the state menu to allow setting a placeful workflow policy.
 
-For more information see training "Plone workflow" {doc}`/workflow/placeful-workflow`.
+For more information see training {doc}`training2024:workflow/placeful-workflow`.
 
 
 (features-publishing-date-label)=
