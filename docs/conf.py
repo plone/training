@@ -73,10 +73,7 @@ linkcheck_ignore = [
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://github.com/search",  # always rate limited, causes linkcheck to stall
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
-    r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
-    r"https://www.dipf.de/.*",  # a timeout from time to time
-    r"https://www.linode.com/.*",  # test say 500 Server Error but manually they work
-    r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
+    r"https://www.linode.com/.*",  # tests say 500 Server Error, but manually they work
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
@@ -84,14 +81,11 @@ linkcheck_ignore = [
     # See https://github.com/plone/training/issues/598#issuecomment-1105168109
     # Ignore github.com pages with anchors
     r"https://github.com/.*#.*",
-    r"https://plone.github.io/mockup/dev/.*#.*",
     # Ignore other specific anchors
-    "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
     # ### End of list of anchored links
 ]
 linkcheck_allowed_redirects = {
     # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
-    r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*",
 }
 linkcheck_retries = 1
 linkcheck_report_timeouts_as_broken = True
@@ -109,15 +103,6 @@ master_doc = "index"
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    "theming/diazo-notes.md",
-    "voltohandson/blocksdownload.md",
-    "voltohandson/blocksedit.md",
-    "voltohandson/contenttypesviews.md",
-    "voltohandson/contenttypeview.md",
-    "voltohandson/eventlistingtemplate.md",
-    "voltohandson/highlight.md",
-    "voltohandson/highlightsblock.md",
-    "voltohandson/introtovolto.md",
 ]
 
 
@@ -195,7 +180,7 @@ html_theme_options = {
         },
     ],
     "logo": {
-        "text": "Plone Training 2024",
+        "text": "Plone Training 2025",
     },
     "navigation_with_keys": True,
     "path_to_docs": "docs",
@@ -305,27 +290,3 @@ tippy_props = {
     "interactive": True,
     "placement": "auto-end",
 }
-
-
-# --  Configuration for source_replacements extension -----------------------
-
-# An extension that allows replacements for code blocks that
-# are not supported in `rst_epilog` or other substitutions.
-# https://stackoverflow.com/a/56328457/2214933
-def source_replace(app, docname, source):
-    result = source[0]
-    for key in app.config.source_replacements:
-        result = result.replace(key, app.config.source_replacements[key])
-    source[0] = result
-
-
-# Dict of replacements.
-source_replacements = {
-    "{PLONE_BACKEND_VERSION}": "6.0.7",
-    "{VOLTO_FRONTEND_VERSION}": "17.0.0-alpha.27",
-}
-
-# Finally, configure app attributes.
-def setup(app):
-    app.add_config_value("source_replacements", {}, True)
-    app.connect("source-read", source_replace)
