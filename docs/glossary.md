@@ -36,10 +36,6 @@ CMS
 CSS
     Cascading Style Sheets (CSS) is a style sheet language used for describing the (most of the times visual) representation of web pages.
 
-Grunt
-    The JavaScript Task Runner.
-    Automates the creation and manipulation of static assets for the theme.
-
 Less
     A dynamic style sheet language that can be compiled into {term}`CSS` (Cascading Style Sheets).
 
