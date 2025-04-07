@@ -10,7 +10,7 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     environment: 
-      name: 2024.training.plone.org
+      name: 2024
       url: https://2024.training.plone.org
     steps:
       - uses: actions/checkout@v4
