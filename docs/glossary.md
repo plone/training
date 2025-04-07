@@ -55,7 +55,7 @@ NFS
     [Network File System](https://en.wikipedia.org/wiki/Network_File_System).
 
 Ansible
-    [Ansible](https://www.ansible.com/) is an open source automation platform.
+    [Ansible](https://www.redhat.com/en/ansible-collaborative) is an open source automation platform.
     Ansible can help you with configuration management, application deployment, task automation.
 
 Archetypes

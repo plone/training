@@ -140,10 +140,10 @@ The following topics are not covered in the written training but could be discus
 
 ## Topics covered in other trainings and documentation
 
-- Advanced Volto techniques in {doc}`/effective-volto/index`
+- Advanced Volto techniques in {doc}`training2024:effective-volto/index`
 - multilingual content
-- {doc}`Internationalization of the frontend</effective-volto/development/i18n>`
-- {doc}`Internationalization defined in the backend<plone6docs:i18n-l10n/index>`
+- {doc}`Internationalization of the frontend <training2024:effective-volto/development/i18n>`
+- {doc}`Internationalization defined in the backend <plone6docs:i18n-l10n/index>`
 - {doc}`/plone-deployment/index`
 
 

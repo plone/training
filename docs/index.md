@@ -16,18 +16,11 @@ A collection of trainings developed and created by the Plone community.
 :maxdepth: 2
 :hidden: true
 
-content-editing/index
 mastering-plone/index
 volto-customization/index
 customizing-volto-light-theme/index
-voltohandson/index
-voltoaddons/index
-effective-volto/index
-testing/index
-theming/index
 plone-deployment/index
-workflow/index
-migrations/index
+content-editing/index
 ```
 
 ```{toctree}
@@ -38,6 +31,7 @@ migrations/index
 glossary
 contributing/index
 teaching/index
+genindex
 ```
 
 ```{toctree}
@@ -48,90 +42,84 @@ teaching/index
 documentation/index
 ```
 
-## Using Plone
-{doc}`content-editing/index`
-
-:   How to edit content and manage a Plone site.
-
 ## Development and Customization
 
 {ref}`mastering-plone-label`
-
 :   Best practices of Plone development for both the backend and frontend.
-
-{doc}`testing/index`
-
-:   Best practices for testing Plone add-ons.
 
 
 ## Volto, React, and Javascript
 
 {doc}`customizing-volto-light-theme/index`
-
 :   This training provides comprehensive knowledge and practical skills for theming in Plone 6's Volto frontend by using and extending Volto Light Theme.
 
 {doc}`volto-customization/index`
-
 :   Are you new to JavaScript development and eager to explore the world of Volto customization?
     Unlock the power of Volto, the modern React-based CMS framework for Plone, by joining our comprehensive half-day training designed specifically for JavaScript beginners.
-
-{doc}`voltohandson/index`
-
-:   Learn how to quickly bootstrap and customize a Volto project
-
-{doc}`voltoaddons/index`
-
-:   Build custom Volto add-ons, explore more advanced Volto topics.
-
-{doc}`effective-volto/index`
-
-:   Learn proven practices of Plone frontend development.
-    The training covers essential concepts, as well as good practices and notions of how Volto works under the hood.
-    Tips and tricks are also covered, providing a good amount of insights for those who want to learn more beyond the Volto basics.
-    Training for intermediate/advanced developers.
-
-[Use, Integrate and develop Patterns for Plone 6 Classic](https://patternslib.github.io/patternslib-training)
-
-:   Use, create and integrate JavaScript functionality based on [Patternslib](https://patternslib.com/) into Plone 6.
-
-
-## Theming
-
-{doc}`theming/index`
-
-:   Theming Plone 6 Classic UI
 
 
 ## Deployment
 
 {doc}`plone-deployment/index`
-
 :   Deploying Plone 6 for production purposes with Ansible and Docker
+
+
+## Using Plone
+
+{doc}`content-editing/index`
+:   How to edit content and manage a Plone site.
 
 
 ## Other
 
-{doc}`workflow/index`
-
-:   How to create and make optimum use of custom Plone workflows
-
-{doc}`migrations/index`
-
-:   Upgrading and migrating Plone sites using `collective.exportimport` and other methods.
-
 {doc}`contributing/index`
-
-:   All about contributing to documentation
+:   All about contributing to Plone Training
 
 {doc}`teaching/index`
+:   How to give technical trainings
 
-:   How To Give Technical Trainings
+{ref}`genindex`
+:   Index of topics
 
 
 ## Archived trainings
 
 Beginning in 2022, after every Plone Conference, we take a snapshot and archive trainings conducted at the conference.
 Because we began this practice in 2022, all previous trainings that have documentation were archived.
+
+
+### 2024
+
+
+#### Development and Customization
+
+-   {doc}`training2024:mastering-plone/index`
+-   {doc}`training2024:testing/index`
+
+
+#### Volto, React, and Javascript
+
+-   {doc}`training2024:customizing-volto-light-theme/index`
+-   {doc}`training2024:volto-customization/index`
+-   {doc}`training2024:voltohandson/index`
+-   {doc}`training2024:voltoaddons/index`
+-   {doc}`training2024:effective-volto/index`
+
+
+#### Theming
+
+-   {doc}`training2024:theming/index`
+
+
+#### Deployment
+
+-   {doc}`training2024:plone-deployment/index`
+
+
+#### Other
+
+-   {doc}`training2024:workflow/index`
+-   {doc}`training2024:migrations/index`
 
 
 ### 2023
@@ -149,7 +137,6 @@ Because we began this practice in 2022, all previous trainings that have documen
 -   {doc}`training2023:voltoaddons/index`
 -   {doc}`training2023:volto_customization/index`
 -   {doc}`training2023:effective-volto/index`
--   [Use, Integrate and develop Patterns for Plone 6 Classic](https://patternslib.github.io/patternslib-training)
 
 
 #### Theming
@@ -186,6 +173,7 @@ Because we began this practice in 2022, all previous trainings that have documen
 #### Theming
 
 -   {doc}`training2022:theming_plone_5/index`
+-   [Use, Integrate and develop Patterns for Plone 6 Classic](https://patternslib.github.io/patternslib-training)
 
 
 #### Deployment

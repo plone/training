@@ -18,7 +18,7 @@ A typical error message may be `Could not create directory.` or anything else th
 To resolve this, use an appropriate `docker system prune` option, such as `docker system prune -a`.
 
 ```{seealso}
-[`docker system prune`](https://docs.docker.com/engine/reference/commandline/system_prune/)
+[`docker system prune`](https://docs.docker.com/reference/cli/docker/system/prune/)
 ```
 
 You can also configure settings for Docker Desktop.

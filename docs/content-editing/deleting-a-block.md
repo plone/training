@@ -27,7 +27,7 @@ Here we show how to delete any block.
    ````{card}
    ```{image} _static/deleting-a-block-02.jpeg
    :alt: Click the block to delete
-   :target: _static/deleting-a-block-021.jpeg
+   :target: _static/deleting-a-block-02.jpeg
    ```
    +++
    _Click the block to delete_

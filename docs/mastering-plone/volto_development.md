@@ -52,9 +52,9 @@ Here are some extensions we recommend when using VSCode:
 - Plone Snippets
 - `EsLint`: Statically analyzes your code to find problems.
 
-Editor support for `ReactJS` development is explained in {doc}`Effective Volto training: VSCode extensions and helpers<../effective-volto/development/vscode>`.
+Editor support for `ReactJS` development is explained in {doc}`Effective Volto training: VSCode extensions and helpers <training2024:effective-volto/development/vscode>`.
 
-Checkout VSCode documentation for topics like [code navigation](https://code.visualstudio.com/docs/editor/editingevolved), [Keyboard shortcuts and Multiple selections](https://code.visualstudio.com/docs/editor/codebasics) and many more that makes your everyday work easier.
+Checkout VSCode documentation for topics like [code navigation](https://code.visualstudio.com/docs/editing/editingevolved), [Keyboard shortcuts and Multiple selections](https://code.visualstudio.com/docs/editing/codebasics) and many more that makes your everyday work easier.
 
 
 (volto-development-tools-label)=
