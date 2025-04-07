@@ -3,7 +3,7 @@ name: build/deploy training.plone.org
 on:
   push:
     branches:
-      - "main"
+      - "2024"
     workflow_dispatch:
 
 jobs:
