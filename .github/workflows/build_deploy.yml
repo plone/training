@@ -10,13 +10,13 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     environment: 
-      name: training.plone.org
-      url: https://training.plone.org
+      name: 2024.training.plone.org
+      url: https://2024.training.plone.org
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5`
         with:
           python-version: "3.12"
           cache: 'pip'
