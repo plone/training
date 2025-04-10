@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "How to make your Plone add-on configurable"
     "property=og:description": "How to make your Plone add-on configurable"
-    "property=og:title": "Registry,control panels and vocabularies"
+    "property=og:title": "Registry, control panels and vocabularies"
     "keywords": "registry, control panel, vocabulary, select, options, configuration, settings"
 ---
 
 (registry-label)=
 
-# Registry,control panels and vocabularies
+# Registry, control panels and vocabularies
 
 ```{card} 
 In this part you will:
@@ -47,47 +47,48 @@ More info in {doc}`code`
 ## Introduction
 
 Do you remember the fields `audience` and `type_of_talk` in the talk content type?
-We provided several options to choose from that were hard-coded in the schema.
+The schema previously hard-coded several options for selection.
 
-Next we want to add a field to assign talks to a room.
-Since the conference next year will have different room names, these values need to be editable.
+Next, you will add a field to assign talks to a room. 
+The room names change each year for the conference, so site administrators need to edit them.
 
-And while we're at it: It would be much better to have the options for `audience` and `type_of_talk` editable by admins as well, e.g. to be able to add _Lightning Talks_!
+Additionally, admins should be able to edit the options for `audience` and `type_of_talk`, making it possible to add options like _Lightning Talks_!
 
-By combining the registry, a control panel and vocabularies you can allow rooms to be editable options.
+By combining the registry, a control panel and vocabularies you can make rooms configurable options.
 
-To be able to do so you first need to get to know the registry.
+To achieve this you first need to get to know the registry.
 
-## The Registry
 
-The registry is used to get and set values stored in records.
-Each record consists of the actual value, as well as a field that describes the record in more detail.
-It has a nice dict-like API.
+## The registry
 
-Since Plone 5 all global settings are stored in the registry.
+The registry stores and retrieves values in records.
+Each record consists of the actual value, along with a field that describes the record in more detail.
+You can interact with the registry using Python dictionary-style operations to get and set values.
 
-The registry itself is provided by [plone.registry](https://pypi.org/project/plone.registry) and the UI to interact with it by [plone.app.registry](https://pypi.org/project/plone.app.registry)
+Since Plone 5 the registry stores all global settings.
+Plone provides the registry through [plone.registry](https://pypi.org/project/plone.registry) and offers a user interface for interaction via [plone.app.registry](https://pypi.org/project/plone.app.registry).
 
-Almost all settings in `/plone_control_panel` are actually stored in the registry and can be modified using its UI directly.
+Most settings in `/plone_control_panel` reside in the registry. You can modify them directly through its UI.
 
 Open http://localhost:8080/Plone/portal_registry and filter for `displayed_types`.
-You see that you can modify the content types that should be shown in the navigation and site map.
-The values are the same as in http://localhost:8080/Plone/@@navigation-controlpanel, but the latter form is customized for usability.
+Modify the content types shown in the navigation and site map directly.
+These values match those in http://localhost:8080/Plone/@@navigation-controlpanel, where the form is customized for better usability.
 
 ```{note}
 This UI for the registry is not yet available in the frontend.
 ```
 
-## Registry Records
+## Registry records
 
 In {doc}`volto_frontpage` you already added a criterion usable for listing blocks in {file}`profiles/default/registry/querystring.xml`.
 This setting is stored in the registry.
 
-Let's look at existing values in the registry.
+Examine the existing values in the registry.
 
 Go to http://localhost:3000/controlpanel/navigation and add `talk` to the field {guilabel}`Displayed content types`.
 Talks in the root will now show up in the navigation.
 This setting is stored in the registry record `plone.displayed_types`.
+
 
 ## Accessing and modifying records in the registry
 
@@ -117,12 +118,12 @@ The value of the record `displayed_types` is the tuple `('Image', 'File', 'Link'
 
 ## Custom registry records
 
-Now let's add our own custom settings:
+Now add custom settings:
 
 - Is talk submission open or closed?
 - Which rooms are available for talks?
 
-While we're at it we can also add new settings `types_of_talk` and `audiences` that we will use later for the fields `type_of_talk` and `audience`.
+Additionally, new settings `types_of_talk` and `audiences` can be added for use later in the fields `type_of_talk` and `audience`.
 
 To define custom records, you write the same type of schema as you already did for content types or for behaviors:
 
@@ -311,11 +312,12 @@ Example `types_of_talk`:
 ]
 ```
 
-If the name "Lightning-Talk" needs to be changed to "Short talks", the talks marked as lightning talks do show up correct, as the value saved on the talks is the token "lightning-talk" which does not change ever.
+If the name "Lightning-Talk" needs to be updated to 'Short talks', the talks categorized as lightning talks will still display correctly.
+This is because the value stored in the talks is the token "lightning-talk," which remains unchanged.
 
-We introduced a new field `JSONField`.
-As the name says, it describes a field that will be populated with JSON data.
-The field is fitted with a schema describing the valid form of the field values.
+A new field `JSONField` has been introduced.
+This field is used to store JSON data for the content.
+A schema defines the valid structure of the field values.
 
 ```python
     directives.widget(
@@ -330,9 +332,9 @@ The `frontendOptions` forces Volto to display on editing the field with a widget
 More correct, it forces Volto to lookup the widget in `Volto's` widget mapping to find the corresponding widget.
 
 
-We now register this schema `IPloneconfSettings` for the registry.
+The schema `IPloneconfSettings` is now registered for the registry.
 Add the following to {file}`profiles/default/registry/main.xml`.
-With this statement the registry is extended by one record per `IPloneconfSettings` schema field.
+Each field in the `IPloneconfSettings` schema adds a corresponding record to the registry.
 
 ```xml
 <?xml version="1.0"?>
@@ -352,7 +354,7 @@ The `prefix` allows you to access these records with a shortcut:
 You can use `ploneconf.rooms` instead of `ploneconf.site.controlpanel.controlpanel.IPloneconfSettings.rooms`.
 ```
 
-After reinstalling the package to apply the registry changes, you can access and modify these registry records as described above.
+After reinstalling the package to apply the registry changes, you can access and modify these registry records as described before.
 Either use http://localhost:8080/Plone/portal_registry or `Python`:
 
 ```python
@@ -389,9 +391,9 @@ See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/pro
 
 ## Add a custom control panel
 
-Now you will add a custom control panel to edit all settings related to our package with a nice UI.
+Now you will add a custom control panel to edit all settings related to the package with a user-friendly interface.
 
-To register a control panel for the frontend and Plone Classic you need quite a bit of boiler-plate:
+To register a control panel for the frontend and Plone Classic you need a bit of boiler-plate:
 
 ```{code-block} python
 :emphasize-lines: 1-2, 16-25
@@ -493,18 +495,18 @@ In your content type schema you would add a widget directive with
 
 ## Vocabularies
 
-Now the custom settings are stored in the registry and we can modify them in a nice way as site administrators.
-We still need to use these options in talks.
+Now the custom settings are stored in the registry and can be modified conveniently by site administrators.
+These options still need to be used in talks.
 
-To do so we turn them into vocabularies.
+To achieve this, turn them into vocabularies.
 
 Vocabularies are often used for selection fields.
 They have many benefits:
 
-- They allow you to separate the select option values from the content type schema.
-  This means that they can be edited via the UI.
-- A vocabulary can even be set dynamically.
-  The available options can change depending on existing content, the role of the user, or even the time of day.
+- They enable you to separate the select option values from the content type schema.
+  Users can edit vocabularies through the UI.  
+- Developers can set vocabularies dynamically.  
+  The available options may vary based on existing content, the user's role, or even the time of day.
 
 Create a file {file}`vocabularies/talk.py` and write code that generates vocabularies from these settings:
 
@@ -590,7 +592,7 @@ You can now register these vocabularies as named utilities in {file}`vocabularie
     component="ploneconf.site.vocabularies.talk.RoomsVocabularyFactory" />
 ```
 
-From now on you can use these vocabulary by referring to their name, e.g. `ploneconf.rooms`.
+From now on you can use these vocabulary by referring to their name, for example `ploneconf.rooms`.
 
 ```{note}
 - Plone comes with many useful named vocabularies that you can use in your own projects, for example `plone.app.vocabularies.Users` or `plone.app.vocabularies.PortalTypes`.
@@ -885,5 +887,5 @@ export default TalkView;
 
 ## Summary
 
-- You successfully combined the registry, a control panel and vocabularies to allow managing field options by site administrators.
-- It seems like a lot but you will certainly use dynamic vocabularies, control panels and the registry in most of your future Plone projects in one way or another.
+- You successfully combined the registry, a control panel, and vocabularies to enable site administrators to manage field options.
+- It seems like a lot, but you will certainly use dynamic vocabularies, control panels and the registry in many of your future Plone projects in one way or another.
