@@ -1,15 +1,15 @@
 ---
 myst:
   html_meta:
-    "description": "How to make your Plone Add-On configurable"
-    "property=og:description": "How to make your Plone Add-On configurable"
-    "property=og:title": "Vocabularies, Registry-Settings and Control Panels"
-    "keywords": "vocabulary, registry, controlpanel, select, options, configuration, settings"
+    "description": "How to make your Plone add-on configurable"
+    "property=og:description": "How to make your Plone add-on configurable"
+    "property=og:title": "Registry,control panels and vocabularies"
+    "keywords": "registry, control panel, vocabulary, select, options, configuration, settings"
 ---
 
 (registry-label)=
 
-# Vocabularies, Registry-Settings and Control Panels
+# Registry,control panels and vocabularies
 
 ```{card} 
 In this part you will:
