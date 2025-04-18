@@ -49,7 +49,7 @@ More info in {doc}`code`
 Do you remember the fields `audience` and `type_of_talk` in the talk content type?
 The schema previously hard-coded several options for selection.
 
-Next, you will add a field to assign talks to a room. 
+Next, you will add a field to assign talks to a room.
 The room names change each year for the conference, so site administrators need to edit them.
 
 Additionally, admins should be able to edit the options for `audience` and `type_of_talk`, making it possible to add options like _Lightning Talks_!
@@ -68,7 +68,8 @@ You can interact with the registry using Python dictionary-style operations to g
 Since Plone 5 the registry stores all global settings.
 Plone provides the registry through [plone.registry](https://pypi.org/project/plone.registry) and offers a user interface for interaction via [plone.app.registry](https://pypi.org/project/plone.app.registry).
 
-Most settings in `/plone_control_panel` reside in the registry. You can modify them directly through its UI.
+Most settings in `/plone_control_panel` reside in the registry.
+You can modify them directly through its UI.
 
 Open http://localhost:8080/Plone/portal_registry and filter for `displayed_types`.
 Modify the content types shown in the navigation and site map directly.
@@ -508,8 +509,8 @@ Vocabularies are often used for selection fields.
 They have many benefits:
 
 - They enable you to separate the select option values from the content type schema.
-  Users can edit vocabularies through the UI.  
-- Developers can set vocabularies dynamically.  
+  Users can edit vocabularies through the UI.
+- Developers can set vocabularies dynamically.
   The available options may vary based on existing content, the user's role, or even the time of day.
 
 Create a file {file}`vocabularies/talk.py` and write code that generates vocabularies from these settings:
