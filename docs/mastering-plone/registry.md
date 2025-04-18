@@ -92,7 +92,7 @@ This setting is stored in the registry record `plone.displayed_types`.
 
 ## Accessing and modifying records in the registry
 
-In Python you can access the registry record with the key `plone.displayed_types` via {py:mod}`plone.api`.
+In Python you can access the registry record with the key `plone.displayed_types` via {py:mod}`plone.api`.portal.
 It holds convenience methods to `get` and `set` a record:
 
 ```{code-block} python
@@ -102,6 +102,8 @@ from plone import api
 api.portal.get_registry_record('plone.displayed_types')
 api.portal.set_registry_record('plone.smtp_host', 'my.mail.server')
 ```
+
+For more information see {py:mod}`plone.api`.portal documentation {ref}`plone6docs:portal-get-registry-record-example`.
 
 The access of the registry by `zope.component.getUtility` is often seen in code from before the time of `plone.api`.
 
@@ -114,7 +116,7 @@ registry = getUtility(IRegistry)
 displayed_types = registry.get('plone.displayed_types')
 ```
 
-The value of the record `displayed_types` is the tuple `('Image', 'File', 'Link', 'News Item', 'Folder', 'Document', 'Event', 'talk')`
+The value of the record `displayed_types` is the tuple `('Image', 'File', 'Link', 'News Item', 'Folder', 'Document', 'Event', 'talk')`.
 
 ## Custom registry records
 
@@ -312,8 +314,8 @@ Example `types_of_talk`:
 ]
 ```
 
-If the name "Lightning-Talk" needs to be updated to 'Short talks', the talks categorized as lightning talks will still display correctly.
-This is because the value stored in the talks is the token "lightning-talk," which remains unchanged.
+If the name `Lightning-Talk` needs to be updated to `Short talks`, the talks categorized as lightning talks will still display correctly.
+This is because the value stored in the talks is the token `lightning-talk`, which remains unchanged.
 
 A new field `JSONField` has been introduced.
 This field is used to store JSON data for the content.
@@ -355,7 +357,7 @@ You can use `ploneconf.rooms` instead of `ploneconf.site.controlpanel.controlpan
 ```
 
 After reinstalling the package to apply the registry changes, you can access and modify these registry records as described before.
-Either use http://localhost:8080/Plone/portal_registry or `Python`:
+Either use http://localhost:8080/Plone/portal_registry or Python:
 
 ```python
 from plone import api
@@ -364,7 +366,7 @@ api.portal.get_registry_record('ploneconf.rooms')
 ```
 
 `````{note}
-In training code `ploneconf.site`, we use `Python` to define the registry records.
+In training code `ploneconf.site`, we use Python to define the registry records.
 Alternatively you could add these registry entries with Generic Setup.
 
 The following creates a new entry `ploneconf.talk_submission_open` with Generic Setup:
@@ -391,9 +393,9 @@ See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/pro
 
 ## Add a custom control panel
 
-Now you will add a custom control panel to edit all settings related to the package with a user-friendly interface.
+Now you'll add a custom control panel to edit all settings related to the package with a user-friendly interface.
 
-To register a control panel for the frontend and Plone Classic you need a bit of boiler-plate:
+To register a control panel for the frontend, add the following code to {file}`controlpanel/controlpanel.py`:
 
 ```{code-block} python
 :emphasize-lines: 1-2, 16-25
@@ -425,6 +427,8 @@ class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
     title = "Ploneconf Settings"
     group = "Products"
 ```
+
+If you want to use this control panel in ClassicUI as well, see https://2022.training.plone.org/mastering-plone/registry.html#add-a-custom-control-panel, which also handles the ClassicUI version.
 
 You also need to register the adapter in {file}`controlpanel/configure.zcml`:
 
@@ -592,7 +596,7 @@ You can now register these vocabularies as named utilities in {file}`vocabularie
     component="ploneconf.site.vocabularies.talk.RoomsVocabularyFactory" />
 ```
 
-From now on you can use these vocabulary by referring to their name, for example `ploneconf.rooms`.
+From now on you can use these vocabulary by referring to their name, for example, `ploneconf.rooms`.
 
 ```{note}
 - Plone comes with many useful named vocabularies that you can use in your own projects, for example `plone.app.vocabularies.Users` or `plone.app.vocabularies.PortalTypes`.
@@ -888,4 +892,4 @@ export default TalkView;
 ## Summary
 
 - You successfully combined the registry, a control panel, and vocabularies to enable site administrators to manage field options.
-- It seems like a lot, but you will certainly use dynamic vocabularies, control panels and the registry in many of your future Plone projects in one way or another.
+- It seems like a lot, but you will certainly use dynamic vocabularies, control panels, and the registry in many of your Plone projects in one way or another.
