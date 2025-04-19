@@ -93,8 +93,8 @@ This setting is stored in the registry record `plone.displayed_types`.
 
 ## Accessing and modifying records in the registry
 
-In Python you can access the registry record with the key `plone.displayed_types` via {py:mod}`plone.api`.portal.
-It holds convenience methods to `get` and `set` a record:
+In Python you can access the registry record with the key `plone.displayed_types` via `plone.api.portal`.
+It holds convenience funtions to `get` and `set` a record:
 
 ```{code-block} python
 
@@ -104,7 +104,7 @@ api.portal.get_registry_record('plone.displayed_types')
 api.portal.set_registry_record('plone.smtp_host', 'my.mail.server')
 ```
 
-For more information see {py:mod}`plone.api`.portal documentation {ref}`plone6docs:portal-get-registry-record-example`.
+For more information see `plone.api.portal` documentation: {ref}`plone6docs:portal-get-registry-record-example`.
 
 The access of the registry by `zope.component.getUtility` is often seen in code from before the time of `plone.api`.
 
