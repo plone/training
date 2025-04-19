@@ -68,7 +68,7 @@ You can interact with the registry using Python dictionary-style operations to g
 Since Plone 5 the registry stores all global settings.
 Plone provides the registry through [plone.registry](https://pypi.org/project/plone.registry) and offers a user interface for interaction via [plone.app.registry](https://pypi.org/project/plone.app.registry).
 
-Most settings in Site Setup reside in the registry.
+Most settings in {guilabel}`Site Setup` reside in the registry.
 You can modify them directly through its UI.
 
 Open http://localhost:8080/Plone/portal_registry and filter for `displayed_types`.
@@ -94,7 +94,7 @@ This setting is stored in the registry record `plone.displayed_types`.
 ## Accessing and modifying records in the registry
 
 In Python you can access the registry record with the key `plone.displayed_types` via `plone.api.portal`.
-It holds convenience funtions to `get` and `set` a record:
+It holds convenience functions to get and set a record:
 
 ```{code-block} python
 
