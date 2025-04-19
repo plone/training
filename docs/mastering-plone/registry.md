@@ -429,7 +429,7 @@ class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
     group = "Products"
 ```
 
-If you want to use this control panel in ClassicUI as well, see https://2022.training.plone.org/mastering-plone/registry.html#add-a-custom-control-panel, which also handles the ClassicUI version.
+If you want to use this control panel in Classic UI as well, see https://2022.training.plone.org/mastering-plone/registry.html#add-a-custom-control-panel, which also handles the Classic UI version.
 
 You also need to register the adapter in {file}`controlpanel/configure.zcml`:
 
