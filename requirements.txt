@@ -3,7 +3,7 @@
 Sphinx
 linkify-it-py
 myst-parser
-plone-sphinx-theme
+plone-sphinx-theme<2
 sphinx-autobuild
 sphinx-book-theme
 sphinx-copybutton
