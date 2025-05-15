@@ -396,7 +396,8 @@ See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/pro
 
 Now you'll add a custom control panel to edit all settings related to the package with a user-friendly interface.
 
-To register a control panel for the frontend, add the following code to {file}`controlpanel/controlpanel.py`:
+To register a control panel for the frontend, add the following `RegistryConfigletPanel` to {file}`controlpanel/controlpanel.py`.
+The `RegistryConfigletPanel` uses the schema and will serve as a factory for a control panel configlet.
 
 ```{code-block} python
 :emphasize-lines: 1-2, 16-25
@@ -429,9 +430,10 @@ class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
     group = "Products"
 ```
 
+
 If you want to use this control panel in Classic UI as well, see https://2022.training.plone.org/mastering-plone/registry.html#add-a-custom-control-panel, which also handles the Classic UI version.
 
-You also need to register the adapter in {file}`controlpanel/configure.zcml`:
+The factory is used in {file}`controlpanel/configure.zcml` for a named adapter:
 
 ```{code-block} xml
 :linenos:
@@ -441,8 +443,8 @@ You also need to register the adapter in {file}`controlpanel/configure.zcml`:
     name="ploneconf-controlpanel" />
 ```
 
-Finally register the configlet with Generic Setup so that it gets listed in the {guilabel}`Site Setups` panels list (often called 'control panel').
-Add a file {file}`profiles/default/controlpanel.xml`:
+Finally register in {file}`profiles/default/controlpanel.xml` the configlet with Generic Setup so that it gets listed in the {guilabel}`Site Setups` panels list (often called 'control panel').
+Therefore the named adapter "ploneconf-controlpanel" provides the schema for the form of the control panel configlet.
 
 ```{code-block} xml
 :linenos:
@@ -462,7 +464,7 @@ Add a file {file}`profiles/default/controlpanel.xml`:
 
 ```
 
-After applying the profile (for example, by reinstalling the package), your control panel shows up on <http://localhost:3000/controlpanel/ploneconf-controlpanel>
+After applying the profile (for example, by reinstalling the package), your control panel configlet shows up on http://localhost:3000/controlpanel/controlpanel
 
 ```{figure} _static/volto_ploneconf_controlpanel_overview.png
 ```
@@ -471,7 +473,8 @@ After applying the profile (for example, by reinstalling the package), your cont
 ```{figure} _static/volto_ploneconf_controlpanel.png
 ```
 
-As you can see in the control panel configlet for the `ploneconf.site` package, the entries can be modified and reordered. Changes are reflected in the registry as the configlet is registered as a wrapped edit form of the `IPloneconfSettings` schema.
+As you can see in the control panel configlet for the `ploneconf.site` package, the entries can be modified and reordered.
+Changes are reflected in the registry because the configlet is registered with the schema of the registry fields.
 
 ````{note}
 **Frontend widgets**
@@ -489,6 +492,7 @@ directives.widget(
     },
 )
 ```
+
 This is also the way you would configure a content type schema, where you may want to override the default widget.
 
 A widget component in your frontend package would be mapped to a key "mywidget".
