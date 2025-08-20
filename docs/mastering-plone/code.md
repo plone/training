@@ -157,7 +157,7 @@ It goes like this:
   `git rebase temp`
   That inserts the changes into master in the right place. You only maintain a master branch that is a sequence of commits.
 
-- Then you need to update your chapter-docs to point to the corresponding commit ids:
+- Then you might need to update your training documentation to point to the corresponding commit ids:
 
   - chapter one: `git checkout 121431243`
   - chapter two: `git checkout 498102980`
@@ -169,8 +169,8 @@ Additionally you can
 
 To move tags after changes you do:
 
-- Move a to another commit: `git tag -a <tagname> <commithash> -f`
-- Move the tag on the server `git push --tags -f`
+- Move tag to another commit: `git tag -a <tagname> <commithash> -f`
+- Push the changed tags to the server: `git push --tags -f`
 
 The final result should look like this:
 
