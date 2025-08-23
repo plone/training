@@ -60,6 +60,7 @@ use-pages-to-organize-content
 add-a-file
 add-a-link
 add-an-image
+creating-managing-and-reordering-blocks
 add-an-image-block-to-a-page
 add-a-video-block
 add-html-block
