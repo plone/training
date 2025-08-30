@@ -12,12 +12,12 @@ myst:
 
     By default, the page includes a title block and the first text block.
 
-    To add another block, either press {kbd}`enter` or click on the {guilabel}`Add block` button <img alt="Add block icon" src="_static/circle-plus.svg" class="inline">.
+    To add another block, either press {kbd}`enter` or click on the {guilabel}`Add block` button <img alt="Add block icon" src="/content-editing/_static/circle-plus.svg" class="inline">.
 
     ````{card}
-    ```{image} _static/creating-managing-and-reordering-blocks-01.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-01.jpeg
     :alt: Click on the "+" to add another block
-    :target: _static/creating-managing-and-reordering-blocks-01.jpeg
+    :target: /content-editing/_static/creating-managing-and-reordering-blocks-01.jpeg
     ```
     +++
     _To add another block, click on the {guilabel}`Add block` button <img alt="Add block icon" src="_static/circle-plus.svg" class="inline">._
