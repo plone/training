@@ -15,12 +15,12 @@ myst:
     To add another block, either press {kbd}`enter` or click on the {guilabel}`Add block` button <img alt="Add block icon" src="/content-editing/_static/circle-plus.svg" class="inline">.
 
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-01.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-01.jpeg
     :alt: Click on the "+" to add another block
-    :target: /content-editing/_static/creating-managing-and-reordering-blocks-01.jpeg
+    :target: /content-editing/_static/creating-managing-and-reordering-blocks-step-01.jpeg
     ```
     +++
-    _To add another block, click on the {guilabel}`Add block` button <img alt="Add block icon" src="_static/circle-plus.svg" class="inline">._
+    _To add another block, click on the {guilabel}`Add block` button <img alt="Add block icon" src="/content-editing/_static/circle-plus.svg" class="inline">._
     ````
 
 1.  Click on the type of block you want to add. For this example you'll add a few images and some text.
