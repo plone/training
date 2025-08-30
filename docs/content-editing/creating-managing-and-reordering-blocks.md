@@ -17,7 +17,7 @@ myst:
     ````{card}
     ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-01.jpeg
     :alt: Click on the "+" to add another block
-    :target: /content-editing/_static/creating-managing-and-reordering-blocks-step-01.jpeg
+    :target: ../images/creating-managing-and-reordering-blocks-step-01.jpeg
     ```
     +++
     _To add another block, click on the {guilabel}`Add block` button <img alt="Add block icon" src="/content-editing/_static/circle-plus.svg" class="inline">._
