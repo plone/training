@@ -1,9 +1,9 @@
 ---
 myst:
   html_meta:
-    "description": "Creating, managing, and reordering blocks"
-    "property=og:description": "Creating, managing, and reordering blocks"
-    "property=og:title": "Creating, managing, and reordering blocks"
+    "description": "Create, manage, and reorder blocks"
+    "property=og:description": "Create, manage, and reorder blocks"
+    "property=og:title": "Create, manage, and reorder blocks"
     "keywords": "Plone, Format, Block, Reorder"
 ---
 # Create, manage, and reorder blocks in Volto
