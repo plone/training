@@ -30,7 +30,7 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
         
     ````{card}
     ```{image} _static/creating-managing-and-reordering-blocks-02.jpeg
-    :alt: Add type of block you want
+    :alt: Add the type of block you want
     :target: _static/creating-managing-and-reordering-blocks-02.jpeg
     ```
     +++
