@@ -150,7 +150,7 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     _Click inside the text block and paste or type_
     ````
 
-1.  After adding text, you will reorder the blocks.
+1.  After adding text, you'll reorder the blocks.
     
     ````{card}
     ```{image} _static/creating-managing-and-reordering-blocks-13.jpeg
