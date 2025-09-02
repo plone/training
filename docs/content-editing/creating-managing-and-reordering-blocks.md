@@ -81,7 +81,7 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     :target: _static/creating-managing-and-reordering-blocks-06.jpeg
     ```
     +++
-    _Add a {guilabel}`Grid` block_
+    _Add a grid block_
     ````
 
 1.  Select the amount of columns.
