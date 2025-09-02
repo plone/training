@@ -194,7 +194,7 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     _Change order of blocks in {guilabel}`Order` tab_
     ````
 
-1.  In the {guilabel}`Order` tab, you can drag the items in the list up and down to reorder the blocks on the page.
+1.  In the {guilabel}`Order` tab, you can drag and drop the items in the list up and down to reorder the blocks on the page.
     
     ````{card}
     ```{image} _static/creating-managing-and-reordering-blocks-17.jpeg
