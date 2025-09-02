@@ -6,7 +6,9 @@ myst:
     "property=og:title": "Creating, managing, and reordering blocks"
     "keywords": "Plone, Format, Block, Reorder"
 ---
-# This guide offers a step-by-step approach to effectively create, manage, and reorder blocks within a Volto page.
+# Create, manage, and reorder blocks in Volto
+
+This guide offers a step-by-step approach to effectively create, manage, and reorder blocks in Volto.
 
 1.  In this example, you'll edit a page.
 
