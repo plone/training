@@ -29,9 +29,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     For this example you'll add a few images and some text.
         
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-02.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-02.jpeg
     :alt: Add the type of block you want
-    :target: /_images/creating-managing-and-reordering-blocks-02.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-02.jpeg
     ```
     +++
     _Add the type of block you want_
@@ -43,9 +43,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     Most blocks also provide options in the sidebar under the {guilabel}`block` tab.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-03.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-03.jpeg
     :alt: Manage block options in block
-    :target: /_images/creating-managing-and-reordering-blocks-03.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-03.jpeg
     ```
     +++
     _Manage block options in block_
@@ -54,9 +54,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  For the image block, use the sidebar to browse for an image in the site.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-04.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-04.jpeg
     :alt: Manage block options in sidebar
-    :target: /_images/creating-managing-and-reordering-blocks-04.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-04.jpeg
     ```
     +++
     _Manage block options in sidebar_
@@ -65,9 +65,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  To add another block, click on the {guilabel}`Add block` button <img alt="Add block icon" src="_static/circle-plus.svg" class="inline">.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-05.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-05.jpeg
     :alt: To add another block, press the "+" button
-    :target: /_images/creating-managing-and-reordering-blocks-05.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-05.jpeg
     ```
     +++
     _To add another block, click on the {guilabel}`Add block` button <img alt="Add block icon" src="_static/circle-plus.svg" class="inline">._
@@ -76,9 +76,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  For this example you'll add a grid block to add a few images.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-06.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-06.jpeg
     :alt: Add a grid block
-    :target: /_images/creating-managing-and-reordering-blocks-06.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-06.jpeg
     ```
     +++
     _Add a grid block_
@@ -87,9 +87,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  Select the amount of columns.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-07.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-07.jpeg
     :alt: Select the amount of columns
-    :target: /_images/creating-managing-and-reordering-blocks-07.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-07.jpeg
     ```
     +++
     _Select the amount of columns_
@@ -98,9 +98,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  Select the type of block to add to each column.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-08.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-08.jpeg
     :alt: Select the type of block
-    :target: /_images/creating-managing-and-reordering-blocks-08.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-08.jpeg
     ```
     +++
     _Select the type of block_
@@ -109,9 +109,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  Add an image in each column.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-09.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-09.jpeg
     :alt: Add an image in each column
-    :target: /_images/creating-managing-and-reordering-blocks-09.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-09.jpeg
     ```
     +++
     _Add an image in each column_
@@ -120,9 +120,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  After finishing the columns, click on the {guilabel}`Add block` button <img alt="Add block icon" src="_static/circle-plus.svg" class="inline">.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-10.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-10.jpeg
     :alt: To add another block, press the "+" button
-    :target: /_images/creating-managing-and-reordering-blocks-10.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-10.jpeg
     ```
     +++
     _To add another block, click on the {guilabel}`Add block` button <img alt="Add block icon" src="_static/circle-plus.svg" class="inline">._
@@ -131,9 +131,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  Add some text.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-11.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-11.jpeg
     :alt: Add some text
-    :target: /_images/creating-managing-and-reordering-blocks-11.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-11.jpeg
     ```
     +++
     _Add some text_
@@ -142,9 +142,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  Click inside the text block, then paste or type.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-12.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-12.jpeg
     :alt: Click inside the text block and paste or type
-    :target: /_images/creating-managing-and-reordering-blocks-12.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-12.jpeg
     ```
     +++
     _Click inside the text block and paste or type_
@@ -153,9 +153,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  After adding text, you'll reorder the blocks.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-13.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-13.jpeg
     :alt: Reorder the blocks
-    :target: /_images/creating-managing-and-reordering-blocks-13.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-13.jpeg
     ```
     +++
     _Reorder the blocks_
@@ -164,9 +164,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  To reorder, click the handle to the left of a block, then drag the block up or down.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-14.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-14.jpeg
     :alt: Reorder blocks with toggle on block
-    :target: /_images/creating-managing-and-reordering-blocks-14.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-14.jpeg
     ```
     +++
     _Reorder blocks with toggle on block_
@@ -175,9 +175,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  Once it is in the position you want, release the mouse button.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-15.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-15.jpeg
     :alt: Drag and drop blocks
-    :target: /_images/creating-managing-and-reordering-blocks-15.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-15.jpeg
     ```
     +++
     _Drag and drop blocks_
@@ -186,9 +186,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  You can also change the order under the {guilabel}`Order` tab.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-16.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-16.jpeg
     :alt: Change order of blocks in "Order" tab
-    :target: /_images/creating-managing-and-reordering-blocks-16.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-16.jpeg
     ```
     +++
     _Change order of blocks in {guilabel}`Order` tab_
@@ -197,9 +197,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  In the {guilabel}`Order` tab, you can drag and drop the items in the list up and down to reorder the blocks on the page.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-17.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-17.jpeg
     :alt: Change order of blocks in "Order" tab
-    :target: /_images/reating-managing-and-reordering-blocks-17.jpeg
+    :target: /_images/reating-managing-and-reordering-blocks-step-17.jpeg
     ```
     +++
     _Change order of blocks in {guilabel}`Order` tab_
@@ -208,9 +208,9 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 1.  Save your changes when you're done.
     
     ````{card}
-    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-18.jpeg
+    ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-18.jpeg
     :alt: Save page
-    :target: /_images/creating-managing-and-reordering-blocks-18.jpeg
+    :target: /_images/creating-managing-and-reordering-blocks-step-18.jpeg
     ```
     +++
     _Save page_
