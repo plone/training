@@ -37,7 +37,8 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     _Add the type of block you want_
     ````
 
-1.  Manage a block in the block itself. The Image block allows you to browse for an image or upload one.
+1.  Manage a block in the block itself.
+    The image block allows you to browse for an image or upload one.
     
     Most blocks also provide options in the sidebar under the {guilabel}`block` tab.
     
