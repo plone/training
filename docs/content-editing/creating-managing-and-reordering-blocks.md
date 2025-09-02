@@ -51,7 +51,7 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     _Manage block options in block_
     ````
 
-1.  For the Image block, use the sidebar to browse for an image in the site.
+1.  For the image block, use the sidebar to browse for an image in the site.
     
     ````{card}
     ```{image} _static/creating-managing-and-reordering-blocks-04.jpeg
