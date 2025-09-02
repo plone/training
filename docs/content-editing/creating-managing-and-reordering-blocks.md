@@ -25,7 +25,8 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     _To add another block, click on the {guilabel}`Add block` button <img alt="Add block icon" src="/content-editing/_static/circle-plus.svg" class="inline">._
     ````
 
-1.  Click on the type of block you want to add. For this example you'll add a few images and some text.
+1.  Click on the type of block you want to add.
+    For this example you'll add a few images and some text.
         
     ````{card}
     ```{image} _static/creating-managing-and-reordering-blocks-02.jpeg
