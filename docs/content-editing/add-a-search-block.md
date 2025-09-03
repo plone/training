@@ -6,7 +6,7 @@ myst:
     "property=og:title": "Add a Search Block"
     "keywords": "Plone, Search, Block"
 ---
-# Add a search block
+# Add a Search block
 
 A search block allows you to set up a custom search within your site for a specific section.
 
