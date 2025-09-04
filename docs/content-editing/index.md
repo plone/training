@@ -65,7 +65,6 @@ add-an-image-block-to-a-page
 add-a-video-block
 add-html-block
 add-a-grid-block
-add-a-search-block
 add-a-listing-block
 add-a-map-block
 deleting-a-block
