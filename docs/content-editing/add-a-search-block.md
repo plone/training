@@ -12,7 +12,7 @@ A search block allows you to set up a custom search within your site for a speci
 
 In this example, we'll create a page containing a search block.
 
-1.  Click the {guilabel}`Add` button.
+1.  Click the {guilabel}`Add` button <img alt="Add document icon" src="/content-editing/_static/add-document.svg" class="inline"> to add a search block.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-01.jpeg
@@ -20,7 +20,7 @@ In this example, we'll create a page containing a search block.
     :target: /_images/add-a-search-block-step-01.jpeg
     ```
     +++
-    _Click the `Add` button._
+    _Click the `Add` button <img alt="Add document icon" src="/content-editing/_static/add-document.svg" class="inline"> to add a search block._
     ````
 
 1.  Click {guilabel}`Page`
