@@ -281,17 +281,17 @@ In this example, we'll create a page containing a search block.
     _Click on {guilabel}`Add Facet` to add another facet._
     ````
 
-1.  Click the Label field to add a label to each facet.
+1.  Click the {guilabel}`Label` field to add a label to each facet.
 
     Type "Date range" as you'll be adding a facet to filter by tag.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-24.jpeg
-    :alt: Click the Label field to add a label to each facet.
+    :alt: Click the `Label` field to add a label to each facet.
     :target: /_images/add-a-search-block-step-24.jpeg
     ```
     +++
-    _Click the Label field to add a label to each facet._
+    _Click the {guilabel}`Label` field to add a label to each facet._
     ````
 
 1.  Click on {guilabel}`Field` to see the options available.
