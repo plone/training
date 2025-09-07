@@ -31,20 +31,20 @@ In this example, we'll create a page containing a search block.
     :target: /_images/add-a-search-block-step-02.jpeg
     ```
     +++
-    _Click `Page`
+    _Click `Page`_
     ````
 
-1.  Click "Type the title".
+1.  Click "Type the title...".
 
     Type "My page" as the title.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-03.jpeg
-    :alt: Click "Type the title"
+    :alt: Click "Type the title..."
     :target: /_images/add-a-search-block-step-03.jpeg
     ```
     +++
-    _Click "Type the title"._
+    _Click "Type the title..."._
     ````
 
 1.  Click the on the {guilabel}`Add block` button <img alt="Add block icon" src="/content-editing/_static/circle-plus.svg" class="inline"> to add a search block.
@@ -69,7 +69,7 @@ In this example, we'll create a page containing a search block.
     _Add a search block._
     ````
 
-1.  Click the "Headline" field to set the display name of the search block.
+1.  Click the {guilabel}`Headline` field to set the display name of the search block.
 
     Type "Site search" as the block headline.
 
@@ -79,7 +79,7 @@ In this example, we'll create a page containing a search block.
     :target: /_images/add-a-search-block-step-06.jpeg
     ```
     +++
-    _Click the "Headline" field to set the display name of the search block._
+    _Click the {guilabel}`Headline` field to set the display name of the search block._
     ````
 
 1.  Click {guilabel}`Add criteria`.
@@ -176,15 +176,15 @@ In this example, we'll create a page containing a search block.
     _Click the {guilabel}`Item batch size` field to set how many items should be shown per batch._
     ````
 
-1.  Click on the {guilabel}`Results template` drop down to you choose how to display the listed items.
+1.  Click on the {guilabel}`Results template` select menu to you choose how to display the listed items.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-15.jpeg
-    :alt: Click on the `Results template` drop down to you choose how to display the listed items.
+    :alt: Click on the `Results template` select menu to you choose how to display the listed items.
     :target: /_images/add-a-search-block-step-15.jpeg
     ```
     +++
-    _Click on the {guilabel}`Results template` drop down to you choose how to display the listed items._
+    _Click on the {guilabel}`Results template` select menu to you choose how to display the listed items._
     ````
 
 1.  Click on {guilabel}`Grid` to select the grid results template.
@@ -213,17 +213,17 @@ In this example, we'll create a page containing a search block.
     _Click on {guilabel}`Add Facet` to add a facet._
     ````
 
-1.  Click the Label field to add a label to each facet.
+1.  Click the {guilabel}`Label` field to add a label to each facet.
 
     Type "Tags" as you'll be adding a facet to filter by tag.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-18.jpeg
-    :alt: Click the Label field to add a label to each facet.
+    :alt: Click the `Label` field to add a label to each facet.
     :target: /_images/add-a-search-block-step-18.jpeg
     ```
     +++
-    _Click the Label field to add a label to each facet._
+    _Click the {guilabel}`Label` field to add a label to each facet._
     ````
 
 1.  Click on {guilabel}`Field` to see the options available.
@@ -338,17 +338,17 @@ In this example, we'll create a page containing a search block.
     _Select {guilabel}`Date Range` to display date picker widgets for a modification date range._
     ````
 
-1.  Click on "Sort on options".
+1.  Click on {guilabel}`Sort on options`.
 
     This adds a widget with options for the user to sort their search.
     
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-29.jpeg
-    :alt: Click on "Sort on options".
+    :alt: Click on {guilabel}`Sort on options`.
     :target: /_images/add-a-search-block-step-29.jpeg
     ```
     +++
-    _Click on "Sort on options"._
+    _Click on {guilabel}`Sort on options`._
     ````
 
 1.  Click "Creation date" and "Effective date" to add them to the list of options to sort by.
@@ -362,70 +362,70 @@ In this example, we'll create a page containing a search block.
     _Click "Creation date" and "Effective date" to add them to the list of options to sort by._
     ````
 
-1.  {guilabel}`Save` your page.
+1.  Click the {guilabel}`Save` button to save your page.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-31.jpeg
-    :alt: **[[Save]]** your page.
+    :alt: Click the `Save` button to save your page.
     :target: /_images/add-a-search-block-step-31.jpeg
     ```
     +++
-    _{guilabel}`Save` your page._
+    _Click the {guilabel}`Save` button to save your page._
     ````
 
-1.  The search field will allow the user to search with a text search.
+1.  The {guilabel}`Search` field will allow the user to search with a text search.
 
     The facets will narrow that search down.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-32.jpeg
-    :alt: The search field will allow the user to search with a text search.
+    :alt: The `Search` field will allow the user to search with a text search.
     :target: /_images/add-a-search-block-step-32.jpeg
     ```
     +++
-    _The search field will allow the user to search with a text search._
+    _The {guilabel}`Search` field will allow the user to search with a text search._
     ````
 
-1.  The Tags facet will allow the user to select items that are tagged and filter according to that tag.
+1.  The {guilabel}`Tags` facet will allow the user to select items that are tagged and filter according to that tag.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-33.jpeg
-    :alt: The Tags facet will allow the user to select items that are tagged and filter according to that tag.
+    :alt: The `Tags` facet will allow the user to select items that are tagged and filter according to that tag.
     :target: /_images/add-a-search-block-step-33.jpeg
     ```
     +++
-    _The Tags facet will allow the user to select items that are tagged and filter according to that tag._
+    _The {guilabel}`Tags` facet will allow the user to select items that are tagged and filter according to that tag._
     ````
 
-1.  The Date range facet will allow the user to narrow down their search inside of a specific date range.
+1.  The {guilabel}`Date range` facet will allow the user to narrow down their search inside of a specific date range.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-34.jpeg
-    :alt: The Date range facet will allow the user to narrow down their search inside of a specific date range.
+    :alt: The `Date range` facet will allow the user to narrow down their search inside of a specific date range.
     :target: /_images/add-a-search-block-step-34.jpeg
     ```
     +++
-    _The Date range facet will allow the user to narrow down their search inside of a specific date range._
+    _The {guilabel}`Date range` facet will allow the user to narrow down their search inside of a specific date range._
     ````
 
-1.  If there are no results in the date range selected, they can clear the range.
+1.  If there are no results in the date range selected, they can clear the range by clicking the {guilabel}`Clear` button.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-35.jpeg
-    :alt: If there are no results in the date range selected, they can clear the range.
+    :alt: If there are no results in the date range selected, they can clear the range by clicking the `Clear` button.
     :target: /_images/add-a-search-block-step-35.jpeg
     ```
     +++
-    _If there are no results in the date range selected, they can clear the range._
+    _If there are no results in the date range selected, they can clear the range by clicking the {guilabel}`Clear` button._
     ````
 
-1.  Clicking on the sorting drop-down will allow the user to sort their search according to a date.
+1.  Click on the sorting drop-down to sort the search according to a selected date type.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-37.jpeg
-    :alt: Clicking on the sorting drop-down will allow the user to sort their search according to a date.
+    :alt: Click on the sorting drop-down to sort the search according to a selected date type.
     :target: /_images/add-a-search-block-step-37.jpeg
     ```
     +++
-    _Clicking on the sorting drop-down will allow the user to sort their search according to a date._
+    _Click on the sorting drop-down to sort the search according to a selected date type._
     ````
