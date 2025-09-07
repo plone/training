@@ -408,7 +408,7 @@ In this example, we'll create a page containing a search block.
     _The {guilabel}`Date range` facet will allow the user to narrow down their search inside of a specific date range._
     ````
 
-1.  If there are no results in the date range selected, they can clear the range by clicking the {guilabel}`Clear` button.
+1.  If there are no results in the date range selected, they can clear the range by clicking the {guilabel}`Clear` button <img alt="Clear icon" src="/content-editing/_static/clear.svg" class="inline">.
 
     ````{card}
     ```{image} /content-editing/_static/add-a-search-block-step-35.jpeg
@@ -416,7 +416,7 @@ In this example, we'll create a page containing a search block.
     :target: /_images/add-a-search-block-step-35.jpeg
     ```
     +++
-    _If there are no results in the date range selected, they can clear the range by clicking the {guilabel}`Clear` button._
+    _If there are no results in the date range selected, they can clear the range by clicking the {guilabel}`Clear` button <img alt="Clear icon" src="/content-editing/_static/clear.svg" class="inline">._
     ````
 
 1.  Click on the sorting drop-down to sort the search according to a selected date type.
