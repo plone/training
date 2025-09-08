@@ -12,12 +12,10 @@ myst:
 Intro
 
 ```{toctree}
----
-caption: Architecture
-name: toc-effective-volto-architecture
-maxdepth: 2
-numbered: true
----
+:caption: Architecture
+:name: toc-effective-volto-architecture
+:maxdepth: 2
+:numbered:
 
 architecture/client-ssr
 architecture/razzle

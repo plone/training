@@ -10,7 +10,7 @@ myst:
 
 # Internationalization
 
-Though plone.org is currently an exception to this, many Plone sites are available in more than one language. For the sake of this training you can make our version of plone.org available in at least another language than english.
+Though https://plone.org/ is currently an exception to this, many Plone sites are available in more than one language. For the sake of this training you can make our version of https://plone.org/ available in at least another language than english.
 
 ## Set up site to be multilingual
 
@@ -33,7 +33,7 @@ And finally set up the folder structure to contain translated strings. Inside of
 
 ## Adding first translatable strings
 
-The first parts of the site to translate would be the ones from the "Plone release" content type, you just created. Go to the `plonerelease.jsx` file and import the following at the top: `import { FormattedMessage } from 'react-intl';`
+The first parts of the site to translate would be the ones from the "Plone release" content type, you just created. Go to the `PloneReleaseView.jsx` file and import the following at the top: `import { FormattedMessage } from 'react-intl';`
 
 To translate a static string replace it with the `<FormattedMessage/>` component like this:
 

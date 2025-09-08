@@ -27,15 +27,15 @@ Create a new {file}`.env` file by copying the content from the existing `.env_di
 cp .env_dist .env
 ```
 
-Customize the {file}`.env` file to match your specific deployment environment. Here’s an example configuration:
+Customize the {file}`.env` file to match your specific deployment environment. Here's an example configuration:
 
-```plaintext
+```shell
 DEPLOY_ENV=prod
-DEPLOY_HOST=ploneconf2023-<user>.tangrama.com.br
+DEPLOY_HOST=ploneconf2024-<your-github-username>.tangrama.com.br
 DEPLOY_PORT=22
 DEPLOY_USER=plone
 DOCKER_CONFIG=.docker
-STACK_NAME=ploneconf2023
+STACK_NAME=ploneconf2024
 ```
 
 ```{note}
@@ -58,10 +58,10 @@ Update the {file}`inventory/hosts.yml` file with the appropriate server details:
 ---
 prod:
   hosts:
-    ploneconf2023-<user>.tangrama.com.br:
+    ploneconf2024-<your-github-username>.tangrama.com.br:
       ansible_user: root
-      host: ploneconf2023-<user>
-      hostname: ploneconf2023-<user>.tangrama.com.br
+      host: ploneconf2024-<your-github-username>
+      hostname: ploneconf2024-<your-github-username>.tangrama.com.br
 ```
 
 ## Initiating Server Setup
@@ -77,13 +77,13 @@ make server-setup
 You should now be able to SSH into the remote server as both **root** and **plone** users:
 
 ```shell
-ssh root@ploneconf2023-<user>.tangrama.com.br
-ssh plone@ploneconf2023-<user>.tangrama.com.br
+ssh root@ploneconf2024-<your-github-username>.tangrama.com.br
+ssh plone@ploneconf2024-<your-github-username>.tangrama.com.br
 ```
 
 ## Setting Up Docker
 
-Ensure you’re logged into Docker, as the deployment process uses public images. Create a new Docker context for the remote server:
+Ensure you're logged into Docker, as the deployment process uses public images. Create a new Docker context for the remote server:
 
 ```shell
 make docker-setup
@@ -97,6 +97,6 @@ make docker-info
 
 # Review
 
-By now you’ve now successfully set up a Plone deployment server using Ansible for automated provisioning, Docker for containerization, and Docker Swarm for scalability and availability.
+By now you've now successfully set up a Plone deployment server using Ansible for automated provisioning, Docker for containerization, and Docker Swarm for scalability and availability.
 
 The next step is to deploy your project to this server.

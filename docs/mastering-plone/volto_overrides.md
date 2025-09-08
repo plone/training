@@ -1,19 +1,36 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Small customizations by overriding existing code"
+    "property=og:description": "Small customizations by overriding existing code"
+    "property=og:title": "Customizing Volto components"
+    "keywords": "Plone, Volto, customization, shadowing, component"
 ---
 
 (volto-overrides-label)=
 
-# Customizing Volto Components
+# Customizing Volto components
+
+```{card}
+In this part you will:
+
+Customize existing components and views
+
+Tools and techniques covered:
+
+- Component shadowing
+- View for a content type
+```
 
 ````{card} Frontend chapter
 
-Get the code: https://github.com/collective/volto-ploneconf
+Checkout `volto-ploneconf` at tag "initial":
+
+```shell
+git checkout initial
+```
+
+The code at the end of the chapter:
 
 ```shell
 git checkout overrides
@@ -22,31 +39,20 @@ git checkout overrides
 More info in {doc}`code`
 ````
 
-```{card}
-In this part you will:
-
-Customize existing components and views
-
-Topics covered:
-
-- Component shadowing
-- Content type view
-```
-
 
 (volto-overrides-componentshadowing-label)=
 
 ## Component shadowing
 
 We use a technique called **component shadowing** to override an existing Volto component with our local custom version, without having to modify Volto's source code at all.
-You have to place the replacing file in the same folder path inside the {file}`/src/customizations/` folder of your app as the original file in {file}`/omelette/src/`.
+You have to place the replacing file in the same folder path inside the {file}`packages/volto-ploneconf/src/customizations/` folder of your app as the original file in {file}`core/packages/volto/src/`.
 
 Every time you add a file to your app, you have to restart Volto for changes taking effect.
 From that point on, the hot module reloading should kick in and reload the page automatically on changes.
 
 You can customize any module in Volto, including actions and reducers, not only components.
 
-The Volto code can be found in {file}`/omelette/`.
+The Volto code can be found in {file}`core/packages/volto/`.
 
 
 ## The footer
@@ -61,7 +67,7 @@ The React developer tools provide a selector to find the component we need to ov
 :alt: Footer component file.
 ```
 
-Customize the footer by copying {file}`omelette/src/components/theme/Footer/Footer.jsx` to your customization folder at {file}`/src/customizations/components/theme/Footer/Footer.jsx`.  
+Customize the footer by copying {file}`core/packages/volto/src/components/theme/Footer/Footer.jsx` to your customization folder at {file}`packages/volto-ploneconf/src/customizations/components/theme/Footer/Footer.jsx`.  
 After a restart you can change this Footer component and the changes are shown immediately due to hot module reloading.
 
 
@@ -69,7 +75,7 @@ After a restart you can change this Footer component and the changes are shown i
 
 We want to show the date a News Item is published.
 This way visitors can see at a glance if they are looking at current news.
-This information is not shown by default.
+This information isn't shown by default.
 So you need to customize the way a News Item is rendered.
 
 A News Item has date attributes.
@@ -79,7 +85,7 @@ Behaviors are being described in {doc}`behaviors_1`.
 These date attributes are available when the content is fetched by the frontend.
 But let's first have a look how these attributes are used in a Volto component.
 
-The Volto view component to render a News Item is in {file}`/omelette/src/components/theme/View/NewsItemView.jsx`.
+The Volto view component to render a News Item is in {file}`core/packages/volto/src/components/theme/View/NewsItemView.jsx`.
 
 ```{code-block} jsx
 :linenos:
@@ -90,13 +96,10 @@ The Volto view component to render a News Item is in {file}`/omelette/src/compon
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Image } from 'semantic-ui-react';
-import {
-  hasBlocksData,
-  flattenToAppURL,
-  flattenHTMLToAppURL,
-} from '@plone/volto/helpers';
+import { Container as SemanticContainer } from 'semantic-ui-react';
+import { hasBlocksData, flattenHTMLToAppURL } from '@plone/volto/helpers';
 import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
+import config from '@plone/volto/registry';
 
 /**
  * NewsItemView view component class.
@@ -104,11 +107,15 @@ import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
  * @params {object} content Content object.
  * @returns {string} Markup of the component.
  */
-const NewsItemView = ({ content }) =>
-  hasBlocksData(content) ? (
-    <div id="page-document" className="ui container viewwrapper event-view">
+const NewsItemView = ({ content }) => {
+  const Image = config.getComponent({ name: 'Image' }).component;
+  const Container =
+    config.getComponent({ name: 'Container' }).component || SemanticContainer;
+
+  return hasBlocksData(content) ? (
+    <Container id="page-document" className="view-wrapper newsitem-view">
       <RenderBlocks content={content} />
-    </div>
+    </Container>
   ) : (
     <Container className="view-wrapper">
       {content.title && (
@@ -122,15 +129,12 @@ const NewsItemView = ({ content }) =>
       )}
       {content.image && (
         <Image
-          className="documentImage"
+          className="documentImage ui right floated image"
           alt={content.title}
           title={content.title}
-          src={
-            content.image['content-type'] === 'image/svg+xml'
-              ? flattenToAppURL(content.image.download)
-              : flattenToAppURL(content.image.scales.mini.download)
-          }
-          floated="right"
+          item={content}
+          imageField="image"
+          responsive={true}
         />
       )}
       {content.text && (
@@ -142,6 +146,7 @@ const NewsItemView = ({ content }) =>
       )}
     </Container>
   );
+};
 
 /**
  * Property types.
@@ -167,14 +172,14 @@ export default NewsItemView;
 
 - The view displays various attributes of the News Item using `content.title`, `content.description` or `content.text.data`.
 
-- You can inspect all data hold by `content` using the React Developer Tools for [Firefox](https://addons.mozilla.org/de/firefox/addon/react-devtools/) or [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
+- You can inspect all data hold by `content` using the React Developer Tools for [Firefox](https://addons.mozilla.org/de/firefox/addon/react-devtools/) or [Chrome](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi):
 
 ```{figure} _static/volto_react_devtools.png
 :align: center
 ```
 ````
 
-Copy this file from {file}`/omelette/src/components/theme/View/NewsItemView.jsx` to {file}`src/customizations/components/theme/View/NewsItemView.jsx`.
+Copy this file from {file}`core/packages/volto/src/components/theme/View/NewsItemView.jsx` to {file}`packages/volto-ploneconf/src/customizations/components/theme/View/NewsItemView.jsx`.
 
 After restarting Volto, the new file is used when displaying a News Item.
 To make sure your file is taken into effect, add a small change before the blocks `<RenderBlocks content={content} />`.
@@ -193,13 +198,13 @@ To display the date add the following before the text:
 ```
 
 This will render something like *2022-10-02T21:58:54*.
-Not very user friendly.
+This isn't user friendly.
 Let's use one of many helpers available in Volto.
 
 Import the component `FormattedDate` from `@plone/volto/components` at the top of the file and use it to format the date in a human readable format.
 
 ```{code-block} jsx
-:emphasize-lines: 14,26-28
+:emphasize-lines: 10,27-29
 :linenos:
 
 /**
@@ -209,14 +214,11 @@ Import the component `FormattedDate` from `@plone/volto/components` at the top o
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Image } from 'semantic-ui-react';
-import {
-  hasBlocksData,
-  flattenToAppURL,
-  flattenHTMLToAppURL,
-} from '@plone/volto/helpers';
+import { Container as SemanticContainer } from 'semantic-ui-react';
+import { hasBlocksData, flattenHTMLToAppURL } from '@plone/volto/helpers';
 import { FormattedDate } from '@plone/volto/components';
 import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
+import config from '@plone/volto/registry';
 
 /**
  * NewsItemView view component class.
@@ -224,14 +226,18 @@ import RenderBlocks from '@plone/volto/components/theme/View/RenderBlocks';
  * @params {object} content Content object.
  * @returns {string} Markup of the component.
  */
-const NewsItemView = ({ content }) =>
-  hasBlocksData(content) ? (
-    <div id="page-document" className="ui container viewwrapper event-view">
+const NewsItemView = ({ content }) => {
+  const Image = config.getComponent({ name: 'Image' }).component;
+  const Container =
+    config.getComponent({ name: 'Container' }).component || SemanticContainer;
+
+  return hasBlocksData(content) ? (
+    <Container id="page-document" className="view-wrapper newsitem-view">
       <p>
         <FormattedDate date={content.created} includeTime />
       </p>
       <RenderBlocks content={content} />
-    </div>
+    </Container>
   ) : (
     <Container className="view-wrapper">
       {content.title && (
@@ -245,15 +251,12 @@ const NewsItemView = ({ content }) =>
       )}
       {content.image && (
         <Image
-          className="documentImage"
+          className="documentImage ui right floated image"
           alt={content.title}
           title={content.title}
-          src={
-            content.image['content-type'] === 'image/svg+xml'
-              ? flattenToAppURL(content.image.download)
-              : flattenToAppURL(content.image.scales.mini.download)
-          }
-          floated="right"
+          item={content}
+          imageField="image"
+          responsive={true}
         />
       )}
       {content.text && (
@@ -265,6 +268,7 @@ const NewsItemView = ({ content }) =>
       )}
     </Container>
   );
+};
 
 /**
  * Property types.
@@ -297,7 +301,7 @@ Now another issue appears. There are various dates associated with any content o
 - The date the item is published `content.effective`
 
 In fact you most likely want to show the date when the item has been published.
-But while the item is not yet published, that value is not yet set and you will get an error.
+But while the item isn't yet published, this value isn't yet set and you will get an error.
 So we'll add some simple logic to show the effective date only if it exists.
 
 ```jsx
@@ -308,14 +312,14 @@ So we'll add some simple logic to show the effective date only if it exists.
 )}
 ```
 
-As we are in the HTML part of our React component, we surround the JavaScript code with curly braces.
-Inside Javascript we embrace html in rounded braces.
+As we're in the HTML part of our React component, we surround the JavaScript code with curly braces.
+Inside JavaScript we embrace HTML in rounded braces.
 
 
 ## Summary
 
-- Component shadowing allows you to modify and extend views and other components in Volto.
-- It is a powerful mechanism making changes without the need of complex configuration or maintaining a fork of the code.
+- With component shadowing views and other components in Volto can be modified and extended.
+- Component shadowing a powerful mechanism making changes without the need of complex configuration or maintaining a fork of the code.
 - You need to restart Volto when you add a new overriding.
 
 ```{seealso}

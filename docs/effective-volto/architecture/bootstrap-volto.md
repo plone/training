@@ -14,12 +14,12 @@ For the most up-to-date information on how to get started with Volto, the offici
 A copy of this information is placed here, with the caveat that it may be out of date by the time you're reading this.
 ```
 
-## Install nvm (NodeJS version manager)
+## Install nvm (Node.js version manager)
 
 If you have a working Node JavaScript development already set up on your machine or you prefer
 another management tool to install/maintain node this step is not needed. If you have less
 experience with setting up JavaScript, it's a good idea to integrate nvm for development, as
-it provides easy access to any NodeJS released version.
+it provides easy access to any Node.js released version.
 
 1.  Open a terminal console and type:
 
@@ -42,7 +42,7 @@ it provides easy access to any NodeJS released version.
     nvm version
     ```
 
-4.  Install any active LTS version of NodeJS (https://github.com/nodejs/release#release-schedule):
+4.  Install any active LTS version of Node.js (https://github.com/nodejs/release#release-schedule):
 
     ```bash
     nvm install 18
@@ -107,7 +107,7 @@ To install Docker desktop for Mac, here are the detailed instructions:
 2. Install the package as any other Mac software, if required, follow
    instructions from:
 
-    https://docs.docker.com/desktop/install/mac-install/
+    https://docs.docker.com/desktop/setup/install/mac-install/
 
 3. Check that docker is installed correctly, open a new terminal and type:
 
@@ -137,7 +137,7 @@ In case you need production ready deployment, check the training {doc}`/plone-de
 The example above does not persist yet any changes you make through Volto in
 the Plone docker container backend! For this you need to map the /data directory
 in the container properly. Check Docker
-[storage documentation](https://docs.docker.com/storage/) for more information.
+[storage documentation](https://docs.docker.com/engine/storage/) for more information.
 
 As a quick example: if you add
 `--mount type=bind,source="$(pwd)/plone-data",target=/data`

@@ -95,7 +95,7 @@ and use Volto's development backend setup:
 git clone https://github.com/plone/volto
 cd volto
 make build-backend
-make start-backend
+make backend-start
 ```
 
 [generator-volto]: https://github.com/plone/generator-volto

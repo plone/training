@@ -4,10 +4,8 @@ myst:
     "description": "Technical view"
     "property=og:description": "Technical view"
     "property=og:title": "What is Plone?"
-    "keywords": "Plone, Zope, security, CMS, REST, React, traversing, object publishing, database, object oriented, acquisition"
+    "keywords": "Plone, Zope, security, CMS, REST, React, traversing, database, object oriented, acquisition"
 ---
-
-% TODO Review Plone/Zope techniques
 
 (intro-what-is-plone-label)=
 
@@ -34,7 +32,7 @@ Plone has a multitude of powerful features, is easily accessible to editors, but
 The modular and open component architecture of Plone allows you to change or extend Plone in every aspect!
 
 ```{seealso}
-Plone documentation on [docs.plone.org](https://docs.plone.org/)  
+Plone documentation on [docs.plone.org](https://6.docs.plone.org/)  
 Demo installation on [demo.plone.org](https://demo.plone.org/)
 ```
 
@@ -68,20 +66,6 @@ portal['news']['conference-site-online']
 ['news', 'events', 'talks']
 >>> portal['news']
 <Document at /Plone/news>
-```
-
-(what-is-plone-object-publishing-label)=
-
-### Object publishing
-
-Objects can be called and return a representation of itself - usually HTML.
-
-```python
->>> obj = portal['news']['conference-site-online']
->>> obj
-<NewsItem at /Plone/news/conference-site-online>
->>> obj()
-'\n<!DOCTYPE html>\n\n<html xmlns="http://www.w3.org/1999/xhtml...'
 ```
 
 (schema-driven-types-label)=
@@ -142,7 +126,7 @@ Plone creates forms for all these schemata to add and edit content.
 
 ```{seealso}
 - [Zope Component Architecture](https://zopecomponent.readthedocs.io/en/latest/narr.html)
-- The [Keynote](https://youtu.be/eGRJbBI_H2w?t=1308) by Cris Ewing at PyCon 2016
+- The [Keynote](https://www.youtube.com/watch?t=1308&v=eGRJbBI_H2w) by Cris Ewing at PyCon 2016
 ```
 
 
@@ -176,17 +160,12 @@ It ranks consistently as one of the most popular programming languages.
 
 (what-is-plone-traversal-architecture-zodb-label)=
 
-% TODO Review ZODB, Zope
-% TODO ZODB: How to address (no SQL, but…).
-% TODO ZODB: Default. Short hint on RelStorage  
-
 ### Database (ZODB)
 
 Data is stored in an object oriented database called `ZODB`: Zope object data base.
 
 - Key features of ZODB https://zodb.org/en/latest/introduction.html
 - ZEO is a client-server storage for ZODB for sharing a single storage among many clients.
-  % TODO explain clients
 - Storing data in a relational database: RelStorage leverages RDBMS servers to provide a client-server storage.
 
 ---
@@ -219,7 +198,7 @@ class Account(persistent.Persistent):
 - [ZEO](https://github.com/zopefoundation/ZEO): Server + many clients
 - [ZRS](https://github.com/zopefoundation/zc.zrs): DB-Replication
 - [RelStorage](https://relstorage.readthedocs.io/en/latest/) (store pickles in a relational database) for Postgres, MySQL etc.
-- blobstorage (binary large objects) in filesystem
+- `blobstorage` (binary large objects) in filesystem
 
 
 (what-is-plone-traversal-architecture-zope-label)=
@@ -324,7 +303,7 @@ It is used to connect the Volto frontend with Plone backend.
 ### Volto Frontend
 
 [Volto](https://github.com/plone/volto) is the default frontend for Plone 6 written in ReactJS.
-It uses the Rest API to communicate with the backend and offers a modern editing experience.
+It uses the REST API to communicate with the backend and offers a modern editing experience.
 
 Here are some basics that you need to understand if you are new to Volto:
 
@@ -335,12 +314,12 @@ Here are some basics that you need to understand if you are new to Volto:
 - Volto is installed separately from the Plone backend.
   See chapter {ref}`installation-install-frontend-label` for instructions.
 - Volto runs in a different process than the Plone backend.
-  By default Volto runs on port 3000. If you start Volto with `yarn start` you can see the frontend on <http://localhost:3000>.
+  By default Volto runs on port 3000. If you start Volto with `make start` you can see the frontend on <http://localhost:3000>.
   The Plone backend runs by default on <http://localhost:8080>
 - You create a new Plone instance in an already set up Zope environment via the backend.
   This is by now not possible in Volto.
 - Volto takes advantage of [Semantic UI React components](https://react.semantic-ui.com/) to compose most of the views.
-- The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://www.youtube.com/watch?v=wW9mTl1Tavc&t=133s).
+- The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://www.youtube-nocookie.com/embed/wW9mTl1Tavc?t=133s&privacy_mode=1).
 - Same as Plone Classic, Volto is highly extendable with add-ons for further features.
 - Existing Volto components are customizable with a technology similar to `z3c.jbot` called {ref}`volto-overrides-componentshadowing-label`.
 - Volto provides server side rendering (SSR), important for SEO-purposes.

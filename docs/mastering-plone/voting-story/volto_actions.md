@@ -9,19 +9,17 @@ myst:
 
 (volto-actions)=
 
-# Volto Actions and Component State [voting story]
+# Volto Actions and component state [voting story]
 
 ````{card} Frontend chapter
 
-Get the code! 
-[volto-training-votable](https://github.com/collective/volto-training-votable)
 ````
 
 (volto-actions-overview-label)=
 
 The Conference team placed a call for proposals.
 Now the jury wants to select talks.
-To support this process we add a section to talk view from chapter {doc}`volto_talkview` where jury members can vote for a talk.
+To support this process we add a section to talk view from chapter {doc}`../volto_talkview` where jury members can vote for a talk.
 
 Topics covered:
 
@@ -133,9 +131,12 @@ See the condition of the rendering function.
 We receive all needed info for displaying from the one request of data including the info about the permission of the current user to vote.
 Why do we need only one request? We designed the endpoint `votes` to provide all necessary information.
 
-### actions, reducers and the app store
 
-Before we include the component _Voting_ in talk view from chapter {doc}`volto_talkview`, some words about actions and reducers.
+(volto-actions-store-label)=
+
+### Actions, reducers and the app store
+
+Before we include the component _Voting_ in talk view from chapter {doc}`../volto_talkview`, some words about actions and reducers.
 The action `getVotes` requests the data.
 The corresponding reducer writes the data to the global app store.
 
@@ -253,27 +254,59 @@ The response is the data that the adapter `training.votable.behaviors.votable.Vo
 
 The component gets access to this store entry by subscribing to the store `const votes = useSelector((store) => store.votes);`
 
-Now we can include the component `Voting` in a talk view from chapter {doc}`volto_talkview`.
+
+(volto-actions-including-slot-label)=
+
+### Include the new component in the talk view
+
+Now we can include the component `Voting` in a talk view from chapter {doc}`../volto_talkview`.
 
 ```{code-block} jsx
 :linenos:
-:emphasize-lines: 1,15
+:emphasize-lines: 1-2,24-37
 
+import { Container as SemanticContainer } from 'semantic-ui-react';
+import { ContentTypeCondition } from '@plone/volto/helpers';
 import { Voting } from 'volto-training-votable/components';
+import { TalkView, TalkListingBlockVariation } from './components';
 
-const TalkView = ({ content }) => {
-  const color_mapping = {
-    Beginner: 'green',
-    Advanced: 'yellow',
-    Professional: 'purple',
+const applyConfig = (config) => {
+  config.views = {
+    ...config.views,
+    contentTypesViews: {
+      ...config.views.contentTypesViews,
+      talk: TalkView,
+    },
   };
 
-  return (
-    <Container id="page-talk">
-    <h1 className="documentFirstHeading">
-      {content.type_of_talk.title}: {content.title}
-    </h1>
-    <Voting />
+  config.blocks.blocksConfig.listing.variations = [
+    ...config.blocks.blocksConfig.listing.variations,
+    {
+      id: 'talks',
+      title: 'Talks',
+      template: TalkListingBlockVariation,
+    },
+  ];
+
+  const Container =
+    config.getComponent({ name: 'Container' }).component || SemanticContainer;
+  const WrappedVoting = () => (
+    <Container>
+      <Voting />
+    </Container>
+  );
+
+  config.registerSlotComponent({
+    slot: 'aboveContent',
+    name: 'voting',
+    component: WrappedVoting,
+    predicates: [ContentTypeCondition(['talk'])],
+  });
+
+  return config;
+};
+
+export default applyConfig;
 ```
 
 ```{figure} ../_static/volto_voting3.png
@@ -373,7 +406,7 @@ export function vote(url, vote) {
 }
 ```
 
-As the corresponding reducer updates the app store, the subscribed component `Voting` **reacts by updating itself**. The subsription is done by:
+As the corresponding reducer updates the app store, the subscribed component `Voting` **reacts by updating itself**. The subscription is done by:
 
 ```jsx
 const votes = useSelector((store) => store.votes);
@@ -456,7 +489,7 @@ export default function votes(state = initialState, action = {}) {
 ```
 
 
-## Component State
+## Component state
 
 Next step is the feature for developers to clear votes of a talk while preparing the app.
 We want to offer a button to clear votes and integrate a hurdle to prevent unwanted clearing.
@@ -520,7 +553,7 @@ After a successful `clearVotes` action the corresponding reducer updates the sto
 As the component is subscribed to the store via `const votes = useSelector((store) => store.votes);` the component updates itself ( is rendered with the updated values ).
 And the voting buttons are visible again.
 
-For completnes, the action.
+For completeness, the action.
 You have already guessed, it does a `DEL` request to the `@votes` endpoint.
 And the endpoint service from last chapter knows what to do.
 

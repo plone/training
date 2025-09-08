@@ -27,16 +27,14 @@ For Volto development see training {doc}`/effective-volto/index`.
 
 We expect you to work with the Plone React frontend (former called Volto).
 Therefore we do not deal with Plone Classic topics here.
-For Plone Classic see training {doc}`/theming/index`, training {doc}`/mastering-plone-5/index` and documentation {doc}`plone6docs:classic-ui/index`
+For Plone Classic see training {doc}`/theming/index`, training {doc}`training2023:mastering-plone-5/index` and documentation {doc}`plone6docs:classic-ui/index`
 ```
 
 ```{toctree}
----
-caption: Mastering Plone 6 Development
-name: toc-mastering
-maxdepth: 3
-numbered: 2
----
+:caption: Mastering Plone 6 Development
+:name: toc-mastering
+:maxdepth: 3
+:numbered: 2
 
 about_mastering
 intro
@@ -48,11 +46,11 @@ configuring_customizing
 add-ons
 extending
 dexterity
+volto_development
 dexterity_2_talk
 dexterity_reference
 volto_overrides
 volto_talkview
-volto_development
 behaviors_1
 volto_frontpage
 api
@@ -60,9 +58,10 @@ events
 registry
 custom_search
 volto_testing
-thirdparty_behaviors
 dexterity_3
 upgrade_steps
+volto_listing_variation
+searchable
 volto_components_sponsors
 volto_addon
 volto_custom_addon

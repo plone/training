@@ -1,0 +1,16 @@
+addon
+addons
+ajax
+css
+node
+nodejs
+Javascript
+javscript
+js
+Pycharm
+pypi
+relateable
+repo
+repos
+restapi
+styleguide

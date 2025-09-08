@@ -388,7 +388,7 @@ More complex migrations need to be separated into several steps that need to be 
 In the following example, we assume to migrate a Plone 4.3 with multilingual Archetypes content to Plone 6.0 (Classic UI).
 
 ```{note}
-Most of this information is also contained in the talk [Migrations! Migrations! Migrations!](https://www.youtube.com/watch?v=ZIN1qmhMHJ4) that deals with in-place migrations and the helper package https://github.com/collective/collective.migrationhelpers.
+Most of this information is also contained in the talk [Migrations! Migrations! Migrations!](https://www.youtube-nocookie.com/embed/ZIN1qmhMHJ4?privacy_mode=1) that deals with in-place migrations and the helper package https://github.com/collective/collective.migrationhelpers.
 ```
 
 The plan is to write upgrade steps for each step, once you know what needs to be done.
@@ -509,7 +509,7 @@ After packing the database you can:
 
 * The migration can take a long time, especially the migration from Archetypes to Dexterity can take up to 12 hours.
   Consider using an export/import migration instead since that is much faster.
-* Your site raises errors due to invalid data. See [Growing pains: PosKeyErrors and other malaises](https://www.youtube.com/watch?v=SwxN3BBxAM8) and https://www.starzel.de/blog/zodb-debugging
+* Your site raises errors due to invalid data. See [Growing pains: PosKeyErrors and other malaises](https://www.youtube-nocookie.com/embed/SwxN3BBxAM8?privacy_mode=1) and https://www.starzel.de/blog/zodb-debugging
 * Migrations are hungry for resources.
   You might run out of disk space or memory.
 
@@ -529,8 +529,8 @@ Helper Packages:
 
 Talks:
 
-* [Migrations! Migrations! Migrations!](https://www.youtube.com/watch?v=ZIN1qmhMHJ4) - Talk at Ploneconf 2019 in Ferrara.
-* [How to upgrade sites to Plone 5](https://www.youtube.com/watch?v=bQ-IpO-7F00) - Talk at Ploneconf 2015 in Bucharest.
+* [Migrations! Migrations! Migrations!](https://www.youtube-nocookie.com/embed/ZIN1qmhMHJ4?privacy_mode=1) - Talk at Ploneconf 2019 in Ferrara.
+* [How to upgrade sites to Plone 5](https://www.youtube-nocookie.com/embed/bQ-IpO-7F00?privacy_mode=1) - Talk at Ploneconf 2015 in Bucharest.
 * [Archetypes to Dexterity Migration](https://vimeo.com/110992921) - Talk at Ploneconf 2014 in Bristol.
-* [Migrations, Upgrades and Relaunches](https://www.youtube.com/watch?v=1Qx0JALp3lQ) - Talk at Ploneconf 2013 in Brazilia.
+* [Migrations, Upgrades and Relaunches](https://www.youtube-nocookie.com/embed/1Qx0JALp3lQ?privacy_mode=1) - Talk at Ploneconf 2013 in Brazilia.
 ```

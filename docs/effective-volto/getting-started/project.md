@@ -29,15 +29,15 @@ pip install cookiecutter
 
 ### nvm, Node.JS, Yeoman, and Yarn
 
-First install `nvm` and latest Node.JS according to the [Plone documentation](https://6.docs.plone.org/volto/getting-started/install.html#install-nvm-nodejs-version-manager).
+First install `nvm` and latest Node.JS according to the [Plone documentation](https://6.docs.plone.org/install/create-project.html#nvm).
 
-After that, install Yeoman according to the [Plone documentation](https://6.docs.plone.org/volto/getting-started/install.html#yeoman).
+After that, install Yeoman according to the [Plone documentation](https://6.docs.plone.org/install/create-project.html#yeoman-and-the-volto-boilerplate-generator).
 
-Finally, install `yarn` according to the [Plone documentation](https://6.docs.plone.org/volto/getting-started/install.html#yarn-nodejs-package-manager).
+Finally, install `yarn` according to the [Plone documentation](https://6.docs.plone.org/install/create-project.html#yarn).
 
 ### Docker (optional, but recommended)
 
-Install `Docker` according to the [official documentation](https://docs.docker.com/get-docker/).
+Install `Docker` according to the [official documentation](https://docs.docker.com/get-started/get-docker/).
 
 Generate a new Plone 6 Project:
 
@@ -58,13 +58,13 @@ In two separate terminal sessions, start backend and frontend:
 To start backend:
 
 ```shell
-make start-backend
+make backend-start
 ```
 
 To start frontend:
 
 ```shell
-make start-frontend
+make frontend-start
 ```
 
 You can stop each one with {kbd}`ctrl-c`.
@@ -78,11 +78,11 @@ make build
 and restart backend and frontend by stopping and re-running
 
 ```shell
-make start-backend
+make backend-start
 ```
 
 ```shell
-make start-frontend
+make frontend-start
 ```
 
 ## Project Generation Options

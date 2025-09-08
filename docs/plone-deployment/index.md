@@ -38,4 +38,6 @@ project-start
 project-edit
 server-setup
 deploy
+virtual-host
+troubleshoot
 ```

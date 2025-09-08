@@ -9,7 +9,7 @@ myst:
 
 # Plone Release content type
 
-On plone.org we have a custom content type called "Plone Release". For the training you will recreate that content type and write a custom view for it.
+On https://plone.org/ we have a custom content type called "Plone Release". For the training you will recreate that content type and write a custom view for it.
 
 Create the content type by going to the [content types control panel](http://localhost:3000/controlpanel/dexterity-types) of your app and adding a new content type called "Plone Release". Next amend the schema of that type by clicking on the three dots behind "Plone Release in the Types overview and choosing schema.
 Add the following fields to the schema:

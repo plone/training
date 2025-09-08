@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "How to install Plone 6 for the training"
     "property=og:description": "How to install Plone 6 for the training"
-    "property=og:title": ""
+    "property=og:title": "Installation"
     "keywords": "Installation and Setup of Plone 6 for the training 'Mastering Plone Development'"
 ---
 
@@ -11,7 +11,7 @@ myst:
 
 This chapter provides instructions on how to install **Plone with the training code**.
 
-For installation, deployment and hosting of Plone in general, see {ref}`Installation<plone6docs:install-index-label>` on `docs.plone.org`.
+For installation, deployment and hosting of Plone in general, see {doc}`plone6docs:admin-guide/index` on `docs.plone.org`.
 
 
 (installation-tools-label)=
@@ -77,15 +77,15 @@ This build executes multiple tasks.
 The build
 - creates a Python virtual environment and installs prerequisites
 - generates a file structure to be prepared to install Plone packages with pip
-- generates Zope configuration with cookiecutter
+- generates Zope configuration with Cookiecutter
 
 By creating and working with a **Python virtual environment**, we are independent of the system Python installation. We install packages and its version according to our needs.
 
 The build generates a file structure to be prepared to install **Plone from packages** with `pip` and `mxdev`. The tool `mxdev` helps with configuration files to define which add-ons and which versions to install.
 It also allows to override Plone core package versions or force a checkout from `github`.
-The documentation {ref}`plone6docs:manage-plone-backend-packages-with-mxdev-label` provides information on common tasks.
+The documentation {doc}`plone6docs:admin-guide/add-ons` provides information on common tasks.
 
-The build generates **Zope configuration** files with cookiecutter `cookiecutter-zope-instance`.
+The build generates **Zope configuration** files with Cookiecutter `cookiecutter-zope-instance`.
 The file we will modify to update our Zope / Plone configuration is `instance.yaml`.
 In this file we will add add-ons that are installed as Python packages and shall be loaded in our instance.
 `instance.yaml` is the one configuration file for our Zope / Plone instance.
@@ -116,7 +116,7 @@ Starting server in PID 28745.
 2022-09-27 08:57:23,963 INFO    [waitress:486][MainThread] Serving on http://127.0.0.1:8080
 ```
 
-Troubleshooting: We are here to help: Please file an issue in [training repo](https://github.com/plone/training/issues). 
+Troubleshooting: We are here to help: Please file an issue in [training repository](https://github.com/plone/training/issues). 
 
 Point your browser to <http://localhost:8080> to see `Plone` running.
 
@@ -139,19 +139,20 @@ You can stop the running instance anytime using {kbd}`ctrl c`.
 
 You have two options:
 
-> 1. Create the frontend from scratch using the Volto generator.
+> 1. Create the frontend from scratch using {term}`Cookieplone`.
 > 2. Use the prepared Volto project [volto-ploneconf](https://github.com/collective/volto-ploneconf) with all the code for the training.
 
 
-### Option 1: Frontend from scratch with Volto generator
+### Option 1: Frontend from scratch
 
 
-{ref}`plone6docs:frontend-getting-started-installing-volto-label`
+Follow the instructions of `docs.plone.org`: {doc}`plone6docs:volto/development/creating-project`.
 
 
 ### Option 2. Start with prepared training project `volto-ploneconf` with all code for the training
 
-Prepare the pre-requisites explained in {ref}`plone6docs:install-packages-prerequisites-label`.
+Prepare the prerequisites explained in {ref}`plone6docs:create-project-cookieplone-prerequisites-for-installation-label`.
+Be aware that Volto 18 recommends `pnpm` instead of `yarn` as package manager and project manager.
 
 Get the code for the frontend from GitHub and install:
 
@@ -164,8 +165,14 @@ make install
 
 Now you can start the app with:
 
+```shell
+make start
 ```
-$ yarn start
+
+which is a 
+
+```shell
+pnpm start
 ```
 
 Point your browser to <http://localhost:3000> and see that the app is up and running, albeit without content.

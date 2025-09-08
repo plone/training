@@ -9,8 +9,8 @@ myst:
 
 # About
 
-This training was created by [Tiberiu Ichim](https://twitter.com/ichim_tiberiu)
-in collaboration with [Víctor Fernández de Alba](https://twitter.com/sneridagh).
+This training was created by [Tiberiu Ichim](https://x.com/ichim_tiberiu)
+in collaboration with [Víctor Fernández de Alba](https://x.com/sneridagh).
 
 > I have been a web developer since the turn of the millennium, primarily
 > as a Zope and Plone developer. That didn't stop me from working on projects
@@ -38,5 +38,5 @@ in collaboration with [Víctor Fernández de Alba](https://twitter.com/sneridagh
 The first editions were recorded as part of the Plone Conference 2020 and are
 available online:
 
-- [Volto Addons - part 1](https://www.youtube.com/watch?v=LyYG2hDmIAk)
-- [Volto Addons - part 2](https://www.youtube.com/watch?v=5JtKHRk5H0U)
+- [Volto add-ons - part 1](https://www.youtube-nocookie.com/embed/LyYG2hDmIAk?privacy_mode=1)
+- [Volto add-ons - part 2](https://www.youtube-nocookie.com/embed/5JtKHRk5H0U?privacy_mode=1)

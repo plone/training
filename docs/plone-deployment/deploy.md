@@ -18,30 +18,52 @@ This guide outlines the steps to deploy the project using a Docker stack compris
 - **Plone Backend:** The API service.
 - **Postgres 14 Database:** Handles data persistence.
 
-You can find this stack at {file}`devops/stacks/<url>.yml`. It's modular, allowing easy integration of additional services like {term}`Varnish`, `Solr`, or `ElasticSearch`.
+You can find this stack at {file}`devops/stacks/ploneconf2024-<your-github-username>.tangrama.com.br.yml`. It's modular, allowing easy integration of additional services like {term}`Varnish`, `Solr`, or `ElasticSearch`.
+
+```{seealso}
+[Traefik Proxy with HTTPS](https://dockerswarm.rocks/traefik/)
+```
 
 ## Building Docker Images
 
-Ensure you build the Docker images for the Frontend and Backend servers before deployment. GitHub Actions, configured in {file}`.github/workflows/backend.yml` and {file}`.github/workflows/frontend.yml`, facilitate this process.
+Ensure you build the Docker images for the Frontend and Backend servers before deployment.
+GitHub Actions, configured in {file}`.github/workflows/backend.yml` and {file}`.github/workflows/frontend.yml`, facilitate this process.
 
 ````{important}
-Before deploying, push all code changes and ensure GitHub Actions successfully complete their runs. Execute these commands to format the code and run tests:
+Before deploying, run the following commands from your project's root directory to format the code and run tests.
 
 ```shell
-make format
-make i18n
+make check
 make test
 ```
+
+The output from `make test` may vary according to changes in code.
+The following console output indicates that no tests were run, and prompts you to choose an action.
+
+```console
+No tests found related to files changed since last commit.
+Press `a` to run all tests, or run Jest with `--watchAll`.
+
+Watch Usage
+ › Press a to run all tests.
+ › Press f to run only failed tests.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a test name regex pattern.
+ › Press q to quit watch mode.
+ › Press Enter to trigger a test run.
+```
+
+After these commands succeed, commit all code changes, push to GitHub, and ensure all GitHub Actions successfully complete their runs.
 ````
 
 
 ## Manual Deployment with `devops/Makefile`
 
-Utilize the `Makefile` at {file}`devops/Makefile` for manual deployment.
+Utilize the {file}`Makefile` at {file}`devops/Makefile` for manual deployment.
 
 ### Deploying the Stack
 
-Execute the following command to deploy the stack defined in {file}`devops/stacks/<url>.yml` to the remote server:
+Execute the following command from your project's {file}`devops` directory to deploy the stack defined in {file}`devops/stacks/ploneconf2024-<your-github-username>.tangrama.com.br.yml` to the remote server.
 
 ```shell
 make stack-deploy
@@ -67,39 +89,50 @@ make stack-create-site
 
 Monitor the logs of each service with these commands:
 
-- Traefik: ```make logs-webserver```
-- Frontend: ```make logs-frontend```
-- Backend: ```make logs-backend```
+-   Traefik: `make stack-logs-webserver`
+-   Frontend: `make stack-logs-frontend`
+-   Backend: `make stack-logs-backend`
+-   Backend: `make stack-logs-db`
 
 ## Automating Deployment with GitHub Actions
 
-{term}`cookiecutter-plone-starter` includes a GitHub Actions Workflow, located at {file}`.github/workflows/manual_deploy.yml`, enabling deployment directly from the GitHub UI.
+{term}`cookieplone` includes a GitHub Actions Workflow, located at {file}`.github/workflows/manual_deploy.yml`, enabling deployment directly from the GitHub UI.
 
 ### Repository Configuration
 
 #### Creating a New Environment
 
+```{important}
+If you can't see the {guilabel}`Environment` option on the left in the {guilabel}`Settings` of your GitHub repository, you may have a private repository in a free account.
+You must either have a public repository or a [GitHub Team plan](https://github.com/pricing#compare-features) or a [GitHub Pro plan](https://docs.github.com/en/get-started/learning-about-github/githubs-plans) for a private repository.
+If you use a free additional organization under control of a paid GitHub account, the {guilabel}`Environment` will also not be visible.
+```
+
 1. Log in to [GitHub](https://github.com/).
 2. Navigate to the project repository.
 3. Click `Settings`.
 4. Select `Environments`, then `New environment`.
-5. Name it after your public URL and configure the environment.
+5. Name it after the public URL of the deployment server and configure the environment.
+
+```{seealso}
+In the generated project's file {file}`devops/README-GHA.md`, you can find the exact values to use for your project when completing the {guilabel}`New environment` form.
+```
 
 #### Adding Environment Secrets
 
 Add secrets in the `Secrets` section of your environment. Refer to the table below:
 
-| Secret Name | Secret Value | Description |
-|-------------|--------------|-------------|
-| DEPLOY_HOST | Your hostname or IP | The Docker Swarm manager’s address. |
-| DEPLOY_PORT | 22 | The SSHD port. |
-| DEPLOY_USER | Your username | A user with Docker command permissions. |
-| DEPLOY_SSH  | Content of `devops/etc/keys/plone_prod_deploy_rsa` | The private SSH key for connection. |
-| ENV_FILE    | Content of {file}`devops/.env_file_gha` | File containing environment variables for the stack file. |
+| Secret Name | Secret Value                                             | Description                                               |
+|-------------|----------------------------------------------------------|-----------------------------------------------------------|
+| DEPLOY_HOST | Your hostname or IP                                      | The Docker Swarm manager's address.                       |
+| DEPLOY_PORT | 22                                                       | The SSHD port.                                            |
+| DEPLOY_USER | Your username                                            | A user with Docker command permissions.                   |
+| DEPLOY_SSH  | Content of {file}`devops/etc/keys/plone_prod_deploy_rsa` | The private SSH key for connection.                       |
+| ENV_FILE    | Content of {file}`devops/.env_file_gha`                  | File containing environment variables for the stack file. |
 
 #### Adding Repository Variables
 
-Navigate to `Settings` > `Secrets and Variables` > `Actions`. Under `Variables`, add the repository variable:
+Navigate to {menuselection}`Settings --> Secrets and Variables --> Actions`. Under {guilabel}`Variables`, add the repository variable:
 
 | Name     | Value |
 |----------|-------|
@@ -112,15 +145,15 @@ This variable is referenced in {file}`.github/workflows/manual_deploy.yml`.
 Ensure both Backend and Frontend tests are successful and images for both servers are available.
 
 1. Go to the project's repository on GitHub.
-2. Click the `Actions` tab.
-3. Find **Manual Deployment...** and click `Run workflow`.
-4. Select `Branch: main` under **Use workflow from**.
-5. Press `Run workflow`.
+2. Click the {guilabel}`Actions` tab.
+3. Find {guilabel}`Manual Deployment...` and click {guilabel}`Run workflow`.
+4. Select {guilabel}`Branch: main` under {guilabel}`Use workflow from`.
+5. Press {guilabel}`Run workflow`.
 
-The workflow connects to **DEPLOY_HOST** using **DEPLOY_USER** and **DEPLOY_SSH** key, initiates a new deployment using the specified stack, and provides a detailed deployment report.
+The workflow connects to `DEPLOY_HOST` using `DEPLOY_USER` and `DEPLOY_SSH` key, initiates a new deployment using the specified stack, and provides a detailed deployment report.
 
 ## Accessing the Site
 
 Your site should now be accessible via the defined public URL.
 
-Note: Ensure to replace placeholders like `<url>` with actual values as per your project's specifics. Also, ensure that the paths to files and directories are correct and exist in your project structure.
+Note: Ensure you replace placeholders, such as `<url>`, with actual values per your project's specifics. Also, ensure that the paths to files and directories are correct and exist in your project structure.

@@ -1,17 +1,17 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Teaching Plone Trainings"
+    "property=og:description": "Teaching Plone Trainings"
+    "property=og:title": "Teaching Plone Trainings"
+    "keywords": "Teaching, training"
 ---
 
 (teaching-index-label)=
 
-# Teaching
+# Giving a Training
 
-This section covers all that trainers need to know when teaching Plone Trainings.
+This section covers all that trainers need to know when giving Plone Trainings.
 
 Trainers should read {doc}`/contributing/setup-build`.
 These documents help trainers prepare for a successful training experience.

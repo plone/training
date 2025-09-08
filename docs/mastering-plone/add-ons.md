@@ -1,9 +1,9 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
+    "description": "Extending Plone with features via existing backend add-ons"
+    "property=og:description": "Extending Plone with features via existing backend add-ons"
+    "property=og:title": "Extending Plone with add-on packages"
     "keywords": "Plone, Volto, add-on, customizing"
 ---
 
@@ -14,7 +14,9 @@ myst:
 ```{card}
 Backend chapter
 
-For frontend add-ons see chapter {ref}`volto-addon-label`
+For frontend add-ons see chapter {ref}`volto-addon-label`.
+
+The creation of a custom backend add-on is explained in {doc}`voting-story/index`
 ```
 
 
@@ -27,27 +29,27 @@ Plone add-ons enrich the CMS by
 - customizing the editor experience
 - adding content assembling features for overview pages
 
-Plone 6 knows two groups of add-ons: Add-ons for Plone and such for the frontend Volto.
+Plone 6 knows two groups of add-ons: add-ons for Plone and such for the frontend Volto.
 
 Plone backend add-ons provide
 
 - content types
 - behaviors to enrich content types
 
-Plone frontent add-ons provide
+Plone frontend add-ons provide
 - new blocks
 - variations and enhancements of blocks
 - a theme to design the layout of a site
 - components independent of blocks like a dropdown navigation
 
-Both can be tightly coupled, if a frontend feature depends on a new content type, a new behavior or any other change needed in data structure.
-For example an add-on that has the goal to provide a bookmarking feature depends on a backend add-on that handels the storing of the bookmarks.
+Both can be coupled, if a frontend feature depends on a new content type, a new behavior or any other change needed in data structure.
+For example an add-on that has the goal to provide a bookmarking feature depends on a backend add-on that handles the storing of the bookmarks.
 
 Have a look at the curated lists of add-ons:  
 
 
-[backend add-ons](https://github.com/collective/awesome-plone#readme)  
-[frontend add-ons](https://github.com/collective/awesome-volto#readme)
+[Awesome Plone: backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)  
+[Awesome Volto: frontend add-ons](https://github.com/collective/awesome-volto/blob/main/README.md)
 
 
 
@@ -55,20 +57,20 @@ Have a look at the curated lists of add-ons:
 
 ## How to find appropriate add-ons
 
-It can be very hard to find the right add-on for your requirements.
+It can be hard to find the right add-on for your requirements.
 Here are some tips.
 
 - Make a list of required features.
 
-- Find candidates on PyPi, npm  or Github:
+- Find candidates on PyPI, npm  or GitHub:
 
-  - curated list of [backend add-ons](https://github.com/collective/awesome-plone#readme)
+  - curated list of [backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)
   - curated list of [frontend add-ons](https://github.com/collective/awesome-volto#readme)
-  - Python packages on Pypi: <https://pypi.org/search/?c=Framework+%3A%3A+Plone>
-  - Plone add-ons on Github: <https://github.com/collective>
-  - Plone core packages on Github: <https://github.com/plone>
-  - Google (e.g. [Plone+Slider](http://www.google.com/?q=Plone+slider))
-  - Javascript packages on npm: <https://www.npmjs.com/search?q=Volto>
+  - Python packages on PyPI: <https://pypi.org/search/?c=Framework+%3A%3A+Plone>
+  - Plone add-ons on GitHub: <https://github.com/collective>
+  - Plone core packages on GitHub: <https://github.com/plone>
+  - Google (for example [Plone+Slider](http://www.google.com/?q=Plone+slider))
+  - JavaScript packages on npm: <https://www.npmjs.com/search?q=Volto>
 
 - Once you have a shortlist, test these add-ons.
   Here are the main issues you need to test before you install an add-on on a production site:
@@ -86,7 +88,7 @@ Here are some tips.
 - Once you found an add-on you like, you can ask the community if you made a good choice or if you missed something:
 
   - Message Board: <https://community.plone.org>
-  - There is also a talk that discusses in depth how to find the right add-on: <https://www.youtube.com/watch?v=Sc6NkqaSjqw>
+  - There is also a talk that discusses in depth how to find the right add-on: <https://www.youtube-nocookie.com/embed/Sc6NkqaSjqw?privacy_mode=1>
 
 - Either extend an existing add-on to ﬁt your needs or create a new add-on that does exactly what you need.
 
@@ -98,7 +100,7 @@ Here are some tips.
 We have two groups of add-ons: backend and frontend.
 
 The training setup starts without any frontend add-on.
-Later on we will add features via a frontend addon.
+Later on we will add features via a frontend add-on.
 See chapter {doc}`volto_addon` how to install a frontend add-on.
 
 The training setup starts with one backend add-on `ploneconf.site`.
@@ -128,9 +130,7 @@ branch=main
 Adding the package to `instance.yaml` causes the generation of the Zope configuration to make the package available in a Zope app.
 
 ```yaml
-  load_zcml:
-    package_includes:
-      ["ploneconf.site",]
+  zcml_package_includes: training.votable, ploneconf.site
 ```
 
 Running `make build` has three effects:
@@ -141,7 +141,7 @@ Running `make build` has three effects:
   So an add-on can be enabled per Plone instance.
 
 ```{seealso}
-Documentation {doc}`plone6docs:install/manage-add-ons-packages`
+Documentation {doc}`plone6docs:admin-guide/add-ons`
 ```
 
 ### Enabling add-ons in your Plone site

@@ -1,15 +1,17 @@
 -c constraints.txt
 
 Sphinx
-jsx-lexer
-lesscpy
 linkify-it-py
 myst-parser
+plone-sphinx-theme
 sphinx-autobuild
 sphinx-book-theme
 sphinx-copybutton
 sphinx-design
+sphinx-notfound-page
 sphinx-sitemap
+sphinx-tippy
 sphinx-togglebutton
 sphinxcontrib-spelling
 sphinxext-opengraph
+vale==3.7.1.0

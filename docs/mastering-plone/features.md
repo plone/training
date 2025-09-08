@@ -11,10 +11,8 @@ myst:
 
 # The Features of Plone
 
-% TODO Short appetizer on all the fancy features.
-
 Now we create a Plone instance and take a look at all the features you can use as an integrator.
-Developers get a glimps on the features that can be modified easily.
+Developers get a glimpse on the features that can be modified easily.
 
 (features-start-stop-label)=
 
@@ -23,13 +21,13 @@ Developers get a glimps on the features that can be modified easily.
 We control Plone with `make`. Start your Zope instance with:
 
 ```shell
-$ make start
+make start
 ```
 
 The Zope instance starts up with `Ready to handle requests`.
 Later on the instance can be stopped by {kbd}`ctrl c`.
 
-A standard installation listens on port 8080, so lets have a look at <http://localhost:8080>
+A standard installation listens on port 8080, so let's have a look at <http://localhost:8080>
 
 ```{figure} _static/features_plone_running.png
 :alt: Zope instance is up and running, ready to create a Plone instance.
@@ -44,7 +42,7 @@ Zope instance is up and running, ready to create a Plone instance.
 
 We now have a running Zope with a database, but no content.
 
-Push the botton {guilabel}`Create a new Plone site`.
+Push the button {guilabel}`Create a new Plone site`.
 Log in with `admin` and password `secret`.
 The initial login is defined in file `instance.yaml`.
 You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
@@ -52,7 +50,7 @@ You should change your password in production sites via `http://localhost:8080/a
 If you ever have the need to create an emergency user, create one with:
 
 ```shell
-venv/bin/addzopeuser masterofdesaster VXT+zif -c ./instance/etc/zope.conf
+venv/bin/addzopeuser masterofdesaster mypassworD£xyz2 -c ./instance/etc/zope.conf
 ```
 
 ```{figure} _static/features_create_site_form.png
@@ -77,7 +75,7 @@ The front page of your site
 Start the frontend of your new Plone site by switching to directory `frontend` and enter:
 
 ```shell
-yarn start
+make start
 ```
 
 Opening `http://localhost:3000`, you are facing the front page of your Plone site.
@@ -87,53 +85,56 @@ Opening `http://localhost:3000`, you are facing the front page of your Plone sit
 
 You can stop the frontend any time using {kbd}`ctrl c`.
 
-While developing it is not necessary to restart the frontend unless you are adding a new file.
+While developing it's not necessary to restart the frontend unless you're adding a new file.
+
+Login to your new site with `admin` and password `secret`.
+
+```{figure} _static/frontpage_volto_logged_in.png
+```
 
 
 ### Change ports
 
 #### backend
 
-Now let's say you want Plone to listen on port 9080 instead of the default 8080.
-Open the file `backend/instance.yml` in your favorite editor.
-How could you do this?
+If you want Plone to listen on port 9080 instead of the default 8080, open the file {file}`backend/instance.yml` in your favorite editor.
 
 ```yaml
-wsgi_listen: localhost:9080
+wsgi_listen: localhost:8080
 ```
 
 Change the address to `localhost:9080` and restart your instance.
 
 You will also have to tell the frontend that the backend is now running on a different port!
 
-You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base url of the backend:
+You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base URL of the backend:
 
 ```shell
-RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone yarn start
+RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone pnpm start
 ```
 
-When your Plone instance is not called `Plone` you can use the same approach:
+When your Plone instance isn't called `Plone` you can use the same approach:
 
 ```shell
-RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
+RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite pnpm start
 ```
 
 #### frontend
 
 Change the port of the frontend to 1234
 
-By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
+By default the frontend will start on port 3000. You can change the port and/or host name for the frontend by specifying the environment variables `PORT` and/or `HOST`:
 
 ```shell
-HOST=localhost PORT=1234 yarn start
+HOST=localhost PORT=1234 pnpm start
 ```
 
 
 (features-walkthrough-label)=
 
-## Walkthrough of the UI
+## Walk through the user interface
 
-Let's see what is there...
+These are the main elements of the user interface:
 
 - {guilabel}`header`:
 
@@ -151,12 +152,13 @@ On the toolbar, we find options affecting the current context...
 - {guilabel}`folder contents`
 - {guilabel}`add`
 
-There is a context menu with three dots that holds additional options:
+There is a context menu with additional options:
 
 - {guilabel}`review state`
 - {guilabel}`history`
 - {guilabel}`sharing`
 - {guilabel}`url management`
+- {guilabel}`links and references`
 
 At the bottom of the toolbar is a silhouette-icon that holds a menu with the following links:
 
@@ -166,15 +168,15 @@ At the bottom of the toolbar is a silhouette-icon that holds a menu with the fol
 - {guilabel}`site setup`
 
 Some toolbar options only show when appropriate.
-For example, {guilabel}`edit` is only shown if the current user has the permission to edit.
+For example, {guilabel}`edit` is only shown if the current user has the permission to edit the current page.
 
 
 (features-mailserver-label)=
 
-## Configure a Mailserver
+## Configure a mail server
 
 ```{only} not presentation
-For production level deployments you have to configure a mailserver.
+For production level deployments you have to configure a mail server.
 Later in the training we will create some content rules that send emails when new content is put on our site.
 
 For the training you don't have to configure a working mailserver since the Plone add-on `Products.PrintingMailHost` is installed which will redirect all emails to the console.
@@ -213,11 +215,11 @@ Edit the front page:
 - Change the title to `Plone Conference 2050, Solis Lacus, Mars`.
 - Remove the text blocks below the title by selecting all and deleting them.
 - Add some dummy text.
-- Click somewhere in the text, press return and see the block beeing splitted.
+- Click somewhere in the text, press return and see the block being splitted.
 - Save the page.
 
-If you have already content in your instance, you may want to delete it.
-Go to `/contents` by clicking the folder icon in the toolbar.
+If there is existing content in your instance, you might consider removing it. 
+Navigate to `/contents` by clicking the folder icon in the toolbar. 
 Select all objects and delete them.
 
 Create a site structure:
@@ -229,7 +231,6 @@ Create a site structure:
 - Add a Page "Sprint"
 - Add a Page "Contact"
 
-% TODO Can the number of pages be reduced to fit in the browser window width?
 
 ```{figure} _static/features_site_structure.png
 :alt: The view of the newly created site structure.
@@ -238,7 +239,7 @@ The view of the newly created site structure
 ```
 
 Additional to these conference pages we also want some news and events.
-We want a registration page and an a protected section for the conference team.
+We want a registration page and a protected section for the conference team.
 
 - Add a page "News"
 - In `/news`: Add a News Item "Conference Website online!" with some image
@@ -248,79 +249,58 @@ We want a registration page and an a protected section for the conference team.
 - Add a page "Registration"
 - Add a page "Intranet"
 
-```{figure} _static/features_new_navigation.png
-:alt: The view of the extended navigation bar.
-
-The view of the extended navigation bar.
-```
-
 
 (features-content-types-label)=
 
 ## Default content types
 
-The default Plone content types are:
+The most used default Plone content types are Page, News item, and Event.
 
-Page
+### Page
 
-: A Page is the most flexible content type.
-  You can use the editor to create, edit and arrange blocks on a page.
-  You can choose from blocks for Text, Image, Video, List of existing content and many more.
-  Pages are folderish, they can contain other content.
-  This means you can use them to structure your site.
+A Page is the most flexible content type.
+You can use the editor to create, edit and arrange blocks on a page.
+You can choose from blocks for text, an image, a video, a list of existing content and many more.
+Pages are folderish, they can contain other content.
+This means you can use pages to structure your site.
 
-  ```{figure} _static/features_add_a_page.png
-  ```
+```{figure} _static/features_add_a_page.png
+```
 
-News Item
+### News Item
 
-: Basically a page with an image and an image caption to be used for press releases an such.
+Basically a page with an image and an image caption to be used for press releases and such.
 
-  ```{figure} _static/features_add_a_news_item.png
-  ```
+```{figure} _static/features_add_a_news_item.png
+```
 
-Event
+### Event
 
-: These are basically pages with start and end dates and some additional fields for whole day or recurring events.
+Basically a page with start and end dates and some additional fields for whole day or recurring events.
 
-  ```{figure} _static/features_add_a_event.png
-  ```
+```{figure} _static/features_add_a_event.png
+```
 
-Image
+### Other available content types
 
-: Like file but png, jpeg or other image types.
-  The Image content typ has an image field.
-  Values of the image field are saved in multiple scales to be accessible easily when rendering.
+There are more content types per default available: file, image, link.
 
-  ```{figure} _static/features_add_a_image.png
-  ```
+### Content editing
 
-File
-
-: A file like a pdf, video or Word document.
-
-  ```{figure} _static/features_add_a_file.png
-  ```
-
-Link
-
-: A link to an internal or external target.
-
-  ```{figure} _static/features_add_a_link.png
-  ```
+For more information on how to edit content, see the training {doc}`/content-editing/index`.
 
 
 (features-containers-label)=
 
-## Folderish content
+## folderish content
 
 Go to "News".
 
 Earlier we created this page with its title "News".
-Therfore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
+Therefore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
 
 A page is folderish.
-To see its contained items, we change to '/contents' by clicking the folder icon.
+To inspect its contained items, we change to `/contents` by clicking the folder icon.
 
 We can change the order of the two contained items by dragging and dropping.
 
@@ -334,11 +314,11 @@ We can modify their title and id, publish them, etc.. in one step by selecting t
 
 A page has per default the view displaying the blocks of the page.
 As for all content types, you as a developer can provide multiple views or replace the default view.
-This is useful for adding components that should be shown independent of how an editor assembles a page with blocks.
+This is useful for adding components that should be shown, regardless of how an editor assembles a page with blocks.
 
-Per default the page does not show its contained items but just the title and the blocks an editor creates.
-The contained items can be shown by creating a listing block.
-A listing block without any criterias lists the contained items.
+By default, the page doesn't show its contained items but only the title and blocks created by an editor.
+To reveal contained items, you can create a listing block.
+If you use a listing block without any specific criteria, it lists all contained items.
 
 
 ```{figure} _static/listingblock.png
@@ -362,9 +342,24 @@ The content rule therefore defines an action that subscribes to an event.
 
 ### Exercise
 
-Create a new rule "Notify moderators on new news items".
-Apply this rule to content type "News Item".
-Apply this rule globally by switching to your site root and following context menu item "rules".
+The goal of this exercise is to implement a content rule that will notify a moderator of a new news item.
+
+From within the site setup menu, click "Content Rules". This will open a window containing the content rules and several options to filter the rules by event trigger. For now, there are no rules yet, but we will create one now.
+Click the button "Add content rule" and enter the title "Notify moderators on new news items".
+Select the triggering event "Object added to this container". Later on, we will apply the rule to a specific container.
+Enable the "Enabled" check box to make sure the rule will run when applied.
+Click Save to save the new content rule and return to the content rules overview.
+
+At this point, we have to configure the rule and tell it to send an e-mail to a moderator when a news item has been added to the container.
+Click "Configure" and start by selecting the "Content type" condition.
+Click the "Add" button below the content type, select "News Item" and click the right arrow.
+Select "Send email" in the Action selection field.
+Click the "Add" button below the action selection field and fill out the form. Make sure the mandatory fields (subject, Email recipients, Message) have content and click the right arrow to save the changes.
+
+The rule has been created, but has not been applied to a container yet. Let's do that now.
+Click the left arrow button in the top left corner three times to return to the site.
+If you want to apply the rule to all news items globally for your site, go to your home page, click the context menu button (three dots in the sidebar) and click "Rules".
+From the "Available content rules" dropdown list, select the rule you created earlier and click "Add".
 
 Verify that your rule works by creating a new news item.
 See your backend log or your mail for a notification.
@@ -477,7 +472,7 @@ A content type instance like a page is in a state, for example published.
 The state can be changed.
 Which workflow states a content type instance can be switched to is determined by the workflow transactions.
 
-Have look at one of the news items we created earlier.
+Have a look at one of the news items we created earlier.
 The state is "private" and can be changed to "published" by selecting the "publish" transaction.
 
 The state of a content type instance determines if a user can view, edit or is allowed to execute other modifications like moving or even changing the workflow.
@@ -497,6 +492,7 @@ Access and modifications of this instance is defined by the role/permission mapp
 As each user, including the anonymous, has a set of roles, the circle is closed and each user has access and or can modify a content type instance or not, according to their roles.
 
 ```{seealso}
+- {doc}`user_generated_content`
 - Training {doc}`/workflow/index`
 - Plone 5 Documentation [Collaboration and Workflow](https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html)
 ```
@@ -521,6 +517,8 @@ Since it has effect in a "place" in a site, this mechanism is often called "Plac
 
 `Placeful Workflow` ships with Plone but needs to be activated via the add-on configuration page.
 Once it is added, a {guilabel}`Policy` option appears in the state menu to allow setting a placeful workflow policy.
+
+For more information see training "Plone workflow" {doc}`/workflow/placeful-workflow`.
 
 
 (features-publishing-date-label)=
@@ -549,14 +547,14 @@ You can even make a page, with or without sub pages, editable only by a group of
 
 (features-url-management-label)=
 
-## Url management
+## URL management
 
-Plone has an integrated mechanism to remember urls that where modified.
-A moved page is still available via the former url.
+Plone has an integrated mechanism to remember URLs that where modified.
+A moved page is still available via the former URL.
 
-Additional to this behavior, a page can be explicitly made available under further urls.
+Additional to this behavior, a page can be explicitly made available under further URLs.
 
-You can find the UI for adding alternative urls following the context menu {guilabel}`...`.
+You can find the UI for adding alternative URLs following the context menu {guilabel}`...`.
 
 
 (features-wc-label)=
@@ -584,5 +582,3 @@ Unless activated, check-in/check-out options are not visible.
 
 
 % TODO section about the discussion/commenting feature
-
-% TODO "Features of Plone" is a short overview of out of the box features. Plone can be extended by add-ons…

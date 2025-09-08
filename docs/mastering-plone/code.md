@@ -1,10 +1,10 @@
 ---
 myst:
   html_meta:
-    "description": ""
-    "property=og:description": ""
-    "property=og:title": ""
-    "keywords": ""
+    "description": "Code of the training – where, what, how to update"
+    "property=og:description": "Code of the training – where, what, how to update"
+    "property=og:title": "The code for the training 'Mastering Plone development'"
+    "keywords": "code, setup, development environment"
 ---
 
 (code-label)=
@@ -12,16 +12,16 @@ myst:
 # The code for the training
 
 You can get the complete code for this training from GitHub.
-- The backend add-on [ploneconf.site](https://github.com/collective/ploneconf.site)
-- The frontend Volto app [volto-ploneconf](https://github.com/collective/volto-ploneconf)
+See {doc}`installation`.
 
-The backend add-on is included in the backend setup of [Training setup Mastering Plone Development](https://github.com/collective/training_buildout).
-See chapter {ref}`installation-install-backend-label`.
+The backend add-on [ploneconf.site](https://github.com/collective/ploneconf.site) is included in the backend setup of [Training setup Mastering Plone Development](https://github.com/collective/training_buildout).
+
+The frontend code can be found at [volto-ploneconf](https://github.com/collective/volto-ploneconf).
 
 Further add-ons are build or used while stepping through advanced training chapters.
 For the sake of completion we are mentioning them here.
 There is no need to check them out as they are dependencies in backend or frontend.
-They will be added by name in backend configuration or frontend configuratin, than fetched by building the backend or the frontend.
+They will be added by name in backend configuration or frontend configuration, than fetched by building the backend or the frontend.
 
 - [training.votable](https://github.com/collective/training.votable)
 - [volto-training-votable](https://github.com/collective/volto-training-votable)
@@ -85,10 +85,10 @@ This does two things:
 
 ## Tags
 
-These are the tags of the backend add-on for which there is code:
+These are the tags of the backend add-on 'ploneconf.site' and frontend add-on 'volto-ploneconf' for which there is code:
 
 
-| Chapter                        | Tag-Name                 | Package |
+| Chapter                        | Tag name                 | Package |
 | ------------------------------ | ------------------------ | --- |
 | {doc}`about_mastering` | |
 | {doc}`intro` | |
@@ -100,34 +100,32 @@ These are the tags of the backend add-on for which there is code:
 | {doc}`add-ons` | |
 | {doc}`extending` | |
 | {doc}`dexterity` | |
-| {doc}`dexterity_2_talk` | |
+| {doc}`volto_development` | |
+| {doc}`dexterity_2_talk` | talks | ploneconf.site |
 | {doc}`dexterity_reference` | |
 | {doc}`volto_overrides` | overrides | volto-ploneconf |
 | {doc}`volto_talkview` | talkview | volto-ploneconf |
-| {doc}`volto_development` | 
 | {doc}`behaviors_1` | behaviors_1 | ploneconf.site |
 | {doc}`volto_frontpage` | frontpage | ploneconf.site |
 | {doc}`api` | |
-| {doc}`events` | base | ploneconf.site |
-| {doc}`registry` | vocabularies | ploneconf.site |
-| {doc}`custom_search` | |
-| {doc}`volto_testing` | |
-| {doc}`thirdparty_behaviors` | |
-| {doc}`dexterity_3` |
-| {doc}`upgrade_steps` |
-| {doc}`volto_components_sponsors` | |
+| {doc}`events` | events | ploneconf.site and volto-ploneconf |
+| {doc}`registry` | vocabularies | ploneconf.site and volto-ploneconf |
+| {doc}`custom_search` | search | ploneconf.site |
+| {doc}`volto_testing` | testing | volto-ploneconf |
+| {doc}`dexterity_3` | schema | ploneconf.site |
+| {doc}`upgrade_steps` | upgrade_steps | ploneconf.site |
+| {doc}`volto_listing_variation` | listing_variation | volto-ploneconf |
+| {doc}`searchable` | searchable | ploneconf.site |
+| {doc}`volto_components_sponsors` | sponsors | volto-ploneconf |
 | {doc}`volto_addon` | |
 | {doc}`volto_custom_addon` | |
 | {doc}`volto_custom_addon2` | |
-| {doc}`user_generated_content` | |
-| {doc}`relations` | relations |
+| {doc}`user_generated_content` | user_generated_content | ploneconf.site |
+| {doc}`relations` | relations | ploneconf.site and volto-ploneconf |
 | {doc}`voting-story/index` | | training.votable, volto-training-votable |
 | {doc}`deployment_code` | |
 | {doc}`code` | |
 | {doc}`trainer` | |
-
-% TODO list of chapters with tags for frontend `volto-ploneconf`
-
 
 
 ## Updating the code-package
@@ -176,6 +174,6 @@ To move tags after changes you do:
 
 The final result should look like this:
 
-```{figure} ../_static/code_tree.png
+```{figure} _static/code_tree.png
 :align: center
 ```
