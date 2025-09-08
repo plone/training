@@ -27,7 +27,7 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
 
 1.  Click on the type of block you want to add.
     For this example you'll add a few images and some text.
-        
+    
     ````{card}
     ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-02.jpeg
     :alt: Add the type of block you want
@@ -37,8 +37,8 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     _Add the type of block you want_
     ````
 
-1.  Manage a block in the block itself.
-    The image block allows you to browse for an image or upload one.
+1.  The image block allows you to browse for an image, upload one, or select one from a remote website.
+    Manage the image in the block by clicking on the {guilabel}`Pick an existing image` button <img alt="Pick an existing image icon" src="/content-editing/_static/nav.svg" class="inline">.
     
     Most blocks also provide options in the sidebar under the {guilabel}`block` tab.
     
@@ -48,10 +48,10 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     :target: /_images/creating-managing-and-reordering-blocks-step-03.jpeg
     ```
     +++
-    _Manage block options in block_
+    _Manage the image in the block by clicking on the {guilabel}`Pick an existing image` button <img alt="Pick an existing image icon" src="/content-editing/_static/nav.svg" class="inline">._
     ````
 
-1.  For the image block, use the sidebar to browse for an image in the site.
+1.  For the image block, use the sidebar to browse for an image in the site and select one.
     
     ````{card}
     ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-04.jpeg
@@ -59,7 +59,7 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     :target: /_images/creating-managing-and-reordering-blocks-step-04.jpeg
     ```
     +++
-    _Manage block options in sidebar_
+    _For the image block, use the sidebar to browse for an image in the site and select one._
     ````
 
 1.  To add another block, click on the {guilabel}`Add block` button <img alt="Add block icon" src="_static/circle-plus.svg" class="inline">.
@@ -161,7 +161,7 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     _Reorder the blocks_
     ````
 
-1.  To reorder, click the handle to the left of a block, then drag the block up or down.
+1.  To reorder, click the {guilabel}`Drag` handle <img alt="Drag handle icon" src="/content-editing/_static/drag.svg" class="inline"> to the left of a block, then drag the block up or down.
     
     ````{card}
     ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-14.jpeg
@@ -169,10 +169,10 @@ This guide offers a step-by-step approach to effectively create, manage, and reo
     :target: /_images/creating-managing-and-reordering-blocks-step-14.jpeg
     ```
     +++
-    _Reorder blocks with toggle on block_
+    _Reorder blocks with the {guilabel}`Drag` handle <img alt="Drag handle icon" src="/content-editing/_static/drag.svg" class="inline"> to the left of a block, then drag the block up or down_
     ````
 
-1.  Once it is in the position you want, release the mouse button.
+1.  Once it's in the position you want, release the mouse button.
     
     ````{card}
     ```{image} /content-editing/_static/creating-managing-and-reordering-blocks-step-15.jpeg
