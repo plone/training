@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add event handlers to show or hide the answer in FaqItem component."
-  "property=og:description": "Add event handlers to show or hide the answer in FaqItem component."
-  "property=og:title": "Use Event Handlers"
-  "keywords": "Plone, training, exercise, solution, React"
+myst:
+  html_meta:
+    "description": "Add event handlers to show or hide the answer in FaqItem component."
+    "property=og:description": "Add event handlers to show or hide the answer in FaqItem component."
+    "property=og:title": "Use Event Handlers"
+    "keywords": "Plone, training, exercise, solution, React"
 ---
 
 (event-handlers-label)=
@@ -18,8 +19,9 @@ To show or hide the answer, we will add a toggle function to the component {file
 
 Write the toggle handler which will toggle the `isAnswer` state variable and set the new state using the `setAnswer` function:
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 1-3
@@ -51,8 +53,9 @@ To call the newly created `toggle` function, we will add an `onClick` handler to
   );
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 {file}`FaqItem.jsx`
 

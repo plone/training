@@ -1,9 +1,13 @@
 ---
-html_meta:
-  description: Deploying Plone with Ansible and OpsWorks
+myst:
+  html_meta:
+    "description": "Deploying Plone with Ansible and OpsWorks"
+    "property=og:description": "Deploying Plone with Ansible and OpsWorks"
+    "property=og:title": "Deploying Plone with Ansible and OpsWorks"
+    "keywords": "Plone, deploy, WSGI, training"
 ---
 
-(deployment-label)=
+(automating-deployment-label)=
 
 # Automating Plone Deployment
 
@@ -57,5 +61,5 @@ letsencrypt-certbot
 ```
 
 ```{seealso}
-<https://docs.plone.org/manage/deploying/>
+<https://5.docs.plone.org/manage/deploying/>
 ```

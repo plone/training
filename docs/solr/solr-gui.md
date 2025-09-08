@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Solr GUI And Query Syntax
@@ -336,7 +337,7 @@ We will see an example later.
 ## Search GUIs
 
 > - `collective.solr` out of the box: `collective.solr` comes with its own search view.
->   Since version 6.0 it has been based on [React](https://reactjs.org/) and looks similar to the Plone search view with native facet support of Solr.
+>   Since version 6.0 it has been based on [React](https://react.dev/) and looks similar to the Plone search view with native facet support of Solr.
 > - [eea.facetednavigation](https://github.com/eea/eea.facetednavigation): This add-on allows faceting out of the box even without Solr.
 >   It is a product for integrators to setup search and filter GUIs TTW (Through-The-Web).
 >   It can be used for several use cases: Search pages, collection replacements, etc.

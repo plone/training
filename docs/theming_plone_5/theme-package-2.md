@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Theme Package II: Build Your Diazo-Based Theme
@@ -315,7 +316,7 @@ In this tab Diazo is disabled, allowing you to use your browser's Inspector or D
 
 This *unthemed host name* is managed in the {guilabel}`Theming Control Panel` under {guilabel}`Advanced Settings`, where more domains can be added.
 
-For more details on how to use Diazo rules, take a look at <http://docs.diazo.org/en/latest/> and <https://docs.plone.org/external/plone.app.theming/docs/index.html>.
+For more details on how to use Diazo rules, take a look at <http://docs.diazo.org/en/latest/> and <https://5.docs.plone.org/external/plone.app.theming/docs/index.html>.
 
 With our theme generated from {py:mod}`bobtemplates.plone` we already got a fully functional rule set based on the Plone 5 default Theme:
 
@@ -342,7 +343,7 @@ With our theme generated from {py:mod}`bobtemplates.plone` we already got a full
     <!-- Don't use Plone icons, use the theme's -->
     <drop css:content="head link[rel='apple-touch-icon']" />
     <drop css:content="head link[rel='shortcut icon']" />
-    <!-- drop the theme stylesheets -->
+    <!-- drop the theme style sheets-->
     <drop theme="/html/head/link[rel='stylesheet']" />
     <!-- CSS -->
     <after css:theme-children="head" css:content="head link" />

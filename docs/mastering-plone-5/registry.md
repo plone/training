@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-registry-label)=
@@ -299,5 +300,5 @@ An admin can now configure the rooms available for the conference.
 We could use the same pattern for the fields `type_of_talk` and `audience`.
 
 ```{seealso}
-<https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html>
+<https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html>
 ```

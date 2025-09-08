@@ -1,16 +1,17 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (dexterity-reference-label)=
 
 # Dexterity: Reference
 
-This chapter documents all types fields, widgets, directives that you can use with dexterity.
+This chapter documents all types of fields, widgets, directives that you can use with dexterity.
 
 ## Fields included in Plone
 
@@ -40,7 +41,7 @@ Choice with named vocabulary,
 List,
 List with checkboxes,
 List with Select2 widget,
-List with values from named vocabulary but open to additions,
+List with values from a named vocabulary but open to additions,
 Tuple,
 Set,
 Set with checkboxes
@@ -259,7 +260,7 @@ class IExample(model.Schema):
             values=['Beginner', 'Advanced', 'Professional'],
         ),
         required=False,
-        missing_value={},
+        missing_value=set(),
     )
 
     directives.widget(set_field_checkbox=CheckBoxFieldWidget)
@@ -269,7 +270,7 @@ class IExample(model.Schema):
             values=['Beginner', 'Advanced', 'Professional'],
         ),
         required=False,
-        missing_value={},
+        missing_value=set(),
     )
 
     # File fields
@@ -440,10 +441,10 @@ class Example(Container):
 ```
 
 ```{seealso}
-- [Dexterity Developer Manual](https://docs.plone.org/external/plone.app.dexterity/docs/index.html)
-- [All available Fields](https://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types)
-- [Schema-driven types with Dexterity](https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types)
-- [The standard behaviors](https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
+- [Dexterity Developer Manual](https://5.docs.plone.org/external/plone.app.dexterity/docs/index.html)
+- [All available Fields](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types)
+- [Schema-driven types with Dexterity](https://5.docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types)
+- [The standard behaviors](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
 ```
 
 ## How fields look like
@@ -762,7 +763,7 @@ export default function applyConfig(config) {
 }
 ```
 
-Please be sure to use plone.restapi version >= 7.3.0. If you cannot upgrade plone.restapi then a registration per field id instead of a registration per field widget name is needed.
+Please be sure to use `plone.restapi` version >= 7.3.0. If you cannot upgrade `plone.restapi` then a registration per field id instead of a registration per field widget name is needed.
 
 ```js
 export default function applyConfig(config) {
@@ -850,7 +851,7 @@ Et voilà.
 ```
 
 ```{seealso}
-- [Available widgets (a incomplete list)](https://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html)
+- [Available widgets (a incomplete list)](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html)
 ```
 
 ## Directives
@@ -1002,8 +1003,8 @@ class IMyEvent(model.Schema):
 ```{seealso}
 To learn more about directives, validators and default values, refer to the following:
 
-- [Form schema hints and directives](https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html)
-- [Validation](https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html) (this documentation unfortunately still uses the obsolete grok technology)
-- [z3c.form documentation](https://pypi.org/project/z3c.form#validators)
-- [Default values for fields on add forms](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html)
+- [Form schema hints and directives](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html)
+- [Validation](https://5.docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html) (this documentation unfortunately still uses the obsolete grok technology)
+- [z3c.form documentation](https://z3cform.readthedocs.io/en/latest/advanced/validator.html)
+- [Default values for fields on add forms](https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html)
 ```

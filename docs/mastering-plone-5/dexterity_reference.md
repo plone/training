@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-dexterity-reference-label)=
@@ -552,8 +553,8 @@ The output looks like this:
 ```
 
 ```{seealso}
-- [All available Fields](https://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types)
-- [Schema-driven types with Dexterity](https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types)
+- [All available Fields](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html#field-types)
+- [Schema-driven types with Dexterity](https://5.docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html#schema-driven-types)
 ```
 
 ## Widgets
@@ -709,8 +710,8 @@ class IMyEvent(model.Schema):
 ```{seealso}
 To learn more about directives, validators and default values, refer to the following:
 
-- [Form schema hints and directives](https://docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html)
-- [Validation](https://docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html) (this documentation unfortunately still uses the obsolete grok technology)
-- [z3c.form documentation](https://pypi.org/project/z3c.form#validators)
-- [Default values for fields on add forms](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html)
+- [Form schema hints and directives](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/form-schema-hints.html)
+- [Validation](https://5.docs.plone.org/develop/addons/schema-driven-forms/customising-form-behaviour/validation.html) (this documentation unfortunately still uses the obsolete grok technology)
+- [z3c.form documentation](https://z3cform.readthedocs.io/en/latest/advanced/validator.html)
+- [Default values for fields on add forms](https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/defaults.html)
 ```

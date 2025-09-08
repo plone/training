@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "An introduction to useEffect hook. Using useEffect for doing the side effects for the component. In this case we are fetching the initial data."
-  "property=og:description": "An introduction to useEffect hook. Using useEffect for doing the side effects for the component. In this case we are fetching the initial data."
-  "property=og:title": "useEffect Hook"
-  "keywords": "Plone, training, SEO, React, hook, exercise, solution"
+myst:
+  html_meta:
+    "description": "An introduction to useEffect hook. Using useEffect for doing the side effects for the component. In this case we are fetching the initial data."
+    "property=og:description": "An introduction to useEffect hook. Using useEffect for doing the side effects for the component. In this case we are fetching the initial data."
+    "property=og:title": "useEffect Hook"
+    "keywords": "Plone, training, SEO, React, hook, exercise, solution"
 ---
 
 (useEffect-label)=
@@ -69,6 +70,7 @@ function Faq() {
       <ul>
         {faqList.map((item, index) => (
           <FaqItem
+            key={index}
             question={item.question}
             answer={item.answer}
             index={index}
@@ -98,8 +100,9 @@ function Faq() {
 export default Faq;
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 -import { useState } from "react";

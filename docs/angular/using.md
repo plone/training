@@ -1,16 +1,17 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Using And Customizing The Angular Plone Components
 
 ## Preparing The Plone Backend
 
-We need a Plone server running the latest version of [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/) .
+We need a Plone server running the latest version of {doc}`Plone REST API <plone6docs:plone.restapi/docs/source/index>`.
 
 We will use a [Plone pre-configured Heroku instance](https://github.com/collective/training-sandbox).
 

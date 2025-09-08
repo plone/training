@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Writing the Import Pipeline
@@ -86,7 +87,7 @@ The most important pieces are `jsonsource`, `constructor`, and `schemaupdater`.
 it specifies the local path to your exported content.
 The path is relative to the root of the buildout.
 If importing from a different type, such as CSV, there are blueprints that can handle this:
-`transmogrify.dexterity.csvimport` and [collective.transmogrifier.sections.csvsource](https://docs.plone.org/external/collective.transmogrifier/docs/source/sections/csvsource.html).
+`transmogrify.dexterity.csvimport` and [collective.transmogrifier.sections.csvsource](https://5.docs.plone.org/external/collective.transmogrifier/docs/source/sections/csvsource.html).
 
 The `constructor` creates an object in Plone for the current item in the import.
 Any blueprints that manipulate the current `item` in the loop need to be in the pipeline before the `constructor`.

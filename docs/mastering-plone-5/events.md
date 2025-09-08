@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-events-label)=
@@ -183,8 +184,9 @@ If you changed the view {py:class}`TalkListView` to only return brains as descri
 
 Find out where `event_summary` comes from and describe how you could override it.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Use your editor or grep to search all ZCML files in the folder {file}`packages` for the string `name="event_summary"`
 
@@ -214,8 +216,9 @@ So there is a class {py:class}`plone.app.event.browser.event_summary.EventSummar
 
 Find out where the event behavior is defined and which fields it offers.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 The id with which the behavior is registered in {file}`Talk.xml` is a Python path. So {py:class}`plone.app.event.dx.behaviors.IEventBasic` can be found in {file}`packages/plone.app.event/plone/app/event/dx/behaviors.py`
 

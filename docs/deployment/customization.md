@@ -1,18 +1,19 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Customized Use
 
 We intend that you should be able to make most changes by changing default variable settings in your `local_configure.yml` file.
-We've made a serious effort to make sure that all those settings are documented in the `Plone's Ansible Playbook <https://docs.plone.org/external/ansible-playbook/docs/index.html>` documentation.
+We've made a serious effort to make sure that all those settings are documented in the `Plone's Ansible Playbook <https://5.docs.plone.org/external/ansible-playbook/docs/index.html>` documentation.
 
 For example, if you want to change the time at which backup occurs,
-you can check the doc and discover that we have a [plone-backup-at setting](https://docs.plone.org/external/ansible-playbook/docs/plone.html#plone-backup-at).
+you can check the doc and discover that we have a [plone-backup-at setting](https://5.docs.plone.org/external/ansible-playbook/docs/plone.html#plone-backup-at).
 
 The default setting is:
 
@@ -86,7 +87,7 @@ buildout_git_repo: https://github.com/plone/plone.com.ansible.git
 buildout_git_version: master
 ```
 
-Make sure you check the [documentation on this setting](https://docs.plone.org/external/ansible-playbook/docs/plone.html#plone-buildout-git-repo).
+Make sure you check the [documentation on this setting](https://5.docs.plone.org/external/ansible-playbook/docs/plone.html#plone-buildout-git-repo).
 
 Even if you use your own buildout, you'll need to make sure that some of the playbook settings reflect your configuration.
 
@@ -163,7 +164,7 @@ webserver_virtualhosts:
     key_file: /thiscomputer/path/mycert.key
 ```
 
-Here we're setting up two separate hosts, one for http and one for https.
+Here we're setting up two separate hosts, one for `http` and one for `https`.
 Both point to the same ZODB path, though they don't have to.
 
 The https host item also refers to a key/certificate file pair on the Ansible host machine.

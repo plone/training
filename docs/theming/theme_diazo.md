@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "We're going to create a theme package for Plone 6 Classic UI, that is based on the Business Casual theme from [startbootstrap.com](https://startbootstrap.com/theme/business-casual)."
+    "property=og:description": "We're going to create a theme package for Plone 6 Classic UI, that is based on the Business Casual theme from [startbootstrap.com](https://startbootstrap.com/theme/business-casual)."
+    "property=og:title": "Create a theme based on Diazo"
+    "keywords": "Create a theme based on Diazo"
 ---
 
 # Create a theme based on Diazo
@@ -18,7 +19,6 @@ Integrating a custom layout (static mockup) with Plone classic UI,
 - You want to use the Plone default layout for all edit-/backend-view's.
 
 **What you will learn**
-- How to prepare your development setup
 - How to create your theme package with `plonecli`
 - How to create the content structure for your theme
 - How to integrate your static layout into the theme
@@ -31,7 +31,7 @@ Integrating a custom layout (static mockup) with Plone classic UI,
 To create a file system based theme, we first create a new addon package for Plone:
 
 ```{code-block} shell
-$ plonecli create addon plonetheme.businesscasual21
+$ plonecli create addon plonetheme.businesscasual22
 ```
 
 Answer some questions about the package:
@@ -47,30 +47,31 @@ Answer some questions about the package:
 
 --> Do you want me to initialize a GIT repository in your new package?
 
---> Plone version [6.0]:
+--> Plone version [6.0.0]:
 
 --> Python version for virtualenv [python3]:
 
 --> Do you want me to activate VS Code support? (y/n) [y]:
 
-Generated file structure at ... ./plonetheme.businesscasual21
+Generated file structure at ... ./plonetheme.businesscasual22
 ```
 
 Change into the generated package folder:
 
 ```{code-block} shell
-$ cd plonetheme.businesscasual21
+$ cd plonetheme.businesscasual22
 ```
 
 now we want to add a theme, to the addon:
 
 ```{code-block} shell
 $ plonecli add theme
+--> Theme name [My Theme]: Plone Theme Business casual 2022
 ```
 
 ## Integrate the static layout
 
-Download the Bootstrap theme [Business Casual](https://startbootstrap.com/theme/business-casual) and extract the content into the theme folder under `src/plonetheme/businesscasual21/theme/`.
+Download the Bootstrap theme [Business Casual](https://startbootstrap.com/theme/business-casual) and extract the content into the theme folder under `src/plonetheme/businesscasual22/theme/`.
 Your folder structure should now look like this:
 
 ```{code-block} shell
@@ -191,7 +192,7 @@ section-about.html:
 <div class="mceTmpl">
   <section class="page-section about-heading">
     <div class="container">
-      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="++theme++business-casual-2021/assets/img/about.jpg" alt="...">
+      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="++theme++plone-theme-business-casual-2022/assets/img/about.jpg" alt="...">
       <div class="about-heading-content">
         <div class="row">
           <div class="col-xl-9 col-lg-10 mx-auto">
@@ -219,7 +220,7 @@ section-about.html:
 ```
 
 ```{note}
-Please make sure to prepend the image paths with `++theme++business-casual-2021/`
+Please make sure to prepend the image paths with `++theme++plone-theme-business-casual-2022/`
 ```
 
 section-intro.html:
@@ -229,7 +230,7 @@ section-intro.html:
   <section class="page-section clearfix">
     <div class="container">
       <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="++theme++business-casual-2021/assets/img/intro.jpg" alt="...">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="++theme++plone-theme-business-casual-2022/assets/img/intro.jpg" alt="...">
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
           <h2 class="section-heading mb-4">
             <span class="section-heading-upper">Fresh Coffee</span>
@@ -247,7 +248,7 @@ section-intro.html:
 ```
 
 ```{note}
-Please make sure to prepend the image paths with `++theme++business-casual-2021/`
+Please make sure to prepend the image paths with `++theme++plone-theme-business-casual-2022/`
 ```
 
 
@@ -368,9 +369,9 @@ Right now it should look like this:
       <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="label_tinymce_templates">Templates</title>
     </field>
     <value>[
-      {"title": "BS Pricing", "url": "++theme++business-casual-2021/tinymce-templates/bs-pricing.html"},
-      {"title": "BS Hero: Dark", "url": "++theme++business-casual-2021/tinymce-templates/bs-dark-hero.html"},
-      {"title": "BS Hero: left-aligned with image", "url": "++theme++business-casual-2021/tinymce-templates/bs-hero-left.html"}
+      {"title": "BS Pricing", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/bs-pricing.html"},
+      {"title": "BS Hero: Dark", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/bs-dark-hero.html"},
+      {"title": "BS Hero: left-aligned with image", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/bs-hero-left.html"}
       ]
     </value>
   </record>
@@ -407,13 +408,13 @@ In the first record, we add our new template files as follow:
 
 ```xml
     <value>[
-      {"title": "BS Pricing", "url": "++theme++business-casual-2021/tinymce-templates/bs-pricing.html"},
-      {"title": "BS Hero: Dark", "url": "++theme++business-casual-2021/tinymce-templates/bs-dark-hero.html"},
-      {"title": "BS Hero: left-aligned with image", "url": "++theme++business-casual-2021/tinymce-templates/bs-hero-left.html"},
-      {"title": "Section: Intro", "url": "++theme++business-casual-2021/tinymce-templates/section-intro.html"},
-      {"title": "Section: About", "url": "++theme++business-casual-2021/tinymce-templates/section-about.html"},
-      {"title": "Section: Promise", "url": "++theme++business-casual-2021/tinymce-templates/section-promise.html"},
-      {"title": "Section: Opening Hours", "url": "++theme++business-casual-2021/tinymce-templates/section-opening-hours.html"}
+      {"title": "BS Pricing", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/bs-pricing.html"},
+      {"title": "BS Hero: Dark", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/bs-dark-hero.html"},
+      {"title": "BS Hero: left-aligned with image", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/bs-hero-left.html"},
+      {"title": "Section: Intro", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/section-intro.html"},
+      {"title": "Section: About", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/section-about.html"},
+      {"title": "Section: Promise", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/section-promise.html"},
+      {"title": "Section: Opening Hours", "url": "++theme++plone-theme-business-casual-2022/tinymce-templates/section-opening-hours.html"}
       ]
     </value>
 ```
@@ -495,7 +496,7 @@ The `index.html` file of the Bootstrap theme we got, looks as follow:
             </div>
         </section>
         <footer class="footer text-faded text-center py-5">
-            <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2021</p></div>
+            <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -620,7 +621,7 @@ Now the file should look like this:
   </main>
   <footer class="footer text-faded text-center py-5">
     <div class="container">
-      <p class="m-0 small">Copyright &copy; Your Website 2021</p>
+      <p class="m-0 small">Copyright &copy; Your Website 2022</p>
     </div>
   </footer>
   <!-- Core theme JS-->
@@ -655,7 +656,7 @@ The theme provides some useful scripts to compile and optimize SCSS into CSS. Th
   },
 ```
 
-Here we can see, that the scripts are searching for SCSS files inside a folder called styles. Our theme has a slightly different structure. One way to fix this, that we adjust the script definitions here to our needs.
+Here we can see, that the scripts are searching for SCSS files inside a folder called styles. Our theme has a slightly different structure. One way to fix this is to adjust the script definitions here to our needs.
 Let's change the path from `styles/` to `css/`.
 
 the script area should now look like this:
@@ -701,7 +702,7 @@ vendor/
 
 Inside the `vendor/node_modules` you will find all dependencies declared in the `package.json`.
 
-For example if you install a JQuery library you will find all JavaScript and CSS files in that place and can include them from there. The main `node_modules` in the `theme` folder contains much more, because there we also have all the `devDependencies` needed to build the bundles an so on. But we don't want them shipped with our theme, that why we separate what we need into the `vendor` folder.
+For example if you install a JQuery library you will find all JavaScript and CSS files in that place and can include them from there. The main `node_modules` in the `theme` folder contains much more, because there we also have all the `devDependencies` needed to build the bundles an so on. But we don't want them shipped with our theme, that's why we separate what we need into the `vendor` folder.
 
 
 ## Adjust the layout and manifest files
@@ -712,16 +713,16 @@ By default the `manifest.ini` will look like this:
 
 ```ini
 [theme]
-title = Plone Theme: Business casual (2021)
+title = Plone Theme: Business casual (2022)
 description = A Diazo based Plone theme
 doctype = <!DOCTYPE html>
-rules = /++theme++business-casual-2021/rules.xml
-prefix = /++theme++business-casual-2021
+rules = /++theme++plone-theme-business-casual-2022/rules.xml
+prefix = /++theme++plone-theme-business-casual-2022
 
-production-css = ++theme++business-casual-2021/styles/theme.min.css
-tinymce-content-css = ++theme++business-casual-2021/styles/theme.min.css
+production-css = ++theme++plone-theme-business-casual-2022/styles/theme.min.css
+tinymce-content-css = ++theme++plone-theme-business-casual-2022/styles/theme.min.css
 
-# production-js = ++theme++business-casual-2021/js/theme.min.js
+# production-js = ++theme++plone-theme-business-casual-2022/js/theme.min.js
 
 [theme:parameters]
 # portal_url = python: portal.absolute_url()
@@ -730,11 +731,13 @@ tinymce-content-css = ++theme++business-casual-2021/styles/theme.min.css
 Since our styles are located inside the `css` folder and not in `styles`, we will change the paths:
 
 ```ini
-production-css = ++theme++business-casual-2021/css/theme.min.css
-tinymce-content-css = ++theme++business-casual-2021/css/theme.min.css
+production-css = ++theme++plone-theme-business-casual-2022/css/theme.min.css
+tinymce-content-css = ++theme++plone-theme-business-casual-2022/css/theme.min.css
 ```
 
-Now let's do the actual integration. We can use `npm run watch` to have the CSS build when ever we make changes. I a second terminal we start Plone with `plonecli serve`.
+Now let's do the actual integration.
+We can use `npm run watch` to have the CSS build when ever we make changes.
+And in a second terminal we start Plone with `plonecli serve`.
 
 ## Diazo to rule them all
 
@@ -743,18 +746,18 @@ With [Diazo](http://docs.diazo.org/en/latest/) Plone provides an easy way, to ma
 We will start by bringing in the top navigation. To do that, we will activate the following rule in the `rules.xml` file.
 
 ```xml
-<replace css:theme-children=".navbar-nav" css:content-children=".navbar-nav" />
+<replace css:theme-children=".navbar" css:content-children=".navbar-nav" />
 ```
 
 To understand better, whats happening here, let's open this URL <http://127.0.0.1:8080> in another browser window. You will notice that your Plone is completely unstyled. This is because, in the `theming control panel` we can define URL's where Diazo should be turned off and `http://127.0.0.1` is in there by default. This is useful, because we now see the vanilla markup Plone is rendering on one side and the layout template on the other side. This way we can easily map the two with our rules.
 
-In the layout template (the theme side), we can find the `.navbar-nav` element:
+In the layout template (the theme side), we can find the `.navbar` element:
 
 ```html
 <ul class="navbar-nav mx-auto">
 ```
 
-On the Plone side (the content side), we also can find the `.navbar-nav` element:
+On the Plone side (the content side), we can find a `.navbar-nav` element:
 
 ```html
 <ul class="navbar-nav" id="portal-globalnav">
@@ -784,6 +787,7 @@ You can test it, by going on edit and save the page. You should see a message un
 Now let's come to the most important mapping, our content area. We will activate the following rule in our `rules.xml`:
 
 ```xml
+<!-- Copy Document Content -->
 <replace
   css:content="#content-core"
   css:theme-children="main"
@@ -1008,7 +1012,7 @@ from plone.supermodel import model
 # from zope import schema
 from zope.interface import implementer
 
-# from plonetheme.businesscasual21 import _
+# from plonetheme.businesscasual22 import _
 
 
 class IProduct(model.Schema):
@@ -1080,7 +1084,7 @@ As the comment above states, we need to make sure that `plone.namedfile.field` i
 
 ```python
 from plone.namedfile import field as namedfile
-from plonetheme.businesscasual21 import _
+from plonetheme.businesscasual22 import _
 ```
 
 Next we add a rich text field called `text`:
@@ -1115,7 +1119,7 @@ from plone.namedfile import field as namedfile
 from plone.supermodel import model
 from zope.interface import implementer
 
-from plonetheme.businesscasual21 import _
+from plonetheme.businesscasual22 import _
 
 # from plone.autoform import directives
 # from plone.supermodel.directives import fieldset
@@ -1163,7 +1167,7 @@ In `profiles/default/types/Product.xml` we will activate the basic and namefromt
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
     <!-- Details about all standard behaviors following can be read at
-         https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html
+         https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html
     -->
     <element value="plone.basic"/>
     <element value="plone.namefromtitle"/>
@@ -1227,7 +1231,7 @@ Git state is clean.
 
 --> Python class name [MyView]: ProductsView
 
---> Which base class should the view use (BrowserView/DefaultView)? [BrowserView]:
+--> Which base class should the view use (BrowserView/DefaultView/CollectionView)? [CollectionsView]:
 
 --> View name (part of the URL) [products-view]:
 
@@ -1246,20 +1250,6 @@ views/
 ├── products_view.pt
 └── products_view.py
 ```
-
-Let's open the `configure.zcml` first, to make sure our view is registered correctly.
-
-```xml
-  <browser:page
-    name="products-view"
-    for="Products.CMFCore.interfaces.IFolderish"
-    class=".products_view.ProductsView"
-    template="products_view.pt"
-    permission="zope2.View"
-    />
-```
-
-We want to use the view on a Collection, since the Collection does not provide the IFolderish interface, we need to change the Interface to `plone.app.contenttypes.interfaces.ICollection`.
 
 To have the `products-view` in the list of available views on a Collection, we need to configure it in the FTI settings.
 
@@ -1289,43 +1279,21 @@ Now we have to make sure that we have the correct markup in the template of our 
   xmlns:metal="http://xml.zope.org/namespaces/metal"
   xmlns:tal="http://xml.zope.org/namespaces/tal"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-  i18n:domain="plonetheme.startbootstrapbusinesscasual21"
+  i18n:domain="plonetheme.businesscasual22"
   metal:use-macro="context/main_template/macros/master">
   <body>
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core">
 
         <tal:loop repeat="item view/results">
-
-          <section class="page-section"
-            tal:condition="repeat/item/odd">
-            <div class="container">
-              <div class="product-item">
-                <div class="product-item-title d-flex">
-                  <div class="bg-faded p-5 d-flex ms-auto rounded">
-                    <h2 class="section-heading mb-0">
-                      <span class="section-heading-upper">${item/description}</span>
-                      <span class="section-heading-lower">${item/title}</span>
-                    </h2>
-                  </div>
-                </div>
-                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
-                  src="${item/getPath}/@@images/photo/large"
-                  alt="...">
-                  <div class="product-item-description d-flex me-auto">
-                    <div class="bg-faded p-5 rounded"
-                      tal:content="structure item/text/output"></div>
-                  </div>
-                </div>
-              </div>
-            </section>
+          <tal:products tal:condition="python: item.portal_type == 'Product'">
 
             <section class="page-section"
-              tal:condition="repeat/item/even">
+              tal:condition="repeat/item/odd">
               <div class="container">
                 <div class="product-item">
                   <div class="product-item-title d-flex">
-                    <div class="bg-faded p-5 d-flex me-auto rounded">
+                    <div class="bg-faded p-5 d-flex ms-auto rounded">
                       <h2 class="section-heading mb-0">
                         <span class="section-heading-upper">${item/description}</span>
                         <span class="section-heading-lower">${item/title}</span>
@@ -1335,19 +1303,43 @@ Now we have to make sure that we have the correct markup in the template of our 
                   <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
                     src="${item/getPath}/@@images/photo/large"
                     alt="...">
-                    <div class="product-item-description d-flex ms-auto">
-                     <div class="bg-faded p-5 rounded"
-                      tal:content="structure item/text/output"></div>
+                    <div class="product-item-description d-flex me-auto">
+                      <div class="bg-faded p-5 rounded"
+                        tal:content="structure python:item.text.output"></div>
                     </div>
                   </div>
                 </div>
               </section>
-        </tal:loop>
 
-      </metal:block>
-    </metal:content-core>
-  </body>
-</html>
+              <section class="page-section"
+                tal:condition="repeat/item/even">
+                <div class="container">
+                  <div class="product-item">
+                    <div class="product-item-title d-flex">
+                      <div class="bg-faded p-5 d-flex me-auto rounded">
+                        <h2 class="section-heading mb-0">
+                          <span class="section-heading-upper">${item/description}</span>
+                          <span class="section-heading-lower">${item/title}</span>
+                        </h2>
+                      </div>
+                    </div>
+                    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                      src="${item/getPath}/@@images/photo/large"
+                      alt="...">
+                      <div class="product-item-description d-flex ms-auto">
+                        <div class="bg-faded p-5 rounded"
+                          tal:content="structure python:item.text.output"></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </tal:products>
+            </tal:loop>
+
+          </metal:block>
+        </metal:content-core>
+      </body>
+    </html>
 
 ```
 
@@ -1360,7 +1352,7 @@ The final step is, to update the Python class of the view. Open the `views/produ
 
 from plone.app.contenttypes.browser.collection import CollectionView
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-# from plonetheme.businesscasual21 import _
+# from plonetheme.businesscasual22 import _
 
 
 class ProductsView(CollectionView):

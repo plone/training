@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "The Anatomy of Plone"
+    "property=og:description": "The Anatomy of Plone"
+    "property=og:title": "The Anatomy of Plone"
+    "keywords": "history, Plone, ZODB, CMF, Zope, Pyramid, Bluebream"
 ---
 
 (plone5-anatomy-label)=
@@ -22,7 +23,7 @@ Topics covered:
 - Pyramid
 - Bluebream
 
-Plone started as a extension for CMF, which is a extension for Zope. Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
+Plone started as an extension for CMF, which is a extension for Zope. Python, ZODB, Zope, CMF, Plone ... -- how does all that fit together?
 
 ## Database
 
@@ -69,7 +70,7 @@ class Account(persistent.Persistent):
 - Plone was always based on Zope 2.x. Starting with Plone 5.2+ it uses Zope 4.x
 - Starting with Zope 4.0, the package is only called Zope (not Zope2 or Zope4)
 - *Zope 3* is **not** a version of Zope but an ill-named rewrite of Zope 2 *(sigh)*
-- 4.x is a mayor new release of Zope that supports Python 3 (among many other improvements)
+- 4.x is a major new release of Zope that supports Python 3 (among many other improvements)
 ```
 
 ````{only} not presentation
@@ -134,7 +135,7 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 ```
 
 ```{seealso}
-- <https://www.zope.org/world.html>
+- <https://www.zope.dev/world.html>
 - <https://zope.readthedocs.io/en/latest/zopebook/>
 ```
 ````
@@ -143,7 +144,7 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 
 ## Content Management Framework
 
-- [CMF (Content Management Framework)](https://old.zope.org/Products/CMF/index.html/) is add-on for Zope to build Content Management Systems (like Plone).
+- [CMF (Content Management Framework)](https://old.zope.dev/Products/CMF/index.html/) is add-on for Zope to build Content Management Systems (like Plone).
 
 ```{only} not presentation
 After many websites were successfully created using Zope, a number of recurring requirements emerged,
@@ -227,8 +228,9 @@ Definition of the PYTHON_PATH makes up most of the `bin/instance` script's code.
 Look at the package list (and maybe also the links provided in the respective sections of this chapter).
 Try to identify 3 packages that belong to Zope 4, 3 packages from CMF, 3 Zope Toolkit packages and 3 packages from the ZCA.
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 - Zope 4: Zope, ZODB, Acquisition, AccessControl, ...
 - CMF: Products.CMFCore, Products.CMFUid, Products.CMFEditions, ... Products.DCWorkflow doesn't fit the pattern but is a very important part of the CMF

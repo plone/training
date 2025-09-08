@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add redux to our App for managing the state throughout the App."
-  "property=og:description": "Add redux to our App for managing the state throughout the App."
-  "property=og:title": "Use Redux to Store Data"
-  "keywords": "Plone, training, exercise, solution, React, Redux"
+myst:
+  html_meta:
+    "description": "Add redux to our App for managing the state throughout the App."
+    "property=og:description": "Add redux to our App for managing the state throughout the App."
+    "property=og:title": "Use Redux to Store Data"
+    "keywords": "Plone, training, exercise, solution, React, Redux"
 ---
 
 (redux-label)=
@@ -50,8 +51,9 @@ export const addFaqItem = (question, answer) => ({
 
 Write the `editFaqItem` and `deleteFaqItem` actions.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 1-6,8-11
@@ -91,8 +93,9 @@ export default faq;
 
 Finish the reducer so that it can handle the `ADD_FAQ_ITEM`, `EDIT_FAQ_ITEM`, and `DELETE_FAQ_ITEM` actions.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 2-25

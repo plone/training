@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # RichText Component
@@ -117,8 +118,9 @@ Explore GraphiQL at <http://localhost:8000/___graphql> and compare the stringifi
 
 Hints: Try checking the text field of the nodes of type `PloneDocument`
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```text
 {

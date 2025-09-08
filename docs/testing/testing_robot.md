@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Robot tests
@@ -84,7 +85,7 @@ After a Given statement, there is a list of actions (`When`), and a final expect
 
 ```{note}
 Most of these actions come from the default Selenium library (imported in the Settings section).
-You can find a list of [available actions online](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#keywords).
+You can find a list of [available actions online](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords).
 
 For standard Plone actions and keywords, see the imported files (`keywords.robot` and `selenium.robot`).
 ```
@@ -175,7 +176,7 @@ Start interactive debugger
 ```
 
 ```{note}
-There are more detailed examples in the [Plone robot framework documentation](https://docs.plone.org/external/plone.app.robotframework/docs/source/debugging.html).
+There are more detailed examples in the [Plone robot framework documentation](https://5.docs.plone.org/external/plone.app.robotframework/docs/source/debugging.html).
 ```
 
 ## Test reports
@@ -199,11 +200,12 @@ Try to write some basic scenarios:
 plonecli created a basic robot test for our TestType content type, so the first part of the exercise could be copied from it.
 Try not copying it and try using the robot framework syntax by yourself.
 
-In the [robot framework documentation](https://docs.plone.org/external/plone.app.robotframework/docs/source/index.html) you can find some information that can help you write your first robot framework test.
+In the [robot framework documentation](https://5.docs.plone.org/external/plone.app.robotframework/docs/source/index.html) you can find some information that can help you write your first robot framework test.
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{literalinclude} _snippets/test_ct_testing_item.robot
 :language: text
@@ -215,11 +217,12 @@ In the [robot framework documentation](https://docs.plone.org/external/plone.app
 
 Now let's test something that we can't test using functional tests: JavaScript.
 
-- Add a basic mockup pattern to testing-item-view (for example, the [autotoc](http://plone.github.io/mockup/dev/#pattern/autotoc) pattern)
+- Add a basic mockup pattern to testing-item-view (for example, the [autotoc](https://plone.github.io/mockup/dev/#pattern/autotoc) pattern)
 - Check that the table of contents is rendered on the page
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 > First, add autotoc to the template:
 >
@@ -244,8 +247,9 @@ For the last JavaScript test, try to simulate clicks.
 - The autotoc pattern can also be used for generate tabs.
 - Check that clicking on tabs results in changes to the document object model (DOM).
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 > Add tabs to the template:
 >

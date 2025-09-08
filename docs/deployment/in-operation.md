@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # In Operation
@@ -206,7 +207,7 @@ We use Nginx for the outer web server, depending on it to do efficient URL rewri
 We'll have much more to say about virtual hosting later when we talk about how to customize it.
 What you need to know now is that simple virtual hosting is automatically set up between the hostname you supply in the inventory and the `/Plone` site in the ZODB.
 
-You should be able to immediately ask for your server via http and get a Plone welcome page.
+You should be able to immediately ask for your server via `http` and get a Plone welcome page.
 
 If your inventory hostname does not have a matching DNS host record, you're going to see something like:
 
@@ -217,7 +218,7 @@ Typical virtual hosting error.
 ```
 
 You're seeing a virtual-hosting setup error.
-The requested *page* is being returned, but all the resource URLs in the page -- images, stylesheets and JavaScript resources -- are pointing to the hostname supplied in the inventory.
+The requested *page* is being returned, but all the resource URLs in the page -- images, style sheets and JavaScript resources -- are pointing to the hostname supplied in the inventory.
 
 You may fix that by supplying a DNS-valid hostname, or by setting up specific virtual hosting.
 That's detailed below.

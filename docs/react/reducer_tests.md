@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Write tests for our reducer. Since reducers are pure functions with input and output, we can write unit tests for them."
-  "property=og:description": "Write tests for our reducer. Since reducers are pure functions with input and output, we can write unit tests for them."
-  "property=og:title": "Reducer Tests"
-  "keywords": "Plone, training, exercise, solution, React, Redux, reducers"
+myst:
+  html_meta:
+    "description": "Write tests for our reducer. Since reducers are pure functions with input and output, we can write unit tests for them."
+    "property=og:description": "Write tests for our reducer. Since reducers are pure functions with input and output, we can write unit tests for them."
+    "property=og:title": "Reducer Tests"
+    "keywords": "Plone, training, exercise, solution, React, Redux, reducers"
 ---
 
 (reducer-tests-label)=
@@ -41,8 +42,9 @@ describe("faq", () => {
 
 Add the unit tests for the edit and delete actions for the reducer.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 1-32

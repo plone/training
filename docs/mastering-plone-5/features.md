@@ -1,18 +1,19 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-features-label)=
 
 # The Features of Plone
 
-In-depth user-manual: <https://docs.plone.org/>
+In-depth user-manual: <https://5.docs.plone.org/>
 
-See also: <https://docs.plone.org/working-with-content/index.html>
+See also: <https://5.docs.plone.org/working-with-content/index.html>
 
 (plone5-features-start-stop-label)=
 
@@ -86,8 +87,9 @@ Read them and make sure you understand them!
 
 Open the `bin/instance` script in your favorite editor. Now let's say you want Plone to listen on port 9080 instead of the default 8080. Looking at the script, how could you do this?
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 At the end of the `bin/instance` script, you'll see the following code:
 
@@ -117,8 +119,9 @@ Change the address to 0.0.0.0:9080 and restart your instance.
 
 Knowing that `bin/instance debug` basically offers you a Python prompt, how would you start to explore Plone?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Use `locals()` or `locals().keys()` to see Python objects available in Plone
 ```
@@ -127,8 +130,9 @@ Use `locals()` or `locals().keys()` to see Python objects available in Plone
 
 The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
 
-`````{admonition} Solution
-:class: toggle
+`````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
 
@@ -333,7 +337,7 @@ The default Plone content types are:
 - Page
 
 ```{note}
-Please keep in mind that we use [plone.app.contenttypes](https://docs.plone.org/external/plone.app.contenttypes/docs/README.html) for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
+Please keep in mind that we use [plone.app.contenttypes](https://5.docs.plone.org/external/plone.app.contenttypes/docs/README.html) for the training, which are the default in Plone 5. Therefore the types are based on Dexterity and slightly different from the types that you will find in a default Plone 4.3.x site.
 ```
 
 (plone5-features-folders-label)=
@@ -450,7 +454,7 @@ An oddity in all of the standard Plone workflows: a content item may be viewable
 Making a container private does **not** automatically make its contents private.
 ```
 
-Read more at: <https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html>
+Read more at: <https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html>
 
 (plone5-features-wc-label)=
 

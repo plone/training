@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "Introduction for Plone Deployment with Ansible and Docker"
+    "property=og:description": "Introduction for Plone Deployment with Ansible and Docker"
+    "property=og:title": "Introduction for Plone Deployment with Ansible and Docker"
+    "keywords": "Introduction, Plone, Deployment, Ansible, Docker"
 ---
 
 # Introduction
@@ -38,7 +39,9 @@ Linux
 
 Major distributions
 
-> Ubuntu LTS is supported for the server setup.
+> Ubuntu LTS is supported for the server setup and in the training.
+> Debian is very similar.
+> Other distributions with recent packages might work too.
 
 Platform packages
 
@@ -53,11 +56,11 @@ Ansible
 > This training uses Ansible because it requires no preinstalled server part, it's written in Python,
 > and its configuration language is YAML, which is easy to read.
 
-Docker and Docker Compose
+Docker and Docker Swarm
 
 > Containers guarantee repeatable deployments that could run both locally and in production.
 > Docker is the most famous solution in this landscape, has good documentation and is in use by our community.
-> Docker compose is a tool that's easy to explain and setup, even for new users.
+> Docker Swarm is a toolset that's easy to explain and setup, even for new users.
 
 GitHub and GitHub actions
 

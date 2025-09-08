@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-deployment-buildout-label)=
@@ -69,8 +70,8 @@ Webserver (nginx)
 Deploying Plone and production-setups are outside the scope for this training.
 
 ```{seealso}
-- <https://docs.plone.org/manage/deploying/index.html>
-- <https://training.plone.org/5/deployment>
+- <https://5.docs.plone.org/manage/deploying/index.html>
+- {doc}`../deployment/index`
 ```
 
 (plone5-deployment-tools-label)=
@@ -86,5 +87,5 @@ There are plenty of tools that make developing and managing sites much easier. H
 - Nagios, Zabbix (server monitoring)
 - jenkins, gitlab-ci, travis, [drone.io](https://www.drone.io/) (Continuous Integration)
 - piwik (statistics)
-- gitlab (code repo and code review)
+- gitlab (code repository and code review)
 - redmine, taiga, assembla (project-management and ticket-system)

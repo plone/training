@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Using the code for the training
@@ -12,14 +13,20 @@ html_meta:
 - Add info and link to repository of volto package
 ```
 
-You can get the complete code for this training from [GitHub](https://github.com/collective/ploneconf.site).
+You can get the complete code for this training from GitHub.
+- The backend add-on [ploneconf.site](https://github.com/collective/ploneconf.site)
+- The frontend Volto app [volto-ploneconf](https://github.com/collective/volto-ploneconf)
 
-## The code-package
+## The code-packages
 
-The package [ploneconf.site](https://github.com/collective/ploneconf.site) contains the complete code for this training excluding exercises.
-It is automatically downloaded from GitHub when you run buildout.
+The add-on package [ploneconf.site](https://github.com/collective/ploneconf.site) contains the complete backend code for this training excluding exercises.
+It is automatically downloaded from GitHub when you run `make build` in your Plone backend set up from {doc}`instructions`.
 
-The master branch of that repository holds the code of the final chapter of this training.
+The frontend app [volto-ploneconf](https://github.com/collective/volto-ploneconf) holds the code for the frontend excluding exercises.
+As explained in {doc}`instructions`, it is to be installed side by side with the backend in a folder `/frontend/`.
+Optional frontend add-ons are configured here in `packages.json`.
+
+The default branches of these repositories hold the code of the final chapter of the training.
 Each chapter that adds code to the package has a tag that can be used to get the code for that chapter.
 
 ## Getting the code for a certain chapter
@@ -36,8 +43,8 @@ git checkout views_2
 ```
 
 The names of the tags are the same as the URL of the chapter.
-The tag for the chapter <https://training.plone.org/5/mastering-plone/registry.html> is `registry`
-and you can get it with {command}`git checkout registry`.
+The tag for the chapter {doc}`/mastering-plone/registry` is `registry`.
+You can get it with {command}`git checkout registry`.
 
 ## Moving from chapter to chapter
 
@@ -65,7 +72,12 @@ This does two things:
 
 ## Tags
 
-These are the tags for which there is code:
+```{todo}
+Update list of tags in backend add-on.
+```
+
+These are the tags of the backend add-on for which there is code:
+
 
 | Chapter                        | Tag-Name                 |
 | ------------------------------ | ------------------------ |
@@ -107,28 +119,29 @@ These are the tags for which there is code:
 | {doc}`deployment_code`         |                          |
 | {doc}`deployment_sites`        |                          |
 
+
 ## Updating the code-package
 
-This section is for trainers who want to update the code in {py:mod}`ploneconf.site` after changing something in the training documentation.
+This section is for **trainers** who want to update the code after changing something in the training documentation.
 
 The current model uses only one branch of commits and maintains the integrity through rebases.
 
 It goes like this:
 
-- Only one one branch (master)
+- Only one branch (main)
 
-- Write the code for chapter 1 and commit
+- Write the code for chapter 1 and commit.
 
-- Write the code for chapter 2 and commit
+- Write the code for chapter 2 and commit.
 
-- Add the code for chapter 3 and commit
+- Add the code for chapter 3 and commit.
 
-- You realize that something or wrong in chapter 1
+- You realize that something is wrong in chapter 1.
 
-- You branch off at the commit id for chapter 1
+- You branch off at the commit id for chapter 1.
   `git checkout -b temp 123456`
 
-- You cange the code and do a commit.
+- You change the code and do a commit.
   `git commit -am 'Changed foo to also do bar'`
 
 - Switch to master and rebase on the branch holding the fix which will inject the new commit into master at the right place:

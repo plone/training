@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (javascript-excercises-label)=
@@ -22,14 +23,14 @@ cd collective.jstraining
 
 `<location of your fork>` should be replaced with where your fork is.
 
-- npm/nodejs install on your system
+- npm/NodeJS install on your system
 - webpack installed on your system
 - grunt-cli installed on your system(`npm install -g grunt-cli`)
 
 ```{note}
-On macOS versions of npm/nodejs newer than 6.9.1 can make the bundling process fail.
+On macOS versions of npm/NodeJS newer than 6.9.1 can make the bundling process fail.
 Installing and using version 6.9.1 fixes the problem.
-Different versions of nodejs can be managed with nvm (Node Version Manager).
+Different versions of NodeJS can be managed with nvm (Node Version Manager).
 ```
 
 ```{toctree}

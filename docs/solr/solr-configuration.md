@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Solr Buildout Configuration
@@ -48,7 +49,7 @@ schema.xml
         [...]
 ```
 
-stopwords.txt:
+`stopwords.txt`:
 
 ```
 a
@@ -104,7 +105,7 @@ schema.xml
                 dictionary="stemdict.txt" ignoreCase="false" />
 ```
 
-stemdict.txt:
+`stemdict.txt`:
 
 ```
 # english stemming
@@ -142,7 +143,7 @@ schema.xml
 
 Note that the SynonymFilterFactory is an index filter and not a query filter.
 
-synonyms.txt:
+`synonyms.txt`:
 
 ```
 #Explicit mappings match any token sequence on the LHS of "=>"

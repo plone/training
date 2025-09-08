@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Create a theme based on Barceloneta
@@ -125,7 +126,7 @@ Open <http://localhost:8080> in a Browser and see that Plone is running.
 :alt: A running Plone instance.
 ```
 
-Click {guilabel}`Create a new Plone site` and enter `admin` for `Username` and also for `Password`
+Click {guilabel}`Create Classic Plone site` and enter `admin` for `Username` and also for `Password`
 
 ```{image} _static/barceloneta/create_plone_site.png
 :alt: A running Plone instance.
@@ -231,22 +232,117 @@ Bootstrap offers **[tons of variables](https://github.com/twbs/bootstrap/blob/ma
 
 We have overall properties like shadows, gradients, rounded corners or generic variables for things like colors, sizes, fonts and variables for very detailed aspects like the inner padding of your buttons or fields.
 
-Within the `styles` folder of your theme you find `theme.min.scss`. This is the base files for the compilation of your styles.
+Within the `styles` folder of your theme you find `theme.scss`. This is the base file for the compilation of your styles.
 
 ```{code-block} scss
 :linenos: true
 
-//// VARIABLES
-// ... add your variables here
+// Theme import structure is based on Bootstrap documentation
+// https://getbootstrap.com/docs/5.2/customize/sass/#importing
+
+// Barceloneta and Bootstrap import are using --load-path=node_modules
+
+// Roboto is not included in this template and therefore we disable the setup here.
+$enable-roboto-webfont: false !default;
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+$pink: #EE4793;
+$light-pink: #F3A4CB;
+$lighter-pink: #f7d4e5;
+$lightest-pink: #fff2f8;
+$medium-grey: #555;
+
+$primary: $pink;
+$secondary: $light-pink;
 
 
-//// IMPORTS
-// Import barceloneta files from node_modules --load-path=node_modules
-@import "@plone/plonetheme-barceloneta-base/scss/barceloneta.scss";
+// 3. Include remainder of required Barceloneta and Bootstrap stylesheets
+@import "@plone/plonetheme-barceloneta-base/scss/variables.colors.plone";
+@import "@plone/plonetheme-barceloneta-base/scss/variables.properties";
+@import "@plone/plonetheme-barceloneta-base/scss/variables.barceloneta";
+@import "bootstrap/scss/variables";
 
-//// STYLES
-// ... add your styles here
+// 4. Include any default map overrides here
 
+// 5. Include remainder of required parts
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+@import "@plone/plonetheme-barceloneta-base/scss/mixins/mixin.portlets.plone";
+@import "@plone/plonetheme-barceloneta-base/scss/mixins/mixin.font.plone";
+@import "@plone/plonetheme-barceloneta-base/scss/root_variables";
+
+// 6. Bootstrap base parts as needed
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/helpers";
+
+// 7. Bootstrap components
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/placeholders";
+
+// 8. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "bootstrap/scss/utilities/api";
+
+// 9. Barceloneta base
+@import "@plone/plonetheme-barceloneta-base/scss/alerts";
+@import "@plone/plonetheme-barceloneta-base/scss/forms";
+@import "@plone/plonetheme-barceloneta-base/scss/controlpanels";
+@import "@plone/plonetheme-barceloneta-base/scss/login";
+@import "@plone/plonetheme-barceloneta-base/scss/toolbar";
+@import "@plone/plonetheme-barceloneta-base/scss/grid";
+@import "@plone/plonetheme-barceloneta-base/scss/content_base";
+@import "@plone/plonetheme-barceloneta-base/scss/content_tables";
+
+// Barceloneta full
+@import "@plone/plonetheme-barceloneta-base/scss/cards";
+@import "@plone/plonetheme-barceloneta-base/scss/scaffolding";
+@import "@plone/plonetheme-barceloneta-base/scss/icons";
+@import "@plone/plonetheme-barceloneta-base/scss/header";
+@import "@plone/plonetheme-barceloneta-base/scss/sitenav";
+@import "@plone/plonetheme-barceloneta-base/scss/breadcrumbs";
+@import "@plone/plonetheme-barceloneta-base/scss/content";
+@import "@plone/plonetheme-barceloneta-base/scss/comments";
+@import "@plone/plonetheme-barceloneta-base/scss/portlets";
+@import "@plone/plonetheme-barceloneta-base/scss/footer";
+
+@import "@plone/plonetheme-barceloneta-base/scss/print";
+
+// @import "@plone/plonetheme-barceloneta-base/scss/roboto-webfont";
+
+
+// 9. Add additional custom code here
 
 ```
 
@@ -257,8 +353,8 @@ We add some colors and map those colors to `$primary` and `$secondary` variables
 ```{code-block} scss
 :linenos: true
 
-//// VARIABLES
-// ... add your variables here
+// 2. Include any default variable overrides here
+
 $pink: #EE4793;
 $light-pink: #F3A4CB;
 $lighter-pink: #f7d4e5;
@@ -267,13 +363,6 @@ $medium-grey: #555;
 
 $primary: $pink;
 $secondary: $light-pink;
-
-//// IMPORTS
-// Import barceloneta files from node_modules --load-path=node_modules
-@import "@plone/plonetheme-barceloneta-base/scss/barceloneta.scss";
-
-//// STYLES
-// ... add your styles here
 
 
 ```
@@ -564,7 +653,7 @@ $h2-font-size:                $font-size-base * 2.5;
     border-radius: $border-radius $border-radius 0 0;
 }
 
-#plone-breadcrumb {
+#portal-breadcrumbs {
     @include border-bottom-radius($border-radius);
 }
 #portal-header {
@@ -581,7 +670,7 @@ $h2-font-size:                $font-size-base * 2.5;
 
 ## CSS variables
 
-Bootstrap 5 added support for [CSS custom properties (variables)](https://getbootstrap.com/docs/5.1/customize/css-variables/). If you want to change any of the `:root` variables of Bootstrap directly, best thing is to add them at the bottom of your Stylesheet, since browsers interpret them natively.
+Bootstrap 5 added support for [CSS custom properties (variables)](https://getbootstrap.com/docs/5.1/customize/css-variables/). If you want to change any of the `:root` variables of Bootstrap directly, best thing is to add them at the bottom of your style sheet, since browsers interpret them native, like any other CSS.
 
 
 ```{code-block} scss
@@ -592,4 +681,15 @@ Bootstrap 5 added support for [CSS custom properties (variables)](https://getboo
 }
 ```
 
+You can also change colors of specific components like this:
 
+
+```{code-block} scss
+:linenos: true
+
+.navbar-barceloneta{
+    --bs-navbar-background: green;
+}
+```
+
+This works event in Theming > "Custom Styles", as it is plain CSS.

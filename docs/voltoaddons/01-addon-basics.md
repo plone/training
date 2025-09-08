@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training module 1, add-ons basics"
-  "property=og:description": "Volto add-ons development training"
-  "property=og:title": "Volto add-ons development"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training module 1, add-ons basics"
+    "property=og:description": "Volto add-ons development training"
+    "property=og:title": "Volto add-ons development"
+    "keywords": "Volto"
 ---
 
 # Volto add-ons development
@@ -228,7 +229,7 @@ what exactly is an add-on, many new add-ons were published and can now be
 integrated with unmodified Volto projects.
 
 The [collective/awesome-volto](https://github.com/collective/awesome-volto)
-repo tracks most of them (submit PRs if anything is missing!).
+repository tracks most of them (submit PRs if anything is missing!).
 
 An add-on can be almost anything that a Volto project can be. They can:
 
@@ -338,7 +339,7 @@ speed things up.
 
 ```{note}
 We will be using [function
-components](https://reactjs.org/docs/components-and-props.html#function-and-class-components)
+components](https://legacy.reactjs.org/docs/components-and-props.html#function-and-class-components)
 here. There is no rule in Volto that requires choosing between class components or
 function components. Pick whichever feels better. Volto itself uses both
 styles. Although the function components are a newer API, and the use of hooks

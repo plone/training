@@ -5,3 +5,4 @@ Disallow: /.doctrees/
 Disallow: /*.txt$
 Disallow: /.buildinfo$
 Disallow: /objects.inv$
+Sitemap: https://2022.training.plone.org/sitemap.xml

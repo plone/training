@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # WSGI options
@@ -72,7 +73,7 @@ We will use this form later in the training.
 
 Use WSGI middleware debugging facilities.
 When set to `on` this option will disable exception views and thus propagate errors to the WSGI stack.
-This allows you to use specific debugging WSGI middleware like the [werkzeug debugger](https://werkzeug.palletsprojects.com/en/0.15.x/debug/).
+This allows you to use specific debugging WSGI middleware like the [werkzeug debugger](https://werkzeug.palletsprojects.com/en/latest/debug/).
 We will cover this in the {doc}`debugging chapter <debugging>`.
 
 ## access-log, z2-log
@@ -94,8 +95,9 @@ Numerous logging handlers are defined in the [Python standard library](https://d
 Configure Plone access logging to a TCP Server using `logging.handlers.SocketHandler` from the Python standard library.
 Use a local address.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Add the following two lines to your buildout configuration (we use `options.cfg`) from the `wsgitraining_buildout` as a starting point:
 
@@ -121,7 +123,7 @@ eggs =
 Same for the `event-log-args/event-log-kwargs` options.
 This means you **have** to provide the `*-log-args` parameter, otherwise you will end up with the (in our case nonsensical) defaults in your `wsgi.ini`.
 After running buildout with `buildout -c options.cfg` you can start your instance with `bin/instance fg`.
-Use a tool such as [netcat](http://netcat.sourceforge.net/) (there is a package for your linux distribution) to open a listening socket: `nc -l 9000`.
+Use a tool such as [netcat](https://netcat.sourceforge.net/) (there is a package for your linux distribution) to open a listening socket: `nc -l 9000`.
 You will see the incoming log entries in pickled format when navigating to your Plone instance in the browser.
 ````
 

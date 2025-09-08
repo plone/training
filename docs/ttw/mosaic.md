@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Mosaic
@@ -200,8 +201,9 @@ Mosaic provides the following tiles:
 
 Create an attractive layout for the home page.
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 - Go to the {guilabel}`Display` menu and select {guilabel}`Mosaic layout`,
 - Click {guilabel}`Edit`,
@@ -231,8 +233,9 @@ You can quickly create one by the following the steps in the `Dexterity: Creatin
 
 Create an attractive layout for a talk, save it and reuse it for another talk.
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 - customize a talk layout (see Exercise 2),
 - click on :menuselection:{menuselection}`Layout --> Save`,

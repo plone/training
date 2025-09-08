@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Building Source Plugins
@@ -18,7 +19,7 @@ This requires the Plone site to have [plone.restapi](https://pypi.org/project/pl
 
 ```{note}
 plone.restapi is a RESTful hypermedia API for Plone.
-Read more about it in the [docs](https://plonerestapi.readthedocs.io/en/latest/introduction.html).
+Read more about it in the documentation of {doc}`Plone REST API <plone6docs:plone.restapi/docs/source/index>`.
 ```
 
 Then this plugin can be used to generate a static site from a Plone site, containing pages, structure and all of its contents.
@@ -37,24 +38,24 @@ This way there is a page structure as well.
 
 ```{note}
 Plone even allows custom types.
-Read more about this in the [docs](https://plonerestapi.readthedocs.io/en/latest/types.html).
+Read more about this in {doc}`plone6docs:plone.restapi/docs/source/endpoints/content-types`).
 ```
 
 Each of these content objects can be compared to nodes in GatsbyJS.
 
 Similar to what we did in the "Dynamic Pages" section, pages can be created for each of these nodes.
 
-The plone.restapi gives us data of children in `Folders` along with content itself.
+The `plone.restapi` gives us data of children in `Folders` along with content itself.
 
 This allows us to setup internal linking to ensure the structure as the Plone site.
 
-Navigation and breadcrumb data as well is provided by plone.restapi.
+Navigation and breadcrumb data as well is provided by `plone.restapi`.
 
 These also can be made into nodes and directly used in GatsbyJS.
 
 ## How It Works
 
-Before we get into using the plone.restapi, let us first understand how node creation works.
+Before we get into using the `plone.restapi`, let us first understand how node creation works.
 
 Source plugins run on GatsbyJS build time to pull data from a source, cache it, create nodes and a lot more.
 
@@ -88,7 +89,7 @@ plugins: [
   {
     resolve: 'gatsby-source-plone',
     options: {
-      baseUrl: 'https://plonedemo.kitconcept.com/en',
+      baseUrl: 'https://demo.plone.org',
     },
   }
 ]
@@ -152,8 +153,9 @@ You need to make sure it works by checking the result in GraphiQL.
 
 Hints: use any sample data and spread it to the node, but make sure it has all the fields that are mentioned above.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 In `gatsby-node.js`:
 

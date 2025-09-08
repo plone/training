@@ -1,18 +1,19 @@
 ---
-html_meta:
-  "description": "Style the React component."
-  "property=og:description": "Style the React component."
-  "property=og:title": "Styling your React component"
-  "keywords": "Plone, trainings, SEO, style, CSS, React, component, exercise, solution"
+myst:
+  html_meta:
+    "description": "Style the React component."
+    "property=og:description": "Style the React component."
+    "property=og:title": "Styling your React component"
+    "keywords": "Plone, trainings, SEO, style, CSS, React, component, exercise, solution"
 ---
 
 (react-styling-label)=
 
 # Styling Your Component
 
-## Add stylesheet
+## Add style sheet
 
-To add a stylesheet, we import the CSS file:
+To add a style sheet, we import the CSS file:
 
 ```jsx
 import "./App.css";
@@ -22,8 +23,9 @@ import "./App.css";
 
 Style the component so that the dot on each item is removed and the question is underlined.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 {file}`App.css`
 

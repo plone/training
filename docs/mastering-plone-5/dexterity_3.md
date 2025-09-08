@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-dexterity3-label)=
@@ -117,8 +118,8 @@ class ISponsor(model.Schema):
 
 Some things are notable here:
 
-- The fields in the schema are mostly from {py:mod}`zope.schema`. A reference of available fields is at <https://docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html>
-- In {samp}`directives.widget(level=RadioFieldWidget)` we change the default widget for a Choice field from a dropdown to radio-boxes. An incomplete reference of available widgets is at <https://docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html>
+- The fields in the schema are mostly from {py:mod}`zope.schema`. A reference of available fields is at <https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/fields.html>
+- In {samp}`directives.widget(level=RadioFieldWidget)` we change the default widget for a Choice field from a dropdown to radio-boxes. An incomplete reference of available widgets is at <https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/widgets.html>
 - {py:class}`LevelVocabulary` is used to create the options used in the field `level`. This way we could easily translate the displayed value.
 - {samp}`fieldset('Images', fields=['logo', 'advertisement'])` moves the two image fields to another tab.
 - {samp}`directives.read_permission(...)` sets the read and write permission for the field `notes` to users who can add new members. Usually this permission is only granted to Site Administrators and Managers. We use it to store information that should not be publicly visible. Please note that {py:attr}`obj.notes` is still accessible in templates and Python. Only using the widget (like we do in the view later) checks for the permission.
@@ -202,8 +203,9 @@ After reinstalling our package we can create the new type.
 
 Sponsors are containers but they don't need to be. Turn them into items by changing their class to {py:class}`plone.dexterity.content.Item`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Simply modify the property `klass` in the FTI and reinstall.
 
@@ -362,7 +364,7 @@ class SponsorsViewlet(ViewletBase):
 - We create the complete `img` tag using a custom scale (200x80) using the view `images` from {py:mod}`plone.namedfile.` This actually scales the logos and saves them as new blobs.
 - In {py:meth}`sponsors` we return an ordered dictionary of randomized lists of dicts (containing the information on sponsors). The order is by sponsor-level since we want the platinum sponsors on top and the bronze sponsors at the bottom. The randomization is for fairness among equal sponsors.
 
-{py:meth}`_sponsors` is cached for an hour using [plone.memoize](https://docs.plone.org/manage/deploying/performance/decorators.html#timeout-caches). This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
+{py:meth}`_sponsors` is cached for an hour using [plone.memoize](https://5.docs.plone.org/manage/deploying/performance/decorators.html#timeout-caches). This way we don't need to keep all sponsor objects in memory all the time. But we'd have to wait for up to an hour until changes will be visible.
 
 Instead we should cache until one of the sponsors is modified by using a callable {py:func}`_sponsors_cachekey` that returns a number that changes when a sponsor is modified.
 
@@ -380,9 +382,9 @@ Instead we should cache until one of the sponsors is modified by using a callabl
 > ```
 
 ```{seealso}
-- [Guide to Caching](https://docs.plone.org/manage/deploying/caching/index.html)
-- [Cache decorators](https://docs.plone.org/manage/deploying/performance/decorators.html)
-- [Image Scaling](https://docs.plone.org/develop/plone/images/content.html#creating-scales)
+- [Guide to Caching](https://5.docs.plone.org/manage/deploying/caching/index.html)
+- [Cache decorators](https://5.docs.plone.org/manage/deploying/performance/decorators.html)
+- [Image Scaling](https://5.docs.plone.org/develop/plone/images/content.html#creating-scales)
 ```
 
 ## The template for the viewlet
@@ -462,8 +464,9 @@ When we're done, it should have the following fields:
 
 Do _not_ use the {py:class}`IBasic` or {py:class}`IDublinCore` behavior to add title and description. Instead add your own field `title` and give it the title _Name_.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:
@@ -602,8 +605,9 @@ This is more of a Python exercise. The gold and bronze sponsors should also have
 - Silver: 200x80
 - Bronze: 150x60
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :emphasize-lines: 10-15, 41, 44-45

@@ -1,36 +1,29 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (reusable-label)=
 
-# Making Our Package Reusable
+# Permissions
 
 In this part you will:
 
-- Add Permissions
+- Add and use permissions
 
 Topics covered:
 
-- Permissions
+- permissions, roles
 
-The package contains some problems.
-
-- No permission settings, Users can't customize who and when users can vote
-- We do things, but don't trigger events. Events allow others to react.
 
 (reusable-permissions-label)=
 
 ## Adding permissions
 
-```{only} presentation
-- Zope 2 Permissions
-- Zope 3 Permissions
-```
 
 ````{only} not presentation
 Permissions have a long history, there are two types of permissions.
@@ -52,29 +45,34 @@ When our browser views get registered, the permissions must exist already. If yo
 ```
 ````
 
-Let's modify the file {file}`configure.zcml`
+Let's add a file {file}`permissions.zcml` and define three permissions for viewing, editing and clearing votes.
 
 ```{code-block} xml
-:emphasize-lines: 5-13
 :linenos:
 
-<configure xmlns="...">
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="plone">
 
-  <includeDependencies package="." />
+  <configure zcml:condition="installed AccessControl.security">
 
-  <permission
-      id="starzel.votable_behavior.view_vote"
-      title="starzel.votable_behavior: View Vote"
-      />
+    <permission
+        id="training.votable.view_vote"
+        title="training.votable: View Votes"
+        />
 
-  <permission
-      id="starzel.votable_behavior.do_vote"
-      title="starzel.votable_behavior: Do Vote"
-      />
+    <permission
+        id="training.votable.can_vote"
+        title="training.votable: Can Vote"
+        />
 
-  <include package=".browser" />
+    <permission
+        id="training.votable.clear_votes"
+        title="training.votable: Clear Votes"
+        />
 
-  ...
+  </configure>
 
 </configure>
 ```
@@ -86,156 +84,67 @@ We provide this in {file}`__init__.py`
 ```{code-block} python
 :linenos:
 
-...
-DoVote = 'starzel.votable_behavior: Do Vote'
-ViewVote = 'starzel.votable_behavior: View Vote'
+ViewVotesPermission = "training.votable: View Votes"
+CanVotePermission = "training.votable: Can Vote"
+ClearVotesPermission = "training.votable: Clear Votes"
 ```
 
 (reusable-permissions2-label)=
 
 ## Using our permissions
 
-```{only} not presentation
-As you can see, we created two permissions, one for voting, one for viewing the votes.
-
-If a user is not allowed to see the votes, she does not need access to the vote viewlet.
-
-While we are at it, if a user can't vote, she needs no access to the helper view to actually submit a vote.
-```
-
-We can add this restriction to {file}`browser/configure.zcml`
+We can add now restriction on accessing the `@votes` endpoint POST service in {file}`/src/training/votable/api/configure.zcml`
 
 ```{code-block} xml
-:emphasize-lines: 13, 21
+:emphasize-lines: 11
 :linenos:
 
 <configure
   xmlns="http://namespaces.zope.org/zope"
   xmlns:browser="http://namespaces.zope.org/browser"
-  i18n_domain="starzel.votable_behavior">
+  i18n_domain="training.votable">
 
-  <browser:viewlet
-    name="voting"
-    for="starzel.votable_behavior.interfaces.IVotable"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-    template="templates/voting_viewlet.pt"
-    layer="..interfaces.IVotableLayer"
-    class=".viewlets.Vote"
-    permission="starzel.votable_behavior.view_vote"
+  <plone:service
+    method="POST"
+    for="training.votable.behaviors.votable.IVotableMarker"
+    factory=".voting.VotingPost"
+    name="@votes"
+    permission="training.votable.can_vote"
     />
-
-  <browser:page
-    name="vote"
-    for="starzel.votable_behavior.interfaces.IVotable"
-    layer="..interfaces.IVotableLayer"
-    class=".vote.Vote"
-    permission="starzel.votable_behavior.do_vote"
-    />
-
-  ...
 
 </configure>
 ```
 
-````{only} not presentation
-We are configuring components, so we use the component name of the permission, which is the {samp}`id` part of the declaration we added earlier.
-
-```{seealso}
-So, what happens if we do not protect the browser view to vote?
-
-The person could still vote, by handcrafting the URL. Browser Views run code without any restriction, it is your job to take care of security.
-
-But... if a person has no access to the object at all, maybe because the site is configured that Anonymous users cannot access private objects, the unauthorized users will not be able to submit a vote.
-
-That is because Zope checks security permissions when trying to find the right object. If it can't find the object due to security constraints not met, no view ill ever be called, because that would have been the next step.
-```
-
-We now protect our views and viewlets. We still show the option to vote though.
-
-We must add a condition in our page template, and we must provide the condition information in our viewlet class.
-````
-
-Lets move on to {file}`browser/viewlets.py`.
+And we can add a permission check inside Python code on the current user on the context by
 
 ```{code-block} python
-:emphasize-lines: 9, 19-22
+:emphasize-lines: 6-10
 :linenos:
 
-# ...
+class VotingDelete(Service):
+    """Unlock an object"""
 
-from starzel.votable_behavior import DoVote
-
-
-class Vote(base.ViewletBase):
-
-#   ...
-    can_vote = None
-
-    def update(self):
-
-#       ...
-
-        if self.is_manager is None:
-            membership_tool = getToolByName(self.context, 'portal_membership')
-            self.is_manager = membership_tool.checkPermission(
-                ViewManagementScreens,
-                self.context,
-            )
-            self.can_vote = membership_tool.checkPermission(
-                DoVote,
-                self.context,
-            )
-
-#  ...
+    def reply(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        can_clear_votes = api.user.has_permission(
+            ClearVotesPermission, obj=self.context
+        )
+        if not can_clear_votes:
+            raise Unauthorized("User not authorized to clear votes.")
+        voting = IVotable(self.context)
+        voting.clear()
+        return vote_info(self.context, self.request)
 ```
 
-And the template in {file}`browser/templates/voting_viewlet.pt`
-
-```{code-block} xml
-:emphasize-lines: 7, 13
-:linenos:
-
-<tal:snippet omit-tag="">
-  <div class="voting">
-
-    ...
-
-    <div id="notyetvoted" class="voting_option"
-            tal:condition="view/can_vote">
-      What do you think of this talk?
-      <div class="votes"><span id="voting_plus">+1</span> <span id="voting_neutral">0</span> <span id="voting_negative">-1</span>
-      </div>
-    </div>
-    <div id="no_ratings" tal:condition="not: view/has_votes">
-      This talk has not been voted yet.<span tal:omit-tag="" tal:condition="view/can_vote"> Be the first!</span>
-    </div>
-
-  ...
-
-  </div>
-
-...
-
-</tal:snippet>
-```
-
-```{only} not presentation
-Sometimes subtle bugs come up because of changes. In this case I noticed that I should only prompt people to vote if they are allowed to vote!
-```
 
 (reusable-defaults-label)=
 
 ## Provide defaults
 
-```{only} not presentation
-Are we done yet? Who may vote now?
+After protecting services we do now want to assign the permissions to roles.
+For example the users with role "Reviewer" should be able to vote.
 
-We have to tell that someone.
-
-Who has which permissions is managed in Zope. This is persistent, and persistent configuration is handled by GenericSetup.
-```
-
-The persistent configuration is managed in another file: {file}`profiles/default/rolemap.xml`
+The persistent configuration is managed in {file}`profiles/default/rolemap.xml`
 
 ```{code-block} xml
 :linenos:
@@ -243,12 +152,20 @@ The persistent configuration is managed in another file: {file}`profiles/default
 <?xml version="1.0"?>
 <rolemap>
   <permissions>
-    <permission name="starzel.votable_behavior: View Vote" acquire="True">
-      <role name="Anonymous"/>
+
+    <permission name="training.votable: View Votes" acquire="True">
+      <role name="Authenticated"/>
+      <role name="Site Administrator"/>
+      <role name="Manager"/>
     </permission>
-    <permission name="starzel.votable_behavior: Do Vote" acquire="True">
-      <role name="Anonymous"/>
+    <permission name="training.votable: Can Vote" acquire="True">
+      <role name="Reviewer"/>
     </permission>
+    <permission name="training.votable: Clear Votes" acquire="True">
+      <role name="Site Administrator"/>
+      <role name="Manager"/>
+    </permission>
+    
   </permissions>
 </rolemap>
 ```

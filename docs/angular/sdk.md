@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # What Is The Plone Angular SDK
@@ -11,7 +12,7 @@ html_meta:
 The [Plone Angular SDK](https://www.npmjs.com/package/@plone/restapi-angular) is an Angular
 package (named `@plone/restapi-angular` as it belongs to the Plone NPM organization).
 
-It is a high-level integration layer between Angular and the [Plone REST API](https://plonerestapi.readthedocs.io/en/latest/introduction.html).
+It is a high-level integration layer between Angular and the {doc}`Plone REST API <plone6docs:plone.restapi/docs/source/index>`.
 
 It provides:
 

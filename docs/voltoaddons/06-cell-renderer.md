@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training module 6, cell renderer"
-  "property=og:description": "Volto add-ons development training module 6"
-  "property=og:title": "Volto add-ons development cell renderer"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training module 6, cell renderer"
+    "property=og:description": "Volto add-ons development training module 6"
+    "property=og:title": "Volto add-ons development cell renderer"
+    "keywords": "Volto"
 ---
 
 # Make the block extensible

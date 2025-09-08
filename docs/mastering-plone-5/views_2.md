@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-views2-label)=
@@ -615,5 +616,5 @@ the biggest difference is that this method is supposed to return the HTML alread
 Let your base class handle the HTML generation.
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/views/browserviews.html>
+<https://5.docs.plone.org/develop/plone/views/browserviews.html>
 ```

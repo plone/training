@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # `Bjoern`
@@ -93,8 +94,9 @@ thomas@blake:~$ pmap 17245 | grep bjoern
 Additional PasteDeploy entrypoints are available for the [werkzeug entrypoints](https://pypi.org/project/dataflake.wsgi.werkzeug) and [cheroot entrypoints](https://pypi.org/project/dataflake.wsgi.cheroot) WSGI servers.
 Pick one and use it to run Plone behind [werkzeug](https://palletsprojects.com/p/werkzeug/) or [cheroot](https://cheroot.cherrypy.dev/en/latest/).
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 **cheroot:**
 

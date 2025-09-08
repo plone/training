@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Adjusting the visual representation of Plone with {term}`Diazo`
+myst:
+  html_meta:
+    "description": "Adjusting the visual representation of Plone with Diazo"
+    "property=og:description": "Adjusting the visual representation of Plone with Diazo"
+    "property=og:title": "Plone 6 Classic UI Theming"
+    "keywords": "Plone, Classic UI, theming, training"
 ---
 
 (theming-label)=
@@ -35,7 +39,6 @@ A linux based laptop (Ubuntu, macOS) with code editor of your choice (we recomme
 
 preparation
 ttw_customizations
-prerequesites
 theme_barceloneta
 theme_scratch
 theme_diazo

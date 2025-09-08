@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (teaching-index-label)=
@@ -12,7 +13,7 @@ html_meta:
 
 This section covers all that trainers need to know when teaching Plone Trainings.
 
-Trainers should read {doc}`/contributing/setup-build` and the trainings in {doc}`/plone_training_config/instructions`.
+Trainers should read {doc}`/contributing/setup-build`.
 These documents help trainers prepare for a successful training experience.
 
 

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Theme Package III: Customizations
@@ -141,10 +142,10 @@ which compiles the configured Less files into CSS and afterwards transforms the 
 ```console
 $ grunt
 Running "less:dist" (less) task
->> 1 stylesheet created.
+>> 1 style sheet created.
 
 Running "postcss:dist" (postcss) task
->> 1 processed stylesheet created.
+>> 1 processed style sheet created.
 
 Done, without errors.
 ```
@@ -160,10 +161,10 @@ Running "watch" task
 Waiting...
 >> File "less/custom.less" changed.
 Running "less:dist" (less) task
->> 1 stylesheet created.
+>> 1 style sheet created.
 
 Running "postcss:dist" (postcss) task
->> 1 processed stylesheet created.
+>> 1 processed style sheet created.
 
 Done, without errors.
 ```
@@ -220,10 +221,10 @@ Waiting...
 [Browsersync] Reloading Browsers...
 >> File "less/custom.less" changed.
 Running "less:dist" (less) task
->> 1 stylesheet created.
+>> 1 style sheet created.
 
 Running "postcss:dist" (postcss) task
->> 1 processed stylesheet created.
+>> 1 processed style sheet created.
 
 Done, without errors.
 Completed in 2.149s at Tue Sep 26 2017 12:56:21 GMT+0200 (CEST) - Waiting...
@@ -278,7 +279,7 @@ After making changes to the file {file}`manifest.cfg`, we need to deactivate/act
 ```
 
 ```{note}
-You can read more about the {file}`manifest.cfg` and the available options in the [plone.app.theming documentation](https://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file).
+You can read more about the {file}`manifest.cfg` and the available options in the [plone.app.theming documentation](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file).
 ```
 
 ## Final CSS Customization
@@ -675,6 +676,6 @@ use {command}`grunt watch` to do this automatically after every file change.
 ## More Diazo And plone.app.theming Details
 
 For more information on how to build a Diazo based theme look at [the diazo documentation](http://docs.diazo.org/en/latest/)
-and [the plone.app.theming manual](https://docs.plone.org/external/plone.app.theming/docs/index.html).
+and [the plone.app.theming manual](https://5.docs.plone.org/external/plone.app.theming/docs/index.html).
 
 In the next part we will {doc}`take a look at template customizations <theme-package-4>` for our theme and {ref}`make the slider dynamic and let users change the pictures for the slider <create-dynamic-slider-content-in-plone>`.

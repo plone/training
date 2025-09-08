@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (eggs1-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
 :alt: Plone backend
-:align: left
 :class: logo
 ```
 
@@ -50,7 +50,7 @@ Topics covered:
 You can skip this part since you already added {py:mod}`ploneconf.site` as a source-checkout when running buildout.
 And in {ref}`features-create-plonesite-label` you installed that package when creating your site.
 
-You can still follow this chapter to learn hwo to create your own packages.
+You can still follow this chapter to learn how to create your own packages.
 ```
 
 Your own code has to be organized as a [Python package](https://docs.python.org/3/tutorial/modules.html#packages). A python package is a directory that follows certain conventions to hold python modules.
@@ -65,16 +65,16 @@ Install plonecli:
 
 ```shell
 $ pip install plonecli
-$ pip install bobtemplates.plone==6.0b8
+$ pip install bobtemplates.plone==6.0b15
 ```
 
 Then create the addon:
 
 ```shell
-$ plonecli create addon src/ploneconf.site
+plonecli create addon sources/ploneconf.site
 ```
 
-The new add-on will be created in the {file}`src` directory (_src_ is short for _sources_)
+The new add-on will be created in the {file}`sources` directory.
 
 You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. choosing the default value) for most questions except where indicated (enter your GitHub username if you have one, do not initialize a GIT repository, Use Plone 5.2 and python 3.7):
 
@@ -97,11 +97,6 @@ You have to answer some questions about the add-on. Press {kbd}`Enter` (i.e. cho
 
 git init is disabled!
 Generated file structure at /Users/pbauer/workspace/training/buildout/src/ploneconf.site
-```
-
-```{note}
-You may see Errors like `Error on isort-apply: isort-apply create [...]`
-Please ignore these.
 ```
 
 ```{only} not presentation
@@ -141,7 +136,7 @@ In {file}`src` there is now a new folder {file}`ploneconf.site` and in there is 
 
 : The python code of your package itself lives inside a special folder structure.
 That seems confusing but is necessary for good testability.
-Our package contains a [namespace package](https://www.python.org/dev/peps/pep-0420/) called _ploneconf.site_ and because of this there is a folder {file}`ploneconf` with a {file}`__init__.py` and in there another folder {file}`site` and in there finally is our code.
+Our package contains a [namespace package](https://peps.python.org/pep-0420/) called _ploneconf.site_ and because of this there is a folder {file}`ploneconf` with a {file}`__init__.py` and in there another folder {file}`site` and in there finally is our code.
 From the buildout's perspective your code is in {file}`{your buildout directory}/src/ploneconf.site/src/ploneconf/site/{real code}`
 
 ```{note}

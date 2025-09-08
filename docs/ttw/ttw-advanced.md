@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Introduction To Diazo Theming
@@ -46,7 +47,7 @@ At its core, a Diazo theme consists of an HTML page and {file}`rules.xml` file c
 ```{note}
 You can find extended information about Diazo and its integration package {py:mod}`plone.app.theming`
 in the official docs: [Diazo docs](http://docs.diazo.org/en/latest/) and
-[plone.app.theming docs](https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme).
+[plone.app.theming docs](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme).
 ```
 
 ## Principles
@@ -87,8 +88,8 @@ To create our playground we will copy the existing Barceloneta theme.
 
 The most important files:
 
-- {file}`manifest.cfg`: contains metadata about the theme ([manifest reference](https://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file));
-- {file}`rules.xml`: contains the theme rules ([rules reference](https://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax));
+- {file}`manifest.cfg`: contains metadata about the theme ([manifest reference](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file));
+- {file}`rules.xml`: contains the theme rules ([rules reference](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax));
 - {file}`index.html`: the static HTML of the theme.
 
 ### Exercise 1 - Inspecting the {file}`manifest.cfg`
@@ -104,8 +105,9 @@ What property in the {file}`manifest.cfg` file defines the source CSS/Less file 
 
 What do you think is the purpose of the `prefix` property?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 The main rules are defined by the `rules` property (you could point this anywhere, however the accepted convention is to use a file named {file}`rules.xml`.
 
@@ -177,8 +179,9 @@ Look back at the `<body>` classes for a manager, then see if you can answer the 
 2. Can you see other differences?
 3. What do you think the `plone-toolbar-expanded` class does?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 The manager also has the role "member" and "authenticated"
 

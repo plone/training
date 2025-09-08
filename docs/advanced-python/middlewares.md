@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Middlewares
@@ -115,8 +116,9 @@ def log_environ(handler):
 Implement your own middleware which capitalizes the response you original
 application return.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```python
 def capitalize_response(handler):
@@ -151,8 +153,9 @@ def reverser(wsgiapp):
 app = reverser(reverser(app)) # should return Hello WSGI!
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```python
 def reverser(handler):

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (viewlets1-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Classic UI Chapter
 ```{figure} _static/plone-training-logo-for-classicui.svg
 :alt: Plone Classic UI
-:align: left
 :class: logo
 ```
 
@@ -168,8 +168,9 @@ Use only a template (no class) to display the number of talks already submitted.
 
 Hint: Use Acquisition to get the catalog (You know, you should not do this but there is plenty of code out there that does it...)
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Register the viewlet in {file}`browser/configure.zcml`
 
@@ -245,8 +246,9 @@ Use a class and a template to display the number of days until the conference.
 
 You get bonus points if you display it in a nice format (think "In 2 days" and "Last Month") by using either JavaScript or a Python library.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 In {file}`configure.zcml`:
 
@@ -281,7 +283,7 @@ class DaysToConferenceViewlet(ViewletBase):
         return arrow.get(CONFERENCE_START_DATE).humanize()
 ```
 
-Setting the date in python is not very user-friendly. In the chapter {ref}`registry-label` you learn how store global configuration and easily create controlpanels.
+Setting the date in python is not very user-friendly. In the chapter {ref}`registry-label` you learn how store global configuration and easily create control panels.
 
 And in {file}`templates/days_to_conference.pt`:
 
@@ -301,4 +303,4 @@ Or using the moment pattern in Plone 5:
 ```
 ````
 
-[browserlayer]: https://docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction
+[browserlayer]: https://5.docs.plone.org/develop/plone/views/layers.html?highlight=browserlayer#introduction

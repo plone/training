@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Learn how Blocks work in Volto"
-  "property=og:description": "Learn how Blocks work in Volto"
-  "property=og:title": "Introduction to Volto Blocks"
-  "keywords": "Plone, Volto, Training, Blocks, Introduction"
+myst:
+  html_meta:
+    "description": "Learn how Blocks work in Volto"
+    "property=og:description": "Learn how Blocks work in Volto"
+    "property=og:title": "Introduction to Volto Blocks"
+    "keywords": "Plone, Volto, Training, Blocks, Introduction"
 ---
 
 (voltohandson-introtoblocks-label)=
@@ -17,7 +18,7 @@ The editor allows you to add, modify, reorder and delete blocks.
 Blocks provide the user the ability to display content in an arbitrary way, although blocks can also define behavior and can have specific features.
 Blocks are composed of two basic (and required) components: the Block edit and view components.
 
-By default, Volto ships with the most basic set of Blocks, including Title, Text, Image, Video, and Maps.
+By default, Volto ships with a basic set of Blocks, including Title, Text, Image, Video, Listing, Search, Table, ToC and Maps.
 
 ```{note}
 Volto Blocks are not enabled by default in Plone content types.
@@ -36,21 +37,21 @@ Test the `Blocks` behavior for the content type you've just added it to, by crea
 
 ```{image} _static/behaviors_controlpanel.png
 :align: center
-:alt: behaviors controlpanel in Volto
+:alt: behaviors control panel in Volto
 ```
 
 ## Blocks anatomy
 
 Every Block is composed of an edit (`Edit.jsx`) component and a view (`View.jsx`) component.
 
-Create your first block in the project by adding these two components in a new directory in `src/components/Blocks/MainSlider`.
+Create your first block in the project by adding these two components in a new directory in `src/components/Blocks/highlight`.
 This is the `Edit.jsx`:
 
 ```jsx
 import React from "react";
 
 const Edit = (props) => {
-  return <div>I'm the MainSlider edit component!</div>;
+  return <div>I'm the Highlight edit component!</div>;
 };
 
 export default Edit;
@@ -62,7 +63,7 @@ and the `View.jsx`.
 import React from "react";
 
 const View = (props) => {
-  return <div>I'm the MainSlider view component!</div>;
+  return <div>I'm the Highlight view component!</div>;
 };
 
 export default View;
@@ -109,53 +110,37 @@ To help keeping paths for importing components clean we use index files in sever
 `components/index.js`
 
 ```js
-export MainSliderViewBlock from "./Blocks/Mainslider/View";
-export MainSliderEditBlock from "./Blocks/Mainslider/Edit";
+import HighlightBlockEdit from "./Blocks/highlight/Edit";
+import HighlightBlockView from "./Blocks/highlight/View";
+
+export { HighlightBlockEdit, HighlightBlockView };
 ```
 
 ## Blocks settings
 
-We need to configure the project to make it aware of a new block by adding it to the object configuration for that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser.
+We need to configure the project to make it aware of a new block by adding it to the object configuration for that we need the 2 blocks components we created and a svg icon that will be displayed in the blocks chooser. This will gain be done in the projects config file
 
 Import those before the `import '@plone/volto/config';` line:
 
 ```js
-import { MainSliderViewBlock, MainSliderEditBlock } from "@package/components";
-import sliderSVG from "@plone/volto/icons/slider.svg";
+import { HighlightBlockView, HighlightBlockEdit } from "@package/components";
+import heroSVG from "@plone/volto/icons/hero.svg";
 ```
 
 Register it inside the `applyConfig()` function:
 
 ```js
-config.blocks.blocksConfig.mainslider = {
-  id: "mainslider",
-  title: "Main Slider",
-  icon: sliderSVG,
+config.blocks.blocksConfig.highlight = {
+  id: "highlight",
+  title: "Highlight",
+  icon: heroSVG,
   group: "common",
-  view: MainSliderViewBlock,
-  edit: MainSliderEditBlock,
+  view: HighlightBlockView,
+  edit: HighlightBlockEdit,
   restricted: false,
   mostUsed: true,
-  security: {
-    addPermission: [],
-    view: [],
-  },
+  sidebarTab: 1,
 };
-```
-
-We add this also, to fulfill all our i18n requirements:
-
-```js
-import { defineMessages } from 'react-intl';
-
-...
-
-defineMessages({
-  mainslider: {
-    id: 'Main Slider',
-    defaultMessage: 'Main Slider',
-  },
-});
 ```
 
 Our new block should be ready to use in the editor.

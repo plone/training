@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Deploying and Operating Plone behind a WSGI server
+myst:
+  html_meta:
+    "description": "Deploying and Operating Plone behind a WSGI server"
+    "property=og:description": "Deploying and Operating Plone behind a WSGI server"
+    "property=og:title": "Deploying and Operating Plone behind a WSGI server"
+    "keywords": "Plone, deploy, WSGI, training"
 ---
 
 (wsgi-label)=

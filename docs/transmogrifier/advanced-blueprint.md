@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Advanced Blueprint Tips
@@ -12,7 +13,7 @@ html_meta:
 
 This training only focused on one stage, but iterators have three stages!
 Learn more about this at
-<https://docs.plone.org/external/collective.transmogrifier/docs/source/transmogrifier.html#iterators-have-3-stages>
+<https://5.docs.plone.org/external/collective.transmogrifier/docs/source/transmogrifier.html#iterators-have-3-stages>
 
 ## Migrating Users & Groups
 

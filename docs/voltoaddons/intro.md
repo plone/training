@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training intro"
-  "property=og:description": "Volto add-ons development training"
-  "property=og:title": "Volto add-ons development intro"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training intro"
+    "property=og:description": "Volto add-ons development training"
+    "property=og:title": "Volto add-ons development intro"
+    "keywords": "Volto"
 ---
 
 (voltoaddons-intro-label)=
@@ -99,6 +100,6 @@ make start-backend
 
 [generator-volto]: https://github.com/plone/generator-volto
 [plone]: https://plone.org
-[react]: https://reactjs.org/
+[react]: https://react.dev/
 [volto]: https://github.com/plone/volto
 [yarn]: https://yarnpkg.com

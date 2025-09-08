@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (setup-label)=
@@ -12,10 +13,10 @@ html_meta:
 
 ## Installing Prerequisites
 
-Please follow the instructions given [here](https://training.plone.org/5/plone_training_config/instructions.html) to install a Ubuntu 18.04 box for this training.
+Please follow the instructions given [here](https://2022.training.plone.org/plone_training_config/instructions_plone5.html) to install a Ubuntu 18.04 box for this training.
 This training is about deploying Plone, so we will not need the Plone instance provided by these instructions.
-If you follow the section on how to [Installing Plone without vagrant](https://training.plone.org/5/plone_training_config/instructions.html#installing-plone-without-vagrant), you can therefore stop following the instructions where it reads "Set up Plone for the training like this if you use your own OS (Linux or Mac)".
-If instead you have chosen to [Install Plone with Vagrant](https://training.plone.org/5/plone_training_config/instructions.html#installing-plone-with-vagrant), you can comment out the `# install plone` section in the `Vagrantfile`:
+If you follow the section on how to [Installing Plone without vagrant](https://2022.training.plone.org/plone_training_config/instructions_plone5.html#installing-plone-without-vagrant), you can therefore stop following the instructions where it reads "Set up Plone for the training like this if you use your own OS (Linux or Mac)".
+If instead you have chosen to [Install Plone with Vagrant](https://2022.training.plone.org/plone_training_config/instructions_plone5.html#installing-plone-with-vagrant), you can comment out the `# install plone` section in the `Vagrantfile`:
 
 ```{code-block} bash
 :emphasize-lines: 9-12

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Continuous Integration
@@ -47,12 +48,12 @@ Because `collective` and `plone` repositories are on `GitHub`, the most commonly
 
 Let's see how to enable our testing package on Travis.
 
-First, we need to create a repo on GitHub. We don't need to push code to it yet.
+First, we need to create a repository on GitHub. We don't need to push code to it yet.
 
-Then we need a Travis CI account: go to [https://travis-ci.org](https://travis-ci.org) and signup with your GitHub credentials.
+Then we need a Travis CI account: go to https://www.travis-ci.com/ and signup with your GitHub credentials.
 
 If we go to the settings control panel, we can see a list of organizations and repositories for which we can enable Travis.
-We could also see our newly created repo and we can enable it.
+We could also see our newly created repository and we can enable it.
 
 ```{note}
 The repository list is periodically synced. If you don't see new repos, click the `refresh` button.
@@ -64,7 +65,7 @@ The repository list is periodically synced. If you don't see new repos, click th
 
 By default, Travis CI will run tests automatically for each push to the repository, including pull requests, and can also be manually triggered (but only for the `master` branch).
 
-For this reason, to trigger the first test run, we make our first commit to the repo:
+For this reason, to trigger the first test run, we make our first commit to the repository:
 
 ```shell
 git remote add origin git@github.com:your-username/plonetraining.testing.git
@@ -142,7 +143,7 @@ anything that can evaluate the quality of our add-on and can fail.
 
 In our case, we are running two tests:
 
-- `bin/code-analysis`: a script that checks if all Python code in our repository follows some coding styleguides (see later in this chapter).
+- `bin/code-analysis`: a script that checks if all Python code in our repository follows some coding style guides (see later in this chapter).
 - `bin/test --all`: the same script that we run in our local tests (this is the same as running `plonecli test --all`).
 
 ```{literalinclude} _snippets/.travis.yml
@@ -191,7 +192,7 @@ plone.recipe.codeanalysis also creates a git `pre-commit` hook that runs the abo
 
 The output is a list of things that need to be fixed, indicating the file name and line for each reported item.
 
-### Excercise
+### Exercise
 
 Try to fix all code-analysis errors and commit your changes to have all green jobs on Travis CI
 
@@ -244,7 +245,7 @@ For each matrix element, tox will create a separate environment using virtualenv
 
 Only if all environments ran successfully will tox return exit code 0 (success). In this case you’ll also see the message `congratulations :)`.
 
-### Excercise
+### Exercise
 
 Try to install and run tox locally.
 

@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Learn how to create your own website based on Volto
+myst:
+  html_meta:
+    "description": "Learn how to create your own website based on Volto"
+    "property=og:description": "Learn how to create your own website based on Volto"
+    "property=og:title": "Volto"
+    "keywords": "Plone, Volto, training"
 ---
 
 (volto-label)=

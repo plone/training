@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-resources-label)=
@@ -112,5 +113,5 @@ Open the file {file}`profiles/default/registry.xml` and add the following:
 
 The resources that are part of the registered bundle will now be deployed with every request.
 
-For more information on working with CSS and JavaScript resources, please see the [resource registry documentation](https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html)
-or the [Advanced Diazo training class](https://training.plone.org/5/theming_plone_5/adv-diazo.html).
+For more information on working with CSS and JavaScript resources, please see the [resource registry documentation](https://5.docs.plone.org/adapt-and-extend/theming/resourceregistry.html)
+or {doc}`../theming_plone_5/adv-diazo`.

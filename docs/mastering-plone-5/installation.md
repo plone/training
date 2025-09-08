@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-installation-label)=
@@ -70,7 +71,7 @@ For the training we will use option 2 or 5 to install and run Plone.
 ```
 
 ```{seealso}
-- <https://docs.plone.org/manage/installing/installation.html>
+- <https://5.docs.plone.org/manage/installing/installation.html>
 ```
 
 (plone5-installation-hosting-label)=
@@ -89,7 +90,7 @@ You can host Plone...
 
 See all the ways you can [set up Plone](https://plone.org/download)
 ```{seealso}
-- Plone Installation Requirements: <https://docs.plone.org/manage/installing/requirements.html>
+- Plone Installation Requirements: <https://5.docs.plone.org/manage/installing/requirements.html>
 ```
 
 (plone5-installation-prod-deploy-label)=
@@ -106,4 +107,4 @@ The way we are setting up a Plone site during this class may be adequate for a s
 
 And, you will need to learn strategies for efficient backup and log file rotation.
 
-All these topics are introduced in [Guide to deploying and installing Plone in production](https://docs.plone.org/manage/deploying/index.html).
+All these topics are introduced in [Guide to deploying and installing Plone in production](https://5.docs.plone.org/manage/deploying/index.html).

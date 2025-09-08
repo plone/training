@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Adding Quick Links In the Footer
@@ -22,18 +23,19 @@ Go to the Plone site setup page / Dexterity  content types, and select Link.
 
 Then in the Fields tab, we add a new textline field named 'icon'.
 
-Now we can go back to the Plone site home, add a new folder named Quicklinks, and add few links.
+Now we can go back to the Plone site home, add a new folder named `Quicklinks`, and add few links.
 
-For each of them, we will choose an icon name from <https://getbootstrap.com/docs/3.3/components/#glyphicons-glyphs>
+For each of them, we will choose an icon name from <https://getbootstrap.com/docs/3.4/components/#glyphicons-glyphs>
 
-And we will exclude the Quicklinks folder from navigation.
+And we will exclude the `Quicklinks` folder from navigation.
 
 ## Displaying The Links
 
 Let's implement the Footer component able to display those links.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 First we generate the component:
 

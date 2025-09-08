@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-instructions-label)=
@@ -70,7 +71,7 @@ On macOS you at least need to install some dependencies with [Homebrew](https://
 brew install zlib git readline jpeg libpng libyaml
 ```
 
-For more information or in case of problems see the [official installation instructions](https://docs.plone.org/manage/installing/installation.html).
+For more information or in case of problems see the [official installation instructions](https://5.docs.plone.org/manage/installing/installation.html).
 
 Set up Plone for the training like this if you use your own OS (Linux or Mac):
 
@@ -192,7 +193,7 @@ We use VirtualBox 6.0.x
 
 ### Install and configure Vagrant
 
-Get the latest version from <https://www.vagrantup.com/downloads> for your operating system and install it.
+Get the latest version from <https://developer.hashicorp.com/vagrant/downloads> for your operating system and install it.
 
 Now your system has a command {command}`vagrant` that you can run in the terminal.
 

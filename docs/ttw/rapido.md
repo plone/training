@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Rapido
@@ -217,7 +218,10 @@ Let's start by displaying a static counter showing "0 votes" on all talks.
 
 First, we need to create the `rating` Rapido app.
 
-```{admonition} Solution
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
 - Go to the Plone theming control panel: <http://localhost:8080/Plone/@@theming-controlpanel>
 - Copy the Barceloneta theme, name it `training` and enable it immediately,
 - Add a new folder named {file}`rapido`,
@@ -228,7 +232,10 @@ The Rapido app is initialized.
 
 And now, we need to create a `rate` block.
 
-````{admonition} Solution
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
 - Add a folder named {file}`blocks` in {file}`rating`,
 
 - In {file}`blocks`, add a file named {file}`rate.html`,
@@ -282,7 +289,10 @@ The app-specific rules file can be included in the main rules file as follows
 
 Insert the `rate` block content under the Plone page main heading.
 
-````{admonition} Solution
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
 - in the main {file}`rules.xml`, add the following line just after the first
   `<rules>` opening tag:
 
@@ -383,7 +393,10 @@ Let's replace the "`0`" value in our rate block with a computed value.
 To do this, you need to add an element to the block.
 For now the Python function will return `10`.
 
-````{admonition} Solution
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
 - In the {file}`blocks` folder, add a new file named {file}`rate.yaml` containing:
 
   ```yaml
@@ -460,7 +473,10 @@ Add a {guilabel}`Like` button to the block.
 For now, the action itself will do nothing.
 Let's just insert it at the right place, and make sure the block is refreshed properly when we click.
 
-````{admonition} Solution
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
 - in {file}`rate.yaml`, add a new `like` element and change the target to `ajax`
   After doing this, your YAML file looks as follows:
 
@@ -540,7 +556,10 @@ Let's implement the {py:func}`like` function:
   \- if it does not exist, we need to create it,
 - and then we need to increase the current total votes for that talk by 1.
 
-````{admonition} Solution
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
 ```python
 def like(context):
     current_talk = context.content
@@ -720,7 +739,10 @@ Let's create a block to display the Talks Top 5:
 - We will use a TAL template (but for now the content will be fake and static).
 - Visitors will access it from a footer link.
 
-`````{admonition} Solution
+`````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
 First we create a {file}`top5.pt` file in the {file}`blocks` folder with the following content:
 
 ```html
@@ -823,7 +845,10 @@ We want to be able to sort the records according to their votes:
 - we need to refresh all our stored records,
 - we need to update the `top5` block to display the first 5 ranked talks.
 
-````{admonition} Solution
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
 We add the following to {file}`rate.yaml` containing:
 
 ```yaml
@@ -942,7 +967,10 @@ We will need to:
 - add a content rule to our Plone site,
 - assign the rule to the proper location.
 
-````{admonition} Solution
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
 - create {file}`contentrule.py`:
 
   ```python

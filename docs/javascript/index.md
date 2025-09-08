@@ -1,14 +1,21 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "Plone's JavaScript and Resource Registries"
+    "property=og:description": "Plone's JavaScript and Resource Registries"
+    "property=og:title": "JavaScript For Plone Developers (up to Plone 5)"
+    "keywords": "Plone, JavaScript, resource registry, bundle, mockup"
 ---
 
 (javascript-label)=
 
-# JavaScript For Plone Developers
+# JavaScript For Plone Developers (up to Plone 5)
+
+```{note}
+This training is for Plone 5 only.
+A rewritten training for JavaScript in Plone 6 Classic UI will follow later on.
+In the meantime {doc}`plone6docs:classic-ui/static-resources` is your primary source of information for JavaScript in Plone 6 Classic UI.
+```
 
 About
 : JavaScript For Plone Developers
@@ -20,13 +27,13 @@ Status
 : Work in progress
 
 The definitive location for documentation regarding Plone's JavaScript and Resource Registries is located at:
-<https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html>
+<https://5.docs.plone.org/adapt-and-extend/theming/resourceregistry.html>
 
 ## Training Objective
 
 The most important objective of this training is to explain how to integrate JavaScript applications and integrations into Plone in different scenarios.
 
-Secondly, it is to explain the JavaScript technologies used in Plone itself ([RequireJS](https://requirejs.org/), [Patterns](https://github.com/plone/plone.patternslib), [Resource registry](https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html)).
+Secondly, it is to explain the JavaScript technologies used in Plone itself ([RequireJS](https://requirejs.org/), [Patterns](https://github.com/plone/plone.patternslib), [Resource registry](https://5.docs.plone.org/adapt-and-extend/theming/resourceregistry.html)).
 
 This training is **not** about:
 

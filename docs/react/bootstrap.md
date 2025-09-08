@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Bootstrap a react project using create-react-app."
-  "property=og:description": "Bootstrap a react project using create-react-app."
-  "property=og:title": "Bootstrap React Project"
-  "keywords": "Plone, trainings, SEO, yarn, nvm, create-react-app"
+myst:
+  html_meta:
+    "description": "Bootstrap a react project using create-react-app."
+    "property=og:description": "Bootstrap a react project using create-react-app."
+    "property=og:title": "Bootstrap React Project"
+    "keywords": "Plone, trainings, SEO, yarn, nvm, create-react-app"
 ---
 
 (bootstrap-react-label)=
@@ -42,14 +43,17 @@ It will create a folder called `my-app` inside the current folder with the follo
 
 ```console
 my-app
-├── README.md
-├── node_modules
-├── package.json
 ├── .gitignore
+├── package.json
+├── package-lock.json
 ├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── manifest.json
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── README.md
 └── src
     ├── App.css
     ├── App.js
@@ -57,7 +61,12 @@ my-app
     ├── index.css
     ├── index.js
     ├── logo.svg
-    └── registerServiceWorker.js
+    ├── reportWebVitals.js
+    └── setupTests.js
+```
+
+```{note}
+We omit from the structure the files and directories inside the `node_modules` directory because there are too many to list.
 ```
 
 ## Running The Project

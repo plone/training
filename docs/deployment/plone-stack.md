@@ -1,14 +1,15 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Intro To Plone Stack
 
-If you haven't read the first couple of chapters of [Guide to deploying and installing Plone in production](https://docs.plone.org/manage/deploying/index.html),
+If you haven't read the first couple of chapters of [Guide to deploying and installing Plone in production](https://5.docs.plone.org/manage/deploying/index.html),
 take a moment to do so.
 
 You'll want to be familiar with the main components of a typical Plone install for deployment and know when each is vital and when unnecessary.

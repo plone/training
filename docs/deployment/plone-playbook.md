@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # The Plone Playbook
@@ -51,7 +52,7 @@ firewall.yml
 
 Roles are basically pre-packaged subroutines with their own default variables.
 Several roles are part of the Plone Ansible Playbook kit and will be present in your initial checkout.
-These include roles that set up the HAProxy load balancer, varnish cache, nginx http server, postfix SMTP agent, munin-node monitoring, logwatch log analysis, message-of-the-day and a fancy setup for restarting ZEO clients.
+These include roles that set up the HAProxy load balancer, varnish cache, nginx `http` server, postfix SMTP agent, munin-node monitoring, logwatch log analysis, message-of-the-day and a fancy setup for restarting ZEO clients.
 
 Other roles, including the role that actually sets up Plone, are loaded when you use `ansible-galaxy` to fetch the items listed in {file}`requirements.yml`.
 Except for the Plone server role, these are generally generic Ansible Galaxy roles that we liked.
@@ -96,13 +97,13 @@ sample-medium.yml
 > Uses load balancer to manage the queue to the ZEO clients.
 > Varnish cache is memory-based.
 
-sample-multiserver.yml
+`sample-multiserver.yml`
 
 > A configuration that demonstrates how to run multiple Zope/Plone installs with different versions and virtual hosting.
 
 The first four samples are meant to be immediately useful.
 Copy and customize.
-The multiserver sample is a demonstration of several customization techniques.
+The `multiserver` sample is a demonstration of several customization techniques.
 Read it for examples, but don't expect to use it without substantial customization.
 
 Why no `sample-large.yml`?

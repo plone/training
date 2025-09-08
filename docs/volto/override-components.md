@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (override-components-label)=
@@ -14,11 +15,11 @@ html_meta:
 
 When we want to override a specific file we can create an alias pointing to our own theme.
 
-So for example if we want to replace the logo, which is located in Volto at `components/theme/Logo/Logo.svg`,
+So for example if we want to replace the logo, which is located in Volto at `omelette/src/components/theme/Logo/Logo.svg`,
 we will add a logo to our theme and create an alias.
 
 The folder structure needs to match the folder structure of Volto in the `customizations` folder.
-The final path of the new overridden component will be: `customizations/components/theme/Logo/Logo.svg`.
+The final path of the new overridden component will be: `src/customizations/components/theme/Logo/Logo.svg`.
 
 ## Exercise
 
@@ -29,8 +30,9 @@ Replace the logo with a logo of your choice.
 When we want to override a specific component, it works exactly the same as the above example with an image.
 Locate the `Tags.jsx` file and override this file so that there is a label in front of the tags with: `Tags:`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```jsx
 /**

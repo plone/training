@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # More Features
@@ -137,7 +138,7 @@ The JSON view of Plone can be called with this URL:
 And from JavaScript
 
 ```http
-GET http://localhost:8080/Plone/@@search?SearchableText=Plane
+GET http://localhost:8080/Plone/@@search?SearchableText=Plane HTTP/1.1
 Accept: application/json
 ```
 
@@ -536,6 +537,6 @@ That's why we have to escape the batch (\_sequence) and the contentlisting (\_ba
 Now we have a fully functional Plone search with faceting, autocompletion, suggestion and term highlighting.
 You can find the complete example on [GitHub](https://github.com/collective/plonetraining.solr_example).
 
-## Excercise
+## Exercise
 
 Have a custom search page with autocomplete, suggest, highlighting and faceting working.

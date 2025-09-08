@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-add-ons-label)=
@@ -21,7 +22,7 @@ html_meta:
 
 [collective.easyform](https://pypi.org/project/collective.easyform)
 
-: A form generator and the successor to [Products.PloneFormGen](https://docs.plone.org/develop/plone/forms/ploneformgen.html)
+: A form generator and the successor to [Products.PloneFormGen](https://5.docs.plone.org/develop/plone/forms/ploneformgen.html)
 
   ```{figure} _static/add_ons_easyform_1.png
   :alt: A simple form created with collective.easyform.

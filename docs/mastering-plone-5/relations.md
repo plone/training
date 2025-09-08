@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Relations
@@ -67,7 +68,7 @@ minions = RelationList(
 You can pass to `CatalogSource` the same arguments you use for catalog queries.
 This makes it very flexible for limiting relateable items by type, path, date, and so on.
 
-For even more flexibility, you can create your own [dynamic vocabularies](https://docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources).
+For even more flexibility, you can create your own [dynamic vocabularies](https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html#dynamic-sources).
 
 For more examples how to use relationfields look at {ref}`plone5-dexterity-reference-label`.
 

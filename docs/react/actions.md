@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Using actions to manipulate the store and accessing the data from the store."
-  "property=og:description": "Using actions to manipulate the store and accessing the data from the store."
-  "property=og:title": "Use Actions To Manipulate The Store"
-  "keywords": "Plone, training, exercise, solution, React, Redux"
+myst:
+  html_meta:
+    "description": "Using actions to manipulate the store and accessing the data from the store."
+    "property=og:description": "Using actions to manipulate the store and accessing the data from the store."
+    "property=og:title": "Use Actions To Manipulate The Store"
+    "keywords": "Plone, training, exercise, solution, React, Redux"
 ---
 
 (actions-label)=
@@ -17,7 +18,7 @@ The first step is to factor out the `Faq` component into a separate file called 
 It is almost an exact copy of {file}`App.js`:
 
 ```{code-block} jsx
-:emphasize-lines: 4,79
+:emphasize-lines: 4,80
 :linenos: true
 
 import { useState } from "react";
@@ -70,6 +71,7 @@ function Faq() {
       <ul>
         {faqList.map((item, index) => (
           <FaqItem
+            key={index}
             question={item.question}
             answer={item.answer}
             index={index}
@@ -128,13 +130,14 @@ const App = () => {
 export default App;
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/App.js
 +++ b/src/App.js
-@@ -1,80 +1,19 @@
+@@ -1,81 +1,19 @@
 -import { useState } from "react";
 -import "./App.css";
 -import FaqItem from "./components/FaqItem";
@@ -193,6 +196,7 @@ export default App;
 -      <ul>
 -        {faqList.map((item, index) => (
 -          <FaqItem
+-            key={index}
 -            question={item.question}
 -            answer={item.answer}
 -            index={index}
@@ -285,6 +289,7 @@ function Faq() {
       <ul>
         {faqList.map((item, index) => (
           <FaqItem
+            key={index}
             question={item.question}
             answer={item.answer}
             index={index}
@@ -314,8 +319,9 @@ function Faq() {
 export default Faq;
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/components/Faq.jsx
@@ -387,8 +393,9 @@ export default Faq;
 
 Now that we factored out the edit and delete actions from the `Faq` component, update the `FaqItem` component to call the actions we created for our store.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 2,5,13,19,38

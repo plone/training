@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Basic: Customize The Logo And CSS From The Default Theme
@@ -33,7 +34,7 @@ Topics covered:
 
 4. You can now add/edit/remove your custom logo.
 
-For more information, take a look at the [official docs](https://docs.plone.org/adapt-and-extend/change-the-logo.html).
+For more information, take a look at the [official docs](https://5.docs.plone.org/adapt-and-extend/change-the-logo.html).
 
 ## Customize CSS/Less Variables
 
@@ -44,7 +45,7 @@ For more information, take a look at the [official docs](https://docs.plone.org/
 
 Your panel should now look like this:
 
-```{image} ../theming/_static/theming-dev_mode_on.png
+```{image} ./_static/theming-dev_mode_on.png
 :align: center
 ```
 
@@ -54,7 +55,7 @@ Now we can play with some Less variables:
 
 2. Find the variable `plone-left-toolbar-expanded` and set it to 400px.
 
-   ```{image} ../theming/_static/theming-less_var_hack.png
+   ```{image} ./_static/theming-less_var_hack.png
    :align: center
    ```
 

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Using the code for the training
@@ -32,8 +33,8 @@ git checkout views_2
 ```
 
 The names of the tags are the same as the URL of the chapter.
-The tag for the chapter <https://training.plone.org/5/mastering-plone/registry.html> is `registry`
-and you can get it with {command}`git checkout registry`.
+The tag for the chapter {doc}`registry` is `registry`.
+You can get it with {command}`git checkout registry`.
 
 ## Moving from chapter to chapter
 

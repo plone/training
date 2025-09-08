@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Terms and definitions used throughout the Plone Training documentation."
-  "property=og:description": "Terms and definitions used throughout the Plone Training documentation."
-  "property=og:title": "Glossary"
-  "keywords": "Plone, training, glossary, term, definition"
+myst:
+  html_meta:
+    "description": "Terms and definitions used throughout the Plone Training documentation."
+    "property=og:description": "Terms and definitions used throughout the Plone Training documentation."
+    "property=og:title": "Glossary"
+    "keywords": "Plone, training, glossary, term, definition"
 ---
 
 (glossary-label)=
@@ -33,14 +34,14 @@ CMS
     Content Management System
 
 CSS
-    Cascading Style Sheets (CSS) is a stylesheet language used for describing the (most of the times visual) representation of web pages.
+    Cascading Style Sheets (CSS) is a style sheet language used for describing the (most of the times visual) representation of web pages.
 
 Grunt
     The JavaScript Task Runner.
     Automates the creation and manipulation of static assets for the theme.
 
 Less
-    A dynamic stylesheet language that can be compiled into {term}`CSS` (Cascading Style Sheets).
+    A dynamic style sheet language that can be compiled into {term}`CSS` (Cascading Style Sheets).
 
 NPM
     npm is a package manager for the JavaScript programming language.
@@ -75,13 +76,13 @@ CloudFormation
 
 Travis CI
     Travis CI is a hosted, distributed continuous integration service used to build and test software projects hosted at GitHub.
-    Open source projects may be tested with limited runs via [travis-ci.org](https://travis-ci.org).
+    Open source projects may be tested with limited runs via [travis-ci.com](https://www.travis-ci.com/).
 
 Solr
     [Solr](https://solr.apache.org/) is a popular, blazing-fast, open source enterprise search platform built on Apache Lucene.
 
 ZCML
-    The [Zope Configuration Mark-up Language](https://docs.plone.org/develop/addons/components/zcml.html).
+    The [Zope Configuration Mark-up Language](https://5.docs.plone.org/develop/addons/components/zcml.html).
 
 Diazo
     [Diazo theme engine guide](https://docs.diazo.org/en/latest/).
@@ -106,7 +107,7 @@ XML
     The Extensible Markup Language.
 
 XSLT
-    The Extensible Stylesheet Language Transformations.
+    The Extensible style sheet language Transformations.
     A language which defines elements to describe transformations to be applied on a document.
 
 XPath
@@ -204,7 +205,7 @@ Scoped packages
     Namespace for JavaScript packages, they provide a way to avoid naming conflicts for common package names.
 
 middleware (Redux)
-    Custom wrappers for the Redux store dispatch methods. 
+    Custom wrappers for the Redux store dispatch methods.
     They allow customizing the behavior of the data flow inside the redux store.
 
 hooks (React)
@@ -217,7 +218,7 @@ hoisting (Yarn)
     In case two dependencies have conflicting version dependencies of the same library, the hoisting will not be possible (for that conflicting dependency) and you'll see multiple instances of the same library in the bundle, or you'll see that the add-on receives its own `node_modules` folder.
 
 React
-    [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
+    [React](https://react.dev/) is a JavaScript library for building user interfaces.
     Volto, the frontend for Plone 6, uses React.
 
 Sphinx
@@ -242,8 +243,8 @@ Markdown
 fence
     A method to extend basic MyST syntax.
     You can define a directive with backticks (`` ` ``) followed by a reStructuredText directive in curly brackets (`{}`), and a matching number of closing backticks.
-    You can also nest fences by increasing the number of backticks. 
-    
+    You can also nest fences by increasing the number of backticks.
+
     `````md
     ````{warning}
     There be dragons!
@@ -252,7 +253,7 @@ fence
     ```
     ````
     `````
-    
+
     ````{warning}
     There be dragons!
     ```{important}
@@ -263,4 +264,16 @@ fence
 Open Graph
     The [Open Graph protocol](https://ogp.me/) enables any web page to become a rich object in a social graph.
     For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.
-```
+
+
+mxdev
+    [mxdev](https://github.com/mxstack/mxdev) [mɪks dɛv] is a utility that makes it easy to work with Python projects containing lots of packages, of which you only want to develop some.
+    It is designed for developers who use stable version constraints, then layer their customizations on top of that base while using a version control system.
+    This design allows developers to override their base package constraints with a customized or newer version.
+
+plonecli
+    A Plone CLI for creating Plone packages. [plonecli usage](https://github.com/plone/plonecli)
+
+GenericSetup
+    [GenericSetup](https://5.docs.plone.org/develop/addons/components/genericsetup.html) is a framework to modify the Plone site during add-on package installation and uninstallation.
+    It provides XML-based rules to change the site settings.

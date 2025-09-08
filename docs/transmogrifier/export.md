@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Exporting Your Current Site Content
@@ -46,7 +47,7 @@ but you may find it better to export everything, and do the limiting on the impo
 
 1. Install `collective.jsonify` into the buildout
 
-2. Add an [External Method](https://old.zope.org/Documentation/How-To/ExternalMethods) at the root of the Management Interface (`http://[your site]/manage`) with the following properties:
+2. Add an [External Method](https://old.zope.dev/Documentation/How-To/ExternalMethods) at the root of the Management Interface (`http://[your site]/manage`) with the following properties:
 
    - id: `export_content`
    - module name: `collective.jsonify.json_methods`

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Installing The Development Environment
@@ -41,7 +42,7 @@ ng new training --style=scss
 ```
 
 ```{note}
-`--style=scss` indicates we will use SCSS for stylesheets.
+`--style=scss` indicates we will use SCSS for style sheets.
 ```
 
 If we inspect our newly created `./training`, we see a default Angular project structure:
@@ -59,7 +60,7 @@ ng serve
 
 The result can be seen on <http://localhost:4200>.
 
-This development server offers the different features we can expect for a convenient frontend developement environment
+This development server offers the different features we can expect for a convenient frontend development environment
 like autoreload and sourcemaps.
 
 The CLI also allows to run the tests:

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (dexterity1-label)=
@@ -140,7 +141,7 @@ Once deployed, create a Plone site, and perform the following steps.
 - So far the data in the new field `Hot News` is not displayed when rendering the News Item. We'll take care of this later.
 
 ```{seealso}
-<https://docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types>
+<https://5.docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types>
 ```
 
 (dexterity1-create-ttw-label)=
@@ -246,8 +247,9 @@ Using Python to define the schema gives us much more control (e.g. for validatio
 
 Modify Pages to allow uploading an image as decoration (like News Items do).
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 - Go to the dexterity control panel (<http://localhost:8080/Plone/@@dexterity-types>)
 - Click on *Page* (<http://127.0.0.1:8080/Plone/dexterity-types/Document>)
@@ -258,8 +260,8 @@ The images are displayed above the title.
 ```
 
 ```{seealso}
-- [Dexterity Developer Manual](https://docs.plone.org/external/plone.app.dexterity/docs/index.html)
-- [The standard behaviors](https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
-- [Dexterity XML](https://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html)
-- [Model-driven types](https://docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types)
+- [Dexterity Developer Manual](https://5.docs.plone.org/external/plone.app.dexterity/docs/index.html)
+- [The standard behaviors](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
+- [Dexterity XML](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html)
+- [Model-driven types](https://5.docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types)
 ```

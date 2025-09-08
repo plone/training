@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # uWSGI
@@ -129,7 +130,7 @@ As you can see the uWSGI output is pretty verbose.
 
 ### Exercise 1
 
-Benchmark the front page of your setup with two different tools: [siege](https://www.joedog.org/) and [wrk](https://github.com/wg/wrk).
+Benchmark the front page of your setup with two different tools: [siege](https://github.com/JoeDog/siege/) and [wrk](https://github.com/wg/wrk).
 You will probably find a package for your Linux distribution for at least siege.
 If so, use the distribution package, otherwise follow the official installation instructions.
 
@@ -151,8 +152,9 @@ For wrk, you can specify the number of threads to use with the `-t` option.
 
 Record and discuss the results.
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 tbd.
 ```
@@ -210,8 +212,8 @@ What is left to do is to setup a Plone vassal for the uWSGI emperor.
 You can find general information on this topic in the official [uWSGI documentation](https://uwsgi-docs.readthedocs.io/en/latest/Emperor.html).
 By default, Ubuntu's uWSGI emperor will run under user/group id `www-data` and it will use these settings for its vassals.
 However Plone needs to be able to write to the filesystem e.g. for caching and creating compiled files, so we want it to run under the user id we used for running buildout (probably your user name for a local installation or `vagrant`).
-uWSGI emperor comes with a so called "tyrannt mode" for secure multi-user hosting to achieve this, and we go for the [paranoid sysadmins](https://uwsgi-docs.readthedocs.io/en/latest/Emperor.html#tyrant-mode-for-paranoid-sysadmins-linux-only) variant here.
-Posix capabilities are enabled in Ubuntu's uwsgi by default, so we only need to add two lines to `/etc/uwsgi-emperor/emperor.ini` to enable tyrannt mode:
+uWSGI emperor comes with a so called "tyrant mode" for secure multi-user hosting to achieve this, and we go for the [paranoid sysadmins](https://uwsgi-docs.readthedocs.io/en/latest/Emperor.html#tyrant-mode-for-paranoid-sysadmins-linux-only) variant here.
+POSIX capabilities are enabled in Ubuntu's uWSGI by default, so we only need to add two lines to `/etc/uwsgi-emperor/emperor.ini` to enable tyrant mode:
 
 ```{code-block} ini
 :emphasize-lines: 25,26
@@ -280,8 +282,9 @@ We can then use `sudo tail -f /var/log/uwsgi/emperor.log` to see what is going o
 
 Change the Plone vassal configuration so that it uses its own logfile.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 You will first need to add the logfile location to `/etc/uwsgi/vassals/plone.ini`:
 

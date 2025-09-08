@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (frontpage-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Classic UI Chapter
 ```{figure} _static/plone-training-logo-for-classicui.svg
 :alt: Plone Classic UI
-:align: left
 :class: logo
 ```
 
@@ -251,8 +251,9 @@ Also this frontpage will probably not win a beauty-contest. But that's not the t
 
 Change the link to open the talk-info in a [modal](https://plone.github.io/mockup/dev/#pattern/modal).
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :emphasize-lines: 2
@@ -314,5 +315,5 @@ To set that view by hand as the default view for `front-page` in the ZMI: <http:
 Done. This way you can still use the button _Edit_ to edit the frontpage.
 
 ```{seealso}
-- Querying by date: <https://docs.plone.org/develop/plone/searching_and_indexing/query.html#querying-by-date>
+- Querying by date: <https://5.docs.plone.org/develop/plone/searching_and_indexing/query.html#querying-by-date>
 ```

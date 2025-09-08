@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-dexterity2-label)=
@@ -295,14 +296,14 @@ Alternatively you also select which upgrade steps to run like this:
 - Run the upgrade step.
 
 ```{seealso}
-<https://docs.plone.org/develop/addons/components/genericsetup.html#id1>
+<https://5.docs.plone.org/develop/addons/components/genericsetup.html#upgrade-steps>
 ```
 
 ```{note}
 Upgrading from an older version of Plone to a newer one also runs upgrade steps from the package {py:mod}`plone.app.upgrade`.
 You should be able to upgrade a clean site from 2.5 to 5.0 with one click.
 
-Find the upgrade steps in  <https://github.com/plone/plone.app.upgrade/tree/master/plone/app/upgrade/>
+Find the upgrade steps in <https://github.com/plone/plone.app.upgrade/tree/master/plone/app/upgrade/>
 ```
 
 (plone5-dexterity2-browserlayer-label)=
@@ -367,15 +368,16 @@ Note the relative Python path {py:class}`..interfaces.IPloneconfSiteLayer`.
 It is equivalent to the absolute path {py:class}`ploneconf.site.interfaces.IPloneconfSiteLayer`.
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/views/layers.html>
+<https://5.docs.plone.org/develop/plone/views/layers.html>
 ```
 
 ### Exercise
 
 Do you need to bind the viewlet `featured` from the chapter {doc}`viewlets_1` to this new browser layer?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 No, it would make no difference since the viewlet is already bound to the marker interface {py:class}`ploneconf.site.behaviors.social.ISocial`.
 ```
@@ -430,7 +432,7 @@ The `column ..` entries allow us to display the values of these indexes in the t
 - Go to <http://localhost:8080/Plone/portal_catalog/manage_catalogIndexes> to inspect and manage the new indexes
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html>
+<https://5.docs.plone.org/develop/plone/searching_and_indexing/indexing.html>
 ```
 
 ````{note}
@@ -514,8 +516,9 @@ In fact we could now simplify the view even further by only returning the brains
 
 Modify {py:class}`TalkListView` to return only brains and adapt the template to these changes. Remember to move `', '.join(brain.audience or [])` into the template.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Here is the class:
 
@@ -636,7 +639,7 @@ Add a new file {file}`profiles/default/registry.xml`
 ```
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed>
+<https://5.docs.plone.org/develop/plone/functionality/collections.html#add-new-collection-criteria-new-style-plone-app-collection-installed>
 ```
 
 (plone5-dexterity2-gs-label)=

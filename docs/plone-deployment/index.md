@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Plone Deployment with Ansible and Docker
+myst:
+  html_meta:
+    "description": "Plone Deployment with Ansible and Docker"
+    "property=og:description": "Plone Deployment with Ansible and Docker"
+    "property=og:title": "Plone Deployment with Ansible and Docker"
+    "keywords": "Plone, Deployment, Ansible, Docker"
 ---
 
 (deployment-label)=
@@ -21,7 +25,7 @@ Many sections may be zipped through in a class, noting to students that the full
 ```
 
 ```{toctree}
-:caption: Ansible
+:caption: Deployment
 :hidden: true
 :maxdepth: 3
 
@@ -29,8 +33,8 @@ intro
 setup
 plone-stack
 plone-docker-images
-```
-
-```{seealso}
-<https://docs.plone.org/manage/deploying/>
+new-project
+edit-project
+provision
+deploy
 ```

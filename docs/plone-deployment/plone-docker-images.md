@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "Plone Docker images for deployment"
+    "property=og:description": "Plone Docker images for deployment"
+    "property=og:title": "Plone Docker images for deployment"
+    "keywords": "Plone, deployment, Docker, images"
 ---
 
 # Plone Docker Images
@@ -22,18 +23,16 @@ Should be used to showcase the default Plone 6 experience, as new projects will 
 
 Repository available at [https://github.com/plone/plone-backend/](https://github.com/plone/plone-backend/)
 
-Installs the Plone 6 backend using a pip-based installation. This approach makes it easier to extend this image in your own project.
+Installs the Plone 6 backend using a pip-based installation.
+This approach makes it easier and faster to extend this image in your own project.
 
 One example of such extension would be
 
 ```Dockerfile
-FROM plone/plone-backend:6.0.0a1
+FROM plone/plone-backend:6.0.0b3
 
-RUN ./bin/pip install "pas.plugins.authomatic --use-deprecated legacy-resolver"
+RUN ./bin/pip install "pas.plugins.authomatic"
 ```
-
-**Please pay attention** to the `--use-deprecated legacy-resolver` option, that is required until a upstream bug in *pip* is fixed. 
-
 
 ## plone/plone-zeo
 

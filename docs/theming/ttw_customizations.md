@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # TTW Customizations
@@ -35,7 +36,7 @@ You will learn how to customize the look of your Plone site through the web. Plo
 
 4. You can now add/edit/remove your custom logo.
 
-For more information, take a look at the [official docs](https://docs.plone.org/adapt-and-extend/change-the-logo.html).
+For more information, take a look at the [official docs](https://5.docs.plone.org/adapt-and-extend/change-the-logo.html).
 
 ## Customize CSS (variables)
 
@@ -50,7 +51,7 @@ Your panel should now look like this:
 :alt: Custom Styles Field
 ```
 
-The contents of this text field are added after all other stylesheets and is similar to the `custom.css` that you maybe know from Plone 4.
+The contents of this text field are added after all other style sheets and is similar to the `custom.css` that you maybe know from Plone 4.
 
 
 ```{code-block} scss

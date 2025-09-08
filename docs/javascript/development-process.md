@@ -1,16 +1,17 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "Contributing to JavaScript code and documentation in Plone 5"
+    "property=og:description": "Contributing to JavaScript code and documentation in Plone 5"
+    "property=og:title": "JavaScript Development Process"
+    "keywords": "Plone, JavaScript, development, code, style, lint, mockup, documentation"
 ---
 
 # JavaScript Development Process
 
 ## Code Style
 
-Together with [plone.api](https://github.com/plone/plone.api) we developed [code style guidelines](https://github.com/plone/plone.api/blob/master/docs/contribute/conventions.rst), which we are enforcing now for core Plone development.
+Together with [plone.api](https://github.com/plone/plone.api) we developed [Plone code style guidelines](https://5.docs.plone.org/develop/styleguide/), which we are enforcing now for core Plone development.
 
 This makes code so much more readable.
 
@@ -24,9 +25,16 @@ Out of that he developed the code linter [JSLint](https://www.jslint.com/).
 
 Because this one was too strict, some other people wrote [JSHint](https://jshint.com/).
 
+```{todo}
+`Mockup` got an overhaul.
+The following content regarding JSHint is valid up to [`mockup` 2.7.7](https://github.com/plone/mockup/releases/tag/2.7.7).
+The link to **.jshintrc configuration file** is broken and needs to be updated.
+See https://github.com/plone/training/issues/611
+```
+
 Mockup uses JSHint with the following [.jshintrc configuration file](https://github.com/plone/mockup/blob/master/mockup/.jshintrc):
 
-```javascript
+```json
 {
    "bitwise": true,
    "curly": true,

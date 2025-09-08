@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": Display content type""
-  "property=og:description": "Display content type"
-  "property=og:title": "Volto View Component: A Default View for a "Talk"
-  "keywords": "view, content type"
+myst:
+  html_meta:
+    "description": "Display content type"
+    "property=og:description": "Display content type"
+    "property=og:title": "Volto View Component: A Default View for a Talk"
+    "keywords": "view, content type"
 ---
 
 (volto-talkview-label)=
@@ -12,13 +13,9 @@ html_meta:
 
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
-:alt: Plone frontend 
-:align: left
+:alt: Plone frontend
 :class: logo
 ```
-
-Solve the same tasks in Plone Classic UI in chapter {doc}`views_2`
-
 ---
 
 Get the code! ({doc}`More info <code>`)
@@ -39,7 +36,7 @@ git checkout talkview
 In this part we will:
 
 - Create a view to display a talk
-- Register a react view component for content type talk
+- Register a React view component for content type talk
 - Write the view component
 
 Topics covered:
@@ -48,22 +45,16 @@ Topics covered:
 - Displaying data stored in fields of a content type
 - React Basics
 
-The default visualization for our new content type `talk` only shows the title, the description and the image.
+The default visualization for our new content type `talk` lists the field values according to the type schema.
 
-```{container} volto
-This paragraph might be rendered in a custom way.
-```
-
-```{note}
-In Plone the default view iterates over all fields in the schema and displays the stored data. In Volto this feature is not implemented yet.
-```
-
-Since we want to show the talk data, we write a custom view for talks.
+Since we want to show the talk data in a nice way, display the speaker portrait and add some components, we write a custom view for type talk.
 
 In the folder {file}`frontend` you need to add a new file {file}`src/components/Views/Talk.jsx`.
 Create the folder {file}`Views` first.
 
 As a first step, the file will hold only a placeholder.
+A view is a React component.
+So we write a component function that just returns the info about what it will be.
 
 ```jsx
 import React from 'react';
@@ -90,7 +81,7 @@ Now register the new component as the default view for `talks` in {file}`src/con
 ```{code-block} jsx
 :emphasize-lines: 1,9-12
 
-import { TalkListView, TalkView } from './components';
+import { TalkView } from './components';
 
 // All your imports required for the config here BEFORE this line
 import '@plone/volto/config';
@@ -108,9 +99,9 @@ export default function applyConfig(config) {
 ```
 
 - This extends the Volto default setting `config.views.contentTypesViews` with the key/value pair `talk: TalkView`.
-- It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to take the default settings and override what needs to be overrridden.
+- It uses the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to take the default settings and overrides what needs to be overridden.
 
-When Volto is running (with `yarn start`) it picks up these changes and displays the placeholder in place of the previously used default view.
+When Volto is running (with `yarn start`) it picks up these configuration modifications and displays the placeholder in place of the previously used default view.
 
 Now we will improve this view step by step.
 First we reuse the component `DefaultView.jsx` in our custom view:
@@ -147,9 +138,11 @@ const TalkView = (props) => {
 export default TalkView;
 ```
 
-- `<> </>` is a fragment. The return value of react needs to be one single element.
-
-- The variable `props` is used to receive data from the parent component. As the TalkView component is registered as a content type view, it receives the content data and some more. We will use the content part. So we introduce a constant `content` to be more explicit.
+- `<> </>` is a fragment. The return value of React needs to be one single element.
+- The variable `props` is used to receive data from the parent component.
+  As the TalkView component is registered as a content type view, it receives the content data and some more.
+  We will use the content part.
+  So we introduce a constant `content` to be more explicit.
 - `content.details` is the value of the richtext field `details` with mime type, encoding and the data:
 
   ```jsx
@@ -160,9 +153,11 @@ export default TalkView;
   };
   ```
 
-  See <https://plonerestapi.readthedocs.io/en/latest/serialization.html#richtext-fields>.
+  See {doc}`plone6docs:plone.restapi/docs/source/usage/serialization`.
 
-- `content.details.data` holds the raw html. To render it properly we use `dangerouslySetInnerHTML` (see <https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml>)
+- `content.details.data` holds the raw html. To render it properly we use `dangerouslySetInnerHTML` (see https://legacy.reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml).
+
+Please check the 'components' tab of Google developer tools to see the field values of your talk instance.
 
 The result is not really beautiful, because the text sticks to the left border of the page.
 You need to wrap it in a `Container` to get the same styling as the content of `DefaultView`:
@@ -202,7 +197,7 @@ This has multiple benefits:
   The speaker portrait is picked up by the DefaultView because the fields name is `image`, which is the same as the image from the behavior `plone.leadimage`.
 
 With this changes we do discard the title tag in the HTML head though.
-This will change the name occuring in the browser tab or browser head to the current site url.
+This will change the name occurring in the browser tab or browser head to the current site url.
 To use the content title instead, you'll have to import the `Helmet` component, which allows to overwrite all meta tags for the HTML head like the page-title.
 
 ```{code-block} jsx
@@ -234,7 +229,7 @@ export default TalkView;
 - `content.type_of_talk` is the json representation of the value from the choice field `type_of_talk`: `{token: "training", title: "Training"}`. We display the title.
 - The `&&` in `{content.description && (<p>...</p>)}` makes sure, that this paragraph is only rendered, if the talk actually has a description.
 
-Next we add a block with info on the speaker:
+Next we add a segment with info on the speaker:
 
 ```{code-block} jsx
 :emphasize-lines: 2,16-30
@@ -257,7 +252,6 @@ const TalkView = (props) => {
       <Segment clearing>
         {content.speaker && <Header dividing>{content.speaker}</Header>}
         <p>{content.company || content.website}</p>
-        <a href={`mailto:${content.email}`}>
         {content.email && (
           <p>
             Email: <a href={`mailto:${content.email}`}>{content.email}</a>
@@ -332,8 +326,8 @@ export default TalkView;
 
 - We use the component [Image](https://react.semantic-ui.com/elements/image/#variations-avatar)
 - We use `flattenToAppURL` to turn the Plone url of the image to the Volto url, e.g. it turns <http://localhost:8080/Plone/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg> into <http://localhost:3000/talks/dexterity-for-the-win/@@images/9fb3d165-82f4-4ffa-804f-2afe1bad8124.jpeg>.
-- Open the React Developer Tools in your browser and inspect the property `image` of TalkView and its property `scale`. If you look at the [documentation for the serialization of image-fields](https://plonerestapi.readthedocs.io/en/latest/serialization.html#file-image-fields) you can find out where that information comes from.
-- To deal with talks without speaker image, we check for the existence of the image with `content.image?.scales?.preview?.download`. 
+- Open the React Developer Tools in your browser and inspect the property `image` of TalkView and its property `scale`. If you look at the [documentation for the serialization of image-fields](https://6.docs.plone.org/plone.restapi/docs/source/usage/serialization.html#file-image-fields) you can find out where that information comes from.
+- To deal with talks without speaker image, we check for the existence of the image with `content.image?.scales?.preview?.download`.
   The expression with question marks returns `undefined` if `content` has no `image` key or `content.image` has no `scales` key and so on.
   `?.` is the [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) operator.
 

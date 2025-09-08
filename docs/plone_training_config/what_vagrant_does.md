@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # What Vagrant is and does
@@ -18,7 +19,7 @@ What Vagrant for example does is install a port forward so that `http://localhos
 
 Puppet is a configuration management tool (others you might have heard of are Chef, Ansible and SaltStack) and helps system admnistrators to automatically manage servers (real and virtual). We won't get into Puppet in detail, but it builds on top of our base Vagrant image to further set up our environment.
 
-Vagrant detects when you set up a new machine and runs Puppet or other Provisioners by default only once, although it also can be used to keep machines up to date, which is a bit harder. See the {file}`Vagrantfile` and [Vagrant Documentation](https://www.vagrantup.com/docs), especially the *Provisioning* chapter.
+Vagrant detects when you set up a new machine and runs Puppet or other Provisioners by default only once, although it also can be used to keep machines up to date, which is a bit harder. See the {file}`Vagrantfile` and [Vagrant Documentation](https://developer.hashicorp.com/vagrant/docs), especially the *Provisioning* chapter.
 
 This is basically what Puppet does if we were to configure our system by hand:
 

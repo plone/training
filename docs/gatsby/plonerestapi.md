@@ -1,23 +1,22 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Fetching Data Using Plone REST.API
 
 Now that we have an idea of how to create nodes, we can move on to retrieving data from a Plone site and creating nodes with that data.
 
-All the data from a Plone site is available in the JSON format using the [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/introduction.html).
+All the data from a Plone site is available in the JSON format using {doc}`plone6docs:plone.restapi/docs/source/index`.
 
 We will be working a lot with this API while working on the Gatsby source-plugin.
 It is recommended that you have an API browser to explore the API.
 
-Install [Postman](https://www.postman.com/), then go through the quick guide to working with plone.restapi:
-
-<https://plonerestapi.readthedocs.io/en/latest/exploring.html#exploring-api-postman-onboarding>
+Install [Postman](https://www.postman.com/), then go through the quick guide to working with {doc}`plone6docs:plone.restapi/docs/source/usage/exploring`.
 
 ```{note}
 We will use the same endpoints for loading the site in a browser, but set the header `Accept: application/json`.
@@ -26,26 +25,26 @@ This header tells the endpoint to return JSON data in the response for us to pro
 
 ## Exploring The Plone REST.API
 
-We will use <https://plonedemo.kitconcept.com/en> as our source Plone site, since it's already been configured with the plone.restapi and is all ready for our usage.
+We will use <https://demo.plone.org> as our source Plone site, since it's already been configured with the `plone.restapi` and is all ready for our usage.
 
 Let us start with the root itself.
-Send a GET request to <https://plonedemo.kitconcept.com/en>.
+Send a GET request to <https://demo.plone.org>.
 This returns the JSON data for the root of the Plone site.
 
 ```json
 {
   "@components": {
       "breadcrumbs": {
-          "@id": "https://plonedemo.kitconcept.com/en/@breadcrumbs"
+          "@id": "https://demo.plone.org/@breadcrumbs"
       },
       "navigation": {
-          "@id": "https://plonedemo.kitconcept.com/en/@navigation"
+          "@id": "https://demo.plone.org/@navigation"
       },
       "workflow": {
-          "@id": "https://plonedemo.kitconcept.com/en/@workflow"
+          "@id": "https://demo.plone.org/@workflow"
       }
   },
-  "@id": "https://plonedemo.kitconcept.com/en",
+  "@id": "https://demo.plone.org",
   "@type": "LRF",
   "UID": "7306e5d778be477f8b40bccaad1ecae7",
   "contributors": [],
@@ -61,21 +60,21 @@ This returns the JSON data for the root of the Plone site.
   "is_folderish": true,
   "items": [
       {
-          "@id": "https://plonedemo.kitconcept.com/en/media",
+          "@id": "https://demo.plone.org/media",
           "@type": "LIF",
           "description": "",
           "review_state": "published",
           "title": "Media"
       },
       {
-          "@id": "https://plonedemo.kitconcept.com/en/frontpage",
+          "@id": "https://demo.plone.org/frontpage",
           "@type": "Document",
           "description": "The ultimate Open Source Enterprise CMS",
           "review_state": "published",
           "title": "Welcome to Plone 5"
       },
       {
-          "@id": "https://plonedemo.kitconcept.com/en/demo",
+          "@id": "https://demo.plone.org/demo",
           "@type": "Folder",
           "description": "Vestibulum dignissim erat id eros mollis vitae tempus leo ultricies. Cras dapibus suscipit consectetur. Integer tincidunt feugiat tristique. Sed et arcu risus. Nam venenatis, tortor ac tincidunt amet.",
           "review_state": "published",
@@ -100,13 +99,13 @@ This returns the JSON data for the root of the Plone site.
 }
 ```
 
-Let us explore the `items` array from the response and click on <https://plonedemo.kitconcept.com/en/frontpage>.
+Let us explore the `items` array from the response and click on `https://demo.plone.org/frontpage`.
 We see that it gives a similar response as we got for the root.
 This way all the content objects have equivalent JSON data which our plugin can process and use to create nodes.
 
 ### Exercise
 
-Create a node for the Plone document at <https://plonedemo.kitconcept.com/en/demo/a-page>.
+Create a node for the Plone document at `https://demo.plone.org/demo/a-page`.
 Test the node created from the retrieved data by displaying some data in the `index` or any other page.
 
 Hints: Use Postman to check the data from the endpoint.
@@ -122,14 +121,15 @@ If not, the function will finish execution before the data is even retrieved and
 Read more about GET requests with Axios in the [official docs](https://www.npmjs.com/package/axios#example).
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```javascript
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
-  const { data } = await axios.get('https://plonedemo.kitconcept.com/en/demo/a-page', {
+  const { data } = await axios.get('https://demo.plone.org/demo/a-page', {
     headers: {
       accept: "application/json",
     }

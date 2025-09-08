@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Learn how to develop Volto add-ons and other useful Volto patterns
+myst:
+  html_meta:
+    "description": "Learn how to develop Volto add-ons and other useful Volto patterns"
+    "property=og:description": "Learn how to develop Volto add-ons and other useful Volto patterns"
+    "property=og:title": "Volto add-ons development"
+    "keywords": "Plone, Volto, add-on, development, training"
 ---
 
 (voltoaddons-label)=

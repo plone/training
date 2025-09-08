@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Pages
@@ -44,7 +45,7 @@ You can see that React components are written in a particular syntax called `JSX
 Components are functions (or ES6 classes) that accept some data and renders some HTML.
 
 ```{note}
-You can see more information in the official [ReactJS documentation](https://reactjs.org/docs/components-and-props.html)
+You can see more information in the official [ReactJS documentation](https://legacy.reactjs.org/docs/components-and-props.html).
 ```
 
 ## Exercise
@@ -56,8 +57,9 @@ Remember that with `gatsby develop` command, there is a webpack dev-server runni
 Every time we make some changes, the page will automatically update.
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{literalinclude} _snippets/index.js
 :emphasize-lines: 8,9
@@ -89,8 +91,9 @@ Routing and links are managed under the hood with [reach-router](https://reach.t
 
 Create a new page and link it in the index.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Create a new `ploneconf.js` file and write this code:
 

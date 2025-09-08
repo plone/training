@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-buildout1-label)=
@@ -376,7 +377,7 @@ Buildout-Documentation
 
 Troubleshooting
 
-: <https://docs.plone.org/manage/troubleshooting/buildout.html>
+: <https://5.docs.plone.org/manage/troubleshooting/buildout.html>
 
 A minimal buildout for Plone 5
 

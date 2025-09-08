@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Learn the basics about theming in Volto"
-  "property=og:description": "Learn the basics about theming in Volto"
-  "property=og:title": "Theming"
-  "keywords": "Plone, Volto, Training, Theme, Theming"
+myst:
+  html_meta:
+    'description': 'Learn the basics about theming in Volto'
+    'property=og:description': 'Learn the basics about theming in Volto'
+    'property=og:title': 'Theming'
+    'keywords': 'Plone, Volto, Training, Theme, Theming'
 ---
 
 (voltohandson-default-font-label)=
@@ -29,13 +30,17 @@ Now you need to restart Volto to make Volto aware of the new file. From now on c
 Edit the new file and add this:
 
 ```less
-@fontName: "Open Sans";
+@fontName: 'Roboto';
 ```
 
 You can set it to any Google font available, and the online version of the font will be used.
 You can also set other variables concerning the font used, such as the sizes available.
 In case you want to use more than one font or a font that is self-hosted,
-you should define it as usual in CSS and set the variable `importGoogleFonts` appropriately.
+you should define it as usual in CSS and set the variable `importGoogleFonts` appropriately. As `Roboto` is Google Font we will set
+
+```less
+@importGoogleFonts: true;
+```
 
 ```{tip}
 You can find the list with the global Semantic UI variables available in `omelette/theme/themes/default/globals/site.variables`.

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-export-code-label)=
@@ -247,7 +248,7 @@ The default types of Plone 5 also have an xml schema like this since that allows
 
 ## Changing a widget
 
-[Dexterity XML](https://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html) is very powerful. By editing it (not all features have a UI) you should be able to do everything you can do with a Python schema.
+[Dexterity XML](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html) is very powerful. By editing it (not all features have a UI) you should be able to do everything you can do with a Python schema.
 Sadly not every feature also is exposed in the UI of the dexterity schema editor. For example you cannot yet change the widgets or permissions for fields in the UI. We need to do this in the xml- or python-schema.
 
 Our talks use a dropdown for {guilabel}`type_of_talk` and a multiselect for {guilabel}`audience`. Radio-buttons and checkboxes would be the better choice here. Modify the XML to make that change happen:
@@ -405,7 +406,7 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
 ```
 
 ```{seealso}
-- <https://docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>
+- <https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html>
 - <https://github.com/plone/plone.autoform/blob/master/plone/autoform/supermodel.txt>
 ```
 
@@ -413,8 +414,9 @@ We only want to prevent writing, not reading, so we'll only manage the `write-pe
 
 Go to the ZMI and look for the definition of the new `Talk` content type in `portal_types`. Now deactivate {guilabel}`Implicitly addable?` and save. Go back to the site. Can you identify what this change has caused? And why is that useful?
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Go to <http://localhost:8080/Plone/portal_types/talk/manage_propertiesForm>
 

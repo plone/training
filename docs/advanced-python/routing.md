@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Routing
@@ -48,8 +49,9 @@ WSGI frameworks, we implement a primitive routing middleware on our own.
 A small improvement would be to replace the giant `if ... elif ... else`
 with a dictionary and map a `PATH_INFO` to a callable. The middleware should use this mapping to call the correct WSGI callable.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```python
 def not_found(environ, start_response):
@@ -165,8 +167,9 @@ def hello(environ, start_response):
     return ['''Hello {}!'''.format(subject).encode()]
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```python
 urls = [

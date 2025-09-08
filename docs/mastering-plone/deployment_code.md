@@ -1,12 +1,18 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Releasing Your Code
+
+```{todo}
+- Release frontend add-on: See https://www.npmjs.com/package/release
+- How to use released an unreleased frontend add-on
+```
 
 > - zest.releaser
 > - pypi-test egg deployment

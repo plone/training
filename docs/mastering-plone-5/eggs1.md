@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-eggs1-label)=
@@ -115,7 +116,7 @@ In {file}`src` there is now a new folder {file}`ploneconf.site` and in there is 
 
 : The python code of your package itself lives inside a special folder structure.
   That seems confusing but is necessary for good testability.
-  Our package contains a [namespace package](https://www.python.org/dev/peps/pep-0420/) called *ploneconf.site* and because of this there is a folder {file}`ploneconf` with a {file}`__init__.py` and in there another folder {file}`site` and in there finally is our code.
+  Our package contains a [namespace package](https://peps.python.org/pep-0420/) called *ploneconf.site* and because of this there is a folder {file}`ploneconf` with a {file}`__init__.py` and in there another folder {file}`site` and in there finally is our code.
   From the buildout's perspective your code is in {file}`{your buildout directory}/src/ploneconf.site/src/ploneconf/site/{real code}`
 
 ```{note}

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Relations
@@ -14,43 +15,44 @@ Relations allow developers to model relationships between objects without using 
 
 By using custom relations you can model your data in a much more meaningful way.
 
-## Creating relations in a schema
+## Creating and configuring relations in a schema
 
 Relate to one item only.
 
 ```{code-block} python
 :linenos:
 
-from plone.app.vocabularies.catalog import CatalogSource
 from z3c.relationfield.schema import RelationChoice
-from z3c.relationfield.schema import RelationList
 
 evil_mastermind = RelationChoice(
-    title='The Evil Mastermind',
-    vocabulary='plone.app.vocabularies.Catalog',
+    title="The Evil Mastermind",
+    vocabulary="plone.app.vocabularies.Catalog",
     required=False,
 )
 ```
 
 Relate to multiple items.
 
-```python
+```{code-block} python
+:linenos:
+
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 
 minions = RelationList(
-    title='Minions',
+    title="Minions",
     default=[],
     value_type=RelationChoice(
-        vocabulary='plone.app.vocabularies.Catalog',
-    )
+        title="Minions",
+        vocabulary="plone.app.vocabularies.Catalog"
+        ),
     required=False,
 )
 ```
 
 We can see that the [code for the behavior IRelatedItems](https://github.com/plone/plone.app.relationfield/blob/master/plone/app/relationfield/behavior.py) does exactly the same.
 
-## Controlling what to relate to
+### Controlling what to relate to
 
 The best way to control wich item should be relatable to is to configure the widget with `directives.widget()`.
 In the following example you can only relate to Documents:
@@ -62,42 +64,46 @@ In the following example you can only relate to Documents:
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 
 relationchoice_field = RelationChoice(
-    title='Relationchoice field',
-    vocabulary='plone.app.vocabularies.Catalog',
+    title="Relationchoice field",
+    vocabulary="plone.app.vocabularies.Catalog",
     required=False,
 )
 directives.widget(
-    'relationchoice_field',
+    "relationchoice_field",
     RelatedItemsFieldWidget,
     pattern_options={
-        'selectableTypes': ['Document', 'Event'],
+        "selectableTypes": ["Document", "Event"],
     },
 )
 ```
 
-## Configure the RelatedItemsFieldWidget
+### Configure the RelatedItemsFieldWidget
+
+```{note}
+These settings only have a effect in Plone 6 Classic.
+```
 
 With `pattern_options` you can further configure the widget.
 
-In the following example you can specify a) where to start browsing using the _pattern-option_ `basePath` and and b) to leave the dropwdown open using `closeOnSelect`.
+In the following example you can specify a) where to start browsing using the _pattern-option_ `basePath` and b) to leave the dropdown open using `closeOnSelect`.
 
 ```{code-block} python
 :emphasize-lines: 11
 :linenos:
 
 relationlist_field = RelationList(
-    title='Relationlist Field',
+    title="Relationlist Field",
     default=[],
-    value_type=RelationChoice(vocabulary='plone.app.vocabularies.Catalog'),
+    value_type=RelationChoice(vocabulary="plone.app.vocabularies.Catalog"),
     required=False,
     missing_value=[],
 )
 directives.widget(
-    'relationlist_field',
+    "relationlist_field",
     RelatedItemsFieldWidget,
     pattern_options={
-        'basePath': ',
-        'closeOnSelect': False,  # Leave dropdown open for multiple selection
+        "basePath": ",
+        "closeOnSelect": False,  # Leave dropdown open for multiple selection
     },
 )
 ```
@@ -111,20 +117,24 @@ directives.widget(
 from plone.app.multilingual.browser.interfaces import make_relation_root_path
 
 relationlist_field = RelationList(
-    title='Relationlist Field',
+    title="Relationlist Field",
     default=[],
-    value_type=RelationChoice(vocabulary='plone.app.vocabularies.Catalog'),
+    value_type=RelationChoice(vocabulary="plone.app.vocabularies.Catalog"),
     required=False,
     missing_value=[],
 )
 directives.widget(
-    'relationlist_field',
+    "relationlist_field",
     RelatedItemsFieldWidget,
     pattern_options=make_relation_root_path,
 )
 ```
 
-## Using the search mode of the Related Items Widget
+### Using the search mode of the Related Items Widget
+
+```{note}
+These settings only have a effect in Plone 6 Classic.
+```
 
 So far we only used the vocabulary `plone.app.vocabularies.Catalog` that returns the full content tree.
 
@@ -146,22 +156,22 @@ Therefore is is recommended to use CatalogSource only in in `search` mode.
 from plone.app.vocabularies.catalog import CatalogSource
 
 speakers = RelationList(
-    title='Speaker(s) for this talk',
-    value_type=RelationChoice(source=CatalogSource(portal_type='speaker')),
+    title="Speaker(s) for this talk",
+    value_type=RelationChoice(source=CatalogSource(portal_type="speaker")),
     required=False,
 )
 directives.widget(
-    'speakers',
+    "speakers",
     RelatedItemsFieldWidget,
     pattern_options={
-        'baseCriteria': [  # This is a optimization that limits the catalog-query
+        "baseCriteria": [  # This is a optimization that limits the catalog-query
             {
-                'i': 'portal_type',
-                'o': 'plone.app.querystring.operation.selection.any',
-                'v': ['speaker'],
+                "i": "portal_type",
+                "o": "plone.app.querystring.operation.selection.any",
+                "v": ["speaker"],
             }
         ],
-        'mode': 'search',
+        "mode": "search",
     },
 )
 ```
@@ -169,100 +179,21 @@ directives.widget(
 ```{figure} _static/relationlist_searchmode.png
 :alt: Seach mode of RelationWidget
 
-Seach mode of RelationWidget
+Search mode of RelationWidget
 ```
 
-## Using different widgets for relations
+### Define Favorite Locations
 
-Often the widget for relations is not what you want since it can be hard to navigate to the content you want to relate to.
-
-If you want to use checkboxes, radiobuttons or a selection-dropdown you need to use `StaticCatalogVocabulary` instead of `CatalogSource` to specify your options.
-
-```{code-block} python
-:emphasize-lines: 8, 18
-:linenos:
-
-from plone.app.vocabularies.catalog import StaticCatalogVocabulary
-from plone.app.z3cform.widget import SelectFieldWidget
-from plone.autoform import directives
-from z3c.relationfield.schema import RelationChoice
-
-relationchoice_field_select = RelationChoice(
-    title='RelationChoice with Select Widget',
-    vocabulary=StaticCatalogVocabulary(
-        {
-            'portal_type': ['Document', 'Event'],
-            'review_state': 'published',
-        }
-    ),
-    required=False,
-)
-directives.widget(
-    'relationchoice_field_select',
-    SelectFieldWidget,
-)
-```
-
-The field should then look like this:
-
-```{figure} _static/relation_select.png
-:alt: RelationList field with select widget
-
-RelationList field with select widget
-```
-
-Another example is the `AjaxSelectFieldWidget` that only queries the catalog for results if you start typing:
-
-```{code-block} python
-:linenos:
-
-relationlist_field_ajax_select = RelationList(
-    title='Relationlist Field with AJAXSelect',
-    description='z3c.relationfield.schema.RelationList',
-    value_type=RelationChoice(
-        vocabulary=StaticCatalogVocabulary(
-            {
-                'portal_type': ['Document', 'Event'],
-                'review_state': 'published',
-            }
-        )
-    ),
-    required=False,
-)
-directives.widget(
-    'relationlist_field_ajax_select',
-    AjaxSelectFieldWidget,
-    vocabulary=StaticCatalogVocabulary(
-        {
-            'portal_type': ['Document', 'Event', 'Folder'],
-        },
-        title_template='{brain.Type}: {brain.Title} at {path}',
-    ),  # Custom item rendering
-    pattern_options={  # Options for Select2
-        'minimumInputLength': 2,  # - Don't query until at least two characters have been typed
-        'ajax': {'quietMillis': 500},  # - Wait 500ms after typing to make query
-    },
-)
-```
-
-```{figure} _static/relationliste_ajax.png
-:alt: Relationlist Field with AJAXSelect
-```
-
-Relationlist Field with AJAXSelect
-
-## Define Favorite Locations
-
-The `RelatedItemsFieldWidget` also allow you to set favorites:
+The `RelatedItemsFieldWidget` allows you to set favorites:
 
 ```{code-block} python
 :linenos:
 
 directives.widget(
-    'minions',
+    "minions",
     RelatedItemsFieldWidget,
     pattern_options={
-        'favorites': [{'title': 'Minions', 'path': '/Plone/minions'}]
+        "favorites": [{"title": "Minions", "path": "/Plone/minions"}]
     },
 )
 ```
@@ -285,18 +216,18 @@ from zope.interface import provider
 
 def minion_favorites(context):
     portal = api.portal.get()
-    minions_path = '/'.join(portal['minions'].getPhysicalPath())
-    one_eyed_minions_path = '/'.join(portal['one-eyed-minions'].getPhysicalPath())
+    minions_path = "/".join(portal["minions"].getPhysicalPath())
+    one_eyed_minions_path = "/".join(portal["one-eyed-minions"].getPhysicalPath())
     return [
             {
-                'title': 'Current Content',
-                'path': '/'.join(context.getPhysicalPath())
+                "title": "Current Content",
+                "path": "/".join(context.getPhysicalPath())
             }, {
-                'title': 'Minions',
-                'path': minions_path,
+                "title": "Minions",
+                "path": minions_path,
             }, {
-                'title': 'One eyed minions',
-                'path': one_eyed_minions_path,
+                "title": "One eyed minions",
+                "path": one_eyed_minions_path,
             }
         ]
 
@@ -305,71 +236,27 @@ def minion_favorites(context):
 class IHaveMinions(model.Schema):
 
     minions = RelationList(
-        title='My minions',
+        title="My minions",
         default=[],
         value_type=RelationChoice(
             source=CatalogSource(
-                portal_type=['one_eyed_minion', 'minion'],
-                review_state='published',
+                portal_type=["one_eyed_minion", "minion"],
+                review_state="published",
             )
         ),
         required=False,
     )
     directives.widget(
-        'minions',
+        "minions",
         RelatedItemsFieldWidget,
         pattern_options={
-            'mode': 'auto',
-            'favorites': minion_favorites,
+            "mode": "auto",
+            "favorites": minion_favorites,
             }
         )
 ```
 
-## Accessing and displaying related items
-
-To display related items you can use the render method of the default widget e.g.:
-
-```html
-<div tal:content="structure view/w/evil_mastermind/render" />
-```
-
-This would render the related items like this:
-
-```{figure} https://user-images.githubusercontent.com/453208/77223704-4b714100-6b5f-11ea-855b-c6e209f1c25c.png
-:alt: Default rendering of a RelationList (since Plone 5.2.2)
-```
-
-If you want to access and render relations yourself you can use the Plone add-on [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers) and add a method like in the following example.
-
-```{code-block} python
-:linenos:
-
-from collective.relationhelpers import api as relapi
-from Products.Five import BrowserView
-
-
-class EvilMastermindView(BrowserView):
-
-    def minions(self):
-        """Returns a list of related items."""
-        return relapi.relations(self.context, 'underlings')
-```
-
-This returns the related items so that you will able to render them anyhow you like.
-
-## Inspecting relations
-
-You Plone 6 Classic you can inspect all relations and backrelations in your site using the controlpanel `/@@inspect-relations`.
-
-```{figure} _static/inspect-relations.png
-:alt: The relations controlpanel
-
-The relations controlpanel
-```
-
-In Plone 5 this is available through the addon [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers).
-
-## Creating RelationFields through the web
+## RelationFields through the web or in xml
 
 It is surprisingly easy to create RelationFields through the web
 
@@ -409,11 +296,140 @@ RelationList:
 </field>
 ```
 
-## Interacting with relations and backrelations in code
+## Using different widgets for relations
+
+```{todo}
+Support for `StaticCatalogVocabulary` in Volto is currently still missing.
+```
+
+Often the standard widget for relations is not what you want since it can be hard to navigate to the content you want to relate to.
+
+If you want to use checkboxes, radiobuttons or a selection-dropdown you need to use `StaticCatalogVocabulary` instead of `CatalogSource` to specify your options.
+
+```{code-block} python
+:emphasize-lines: 8, 18
+:linenos:
+
+from plone.app.vocabularies.catalog import StaticCatalogVocabulary
+from plone.app.z3cform.widget import SelectFieldWidget
+from plone.autoform import directives
+from z3c.relationfield.schema import RelationChoice
+
+relationchoice_field_select = RelationChoice(
+    title="RelationChoice with Select Widget",
+    vocabulary=StaticCatalogVocabulary(
+        {
+            "portal_type": ["Document", "Event"],
+            "review_state": "published",
+        }
+    ),
+    required=False,
+)
+directives.widget(
+    "relationchoice_field_select",
+    SelectFieldWidget,
+)
+```
+
+The field should then look like this:
+
+```{figure} _static/relation_select.png
+:alt: RelationList field with select widget
+
+RelationList field with select widget
+```
+
+Another example is the `AjaxSelectFieldWidget` that only queries the catalog for results if you start typing:
+
+```{code-block} python
+:linenos:
+
+relationlist_field_ajax_select = RelationList(
+    title="Relationlist Field with AJAXSelect",
+    description="z3c.relationfield.schema.RelationList",
+    value_type=RelationChoice(
+        vocabulary=StaticCatalogVocabulary(
+            {
+                "portal_type": ["Document", "Event"],
+                "review_state": "published",
+            }
+        )
+    ),
+    required=False,
+)
+directives.widget(
+    "relationlist_field_ajax_select",
+    AjaxSelectFieldWidget,
+    vocabulary=StaticCatalogVocabulary(
+        {
+            "portal_type": ["Document", "Event", "Folder"],
+        },
+        title_template="{brain.Type}: {brain.Title} at {path}",
+    ),  # Custom item rendering
+    pattern_options={  # Options for Select2
+        "minimumInputLength": 2,  # - Don't query until at least two characters have been typed
+        "ajax": {"quietMillis": 500},  # - Wait 500ms after typing to make query
+    },
+)
+```
+
+```{figure} _static/relationliste_ajax.png
+:alt: Relationlist Field with AJAXSelect
+```
+
+Relationlist Field with AJAXSelect
+
+
+## Accessing and displaying related items
+
+To display related items you can use the render method of the default widget e.g.:
+
+```html
+<div tal:content="structure view/w/evil_mastermind/render" />
+```
+
+This would render the related items like this:
+
+```{figure} https://user-images.githubusercontent.com/453208/77223704-4b714100-6b5f-11ea-855b-c6e209f1c25c.png
+:alt: Default rendering of a RelationList (since Plone 5.2.2)
+```
+
+If you want to access and render relations yourself you can use the Plone add-on [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers) and add a method like in the following example.
+
+```{code-block} python
+:linenos:
+
+from collective.relationhelpers import api as relapi
+from Products.Five import BrowserView
+
+
+class EvilMastermindView(BrowserView):
+
+    def minions(self):
+        """Returns a list of related items."""
+        return relapi.relations(self.context, "underlings")
+```
+
+This returns the related items so that you will able to render them anyhow you like.
+
+## Inspecting relations
+
+You Plone 6 Classic you can inspect all relations and backrelations in your site using the control panel `/@@inspect-relations`.
+
+```{figure} _static/inspect-relations.png
+:alt: The relations controlpanel
+
+The relations controlpanel
+```
+
+In Plone 5 this is available through the addon [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers).
+
+
+## Programming with relations
 
 ### Plone 6
 
-Since version 2.0.0a1 `plone.api` has methods to create, read, and delete relations and backrelations.
+Since Plone 6 `plone.api` has methods to create, read, and delete relations and backrelations.
 
 ```{code-block} python
 :linenos:
@@ -444,11 +460,18 @@ from plone import api
 api.relation.delete(source=portal["bob"])
 ```
 
-See the [plone.api documentation](https://github.com/plone/plone.api/blob/master/docs/relation.rst) for more details.
+See the chapter {ref}`plone6docs:chapter-relation` of the docs for `plone.api`  for more details.
+
 
 ### Plone 5.2 and older
 
 In older Plone-Versions you can use [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers) to create and read relations and backrelations in a very similar way.
+
+
+### Restapi
+
+A restapi endpoint to create, read, and delete relations and backrelations will be part of `plone.restapi`. See https://github.com/plone/plone.restapi/issues/1432
+
 
 ## Relationfields without relations
 
@@ -499,7 +522,7 @@ directives.widget(
 ```
 
 ```{note}
-For controlpanels this is the best way to store relations since you cannot store `RelationValue` objects in the registry.
+For control panels this is the best way to store relations since you cannot store `RelationValue` objects in the registry.
 ```
 
 ## The stack
@@ -549,7 +572,7 @@ The simplest concrete advantage is the possibility to see what links to your obj
 
 The built-in linkintegrity feature of Plone 5 is also implemented using relations.
 
-## RelationValues
+### RelationValues
 
 RelationValue objects have a fairly complete API.
 For both target and source, you can receive the IntId, the object and the path.

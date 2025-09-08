@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Search Traversal Method Of Retrieving Data
@@ -15,28 +16,28 @@ One of the strategies that we experimented with and adopted for the source-plugi
 
 ## Getting The Full List Of Content
 
-Make a GET request to `https://plonedemo.kitconcept.com/en/@search`.
+Make a GET request to `https://demo.plone.org/@search`.
 
 ```json
 {
-  "@id": "https://plonedemo.kitconcept.com/en/@search",
+  "@id": "https://demo.plone.org/@search",
   "items": [
       {
-          "@id": "https://plonedemo.kitconcept.com/en",
+          "@id": "https://demo.plone.org",
           "@type": "LRF",
           "description": "",
           "review_state": "published",
           "title": "English"
       },
       {
-          "@id": "https://plonedemo.kitconcept.com/en/media",
+          "@id": "https://demo.plone.org/media",
           "@type": "LIF",
           "description": "",
           "review_state": "published",
           "title": "Media"
       },
       {
-          "@id": "https://plonedemo.kitconcept.com/en/frontpage",
+          "@id": "https://demo.plone.org/frontpage",
           "@type": "Document",
           "description": "The ultimate Open Source Enterprise CMS",
           "review_state": "published",
@@ -52,22 +53,22 @@ There is limited information here.
 To build a node we need more data.
 We could try calling the `@id` endpoint and see what it returns.
 
-Send a GET request to the `id` of one of these objects, say <https://plonedemo.kitconcept.com/en/frontpage>.
+Send a GET request to the `id` of one of these objects, say `https://demo.plone.org/frontpage`.
 
 ```json
 {
   "@components": {
       "breadcrumbs": {
-          "@id": "https://plonedemo.kitconcept.com/en/frontpage/@breadcrumbs"
+          "@id": "https://demo.plone.org/frontpage/@breadcrumbs"
       },
       "navigation": {
-          "@id": "https://plonedemo.kitconcept.com/en/frontpage/@navigation"
+          "@id": "https://demo.plone.org/frontpage/@navigation"
       },
       "workflow": {
-          "@id": "https://plonedemo.kitconcept.com/en/frontpage/@workflow"
+          "@id": "https://demo.plone.org/frontpage/@workflow"
       }
   },
-  "@id": "https://plonedemo.kitconcept.com/en/frontpage",
+  "@id": "https://demo.plone.org/frontpage",
   "@type": "Document",
   "UID": "5938b3c2c0e147b18fbf20d32842eb06",
   "allow_discussion": null,
@@ -87,7 +88,7 @@ Send a GET request to the `id` of one of these objects, say <https://plonedemo.k
   "layout": "document_view",
   "modified": "2018-10-13T13:25:31+00:00",
   "parent": {
-      "@id": "https://plonedemo.kitconcept.com/en",
+      "@id": "https://demo.plone.org",
       "@type": "LRF",
       "description": "",
       "review_state": "published",
@@ -144,7 +145,7 @@ const fetchData = async url => {
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
-  const baseUrl = 'https://plonedemo.kitconcept.com/en';
+  const baseUrl = 'https://demo.plone.org';
 
   console.log('Fetching items list');
   const data = await fetchData(baseUrl + '/@search');
@@ -193,7 +194,19 @@ We prepend `Plone` to the type and remove spaces for it to automatically handle 
 ```
 
 ```{note}
-We use the <https://plonedemo.kitconcept.com/en> here directly for development purposes but in a real-world case, use the `baseUrl` passed in from plugin options in `gatsby-config.js`.
+We use the <https://demo.plone.org> here directly for development purposes but in a real-world case, use the `baseUrl` passed in from plugin options in `gatsby-config.js`.
+```
+
+```{warning}
+This tutorial previously used `https://plonedemo.kitconcept.com/en` in its examples because it did not require authorization.
+The Plone Foundation now actively maintains a [Plone 6 demo](https://demo.plone.org).
+Browsing its API requires a basic authorization token.
+We have updated all references to use the Plone 6 demo.
+All that means the examples might not work. 
+```
+
+```{todo}
+Update this training to use a site that does not require a basic authorization token.
 ```
 
 Once we have this complete data, we can process it and create Gatsby nodes for all of them.
@@ -204,16 +217,17 @@ Now that you have the search traversal method implemented, all the data form the
 
 Run the development server with `gatsby develop` and navigate to GraphiQL explorer at <http://localhost:8000/___graphql>.
 
-Try to get data for a particular page with id <https://plonedemo.kitconcept.com/en/demo/a-news-item>.
+Try to get data for a particular page with id `https://demo.plone.org/demo/a-news-item`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Since it is a News Item, we can directly use GraphQL to query for `ploneNewsItem`:
 
 ```text
 {
-  ploneNewsItem (id: {eq: "https://plonedemo.kitconcept.com/en/demo/a-news-item"}) {
+  ploneNewsItem (id: {eq: "https://demo.plone.org/demo/a-news-item"}) {
     id
     title
     description

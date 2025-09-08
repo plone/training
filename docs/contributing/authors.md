@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
-  "property=og:description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
-  "property=og:title": "Authors Guide"
-  "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer"
+myst:
+  html_meta:
+    "description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
+    "property=og:description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
+    "property=og:title": "Authors Guide"
+    "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer"
 ---
 
 (authors-guide-label)=
@@ -19,7 +20,7 @@ For general markup syntax, see {doc}`writing-docs-guide`.
 
 ## HTML and Open Graph Metadata
 
-All documents must have an `html_meta` directive at the top of every page.
+All documents must have a `myst` topmatter key with an `html_meta` directive at the top of every page.
 When rendered to HTML, it inserts `<meta>` tags for improved search engine results and nicer social media posts.
 Authors should include at least `description`, `property=og:description`, `property=og:title`, and `keywords` meta tags.
 
@@ -28,11 +29,12 @@ Note that the content of the two tags `description` and `property=og:description
 
 ```md
 ---
-html_meta:
-  "description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
-  "property=og:description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
-  "property=og:title": "Authors Guide"
-  "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer"
+myst:
+  html_meta:
+    "description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
+    "property=og:description": "Authors' guide to writing Plone Trainings. It covers configuring quality checks and syntax for writing markup that is of particular interest to authors."
+    "property=og:title": "Authors Guide"
+    "keywords": "Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer"
 ---
 ```
 
@@ -45,7 +47,7 @@ This renders in the HTML `<head>` section as follows.
 <meta content="Plone, Trainings, SEO, meta, presentation, exercises, solutions, spellcheck, linkcheck, lexer" name="keywords" />
 ```
 
-Additional {term}`Open Graph` metadata is implemented through the Sphinx extension [`sphinxext-opengraph`](https://github.com/wpilibsuite/sphinxext-opengraph) and the [MyST `html_meta` directive](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#setting-html-metadata), which resolves to the [Docutils `meta` directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#metadata).
+Additional {term}`Open Graph` metadata is implemented through the Sphinx extension [`sphinxext-opengraph`](https://github.com/wpilibsuite/sphinxext-opengraph) and the [MyST `html_meta` directive](https://myst-parser.readthedocs.io/en/latest/configuration.html#global-configuration), which resolves to the [Docutils `meta` directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#metadata).
 See the site-wide configuration in {file}`conf.py`.
 
 
@@ -94,16 +96,16 @@ This will render as follows.
 
 ## Writing Exercises and Solutions
 
-We use a custom JavaScript in {file}`docs/_templates/page.html` to hide and show solutions to exercises in the trainings.
+We use [Sphinx Design's dropdowns](https://sphinx-design.readthedocs.io/en/latest/dropdowns.html) to hide and show solutions to exercises in the trainings.
 
-This makes use of the unique docutils [`admonition` directive](https://docutils.sourceforge.io/docs/ref/rst/directives.html#generic-admonition) which allows a custom title.
-We also use a special `:class: toggle` option for the directive.
+We use its options of `:animate: fade-in-slide-down` and `:icon: question` to animate and provide an icon for the item.
 
-Note that the markup uses [MyST nested directives](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#nesting-directives).
+Note that the markup uses [MyST nested directives](https://myst-parser.readthedocs.io/en/latest/syntax/roles-and-directives.html#nesting-directives).
 
 `````md
-````{admonition} This is a title
-:class: toggle
+````{dropdown} This is a title
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:
@@ -119,8 +121,9 @@ print(f"my {a}nd line")
 
 This will render as follows.
 
-````{admonition} This is a title
-:class: toggle
+````{dropdown} This is a title
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:

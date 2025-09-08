@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Learn how to create the highlight Block"
-  "property=og:description": "Learn how to create the highlight Block"
-  "property=og:title": "Mainslider Block"
-  "keywords": "Plone, Volto, Training, Blocks, Slider"
+myst:
+  html_meta:
+    "description": "Learn how to create the highlight Block"
+    "property=og:description": "Learn how to create the highlight Block"
+    "property=og:title": "Mainslider Block"
+    "keywords": "Plone, Volto, Training, Blocks, Slider"
 ---
 
 (voltohandson-highlightsblock-label)=
@@ -14,8 +15,9 @@ html_meta:
 
 Exercise: Create the highlights basic block using `src/components/Blocks/Highlights/View.jsx` and `src/components/Blocks/Highlights/Edit.jsx` and configure it.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `src/components/Blocks/Highlights/View.jsx`
 
@@ -140,7 +142,7 @@ Copy the required resources `highlights-plone.png` and `highlights-news.png` fro
 ## Recent launches behavior
 
 We will provide behavior to this column, by querying Plone about the recents `Success Story`.
-We will use the plone.restapi `@search` endpoint for that.
+We will use the `plone.restapi` `@search` endpoint for that.
 This is a static behavior, so we can implement it in the view component.
 We don't want to bloat the view component, so we will create a specific component for it called `RecentSuccessStories.jsx` in the block directory:
 

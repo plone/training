@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add a delete button and onDelete handler to remove the question from the list."
-  "property=og:description": "Add a delete button and onDelete handler to remove the question from the list."
-  "property=og:title": "Use Callbacks To Delete An Item"
-  "keywords": "Plone, training, SEO, exercise, solution, React"
+myst:
+  html_meta:
+    "description": "Add a delete button and onDelete handler to remove the question from the list."
+    "property=og:description": "Add a delete button and onDelete handler to remove the question from the list."
+    "property=og:title": "Use Callbacks To Delete An Item"
+    "keywords": "Plone, training, SEO, exercise, solution, React"
 ---
 
 (callbacks-label)=
@@ -16,8 +17,9 @@ To be able to manage our FAQ entries, we start by adding a delete button to remo
 Add the delete button to the `FaqItem` view in the {file}`FaqItem.jsx` file.
 Create an empty `onDelete` handler which is called when the button is pressed.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 11,19
@@ -76,15 +78,16 @@ export default FaqItem;
 ```
 ````
 
-## Write The onDelete Handler
+## Write The `onDelete` Handler
 
 Now that we have our dummy handler ready, we need to add functionality to the handler.
 Since the list of FAQ items is managed by our `App` component, we cannot directly remove the item.
 Rewrite the `FaqItem` component so that both a unique identifier of the FAQ item and a callback to remove the FAQ item can be passed to this component.
 Also complete the `onDelete` handler such that it will call the callback with the correct identifier.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 11-13,29-30
@@ -158,11 +161,12 @@ Now we're ready to change the `App` component to add a dummy `onDelete` handler.
 Add the `onDelete` handler to the `App` component, which logs the index of the FAQ item to the console.
 Make sure to pass the index and the callback to the `FaqItem` component to wire everything together:
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
-:emphasize-lines: 17-20,23-29
+:emphasize-lines: 17-20,23-30
 :linenos: true
 
 import { useState } from "react";
@@ -189,6 +193,7 @@ function App() {
     <ul>
       {faqList.map((item, index) => (
         <FaqItem
+          key={index}
           question={item.question}
           answer={item.answer}
           index={index}
@@ -205,7 +210,7 @@ export default App;
 ```dpatch
 --- a/src/App.js
 +++ b/src/App.js
-@@ -14,10 +14,19 @@ function App() {
+@@ -14,10 +14,20 @@ function App() {
      },
    ]);
 
@@ -215,10 +220,10 @@ export default App;
 +
    return (
      <ul>
--      {faqList.map((item) => (
--        <FaqItem question={item.question} answer={item.answer} />
-+      {faqList.map((item, index) => (
+       {faqList.map((item, index) => (
+-        <FaqItem key={index} question={item.question} answer={item.answer} />
 +        <FaqItem
++          key={index}   
 +          question={item.question}
 +          answer={item.answer}
 +          index={index}
@@ -235,8 +240,9 @@ export default App;
 The last step is to remove the item from the list.
 Write the `onDelete` handler which removes the item from the list and creates the new state.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 1-5

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (volto-addon-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend
-:align: left
 :class: logo
 ```
 
@@ -22,61 +22,81 @@ For Plone backend add-ons see chapter {ref}`add-ons-label`
 
 (add-ons-volto-overview-label)=
 
-## Volto Add-ons
+## Awesome Volto Add-ons
 
-Add-ons enrich a Volto app with specialized blocks, themes, integration of Node packages, and more.
+Add-ons enrich a Volto app with specialized blocks, themes, integration of non-Volto Node packages, and more.
 A selection of add-ons can be found on:
 
-- Github: <https://github.com/collective/awesome-volto#addons>
-- npm: <https://www.npmjs.com/search?q=keywords:volto-addon>
+- [Awesome Volto](https://github.com/collective/awesome-volto#addons)
+- [npm #volto-addon](https://www.npmjs.com/search?q=keywords:volto-addon)
+- [github #volto-addon](https://github.com/search?o=desc&q=%23volto-addon&s=&type=Repositories)
 
-One typical add-on is about adding a new block to present content in columns: [@eeacms/volto-columns-block](https://github.com/eea/volto-columns-block)
+Some add-ons do require a backend add-on, some do not.
+A backend add-on is needed for a content type or a `REST API endpoint`.
 
-```{figure} _static/volto-columns-block.png
-:alt: The eea volto-columns-block package gives you a block with columns. Each column
-:  is its own separate blocks container.
-```
+Two examples:
 
-Here is how you would install a Volto add-on:
+[`@eeacms/volto-matomo`](https://www.npmjs.com/package/@eeacms/volto-matomo) integrates Matomo with Volto sites.
+No backend add-on is needed.
+The add-on integrates the code snippet from `Matomo` into your pages to ping your web stats installation.
 
-Update `package.json`:
+[`@rohberg/volto-slate-glossary`](https://github.com/rohberg/volto-slate-glossary) adds tooltips to selected pages according a given glossary.
+As it depends on a permanent glossary, it communicates with the backend add-on [`collective.glossary`](https://pypi.org/project/collective.glossary/).
+The Volto add-on provides, aside from the tooltips, a UI to edit the glossary.
 
-```json
-"addons": [
-  "@eeacms/volto-columns-block"
-],
 
-"dependencies": {
-  "@plone/volto": "12.3.0",
-  "@eeacms/volto-columns-block": "github:eea/volto-columns-block#x.y.z"
-},
-```
+## Install an add-on
+
+Here is how you would install a Volto add-on in your app:
 
 Add-ons that are already released on [npm](https://www.npmjs.com):
 
-```{code-block} json
-:emphasize-lines: 2,6-7
-:linenos:
+: Update `package.json`:
+  ```{code-block} json
+  :emphasize-lines: 2,7
 
-"addons": [
-  "@eeacms/volto-columns-block"
-],
+  "addons": [
+    "@eeacms/volto-matomo"
+  ],
 
-"dependencies": {
-  "@plone/volto": "8.3.0",
-  "@eeacms/volto-columns-block": "^1.0.0"
-},
-```
+  "dependencies": {
+    "@plone/volto": "8.3.0",
+    "@eeacms/volto-matomo": "^2.0.9"
+  },
+  ```
 
-Install new add-ons and restart Volto:
+Add-ons that are **not yet released** on `npm` but available on `Github`:
+
+: Update `package.json`:
+
+  ```{code-block} json
+  :emphasize-lines: 2,7
+
+  "addons": [
+    "@foo/volto-bar-block"
+  ],
+
+  "dependencies": {
+    "@plone/volto": "16.0.1",
+    "@foo/volto-bar-block": "github:foo/volto-bar-block#x.y.z"
+  },
+  ```
+
+
+Install new add-on with `yarn` and restart Volto:
 
 ```shell
 $ yarn
 $ yarn start
 ```
 
+
 (add-ons-volto-backedupbyplone-label)=
 
 ## Complementing Volto with Plone add-ons
 
-With some additional features of Volto add-ons in place, where do we need to work on the Plone side? With the split of Plone in backend and frontend, Plone is still the place to shape your data model. For our training story 'Platform for a Plone Conference' we need to model the content type talk. So in an earlier {doc}`dexterity` chapter we created a **new Plone add-on** `ploneconf.site` that adds the content type `talk` and the correspondent views for a talk and a list of talks in our Volto app `volto-ploneconf` in chapter {doc}`volto_talkview`.
+With some additional features of Volto add-ons in place, where do we need to work if there is more that add-ons do not already implement?
+With the split of Plone in backend and frontend, the backend Plone is still the place to shape your data model.
+For our training story 'Platform for a Plone Conference' we need to model the content type talk.
+So in an earlier {doc}`dexterity` chapter we created a **new Plone Python add-on** `ploneconf.site` that adds the content type `talk`.
+And in chapter {doc}`volto_talkview` we created the view for a talk in our custom Volto add-on `volto-ploneconf`.

@@ -1,16 +1,17 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "What's New in Plone 5, 5.1 and Plone 5.2"
+    "property=og:description": "What's New in Plone 5, 5.1 and Plone 5.2"
+    "property=og:title": "What's New in Plone 5, 5.1 and Plone 5.2"
+    "keywords": "New, Plone, 5, 5.1, 5.2, release, notes, changes"
 ---
 
 (plone5-plone5-label)=
 
 # What's New in Plone 5, 5.1 and Plone 5.2
 
-Plone 5.0 was released in September 2015. Plone 5 was a mayor release, that changed the content type framework, the user interface and the default design.
+Plone 5.0 was released in September 2015. Plone 5 was a major release, that changed the content type framework, the user interface, and the default design.
 
 Plone 5.1 was released in October 2017 and holds a couple of smaller improvements.
 
@@ -24,12 +25,12 @@ If you are already familiar with Plone 5.0, 5.1 and 5.2 you can skip this sectio
 
 The default theme of Plone 5.x is called [Barceloneta](https://github.com/plone/plonetheme.barceloneta/)
 
-It is a Diazo theme, meaning it uses {py:mod}`plone.app.theming` to insert the output of Plone into static html/css.
+It is a Diazo theme, meaning it uses {py:mod}`plone.app.theming` to insert the output of Plone into static HTML/CSS.
 
-It uses html5, so it uses `<header>`, `<nav>`, `<aside>`, `<section>`, `<article>` and `<footer>` for semantic html.
+It uses HTML5, so it uses `<header>`, `<nav>`, `<aside>`, `<section>`, `<article>` and `<footer>` for semantic html.
 
 The theme is mostly built with [LESS](https://lesscss.org/) (lots of it!)
-and uses the same grid system as [Bootstrap](https://getbootstrap.com/css/#grid).
+and uses the same grid system as [Bootstrap](https://getbootstrap.com/docs/4.4/layout/grid/).
 This means you can use CSS classes like `col-xs-12 col-sm-9` to control the width of elements for different screen sizes.
 If you prefer a different grid system (like [Foundation](https://get.foundation/sites/docs/grid.html)) over Bootstrap you can adapt the theme to use that.
 
@@ -68,7 +69,7 @@ While Plone 4 used Archetypes all default types are based on Dexterity in Plone 
 
 ## Resource Registry
 
-The resource registry allows you to configure and edit the static resources (js, css) of Plone. It replaces the old javascript and css registries. And it can be used to customize the theme by changing the variables used by LESS or overriding LESS files.
+The resource registry allows you to configure and edit the static resources (JavaScript, CSS) of Plone. It replaces the old JavaScript and CSS registries. And it can be used to customize the theme by changing the variables used by LESS or overriding LESS files.
 
 (plone5-plone5-chameleon-label)=
 
@@ -180,7 +181,7 @@ Plone 5.1 comes with many incremental improvements. None of these changes the wa
 - Actions now have a user-interface in the Plone control panel. You no longer need to use the ZMI to manage them by hand.
 - "Retina" Image scales: Plone now has scales for high pixel density images.
 
-For a complete list of changes see <https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_51.html#changes-between-plone-5-0-and-5-1>
+For a complete list of changes see <https://5.docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_51.html#changes-between-plone-5-0-and-5-1>
 
 ## Plone 5.2
 
@@ -189,12 +190,12 @@ Plone 5.2 supports Python 2.7, 3.6 and 3.7. It is based on Zope 4.0 and runs WSG
 Plone 5.2 comes with many bug fixes and a couple of nice improvements. Here are some noteworthy changes:
 
 - New navigation with dropdown. Site-Administrators can use the navigation control panel `/@@navigation-controlpanel` to configure the dropdown-navigation.
-- Plone 5.2 ships with [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/)
+- Plone 5.2 ships with {doc}`plone6docs:plone.restapi/docs/source/index`.
 - New Login. The old skin-templates and skin-scripts were replaced by browser-views that are much easier to customize.
 - Merge Products.RedirectionTool into core. Site-Administrators can use the {guilabel}`URL Management` control panel (`/@@redirection-controlpanel`) to manage and add alternative URLs including bulk upload of alternative urls. As an Editor, you can see the {guilabel}`URL Management` link in the {guilabel}`actions` menu of a content item, and add or remove alternative URLs for this specific content item.
 
 ```{seealso}
-- [Complete list of changes for Plone 5.2](https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_52.html)
-- [Upgrade add-ons to Python 3](https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_python3.html)
-- [Migrate a ZODB from Python 2.7 to Python 3](https://docs.plone.org/manage/upgrading/version_specific_migration/upgrade_zodb_to_python3.html)
+- [Complete list of changes for Plone 5.2](https://5.docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_52.html)
+- [Upgrade add-ons to Python 3](https://5.docs.plone.org/manage/upgrading/version_specific_migration/upgrade_to_python3.html)
+- [Migrate a ZODB from Python 2.7 to Python 3](https://5.docs.plone.org/manage/upgrading/version_specific_migration/upgrade_zodb_to_python3.html)
 ```

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Learn How to code a custom View for a content type"
-  "property=og:description": "Learn How to code a custom View for a content type"
-  "property=og:title": "Content Type Views"
-  "keywords": "Plone, Volto, Training, View, Content Types"
+myst:
+  html_meta:
+    "description": "Learn How to code a custom View for a content type"
+    "property=og:description": "Learn How to code a custom View for a content type"
+    "property=og:title": "Content Type Views"
+    "keywords": "Plone, Volto, Training, View, Content Types"
 ---
 
 (voltohandson-contenttypeview-label)=

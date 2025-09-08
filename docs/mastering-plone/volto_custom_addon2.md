@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (volto-custom-addon2-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend
-:align: left
 :class: logo
 ```
 
@@ -32,7 +32,7 @@ Let's start with our fresh add-on we created in the last chapter {doc}`volto_cus
 :alt: Editing Volto add-on volto-accordion-block
 ```
 
-We need a view and an edit form for the block. Create a {file}`src/FAQ/BlockView.jsx` {file}`src/FAQ/BlockEdit.jsx`.
+We need a view and an edit form for the block. Create a {file}`src/FAQ/BlockView.jsx` and {file}`src/FAQ/BlockEdit.jsx`.
 
 The BlockView is a simple function component that displays a FAQ component with the data stored on the block.
 
@@ -67,8 +67,9 @@ const FAQ = ({ data }) => {
 
 We primarily loop over the accordion elements and we remember the extended (not collapsed) elements.
 
-````{admonition} Complete code of the FAQ component
-:class: toggle
+````{dropdown} Complete code of the FAQ component
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :linenos:
@@ -290,11 +291,12 @@ const FAQListEditWidget = (props) => {
 
 You see the Volto `Form` component with its onSubmit event, the form data and the schema to be used.
 
-````{admonition} Complete code of the FAQListEditWidget component
-:class: toggle
+````{dropdown} Complete code of the FAQListEditWidget component
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
-:emphasize-lines: 113-125
+:emphasize-lines: 112-124
 :linenos:
 
 import React from 'react';
@@ -302,9 +304,8 @@ import { defineMessages, injectIntl } from 'react-intl';
 import { v4 as uuid } from 'uuid';
 import { omit, without } from 'lodash';
 import move from 'lodash-move';
-import { Icon, FormFieldWrapper } from '@plone/volto/components';
+import { FormFieldWrapper, DragDropList, Icon } from '@plone/volto/components';
 import { Form as VoltoForm } from '@plone/volto/components';
-import { DragDropList } from '@eeacms/volto-blocks-form/components';
 
 import dragSVG from '@plone/volto/icons/drag.svg';
 import trashSVG from '@plone/volto/icons/delete.svg';
@@ -459,6 +460,7 @@ const FAQListEditWidget = (props) => {
 
 export default injectIntl(FAQListEditWidget);
 ```
+
 ````
 
 The form is fructified by the schema QuestionAnswerPairSchema. It's simple, just a string field with a textarea widget for the question and a such for the answer, but with a richtext widget to have some editing and styling tools available.
@@ -549,37 +551,6 @@ export default applyConfig;
 Run
 
 ```shell
-yarn start
-```
-
-You see
-
-```text
-Module not found: Can't resolve '@eeacms/volto-blocks-form/components'
-```
-
-Why is this? We want the accordion to be reorderable and use the `DragDropList` component of another add-on: `@eeacms/volto-blocks-form`. Add it to the dependencies of your add-on.
-
-{file}`package.json`
-
-```json
-"dependencies": {
-  "@eeacms/volto-blocks-form": "@eeacms/volto-blocks-form"
-},
-```
-
-The following might change the next time:
-
-Add to your **apps** {file}`package.json`:
-
-```json
-"addons": ["@greenthumb/volto-custom-addon", "@eeacms/volto-blocks-form"],
-```
-
-Compile and start your project's app:
-
-```shell
-yarn
 yarn start
 ```
 

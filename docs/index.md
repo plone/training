@@ -1,17 +1,18 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "Plone Training"
+    "property=og:description": "Plone Training"
+    "property=og:title": "Plone Training"
+    "keywords": "Plone, Training"
 ---
 
 # Plone Training
 
-A collection of trainings developed and created by the Plone Community.
+An archived collection of trainings developed and created by the Plone Community.
 
 ```{toctree}
-:caption: Training Overview
+:caption: Trainings
 :maxdepth: 2
 :hidden: true
 
@@ -21,6 +22,7 @@ react/index
 volto/index
 voltohandson/index
 voltoaddons/index
+effective-volto/index
 testing/index
 theming/index
 theming_plone_5/index
@@ -32,14 +34,15 @@ wsgi/index
 ttw/index
 solr/index
 workflow/index
-angular/index
+migrations/index
 transmogrifier/index
 gatsby/index
+angular/index
 advanced-python/index
 ```
 
 ```{toctree}
-:caption: Plone Trainings
+:caption: Appendices
 :maxdepth: 1
 :hidden: true
 
@@ -70,6 +73,7 @@ teaching/index
 
 : Best practices for testing Plone add-ons.
 
+
 ### Volto, React and Javascript
 
 {doc}`react/index`
@@ -88,6 +92,17 @@ teaching/index
 
 : Build custom Volto add-ons, explore more advanced Volto topics.
 
+{doc}`effective-volto/index`
+
+: Learn proven practices of Plone frontend development.
+  The training covers essential concepts, as well as good practices and notions of how Volto works under the hood.
+  Tips and tricks are also covered, providing a good amount of insights for those who want to learn more beyond the Volto basics.
+  Training for intermediate/advanced developers.
+
+[Use, Integrate and develop Patterns for Plone 6 Classic](https://patternslib.github.io/patternslib-training)
+
+: Use, create and integrate JavaScript functionality based on [Patternslib](https://patternslib.com/) into Plone 6.
+
 {doc}`angular/index`
 
 : Building Angular 4 apps using the Plone REST API.
@@ -98,13 +113,12 @@ teaching/index
 
 {doc}`javascript/index`
 
-: Learn best practices in JavaScript development, how to develop and test your own patterns,
+: Learn best practices in JavaScript development for Plone 5, how to develop and test your own patterns,
   and how to integrate your custom JavaScript applications with Plone.
-
   Technologies will include NPM, Grunt, Patternslib and React.
 
-### Theming
 
+### Theming
 
 {doc}`theming/index`
 
@@ -113,6 +127,7 @@ teaching/index
 {doc}`theming_plone_5/index`
 
 : Create a Diazo-based theme as a Plone 5 add-on.
+
 
 ### Deployment
 
@@ -133,6 +148,10 @@ teaching/index
 {doc}`workflow/index`
 
 : How to create and make optimum use of custom Plone workflows
+
+{doc}`migrations/index`
+
+: Upgrading and migrating Plone sites using `collective.exportimport` and other methods.
 
 {doc}`transmogrifier/index`
 

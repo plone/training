@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "How to make simple customizations"
-  "property=og:description": "How to make simple customizations"
-  "property=og:title": "Theming in Plone 6"
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "How to make simple customizations"
+    "property=og:description": "How to make simple customizations"
+    "property=og:title": "Theming in Plone 6"
+    "keywords": ""
 ---
 
 (volto-theming-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend 
-:align: left
 :class: logo
 ```
 
@@ -55,9 +55,13 @@ We start with the first case and change the font to another Google font, Lato.
 The overall font is defined in Volto and can be found in {file}`omelette/theme/themes/default/globals/site.variables`. So create an empty file {file}`site.variables` in {file}`theme/globals/` and set your font.
 
 ```css
+@importGoogleFonts : true;
 @fontName : 'Lato';
 @emSize: 18px;
 ```
+
+Volto expects the font files to be present in our app.
+While developing we tell Volto to load Google fonts from Google with `@importGoogleFonts : true;`.
 
 Semantic UI does not provide a less variable for increasing the letter-spacing.
 So we add a CSS rule for it.

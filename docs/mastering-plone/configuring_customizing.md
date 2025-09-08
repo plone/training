@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (configuring-customizing-label)=
@@ -14,7 +15,7 @@ html_meta:
 ..  todo::
 
     * Update for Plone 6!
-    * Add Volto screenshots for controlpanels
+    * Add Volto screenshots for control panels
 
 
  .. sectionauthor:: Philip Bauer <bauer@starzel.de>
@@ -38,63 +39,62 @@ Site Setup
 We'll explain every page and mention some of the actions you can perform here.
 
 ```{note}
-Not all controlpanels are available in Volto.
+Not all control panels are available in Volto.
 Some are not useful in Volto, e.g. TinyMCE since that editor is not used here.
-Other controlpanels, e.g. Content Rules still need to be implemented.
+Other control panels, e.g. Content Rules still need to be implemented.
 ```
 
 ### General
 
-01. Add-ons
-02. Database
-03. Date and Time
-04. Language
-05. Mail
-06. Navigation
-07. Search
-08. Site
-09. Social Media
-10. Volto Settings
+1. Add-ons
+1. Database
+1. Date and Time
+1. Language
+1. Mail
+1. Navigation
+1. Search
+1. Site
+1. Social Media
+1. Undo
+1. URL Management
+1. Volto Settings
 
-The following controlpanels are so far only available in the backend:
+The following control panels are so far only available in the backend:
 
 1. Actions
-2. Discussion
-3. Syndication
-4. Theming
-5. TinyMCE
-6. URL Management
+1. Discussion
+1. Syndication
+1. Theming
+1. TinyMCE
 
 ### Content
 
+1. Content Types
+1. Editing
+1. Image Handling
+1. Markup
+1. Moderate Comments
+
+The following control panels are so far only available in the backend:
+
 1. Content Settings
-2. Dexterity Content Types
-3. Editing
-4. Image Handling
-5. Moderate Comments
-6. Markup
-
-The following controlpanels are so far only available in the backend:
-
-1. Content Rules
 
 ### Users
 
-1. Users
-2. Groups
+1. Editing users
 
 ### Security
 
 1. Security
 
-The following controlpanels are so far only available in the backend:
+The following control panels are so far only available in the backend:
 
 1. Errors
 2. HTML Filtering
 
 ### Advanced
 
-The following controlpanels are so far only available in the backend:
+The following control panels are so far only available in the backend:
 
 1. Caching
 2. Configuration Registry
@@ -124,7 +124,7 @@ The view of the homepage with the customized logo.
 ```
 
 ```{seealso}
-<https://docs.plone.org/adapt-and-extend/change-the-logo.html>
+<https://5.docs.plone.org/adapt-and-extend/change-the-logo.html>
 ```
 
 (customizing-portlets-label)=
@@ -252,7 +252,7 @@ explain
 - Create new Document "Imprint" and publish
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/functionality/actions.html>
+<https://5.docs.plone.org/develop/plone/functionality/actions.html>
 ```
 
 #### Global navigation
@@ -315,5 +315,5 @@ There are many more notable items in the ZMI. We'll visit some of them later.
 
 You can configure and customize a lot in Plone through the web.
 The most important options are accessible in the [Plone control panel](http://localhost:8080/Plone/@@overview-controlpanel) but some are hidden away in the [ZMI](http://localhost:8080/Plone/manage).
-The amount and presentation of information may be overwhelming and the differences beweeen the Volto frontend and the Classic Plone frontend adds even more complexity.
+The amount and presentation of information may be overwhelming and the differences between the Volto frontend and the Classic Plone frontend adds even more complexity.
 Don't worry, you'll get the hang of it through practice.

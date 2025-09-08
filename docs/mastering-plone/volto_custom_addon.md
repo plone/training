@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (volto-custom-addon-label)=
@@ -13,27 +14,10 @@ html_meta:
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend
-:align: left
 :class: logo
 ```
 
 Solve the same tasks in classic frontend in chapter {doc}`eggs1`
-
----
-
-Get the code! ({doc}`More info <code>`)
-
-Code for the beginning of this chapter:
-
-```shell
-git checkout TODO tag to checkout
-```
-
-Code for the end of this chapter:
-
-```shell
-git checkout TODO tag to checkout
-```
 ````
 
 As soon as you have repeating needs in Volto projects, you will want to move the code to an add-on that can be applied to multiple projects. One of several ways to start with a new add-on is the Yeoman generator we already used to initiate a Volto app.
@@ -120,11 +104,11 @@ $ yarn start
 
 (volto-custom-addon-final-label)=
 
-```{admonition} Step to the next chapter and come back here for a release.
+```{note} Step to the next chapter and come back here for a release.
 We will create a new block type in the next chapter {doc}`volto_custom_addon2`. We will do this in an add-on to apply the feature to multiple projects.
 ```
 
-```{NOTE}
+```{note}
 Coming back here with the new block type, you can now release the new add-on to npm. @greenthumb is your space. See <https://www.npmjs.com/package/release>
 ```
 

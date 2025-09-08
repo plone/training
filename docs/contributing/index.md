@@ -1,16 +1,19 @@
 ---
-html_meta:
-  "description": "Contributing to Plone Trainings Documentation."
-  "keywords": "Plone, Trainings, Plone Contributor Agreement, License, Code of Conduct"
+myst:
+  html_meta:
+    "description": "Contributing to Plone Training"
+    "property=og:description": "Contributing to Plone Training"
+    "property=og:title": "Contributing to Plone Training"
+    "keywords": "Plone, Trainings, Plone Contributor Agreement, License, Code of Conduct"
 ---
 
 (contributing-index-label)=
 
-# Contributing to Plone Trainings Documentation
+# Contributing to Plone Training
 
-This document describes how to contribute to the Plone Trainings Documentation.
+This document describes how to contribute to the Plone Training.
 
-Contributions to the Plone Trainings documentation are welcome.
+Contributions to the Plone Training are welcome.
 
 
 (contributing-permission-to-publish-label)=
@@ -43,7 +46,7 @@ Any method below is acceptable, but are listed in order of most likely to get a 
 - [Search for open issues](https://github.com/plone/training/issues) and comment on them.
 - [Create a new issue](https://github.com/plone/training/issues/new/choose).
 - Discuss during conferences, trainings, and other Plone events.
-- Ask on the [Plone Community Forum, Documentation topic](https://community.plone.org/c/documentation/13).
+- Ask on the [Plone Community Forum, Training topic](https://community.plone.org/c/training/46).
 - Ask in the [Plone chat on Discord](https://discord.com/invite/zFY3EBbjaj).
 
 As a convenience, at the top right of every page, there is a GitHub navigation menu.
@@ -56,9 +59,24 @@ Tap, click, or hover over the GitHub Octocat icon for options.
 You can use this menu to quickly navigate to the source repository, open an issue, or suggest an edit to the current document.
 Of course, you can use whichever tools you like.
 
-Next edit files, commit your changes, push them to the remote repository, and submit a pull request to resolve the issue.
+Filing an issue is a valuable contribution to the trainings.
+If you want to propose a solution, and you have already put the topic up for discussion and clarified that the topic needs a solution, then please follow the next steps to propose your solution via a pull request.
 
-Members who subscribe to the repository will receive a notification and review your request.
+- Build the trainings as described in {doc}`setup-build`.
+- Create a branch.
+- Make your changes.
+- Run `make test`. 
+- If tests are OK: commit your changes. 
+- If tests are not OK and you are not sure if it depends on your changes, please contact the community by opening an issue.
+- Submit a pull request.
+  Optionally, if you want to mark your pull request as a "work in progress" that is not ready to merge or should be discussed further, you can convert it to a draft.
+
+Members who subscribe to the repository will receive a notification and review your request. 
+
+```{note}
+Reviewers do not have to build the training on a local machine.
+A preview of all pull requests is attempted to be built, and if successful, is available and linked in the pull request comments.
+```
 
 
 (contributing-roles-label)=
@@ -73,7 +91,7 @@ Contributors to the Training docs may perform one or many roles.
 - **Authors** create the Training documentation.
   They should read {doc}`setup-build` and {doc}`writing-docs-guide`.
   They should also read {doc}`authors` for guidance and tips for writing good Training documentation.
-- **Trainers** should read {doc}`setup-build`, and the trainings in {doc}`/plone_training_config/instructions` and {doc}`/teaching/index`.
+- **Trainers** should read {doc}`setup-build` and {doc}`/teaching/index`.
   These documents help trainers prepare for a successful training experience.
 
 

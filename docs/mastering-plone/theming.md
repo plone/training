@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (theming-mastering-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Classic UI Chapter
 ```{figure} _static/plone-training-logo-for-classicui.svg
 :alt: Plone Classic UI
-:align: left
 :class: logo
 ```
 
@@ -34,7 +34,7 @@ git checkout resources
 
 We don't do any real theming during the training. Instead we'll only add some style to extend and modify the default theme.
 
-If you want to learn about theming see [the documentation](https://docs.plone.org/adapt-and-extend/theming/index.html) and the Training {doc}`../theming/index`
+If you want to learn about theming see [the documentation](https://5.docs.plone.org/adapt-and-extend/theming/index.html) and the Training {doc}`../theming/index`
 
 ## Add you own css and javascript
 
@@ -122,5 +122,6 @@ Open the file {file}`profiles/default/registry.xml` and add the following:
 
 The resources that are part of the registered bundle will now be deployed with every request.
 
-For more information on working with CSS and JavaScript resources, please see the [resource registry documentation](https://docs.plone.org/adapt-and-extend/theming/resourceregistry.html)
-or the [Advanced Diazo training class](https://training.plone.org/5/theming_plone_5/adv-diazo.html).
+% This chapter will be removed. No need to update the url to /theming_plone_5
+For more information on working with CSS and JavaScript resources, please see the [resource registry documentation](https://5.docs.plone.org/adapt-and-extend/theming/resourceregistry.html)
+or the [Advanced Diazo training class](https://2022.training.plone.org/theming_plone_5/adv-diazo.html).

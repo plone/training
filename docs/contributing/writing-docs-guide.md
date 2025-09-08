@@ -1,7 +1,10 @@
 ---
-html_meta:
-  "description": "General Guide to Writing Documentation"
-  "keywords": "Documentation, Plone, Sphinx, MyST, reStructuredText, Markdown"
+myst:
+  html_meta:
+    "description": "General Guide to Writing Documentation"
+    "property=og:description": "General Guide to Writing Documentation"
+    "property=og:title": "General Guide to Writing Documentation"
+    "keywords": "Documentation, Plone, Sphinx, MyST, reStructuredText, Markdown"
 ---
 
 # General Guide to Writing Documentation
@@ -29,15 +32,15 @@ The following are frequently used snippets and examples.
 
 **Official MyST documentation**
 
-- [The MyST Syntax Guide](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html)
-- [MyST Syntax Reference](https://myst-parser.readthedocs.io/en/latest/syntax/reference.html)
+- [MyST authoring/typography](https://myst-parser.readthedocs.io/en/latest/syntax/typography.html)
+- [MyST Syntax tokens](https://myst-parser.readthedocs.io/en/latest/syntax/reference.html)
 ```
 
 
-#### Targets and Cross-Referencing
+#### Cross-referencing
 
 ```{seealso}
-[The MyST Syntax Guide > Targets and Cross-Referencing](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#targets-and-cross-referencing)
+[MyST cross-references](https://myst-parser.readthedocs.io/en/latest/syntax/cross-referencing.html)
 ```
 
 ##### Link to a Chapter or Page
@@ -218,7 +221,7 @@ Add a term to the {ref}`glossary-label`, located at {file}`/glossary.md`.
 
 ```md
 React
-    [React](https://reactjs.org/) is a JavaScript library for building user interfaces.
+    [React](https://react.dev/) is a JavaScript library for building user interfaces.
     Volto, the frontend for Plone 6, uses React.
 ```
 
@@ -232,7 +235,7 @@ Using {term}`React` makes frontends fun again!
 
 
 
-## Abridged Plone Documentation Styleguide
+## Abridged Plone Documentation Style Guide
 
 Guides should be informational, but friendly.
 

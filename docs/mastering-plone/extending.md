@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (extending-label)=
@@ -12,15 +13,13 @@ html_meta:
 
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
-:alt: Plone backend 
-:align: left
+:alt: Plone backend
 :class: logo
 ```
 
-For extending Volto frontend see chapters
+Extending Volto frontend:
 
 - {ref}`volto-richtexteditor-label`
-- {ref}`volto-custom-block-label`
 - {ref}`volto-addon-label`
 - {ref}`volto-custom-addon-label`
 ````
@@ -31,7 +30,7 @@ In this part you will:
 
 Topics covered:
 
-- Overiding python or react components
+- Overriding python or react components
 - Component Architecture
 - ZCML
 - GenericSetup
@@ -43,7 +42,7 @@ Topic of the following chapter:
 As a developer you want to go further than simply configuring Plone, you want to extend and customize it.
 Plone is built to be extended.
 Extendability is not an afterthought but is the core of Plone and the systems it is based on.
-Instead if is a the core of its architecture.
+Instead it is the core of its architecture.
 
 ```{note}
 Plone itself even started out as an extension for CMF, which is an extension for Zope. Now Plone is the basis for many applications that extend it.
@@ -171,7 +170,6 @@ Example:
   <version>1000</version>
   <dependencies>
     <dependency>profile-pas.plugins.ldap:default</dependency>
-    <dependency>profile-collective.folderishtypes.dx:default</dependency>
     <dependency>profile-collective.geolocationbehavior:default</dependency>
     <dependency>profile-collective.behavior.banner:default</dependency>
   </dependencies>

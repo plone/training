@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-about-mastering-label)=
@@ -14,7 +15,7 @@ This training was initially created by Philip Bauer and Patrick Gerken of [starz
 a canonical training for future Plone developers.
 
 The aim is that anyone with the appropriate knowledge can give a training based on it and contribute to it.
-It is published as Open Source on [GitHub](https://github.com/plone/training) and [training.plone.org](https://training.plone.org/).
+It is published as Open Source on [GitHub](https://github.com/plone/training) and {doc}`index`.
 
 If you want to inquire the original authors about organizing a training please contact them at <mailto:team@starzel.de>.
 
@@ -35,13 +36,13 @@ The Mastering Plone Training was so far held publicly at the following occasions
 - [Plone Conference 2020 Online](https://2020.ploneconf.org/)
 - [Plone Conference 2019 in Ferrara](https://2019.ploneconf.org/)
 - [Plone Conference 2018 in Tokyo](https://2018.ploneconf.org/)
-- [August 2018, Munich](https://plone.org/events/community/mastering-plone-training-in-munich)
+- [August 2018, Munich](https://plone.org/news-and-events/events/community/mastering-plone-training-in-munich)
 - [Plone Conference 2017 in Barcelona](https://2017.ploneconf.org/)
 - [Plone Conference 2016 in Boston](https://2016.ploneconf.org/)
 - [Plone Conference 2015, Bucharest](https://2015.ploneconf.org/)
 - [March 2015, Munich](https://www.starzel.de/blog/mastering-plone-training-march-2015)
 - Plone Conference 2014, Bristol
-- [June 2014, Caracas](https://mobile.twitter.com/hellfish2/status/476906131970068480)
+- [June 2014, Caracas](https://twitter.com/hellfish2/status/476906131970068480)
 - [May 2014, Munich](https://www.starzel.de/blog/mastering-plone)
 - [PythonBrasil/Plone Conference 2013, Brasilia](http://2013.pythonbrasil.org.br/)
 - PyCon DE 2012, Leipzig

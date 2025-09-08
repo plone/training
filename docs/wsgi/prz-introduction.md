@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (prz-label)=
@@ -15,7 +16,7 @@ To provide a smooth transition to Plone 5.2 and WSGI it tries to guess sensible 
 The goal in providing WSGI support in `plone.recipe.zope2instance` was to keep the buildout configuration close to the ZServer configuration.
 Many options formerly used for ZServer are working in pretty much the same way for WSGI.
 WSGI is the default in recent `plone.recipe.zope2instance` versions.
-It can be overriden by ZServer for Python 2.
+It can be overridden by ZServer for Python 2.
 [Waitress](https://docs.pylonsproject.org/projects/waitress/en/stable) is the default WSGI server configured by `plone.recipe.zope2instance`.
 Waitress is a pure Python WSGI server implementation originating from the Pylons project.
 

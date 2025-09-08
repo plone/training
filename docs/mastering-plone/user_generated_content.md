@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (user-content-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
 :alt: Plone backend
-:align: left
 :class: logo
 ```
 
@@ -127,7 +127,7 @@ Since the granting of local roles applies only to a certain folder in the site w
 
 So let's make sure some initial content is created and configured on installing the package.
 
-To run arbitrary code during the installation of a package we use a [post_handler](https://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py)
+To run arbitrary code during the installation of a package we use a [post_handler](https://5.docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py)
 
 Our package already has such a method registered in {file}`configure.zcml`. It will be automatically run when (re-)installing the add-on.
 
@@ -234,8 +234,9 @@ You would usually create a list of dictionaries containing the type, parent and 
 
 Create a profile `content` that runs its own post_handler in {file}`setuphandlers.py`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Register the profile and the upgrade step in {file}`configure.zcml`
 

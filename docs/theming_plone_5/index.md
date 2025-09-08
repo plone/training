@@ -1,9 +1,13 @@
 ---
-html_meta:
-  description: Adjusting the visual representation of Plone with {term}`Diazo`
+myst:
+  html_meta:
+    "description": "Adjusting the visual representation of Plone with Diazo"
+    "property=og:description": "Adjusting the visual representation of Plone with Diazo"
+    "property=og:title": "Plone 5 Theming"
+    "keywords": "Plone, Classic UI, theming, training"
 ---
 
-(theming-label)=
+(plone-5-theming-label)=
 
 # Plone 5 Theming
 
@@ -54,5 +58,5 @@ custom-components
 
 ```{seealso}
 - {ref}`ttw-label`
-- <https://docs.plone.org/adapt-and-extend/theming/index.html>
+- <https://5.docs.plone.org/adapt-and-extend/theming/index.html>
 ```

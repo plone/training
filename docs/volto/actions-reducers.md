@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (actions-reducers-label)=
@@ -160,8 +161,9 @@ Set the `faq_view` for the folder at `http://localhost:3000/faq`.
 
 Create the `faq_view` in Volto and use the actions and reducers created above.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `components/FaqView/FaqView.jsx`
 

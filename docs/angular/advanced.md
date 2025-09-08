@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Advanced
@@ -24,7 +25,7 @@ HTTPS is mandatory.
 
 ## SEO And Server-side Rendering
 
-robots.txt
+`robots.txt`
 
 Title and meta tags
 

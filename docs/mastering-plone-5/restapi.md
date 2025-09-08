@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Plone REST API
@@ -16,7 +17,7 @@ git checkout restapi
 ```
 ````
 
-In this chapter, we will have a look at the relatively new [plone.restapi](https://plonerestapi.readthedocs.io/en/latest/index.html), which is a core package as of Plone 5.2.
+In this chapter, we will have a look at the {doc}`plone6docs:plone.restapi/docs/source/index`, which is a core package as of Plone 5.2.
 
 It provides a hypermedia API to access Plone content using REST (Representational State Transfer).
 
@@ -40,18 +41,18 @@ This will automatically add and configure a new PAS plugin named `jwt_auth` used
 ## Explore the API
 
 Make sure you add some talks to the talks folder and then start exploring the API.
-We recommend using [Postman](https://www.postman.com/) or a similar tool, but you can also use [requests](https://pypi.org/project/requests) in a Python virtual env.
+We recommend using [Postman](https://www.postman.com) or a similar tool, but you can also use [requests](https://pypi.org/project/requests) in a Python virtual env.
 
 {py:mod}`plone.restapi` uses 'content negotiation' to determine whether a client wants
 a REST API response - if you set the `Accept` HTTP header to `application/json`,
 Plone will provide responses in JSON format. Some requests you could try:
 
-```
-GET /Plone/talks
+```http
+GET /Plone/talks HTTP/1.1
 Accept: application/json
 ```
 
-```
+```http
 POST /@login HTTP/1.1
 Accept: application/json
 Content-Type: application/json
@@ -69,8 +70,9 @@ REST APIs use HTTP verbs for manipulating content.
 
 Add a new talk in Plone and then update it's title to match 'Foo 42' using the REST API (from Postman or requests).
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 We need to login to change content.
 Using JWT, we do so by POSTing credentials to the `@login` resource to obtain a JSON web token
@@ -89,7 +91,7 @@ Content-Type: application/json
 
 The response will look like this:
 
-```http
+```json
 {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTU4Mzh9.s27se99V7leTVTo26N_pbYskebR28W5NS87Fb7zowNk"
 }
@@ -112,7 +114,7 @@ Using the {py:mod}`requests` library from Python, you would do:
 Now we can change the talk title:
 
 ```http
-PATCH /Plone/talks/example-talk
+PATCH /Plone/talks/example-talk HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Authentication: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6bnVsbCwic3ViIjoiYWRtaW4iLCJleHAiOjE0NzQ5MTYyNzR9.zx8XJb6SCWB2taxyibLZ2461ibDloqU3QbWDkDzT8PY
@@ -147,7 +149,7 @@ To get started, we create a new subdirectory of {file}`browser` named {file}`tal
 
 Assuming the current working directory is the buildout directory:
 
-```console
+```shell
 mkdir src/ploneconf.site/src/ploneconf/site/browser/talklist
 ```
 
@@ -480,8 +482,9 @@ Last we have to add some code that allows authenticated users to submit a lightn
 Rewrite the `load_talks()` JavaScript method that it uses the portal search instead of `/Plone/talks`.
 Sort the list by date.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} javascript
 :emphasize-lines: 3

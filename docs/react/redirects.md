@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Redirecting the user from the one route to another route."
-  "property=og:description": "Redirecting the user from the one route to another route."
-  "property=og:title": "Navigate Using Redirects"
-  "keywords": "Plone, training, exercise, solution, React"
+myst:
+  html_meta:
+    "description": "Redirecting the user from the one route to another route."
+    "property=og:description": "Redirecting the user from the one route to another route."
+    "property=og:title": "Navigate Using Redirects"
+    "keywords": "Plone, training, exercise, solution, React"
 ---
 
 (redirects-label)=
@@ -77,8 +78,9 @@ export default FaqItemView;
 
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/components/FaqItemView.jsx

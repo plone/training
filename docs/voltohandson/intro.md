@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Introduction to the Volto Hands-On Training Documentation"
-  "property=og:description": "Introduction to the Volto Hands-On Training Documentation"
-  "property=og:title": "Volto Handson Training"
-  "keywords": "Volto, Training, Hands-On"
+myst:
+  html_meta:
+    "description": "Introduction to the Volto Hands-On Training Documentation"
+    "property=og:description": "Introduction to the Volto Hands-On Training Documentation"
+    "property=og:title": "Volto Handson Training"
+    "keywords": "Volto, Training, Hands-On"
 ---
 
 (voltohandson-intro-label)=
@@ -25,7 +26,7 @@ Tell us about yourselves:
 
 Some technologies and tools we use during the training:
 
-- React <https://reactjs.org/>
+- React <https://react.dev/>
 - Yarn <https://yarnpkg.com>
 - JSX
 - Volto <https://github.com/plone/volto>
@@ -59,7 +60,7 @@ To follow the training as smoothly as possible it is recommended that you have t
 - [node.js](https://nodejs.org/en/) >= 12
 - [yarn](https://yarnpkg.com/getting-started/install)
 - [node version manager](https://github.com/nvm-sh/nvm)
-- [docker](https://www.docker.com/get-started)
+- [docker](https://www.docker.com/get-started/)
 
 ## Documentation
 

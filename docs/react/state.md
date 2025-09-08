@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add state to the App component."
-  "property=og:description": "Add state to the App component."
-  "property=og:title": "How To Use State In Your Component"
-  "keywords": "Plone, trainings, SEO, React, component, exercise, solution"
+myst:
+  html_meta:
+    "description": "Add state to the App component."
+    "property=og:description": "Add state to the App component."
+    "property=og:title": "How To Use State In Your Component"
+    "keywords": "Plone, trainings, SEO, React, component, exercise, solution"
 ---
 
 (state-label)=
@@ -39,8 +40,8 @@ function App() {
 
   return (
     <ul>
-      {faqList.map((item) => (
-        <FaqItem question={item.question} answer={item.answer} />
+      {faqList.map((item, index) => (
+        <FaqItem key={index} question={item.question} answer={item.answer} />
       ))}
     </ul>
   );
@@ -49,8 +50,9 @@ function App() {
 export default App;
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/App.js
@@ -95,8 +97,9 @@ export default App;
 -          field, to preserve what is good about Plone as new participants
 -          arrive."
 -      />
-+      {faqList.map((item) => (
-+        <FaqItem question={item.question} answer={item.answer} />
++      {faqList.map((item, index) => (
++        <FaqItem key={key} question={item.question} answer={item.answer}
++       />
 +      ))}
      </ul>
    );
@@ -109,8 +112,9 @@ export default App;
 To save space in the view, we want to show and hide the answer when you click on the question.
 Add a state variable to the `FaqItem` component, which keeps the state of the answer being shown or not, and adjust the render method to show or hide the answer.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 {file}`components/FaqItem.jsx`
 

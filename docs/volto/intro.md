@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (volto-intro-label)=
@@ -25,12 +26,12 @@ Tell us about yourselves:
 
 Some technologies and tools we use during the training:
 
-- React <https://reactjs.org/>
+- React <https://react.dev/>
 - create-react-app <https://github.com/facebook/create-react-app>
 - Yarn <https://yarnpkg.com>
 - JSX
 - Redux <https://redux.js.org>
-- React-Router <https://reactrouter.com/>
+- React-Router <https://reactrouter.com/en/main>
 - Volto <https://github.com/plone/volto>
 
 (volto-intro-what-to-expect-label)=
@@ -43,4 +44,4 @@ At the end of the course you will know how to create a custom website using Volt
 
 ## Documentation
 
-Follow the training at <https://training.plone.org>.
+Follow the training at {doc}`index`.

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Set up your project and development environment"
-  "property=og:description": "Set up your project and development environment"
-  "property=og:title": "Initial project setup"
-  "keywords": "Plone, Volto, Training, Setup, Docker"
+myst:
+  html_meta:
+    "description": "Set up your project and development environment"
+    "property=og:description": "Set up your project and development environment"
+    "property=og:title": "Initial project setup"
+    "keywords": "Plone, Volto, Training, Setup, Docker"
 ---
 
 (voltohandson-quickstart-label)=
@@ -12,56 +13,30 @@ html_meta:
 
 ## Set Up Volto Project
 
-To create our first volto project we will youse the volto generator tool. First create a folder in which your project will be located.You can call it whatever your projectname shall be. In our case we will use `volto-hands-on-training`. Inside that directory run:
+To create our first volto project we will youse the volto generator tool (https://www.npmjs.com/package/@plone/generator-volto). It needs the Yeoman generator as a dependency. install that with `npm install -g yo` When you have that installed you can use it to generate a brand new volto project. In our case we will use the latest alpha version of Volto by using the `--canary`flag like this:
 
-```
-npm init yo @plone/volto
+```shell
+yo @plone/volto <project-name> --canary
 ```
 
-The dialogue in the console will ask you for the name of your project and wether you want to install any addons. You can skip both by pressing the `enter` button, as we will use the default name and dont want to use any addons for the training.
-
-```{image} _static/volto_generator_terminal.png
-:align: center
-:alt: Console with Volto generator dialogue
-```
+The dialogue in the console will ask you wether you want to install any addons. You can skip by pressing the `enter` button, as we dont want to use any addons for the training.
 
 ## Build environments
 
 We need to build two environments.
 Start two terminal sessions, one for each environment, Plone and Yarn, and a third session to issue git and other shell commands.
-In each terminal session you should be in your project folder `volto-hands-on-training`.
+In each terminal session you should be in your project folder `volto-hands-on-training` or whatever you named your project.
 
 ### Plone environment
 
-To run our Volto site, we will use the Plone 6 Docker image.
+To run our Volto site, we will use the latest Plone 6 backend Docker image.
 You can start it by running the following command:
 
 ```shell
-docker run -p 8080:8080 plone/plone-backend:6.0.0a1
+docker run -p 8080:8080 -e SITE=Plone plone/plone-backend:6.0.0b3
 ```
 
-Keep that process running during the whole training in one of your terminal windows.
-
-Before we can begin, you need to create a new Plone instance with the required add-ons installed.
-Open the classic Plone interface on `localhost:8080`.
-As we need to install a few add-ons before we can use it with Volto, do **not** click the :guilabel:`Create a new Plone site` button.
-Instead use the :guilabel:`Advanced` button to get to the add-on selection.
-From the options there, select :guilabel:`Plone 6 Frontend (Default content on homepage)` and :guilabel:`Plone 6 Frontend (plone.volto)`.
-Also unselect :guilabel:`Example content`.
-Continue by clicking :guilabel:`Create Plone Page`.
-You might need to wait for a few minutes until the page is created.
-
-```{image} _static/required_plone_configuration.png
-:align: center
-:alt: Plone Addons configuration page
-```
-
-If you are already comfortable with setting up classic Plone sites you can also set up a new Plone environment on your machine. To be compatible with Volto it needs to have the following addon products installed:
-
-- collective.folderishtypes.dx
-- collective.folderishtypes 3.0.0
-- plone.restapi 8.12.1
-- plone.volto 3.1.0a2
+Keep that process running during the whole training in one of your terminal windows because the container does not have a persistant storage. So once you stop that container again some of you work might get lost again.
 
 ### Yarn environment
 
@@ -85,7 +60,7 @@ You will find this copy of Volto in the `omelette` folder.
 
 ## Recommended plugins
 
-No matter which integrated development environment (IDE) you use, you should also install these plugins:
+No matter which integrated development environment (IDE) you use, you should also install these plugins for a better workflow:
 
 - Prettier
 - ESlint

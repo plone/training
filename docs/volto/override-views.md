@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (override-views-label)=
@@ -15,8 +16,9 @@ html_meta:
 Overriding existing views works exactly the same as components.
 Override the summary view so that the "Read more..." text is gone and is replaced by the rich text content.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```jsx
 /**

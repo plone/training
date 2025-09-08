@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Setup
@@ -159,7 +160,7 @@ Solr defines its schema in a big XML file called `schema.xml`. The main part is 
 copyField: copy content to another field, e.g. copy title, description and subject to default.
 
 ```{seealso}
-https://cwiki.apache.org/confluence/display/solr/SchemaXml#Common_field_options
+https://cwiki.apache.org/confluence/display/solr/SchemaXml#SchemaXml-Commonfieldoptions
 ```
 
 This is the bare minimum for configuring Solr. There are more options supported by Solr,
@@ -181,7 +182,7 @@ It can be accessed via \<PORTAL_URL>/@@solr-controlpanel or via "Configuration" 
 
 Check: {guilabel}`Active`, click {guilabel}`Save`
 
-Activating Solr in the controlpanel activates a patch of Plones indexing
+Activating Solr in the control panel activates a patch of Plones indexing
 and search methods to use Solr for indexing and querying.
 
 ```{note}
@@ -274,7 +275,7 @@ The ZCML configuration takes precedence over the configuration in the registry /
 The default commit strategy is to commit to Solr on every Zope commit.
 This ensures an always up to date index but may come at the cost of indexing time especially when doing batch operations like data import.
 
-To use this behavior, turn **Automatic commit** ON in the Solr controlpanel in Plone.
+To use this behavior, turn **Automatic commit** ON in the Solr control panel in Plone.
 
 ### Synchronous Batched
 
@@ -283,7 +284,7 @@ This method is usually way faster but comes with the downside of index delays.
 
 To use this behavior you have to do two things:
 
-> - Turn **Automatic commit** OFF in the Solr controlpanel in Plone.
+> - Turn **Automatic commit** OFF in the Solr control panel in Plone.
 >
 > - Set one or both of the following *\<autoCommit>* options in solrconfig.xml:
 >

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Creating Custom Components
@@ -34,12 +35,11 @@ Plone has default Viewlets and ViewletManagers like ContentAbove and BelowConten
 
 For an overview of existing Viewlets and ViewletManagers look at the `/@@manage-viewlets` view.
 
-For more details about Viewlets/ViewletManagers and there possibilities see the Viewlets sections of the
-[Mastering Plone 5: Development chapters](https://training.plone.org/5/mastering-plone/viewlets_1.html).
+For more details about Viewlets/ViewletManagers and their possibilities, see {doc}`/mastering-plone/viewlets_1`.
 
 ## Portlets
 
 Portlets are a very flexible way of providing context related information in the right, left or footer area.
 
 For details on how to use, configure and create Portlets,
-look into the Plone docs [Plone docs Portlet sections](https://docs.plone.org/develop/plone/functionality/portlets.html).
+look into the Plone docs [Plone docs Portlet sections](https://5.docs.plone.org/develop/plone/functionality/portlets.html).

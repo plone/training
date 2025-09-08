@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (custom-views-label)=
@@ -167,8 +168,9 @@ export const views = {
 Create the `Album View` that shows the images in a grid.
 You can use the `Card` class from `semantic-ui`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `components/AlbumView/AlbumView.jsx`
 

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add routes to our App. Create a view for the individual FAQ entries."
-  "property=og:description": "Add routes to our App. Create a view for the individual FAQ entries."
-  "property=og:title": "Routing"
-  "keywords": "Plone, training, exercise, solution, React, react-router-dom"
+myst:
+  html_meta:
+    "description": "Add routes to our App. Create a view for the individual FAQ entries."
+    "property=og:description": "Add routes to our App. Create a view for the individual FAQ entries."
+    "property=og:title": "Routing"
+    "keywords": "Plone, training, exercise, solution, React, react-router-dom"
 ---
 
 (routes-label)=
@@ -58,8 +59,9 @@ export default App;
 
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/App.js
@@ -132,8 +134,9 @@ React Router has a hook called `useParams` which returns an object of key/value 
 The return object contains all the params of the match route, including our `index` params.
 Remove the `Todo` string, and write a function for the `useSelector` hook to fetch the correct data from the store.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 1,3-5

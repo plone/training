@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training module 3, add-ons block view"
-  "property=og:description": "Volto add-ons development training module 3"
-  "property=og:title": "Volto add-ons development block view"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training module 3, add-ons block view"
+    "property=og:description": "Volto add-ons development training module 3"
+    "property=og:title": "Volto add-ons development block view"
+    "keywords": "Volto"
 ---
 
 # Improve the block view
@@ -11,7 +12,7 @@ html_meta:
 Let's add CSV file parsing.
 
 There are many CSV parsers available for NodeJS.
-We'll use [Papaparse] because it also works in the browser.
+We'll use [Papaparse](https://www.npmjs.com/package/papaparse) because it also works in the browser.
 
 We'll need to add the dependency to the add-on if you haven't already done so,
 as instructed in the first chapter. When using yarn workspaces, the
@@ -98,7 +99,7 @@ export default DataTableView;
 ```
 
 Writing components where the `useEffect` triggers network calls can be pretty tricky.
-According to the [rule of hooks], hooks can't be triggered conditionally.
+According to [Built-in React Hooks](https://legacy.reactjs.org/docs/hooks-rules.html), hooks can't be triggered conditionally.
 They always have to be executed.
 For this reason, it's important to add relevant conditions inside the hook code.
 Be sure to identify and prepare a way to tell, from inside the hook, if the network-fetching action should be dispatched.
@@ -222,7 +223,3 @@ const DataTableView = ({ file_data }) => {
 
 export default withFileData(DataTableView);
 ```
-
-
-[papaparse]: https://www.npmjs.com/package/papaparse
-[rule of hooks]: https://reactjs.org/docs/hooks-rules.html

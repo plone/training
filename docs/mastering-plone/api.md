@@ -1,31 +1,38 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (api-label)=
 
 # Programming Plone
 
-```{eval-rst}
-..  todo::
+```{todo}
 
     * Discuss backend development versus frontend development
     * Discuss plone.restapi
     * Discuss React developer tools
 ```
 
+````{sidebar} Plone Backend Chapter
+```{figure} _static/plone-training-logo-for-backend.svg
+:alt: Plone backend
+:class: logo
+```
+````
+
 In this part you will:
 
-- Learn about the right ways to do something in code in Plone.
+- Learn about the recommended ways to do something in backend code in Plone.
 - Learn to debug
 
 Topics covered:
 
-- plone.api
+- {py:mod}`plone.api`
 - Portal tools
 - Debugging
 
@@ -33,31 +40,31 @@ Topics covered:
 
 ## plone.api
 
-The most important tool nowadays for plone developers is the add-on [plone.api](https://docs.plone.org/develop/plone.api/docs/index.html) that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
+The most important tool nowadays for plone developers is the add-on {doc}`plone6docs:plone.api/index` that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task, be sure to first check if `plone.api` has a solution for you.
 
 The API is divided in five sections. Here is one example from each:
 
-- `Content:` [Create content](https://docs.plone.org/develop/plone.api/docs/content.html#create-content)
-- `Portal:` [Send E-Mail](https://docs.plone.org/develop/plone.api/docs/portal.html#send-e-mail)
-- `Groups:` [Grant roles to group](https://docs.plone.org/develop/plone.api/docs/group.html#grant-roles-to-group)
-- `Users:` [Get user roles](https://docs.plone.org/develop/plone.api/docs/user.html#get-user-roles)
-- `Environment:` [Switch roles inside a block](https://docs.plone.org/develop/plone.api/docs/env.html#switch-roles-inside-a-block)
+- `Content:` {ref}`plone6docs:content-create-example`
+- `Portal:` {ref}`plone6docs:portal-send-email-example`
+- `Groups:` {ref}`plone6docs:group-grant-roles-example`
+- `Users:` {ref}`plone6docs:user-get-roles-example`
+- `Environment:` {ref}`plone6docs:env-adopt-roles-example`
 
 {py:mod}`plone.api` is a great tool for integrators and developers that is included when you install Plone, though for technical reasons it is not used by the code of Plone itself.
 
 In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out what they do.
 
-Some of these methods will be replaced by {py:mod}`plone.api`:
+Some of these methods are replaced by {py:mod}`plone.api`:
 
 - {py:meth}`Products.CMFCore.utils.getToolByName` -> {py:meth}`api.portal.get_tool`
 - {py:meth}`zope.component.getMultiAdapter` -> {py:meth}`api.content.get_view`
 
 (api-portal-tools-label)=
 
-## portal-tools
+## portal tools
 
 Some parts of Plone are very complex modules in themselves (e.g. the versioning machinery of {py:mod}`Products.CMFEditions`).
-Most of them have an API of themselves that you will have to look up at when you need to implement a feature that is not covered by plone.api.
+Most of them have an API of themselves that you will have to look up when you need to implement a feature that is not covered by {py:mod}`plone.api`.
 
 Here are a few examples:
 
@@ -65,19 +72,19 @@ portal_catalog
 
 : {py:meth}`unrestrictedSearchResults()` returns search results without checking if the current user has the permission to access the objects.
 
-{py:meth}`uniqueValuesFor()` returns all entries in an index
+: {py:meth}`uniqueValuesFor()` returns all entries in an index
 
 portal_setup
 
 : {py:meth}`runAllExportSteps()` generates a tarball containing artifacts from all export steps.
 
-portal_quickinstaller
+Products.CMFPlone.utils
 
-: {py:meth}`isProductInstalled()` checks if a product is installed.
+: {py:meth}`is_product_installed()` checks if a product is installed.
 
-Usually the best way to learn about the API of a tool is to look in the {file}`interfaces.py` in the respective package and read the docstrings. But sometimes the only way to figure out which features a tool offers is to read its code.
+Usually the best way to learn about the API of a tool is to look in the {file}`interfaces.py` in the respective package and read the `docstrings`. But sometimes the only way to figure out which features a tool offers is to read its code.
 
-To use a tool you usually first get the tool with {py:mod}`plone.api` and then invoke the method.
+To use a tool, you usually first get the tool with {py:mod}`plone.api` and then invoke the method.
 
 Here is an example where we get the tool `portal_membership` and use one of its methods to logout a user:
 
@@ -87,24 +94,38 @@ mt.logoutUser(request)
 ```
 
 ```{note}
-The code for {py:meth}`logoutUser()` is in {py:meth}`Products.PlonePAS.tools.membership.MembershipTool.logoutUser`. Many tools that are used in Plone are actually subclasses of tools from the package {py:mod}`Products.CMFCore`. For example `portal_membership` is subclassing and extending the same tool from {py:class}`Products.CMFCore.MembershipTool.MembershipTool`. That can make it hard to know which options a tool has. There is a ongoing effort by the Plone Community to consolidate tools to make it easier to work with them as a developer.
+The code for {py:meth}`logoutUser()` is in {py:meth}`Products.PlonePAS.tools.membership.MembershipTool.logoutUser`. Many tools that are used in Plone are actually subclasses of tools from the package {py:mod}`Products.CMFCore`. For example `portal_membership` is subclassing and extending the same tool from {py:class}`Products.CMFCore.MembershipTool.MembershipTool`. That can make it hard to know which options a tool has. There is an ongoing effort by the Plone Community to consolidate tools to make it easier to work with them as a developer.
 ```
 
 (api-debugging-label)=
 
 ## Debugging
 
-Here are some tools and techniques we often use when developing and debugging. We use some of them in various situations during the training.
+Here are some tools and techniques we often use when developing and debugging.
+We use some of them in various situations during the training.
 
 tracebacks and the log
 
-: The log (and the console when running in foreground) collects all log messages Plone prints. When an exception occurs Plone throws a traceback. Most of the time the traceback is everything you need to find out what is going wrong. Also adding your own information to the log is very simple.
+: The log (and the console when running in foreground) collects all log messages Plone prints.
+When an exception occurs, Plone throws a traceback.
+Most of the time the traceback is everything you need to find out what is going wrong.
+Also adding your own information to the log is very simple.
+: ```python
+  import logging
+
+  logger = logging.getLogger(__name__)
+
+  def do_vote(user, vote):
+      logger.info(f"User {user} voted with {vote}")
+  ```
 
 pdb
 
-: The python debugger pdb is the single most important tool for us when programming. Just add `import pdb; pdb.set_trace()` in your code and debug away!
+: The `Python` debugger `pdb` is the single most important tool for us when programming.
+Just add `import pdb; pdb.set_trace()` in your code and debug away!
+The code execution stops at the line you added `import pdb; pdb.set_trace()`.
+Switch to your terminal and step through your code.
 
-Since Plone 5 you can even add it to templates: add `<?python import pdb; pdb.set_trace() ?>` to a template and you end up in a pdb shell on calling the template. Look at the variable {py:obj}`econtext` to see what might have gone wrong.
 
 pdbpp
 
@@ -118,13 +139,27 @@ Products.PDBDebugMode
 
 : An add-on that has two killer features.
 
-**Post-mortem debugging**: throws you in a pdb whenever an exception occurs. This way you can find out what is going wrong.
+  **Post-mortem debugging**: throws you in a pdb whenever an exception occurs. This way you can find out what is going wrong.
 
-**pdb view**: simply adding `/pdb` to a url drops you in a pdb session with the current context as {py:obj}`self.context`. From there you can do just about anything.
+  **pdb view**: simply adding `/pdb` to a url drops you in a pdb session with the current context as {py:obj}`self.context`. From there you can do just about anything.
 
-Debug mode
+Interactive debugger
 
-: When starting Plone using {command}`./bin/instance debug` you'll end up in an interactive debugger.
+: When starting Plone using {command}`venv/bin/zconsole debug instance/etc/zope.conf`, you'll end up in an interactive debugger.
+`app.Plone` is your instance which you can inspect on the command line.
+: To list the ids of the objects in a folderish object:
+  ```shell
+  >>> app.Plone.talks.keys()
+  ['whats-new-in-python-3.10', 'plone-7', 'zope', 'betty-white', 'new-years-day', 'journey-band']
+  ```
+: To list the items of a folderish object:
+  ```shell
+  >>> from zope.component.hooks import setSite
+  >>> setSite(app.Plone)
+  >>> app.Plone.talks.contentItems()
+  [('whats-new-in-python-3.10', <Talk at /Plone/talks/whats-new-in-python-3.10>), ('plone-7', <Talk at /Plone/talks/plone-7>), ('zope', <Talk at /Plone/talks/zope>), ('betty-white', <Talk at /Plone/talks/betty-white>), ('new-years-day', <Talk at /Plone/talks/new-years-day>), ('journey-band', <Talk at /Plone/talks/journey-band>)]
+  ```
+: Stop the interactive shell with {kbd}`ctrl-d`.
 
 plone.app.debugtoolbar
 
@@ -132,63 +167,50 @@ plone.app.debugtoolbar
 
 plone.reload
 
-: An add-on that allows to reload code that you changed without restarting the site. It is also used by {py:mod}`plone.app.debugtoolbar`.
+: An add-on that allows to reload code that you changed without restarting the site.
+Open http://localhost:8080/@@reload in your browser for `plone.reload`s UI.
+It is also used by {py:mod}`plone.app.debugtoolbar`.
 
 Products.PrintingMailHost
 
 : An add-on that prevents Plone from sending mails. Instead, they are logged.
 
-Products.enablesettrace or Products.Ienablesettrace
-
-: Add-on that allows to use pdb and ipdb in Python skin scripts. Very useful when debugging terrible legacy code.
-
 `verbose-security = on`
 
 : An option for the recipe {py:mod}`plone.recipe.zope2instance` that logs the detailed reasons why a user might not be authorized to see something.
-
-{command}`./bin/buildout annotate`
-
-: An option when running buildout that logs all the pulled packages and versions.
 
 Sentry
 
 : [Sentry](https://github.com/getsentry/sentry) is an error logging application you can host yourself.
 It aggregates tracebacks from many sources and (here comes the killer feature) even the values of variables in the traceback. We use it in all our production sites.
 
-zopepy
-
-: Buildout can create a python shell for you that has all the packages from your Plone site in its python path. Add the part like this:
-
-```
-[zopepy]
-recipe = zc.recipe.egg
-eggs = ${instance:eggs}
-interpreter = zopepy
-```
 
 ```{seealso}
-A video of the talk [Debug like a pro. How to become a better programmer through pdb-driven development](https://pyvideo.org/pycon-de-2016/debug-like-a-pro-how-to-become-a-better-programmer-through-pdb-driven-development.html)
+- ["What You Need To Know About Python Debugging" by Philip Bauer](https://www.youtube.com/watch?v=_OB6VlYKZkU&feature=youtu.be)
+- ["PDB Like a Pro" by Philip Bauer](https://www.youtube.com/watch?v=yOG36Ae_TJ0&feature=youtu.be)
 ```
 
 ## Exercise
 
-- Create a new BrowserView callable as `/@@demo_content` in a new file {file}`demo.py`
-- The view should create 5 talks each time it is called
-- Use the docs at <https://docs.plone.org/develop/plone.api/docs/content.html#create-content> to find out how to create new talks.
+- Create a new BrowserView callable as `/@@demo_content` in a new file {file}`demo.py`.
+- The view should create five talks each time it is called.
+- Use the docs at {doc}`plone6docs:plone.api/content` to find out how to create new talks.
 - Use `plone.api.content.transition` to publish all new talks. Find the docs for that method.
-- Only managers should be able to use the view (the permission is called **cmf.ManagePortal**).
-- Reload the frontpage after calling the view.
-- Display a message about the results (<https://docs.plone.org/develop/plone.api/docs/portal.html#show-notification-message>).
-- For extra credits use the library [requests](https://2.python-requests.org/en/master/) and <http://www.icndb.com/api/> to populate the talks with jokes.
-- Use the utility methods `cropText` from `Producs.CMFPlone.browser.ploneview.Plone` to crop the title after 20 characters.
+- Only managers should be able to use the view (the permission is called `cmf.ManagePortal`).
+- Switch to the frontpage after calling the view.
+- Display a message about the results (see {ref}`plone6docs:portal-show-message-example`).
+- For extra credits use the library [requests](https://requests.readthedocs.io/en/latest/) and [Wikipedia](https://www.mediawiki.org/wiki/Wikimedia_REST_API) to populate the talks with content.
+- Use the utility methods `cropText` from `Producs.CMFPlone` to crop the title after 20 characters.
+  Use the docs at {doc}`plone6docs:backend/global-utils` to find an overview of `plone_view` helpers.
 
 ```{note}
-- Do not try everything at the same time, work in small iterations, use `plone.reload` to check your results frequently.
+- Do not try everything at once, work in small iterations, restart to check your results frequently.
 - Use `pdb` during development to experiment.
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Add this to {file}`browser/configure.zcml`:
 
@@ -196,9 +218,9 @@ Add this to {file}`browser/configure.zcml`:
 :linenos:
 
 <browser:page
-  name="demo_content"
+  name="create_demo_talks"
   for="*"
-  class="ploneconf.site.browser.demo.DemoContent"
+  class=".demo.DemoContent"
   permission="cmf.ManagePortal"
   />
 ```
@@ -210,6 +232,7 @@ This is {file}`browser/demo.py`:
 
 from Products.Five import BrowserView
 from plone import api
+
 from plone.protect.interfaces import IDisableCSRFProtection
 from zope.interface import alsoProvides
 
@@ -221,53 +244,53 @@ logger = logging.getLogger(__name__)
 
 
 class DemoContent(BrowserView):
-
     def __call__(self):
         portal = api.portal.get()
-        self.create_talks(portal)
+        self.create_talks()
         return self.request.response.redirect(portal.absolute_url())
 
-    def create_talks(self, container, amount=5):
+    def create_talks(self, amount=3):
         """Create some talks"""
 
         alsoProvides(self.request, IDisableCSRFProtection)
-        plone_view = api.content.get_view('plone', self.context, self.request)
-        jokes = self.random_jokes(amount)
-        for data in jokes:
-            joke = data['joke']
+        plone_view = api.content.get_view("plone", self.context, self.request)
+        wiki_content = self.get_wikipedia_content_of_the_day()
+        for data in wiki_content[:amount]:
             talk = api.content.create(
-                container=container,
-                type='talk',
-                title=plone_view.cropText(joke, length=20),
-                description=joke,
-                type_of_talk='Talk',
+                container=self.context,
+                type="talk",
+                title=plone_view.cropText(data["titles"]["normalized"], length=20),
+                description=data["description"],
+                type_of_talk="talk",
             )
-            api.content.transition(talk, to_state='published')
-            logger.info(f'Created talk {talk.absolute_url()}')
-        api.portal.show_message(f'Created {amount} talks!', self.request)
+            api.content.transition(talk, to_state="published")
+            logger.info(f"Created talk {talk.absolute_url()}")
+        api.portal.show_message(f"Created {amount} talks!", self.request)
 
-    def random_jokes(self, amount):
-        jokes = requests.get(f'http://api.icndb.com/jokes/random/{amount}')
-        return json.loads(jokes.text)['value']
+    def get_wikipedia_content_of_the_day(self):
+        wiki = requests.get(
+            "https://en.wikipedia.org/api/rest_v1/feed/featured/2022/01/02"
+        )
+        return json.loads(wiki.text)["mostread"]["articles"]
 ```
 
 Some notes:
 
-- Since calling view is a GET and not a POST we need `alsoProvides(self.request, IDisableCSRFProtection)` to allow write-on-read without Plone complaining.
+- Since calling view is a GET and not a POST we need {py:meth}`alsoProvides(self.request, IDisableCSRFProtection)` to allow write-on-read without Plone complaining.
   Alternatively we could create a simple form and create the content on submit.
 
-- <https://docs.plone.org/develop/plone.api/docs/content.html#transition>. `transition` has two modes of operation:
+- {ref}`plone6docs:content-transition-example` has two modes of operation:
   The documented one is `api.content.transition(obj=foo, transition='bar')`.
   That mode tries to execute that specific transition.
-  But sometimes it is better to use `to_state` which tries to to find a way to get from the current state to the target-state.
-  See <https://docs.plone.org/develop/plone.api/docs/api/content.html#plone.api.content.transition> for the docstring.
+  But sometimes it is better to use `to_state` which tries to to find a way to get from the current state to the target state.
+  Follow the link to the method description in documentation to find more information on `transition`.
 
-- To use methods like `cropText` from another view, you can use the method already discussed in
+- To use methods like `cropText` from another browser view, you can get the view for your context with `api.content.get_view("view_name", self.context, self.request)`
 
-- Here the joke is added as the description. To add it as the text, you need to create an instance of `RichTextValue` and set that as an attribute:
+- Here the description of the talk is set. To add text, you need to create an instance of `RichTextValue` and set it as an attribute:
 
   ```python
   from plone.app.textfield.value import RichTextValue
-  talk.details = RichTextValue(joke, 'text/plain', 'text/html',)
+  talk.details = RichTextValue(data["extract"], 'text/plain', 'text/html',)
   ```
 ````

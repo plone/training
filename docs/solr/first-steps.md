@@ -1,16 +1,17 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # First Steps
 
 ## Maintenance Task
 
-All the maintenance tasks are accessible through the Solr controlpanel in Plone since version 6.0 of `collective.solr`.
+All the maintenance tasks are accessible through the Solr control panel in Plone since version 6.0 of `collective.solr`.
 It is good to know the direct URLs sometimes.
 
 Another goodie of accessing the URLs directly is they support GET parameters to limit and change their behavior.
@@ -86,7 +87,7 @@ We do this {term}`TTW` (Through-The-Web) right now.
 In the production setup you will define your schema with an interface or a supermodel XML but this is beyond the scope of this training.
 
 More information on dexterity schemas and fields can be found in the Plone documentation:
-<https://docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html>
+<https://5.docs.plone.org/external/plone.app.dexterity/docs/schema-driven-types.html>
 ```
 
 Let's add a field *email* to a task.

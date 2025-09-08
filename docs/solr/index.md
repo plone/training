@@ -1,9 +1,13 @@
 ---
-html_meta:
-  description: Integrate Plone with Solr
+myst:
+  html_meta:
+    "description": "Integrate Plone with Solr"
+    "property=og:description": "Integrate Plone with Solr"
+    "property=og:title": "Integrate Plone with Solr"
+    "keywords": "Plone, Integrate, Solr, training"
 ---
 
-# Plone Training Solr
+# Integrate Plone with Solr
 
 About
 : Integrate Plone with Solr

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Basic Use Of The Playbook
@@ -104,11 +105,11 @@ On the host machine, that's mapped by ssh tunnel to 2080.
 
 We may see the HAProxy monitor at `http://localhost:2080/admin`.
 
-The guest's http port (80) is reached via the host machine's port 1080 --
+The guest's `http` port (80) is reached via the host machine's port 1080 --
 but that isn't actually useful due to URL rewriting for virtual hosting.
 
 If you take a look at `http://localhost:1080` from your host machine, you'll see the default Plone site,
-but stylesheets, JavaScript and images will all be missing.
+but style sheets, JavaScript and images will all be missing.
 
 Instead, look at the load-balancer port (8080 on the guest, 9080 on the host) to see your ZODB root.
 
@@ -176,7 +177,7 @@ You may leave off the `ansible_user` if your user ID is the same on the server.
 An inventory file may have many entries.
 You may run Ansible against one, two, all of the hosts in the inventory file, or against alias groups like "plone-servers".
 
-See [Ansible's inventory documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
+See [Ansible's inventory documentation](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html)
 for information on grouping host entries and for more specialized host settings.
 
 Now, let's make things easier for us going forward by creating an {file}`ansible.cfg` file in our playbook directory.

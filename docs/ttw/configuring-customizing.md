@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Configuring And Customizing
@@ -80,7 +81,7 @@ Let's change the logo.
 - Upload the Logo.
 
 ```{seealso}
-<https://docs.plone.org/adapt-and-extend/change-the-logo.html>
+<https://5.docs.plone.org/adapt-and-extend/change-the-logo.html>
 ```
 
 (customizing-portlets-label-ttw)=
@@ -199,7 +200,7 @@ explain
 - Create new Document "Imprint" and publish
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/functionality/actions.html>
+<https://5.docs.plone.org/develop/plone/functionality/actions.html>
 ```
 
 #### Global Navigation
@@ -261,7 +262,7 @@ The CSS you add to this file is instantly active on the site.
   ```
 
 ```{seealso}
-<https://docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html>
+<https://5.docs.plone.org/adapt-and-extend/theming/templates_css/skin_layers.html>
 ```
 
 #### Further Tools In The ZMI

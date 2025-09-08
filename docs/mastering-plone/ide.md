@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 % ide-label:
@@ -32,7 +33,6 @@ People pick editors themselves. Use whatever you are comfortable and productive 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Sublime](https://www.sublimetext.com/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
-- [Atom](https://atom.io/)
 - [Wing IDE](http://wingide.com/)
 - [Vim](https://www.vim.org/)
 - [Emacs](https://www.gnu.org/software/emacs/)

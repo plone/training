@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (volto-styling-label)=
@@ -13,7 +14,7 @@ html_meta:
 ## Semantic UI
 
 For styling our website in Volto we use Semantic UI.
-Semantic UI uses LESS as the underlaying technology.
+Semantic UI uses LESS as the underlying technology.
 By default Volto uses the Pastanaga theme but any theme can be used.
 A theme has the following folder structure:
 
@@ -55,8 +56,9 @@ Make sure you have the 'Comic Sans MS' font installed. This is the 'ttf-mscorefo
 
 Change the breadcrumbs so that the divider is pink:
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `theme/collections/breadcrumb.variables`:
 
@@ -70,8 +72,9 @@ Change the breadcrumbs so that the divider is pink:
 For features which are not supported in Semantic UI through the variables, we can use the overrides files.
 Update the breadcrumbs so that the links are underlined.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `theme/collections/breadcrumb.overrides`:
 

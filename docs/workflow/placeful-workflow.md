@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Placeful Workflow
@@ -54,7 +55,7 @@ It means that when you install this product, the `portal_workflow` tool is marke
 and from then on, the adapter defined by the product is used when looking up the workflow chain for an object
 
 ```{tip}
-A great example of the [marker pattern](https://docs.plone.org/external/plone.app.dexterity/docs/behaviors/providing-marker-interfaces.html)
+A great example of the [marker pattern](https://5.docs.plone.org/external/plone.app.dexterity/docs/behaviors/providing-marker-interfaces.html)
 ```
 
 - You add a *workflow policy* in the location where you want to have customized workflow assignments.

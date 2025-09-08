@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Create a Theme from scratch
@@ -52,7 +53,7 @@ RUN: mrbob bobtemplates.plone:addon -O ./plonetheme.tokyo
 
 You're going to be asked some questions. It's good to go with defaults for now. Since there is work in progress, Plone version `5.2.2` will result in Plone 6.0. Don't bother with that.
 
-```{code-block} shell
+```{code-block} console
 --> Author's name [Your Name]:
 
 --> Author's email [yourname@example.com]:
@@ -173,23 +174,33 @@ http://localhost:8080/
 :alt: Add Plone site.
 ```
 
-Click on {guilabel}`Advanced` to show more options.
+Click on `Create Classic Plone site` to add your site.
 
-Scroll down to your package and activate the checkbox next to it. This will create a new Plone site and install our add-on in one go. Since the theme is part of the add-on it will be activated automatically.
+You see some basic styling because a precompiled `src/plonetheme/tokyo/theme/css/theme.min.css` has been shipped with the template.
 
-```{image} _static/scratch/add-plone-site-advanced.png
-:alt: Add Plone site advanced.
+Now we have to activate our add-on. This is done in the add-on section of the control panel:
+
+http://localhost:8080/Plone/@@overview-controlpanel
+
+```{image} _static/scratch/install-addon.png
+:alt: Install add-on.
 ```
 
-Click on `Create Plone site` to add your site.
+Navigate to the control panel and activate your add-on. After that step your site may look broken until we actually work on the new theme. Before we start theming we're going to add a copy of the main template to our theme package.
 
-You see some basic styling because a precompiled `src/plonetheme/tokyo/theme/css/theme.min.css` has been shipped with the template. Bevor we start theming we're going to add a copy of the main template to our theme package.
+```{note}
+You can always switch back to the default Barceloneta theme in the theming control panel: http://localhost:8080/Plone/@@theming-controlpanel
+```
 
 ## Override Main Template
 
 Copy the page template from `parts/omelette/Products/CMFPlone/browser/templates/main_template.pt` to `src/plonetheme/tokyo/browser/templates/main_template.pt`.
 
 Copy the main template python file from `parts/omelette/Products/CMFPlone/browser/main_template.py` to `src/plonetheme/tokyo/browser/main_template.py`.
+
+```{note}
+It's recommended to make a commit before you make changes to the template to have a clean diff. Create a folder for templates if it does not already exist.
+```
 
 Register the template:
 
@@ -266,14 +277,22 @@ Let's make use of Bootstrap's layout system and add a `container`, a `row` and s
 
   <head>
     <meta charset="utf-8" />
+
     <div tal:replace="structure provider:plone.htmlhead" />
+
+    <tal:comment replace="nothing">
+        Various slots where you can insert elements in the header from a template.
+    </tal:comment>
     <metal:topslot define-slot="top_slot" />
     <metal:headslot define-slot="head_slot" />
     <metal:styleslot define-slot="style_slot" />
+
     <div tal:replace="structure provider:plone.scripts" />
     <metal:javascriptslot define-slot="javascript_head_slot" />
+
     <link tal:replace="structure provider:plone.htmlhead.links" />
-    <meta name="generator" content="Plone - http://plone.com" />
+    <meta name="generator" content="Plone - https://plone.org/" />
+
   </head>
 
   <body tal:define="isRTL portal_state/is_rtl;
@@ -282,13 +301,17 @@ Let's make use of Bootstrap's layout system and add a `container`, a `row` and s
                     body_class python:plone_layout.bodyClass(template, view);"
         tal:attributes="class body_class;
                         dir python:isRTL and 'rtl' or 'ltr';
-                        python:plone_view.patterns_settings()"
+                        python:context.restrictedTraverse('@@plone_patterns_settings')();"
         id="visual-portal-wrapper">
 
     <div tal:replace="structure provider:plone.toolbar" />
 
     <header id="portal-top" i18n:domain="plone">
       <div tal:replace="structure provider:plone.portaltop" />
+      <div id="portal-header">
+        <div tal:replace="structure provider:plone.portalheader" />
+      </div>
+
     </header>
 
     <div id="portal-mainnavigation" tal:content="structure provider:plone.mainnavigation">
@@ -297,15 +320,17 @@ Let's make use of Bootstrap's layout system and add a `container`, a `row` and s
 
     <section id="global_statusmessage">
       <tal:message tal:content="structure provider:plone.globalstatusmessage"/>
-      <div metal:define-slot="global_statusmessage"></div>
+      <div metal:define-slot="global_statusmessage">
+      </div>
     </section>
 
-    <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
-
     <div class="container">
+
       <div class="row">
 
         <div class="col-lg-8">
+
+          <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
 
           <article id="portal-column-content">
 
@@ -362,13 +387,17 @@ Let's make use of Bootstrap's layout system and add a `container`, a `row` and s
 
         <div class="col-lg-4">
 
-          <aside id="portal-column-one" metal:define-slot="column_one_slot" tal:condition="sl">
+          <aside id="portal-column-one"
+                metal:define-slot="column_one_slot"
+                tal:condition="sl">
             <metal:portlets define-slot="portlets_one_slot">
               <tal:block replace="structure provider:plone.leftcolumn" />
             </metal:portlets>
           </aside>
 
-          <aside id="portal-column-two" metal:define-slot="column_two_slot" tal:condition="sr">
+          <aside id="portal-column-two"
+                metal:define-slot="column_two_slot"
+                tal:condition="sr">
             <metal:portlets define-slot="portlets_two_slot">
               <tal:block replace="structure provider:plone.rightcolumn" />
             </metal:portlets>
@@ -377,6 +406,7 @@ Let's make use of Bootstrap's layout system and add a `container`, a `row` and s
         </div>
 
       </div>
+
     </div>
 
     <footer id="portal-footer-wrapper" i18n:domain="plone">
@@ -604,7 +634,7 @@ Again, `npm watch` will build our CSS after you save the file. Check out your br
 
 ## Replace Editbar
 
-If you are not happy with Plone's editbar there are alternatives available. `collective.sidebar` is a drop in replacement and brings edit features and navigation together.
+If you are not happy with Plone's edit bar there are alternatives available. `collective.sidebar` is a drop in replacement and brings edit features and navigation together.
 
 ```{image} _static/scratch/sidebar.png
 :alt: collective.sidebar

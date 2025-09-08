@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training module 4, add-ons block edit"
-  "property=og:description": "Volto add-ons development training module 4"
-  "property=og:title": "Volto add-ons development block edit options"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training module 4, add-ons block edit"
+    "property=og:description": "Volto add-ons development training module 4"
+    "property=og:title": "Volto add-ons development block edit options"
+    "keywords": "Volto"
 ---
 
 # Block editing with a form
@@ -70,7 +71,7 @@ Or you can set the `widget` property in a schema:
 //...
 properties: {
   headline: {
-    title: "Headline",'
+    title: "Headline",
     widget: "headline_widget",
   }
 }
@@ -306,9 +307,7 @@ const DataTableView = ({ file_data, data }) => {
   );
 };
 
-export default withFileData(({ data: { file_path } }) => file_path?.[0])(
-  DataTableView
-);
+export default withFileData(DataTableView);
 ```
 
 Here's how your block would look like:

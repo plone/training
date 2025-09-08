@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (letsencrypt-certbot)=
@@ -54,7 +55,7 @@ webserver_virtualhosts:
       crt: /etc/letsencrypt/live/{{ inventory_hostname }}/fullchain.pem
 ```
 
-The above configuration redirects all traffic from http to https, using the `extra` key mentioned in {ref}`web-hosting-options`.
+The above configuration redirects all traffic from `http` to `https`, using the `extra` key mentioned in {ref}`web-hosting-options`.
 
 ```{seealso}
 [Read documentation of the role geerlingguy.certbot](https://github.com/geerlingguy/ansible-role-certbot).

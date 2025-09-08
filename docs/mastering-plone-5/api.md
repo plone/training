@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-api-label)=
@@ -25,15 +26,15 @@ Topics covered:
 
 ## plone.api
 
-The most important tool nowadays for plone developers is the add-on [plone.api](https://docs.plone.org/develop/plone.api/docs/index.html) that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
+The most important tool nowadays for plone developers is the add-on [plone.api](https://5.docs.plone.org/develop/plone.api/docs/index.html) that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task be sure to first check if plone.api has a solution for you.
 
 The API is divided in five sections. Here is one example from each:
 
-- `Content:` [Create content](https://docs.plone.org/develop/plone.api/docs/content.html#create-content)
-- `Portal:` [Send E-Mail](https://docs.plone.org/develop/plone.api/docs/portal.html#send-e-mail)
-- `Groups:` [Grant roles to group](https://docs.plone.org/develop/plone.api/docs/group.html#grant-roles-to-group)
-- `Users:` [Get user roles](https://docs.plone.org/develop/plone.api/docs/user.html#get-user-roles)
-- `Environment:` [Switch roles inside a block](https://docs.plone.org/develop/plone.api/docs/env.html#switch-roles-inside-a-block)
+- `Content:` [Create content](https://5.docs.plone.org/develop/plone.api/docs/content.html#create-content)
+- `Portal:` [Send E-Mail](https://5.docs.plone.org/develop/plone.api/docs/portal.html#send-e-mail)
+- `Groups:` [Grant roles to group](https://5.docs.plone.org/develop/plone.api/docs/group.html#grant-roles-to-group)
+- `Users:` [Get user roles](https://5.docs.plone.org/develop/plone.api/docs/user.html#get-user-roles)
+- `Environment:` [Switch roles inside a block](https://5.docs.plone.org/develop/plone.api/docs/env.html#switch-roles-inside-a-block)
 
 {py:mod}`plone.api` is a great tool for integrators and developers that is included when you install Plone, though for technical reasons it is not used by the code of Plone itself.
 
@@ -166,12 +167,12 @@ A video of the talk [Debug like a pro. How to become a better programmer through
 
 - Create a new BrowserView callable as `/@@demo_content` in a new file {file}`demo.py`
 - The view should create 5 talks each time it is called
-- Use the docs at <https://docs.plone.org/develop/plone.api/docs/content.html#create-content> to find out how to create new talks.
+- Use the docs at <https://5.docs.plone.org/develop/plone.api/docs/content.html#create-content> to find out how to create new talks.
 - Use `plone.api.content.transition` to publish all new talks. Find the docs for that method.
 - Only managers should be able to use the view (the permission is called **cmf.ManagePortal**).
 - Reload the frontpage after calling the view.
-- Display a message about the results (<https://docs.plone.org/develop/plone.api/docs/portal.html#show-notification-message>).
-- For extra credits use the library [requests](https://2.python-requests.org/en/master/) and <http://www.icndb.com/api/> to populate the talks with jokes.
+- Display a message about the results (<https://5.docs.plone.org/develop/plone.api/docs/portal.html#show-notification-message>).
+- For extra credits use the library [requests](https://requests.readthedocs.io/en/latest/) and icndb .com/api/ to populate the talks with jokes.
 - Use the utility methods `cropText` from `Producs.CMFPlone.browser.ploneview.Plone` to crop the title after 20 characters.
 
 ```{note}
@@ -179,8 +180,9 @@ A video of the talk [Debug like a pro. How to become a better programmer through
 - Use `pdb` during development to experiment.
 ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Add this to {file}`browser/configure.zcml`:
 
@@ -251,11 +253,11 @@ Some notes:
 - Since calling view is a GET and not a POST we need `alsoProvides(self.request, IDisableCSRFProtection)` to allow write-on-read without Plone complaining.
   Alternatively we could create a simple form and create the content on submit.
 
-- <https://docs.plone.org/develop/plone.api/docs/content.html#transition>. `transition` has two modes of operation:
+- <https://5.docs.plone.org/develop/plone.api/docs/content.html#transition>. `transition` has two modes of operation:
   The documented one is `api.content.transition(obj=foo, transition='bar')`.
   That mode tries to execute that specific transition.
   But sometimes it is better to use `to_state` which tries to to find a way to get from the current state to the target-state.
-  See <https://docs.plone.org/develop/plone.api/docs/api/content.html#plone.api.content.transition> for the docstring.
+  See <https://5.docs.plone.org/develop/plone.api/docs/api/content.html#plone.api.content.transition> for the docstring.
 
 - To use methods like `cropText` from another view, you can use the method already discussed in
 

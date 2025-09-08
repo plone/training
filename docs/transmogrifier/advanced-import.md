@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Advanced Pipeline Tips
@@ -42,7 +43,7 @@ expiration-key = hide_date
 
 Add a condition section that does the same thing as the blueprint we created that excludes older items.
 
-See <https://docs.plone.org/external/collective.transmogrifier/docs/source/sections.html>
+See <https://5.docs.plone.org/external/collective.transmogrifier/docs/source/sections.html>
 
 ## Changing Types
 

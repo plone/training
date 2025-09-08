@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "How to set up the training locally"
-  "property=og:description": "How to set up the training locally"
-  "property=og:title": "Building and Checking the Quality of Documentation"
-  "keywords": ""
+myst:
+  html_meta:
+    "description": "How to set up the training locally"
+    "property=og:description": "How to set up the training locally"
+    "property=og:title": "Building and Checking the Quality of Documentation"
+    "keywords": "Build, Check, quality, documentation"
 ---
 
 (setup-build-label)=
@@ -19,6 +20,10 @@ This document covers how to build the Training documentation and check it for qu
 
 Install [Enchant](https://abiword.github.io/enchant/) to check spelling.
 
+```{seealso}
+[Installation of Enchant from the PyEnchant documentation](https://pyenchant.github.io/pyenchant/install.html).
+```
+
 **macOS**
 
 ```shell
@@ -31,13 +36,12 @@ brew install enchant
 sudo apt-get install enchant
 ```
 
-Clone the Training repository, then create a Python virtual environment, install project dependencies, and activate the virtual environment.
+Clone the Training repository, then create a Python virtual environment, install project dependencies, activate the virtual environment, and build HTML version of the Training documentation.
 
 ```shell
 git clone https://github.com/plone/training.git
 cd training
-make build
-source bin/activate
+make html
 ```
 
 
@@ -50,7 +54,7 @@ All build and check documentation commands use the file `Makefile`.
 To see all available builds:
 
 ```shell
-make
+make help
 ```
 
 

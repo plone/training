@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Testing a view
@@ -56,8 +57,9 @@ We want to use this view only for our content type and not for all folderish one
 - Update tests to check that we can call it only on a TestingItem content
 - The view template prints a string that is returned from its class. Write a test that checks this string.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 TestingItem objects implements the `ITestingItem` interface, so we need to update the view registration like this:
 
@@ -92,8 +94,9 @@ plonecli uses `getMultiAdapter` to obtain a view and we use this for consistency
 - Test that calling the method from the view returns what we expect
 - Write a functional test to test browser integration
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 First, we need to implement that method in our view class in the `views/testing_item_view.py` file:
 

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-testing-label)=
@@ -245,8 +246,9 @@ It tests an edge case.
 There is a trick: create a new {py:class}`TestCase` Class, and set an attribute {py:attr}`level` with the value of 2.
 This test will then only be run when you run the tests with the argument `-a 2` or `--all`.
 
-% .. admonition:: Solution
-% :class: toggle
+% .. dropdown:: Solution
+% :animate: fade-in-slide-down
+% :icon: question
 
 % .. literalinclude:: ../ploneconf.site_sneak/chapters/final/src/ploneconf/site/tests/test_talk.py
 % :lines: 56-138
@@ -284,5 +286,5 @@ This will stop the test at the first failure and you end up in an interactive sh
 
 For more in-depth information and reference see
 
-- [plone.testing documentation](https://docs.plone.org/external/plone.testing/docs/index.html).
+- [plone.testing documentation](https://5.docs.plone.org/external/plone.testing/docs/index.html).
 - [plone.testing package](https://pypi.org/project/plone.testing)

@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # TTW Theming I: Introduction To Diazo Theming
@@ -48,7 +49,7 @@ At it's core, a {term}`Diazo` theme consists of an HTML page and {file}`rules.xm
 ```{note}
 You can find extended information about Diazo and its integration package {py:mod}`plone.app.theming`
 in the official docs for [Diazo](http://docs.diazo.org/en/latest/) and
-[plone.app.theming](https://docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme).
+[plone.app.theming](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#what-is-a-diazo-theme).
 ```
 
 ## Principles
@@ -67,7 +68,7 @@ To create our playground we will copy the existing Barceloneta theme.
 2. You will see a list of the available themes.
    In a bare new Plone site, you will see something like this:
 
-   ```{image} ../theming/_static/theming-bare_plone_themes_list.png
+   ```{image} ./_static/theming-bare_plone_themes_list.png
    :align: center
    ```
 
@@ -75,13 +76,13 @@ To create our playground we will copy the existing Barceloneta theme.
 
 4. Insert "My theme" as the name and click the checkbox to immediately enable the theme:
 
-   ```{image} ../theming/_static/theming-copy_theme_form.png
+   ```{image} ./_static/theming-copy_theme_form.png
    :align: center
    ```
 
 5. Click on {guilabel}`Create` and you get redirected to your new theme's inspector:
 
-   ```{image} ../theming/_static/theming-just_copied_theme_inspector.png
+   ```{image} ./_static/theming-just_copied_theme_inspector.png
    :align: center
    ```
 
@@ -89,8 +90,8 @@ To create our playground we will copy the existing Barceloneta theme.
 
 The most important files:
 
-- {file}`manifest.cfg`: contains metadata about the theme ([manifest reference](https://docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file));
-- {file}`rules.xml`: contains the theme rules ([rules reference](https://docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax));
+- {file}`manifest.cfg`: contains metadata about the theme ([manifest reference](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#the-manifest-file));
+- {file}`rules.xml`: contains the theme rules ([rules reference](https://5.docs.plone.org/external/plone.app.theming/docs/index.html#rules-syntax));
 - {file}`index.html`: the static HTML of the theme.
 
 ### Exercise 1 - Inspecting The {file}`manifest.cfg`
@@ -103,8 +104,9 @@ In the theming tool, open the {file}`manifest.cfg` spend a minute or two looking
 2. What property in the {file}`manifest.cfg` file defines the source CSS/Less file used by the theme?
 3. What do you think is the purpose of the `prefix` property?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 1. The main rules are defined by the `rules` property (you could point this anywhere, however the accepted convention is to use a file named {file}`rules.xml`.
 2. The `development-css` property points at the main Less file, when compiled to CSS it is placed in the location defined by the `production-css` property.
@@ -171,8 +173,9 @@ Look back at the `<body>` classes for a manager. Can you answer the following qu
 2. Can you see other differences?
 3. What do you think the `plone-toolbar-expanded` class does?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 1. The manager also has the role "member" and "authenticated"
 2. There are `plone-toolbar` classes added to the `<body>` element, these control the display of the toolbar
@@ -187,7 +190,7 @@ For the time being let's concentrate on how to hack these rules.
 
 ### Conditionally Showing Content
 
-```{image} ../theming/_static/theming-viewlet-above-content-in-plone-site.png
+```{image} ./_static/theming-viewlet-above-content-in-plone-site.png
 :align: center
 ```
 
@@ -238,7 +241,7 @@ We will learn more about Diazo rules in {doc}`ttw-advanced-2`.
 
 3. Click the buttons {guilabel}`Save` and {guilabel}`Build CSS`.
 
-   ```{image} ../theming/_static/theming-editor_compile_css.png
+   ```{image} ./_static/theming-editor_compile_css.png
    :align: center
    ```
 

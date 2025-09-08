@@ -1,14 +1,15 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Maintenance Strategies
 
-```{admonition} About
+```{note} About
 This section covers strategies for long-run maintenance of your playbook.
 ```
 

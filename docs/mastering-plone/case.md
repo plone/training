@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (case-label)=
@@ -18,7 +19,7 @@ For this training we will build a website for a fictional Plone conference on Ma
 
 By 2050 human civilisation has reached the stars and each year the conference is held on a different planet.
 
-The conference-webseite we want to create should be reusable in the following years so some things should be configurable.
+The conference website we want to create should be reusable in the following years, so some things should be configurable.
 
 (case-requirements-label)=
 
@@ -77,7 +78,7 @@ During the course of the training you will solve the following tasks.
 - Create a sponsor contenttype to manage sponsors
 - Store non-visible information about the sponsor in the sponsor-type
 - Display sponsors on all pages sorted by level
-- Allow some avilable to be configurable by a admin in a controlpanel
+- Allow some settings to be configurable by an admin in a control panel
 - Create a calendar view to display talks
 - Turn the calendar view in a reuseable block to include it on the frontpage
 - Add a separate add-on to allow voting on talks
@@ -86,49 +87,73 @@ During the course of the training you will solve the following tasks.
 
 (intro-what-happens-label)=
 
-## What will we do?
-
-Here are the technologies and tools we will use during the training:
+## Technologies and Tools
 
 - For the beginning training:
 
-  > - [Virtualbox](https://www.virtualbox.org/)
-  > - [Vagrant](https://www.vagrantup.com/)
-  > - [Ubuntu linux](https://ubuntu.com/)
-  > - [Buildout](https://www.buildout.org/en/latest/)
-  > - XML
-  > - Python 3
-  > - React
+  - [Ubuntu linux](https://ubuntu.com/)
+  - {term}`pip`
+  - Python
+  - Javascript
+  - React
 
 - For the advanced chapters:
 
-  > - [Git](https://git-scm.com/)
-  > - [GitHub](https://github.com)
-  > - [Resources to learn Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
-  > - TAL
-  > - METAL
-  > - ZCML
-  > - [Python](https://www.python.org)
-  > - Dexterity
-  > - [GenericSetup](https://docs.plone.org/develop/addons/components/genericsetup.html)
-  > - Viewlets
+  - [Git](https://git-scm.com/)
+  - [GitHub](https://github.com)
+  - [Resources to learn Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
+  - [Python](https://www.python.org)
+  - ZCML
+  - Dexterity content types
+  - [{term}`GenericSetup`](https://5.docs.plone.org/develop/addons/components/genericsetup.html)
+  - React
+  - Redux
+
+
+
+# Optional topics without documentation
+
+The following topics are not covered in the written training but could be discussed on demand.
+
+- Custom forms
+
+  - Hand-written forms
+  - Form built using zc3.form
+  - Form using addons
+  - Custom add- and edit-forms for content
+
+- Custom fields
+
+- Caching (plone.app.caching, memoize, Varnish etc.)
+
+- Portlets
+
+- Zope Component Architecture in depth
+
+- LDAP-integration, Users, Authentication, Member profiles, Members as content
+
+- Using external APIs
+
+- Asynchronous processing
+
+- ZODB
+
+- RelStorage
+
+- Debugging and Profiling
+
+- {doc}`deployment_code`
+
+- Professional Deployments
+
 
 (intro-what-wont-happen-label)=
 
-## What will we not do?
+## Topics covered in other trainings and documentation
 
-We will not cover the following topics:
-
-- [Portlets](https://docs.plone.org/develop/plone/functionality/portlets.html)
-- [z3c.forms](https://docs.plone.org/develop/plone/forms/z3c.form.html)
-- [Theming](https://docs.plone.org/adapt-and-extend/theming/index.html)
-- [Multilingual content and Internationalization](https://docs.plone.org/develop/plone/i18n/index.html)
-- [Deployment, Hosting and Caching](https://docs.plone.org/manage/deploying/index.html)
-
-Other topics are only covered lightly:
-
-- [Zope Component Architecture](https://docs.plone.org/develop/addons/components/index.html)
-- [ZODB](https://docs.plone.org/develop/plone/persistency/index.html)
-- [Security](https://docs.plone.org/develop/plone/security/index.html)
-- [Permissions](https://docs.plone.org/develop/plone/security/permissions.html)
-- [Performance and tuning](https://docs.plone.org/manage/deploying/performance/index.html)
+- {doc}`/theming/index`
+- Plone Classic Viewlets: [Documentation](https://5.docs.plone.org/develop/plone/views/viewlets.html), {ref}`Training Mastering Plone 5<plone5-viewlets1-label>`
+- Plone Classic Portlets: [Documentation](https://5.docs.plone.org/develop/plone/functionality/portlets.html)
+- [form library z3c.form](https://5.docs.plone.org/develop/plone/forms/z3c.form.html)
+- [multilingual content and internationalization](https://5.docs.plone.org/develop/plone/i18n/index.html)
+- {doc}`/plone-deployment/index`

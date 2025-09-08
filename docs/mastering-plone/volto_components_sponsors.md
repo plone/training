@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "How to fetch data from the backend"
-  "property=og:description": "How to fetch data from the backend"
-  "property=og:title": ""
-  "keywords": "REST API, Semantic UI"
+myst:
+  html_meta:
+    "description": "How to fetch data from the backend"
+    "property=og:description": "How to fetch data from the backend"
+    "property=og:title": "The Sponsors Component, how to fetch data from the backend"
+    "keywords": "REST API, Semantic UI"
 ---
 
 (volto-sponsors-component-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Frontend Chapter
 ```{figure} _static/plone-training-logo-for-frontend.svg
 :alt: Plone frontend
-:align: left
 :class: logo
 ```
 
@@ -30,13 +30,13 @@ Get the code! ({doc}`More info <code>`)
 Code for the beginning of this chapter:
 
 ```shell
-git checkout TODO tag to checkout
+git checkout event
 ```
 
 Code for the end of this chapter:
 
 ```shell
-git checkout TODO tag to checkout
+git checkout sponsors
 ```
 ````
 
@@ -59,7 +59,6 @@ Topics covered:
 
 ```{figure} _static/volto_component_sponsors.png
 :alt: Sponsors component
-:align: left
 ```
 
 ```{only} not presentation
@@ -197,6 +196,41 @@ React.useEffect(() => {
 }, [dispatch]);
 ```
 
+#### Search options
+
+- The default representation for search results is a summary that contains only the most basic information like **title, review state, type, path and description**.
+- With the option `fullobjects` all available field values are present in the fetched data.
+- Another option is `metadata_fields`, which allows to get more attributes (selection of Plone catalog metadata columns) than the default search without a performance expensive fetch via option fullobjects.
+
+Possible **sort criterions** are indices of the Plone catalog.
+
+
+```{code-block} jsx
+:linenos:
+:emphasize-lines: 10
+
+const dispatch = useDispatch();
+
+React.useEffect(() => {
+  dispatch(
+    searchContent(
+      '/',
+      {
+        portal_type: ['News Items'],
+        review_state: 'published',
+        sort_on: "effective",
+      },
+      'sponsors',
+    ),
+  );
+}, [dispatch]);
+```
+
+```{seealso}
+{doc}`plone6docs:plone.restapi/docs/source/endpoints/searching`
+```
+
+
 (volto-component-store-label)=
 
 ### Connection of component and store
@@ -252,7 +286,28 @@ Listening to this subscription the component fetches the data from the store if 
 ### Presentation of the prepared data
 
 With the data fetched and accessible in the component constant `sponsors` we can
-now render the sponsors data. As we have already prepared a dictionary by sponsor level of the list of sponsors, groupedSponsorsByLevel, we can now show a nested list.
+now render the sponsors data. 
+
+We prepare the sponsors data as a dictionary grouped by sponsor level: groupedSponsorsByLevel.
+
+```js
+const groupedSponsorsByLevel = (array = []) =>
+  array.reduce((obj, item) => {
+    let token = item.level?.token || 'bronze';
+    obj[token] ? obj[token].push(item) : (obj[token] = [item]);
+    return obj;
+  }, {});
+  ```
+
+Which results in an dictionary Object available with our subscription `sponsors`:
+
+```js
+{
+  bronze: [sponsordata1, sponsodata2]
+}
+```
+
+With the subscription `sponsors` we can now show a nested list.
 
 ```{code-block} jsx
 :linenos:
@@ -288,8 +343,9 @@ now render the sponsors data. As we have already prepared a dictionary by sponso
 </List>
 ```
 
-````{admonition} Complete code of the Sponsors component
-:class: toggle
+````{dropdown} Complete code of the Sponsors component
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :linenos:
@@ -397,8 +453,9 @@ See the new footer. A restart is not necessary as we didn't add a new file. The 
 
 Modify the component to display a sponsor logo as a link to the sponsors website. The address is set in sponsor field "url". See the documentation of [Semantic UI React](https://react.semantic-ui.com/elements/image/#types-link).
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} jsx
 :emphasize-lines: 3-5

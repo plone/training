@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-zpt-label)=
@@ -574,8 +575,9 @@ Modify the following template and one by one solve the following problems:
 
 1. Display the subjects as comma-separated.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :emphasize-lines: 21
@@ -611,8 +613,9 @@ Modify the following template and one by one solve the following problems:
 
 2. Turn the title in a link to the URL of the talk if there is one.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :emphasize-lines: 20
@@ -653,8 +656,9 @@ Modify the following template and one by one solve the following problems:
 
 3. If there is no URL, turn it into a link to a google search for that talk's title:
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :emphasize-lines: 20, 21
@@ -705,8 +709,9 @@ if the ordinal index of the current iteration is an odd number).
 > </style>
 > ```
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :emphasize-lines: 19
@@ -751,8 +756,9 @@ if the ordinal index of the current iteration is an odd number).
 
 5. Only use python expressions.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :linenos:
@@ -791,8 +797,9 @@ if the ordinal index of the current iteration is an odd number).
 
 6. Use the syntax of Plone 5 replacing `tal:attribute` and `tal:content` with inline `${}` statements.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :emphasize-lines: 20, 24, 28
@@ -833,8 +840,9 @@ if the ordinal index of the current iteration is an odd number).
 
 7. Sort the talks alphabetically by title
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :emphasize-lines: 19, 21
@@ -1031,8 +1039,9 @@ Now modify the template {file}`training.pt` to display the title of the context:
 - If there is no speaker-name display the address.
 - Modify attributes of html-tags by adding your statements into the attributes directly like `title="${python: context.type_of_talk.capitalize()}"`.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```html
 <a href="${python: 'mailto:{0}'.format(context.email)}">
@@ -1094,7 +1103,7 @@ There is a lot more about TAL, TALES and METAL that we have not covered.
 You'll only learn it if you keep reading, writing and customizing templates.
 
 ```{seealso}
-- <https://docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html>
+- <https://5.docs.plone.org/adapt-and-extend/theming/templates_css/template_basics.html>
 - Using Zope Page Templates: <https://zope.readthedocs.io/en/latest/zopebook/ZPT.html>
 - Zope Page Templates Reference: <https://zope.readthedocs.io/en/latest/zopebook/AppendixC.html>
 - <https://chameleon.readthedocs.io/en/latest/>

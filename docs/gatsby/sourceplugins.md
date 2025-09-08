@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Source plugins
@@ -42,8 +43,9 @@ If we open `GraphiQL` page, we will see new possible queries.
 
 Create a new page called "files-list.js" that displays a list of all files with some informations (path, size, extension) found with some query.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{literalinclude} _snippets/files-list.js
 :language: jsx

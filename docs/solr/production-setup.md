@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Production Setup
@@ -30,7 +31,7 @@ default-core-name
 
 : Optional and deprecated.
   This option controls which core is set as the default for incoming requests that do not specify a core name.
-  This corresponds to the `defaultCoreName` option described at <https://cwiki.apache.org/confluence/display/solr/CoreAdmin#cores>.
+  See <https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=120722784>.
   *No longer* used in Solr 5.
 
 An example for a multi-core configuration you can find in the documentation of `collective.recipe.solrinstance`:

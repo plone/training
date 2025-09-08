@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Volto add-ons development training module 5, object widget block edit"
-  "property=og:description": "Volto add-ons development training module 5"
-  "property=og:title": "Volto add-ons development object widget block edit"
-  "keywords": "Volto"
+myst:
+  html_meta:
+    "description": "Volto add-ons development training module 5, object widget block edit"
+    "property=og:description": "Volto add-ons development training module 5"
+    "property=og:title": "Volto add-ons development object widget block edit"
+    "keywords": "Volto"
 ---
 
 # Customizable columns
@@ -114,7 +115,7 @@ const DataTableEdit = (props) => {
   schema.properties.columns.schema.properties.column.choices = choices;
 
   return (
-    // <> represents a React Fragment see https://reactjs.org/docs/fragments.html#short-syntax for more details
+    // <> represents a React Fragment see https://legacy.reactjs.org/docs/fragments.html#short-syntax for more details
     <>
       <SidebarPortal selected={selected}>
         <InlineForm

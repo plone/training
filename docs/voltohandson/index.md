@@ -1,6 +1,10 @@
 ---
-html_meta:
-  description: Learn how to quickly bootstrap and customize a Volto project
+myst:
+  html_meta:
+    "description": "Learn how to quickly bootstrap and customize a Volto project"
+    "property=og:description": "Learn how to quickly bootstrap and customize a Volto project"
+    "property=og:title": "Volto Hands-On"
+    "keywords": "Plone, Volto, Hands-On, training"
 ---
 
 (voltohandson-label)=
@@ -26,13 +30,14 @@ quickstart
 requirements
 starttheming
 header
-footer
 breadcrumbs
+footer
+configandcleanup
 introtoblocks
-blocksmainslider
-contenttypesviews
-highlightsblock
-blocksedit
+highlight
+blocksdownload
+eventlistingtemplate
+contenttypeview
 ```
 
 This training was created by Victor Fernandez de Alba (sneridagh).

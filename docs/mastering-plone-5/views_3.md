@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (plone5-views3-label)=
@@ -217,7 +218,7 @@ True
 
 ## Querying the catalog
 
-The are many [catalog indexes](https://docs.plone.org/develop/plone/searching_and_indexing/indexing.html) to query. Here are some examples:
+The are many [catalog indexes](https://5.docs.plone.org/develop/plone/searching_and_indexing/indexing.html) to query. Here are some examples:
 
 ```pycon
 >>> portal_catalog = getToolByName(self.context, 'portal_catalog')
@@ -235,7 +236,7 @@ Calling the catalog without parameters returns the whole site:
 ```
 
 ```{seealso}
-<https://docs.plone.org/develop/plone/searching_and_indexing/query.html>
+<https://5.docs.plone.org/develop/plone/searching_and_indexing/query.html>
 ```
 
 (plone5-views3-excercises-label)=
@@ -248,8 +249,9 @@ Since you now know how to query the catalog it is time for some exercise.
 
 Add a method {py:meth}`get_news` to {py:class}`TalkListView` that returns a list of brains of all News Items that are published and sort them in the order of their publishing date.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:
@@ -269,8 +271,9 @@ def get_news(self):
 
 Add a method that returns all published keynotes as objects.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} python
 :linenos:
@@ -411,8 +414,9 @@ Handy but sometimes irritating since from looking at the page template alone we 
 Modify the view to only use path expressions.
 This is **not** best practice but there is plenty of code in Plone and in add-ons so you have to know how to use them.
 
-````{admonition} Solution
-:class: toggle
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```{code-block} html
 :linenos:

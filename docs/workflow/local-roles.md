@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 # Local Roles
@@ -42,5 +43,5 @@ This is powerful stuff when combined with the more usual role-to-permission mapp
 
 ### Additional Resources
 
-- <https://docs.plone.org/working-with-content/collaboration-and-workflow/collaboration-through-sharing.html>
-- <https://docs.plone.org/develop/plone/security/local_roles.html>
+- <https://5.docs.plone.org/working-with-content/collaboration-and-workflow/collaboration-through-sharing.html>
+- <https://5.docs.plone.org/develop/plone/security/local_roles.html>

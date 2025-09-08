@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (embed-label)=
@@ -13,7 +14,6 @@ html_meta:
 ````{sidebar} Plone Backend Chapter
 ```{figure} _static/plone-training-logo-for-backend.svg
 :alt: Plone backend
-:align: left
 :class: logo
 ```
 
@@ -96,9 +96,9 @@ To add the behavior to talks, we do this in {file}`profiles/default/types/talk.x
 After changing the {file}`metadata.xml` you have to restart your site since unlike other GenericSetup XML files that file is cached.
 
 Managing dependencies in {file}`metadata.xml` is good practice. We can't rely on remembering what we'd have to do by hand.
-In Plone 4 we should also have added {samp}`<dependency>profile-plone.app.contenttypes:plone-content</dependency>` like the [documentation for plone.app.contenttypes](https://docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product) recommends.
+In Plone 4 we should also have added {samp}`<dependency>profile-plone.app.contenttypes:plone-content</dependency>` like the [documentation for plone.app.contenttypes](https://5.docs.plone.org/external/plone.app.contenttypes/docs/README.html#installation-as-a-dependency-from-another-product) recommends.
 
-Read more: <https://docs.plone.org/develop/addons/components/genericsetup.html#dependencies>
+Read more: <https://5.docs.plone.org/develop/addons/components/genericsetup.html#dependencies>
 ```
 
 ```{code-block} xml

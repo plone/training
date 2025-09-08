@@ -27,8 +27,14 @@ package-lock.json
 docs/pyvenv.cfg
 .DS_Store
 /venv/lib64
+/lib64
 /venv
 /yarn.lock
 /.vale
 .vale.ini
 .vscode
+.*project
+/.settings/
+/lib64
+/share/python-wheels
+/share

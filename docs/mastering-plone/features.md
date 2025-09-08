@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": ""
-  "property=og:description": ""
-  "property=og:title": ""
-  "keywords": ""
+myst:
+  html_meta:
+    "description": ""
+    "property=og:description": ""
+    "property=og:title": ""
+    "keywords": ""
 ---
 
 (features-label)=
@@ -11,9 +12,9 @@ html_meta:
 # The Features of Plone
 
 ```{seealso}
-[Plone documentation **docs.plone.org**](https://docs.plone.org/)
+[Plone documentation **docs.plone.org**](https://6.docs.plone.org/)
 
-[Chapter "Working with content" on docs.plone.org](https://docs.plone.org/working-with-content/index.html)
+[Chapter "Working with content" on docs.plone.org](https://5.docs.plone.org/working-with-content/index.html)
 ```
 
 
@@ -21,37 +22,17 @@ html_meta:
 
 ## Starting and Stopping Plone
 
-We control Plone with a small script called "instance":
+We control Plone with a makefile:
 
 ```shell
-$ ./bin/instance fg
+$ make start
 ```
-
-This starts Plone in foreground mode so that we can see what it is doing by monitoring console messages.
-This is an important development method.
-Note that when Plone is started in foreground mode,
-it is also automatically in development mode.
-Development mode gives better feedback, but is much slower, particularly on Windows.
 
 You can stop it by pressing {kbd}`ctrl + c`.
 
-Apart from the `fg` command, the {program}`instance` script offers several more commands.
-`./bin/instance help` shows the list of available commands, `bin/instance help <command>` will give a short help for each command.
-Some commands you will use rather often are:
+On a decent laptop it should take under 10 seconds untill you see the output ``Ready to handle requests``
 
-```shell
-$ ./bin/instance fg
-$ ./bin/instance start
-$ ./bin/instance stop
-$ ./bin/instance debug
-$ ./bin/instance run myscript.py
-$ ./bin/instance adduser name password
-```
-
-Depending on your computer, it might take up to a minute until Zope will tell you that it's ready to serve requests.
-
-On a decent laptop it should be running in under 10 seconds.
-A standard installation listens on port 8080, so lets have a look at our Zope site by visiting <http://localhost:8080>
+A standard installation listens on port 8080, so lets have a look at <http://localhost:8080>
 
 ```{figure} _static/features_plone_running.png
 ```
@@ -65,27 +46,8 @@ As you can see, there is no Plone site yet!
 We now have a running Zope with a database but no content.
 But luckily there is a button to create a Plone site.
 
-```{warning}
-Because Plone 6 is not released yet we need to enable some features of Plone that are not there by default.
-In Plone 6 this will be done automatically for you.
-
-Until then you need to select `ploneconf.site` as a add-on when creating the site!
-
-{py:mod}`ploneconf.site` makes the following changes to ease working with Volto:
-
-- Make Document, News Items and Events folderish by installing {py:mod}`collective.folderishtypes`.
-- Install {py:mod}`plone.restapi` to be able to communicate with the frontend.
-- Enable the blocks-behavior for Documents.
-- Allow editing the Siteroot like a Document.
-
-In Plone 6 this (and more) will be done automatically for you.
-```
-
-Click on the link {guilabel}`Advanced` next to the button {guilabel}`Create a Plone site`.
-If the site asks you to login, use login `admin` and password `admin`.
-This opens a form to create a Plone site and select additional features.
-Use {samp}`Plone` as the site id.
-Select **ploneconf.site** as a add-on that should be installed with your new site.
+Click on the link {guilabel}`Create a new Plone site`.
+If the site asks you to login, use login `admin` and password `secret` (they are taken from the file `instance.yaml`).
 
 ```{figure} _static/features_create_site_form.png
 ```
@@ -105,7 +67,7 @@ Read them and make sure you understand them!
 
 ## Starting and Stopping the frontend
 
-To start the frontend that will use your new plone site go to the folder `volto` and enter:
+To start the frontend that will use your new plone site go to the folder `frontend` and enter:
 
 ```shell
 $ yarn start
@@ -124,51 +86,49 @@ While developing it is not necessary to restart the frontend unless you are addi
 
 #### Exercise 1
 
-Open the `bin/instance` script in your favorite editor.
+Open the file `backend/instance/etc/zope.ini` in your favorite editor.
 Now let's say you want Plone to listen on port 9080 instead of the default 8080.
-Looking at the script.
 How could you do this?
 
-````{admonition} Solution
-:class: toggle
-
-At the end of the `bin/instance` script, you'll see the following code:
-
-```python
-if __name__ == '__main__':
-    sys.exit(plone.recipe.zope2instance.ctl.main(
-        ['-C', '/Users/pbauer/workspace/training_buildout/parts/instance/etc/zope.conf', '-p', '/Users/pbauer/workspace/training_buildout/parts/instance/bin/interpreter', '--wsgi']
-        + sys.argv[1:]))
-```
-
-The second to last line points to the configuration file your Plone instance is using.
-An absolute path is used so it might differ depending on the installation method.
-Open the {file}`wsgi.ini` that lives in the same folder in your editor and look for the section:
+````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 ```ini
 [server:main]
 use = egg:waitress#main
-listen = 0.0.0.0:8080
+listen = localhost:8080
 threads = 4
+clear_untrusted_proxy_headers = false
+max_request_body_size = 1073741824
 ```
 
-Change the address to `0.0.0.0:9080` and restart your instance.
+Change the address to `localhost:9080` and restart your instance.
 
-You will also have to tell the frontend that the backend is now running on a different port.
+You will also have to tell the frontend that the backend is now running on a different port!
 
-You need to change the environment variable `RAZZLE_API_PATH` to the base-url of the backend:
+You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base-url of the backend:
 
 ```shell
-$ RAZZLE_API_PATH=http://localhost:9080/Plone yarn start
+$ RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone yarn start
 ```
+
+When your Plone instance is not called `Plone` you can use the same approach:
+
+```shell
+$ RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite yarn start
+```
+
+
 ````
 
 #### Exercise 2
 
-Knowing that `bin/instance debug` basically offers you a Python prompt, how would you start to explore Plone?
+Knowing that `venv/bin/zconsole debug instance/etc/zope.conf` basically offers you a Python prompt, how would you start to explore Plone?
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 Use `locals()` or `locals().keys()` to see Python objects available in Plone
 
@@ -179,8 +139,9 @@ You will get notified that `app` is automatically bound to your Zope application
 
 The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
 
-`````{admonition} Solution
-:class: toggle
+`````{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 `app.__dict__.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
 
@@ -189,13 +150,17 @@ The `app` object you encountered in the previous exercise can be seen as the roo
 <Application at >
 >>> app.keys()
 ['browser_id_manager', 'session_data_manager', 'error_log', 'temp_folder', 'virtual_hosting', 'index_html', 'Plone', 'acl_users']
->>> app['Plone']
+>>> portal = app["Plone"]
+>>> from zope.component.hooks import setSite
+>>> setSite(portal)
+>>> portal
 <PloneSite at /Plone>
 >>> app.Plone.keys()
 ['portal_setup', 'MailHost', 'caching_policy_manager', 'content_type_registry', 'error_log', 'plone_utils', 'portal_actions', 'portal_catalog', 'portal_controlpanel', 'portal_diff', 'portal_groupdata', 'portal_groups', 'portal_memberdata', 'portal_membership', 'portal_migration', 'portal_password_reset', 'portal_properties', 'portal_quickinstaller', 'portal_registration', 'portal_skins', 'portal_types', 'portal_uidannotation', 'portal_uidgenerator', 'portal_uidhandler', 'portal_url', 'portal_view_customizations', 'portal_workflow', 'translation_service', 'portal_form_controller', 'mimetypes_registry', 'portal_transforms', 'portal_archivist', 'portal_historiesstorage', 'portal_historyidhandler', 'portal_modifier', 'portal_purgepolicy', 'portal_referencefactories', 'portal_repository', 'acl_users', 'portal_resources', 'portal_registry', 'HTTPCache', 'RAMCache', 'ResourceRegistryCache', 'training', 'schedule', 'location', 'sponsors', 'sprint']
->>> app['Plone']['training']
-<FolderishDocument at /Plone/training>
+>>> app['Plone']['news']
+<Folder at /Plone/news>
 ```
+
 
 ````{note}
 Plone and its objects are stored in an object database, the ZODB. You can use `bin/instance debug` as a database client (in the same way e.g. `psql` is a client for PostgreSQL). Instead
@@ -215,16 +180,13 @@ You have been warned.
 
 Change the port of the frontend to 1234
 
-```{admonition} Solution
-:class: toggle
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
 
 By default the frontend will start on port 3000. You can change the port and/or hostname for the frontend by specifying the environment variables `PORT` and/or `HOST`:
 
 > \$ HOST=localhost PORT=1234 yarn start
-
-TODO:
-
-- Find out if that actually works
 ```
 
 (features-walkthrough-label)=
@@ -384,8 +346,8 @@ Edit the front page:
 Create a site structure:
 
 - Add a Page "Training"
-- Add a Folder "Schedule"
-- Add a Folder "Location"
+- Add a Page "Schedule"
+- Add a Page "Location"
 - Add a Page "Sponsors"
 - Add a Page "Sprint"
 - Add a Page "Contact"
@@ -426,7 +388,7 @@ Page
 : A Page is the most flexible content type.
   You can use the editor to create, edit and arrange blocks on a page.
   You can choose from blocks for Text, Image, Video, List of existing content and many more.
-  Pages - like folders - can also contain other content. This means you can use them to structure your site.
+  Pages - like folders - can also contain other content. This means you can use them to structure your site. In Plone 6 Classic pages are not *folderish*!
 
   ```{figure} _static/features_add_a_page.png
   ```
@@ -436,6 +398,8 @@ Folder
 : Folders are used to structure content like in a file-system.
   They can display a listing of its content.
   Pages can also contain other content.
+  When you use Volto you usually don't use folders to create a structure since pages are also folders.
+  For some cases (e.g. lists of documents) using folders can be usefull though.
 
   ```{figure} _static/features_add_a_folder.png
   ```
@@ -463,7 +427,7 @@ Event
 
 Link
 
-: A link to an internal oder external target.
+: A link to an internal or external target.
 
   ```{figure} _static/features_add_a_link.png
   ```
@@ -477,41 +441,25 @@ News Item
 
 Collection
 
-: Collections are virtual containers of lists of items found by doing a specialized search.
-  With Volto you usually do not use them anymore. Instead you can use a page with one or more listing blocks.
+: Collections are virtual lists of items found by doing a specialized search.
+  With Volto you usually do not use them anymore. Instead you use a page with one or more listing blocks.
 
   ```{figure} _static/features_pending_collection.png
   :alt: Editing a collection
   ```
 
-(features-folders-label)=
+(features-containers-label)=
 
-## Folders
+## Containers
 
 - Go to 'schedule'
 - explain the difference between title, ID, and URL
-- explain /folder_contents
+- explain `/contents`
 - change the order of items
 - explain bulk actions
-- dropdown "display"
+- Display Menu
 - Explain default pages (in classic Plone)
 - Explain Folderish Pages (in Plone6 and Volto)
-
-(features-collections-label)=
-
-## Collections
-
-```{eval-rst}
-.. todo::
-
-    This is still Plone 5. Adapt to Volto.
-```
-
-- add a new collection: "all content that has `pending` as wf_state".
-- explain the default collection for events at <http://localhost:3000/events/aggregator/edit>
-- mention listing blocks for the pastanaga editor
-- multi-path queries
-- constraints, e.g. `/Plone/folder::1`
 
 (features-content-rules-label)=
 
@@ -601,8 +549,8 @@ Making a container private does **not** automatically make its contents private.
 ```
 
 ```{seealso}
-- <https://training.plone.org/5/workflow/index.html>
-- <https://docs.plone.org/working-with-content/collaboration-and-workflow/index.html>
+- Training {doc}`/workflow/index`
+- Plone 5 Documentation [Collaboration and Workflow](https://5.docs.plone.org/working-with-content/collaboration-and-workflow/index.html)
 ```
 
 (features-wc-label)=

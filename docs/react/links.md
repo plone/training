@@ -1,9 +1,10 @@
 ---
-html_meta:
-  "description": "Add links to our App for navigating around the App."
-  "property=og:description": "Add links to our App for navigating around the App."
-  "property=og:title": "Using Link To Navigate"
-  "keywords": "Plone, training, exercise, solution, React, link"
+myst:
+  html_meta:
+    "description": "Add links to our App for navigating around the App."
+    "property=og:description": "Add links to our App for navigating around the App."
+    "property=og:title": "Using Link To Navigate"
+    "keywords": "Plone, training, exercise, solution, React, link"
 ---
 
 (links-label)=
@@ -126,8 +127,9 @@ export default FaqItem;
 
 ```
 
-````{admonition} Differences
-:class: toggle
+````{dropdown} Differences
+:animate: fade-in-slide-down
+:icon: question
 
 ```dpatch
 --- a/src/components/FaqItem.jsx
