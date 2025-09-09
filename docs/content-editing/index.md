@@ -9,7 +9,7 @@ myst:
 
 (content-editing-label)=
 
-# Content Editing for Plone Volto
+# Content editing for Plone
 
 About
 : How to create and manage content using the Plone Volto frontend
