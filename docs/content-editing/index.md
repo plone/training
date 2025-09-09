@@ -9,10 +9,10 @@ myst:
 
 (content-editing-label)=
 
-# Content Editing for Plone
+# Content editing for Plone
 
 About
-: How to create and manage content using Plone
+: How to create and manage content using Plone with Volto as its frontend
 
 Level
 : Beginner
