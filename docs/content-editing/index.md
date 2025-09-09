@@ -12,7 +12,7 @@ myst:
 # Content editing for Plone
 
 About
-: How to create and manage content using the Plone Volto frontend
+: How to create and manage content using Plone with Volto as its frontend
 
 Level
 : Beginner
