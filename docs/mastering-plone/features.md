@@ -175,6 +175,12 @@ For example, {guilabel}`edit` is only shown if the current user has the permissi
 
 ## Configure a mail server
 
+Where to do this (backend):
+
+- If you are in the frontend (port 3000), click the silhouette menu at the bottom of the left toolbar and choose {guilabel}`site setup`. This opens the backend control panel.
+- Or open the backend directly at <http://localhost:8080/Plone> and log in as `admin`.
+- In the backend control panel, click {guilabel}`Mail`.
+
 ```{only} not presentation
 For production level deployments you have to configure a mail server.
 Later in the training we will create some content rules that send emails when new content is put on our site.
@@ -187,6 +193,11 @@ For the training you don't have to configure a working mailserver since the Plon
 - Password: leave blank
 - Site 'From' name: Your name
 - Site 'From' address: Your email address
+
+If you do not see emails being sent, make sure the training add-on is enabled in the backend:
+
+- Go to {guilabel}`Add-ons` in the backend {guilabel}`site setup`.
+- Activate {guilabel}`Printing Mail Host (Products.PrintingMailHost)`. With this add-on active, outgoing emails are printed to the console/log instead of being sent.
 
 ```{only} not presentation
 Click on `Save and send test e-mail`. You will see the mail content in the console output of your instance. Plone will not
