@@ -182,16 +182,19 @@ Later in the training we will create some content rules that send emails when ne
 For the training you don't have to configure a working mailserver since the Plone add-on `Products.PrintingMailHost` is installed which will redirect all emails to the console.
 ```
 
+Head over to the mail control panel http://localhost:8080/Plone/@@mail-controlpanel and apply the following configuration:
+
 - Server: {samp}`localhost`
 - Username: leave blank
 - Password: leave blank
 - Site 'From' name: Your name
 - Site 'From' address: Your email address
 
-```{only} not presentation
-Click on `Save and send test e-mail`. You will see the mail content in the console output of your instance. Plone will not
-actually send the email to the receivers address unless your remove or deactivate [Products.PrintingMailHost](https://pypi.org/project/Products.PrintingMailHost/).
-```
+
+Click on {guilabel}`Save and send test e-mail`.
+You will see the mail content in the console output of your instance.
+Plone will not actually send the email to the receiver's address unless you remove or deactivate [Products.PrintingMailHost](https://pypi.org/project/Products.PrintingMailHost/).
+
 
 
 ## The site structure
