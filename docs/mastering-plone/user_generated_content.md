@@ -60,9 +60,12 @@ More info in {doc}`code`
 
 ## Constrain types to be addable
 
-- On the page `schedule` select {guilabel}`Restrictions…` <http://localhost:8080/Plone/schedule/folder_constraintypes_form> from the {guilabel}`Add new_` menu. 
-  Restrict to adding only talks.
-  This action is by now only available in Classic Plone.
+On the page `schedule` select {guilabel}`Restrictions…` <http://localhost:8080/Plone/schedule/folder_constraintypes_form> from the {guilabel}`Add new_` menu. 
+Restrict to adding only talks.
+
+```{note}
+This action is by now only available in Plone Classic, not Volto frontend.
+```
 
 
 (user-content-local-roles-label)=
