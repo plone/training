@@ -76,12 +76,113 @@ Create a new Plone site in the backend container with the following command.
 make stack-create-site
 ```
 
-## Entering a Docker container and run classic local zope commands for debugging
+## Entering a Docker container and run classic local zope commands for debugging or special purposes
 
+A step by step instruction how to enter a running Docker container with a bash and execute commands in context of your `docker-entrypoint.sh` config.
 
-A step by step instruction how to enter a running Docker container with a bash and execute commands in context of your config is included in this ticket:
-```{seealso}
-[How can plone-exporter be called manually inside a docker based Plone 6.0 Volto deployment?](https://github.com/plone/plone.exportimport/issues/51)
-- It covers how to manually run the `plone_exporter` command inside the backend container with a relstorage.conf
-**TODO:** Wrapping this up generically and replace this hint with regular docs.
+### Prerequisites
+
+- A running docker based deployment on a server or the local machine.
+- ssh access to the host machine
+
+### List running containers
+
+in the host machine shell:
+
+```shell
+docker ps
 ```
+
+example output:
+
+```shell
+CONTAINER ID   IMAGE                                      COMMAND                  CREATED        STATUS                  PORTS      NAMES
+3dxxxxxxea   ghcr.io/me/my-plone-frontend:main          "pnpm start:prod"        1 minute ago   Up 1 minute (healthy)   3000/tcp   my-plone_frontend.2.6hydqi2lubxxxxxxxxxxc4s4p
+9dxxxxxxa5   ghcr.io/me/my-plone-frontend:main          "pnpm start:prod"        1 minute ago   Up 1 minute (healthy)   3000/tcp   my-plone_frontend.1.dha3otj0laxxxxxxxxxxljj6e
+a8xxxxxx20   ghcr.io/me/my-plone-varnish:main           "/usr/local/bin/dock…"   1 minute ago   Up 1 minute                        my-plone_varnish.1.dj0w1s6sfsxxxxxxxxxxoue6u
+d8xxxxxx9c   ghcr.io/me/my-plone-backend:main           "/app/docker-entrypo…"   1 minute ago   Up 1 minute (healthy)   8080/tcp   my-plone_backend.2.tqs1rkqhrtxxxxxxxxxxlrvti
+21xxxxxx2e   ghcr.io/me/my-plone-backend:main           "/app/docker-entrypo…"   1 minute ago   Up 1 minute (healthy)   8080/tcp   my-plone_backend.1.ba353y9lfnxxxxxxxxxxjxubq
+dexxxxxx32   ghcr.io/kitconcept/cluster-purger:latest   "/app/docker-entrypo…"   1 minute ago   Up 1 minute (healthy)              my-plone_purger.1.0oe71ob3ruxxxxxxxxxxc5m4j
+82xxxxxx8d   ghcr.io/kitconcept/cluster-purger:latest   "/app/docker-entrypo…"   1 minute ago   Up 1 minute (healthy)              my-plone_purger.2.7jat5at9fexxxxxxxxxxtnmrs
+c9xxxxxxae   postgres:14.15                             "docker-entrypoint.s…"   1 minute ago   Up 1 minute                        my-plone_db.1.dpawmbod09xxxxxxxxxxjrlvw
+27xxxxxxcc   traefik:v2.11                              "/entrypoint.sh --pr…"   1 minute ago   Up 1 minute             80/tcp     my-plone_traefik.1.pe7oq21mdyxxxxxxxxxxf78qb
+```
+
+### Enter a shell in the particular container
+
+To enter a shell in the particular container using one of the container [ID]s listed above:
+```shell
+docker exec -it [ID] bash
+```
+
+#### Alternatives as oneliners
+
+If you want to enter the first backend container you can try filtering IDs as onliner (works only when only one stack is running in a swarm):
+
+``` shell
+docker exec -it `-qf 'name=_backend'|head -n1` bash
+```
+This will usually open the bash in the /app dir of the backend container.
+
+If you have multiple stacks in swarms on the same server you can run a oneliner (where `my-plone` ist the name of the stack):
+
+``` shell
+docker exec -it `docker ps -qf 'name=my-plone_backend'|head -n1` bash
+```
+
+### Execute a command using the given environment variables
+
+The default shell is not initialized with the environment variables set via `docker-entrypoint.sh` by default.
+
+#### Example: run classic ZOPE command in the backend
+
+To execute an available classic ZOPE command in the backend without permanently adding the environment variables setup to the session, prefix the command with execution of the `/app/docker-entrypoint.sh` file.
+
+``` shell
+./docker-entrypoint.sh ./bin/[local command]
+```
+
+Where [local command] can be one of those you can list in `/app/bin/`
+
+- `addzopeuser` can create an emergency user
+- `zodbconvert`
+- `plone-exporter` or `plone-exporter`
+
+```{seealso}
+[How can plone-exporter be called manually inside a docker based Plone 6.x Volto deployment?](https://github.com/plone/plone.exportimport/issues/51)
+- It covers how to manually run the `plone_exporter` command inside the backend container with a relstorage.conf
+```
+
+```{note}
+If you do not need to setup further resources like config files as with the `zodbconvert` command, you can call a command from its path inside the container with this syntax:
+```
+If you have multiple stacks in swarms on the same server you can run a oneliner including the command in `path_to_command` (where `my-plone` ist the name of the stack):
+
+``` shell
+docker exec `docker ps -qf 'name=my-plone_backend'|head -n1` ./docker-entrypoint.sh path_to_command
+```
+
+### Copy a file into or from the container
+
+In the server host root:
+
+``` shell
+sudo docker cp `docker ps | grep backend.1 | cut -d " " -f 1`:/absolute_path_in_container/filename `local_destination_path/`
+```
+or
+
+``` shell
+sudo docker cp `local_source_path/file` `docker ps | grep backend.1 | cut -d " " -f 1`:/absolute_path_in_container/
+```
+
+Add the recursive folder path options as needed.
+
+### Running maintenance commands in a worker container of a seperate instance
+
+#### Example to run the `zodbconvert` commands in a local worker container
+
+```{seealso}
+[postgres2zodb | Zodbconvert script to convert relstorage to filestorage and back](https://github.com/plone/postgres2zodb)
+- It covers to automate the command inside a backend worker container with a relstorage.conf file
+```
+
