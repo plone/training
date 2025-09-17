@@ -48,7 +48,7 @@ The most simple customization is the View of the Teaser. The Volto core teaser b
 ```
 
 Every block in Volto has Edit and View components.
-You can customize these individually by either shadowing or directly in the confuguration (`index.js` of your add-on) like this:
+You can customize these individually by either shadowing them or directly in the configuration ({file}`index.js` of your add-on) like this:
 
 ```js
 import MyTeaserView from "volto-teaser-tutorial/components/Blocks/Teaser/View";

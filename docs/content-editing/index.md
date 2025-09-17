@@ -9,10 +9,10 @@ myst:
 
 (content-editing-label)=
 
-# Content Editing for Plone
+# Content editing for Plone
 
 About
-: How to create and manage content using Plone
+: How to create and manage content using Plone with Volto as its frontend
 
 Level
 : Beginner
@@ -60,11 +60,13 @@ use-pages-to-organize-content
 add-a-file
 add-a-link
 add-an-image
+create-manage-and-reorder-blocks
 add-an-image-block-to-a-page
 add-a-video-block
 add-html-block
 add-a-grid-block
 add-a-listing-block
+add-a-search-block
 add-a-map-block
 deleting-a-block
 block-operations
