@@ -64,7 +64,7 @@ On the page `schedule` select {guilabel}`Restrictions…` <http://localhost:8080
 Restrict to adding only talks.
 
 ```{note}
-This action is by now only available in Plone Classic, not Volto frontend.
+This action is only available in Plone's Classic UI frontend, and not its Volto frontend.
 ```
 
 
