@@ -191,9 +191,9 @@ Head over to the mail control panel http://localhost:8080/Plone/@@mail-controlpa
 - Site 'From' address: Your email address
 
 
-Click on `Save and send test e-mail`.
+Click on {guilabel}`Save and send test e-mail`.
 You will see the mail content in the console output of your instance.
-Plone will not actually send the email to the receivers address unless you remove or deactivate [Products.PrintingMailHost](https://pypi.org/project/Products.PrintingMailHost/).
+Plone will not actually send the email to the receiver's address unless you remove or deactivate [Products.PrintingMailHost](https://pypi.org/project/Products.PrintingMailHost/).
 
 
 
