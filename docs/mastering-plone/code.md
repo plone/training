@@ -61,16 +61,16 @@ You can get it with {command}`git checkout registry`.
 You have two options: console or source editor (for example VSCode).
 
 1. Console
-  - Change to the location of the repository (`backend/sources/ploneconf.site` or `frontend`).
-  - To checkout tag 'talks': `git checkout talks`
+   - Change to the location of the repository (`backend/sources/ploneconf.site` or `frontend`).
+   - To checkout tag 'talks': `git checkout talks`
 2. VSCode
    - Open `backend/sources/ploneconf.site` or `frontend` in VSCode.
    - If not installed, install extension "GitHub Pull Requests".
    - Open the source control sidebar.
    - Select the tag.
-    ```{figure} _static/vscode_git.png
-    Check out a tag
-    ```
+     ```{figure} _static/vscode_git.png
+     Check out a tag
+     ```
 
 
 ## Moving from chapter to chapter
