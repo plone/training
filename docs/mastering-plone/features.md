@@ -486,7 +486,7 @@ The state is "private" and can be changed to "published" by selecting the "publi
 
 The state of a content type instance determines if a user can view, edit or is allowed to execute other modifications like moving or even changing the workflow.
 
-The workflows can be inspected and modified at http://localhost:8080/Plone/portal_workflow/.
+The workflows can be inspected and modified at http://localhost:8080/Plone/portal_workflow/manage_main.
 It is recommended to configure the workflows for a project programmatically in an add-on instead of doing this through the web UI.
 But for getting to know workflows, their states and transactions, and their permission mappings, this address in the ZMI (Zope management interface) is a good place to start.
 If you are interested in inspecting the effects on changes it is recommended to copy a default workflow, apply it to for example pages and do changes in this workflow.
