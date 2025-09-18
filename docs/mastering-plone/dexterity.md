@@ -100,38 +100,36 @@ The behavior `plone.excludefromnavigation` adds a attribute `exclude_from_nav` t
 
 For now, we will not code anything.
 We will only use the Plone web interface features.
-If you do not have a local Plone instance installed on your machine, you can use a [Plone pre-configured Heroku instance](https://github.com/collective/training-sandbox).
-Once deployed, create a Plone site, and perform the following steps.
 
-- Go to the control panel <http://localhost:8080/Plone/@@dexterity-types>
+- Go to the control panel <http://localhost:3000/controlpanel/dexterity-types>
 
 - Inspect some of the existing default types.
 
-- Select the type {guilabel}`News Item` and click on {guilabel}`Schema`
+- Select {guilabel}`Schema` of the context menu of content type `News Item`.
 
   ```{figure} _static/volto_dexterity_types.png
 
   ```
 
-- Add a new field `Hot News` of type {guilabel}`Yes/No`
+- Add a new field `Show this item on the frontpage` of type {guilabel}`Yes/No`
 
   ```{figure} _static/volto_edit_schema.png
 
   ```
+  Save your changes.
 
-- In another tab, add a _News Item_ and you'll see the new field.
+- In another tab, add a `News Item` and you'll see the new field.
 
   ```{figure} _static/volto_add_news_item.png
 
   ```
 
-- Note that the only field in the schema of the News Item is the one we just added. All others are provided by behaviors.
+- Note that the only field in the schema of the News Item is the one we just added.
+  All others are provided by behaviors.
 
-- So far the data in the new field `Hot News` is not displayed when rendering the News Item. We'll take care of this later.
+- So far the data in the new field `Show this item on the frontpage` is not displayed when rendering the News Item.
+  We'll take care of this later.
 
-```{seealso}
-<https://5.docs.plone.org/external/plone.app.contenttypes/docs/README.html#extending-the-types>
-```
 
 (dexterity1-create-ttw-label)=
 
