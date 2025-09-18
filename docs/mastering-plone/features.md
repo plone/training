@@ -21,10 +21,11 @@ Developers get a glimpse on the features that can be modified easily.
 We control Plone with `make`. Start your Zope instance with:
 
 ```shell
+cd training/backend/
 make start
 ```
 
-The Zope instance starts up with `Ready to handle requests`.
+The Zope instance starts up with the message `Ready to handle requests`.
 Later on the instance can be stopped by {kbd}`ctrl c`.
 
 A standard installation listens on port 8080, so let's have a look at <http://localhost:8080>
@@ -215,6 +216,11 @@ Below we'll add appropriate content.
 
 Edit the front page:
 
+- Open http://localhost:3000/ in a browser.
+- Login with "admin" and password "secret".
+- Click the {guilabel}`edit` button.
+  ```{figure} _static/frontpage_edit.png
+  ```
 - Change the title to `Plone Conference 2050, Solis Lacus, Mars`.
 - Remove the text blocks below the title by selecting all and deleting them.
 - Add some dummy text.
