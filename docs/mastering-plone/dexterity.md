@@ -107,22 +107,37 @@ We will only use the Plone web interface features.
 
 - Select {guilabel}`Schema` of the context menu of content type `News Item`.
 
-  ```{figure} _static/volto_dexterity_types.png
-
+  ````{card}
+  ```{image} _static/volto_dexterity_types.png
+  :alt: Edit content type schema through the web
+  :target: ../_images/volto_dexterity_types.png
   ```
+  +++
+  _Edit content type schema through the web_
+  ````
 
 - Add a new field `Show this item on the frontpage` of type {guilabel}`Yes/No`
 
-  ```{figure} _static/volto_edit_schema.png
-
+  ````{card}
+  ```{image} _static/volto_edit_schema.png
+  :alt: Add field through the web (TTW)
+  :target: ../_images/volto_edit_schema.png
   ```
+  +++
+  _Add field through the web (TTW)_
+  ````
   Save your changes.
 
 - In another tab, add a `News Item` and you'll see the new field.
 
-  ```{figure} _static/volto_add_news_item.png
-
+  ````{card}
+  ```{image} _static/volto_add_news_item.png
+  :alt: See new additional custom field in a fresh new news item
+  :target: ../_images/volto_add_news_item.png
   ```
+  +++
+  _See new additional custom field in a fresh new news item_
+  ````
 
 - Note that the only field in the schema of the News Item is the one we just added.
   All others are provided by behaviors.
