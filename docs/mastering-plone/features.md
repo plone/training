@@ -21,10 +21,11 @@ Developers get a glimpse on the features that can be modified easily.
 We control Plone with `make`. Start your Zope instance with:
 
 ```shell
+cd training/backend/
 make start
 ```
 
-The Zope instance starts up with `Ready to handle requests`.
+The Zope instance starts up with the message `Ready to handle requests`.
 Later on the instance can be stopped by {kbd}`ctrl c`.
 
 A standard installation listens on port 8080, so let's have a look at <http://localhost:8080>
@@ -43,7 +44,7 @@ Zope instance is up and running, ready to create a Plone instance.
 We now have a running Zope with a database, but no content.
 
 Push the button {guilabel}`Create a new Plone site`.
-Log in with `admin` and password `secret`.
+Log in with `admin` and password `admin`.
 The initial login is defined in file `instance.yaml`.
 You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
 
@@ -87,7 +88,7 @@ You can stop the frontend any time using {kbd}`ctrl c`.
 
 While developing it's not necessary to restart the frontend unless you're adding a new file.
 
-Login to your new site with `admin` and password `secret`.
+Login to your new site with `admin` and password `admin`.
 
 ```{figure} _static/frontpage_volto_logged_in.png
 ```
@@ -215,6 +216,11 @@ Below we'll add appropriate content.
 
 Edit the front page:
 
+- Open http://localhost:3000/ in a browser.
+- Login with "admin" and password "admin".
+- Click the {guilabel}`edit` button.
+  ```{figure} _static/frontpage_edit.png
+  ```
 - Change the title to `Plone Conference 2050, Solis Lacus, Mars`.
 - Remove the text blocks below the title by selecting all and deleting them.
 - Add some dummy text.
@@ -480,7 +486,7 @@ The state is "private" and can be changed to "published" by selecting the "publi
 
 The state of a content type instance determines if a user can view, edit or is allowed to execute other modifications like moving or even changing the workflow.
 
-The workflows can be inspected and modified at http://localhost:8080/Plone/portal_workflow/.
+The workflows can be inspected and modified at http://localhost:8080/Plone/portal_workflow/manage_main.
 It is recommended to configure the workflows for a project programmatically in an add-on instead of doing this through the web UI.
 But for getting to know workflows, their states and transactions, and their permission mappings, this address in the ZMI (Zope management interface) is a good place to start.
 If you are interested in inspecting the effects on changes it is recommended to copy a default workflow, apply it to for example pages and do changes in this workflow.
