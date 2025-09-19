@@ -44,7 +44,7 @@ Zope instance is up and running, ready to create a Plone instance.
 We now have a running Zope with a database, but no content.
 
 Push the button {guilabel}`Create a new Plone site`.
-Log in with `admin` and password `secret`.
+Log in with `admin` and password `admin`.
 The initial login is defined in file `instance.yaml`.
 You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
 
@@ -88,7 +88,7 @@ You can stop the frontend any time using {kbd}`ctrl c`.
 
 While developing it's not necessary to restart the frontend unless you're adding a new file.
 
-Login to your new site with `admin` and password `secret`.
+Login to your new site with `admin` and password `admin`.
 
 ```{figure} _static/frontpage_volto_logged_in.png
 ```
@@ -217,7 +217,7 @@ Below we'll add appropriate content.
 Edit the front page:
 
 - Open http://localhost:3000/ in a browser.
-- Login with "admin" and password "secret".
+- Login with "admin" and password "admin".
 - Click the {guilabel}`edit` button.
   ```{figure} _static/frontpage_edit.png
   ```
