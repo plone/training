@@ -101,7 +101,7 @@ The behavior `plone.excludefromnavigation` adds a attribute `exclude_from_nav` t
 For now, we will not code anything.
 We will only use the Plone web interface features.
 
-- Go to the control panel <http://localhost:3000/controlpanel/dexterity-types>
+- Go to the {guilabel}`Content Types` control panel at http://localhost:3000/controlpanel/dexterity-types.
 
 - Inspect some of the existing default types.
 
