@@ -9,41 +9,38 @@ myst:
 
 # Most useful Volto settings
 
-You can configure Volto by modifying settings in a js-file.
+You can configure Volto by modifying settings in your add-on.
 
-In our add-on we can modify the `index.js`
+### New approach: using the `config/folder`
 
-```js
-const applyConfig = (config) => {
+Now, add-ons use a modular configuration structure.
+Settings and blocks are defined in separate TypeScript files inside the `config/folder` and imported into `index.ts`.
+
+In our add-on we can modify the `config/settings.ts`
+
+The following settings have been customized in this add-on:
+
+```ts
+import type { ConfigType } from "@plone/registry";
+
+export default function install(config: ConfigType) {
+  // Language settings configured with default values
+  config.settings.isMultilingual = false;
+  config.settings.supportedLanguages = ["en"];
+  config.settings.defaultLanguage = "en";
+
+  // Other settings we have enabled
+  config.settings.navDepth = 3;
+  config.settings.openExternalLinkInNewTab = true;
+  config.settings.hasWorkingCopySupport = true;
+
   return config;
-};
-
-export default applyConfig;
+}
 ```
+This settings file is imported into `index.ts` by default.
+You can follow the same approach to add **blocks**, **slots**, **summary**, and other configurations.
 
-Here three settings are changed:
-
-```js
-const applyConfig = (config) => {
-  config.settings = {
-    ...config.settings,
-    navDepth: 3,
-    openExternalLinkInNewTab: true,
-    hasWorkingCopySupport: true,
-  };
-  return config;
-};
-
-export default applyConfig;
-```
-
-```{note}
-The `...` is a use of the [spread-syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) that "expands" the configuration into its elements and allows to change existing values and add new ones.
-```
-
-```{note}
-If you instead make your changes in the project (i.e. not using a add-on) you make the same changes in the file `config.js` of the project.
-```
+For a practical example, see the [Volto Light Theme config](https://github.com/kitconcept/volto-light-theme/blob/main/frontend/packages/volto-light-theme/src/index.ts#L79).
 
 Some of the settings are duplicates of settings that exist in the Plone backend.
 For example the setting `supportedLanguages` must match the one set in the Plone registry as `plone.available_languages` and in `plone.default_language`.
@@ -70,7 +67,7 @@ export default applyConfig;
 
 Here are some more setting you might use in your projects:
 
-- `contentIcons` - configure Content Types icons. See [documentation](https://6.docs.plone.org/volto/configuration/settings-reference.html#term-contentIcons).
+- `contentIcons` - configure Content Types icons. See [documentation](https://github.com/plone/volto/blob/main/packages/volto/src/config/index.js#L62).
 - `navDepth` - Navigation levels depth used in the navigation endpoint calls. Increasing this is useful for implementing fat navigation menus.
 - `workflowMapping` - Configure colors for workflow states/transitions - if you have a custom workflow or want to change the default colors.
 - `openExternalLinkInNewTab` - Kind of self-explaining, isn't it?

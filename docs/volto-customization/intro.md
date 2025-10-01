@@ -26,7 +26,7 @@ Additionally, if you have any specific questions, challenges, or expectations fo
 Some technologies and tools we use during the training:
 
 - React https://react.dev/
-- Yarn https://yarnpkg.com
+- pnpm https://pnpm.io/
 - JSX
 - Volto https://github.com/plone/volto
 - Cookieplone https://github.com/plone/cookieplone
@@ -44,7 +44,7 @@ Of course, if you're already familiar with Volto and React, that's fantastic, an
 
 To follow the training as smoothly as possible it is recommended that you have the following software installed on your computer:
 
-- [node.js](https://nodejs.org/en/)>= 20
+- [node.js](https://nodejs.org/en/)>= 22
 - [pnpm](https://pnpm.io/installation)
 - [node version manager](https://github.com/nvm-sh/nvm)
 - [docker](https://www.docker.com/get-started/)
