@@ -11,12 +11,12 @@ myst:
 
 You can configure Volto by modifying settings in your add-on.
 
-### New approach: using the `config/folder`
+## New approach: using the `config/folder`
 
 Now, add-ons use a modular configuration structure.
-Settings and blocks are defined in separate TypeScript files inside the `config/folder` and imported into `index.ts`.
+Settings and blocks are defined in separate TypeScript files inside the {file}`config/folder` and imported into {file}`index.ts`.
 
-In our add-on we can modify the `config/settings.ts`
+In our add-on, we can modify the file {file}`config/settings.ts`
 
 The following settings have been customized in this add-on:
 
@@ -37,10 +37,10 @@ export default function install(config: ConfigType) {
   return config;
 }
 ```
-This settings file is imported into `index.ts` by default.
-You can follow the same approach to add **blocks**, **slots**, **summary**, and other configurations.
+This settings file is imported in {file}`index.ts` by default.
+You can follow the same approach to add blocks, slots, summary, and other configurations.
 
-For a practical example, see the [Volto Light Theme config](https://github.com/kitconcept/volto-light-theme/blob/main/frontend/packages/volto-light-theme/src/index.ts#L79).
+For a practical example, see the [Volto Light Theme configuration](https://github.com/kitconcept/volto-light-theme/blob/main/frontend/packages/volto-light-theme/src/index.ts#L79).
 
 Some of the settings are duplicates of settings that exist in the Plone backend.
 For example the setting `supportedLanguages` must match the one set in the Plone registry as `plone.available_languages` and in `plone.default_language`.
@@ -67,7 +67,7 @@ export default applyConfig;
 
 Here are some more setting you might use in your projects:
 
-- `contentIcons` - configure Content Types icons. See [documentation](https://github.com/plone/volto/blob/main/packages/volto/src/config/index.js#L62).
+- `contentIcons` - configure Content Types icons. See [documentation](https://github.com/plone/volto/blob/c72f17d3cb5002548d2c6d74b4498618b937e38a/packages/volto/src/config/index.js#L61).
 - `navDepth` - Navigation levels depth used in the navigation endpoint calls. Increasing this is useful for implementing fat navigation menus.
 - `workflowMapping` - Configure colors for workflow states/transitions - if you have a custom workflow or want to change the default colors.
 - `openExternalLinkInNewTab` - Kind of self-explaining, isn't it?

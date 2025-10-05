@@ -151,9 +151,8 @@ export default (config) => {
 
 ### TypeScript configuration
 
-Earlier, add-ons required a custom `tsconfig.json` setup for TypeScript.
-Now, TypeScript support is available by default in Volto projects and add-ons,
-so you no longer need extra configuration.
+Earlier, add-ons required a custom {file}`tsconfig.json` setup for TypeScript.
+Now, TypeScript support is available by default in Volto projects and add-ons, so you no longer need extra configuration.
 
 ## Documentation and Resources
 
