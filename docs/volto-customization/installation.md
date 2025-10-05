@@ -25,10 +25,10 @@ Before you start working with this training, ensure you have the following prere
 ## Bootstrap a new Plone stack
 
 To bootstrap a new Plone project(with both backend and frontend), you can use [Cookieplone](https://github.com/plone/cookieplone).
-You can use pipx to run Cookieplone to generate a project.
+You can use uvx to run Cookieplone to generate a project.
 
 ```shell
-pipx run cookieplone project
+uvx cookieplone project
 ```
 
 You will be presented with a series of prompts.
@@ -151,27 +151,8 @@ export default (config) => {
 
 ### TypeScript configuration
 
-Every add-on supports custom typescript configuration using `tsconfig.json` in the root of the add-on package. This file defines how the typeScript compiler should process the code in our add-on.
-
-You can inspect the tsconfig.json file in the volto-teaser-tutorial package.
-
-The basic ones are self explanatory. Note that we have path mapping inside `compilerOptions` for all the packages that this add-on depends on.
-
-```js
-{
-  "compilerOptions": {
-    "paths": {
-      "@plone/volto/*": ["../../core/packages/volto/src/*"],
-      "volto-teaser-tutorial/*": ["./src/*"]
-    }
-  },
-}
-```
-
-This option allows you to set up module resolution paths. The mappings provided allow typescript to resolve modules using custom paths:
-
-`@plone/volto/*` maps to files in `../../core/packages/volto/src/*`, allowing us to import from this directory using the @plone/volto prefix.
-`volto-teaser-tutorial/*` maps to `./src/*`, allowing local imports from the src directory of the volto-teaser-tutorial package.
+Earlier, add-ons required a custom {file}`tsconfig.json` setup for TypeScript.
+Now, TypeScript support is available by default in Volto projects and add-ons, so you no longer need extra configuration.
 
 ## Documentation and Resources
 
