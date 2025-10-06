@@ -48,15 +48,31 @@ The most simple customization is the View of the Teaser. The Volto core teaser b
 ```
 
 Every block in Volto has Edit and View components.
-You can customize these individually by either shadowing them or directly in the configuration ({file}`index.js` of your add-on) like this:
+You can customize these individually using the new configuration pattern in your add-on.
+Create a file under {file}`config/blocks` and define your custom components there.
 
 ```js
-import MyTeaserView from "volto-teaser-tutorial/components/Blocks/Teaser/View";
+import type { ConfigType } from '@plone/registry';
+import MyTeaserView from 'volto-teaser-tutorial/components/Blocks/Teaser/View';
 
-const applyConfig = (config) => {
+export default function install(config: ConfigType) {
   config.blocks.blocksConfig.teaser.view = MyTeaserView;
+  return config
+}
+```
+
+Then import and apply the block configuration in your add-on’s {file}`index.js`.
+
+```jsx
+import type { ConfigType } from '@plone/registry';
+import installSettings from './config/settings';
+import installBlocks from './config/blocks';
+
+function applyConfig(config: ConfigType) {
+  installSettings(config);
+  installBlocks(config);
   return config;
-};
+}
 
 export default applyConfig;
 ```
@@ -65,11 +81,11 @@ Of course we need to add our custom `MyTeaserView` component in our add-on.
 From the root of the project that is `packages/volto-teaser-tutorial/src/components/Blocks/Teaser/View.jsx`:
 
 ```jsx
-import TeaserBody from "@plone/volto/components/manage/Blocks/Teaser/Body";
-import { withBlockExtensions } from "@plone/volto/helpers";
+import TeaserBody from '@plone/volto/components/manage/Blocks/Teaser/Body';
+import withBlockExtensions from '@plone/volto/helpers/Extensions/withBlockExtensions';
 
 const TeaserView = (props) => {
-  return <TeaserBody {...props} extraProps={{ foo: "bar" }} />;
+  return <TeaserBody {...props} extraProps={{ foo: 'bar' }} />;
 };
 
 export default withBlockExtensions(TeaserView);

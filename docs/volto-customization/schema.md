@@ -53,25 +53,27 @@ Notice the _variations_ key, in which we can have multiple view templates for a 
 
 We are going to create a new variation of this teaser block. This variation is essential because using it we will create block extensions per teaser. Later we can also enhance this variation with the new schema.
 
-Go ahead and extend the in the variations key of the teaser-block in `index.js` like this:
+Go ahead and extend the in the variations key of the teaser-block in {file}`config/blocks` like this:
 
 ```js
-import TeaserBlockImageVariation from "volto-teaser-tutorial/components/TeaserBlockImageVariation";
+import type { ConfigType } from '@plone/registry';
+import MyTeaserView from 'volto-teaser-tutorial/components/Blocks/Teaser/View';
+import TeaserBlockImageVariation from 'volto-teaser-tutorial/components/TeaserBlockImageVariation';
 
-const applyConfig = (config) => {
-  // ...
+export default function install(config: ConfigType) {
+  config.blocks.blocksConfig.teaser.view = MyTeaserView;
   config.blocks.blocksConfig.teaser.variations = [
     ...config.blocks.blocksConfig.teaser.variations,
     {
-      id: "image-top-variation",
-      title: "Image(Top) variation",
+      id: 'image-top-variation',
+      title: 'Image(Top) variation',
       template: TeaserBlockImageVariation,
     },
   ];
-  return config;
-};
 
-export default applyConfig;
+  return config;
+}
+
 ```
 
 We should create this view template in our `components/TeaserBlockImageVariation.jsx`
@@ -79,43 +81,40 @@ We should create this view template in our `components/TeaserBlockImageVariation
 TeaserBlockImageVariation.jsx:
 
 ```jsx
-import React from "react";
-import PropTypes from "prop-types";
-import { Message } from "semantic-ui-react";
-import { defineMessages, useIntl } from "react-intl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Message } from 'semantic-ui-react';
+import { defineMessages, useIntl } from 'react-intl';
 
-import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
+import imageBlockSVG from '@plone/volto/components/manage/Blocks/Image/block-image.svg';
 
-import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers";
-import { MaybeWrap } from "@plone/volto/components";
-import { formatDate } from "@plone/volto/helpers/Utils/Date";
-import { UniversalLink } from "@plone/volto/components";
-import cx from "classnames";
-import config from "@plone/volto/registry";
+import { isInternalURL, addAppURL } from '@plone/volto/helpers';
+import { MaybeWrap } from '@plone/volto/components';
+import { UniversalLink } from '@plone/volto/components';
+import cx from 'classnames';
+import config from '@plone/volto/registry';
 
 const messages = defineMessages({
   PleaseChooseContent: {
-    id: "Please choose an existing content as source for this element",
+    id: 'Please choose an existing content as source for this element',
     defaultMessage:
-      "Please choose an existing content as source for this element",
+      'Please choose an existing content as source for this element',
   },
 });
 
-const DefaultImage = (props) => <img {...props} alt={props.alt || ""} />;
+const DefaultImage = (props) => <img {...props} alt={props.alt || ''} />;
 
 const TeaserBlockImageDefault = (props) => {
   const { className, data, isEditMode } = props;
-  const locale = config.settings.dateLocale || "en";
   const intl = useIntl();
   const href = data.href?.[0];
   const image = data.preview_image?.[0];
-  const align = data?.styles?.align;
 
-  const Image = config.getComponent("Image").component || DefaultImage;
+  const Image = config.getComponent('Image').component || DefaultImage;
   const { openExternalLinkInNewTab } = config.settings;
 
   return (
-    <div className={cx("block teaser", className)}>
+    <div className={cx('block teaser', className)}>
       <>
         {!href && isEditMode && (
           <Message>
@@ -129,28 +128,28 @@ const TeaserBlockImageDefault = (props) => {
           <MaybeWrap
             condition={!isEditMode}
             as={UniversalLink}
-            href={href["@id"]}
+            href={href['@id']}
             target={
               data.openLinkInNewTab ||
-              (openExternalLinkInNewTab && !isInternalURL(href["@id"]))
-                ? "_blank"
+              (openExternalLinkInNewTab && !isInternalURL(href['@id']))
+                ? '_blank'
                 : null
             }
           >
             <div
               className="teaser-item default"
               style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
               }}
             >
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="image-wrapper">
                   <Image
-                    item={props["@type"] === "listing" ? null : image || href}
+                    item={props['@type'] === 'listing' ? null : image || href}
                     src={
-                      props["@type"] === "listing"
+                      props['@type'] === 'listing'
                         ? addAppURL(`${href}/${image?.download}`)
                         : null
                     }

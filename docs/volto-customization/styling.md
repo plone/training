@@ -21,68 +21,81 @@ Simply, the job of StyleWrapper is to inject classNames(build from schema) into 
 We see that in our Teaser config Volto already calls the [`addStyling`](https://github.com/plone/volto/blob/9667cf735e5c3e848de852d615941d98193e0a5e/src/helpers/Extensions/withBlockSchemaEnhancer.js#L297) in the schema. The job of this function is to add styles field in the styling fieldset in schema provided.
 
 ```jsx
-export const TeaserSchema = ({ intl }) => {
+export const TeaserSchema = ({ data, intl }) => {
   const schema = {
     title: intl.formatMessage(messages.teaser),
     fieldsets: [
       {
-        id: "default",
-        title: "Default",
-        fields: ["href", "title", "head_title", "description", "preview_image"],
+        id: 'default',
+        title: 'Default',
+        fields: [
+          'href',
+          'overwrite',
+          ...(data?.overwrite
+            ? ['title', 'head_title', 'description', 'preview_image']
+            : []),
+        ],
       },
     ],
 
     properties: {
       href: {
         title: intl.formatMessage(messages.Target),
-        widget: "object_browser",
-        mode: "link",
+        widget: 'object_browser',
+        mode: 'link',
         selectedItemAttrs: [
-          "Title",
-          "head_title",
-          "Description",
-          "hasPreviewImage",
-          "image_field",
-          "image_scales",
-          "@type",
+          'Title',
+          'head_title',
+          'Description',
+          'hasPreviewImage',
+          'image_field',
+          'image_scales',
+          '@type',
         ],
         allowExternals: true,
+      },
+      overwrite: {
+        title: intl.formatMessage(messages.overwrite),
+        description: intl.formatMessage(messages.overwriteDescription),
+        type: 'boolean',
+        default: false,
       },
       title: {
         title: intl.formatMessage(messages.title),
       },
       head_title: {
-        title: intl.formatMessage(messages.head_title),
+        title: intl.formatMessage(messages.kicker),
+        description: intl.formatMessage(messages.kicker_description),
       },
       description: {
         title: intl.formatMessage(messages.description),
-        widget: "textarea",
+        widget: 'textarea',
       },
       preview_image: {
         title: intl.formatMessage(messages.imageOverride),
-        widget: "object_browser",
-        mode: "image",
+        widget: 'object_browser',
+        mode: 'image',
         allowExternals: true,
-        selectedItemAttrs: ["image_field", "image_scales"],
+        selectedItemAttrs: ['image_field', 'image_scales'],
       },
       openLinkInNewTab: {
         title: intl.formatMessage(messages.openLinkInNewTab),
-        type: "boolean",
+        type: 'boolean',
       },
     },
-    required: [],
+    required: ['href'],
   };
 
   addStyling({ schema, intl });
 
   schema.properties.styles.schema.properties.align = {
-    widget: "align",
+    widget: 'align',
     title: intl.formatMessage(messages.align),
-    actions: ["left", "right", "center"],
-    default: "left",
+    actions: ['left', 'right', 'center'],
+    default: 'left',
   };
 
-  schema.properties.styles.schema.fieldsets[0].fields = ["align"];
+  schema.properties.styles.schema.fieldsets[0].fields = ['align'];
 
   return schema;
 };
@@ -188,29 +201,30 @@ StyleMenu is not the part of Blocks engine instead its a volto-slate plugin and 
 In your policy package, you can add styleMenu configuration like:
 
 ```jsx
+import React from 'react';
 import paintSVG from "@plone/volto/icons/paint.svg";
 import { Icon } from "@plone/volto/components";
 
-config.settings.slate.styleMenu = {
-  ...(config.settings.slate.styleMenu || {}),
-  blockStyles: [
-    {
-      cssClass: "primary",
-      label: "Primary",
-      icon: () => <Icon name={paintSVG} size="18px" />,
-    },
-    {
-      cssClass: "secondary",
-      label: "Secondary",
-      icon: () => <Icon name={paintSVG} size="18px" />,
-    },
-    {
-      cssClass: "tertiary",
-      label: "Tertiary",
-      icon: () => <Icon name={paintSVG} size="18px" />,
-    },
-  ],
-};
+  config.settings.slate.styleMenu = {
+    ...(config.settings.slate.styleMenu || {}),
+    blockStyles: [
+      {
+        cssClass: 'primary',
+        label: 'Primary',
+        icon: () => React.createElement(Icon, { name: paintSVG, size: '18px' }),
+      },
+      {
+        cssClass: 'secondary',
+        label: 'Secondary',
+        icon: () => React.createElement(Icon, { name: paintSVG, size: '18px' }),
+      },
+      {
+        cssClass: 'tertiary',
+        label: 'Tertiary',
+        icon: () => React.createElement(Icon, { name: paintSVG, size: '18px' }),
+      },
+    ],
+  };
 ```
 
 Make sure to add relevant classNames in your css.
