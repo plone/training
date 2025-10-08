@@ -49,7 +49,7 @@ The most simple customization is the View of the Teaser. The Volto core teaser b
 
 Every block in Volto has Edit and View components.
 You can customize these individually using the new configuration pattern in your add-on.
-Create a file under {file}`config/blocks` and define your custom components there.
+Create a file under {file}`config/blocks.ts` and define your custom components there.
 
 ```js
 import type { ConfigType } from '@plone/registry';
