@@ -29,7 +29,7 @@ For example when we customize the News Item View instead of adding the override 
 
 we add it as
 
-`packages/volto-teaser-tutorial/src/customizations/volto/components/theme/View/NewsItemView.jsx`.
+`packages/volto-teaser-tutorial/src/customizations/components/theme/View/NewsItemView.jsx`.
 
 Both paths work fine though, we just want to go all-in with the add-on approach.
 
