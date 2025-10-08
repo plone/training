@@ -1,35 +1,38 @@
 ---
 myst:
   html_meta:
-    "description": "Concepts"
-    "property=og:description": "Concepts"
-    "property=og:title": "Concepts"
+    "description": "Foundation, Concepts & Project Setup"
+    "property=og:description": "Foundation, Concepts & Project Setup"
+    "property=og:title": "Foundation, Concepts & Project Setup"
     "keywords": "Plone, Volto, Training, Volto Light Theme"
 ---
+# 1. Foundation, Concepts & Project Setup
 
-# Volto Light Theme Concepts
+## 1.1 Volto Light Theme Core Concepts
 
 Volto Light Theme (VLT) is a customizable theme built for the Volto frontend of the Plone CMS. It provides a foundation that aims to solve many common design challenges, while remaining flexible enough for customization. It's particularly valuable because it is based on real-world experience, while simultaneously embodying the Volto vision for the future. This module will help you understand the core concepts in VLT and create a mental map of its parts.
 
-## Base Styling
+### Base Styling
 
-VLT is designed with simplicity and a minimal aesthetic in mind. Consistency, accessibility, and intuitiveness are what drive the development and improvements for VLT.
+VLT is designed with simplicity and a minimal aesthetic in mind. The three core principles are:
+- **Consistency**: Predictable design patterns across all components
+- **Accessibility**: WCAG compliant with contrast checkers and semantic HTML
+- **Intuitiveness**: Clear visual hierarchy and user-friendly interfaces
 
-## Customizable Variables
+### Customizable Variables
 
-VLT offers a set of CSS custom properties (variables) that allow developers to customize various design elements, such as:
-
-- Colors
-- Spatial relationships
-- Layouts
+VLT offers a set of CSS custom properties (variables) that allow developers to customize various design elements:
+- **Colors**: Using paired foreground/background color system
+- **Spatial relationships**: Container widths and spacing scales
+- **Layouts**: Three-width container system
 
 These variables can be easily overridden in your project to match the desired visual identity.
 
-## Colors
+### Color System
 
-The color system is designed so that colors work in couples: a "background color" and a "foreground color". The "foreground color" is often called "text color" in other systems, but since we want to use this value for more than text—like icons or borders, this works better as a generic term. Colors that do not specify "foreground" in the name are meant to be background colors.
+The color system is designed so that colors work in couples: a "background color" and a "foreground color". The "foreground color" is often called "text color" in other systems, but since we want to use this value for more than text—like icons or borders—this works better as a generic term. Colors that do not specify "foreground" in the name are meant to be background colors.
 
-The main color properties for a project using VLT are the following:
+The main color properties for a project using VLT are:
 
 ```scss
 --primary-color: #fff;
@@ -42,9 +45,9 @@ The main color properties for a project using VLT are the following:
 --accent-foreground-color: #000;
 ```
 
-### Semantic color properties
+### Semantic Color Properties
 
-As an additional layer on top of the main color properties, we have set in place some semantic custom properties for the basic layout sections. As a default they use the values from the main color variables, but they can be detached if desired by setting new color values. However, we feel that leaving these color relationships as they are helps create a cohesive final design. The semantic layer of properties includes the following:
+As an additional layer on top of the main color properties, we have set in place some semantic custom properties for the basic layout sections. As a default they use the values from the main color variables, but they can be detached if desired by setting new color values. However, leaving these color relationships as they are helps create a cohesive final design:
 
 ```scss
 // Header
@@ -71,32 +74,64 @@ As an additional layer on top of the main color properties, we have set in place
 --link-foreground-color: var(--link-color);
 ```
 
-## Block width
+### Block Themes
 
-VLT now uses a standard block width definition as well. Currently, this is done via a `widget` component, `BlockWidthWidget`, that will be ported to Volto core in the near future. This component stores the value of the custom property `--block-width` so that it can be used by the StyleWrapper when injecting styles into the markup.
+VLT includes a block theme system that enables individual blocks to use distinct color palettes. These themes are configured in `config.blocks.themes` and applied through the StyleWrapper system at runtime.
 
-The three-width layout system considers the following variables:
+**The four core block theme variables:**
 
-```scss
---layout-container-width: #{$layout-container-width}; // for major elements like headers, & large Blocks like the `volto-slider-block`. 
---default-container-width: #{$default-container-width}; // a balanced content presentation for most Blocks.
---narrow-container-width: #{$narrow-container-width}; // optimal readability.
+- `--theme-color`: Primary background color — the most visible color in the block
+- `--theme-high-contrast-color`: Secondary background color for nested elements (e.g., cards within a block) to create visual separation from the main background
+- `--theme-foreground-color`: Default text and icon color
+- `--theme-low-contrast-foreground-color`: Subdued text color for secondary content like placeholders or helper text
+
+While the system can be extended with non-color CSS properties, the default four variables establish the color foundation for each theme.
+
+**Example configuration:**
+
+```typescript
+config.blocks.themes = [
+  {
+    style: {
+      '--theme-color': '#fff',
+      '--theme-high-contrast-color': '#ecebeb',
+      '--theme-foreground-color': '#000',
+      '--theme-low-contrast-foreground-color': '#555555',
+    },
+    name: 'default',
+    label: 'Default',
+  },
+  {
+    style: {
+      '--theme-color': '#ecebeb',
+      '--theme-high-contrast-color': '#fff',
+      '--theme-foreground-color': '#000',
+      '--theme-low-contrast-foreground-color': '#555555',
+    },
+    name: 'grey',
+    label: 'Grey',
+  },
+];
 ```
 
-The default values map the container width SCSS variables, which have existed in the VLT ecosystem since versions < 6.0.0-alpha.0:
+Users select block themes through the `themeColorSwatch` widget in the block sidebar. This widget renders colored buttons using each theme's `--theme-color` value, allowing visual theme selection.
+
+### Container Width System
+
+VLT uses three types of container widths:
 
 ```scss
-// Container widths
-$layout-container-width: 1440px !default;
-$default-container-width: 940px !default;
-$narrow-container-width: 620px !default;
+// Three-width layout system
+--layout-container-width: 1440px;  // for major elements like headers & large Blocks
+--default-container-width: 940px;  // balanced content presentation for most Blocks
+--narrow-container-width: 620px;   // optimal readability for text
 ```
 
-## Block alignment
+The VLT `BlockWidthWidget` stores the value of the custom property `--block-width` so that it can be used by the StyleWrapper when injecting styles into the markup.
 
-As part of the effort to generalize behaviors, another VLT `widget` is the `BlockAlignmentWidget`, which also takes advantage of the StyleWrapper by setting the `--block-alignment` property.
+### Block Alignment
 
-The three default options are:
+The `BlockAlignmentWidget` takes advantage of the StyleWrapper by setting the `--block-alignment` property. The three default options are:
 
 ```scss
 --align-left: start;
@@ -104,6 +139,148 @@ The three default options are:
 --align-right: end;
 ```
 
-## Conclusion
+## 1.2 Create a New Project with Cookieplone
 
-VLT provides a robust foundation for Plone CMS frontend development through this framework of customizable variables and standardized block controls. Through these core concepts, VLT strikes a balance between maintaining consistency and flexibility, allowing developers to create cohesive designs while still having the freedom to customize elements to match their specific project needs.
+We recommend creating your Plone project with **Cookieplone**. Our comprehensive documentation provides step-by-step guidance to help you get started. For detailed installation instructions, visit our [Cookieplone guide](https://6.docs.plone.org/install/create-project-cookieplone.html).
+
+## 1.3 Installing Volto Light Theme
+
+### Step 1: Install VLT and Recommended Block Add-ons
+
+Navigate to the `frontend/packages/my-vlt-project` folder and install VLT:
+
+```bash
+pnpm install @kitconcept/volto-light-theme@latest
+```
+
+Volto Light Theme comes with several pre-configured add-ons that provide basic blocks for your website. If you'd like to include them, you can add them in the `addons` section in your {file}`package.json`, but this is not required.
+
+Here is the list of recommended addons to install, including VLT, which should be the last element:
+
+```json
+"addons": [
+  "@eeacms/volto-accordion-block",
+  "@kitconcept/volto-button-block",
+  "@kitconcept/volto-heading-block",
+  "@kitconcept/volto-highlight-block",
+  "@kitconcept/volto-introduction-block",
+  "@kitconcept/volto-separator-block",
+  "@kitconcept/volto-slider-block",
+  "@kitconcept/volto-light-theme"
+],
+```
+
+While in your project package folder, add VLT and the block addons to the `addons` list in your `package.json`:
+
+```json
+{
+  "name": "my-vlt-project",
+  "addons": [
+    "@eeacms/volto-accordion-block",
+    "@kitconcept/volto-button-block",
+    "@kitconcept/volto-heading-block",
+    "@kitconcept/volto-highlight-block",
+    "@kitconcept/volto-introduction-block",
+    "@kitconcept/volto-separator-block",
+    "@kitconcept/volto-slider-block",
+    "@kitconcept/volto-light-theme"
+  ]
+}
+```
+
+**Important:** VLT must be the last addon in the list to ensure proper style cascade. Your project addon will still be the last applied if defined in `volto.config.js`.
+
+### Step 2: Configure VLT as the Theme Provider
+
+Open the `volto.config.js` file in your `frontend` folder and modify it as shown below:
+
+```javascript
+const addons = ['my-vlt-project'];
+const theme = '@kitconcept/volto-light-theme';
+
+module.exports = {
+  addons,
+  theme,
+};
+```
+
+You'll need to restart your Plone frontend to see the changes.
+
+That's it! Your project should now be using Volto Light Theme with its additional blocks and components.
+
+### Step 3: Install Backend Package
+
+In your backend folder, install the Python package for site customization behaviors.
+
+Edit `backend/pyproject.toml` and add to the dependencies array:
+
+```
+dependencies = [
+    "Products.CMFPlone==6.1.3",
+    "plone.api",
+    "plone.restapi",
+    "plone.volto",
+    "kitconcept.voltolighttheme==7.3.0",
+]
+```
+
+### Step 4: Install the Backend Add-on
+
+Start your development environment:
+
+```bash
+# Terminal 1 - Backend
+make backend-start
+
+# Terminal 2 - Frontend
+make frontend-start
+```
+
+Once the frontend is running:
+
+1. Go to http://localhost:3000/controlpanel/addons
+2. Find "Volto Light Theme" in the list
+3. Click "Install"
+
+### Step 5: Activate Behaviors for Plone Site
+
+To enable site customization through the UI:
+
+1. Go to http://localhost:3000/controlpanel/dexterity-types/Plone%20Site
+2. In the "Behaviors" tab, activate the desired behaviors
+3. Click "Save"
+
+Now your project should have the VLT Site configurations available.
+
+## 1.4 File Structure Setup
+
+Let's set up the recommended file structure. In your project add-on's `src` folder, create the following structure:
+
+```console
+src/
+├── components/
+│   └── blocks/
+├── config/
+│   ├── settings.ts
+│   └── blocks.ts
+├── index.ts
+└── theme/
+    ├── blocks/
+    ├── _main.scss
+    └── _site.scss
+```
+
+Create the files:
+
+```bash
+cd src
+mkdir -p components/blocks config theme/blocks
+touch config/settings.ts config/blocks.ts
+touch index.ts
+touch theme/_main.scss theme/_site.scss
+```
+
+Remember that if you add new files to your project, it will be necessary to restart your Plone frontend.
+
+
+---
