@@ -20,6 +20,7 @@ mastering-plone/index
 volto-customization/index
 customizing-volto-light-theme/index
 plone-deployment/index
+migrations/index
 content-editing/index
 ```
 
