@@ -72,6 +72,9 @@ documentation/index
 
 ## Other
 
+{doc}`migrations/index`
+:   Upgrading and migrating Plone sites
+
 {doc}`contributing/index`
 :   All about contributing to Plone Training
 
