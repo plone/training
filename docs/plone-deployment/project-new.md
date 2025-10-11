@@ -15,10 +15,10 @@ The steps can be adapted for other providers like GitLab.
 ## Generating the Codebase
 
 ```{note}
-This training session will use an experimental branch of `cookieplone-templates`.
+This training session (as of October 2025) will use a still experimental branch of `cookieplone-templates`.
 ```
 
-Execute `Cookieplone` to generate a Plone project skeleton with the command below.
+Execute `cookieplone` to generate a Plone project skeleton with the command below.
 
 ```shell
 COOKIEPLONE_REPOSITORY_TAG=project-profiles uvx cookieplone project
@@ -27,20 +27,27 @@ COOKIEPLONE_REPOSITORY_TAG=project-profiles uvx cookieplone project
 Answer the prompts as they appear. You can either accept the default values or enter your own.
 
 ```{warning}
-For participants in **Plone Conference 2025**, please use the following settings:
+For participants in the **Plone Conference 2025 Training sessions in Jyväskylä Finland**, please use at least the following settings:
 
 -   {guilabel}`Project Title`: **Plone Conference Training**
 -   {guilabel}`Project Slug`: **ploneconf2025**
 -   {guilabel}`Project URL`: **ploneconf2025-\<your-github-username\>.tangrama.com.br**
+-   {guilabel}`Should we use prerelease versions?`: **Y(es)**
 -   {guilabel}`Volto Version`: **19.0.0-alpha.6**
 -   {guilabel}`Python Package Name`: **ploneconf2025.core**
 -   {guilabel}`GitHub Username or Organization`: **\<your-github-username\>**
+-   {guilabel}`URL to the repository`: **https:\/\/github.com\/<your-github-username\>/ploneconf2025**
+-   {guilabel}`Container Registry`: **1 - GitHub Container Registry**
+-   {guilabel}`Which persistent storage `: **1 - RelStorage with PostgreSQL**
+-   {guilabel}`Should we setup a caching server`: **Y(es)**
+-   {guilabel}`Add Ansible playbooks?`: **Y(es)**
+-   {guilabel}`Add GitHub Action to Deploy this project?`: **Y(es)**
 ```
 
 An example interaction with the `Cookieplone` wizard is shown below:
 
 ```{code-block} console
-:emphasize-lines: 1,3,4,9,10,22
+:emphasize-lines: 1,3,4,9,10,13,22,25,30,35,39,43,47
   [1/20] Project Title (Project Title): Plone Conference Training
   [2/20] Project Description (A new project using Plone 6.):
   [3/20] Project Slug (Used for repository id) (plone-conference-training): ploneconf2025
