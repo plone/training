@@ -7,9 +7,9 @@ myst:
     "keywords": "Plone, Volto, Training, Volto Light Theme, Integrate, block"
 ---
 
-# 4. Advanced Components, Site Customization & Block Model v3
+# Advanced Components, Site Customization & Block Model v3
 
-## 4.1 Understanding the Card Primitive
+## Understanding the Card Primitive
 
 The Card primitive is VLT's reusable component for displaying content in card layouts. It has three configurable slots: image, summary, and actions.
 
@@ -69,7 +69,7 @@ const Summary = config.getComponent({
 </Card.Summary>
 ```
 
-## 4.2 Creating Custom Summary Components
+## Creating Custom Summary Components
 
 The Summary component displays content metadata in listings, teasers, and cards. VLT includes built-in implementations:
 
@@ -97,13 +97,19 @@ First, create a custom "Product" content type through the Plone UI:
 
 ### Step 2: Create a Custom Summary Component
 
-Create `src/components/Summary/ProductSummary.jsx`:
+Create `src/components/Summary/ProductSummary.tsx`:
 
-```jsx
+```tsx
 import { FormattedNumber } from 'react-intl';
 
-const ProductSummary = ({ item, HeadingTag = 'h3' }) => {
-  const { title, description, head_title, currency = 'EUR' } = item;
+const ProductSummary = ({ item }) => {
+  const {
+    title,
+    description,
+    HeadingTag = 'h3',
+    head_title,
+    currency = 'EUR',
+  } = item;
   const price = parseFloat(head_title);
 
   return (
@@ -142,9 +148,7 @@ Create `src/theme/_productSummary.scss`:
   padding-bottom: 0 !important;
   .product-price {
     font-size: 1.25rem;
-    font-weight: var(--font-bold);
     color: var(--accent-color);
-    margin-bottom: 0.5rem;
     margin-top: 0.5rem;
 
     .price {
@@ -196,7 +200,7 @@ export default function install(config: ConfigType) {
 3. Add the Product to a Listing or Teaser block
 4. The custom ProductSummary will display the price, title, and description
 
-## 4.3 Creating Custom Listing Variations with Card Actions
+## Creating Custom Listing Variations with Card Actions
 
 Listing variations customize content display in Listing blocks. Let's create a ProductTemplate demonstrating the Card.Actions slot for interactive buttons.
 
@@ -209,9 +213,9 @@ The Card.Actions slot provides interactive elements beyond the main card link:
 
 ### Step 1: Create ProductActions Component
 
-Create `src/components/Actions/ProductAction.jsx`:
+Create `src/components/Actions/ProductActions.tsx`:
 
-```jsx
+```tsx
 const ProductActions = ({ item }) => {
   return (
     <>
@@ -228,7 +232,7 @@ export default ProductActions;
 Update `src/config/settings.ts`:
 
 ```typescript
-import ProductActions from '../components/Actions/ProductAction';
+import ProductActions from '../components/Actions/ProductActions';
 
 export default function install(config: ConfigType) {
   // ... previous configuration ...
@@ -246,9 +250,9 @@ export default function install(config: ConfigType) {
 
 ### Step 3: Create ProductTemplate Listing Variation
 
-Create `src/components/blocks/Listing/ProductTemplate.jsx`:
+Create `src/components/blocks/Listing/ProductTemplate.tsx`:
 
-```jsx
+```tsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import ConditionalLink from '@plone/volto/components/manage/ConditionalLink/ConditionalLink';
@@ -369,24 +373,126 @@ Create `src/theme/blocks/_listing.scss`:
 ```scss
 .block.listing {
   &.products {
+    max-width: var(--default-container-width) !important;
+    &.next--has--same--backgroundColor.next--is--same--block-type,
+    &.next--is--__button {
+      .listing-item:last-child {
+        padding-bottom: 0 !important;
+        border-bottom: none !important;
+      }
+    }
+
     .items {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      @media only screen and (max-width: $largest-mobile-screen) {
+        flex-direction: column;
+
+        .listing-item {
+          padding-bottom: 20px !important;
+        }
+      }
+    }
+    .headline {
+      @include block-title();
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+    .listing-item {
+      align-items: normal;
+      border-bottom: none;
+      margin: 0 !important;
+
+      @media only screen and (min-width: $tablet-breakpoint) {
+        width: 50%;
+        padding-top: 10px;
+        padding-bottom: 10px !important;
+
+        &:nth-child(2n) {
+          padding-left: 10px !important;
+        }
+
+        &:nth-child(2n + 1) {
+          padding-right: 10px !important;
+        }
+
+        &:last-child,
+        &:nth-last-child(2):not(:nth-child(2n)) {
+          padding-bottom: 0 !important;
+        }
+
+        &:first-child,
+        &:nth-child(2) {
+          padding-top: 0 !important;
+        }
+      }
+
+      &:last-child:nth-child(2n + 1) {
+        @media only screen and (min-width: $largest-mobile-screen) {
+          margin-left: 0 !important;
+        }
+      }
 
       .card {
-        .card-actions {
-          padding: 1rem;
-          border-top: 1px solid var(--theme-high-contrast-color);
+        flex-grow: 1;
+        .card-inner {
+          background: var(--theme-high-contrast-color);
+          .image-wrapper {
+            img {
+              width: 100%;
+              margin: 0;
+              aspect-ratio: var(--image-aspect-ratio, $aspect-ratio) !important;
+            }
+          }
+          .card-summary {
+            padding: 0 $spacing-large $spacing-large $spacing-large;
+            margin-top: $spacing-medium;
 
-          .add-to-cart {
-            width: 100%;
+            .headline {
+              padding: 0 !important;
+              margin-bottom: $spacing-small;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              @include headtitle1();
+              @include word-break();
+            }
+
+            h2 {
+              margin: 0 0 $spacing-small 0;
+              @include text-heading-h3();
+            }
+            p {
+              margin-bottom: 0;
+              @include body-text();
+            }
+            p:empty {
+              display: none;
+            }
+          }
+
+          .product-price {
+            display: flex;
+            justify-content: end;
+            padding: $spacing-small;
+
+            .price {
+              font-size: 2.5rem;
+              width: 30%;
+            }
+          }
+        }
+
+        .actions-wrapper {
+          display: flex;
+          justify-content: end;
+          padding: 0 $spacing-large $spacing-medium $spacing-large;
+          .rent-now-button {
+            width: 30%;
             padding: 0.75rem 1rem;
+            margin: 1rem;
             background-color: var(--accent-color);
-            color: var(--accent-foreground-color);
+            color: white;
             border: none;
-            border-radius: 4px;
-            font-weight: var(--font-bold);
             cursor: pointer;
             transition: opacity 0.2s;
 
@@ -419,7 +525,7 @@ Import in `src/theme/_main.scss`:
 4. Configure to show Product content type
 5. Products display with image, summary, and "Get now" button
 
-## 4.4 Working with Slots
+## Working with Slots
 
 VLT provides slots for extending the layout without component shadowing. Let's create a practical example: a newsletter signup component in the preFooter slot.
 
@@ -436,9 +542,9 @@ VLT provides slots for extending the layout without component shadowing. Let's c
 
 ### Step 1: Create Newsletter Signup Component
 
-Create `src/components/NewsletterSignup/NewsletterSignup.jsx`:
+Create `src/components/NewsletterSignup/NewsletterSignup.tsx`:
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 
 const NewsletterSignup = () => {
@@ -499,7 +605,6 @@ Create `src/theme/_newsletterSignup.scss`:
   .newsletter-title {
     font-size: 2rem;
     margin-bottom: 1rem;
-    font-weight: var(--font-bold);
   }
 
   .newsletter-description {
@@ -537,7 +642,6 @@ Create `src/theme/_newsletterSignup.scss`:
       color: var(--accent-foreground-color);
       border: none;
       font-size: 1rem;
-      font-weight: var(--font-bold);
       cursor: pointer;
       transition: opacity 0.2s;
 
@@ -587,7 +691,7 @@ export default function install(config: ConfigType) {
 
 The newsletter signup component will now appear before the footer on all pages, demonstrating how slots enable you to extend the layout without shadowing core components.
 
-## 4.5 Site Customization Behaviors
+## Site Customization Behaviors
 
 VLT provides backend behaviors for site customization that you activated earlier. These behaviors enable fields for customizing the site without code changes.
 
@@ -614,7 +718,7 @@ Through the Plone UI, you can customize:
 - **Footer logos**: List of logos with links and customizable size (small/large) and container width (default/layout)
 - **Footer colophon text**: Customizable last line of footer
 
-## 4.6 Block Model v3 (opt-in)
+## Block Model v3 (opt-in)
 
 ```{note}
 Block Model v3 is a beta feature. It's recommended to only use it when all blocks in your registry are v3-compatible (indicated by banner in block's GitHub repository).
@@ -670,14 +774,15 @@ In your project's `src/config/settings.ts`:
 
 ```typescript
 export default function install(config: ConfigType) {
-  // Enable Block Model v3 globally
+  // Enable Block Model v3
   config.settings.blockModel = 3;
-
+  config.blocks.blocksConfig.slate.blockModel = config.settings.blockModel;
+  config.blocks.blocksConfig.title.blockModel = config.settings.blockModel;
+  config.blocks.blocksConfig.__button.blockModel = config.settings.blockModel;
   // Define block categories for spacing
   config.blocks.blocksConfig.slate.category = 'inline';
   config.blocks.blocksConfig.title.category = 'title';
   config.blocks.blocksConfig.__button.category = 'action';
-  config.blocks.blocksConfig.gridBlock.category = 'cards';
 
   return config;
 }
@@ -694,7 +799,7 @@ Vertical spacing between blocks is provided by the **upper block**:
 
 ### View Mode Structure
 
-```jsx
+```tsx
 <div
   style="$StyleWrapperStyles"
   className="block $type category-$category $StyleWrapperClassNames"
@@ -707,7 +812,7 @@ Vertical spacing between blocks is provided by the **upper block**:
 
 ### Edit Mode Structure
 
-```jsx
+```tsx
 <div
   style="$StyleWrapperStyles"
   className="block $type category-$category $StyleWrapperClassNames"

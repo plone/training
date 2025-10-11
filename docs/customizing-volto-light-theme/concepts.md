@@ -6,9 +6,9 @@ myst:
     "property=og:title": "Foundation, Concepts & Project Setup"
     "keywords": "Plone, Volto, Training, Volto Light Theme"
 ---
-# 1. Foundation, Concepts & Project Setup
+# Foundation, Concepts & Project Setup
 
-## 1.1 Volto Light Theme Core Concepts
+## Volto Light Theme Core Concepts
 
 Volto Light Theme (VLT) is a customizable theme built for the Volto frontend of the Plone CMS. It provides a foundation that aims to solve many common design challenges, while remaining flexible enough for customization. It's particularly valuable because it is based on real-world experience, while simultaneously embodying the Volto vision for the future. This module will help you understand the core concepts in VLT and create a mental map of its parts.
 
@@ -139,11 +139,11 @@ The `BlockAlignmentWidget` takes advantage of the StyleWrapper by setting the `-
 --align-right: end;
 ```
 
-## 1.2 Create a New Project with Cookieplone
+## Create a New Project with Cookieplone
 
 We recommend creating your Plone project with **Cookieplone**. Our comprehensive documentation provides step-by-step guidance to help you get started. For detailed installation instructions, visit our [Cookieplone guide](https://6.docs.plone.org/install/create-project-cookieplone.html).
 
-## 1.3 Installing Volto Light Theme
+## Installing Volto Light Theme
 
 ### Step 1: Install VLT and Recommended Block Add-ons
 
@@ -252,7 +252,7 @@ To enable site customization through the UI:
 
 Now your project should have the VLT Site configurations available.
 
-## 1.4 File Structure Setup
+## File Structure Setup
 
 Let's set up the recommended file structure. In your project add-on's `src` folder, create the following structure:
 

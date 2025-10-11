@@ -7,9 +7,9 @@ myst:
     "keywords": "Plone, Volto, Training, Volto Light Theme"
 ---
 
-# 3. Block Development, Widgets & Integration
+# Block Development, Widgets & Integration
 
-## 3.1 Understanding VLT Widgets
+## Understanding VLT Widgets
 
 VLT provides powerful widgets for block configuration that work with the StyleWrapper system.
 
@@ -61,13 +61,13 @@ Allows introducing a list of ordered objects with drag and drop:
 }
 ```
 
-## 3.2 Creating a Custom Hero Block
+## Creating a Custom Hero Block
 
 Let's build a hero block step by step, starting with a basic implementation and then enhancing it with VLT widgets.
 
 ### Step 1: Create Basic Block Schema
 
-Create `src/components/blocks/myHero/schema.js`:
+Create `src/components/blocks/myHero/schema.ts`:
 
 ```javascript
 import { defineMessages } from 'react-intl';
@@ -133,35 +133,35 @@ export { heroBlockSchema };
 
 ### Step 2: Create View Component
 
-Create `src/components/blocks/myHero/View.jsx`:
+Create `src/components/blocks/myHero/View.tsx`:
 
-```jsx
+```tsx
 import React from 'react';
-import { withBlockExtensions } from '@plone/volto/helpers';
 import cx from 'classnames';
 import config from '@plone/volto/registry';
 import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers/Url/Url';
+import type { BlockViewProps } from '@plone/types';
 
-const HeroView = (props) => {
-  const { data, className, style } = props;
-  const { title, subtitle, backgroundImage } = data;
+const HeroView = (props: BlockViewProps) => {
+  const { className, style } = props;
+  const { title, subtitle, backgroundImage, image_scales, url } = props?.data;
 
   let renderedImage = null;
-  if (data.backgroundImage) {
+  if (backgroundImage) {
     let Image = config.getComponent('Image').component;
     if (Image) {
       renderedImage = (
         <Image
           item={
-            data.backgroundImage
+            backgroundImage
               ? {
-                  '@id': data.backgroundImage[0]['@id'],
-                  image_field: data.backgroundImage[0].image_field,
-                  image_scales: data.backgroundImage[0].image_scales,
+                  '@id': backgroundImage[0]['@id'],
+                  image_field: backgroundImage[0].image_field,
+                  image_scales: backgroundImage[0].image_scales,
                 }
               : null
           }
-          src={!data.image_scales ? data.url : null}
+          src={!image_scales ? url : null}
           alt=""
           loading="lazy"
           responsive={true}
@@ -171,9 +171,9 @@ const HeroView = (props) => {
       renderedImage = (
         <img
           src={
-            isInternalURL(data.url['@id'])
-              ? `${flattenToAppURL(data.url['@id'])}/@@images/image`
-              : data.url['@id']
+            isInternalURL(url['@id'])
+              ? `${flattenToAppURL(url['@id'])}/@@images/image`
+              : url['@id']
           }
           alt=""
           loading="lazy"
@@ -186,8 +186,8 @@ const HeroView = (props) => {
     <div style={style} className={cx('block hero', className)}>
       <div className="hero-content">
         <div className="hero-text">
-          {title && <h1 className="hero-title">{title}</h1>}
-          {subtitle && <p className="hero-subtitle">{subtitle}</p>}
+          {title && <h1 className="hero-title">{title as any}</h1>}
+          {subtitle && <p className="hero-subtitle">{subtitle as any}</p>}
         </div>
 
         {backgroundImage && (
@@ -198,7 +198,7 @@ const HeroView = (props) => {
   );
 };
 
-export default withBlockExtensions(HeroView);
+export default HeroView;
 ```
 
 ### Step 3: Create Edit Component
@@ -252,7 +252,7 @@ Update `src/config/blocks.ts`:
 import type { ConfigType } from '@plone/registry';
 import HeroView from '../components/blocks/myHero/View';
 import HeroEdit from '../components/blocks/myHero/Edit';
-import { heroBlockSchema } from '../components/blocks/myHero/schema.js';
+import { heroBlockSchema } from '../components/blocks/myHero/schema';
 import heroSVG from '@plone/volto/icons/hero.svg';
 
 export default function install(config: ConfigType) {
@@ -309,14 +309,12 @@ Create `src/theme/blocks/_hero.scss`:
 
       .hero-title {
         font-size: 5rem;
-        font-weight: var(--font-bold);
-        margin-bottom: var(--space-3);
+        margin-bottom: $spacing-small;
         line-height: 1;
       }
 
       .hero-subtitle {
         font-size: 3rem;
-        margin-bottom: var(--space-6);
         opacity: 0.95;
         line-height: 1;
       }
@@ -443,7 +441,7 @@ import HeroEdit from '../components/blocks/myHero/Edit';
 import {
   heroBlockSchema,
   heroSchemaEnhancer,
-} from '../components/blocks/myHero/schema.js';
+} from '../components/blocks/myHero/schema';
 import { composeSchema } from '@plone/volto/helpers/Extensions';
 import { defaultStylingSchema } from '@kitconcept/volto-light-theme/components/Blocks/schema';
 import heroSVG from '@plone/volto/icons/hero.svg';
@@ -509,14 +507,12 @@ Update `src/theme/blocks/_hero.scss` to use the CSS custom properties set by the
 
       .hero-title {
         font-size: 5rem;
-        font-weight: var(--font-bold);
-        margin-bottom: var(--space-3);
+        margin-bottom: $spacing-small;
         line-height: 1;
       }
 
       .hero-subtitle {
         font-size: 3rem;
-        margin-bottom: var(--space-6);
         opacity: 0.95;
         line-height: 1;
       }
@@ -525,11 +521,13 @@ Update `src/theme/blocks/_hero.scss` to use the CSS custom properties set by the
 }
 ```
 
-## 3.3 Integrating Third-Party Blocks
+## Integrating Third-Party Blocks
 
 Let's learn how to integrate the `@plone-collective/volto-relateditems-block` into VLT.
 
 ### Install the Block
+
+To install the related items block, make sure you are in the `frontend/packages/volto-my-project` folder, and use the following command:
 
 ```bash
 pnpm install @plone-collective/volto-relateditems-block@latest
@@ -553,52 +551,15 @@ Add it to your `package.json` addons (before VLT):
 
 ### Enhance the Block Schema
 
-To add the Block Width widget to the Related Items block, create a schema enhancer file.
-
-Create `src/components/blocks/relatedItems/schemaEnhancer.js`:
-
-```javascript
-import { defineMessages } from 'react-intl';
-
-const messages = defineMessages({
-  blockWidth: {
-    id: 'Block Width',
-    defaultMessage: 'Block Width',
-  },
-});
-
-const relatedItemsSchemaEnhancer = ({ formData, schema, intl }) => {
-  schema.properties.styles.schema.fieldsets[0].fields = [
-    'blockWidth:noprefix',
-    ...schema.properties.styles.schema.fieldsets[0].fields,
-  ];
-
-  schema.properties.styles.schema.properties['blockWidth:noprefix'] = {
-    widget: 'blockWidth',
-    title: intl.formatMessage(messages.blockWidth),
-    default: 'default',
-    filterActions: ['narrow', 'default'],
-  };
-
-  return schema;
-};
-
-export default relatedItemsSchemaEnhancer;
-```
-
-Then update `src/config/blocks.ts` to register the enhancer:
+To add the theme feature to the Related Items block, update `src/config/blocks.ts` to register the `defaultStylingSchema` enhancer:
 
 ```typescript
-import { composeSchema } from '@plone/volto/helpers/Extensions';
-import { defaultStylingSchema } from '@kitconcept/volto-light-theme/components/Blocks/schema';
-import relatedItemsSchemaEnhancer from '../components/blocks/relatedItems/schemaEnhancer';
-
 export default function install(config: ConfigType) {
   // ... previous configuration ...
 
   config.blocks.blocksConfig.relatedItems = {
     ...config.blocks.blocksConfig.relatedItems,
-    schemaEnhancer: composeSchema(defaultStylingSchema, relatedItemsSchemaEnhancer),
+    schemaEnhancer: defaultStylingSchema,
   };
 
   return config;
@@ -611,13 +572,10 @@ Create `src/theme/blocks/_relatedItems.scss`:
 
 ```scss
 .block.relatedItems {
-  max-width: var(--block-width);
-  margin-right: auto;
-  margin-left: auto;
-
   .inner-container {
     background: var(--theme-high-contrast-color);
     padding: 3rem;
+    width: var(--narrow-container-width);
 
     h2.headline {
       color: var(--theme-foreground-color);
@@ -630,8 +588,6 @@ Create `src/theme/blocks/_relatedItems.scss`:
       }
     }
   }
-
-
 }
 
 ```
