@@ -271,94 +271,102 @@ export default Edit;
 
 5. **Add css for the Block:** In your Volto project , inside src add "theme" folder and create "weather.scss" for adding style to your "Weather Block"
 
-```css
+```less
+// Variables
+@primary-bg: #f5f5f5;
+@text-color: #666;
+@border-radius: 8px;
+
 .weather-block {
   padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 8px;
-}
+  background: @primary-bg;
+  border-radius: @border-radius;
 
-.hourly-forecast {
-  display: flex;
-  overflow-x: auto;
-  padding: 1rem 0;
-  gap: 1rem;
-  height: 200px;
-  align-items: flex-end;
-}
-.date {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 1rem;
-  font-style: italic;
-}
-.hourly-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 40px;
-}
+  .date {
+    font-size: 1.1rem;
+    color: @text-color;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
 
-.hour {
-  font-size: 0.8rem;
-  color: #666;
-  margin-bottom: 0.5rem;
-}
+  .hourly-forecast {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 0;
+    gap: 1rem;
+    height: 200px;
+    align-items: flex-end;
+  }
 
-.probability {
-  height: 100px;
-  width: 20px;
-  background: #eee;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
+  .hourly-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40px;
 
-.probability-bar {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  transition: height 0.3s ease;
-  border-radius: 10px;
-}
+    .hour {
+      font-size: 0.8rem;
+      color: @text-color;
+      margin-bottom: 0.5rem;
+    }
 
-.probability-value {
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-}
+    .probability {
+      height: 100px;
+      width: 20px;
+      background: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
 
-.legend {
-  text-align: center;
-  color: #666;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
-.temperature-legend {
-  display: flex;
-  gap: 20px;
-  margin: 10px 0;
-  flex-wrap: wrap;
-  padding: 10px;
-  background: #f5f5f5;
-  border-radius: 4px;
-}
+      &-bar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        transition: height 0.3s ease;
+        border-radius: 10px;
+      }
 
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+      &-value {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
 
-.legend-color {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  display: inline-block;
-}
+  .temperature-legend {
+    display: flex;
+    gap: 20px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    padding: 10px;
+    background: @primary-bg;
+    border-radius: 4px;
 
-.legend-text {
-  font-size: 14px;
-  color: #666;
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .legend-color {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      .legend-text {
+        font-size: 14px;
+        color: @text-color;
+      }
+    }
+  }
+
+  .legend {
+    text-align: center;
+    color: @text-color;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
 }
 ```
 
@@ -381,7 +389,7 @@ For that we need the two blocks components we created and a SVG icon that will b
 import WeatherEdit from './components/Blocks/Weather/Edit';
 import WeatherView from './components/Blocks/Weather/View';
 import worldSVG from '@plone/volto/icons/world.svg';
-import './theme/weather.scss';
+import './theme/weather.less';
 ...
 export default function applyConfig(config) {
 
