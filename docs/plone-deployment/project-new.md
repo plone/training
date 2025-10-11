@@ -129,7 +129,11 @@ Install both the Plone backend and frontend with:
 make install
 ```
 
-This process will take a few minutes. Once completed, a success message will appear.
+This process will take a few minutes. Once completed, a success message will appear.  Both the frontend and backend in their respective directories will be built. 
+
+For the frontend, the node version will be used that you activated in the previous chapter with 'nvm use 22'. For the backend its Python version, uv will check a 'requires-python' in the pyproject.toml file. Or you can create a .python-version in the backend.
+
+Putting too specific node and python versions in the scaffolded project setup can cause other issues, that's why the project generator hints the versions with ranges or 'LTS'. But it is your own choice and responsibility to check for the correct major versions of both programming language are active and available before you run `make install` in the project root or frontend/backend subdirectories for the first time. 
 
 ### Code Formatting and i18n
 

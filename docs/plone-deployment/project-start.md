@@ -46,7 +46,7 @@ In a new terminal at the project root, execute:
 make frontend-start
 ```
 
-The Frontend initiation takes longer due to the initial codebase compilation. A successful startup displays:
+The Frontend initiation takes longer due to the initial codebase compilation for both the NodeJS server as the browser javascript bundles. A successful startup displays:
 
 ```
 🎭 Volto started at 0.0.0.0:3000 🚀
