@@ -18,23 +18,35 @@ Both Plone Frontend and Backend in your project support add-on integration. Add-
 - **Plone Backend Add-ons**: These are Python packages available on PyPI. [Awesome Plone](https://github.com/collective/awesome-plone) offers a curated list of these add-ons.
 - **Plone Frontend Add-ons**: Written in JavaScript or TypeScript, these are released as NPM packages. Check out [Awesome Volto](https://github.com/collective/awesome-volto) for a collection of Frontend add-ons.
 
-### Adding a New Block to the Frontend
+### Changing the default theme
 
-We'll illustrate the process of integrating a Frontend add-on, `@plonegovbr/volto-code-block`, which renders highlighted source code blocks. We'll centralize all modifications within our project's add-on, `volto-ploneconf2024`, to streamline future Volto version upgrades.
+We'll illustrate the process of integrating a Frontend add-on, `@kitconcept/volto-light-theme`, which provides a new theme for Volto. We'll centralize all modifications within our project's add-on, `volto-ploneconf2025`, to streamline future Volto version upgrades.
 
 #### Incorporating a New Dependency
 
-Edit {file}`frontend/packages/volto-ploneconf2024/package.json` and append `@plonegovbr/volto-code-block` to the `addons` and `dependencies` sections, as shown below:
+Edit {file}`frontend/packages/volto-ploneconf2025/package.json` and append `@kitconcept/volto-light-theme` to the `addons` and `dependencies` sections, as shown below:
 
 ```json
 "addons": [
   "...more add-ons",
-  "@plonegovbr/volto-code-block"
+  "@kitconcept/volto-light-theme"
 ],
 "dependencies": {
   "...more dependencies": "*",
-  "@plonegovbr/volto-code-block": "*"
+  "@kitconcept/volto-light-theme": "7.3.1"
 }
+```
+
+Also, edit the {file}`frontend/volto.config.js` and change the theme to be `@kitconcept/volto-light-theme`:
+
+```js
+const addons = ['volto-ploneconf2025'];
+const theme = '@kitconcept/volto-light-theme';
+
+module.exports = {
+  addons,
+  theme,
+};
 ```
 
 #### Reinstalling the Project
@@ -52,8 +64,8 @@ After authentication, the new block becomes available on the content edit page.
 Format your codebase with `make check`, then commit and push the changes:
 
 ```shell
-git add frontend/packages/volto-ploneconf2024/package.json frontend/pnpm-lock.yaml
-git commit -m "Add @plonegovbr/volto-code-block"
+git add frontend/packages/volto-ploneconf2025/package.json frontend/pnpm-lock.yaml
+git commit -m "Add @kitconcept/volto-light-theme"
 git push
 ```
 
@@ -66,22 +78,22 @@ We'll now add GitHub OAuth authentication, involving both Backend and Frontend a
 Follow GitHub's guide on [Creating an OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app), using the following configurations:
 
 -   {guilabel}`Application Name`: `plone-conference-local`
--   {guilabel}`Homepage URL`: `http://ploneconf2024.localhost`
+-   {guilabel}`Homepage URL`: `http://ploneconf2025.localhost`
 -   {guilabel}`Application Description`: `Plone Conference 2024`
--   {guilabel}`Authorization Callback URL`: `http://ploneconf2024.localhost/`
+-   {guilabel}`Authorization Callback URL`: `http://ploneconf2025.localhost/`
 
 ### Backend: Installing `pas.plugins.authomatic`
 
-Modify {file}`backend/setup.py` to include `pas.plugins.authomatic` in `install_requires`. Also, update {file}`backend/src/ploneconf2024/dependencies.zcml` to load the package configuration during Plone Backend startup.
+Modify {file}`backend/setup.py` to include `pas.plugins.authomatic` in `install_requires`. Also, update {file}`backend/src/ploneconf2025/dependencies.zcml` to load the package configuration during Plone Backend startup.
 
 ### Frontend: Installing `volto-authomatic`
 
-Add `@plone-collective/volto-authomatic` to the `addons` and `dependencies` sections of {file}`frontend/packages/volto-ploneconf2024/package.json`. Run `make frontend-install` to update the dependencies.
+Add `@plone-collective/volto-authomatic` to the `addons` and `dependencies` sections of {file}`frontend/packages/volto-ploneconf2025/package.json`. Run `make frontend-install` to update the dependencies.
 
 ### Activating and Configuring the Add-on
 
 ````{note}
-To ensure the name `ploneconf24.localhost` points to the address `127.0.0.1`, we need to edit the file located at {file}`C:\Windows\System32\Drivers\etc\hosts`.
+To ensure the name `ploneconf2025.localhost` points to the address `127.0.0.1`, we need to edit the file located at {file}`C:\Windows\System32\Drivers\etc\hosts`.
 
 1.  Open the {guilabel}`Start Menu` and search for "Notepad".
     Right-click on it and choose {guilabel}`Run as administrator`.
@@ -98,7 +110,7 @@ To ensure the name `ploneconf24.localhost` points to the address `127.0.0.1`, we
 4.  At the end of the file, add the following line:
 
     ```text
-    127.0.0.1 ploneconf24.localhost
+    127.0.0.1 ploneconf2025.localhost
     ```
 
 5.  Save the file.
@@ -106,11 +118,11 @@ To ensure the name `ploneconf24.localhost` points to the address `127.0.0.1`, we
 6.  Open PowerShell and confirm that the name resolution is working correctly by typing:
 
     ```shell
-    ping ploneconf24.localhost
+    ping ploneconf2025.localhost
     ```
 ````
 
-Start the Docker Compose stack with `make stack-start`. Navigate to http://ploneconf2024.localhost/ClassicUI/login.
+Start the Docker Compose stack with `make stack-start`. Navigate to http://ploneconf2025.localhost/ClassicUI/login.
 
 Install `pas.plugins.authomatic` from the {guilabel}`Add-ons` control panel and configure it with the following JSON configuration, replacing `KEYHERE` and `SECRETHERE` with your GitHub OAuth application's client ID and secret.
 
@@ -144,7 +156,7 @@ Install `pas.plugins.authomatic` from the {guilabel}`Add-ons` control panel and 
 
 ### Authenticating with GitHub
 
-Visit http://ploneconf2024.localhost/login and log in using GitHub.
+Visit http://ploneconf2025.localhost/login and log in using GitHub.
 
 ### Configure the OAuth user permissions
 
@@ -156,7 +168,7 @@ For the purpose of this training, check {guilabel}`Manager`, then click {guilabe
 
 ```{warning}
 If you need to authenticate bypassing OAuth, there are fallback login forms:
--   Backend: Available at http://ploneconf2024.localhost/ClassicUI/failsafe_login.
--   Frontend: Available at http://ploneconf2024.localhost/fallback_login.
+-   Backend: Available at http://ploneconf2025.localhost/ClassicUI/failsafe_login.
+-   Frontend: Available at http://ploneconf2025.localhost/fallback_login.
 
 ```

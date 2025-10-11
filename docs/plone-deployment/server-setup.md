@@ -9,14 +9,14 @@ myst:
 
 # Setting Up Your Plone Deployment Server
 
-Your Plone project's generated codebase includes a {file}`/devops` folder, equipped with tools for provisioning and setting up a basic server installation. We'll utilize **Ansible** for automation, **Docker** for containerization, and **Docker Swarm** for enhanced scalability and availability.
+Your Plone project's generated codebase includes a {file}`/devops/ansible` folder, equipped with tools for provisioning and setting up a basic server installation. We'll utilize **Ansible** for automation, **Docker** for containerization, and **Docker Swarm** for enhanced scalability and availability.
 
 ## Navigating to Devops
 
-Start by changing your directory to {file}`devops`:
+Start by changing your directory to {file}`devops/ansible`:
 
 ```shell
-cd devops
+cd devops/ansible
 ```
 
 ## Configuring the Environment
@@ -31,11 +31,11 @@ Customize the {file}`.env` file to match your specific deployment environment. H
 
 ```shell
 DEPLOY_ENV=prod
-DEPLOY_HOST=ploneconf2024-<your-github-username>.tangrama.com.br
+DEPLOY_HOST=ploneconf2025-<your-github-username>.tangrama.com.br
 DEPLOY_PORT=22
 DEPLOY_USER=plone
 DOCKER_CONFIG=.docker
-STACK_NAME=ploneconf2024
+STACK_NAME=ploneconf2025-<your-github-username>-tangrama-com-br
 ```
 
 ```{note}
@@ -47,52 +47,53 @@ The {file}`.env` file is listed in {file}`.gitignore` to prevent pushing environ
 Run the following command to create a Python 3 virtual environment and install Ansible with its dependencies:
 
 ```shell
-make setup
+make install
 ```
 
 ## Configuring the Inventory
 
-Update the {file}`inventory/hosts.yml` file with the appropriate server details:
+Update the {file}`devops/ansible/inventory/hosts.ym` file with the appropriate server details:
 
 ```yaml
 ---
-prod:
+cluster:
   hosts:
-    ploneconf2024-<your-github-username>.tangrama.com.br:
+    ploneconf2025-<your-github-username>.tangrama.com.br:
       ansible_user: root
-      host: ploneconf2024-<your-github-username>
-      hostname: ploneconf2024-<your-github-username>.tangrama.com.br
+      ansible_host: ploneconf2025-<your-github-username>.tangrama.com.br
+      host: ploneconf2025-<your-github-username>
+      hostname: ploneconf2025-<your-github-username>.tangrama.com.br
+      swarm_node:
+        labels:
+          type: manager
+          env: production
 ```
+
+
 
 ## Initiating Server Setup
 
-Execute the server setup command. It runs the Ansible playbook {file}`playbooks/setup.yml`, performing tasks like installing base packages, creating a user, setting up SSH, and initializing Docker Swarm on the remote server:
+With the correct information in {file}`devops/ansible/inventory/hosts.yml`, test the connection to the server with:
 
 ```shell
-make server-setup
+uv run ansible-playbook playbooks/_connect.yml
 ```
+
+And then, if the connection is successful, initiate the remote server setup by running:
+
+```shell
+uv run ansible-playbook playbooks/setup.yml
+```
+
+This command executes the Ansible playbook {file}`devops/playbooks/setup.yml` performing tasks like installing base packages, creating a user, setting up SSH, and initializing Docker Swarm on the remote server:
 
 ## Verifying Remote Server Access
 
 You should now be able to SSH into the remote server as both **root** and **plone** users:
 
 ```shell
-ssh root@ploneconf2024-<your-github-username>.tangrama.com.br
-ssh plone@ploneconf2024-<your-github-username>.tangrama.com.br
-```
-
-## Setting Up Docker
-
-Ensure you're logged into Docker, as the deployment process uses public images. Create a new Docker context for the remote server:
-
-```shell
-make docker-setup
-```
-
-Confirm the setup by retrieving information about the Docker context:
-
-```shell
-make docker-info
+ssh root@ploneconf2025-<your-github-username>.tangrama.com.br
+ssh plone@ploneconf2025-<your-github-username>.tangrama.com.br
 ```
 
 # Review

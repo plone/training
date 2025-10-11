@@ -58,10 +58,11 @@ EOT
 
 Repository available at https://github.com/plone/plone-backend/.
 
-Installs the Plone 6 backend using a pip-based installation.
-This approach makes it easier and faster to extend this image in your own project.
+Installs the Plone 6 backend using a package-based installation.
 
-One example of such extension would be:
+There are currently two distinct approaches to use the backend base images in your project:
+
+### Usage with `pip` + `mxdev`
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
@@ -93,7 +94,7 @@ EOT
 FROM plone/server-prod-config:${PLONE_VERSION}
 
 LABEL maintainer="Plone Community <collective@plone.org>" \
-      org.label-schema.name="ploneconf2024-training-backend" \
+      org.label-schema.name="ploneconf2025-training-backend" \
       org.label-schema.description="Plone Conference Training Backend." \
       org.label-schema.vendor="Plone Community"
 
@@ -105,6 +106,83 @@ RUN <<EOT
     ln -s /data /app/var
 EOT
 ```
+
+### Usage with `uv` (Experimental)
+
+To use these images your project should be already using `uv` and have a `pyproject.toml` section with additional dependencies to be installed inside a container:
+
+```toml
+[dependency-groups]
+...
+container = [
+    "plone.app.upgrade",
+    "psycopg2==2.9.10",
+    "relstorage==4.1.1",
+    "zeo==6.0.0",
+]
+```
+
+The `Dockerfile` will look like:
+
+```Dockerfile
+# syntax=docker/dockerfile:1.9
+ARG PYTHON_VERSION=3.12
+FROM plone/server-builder:uv-${PYTHON_VERSION} AS builder
+
+# Install dependencies
+RUN --mount=type=cache,target=/root/.cache \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync \
+        --locked \
+        --no-dev \
+        --no-group test \
+        --group container \
+        --no-install-project
+
+COPY . /src
+WORKDIR /src
+
+# Install package
+RUN --mount=type=cache,target=/root/.cache \
+    uv sync \
+        --locked \
+        --no-dev \
+        --no-group test \
+        --group container \
+        --no-editable
+
+# Move skeleton files to /app
+RUN <<EOT
+    mv /app_skeleton/* /app
+    rm -Rf /app_skeleton
+    mv container/docker-entrypoint.sh /app/docker-entrypoint.sh
+    chmod +x /app/docker-entrypoint.sh
+    mv scripts/create_site.py /app/scripts/create_site.py
+EOT
+
+# Compile translation files
+RUN <<EOT
+    /app/bin/python /compile_mo.py
+EOT
+
+FROM plone/server-prod-config:uv-${PYTHON_VERSION}
+
+LABEL maintainer="Plone Community <collective@plone.org>" \
+      org.label-schema.name="ploneconf2025-training-backend" \
+      org.label-schema.description="Plone Conference Training Backend." \
+      org.label-schema.vendor="Plone Community"
+
+# Copy the pre-built `/app` directory to the runtime container
+# and change the ownership to user app and group app in one step.
+COPY --from=builder --chown=500:500 /app /app
+
+RUN <<EOT
+    ln -s /data /app/var
+    chown -R 500:500 /data
+EOT
+```
+
 
 ## `plone/plone-zeo`
 

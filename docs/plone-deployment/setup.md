@@ -19,28 +19,32 @@ Linux/macOS
 :   A recent version is preferred. macOS users should have [Homebrew](https://brew.sh/) installed.
 
 Windows
-:   Consider using [WSL2 with Ubuntu](https://documentation.ubuntu.com/wsl/en/latest/), though it's not officially tested for this training.
+:   Consider using [WSL2 with Ubuntu](https://documentation.ubuntu.com/wsl/en/latest/).
 
 ### 2. Code Editor
 
 Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, VI, or Emacs.
 
-### 3. Python
+### 3. UV
+Carefully read the console output for further instructions, and follow them, if needed.
 
-Install Python version 3.11.x or 3.12.x, ensuring that `pip` is included and updated.
+`````{tab-set}
 
+````{tab-item} macOS, Linux, and Windows with WSL
 ```shell
-python -m pip install --upgrade pip
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+````
 
-Install `pipx` and `uv` for managing Python applications:
-
+````{tab-item} Windows
 ```shell
-python -m pip install --upgrade pipx uv
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
+````
+`````
 
-```{tip}
-Use [Pyenv](https://github.com/pyenv/pyenv) if your system doesn't provide the required Python version.
+```{seealso}
+-   [Other {term}`uv` installation methods](https://docs.astral.sh/uv/getting-started/installation/)
 ```
 
 ### 4. Docker
@@ -102,7 +106,7 @@ We'll use the GitHub Container Registry during the training. The concepts are al
 
 ### 7. Cookieplone
 
-The latest version of {term}`Cookieplone` will be used, and it doesn't require a separate installation as we'll use `pipx`.
+The latest version of {term}`Cookieplone` will be used, and it doesn't require a separate installation as we'll use `uvx`.
 
 ### 8. Make
 
