@@ -281,7 +281,7 @@ export default Edit;
   padding: 1rem;
   background: @primary-bg;
   border-radius: @border-radius;
-
+  margin-bottom: 2rem;
   .date {
     font-size: 1.1rem;
     color: @text-color;
@@ -293,6 +293,7 @@ export default Edit;
     display: flex;
     overflow-x: auto;
     padding: 1rem 0;
+    flex-flow: wrap;
     gap: 1rem;
     height: 200px;
     align-items: flex-end;
@@ -382,19 +383,16 @@ export { WeatherView, WeatherEdit };
 
 ```
 
-We need to configure the project to make it aware of a new block by adding it to the object configuration that is located in {file}`src/index.js`.
+We need to configure the project to make it aware of a new block by adding it to the object configuration that is located in {file}`src/config/blocks.ts`.
 For that we need the two blocks components we created and a SVG icon that will be displayed in the blocks chooser.
 
-```js
-import WeatherEdit from './components/Blocks/Weather/Edit';
-import WeatherView from './components/Blocks/Weather/View';
+```ts
+import type { ConfigType } from '@plone/registry';
+import WeatherEdit from 'volto-teaser-tutorial/components/Blocks/Weather/Edit';
+import WeatherView from 'volto-teaser-tutorial/components/Blocks/Weather/View';
 import worldSVG from '@plone/volto/icons/world.svg';
-import './theme/weather.less';
-...
-export default function applyConfig(config) {
 
-  ...
-
+export default function install(config: ConfigType) {
   config.blocks.blocksConfig.weather = {
     id: 'weather',
     title: 'Weather',
@@ -405,20 +403,29 @@ export default function applyConfig(config) {
     restricted: false,
     mostUsed: false,
     sidebarTab: 1,
-    blocks: {},
-    security: {
-      addPermission: [],
-      view: [],
-    },
   };
-
-  ...
 
   return config;
 };
 ...
 ```
 
-6. **Use the Weather Block:** In Volto's Dexterity-based content types, create or edit a content type that includes the "Weather Block" in the allowedBlocks field. Then, create a content item and add the "Weather Block" to display the weather information for the location you specify.
+And then import the block config in {file}`src/index.ts` along with the css for the weather block.
+
+```ts
+import type { ConfigType } from "@plone/registry";
+import installSettings from "./config/settings";
+import installBlocks from "./config/blocks";
+import "./theme/weather.less";
+function applyConfig(config: ConfigType) {
+  installSettings(config);
+  installBlocks(config);
+  return config;
+}
+
+export default applyConfig;
+```
+
+7. **Use the Weather Block:** In Volto's Dexterity-based content types, create or edit a content type that includes the "Weather Block" in the allowedBlocks field. Then, create a content item and add the "Weather Block" to display the weather information for the location you specify.
 
 Additionally, you may customize the UI and add more weather details based on the API's response data as needed.
