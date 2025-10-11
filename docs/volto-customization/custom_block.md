@@ -388,8 +388,8 @@ For that we need the two blocks components we created and a SVG icon that will b
 
 ```ts
 import type { ConfigType } from '@plone/registry';
-import WeatherEdit from 'volto-teaser-tutorial/components/Blocks/Weather/Edit';
-import WeatherView from 'volto-teaser-tutorial/components/Blocks/Weather/View';
+import WeatherEdit from './../components/Blocks/Weather/Edit';
+import WeatherView from './../components/Blocks/Weather/View';
 import worldSVG from '@plone/volto/icons/world.svg';
 
 export default function install(config: ConfigType) {
