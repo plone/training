@@ -269,7 +269,7 @@ const Edit = (props) => {
 export default Edit;
 ```
 
-5. **Add css for the Block:** In your Volto project , inside src add "theme" folder and create "weather.scss" for adding style to your "Weather Block"
+5. **Add css for the Block:** In your Volto project , inside src add "theme" folder and create "weather.less" for adding style to your "Weather Block"
 
 ```less
 // Variables
