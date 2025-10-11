@@ -20,6 +20,7 @@ mastering-plone/index
 volto-customization/index
 customizing-volto-light-theme/index
 plone-deployment/index
+migrations/index
 content-editing/index
 ```
 
@@ -71,6 +72,9 @@ documentation/index
 
 
 ## Other
+
+{doc}`migrations/index`
+:   Upgrading and migrating Plone sites
 
 {doc}`contributing/index`
 :   All about contributing to Plone Training
