@@ -220,7 +220,7 @@ dependencies = [
     "plone.api",
     "plone.restapi",
     "plone.volto",
-    "kitconcept.voltolighttheme==7.3.0",
+    "kitconcept.voltolighttheme==7.3.1",
 ]
 ```
 

@@ -144,36 +144,35 @@ import type { BlockViewProps } from '@plone/types';
 
 const HeroView = (props: BlockViewProps) => {
   const { className, style } = props;
-  const { title, subtitle, backgroundImage, image_scales, url } = props?.data;
+  const { title, subtitle, backgroundImage, url } = props?.data || {};
+
+  const hasImage = backgroundImage?.[0]?.['@id'];
 
   let renderedImage = null;
-  if (backgroundImage) {
-    let Image = config.getComponent('Image').component;
+  if (hasImage) {
+    const Image = config.getComponent('Image').component;
+    const imageItem = backgroundImage[0];
+
     if (Image) {
       renderedImage = (
         <Image
-          item={
-            backgroundImage
-              ? {
-                  '@id': backgroundImage[0]['@id'],
-                  image_field: backgroundImage[0].image_field,
-                  image_scales: backgroundImage[0].image_scales,
-                }
-              : null
-          }
-          src={!image_scales ? url : null}
+          item={{
+            '@id': imageItem['@id'],
+            image_field: imageItem.image_field,
+            image_scales: imageItem.image_scales,
+          }}
           alt=""
           loading="lazy"
-          responsive={true}
+          responsive
         />
       );
     } else {
       renderedImage = (
         <img
           src={
-            isInternalURL(url['@id'])
+            isInternalURL(url?.['@id'])
               ? `${flattenToAppURL(url['@id'])}/@@images/image`
-              : url['@id']
+              : url?.['@id']
           }
           alt=""
           loading="lazy"
@@ -183,16 +182,17 @@ const HeroView = (props: BlockViewProps) => {
   }
 
   return (
-    <div style={style} className={cx('block hero', className)}>
+    <div
+      className={cx('block hero', className, { 'has-image': hasImage })}
+      style={style}
+    >
+      {hasImage && <div className="hero-image-wrapper">{renderedImage}</div>}
+
       <div className="hero-content">
         <div className="hero-text">
-          {title && <h1 className="hero-title">{title as any}</h1>}
-          {subtitle && <p className="hero-subtitle">{subtitle as any}</p>}
+          {title && <h1 className="hero-title">{title}</h1>}
+          {subtitle && <p className="hero-subtitle">{subtitle}</p>}
         </div>
-
-        {backgroundImage && (
-          <div className="hero-image-wrapper">{renderedImage}</div>
-        )}
       </div>
     </div>
   );
@@ -285,39 +285,71 @@ Create `src/theme/blocks/_hero.scss`:
 .block.hero {
   position: relative;
   display: flex;
+  width: var(--default-container-width);
+  max-width: var(--block-width) !important;
   align-items: center;
   justify-content: center;
-  background-size: cover;
-  background-position: center;
+  background-color: var(--theme-color);
+  color: var(--theme-foreground-color);
+  margin-inline: auto;
 
+  // default text view
   .hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .hero-text {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: var(--align--block-alignment);
+    gap: 1rem;
+    text-align: var(--align--block-alignment);
+
+    .hero-title {
+      margin-bottom: $spacing-small;
+      font-size: 5rem;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      margin-bottom: $spacing-small;
+      font-size: 2rem;
+      line-height: 1.3;
+      opacity: 0.9;
+    }
+  }
+
+  // has-image version
+  &.has-image {
+    color: #fff;
+
     .hero-image-wrapper {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+
       img {
-        aspect-ratio: var(--image-aspect-ratio, 16/9);
-        opacity: 0.8;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.7;
+      }
+
+      &::after {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.4);
+        content: '';
+        inset: 0;
       }
     }
 
-    .hero-text {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
-      padding: 4rem;
-      z-index: 2;
-
-      .hero-title {
-        font-size: 5rem;
-        margin-bottom: $spacing-small;
-        line-height: 1;
-      }
-
-      .hero-subtitle {
-        font-size: 3rem;
-        opacity: 0.95;
-        line-height: 1;
-      }
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
   }
 }
@@ -334,7 +366,7 @@ Import in `src/theme/_main.scss`:
 
 Now let's add VLT's powerful widgets to control block width and alignment. Update the schema file to add the schema enhancer.
 
-Update `src/components/blocks/myHero/schema.js`:
+Update `src/components/blocks/myHero/schema.ts`:
 
 ```javascript
 import { defineMessages } from 'react-intl';
