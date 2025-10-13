@@ -14,71 +14,95 @@ The steps can be adapted for other providers like GitLab.
 
 ## Generating the Codebase
 
-Execute `Cookieplone` to generate a Plone project skeleton with the command below.
+```{note}
+This training session (as of October 2025) will use a still experimental branch of `cookieplone-templates`.
+```
+
+Execute `cookieplone` to generate a Plone project skeleton with the command below.
 
 ```shell
-pipx run cookieplone project
+COOKIEPLONE_REPOSITORY_TAG=project-profiles uvx cookieplone project
 ```
 
 Answer the prompts as they appear. You can either accept the default values or enter your own.
 
 ```{warning}
-For participants in **Plone Conference 2024**, please use the following settings:
+For participants in the **Plone Conference 2025 Training sessions in Jyväskylä Finland**, please use at least the following settings:
 
 -   {guilabel}`Project Title`: **Plone Conference Training**
--   {guilabel}`Project Slug`: **ploneconf2024**
--   {guilabel}`Project URL`: **ploneconf2024-\<your-github-username\>.tangrama.com.br**
+-   {guilabel}`Project Slug`: **ploneconf2025**
+-   {guilabel}`Project URL`: **ploneconf2025-\<your-github-username\>.tangrama.com.br**
+-   {guilabel}`Should we use prerelease versions?`: **Y(es)**
+-   {guilabel}`Volto Version`: **19.0.0-alpha.6**
+-   {guilabel}`Python Package Name`: **ploneconf2025.core**
 -   {guilabel}`GitHub Username or Organization`: **\<your-github-username\>**
+-   {guilabel}`URL to the repository`: **https:\/\/github.com\/<your-github-username\>/ploneconf2025**
+-   {guilabel}`Container Registry`: **1 - GitHub Container Registry**
+-   {guilabel}`Which persistent storage `: **1 - RelStorage with PostgreSQL**
+-   {guilabel}`Should we setup a caching server`: **Y(es)**
+-   {guilabel}`Add Ansible playbooks?`: **Y(es)**
+-   {guilabel}`Add GitHub Action to Deploy this project?`: **Y(es)**
 ```
 
 An example interaction with the `Cookieplone` wizard is shown below:
 
 ```{code-block} console
-:emphasize-lines: 1,3,4,10,11,20
-
-  [1/17] Project Title (Project Title): Plone Conference Training
-  [2/17] Project Description (A new project using Plone 6.):
-  [3/17] Project Slug (Used for repository id) (plone-conference-training): ploneconf2024
-  [4/17] Project URL (without protocol) (ploneconf2024.example.com): ploneconf2024-<your-github-username>.tangrama.com.br
-  [5/17] Author (Plone Foundation): <Your Name>
-  [6/17] Author E-mail (foo@plone.org): <Your Email>
-  [7/17] Should we use prerelease versions? (No):
-  [8/17] Plone Version (6.0.13):
-  [9/17] Volto Version (18.1.1):
-  [10/17] Python Package Name (ploneconf2024):
-  [11/17] Volto Addon Name (volto-ploneconf2024):
-  [12/17] Language
+:emphasize-lines: 1,3,4,9,10,13,22,25,30,35,39,43,47
+  [1/20] Project Title (Project Title): Plone Conference Training
+  [2/20] Project Description (A new project using Plone 6.):
+  [3/20] Project Slug (Used for repository id) (plone-conference-training): ploneconf2025
+  [4/20] Project URL (without protocol) (ploneconf2025.example.com): ploneconf2025-<your-github-username\>.tangrama.com.br
+  [5/20] Author (Plone):
+  [6/20] Author E-mail (collective@plone.org):
+  [7/20] Should we use prerelease versions? (No):
+  [8/20] Plone Version (6.1.3):
+  [9/20] Volto Version (18.28.2): 19.0.0-alpha.6
+  [10/20] Python Package Name (ploneconf2025): ploneconf2025.core
+  [11/20] Volto Addon Name (volto-ploneconf2025-core):
+  [12/20] Language
     1 - English
     2 - Deutsch
     3 - Español
     4 - Português (Brasil)
     5 - Nederlands
     6 - Suomi
-    Choose from [1/2/3/4/5/6] (1): 1
-  [13/17] GitHub or GitLab Username or Organization (collective): <your-github-username>
-  [14/17] Container Registry
+    7 - Italiano
+    8 - Svenska
+    Choose from [1/2/3/4/5/6/7/8] (1): 1
+  [13/20] GitHub or GitLab username or organization slug from URL (collective): <your-github-username>
+  [14/20] repository_url (https://github.com/<your-github-username>/ploneconf2025):
+  [15/20] Container Registry
     1 - GitHub Container Registry
     2 - Docker Hub
     3 - GitLab
-    Choose from [1/2/3] (1): 1
-  [15/17] Should we setup a caching server?
+    Choose from [1/2/3] (1):
+  [16/20] Which persistent storage to use in the deployment stack?
+    1 - RelStorage with PostgreSQL (recommended)
+    2 - ZEO with FileStorage
+    3 - Local FileStorage, implies a single backend
+    Choose from [1/2/3] (1):
+  [17/20] Should we setup a caching server?
     1 - Yes
     2 - No
-    Choose from [1/2] (1): 1
-  [16/17] Add Ansible playbooks?
+    Choose from [1/2] (1):
+  [18/20] Add Ansible playbooks?
     1 - Yes
     2 - No
-    Choose from [1/2] (1): 1
-  [17/17] Add GitHub Action to Deploy this project?
+    Choose from [1/2] (1):
+  [19/20] Add GitHub Action to Deploy this project?
     1 - Yes
     2 - No
-    Choose from [1/2] (1): 1
+    Choose from [1/2] (1):
+  [20/20] Would you like to add a documentation scaffold to your project?
+    1 - Yes
+    2 - No
+    Choose from [1/2] (1):
 ```
 
 Navigate to your project directory:
 
 ```shell
-cd ploneconf2024
+cd ploneconf2025
 ```
 
 ### Understanding the Codebase
@@ -105,7 +129,11 @@ Install both the Plone backend and frontend with:
 make install
 ```
 
-This process will take a few minutes. Once completed, a success message will appear.
+This process will take a few minutes. Once completed, a success message will appear.  Both the frontend and backend in their respective directories will be built. 
+
+For the frontend, the node version will be used that you activated in the previous chapter with 'nvm use 22'. For the backend its Python version, uv will check a 'requires-python' in the pyproject.toml file. Or you can create a .python-version in the backend.
+
+Putting too specific node and python versions in the scaffolded project setup can cause other issues, that's why the project generator hints the versions with ranges or 'LTS'. But it is your own choice and responsibility to check for the correct major versions of both programming language are active and available before you run `make install` in the project root or frontend/backend subdirectories for the first time. 
 
 ### Code Formatting and i18n
 
@@ -113,6 +141,12 @@ Ensure all tests pass on GitHub Actions after pushing the repository by running:
 
 ```shell
 make check
+```
+
+Also update all the translation files by running:
+
+```shell
+make i18n
 ```
 
 ## Create a Repository on GitHub
@@ -130,21 +164,18 @@ Visit [GitHub](https://github.com) and log in.
 
 Click the '+' icon in the upper right corner, select 'New repository', and fill in the details:
 
--   {guilabel}`Repository name`: `ploneconf2024`
--   {guilabel}`Description`: `Plone Conference 2024 Training`
+-   {guilabel}`Repository name`: `ploneconf2025`
+-   {guilabel}`Description`: `Plone Conference 2025 Training`
 -   {guilabel}`Visibility`: `Public`
 
 Click 'Create repository'.
 
 ## Initialize and Push to the Git Repository
 
-### 1. Initialize Git
+### 1. Initialize your project
 
-Initializes a new Git repository and begins tracking an existing directory.
+Cookieplone already initializes a Git repository for you, just make sure you did run `make check` and `make i18n`.
 
-```shell
-git init .
-```
 ### 2. Add Files
 
 stages changes for commit, meaning it tracks the new files (in this case, all files in the directory with `.`). Staging lets you select which changes you want to commit.
@@ -169,7 +200,7 @@ Connect your local repository to the remote server. First replace `<your-github-
 `origin` is the default name given to the remote repository, and we also set the default branch to be `main`.
 
 ```shell
-git remote add origin git@github.com:<your-github-username>/ploneconf2024.git
+git remote add origin git@github.com:<your-github-username>/ploneconf2025.git
 git branch -M main
 ```
 

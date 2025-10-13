@@ -9,15 +9,15 @@ myst:
 
 # Plone Docker Images
 
-Since the release of Plone 6, the community has a new set of Docker images offering more base options.
+Since the release of Plone 6, the community has a new set of public Docker images offering most base options, and documenting the configuration. They are meant as a way to quickly start a project, and provide inspiration for your own projects advanced requirements.
 
 ## `plone/plone-frontend`
 
-Repository available at https://github.com/plone/plone-frontend/.
+Repository is available at https://github.com/plone/plone-frontend/.
 
 Installs the Plone 6 user-experience using the React-powered frontend, Volto.
 
-Should be used to showcase the Plone 6 experience, as new projects will probably implement their own Docker images (with a similar Dockerfile), like the one below:
+Should be used to showcase the Plone 6 experience, and how to build images in multiple stages to reduce image size. New projects will probably implement their own Docker images (with a similar Dockerfile), like the one below:
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
@@ -58,10 +58,11 @@ EOT
 
 Repository available at https://github.com/plone/plone-backend/.
 
-Installs the Plone 6 backend using a pip-based installation.
-This approach makes it easier and faster to extend this image in your own project.
+Installs the Plone 6 backend using a package-based installation.
 
-One example of such extension would be:
+There are currently two distinct approaches to use the backend base images in your project:
+
+### Usage with `pip` + `mxdev`
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
@@ -93,7 +94,7 @@ EOT
 FROM plone/server-prod-config:${PLONE_VERSION}
 
 LABEL maintainer="Plone Community <collective@plone.org>" \
-      org.label-schema.name="ploneconf2024-training-backend" \
+      org.label-schema.name="ploneconf2025-training-backend" \
       org.label-schema.description="Plone Conference Training Backend." \
       org.label-schema.vendor="Plone Community"
 
@@ -106,8 +107,85 @@ RUN <<EOT
 EOT
 ```
 
+### Usage with `uv` (Experimental)
+
+To use these images, your project should be already using `uv` and have a `pyproject.toml` section with additional dependencies to be installed inside a container:
+
+```toml
+[dependency-groups]
+...
+container = [
+    "plone.app.upgrade",
+    "psycopg2==2.9.10",
+    "relstorage==4.1.1",
+    "zeo==6.0.0",
+]
+```
+
+The `Dockerfile` will look like:
+
+```Dockerfile
+# syntax=docker/dockerfile:1.9
+ARG PYTHON_VERSION=3.12
+FROM plone/server-builder:uv-${PYTHON_VERSION} AS builder
+
+# Install dependencies
+RUN --mount=type=cache,target=/root/.cache \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync \
+        --locked \
+        --no-dev \
+        --no-group test \
+        --group container \
+        --no-install-project
+
+COPY . /src
+WORKDIR /src
+
+# Install package
+RUN --mount=type=cache,target=/root/.cache \
+    uv sync \
+        --locked \
+        --no-dev \
+        --no-group test \
+        --group container \
+        --no-editable
+
+# Move skeleton files to /app
+RUN <<EOT
+    mv /app_skeleton/* /app
+    rm -Rf /app_skeleton
+    mv container/docker-entrypoint.sh /app/docker-entrypoint.sh
+    chmod +x /app/docker-entrypoint.sh
+    mv scripts/create_site.py /app/scripts/create_site.py
+EOT
+
+# Compile translation files
+RUN <<EOT
+    /app/bin/python /compile_mo.py
+EOT
+
+FROM plone/server-prod-config:uv-${PYTHON_VERSION}
+
+LABEL maintainer="Plone Community <collective@plone.org>" \
+      org.label-schema.name="ploneconf2025-training-backend" \
+      org.label-schema.description="Plone Conference Training Backend." \
+      org.label-schema.vendor="Plone Community"
+
+# Copy the pre-built `/app` directory to the runtime container
+# and change the ownership to user app and group app in one step.
+COPY --from=builder --chown=500:500 /app /app
+
+RUN <<EOT
+    ln -s /data /app/var
+    chown -R 500:500 /data
+EOT
+```
+
+
 ## `plone/plone-zeo`
 
 Repository available at https://github.com/plone/plone-zeo/.
 
-Installs a ZEO database server.
+Provides a ZEO database server for your container based Plone CMS Stack. This allows you to scale to multiple backends without a relational Database like PostgreSQL or MySQL to store the content data.
