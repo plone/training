@@ -281,6 +281,3 @@ touch theme/_main.scss theme/_site.scss
 ```
 
 Remember that if you add new files to your project, it will be necessary to restart your Plone frontend.
-
-
----

@@ -293,7 +293,6 @@ Create `src/theme/blocks/_hero.scss`:
   color: var(--theme-foreground-color);
   margin-inline: auto;
 
-  // default text view
   .hero-content {
     position: relative;
     z-index: 1;
@@ -323,7 +322,6 @@ Create `src/theme/blocks/_hero.scss`:
     }
   }
 
-  // has-image version
   &.has-image {
     color: #fff;
 
@@ -631,5 +629,3 @@ Import it in `_main.scss`:
 @import './blocks/relatedItems';
 @import './site';
 ```
-
----

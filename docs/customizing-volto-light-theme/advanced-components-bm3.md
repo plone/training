@@ -827,5 +827,3 @@ Vertical spacing between blocks is provided by the **upper block**:
 ```
 
 Notice how the actual block content remains identical in both modes, while the framework containers handle all the differences in layout and editing functionality.
-
----

@@ -261,5 +261,3 @@ In `src/theme/_main.scss`:
 ```scss
 @import './site';
 ```
-
----
