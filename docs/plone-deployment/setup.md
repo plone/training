@@ -19,31 +19,52 @@ Linux/macOS
 :   A recent version is preferred. macOS users should have [Homebrew](https://brew.sh/) installed.
 
 Windows
-:   Consider using [WSL2 with Ubuntu](https://documentation.ubuntu.com/wsl/en/latest/), though it's not officially tested for this training.
+:   Consider using [WSL2 with Ubuntu](https://documentation.ubuntu.com/wsl/en/latest/).
 
-### 2. Code Editor
+```{warning}
+If you will be following this training in a WSL2 environment, do not use the `root` user.
+Create a specific user, for example `plone`, and give this user the proper permissions.
+```
+
+### 2. Git
+
+Ensure you have a recent Git installed and configured on your system.
+
+We do recommend you have the three following settings for Git set before the training starts.
+
+```shell
+git config --global user.name "John Doe"
+git config --global user.email doe@plone.org
+git config --global init.defaultBranch main
+```
+
+### 3. Code Editor
 
 Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, VI, or Emacs.
 
-### 3. Python
+### 4. UV
+Carefully read the console output for further instructions, and follow them, if needed.
 
-Install Python version 3.11.x or 3.12.x, ensuring that `pip` is included and updated.
+`````{tab-set}
 
+````{tab-item} macOS, Linux, and Windows with WSL
 ```shell
-python -m pip install --upgrade pip
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+````
 
-Install `pipx` and `uv` for managing Python applications:
-
+````{tab-item} Windows
 ```shell
-python -m pip install --upgrade pipx uv
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+````
+`````
+
+```{seealso}
+-   [Other {term}`uv` installation methods](https://docs.astral.sh/uv/getting-started/installation/)
 ```
 
-```{tip}
-Use [Pyenv](https://github.com/pyenv/pyenv) if your system doesn't provide the required Python version.
-```
-
-### 4. Docker
+### 5. Docker
 
 Ensure Docker version 27.2.0 or above is installed. Verify with:
 
@@ -57,7 +78,7 @@ Ensure Docker is running. Verify with:
 docker ps
 ```
 
-### 5. Node and Node Tools
+### 6. Node and Node Tools
 
 Install the latest Node LTS version using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
 
@@ -82,12 +103,16 @@ nvm use
 ```
 ````
 
-### 6. External Services
+### 7. External Services
 
 #### GitHub Account
 
 Make sure your computer is set up with the appropriate keys to access your GitHub account,
 as we will be utilizing GitHub extensively throughout this training.
+
+If you are not sure about the keys you have on GitHub, you can check it by accessing the following URL:
+
+* **https://github.com/<your-github-username>.keys**
 
 #### Container Registry: GitHub or Docker Hub
 
@@ -100,11 +125,11 @@ We'll use the GitHub Container Registry during the training. The concepts are al
   docker login
   ```
 
-### 7. Cookieplone
+### 8. Cookieplone
 
-The latest version of {term}`Cookieplone` will be used, and it doesn't require a separate installation as we'll use `pipx`.
+The latest version of {term}`Cookieplone` will be used, and it doesn't require a separate installation as we'll use `uvx`.
 
-### 8. Make
+### 9. Make
 
 {term}`Make` is pre-installed on most Linux distributions. For macOS, install Xcode and its command-line tools. Windows users are advised to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) that includes `make`.
 

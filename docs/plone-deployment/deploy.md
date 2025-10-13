@@ -18,7 +18,7 @@ This guide outlines the steps to deploy the project using a Docker stack compris
 - **Plone Backend:** The API service.
 - **Postgres 14 Database:** Handles data persistence.
 
-You can find this stack at {file}`devops/stacks/ploneconf2024-<your-github-username>.tangrama.com.br.yml`. It's modular, allowing easy integration of additional services like {term}`Varnish`, `Solr`, or `ElasticSearch`.
+You can find this stack at {file}`devops/stacks/ploneconf2025-<your-github-username>.tangrama.com.br.yml`. It's modular, allowing easy integration of additional services like {term}`Varnish`, `Solr`, or `ElasticSearch`.
 
 ```{seealso}
 [Traefik Proxy with HTTPS](https://dockerswarm.rocks/traefik/)
@@ -27,7 +27,7 @@ You can find this stack at {file}`devops/stacks/ploneconf2024-<your-github-usern
 ## Building Docker Images
 
 Ensure you build the Docker images for the Frontend and Backend servers before deployment.
-GitHub Actions, configured in {file}`.github/workflows/backend.yml` and {file}`.github/workflows/frontend.yml`, facilitate this process.
+GitHub Actions, configured in {file}`.github/workflows/main.yml`, facilitate this process.
 
 ````{important}
 Before deploying, run the following commands from your project's root directory to format the code and run tests.
@@ -56,25 +56,30 @@ Watch Usage
 After these commands succeed, commit all code changes, push to GitHub, and ensure all GitHub Actions successfully complete their runs.
 ````
 
-
-## Manual Deployment with `devops/Makefile`
+## Manual Deployment with Ansible
 
 Utilize the {file}`Makefile` at {file}`devops/Makefile` for manual deployment.
 
 ### Deploying the Stack
 
-Execute the following command from your project's {file}`devops` directory to deploy the stack defined in {file}`devops/stacks/ploneconf2024-<your-github-username>.tangrama.com.br.yml` to the remote server.
+Execute the following command from your project's {file}`devops/ansible` directory to deploy the stack defined in {file}`devops/stacks/ploneconf2025-<your-github-username>.tangrama.com.br.yml` to the remote server.
 
 ```shell
-make stack-deploy
+uv run ansible-playbook playbooks/deploy.yml --tags project
 ```
 
 ### Verifying Stack Status
 
-To check the status of all services in your stack, run:
+To check the status of all services in your stack, access the remote server:
 
 ```shell
-make stack-status
+ssh root@ploneconf2025-<your-github-username>.tangrama.com.br
+```
+
+And then run the command:
+
+```shell
+docker stack ps ploneconf2025-<your-github-username>-tangrama-com-br
 ```
 
 ### Creating Plone Site
@@ -82,17 +87,17 @@ make stack-status
 On the initial deployment, the frontend containers might be unhealthy due to the unconfigured Plone site on the backend. Create a new site with:
 
 ```shell
-make stack-create-site
+docker exec $(docker ps -qf 'name=_backend'|head -n1) ./docker-entrypoint.sh create-site
 ```
 
 ### Monitoring Logs
 
 Monitor the logs of each service with these commands:
 
--   Traefik: `make stack-logs-webserver`
--   Frontend: `make stack-logs-frontend`
--   Backend: `make stack-logs-backend`
--   Backend: `make stack-logs-db`
+-   Traefik: `docker service logs traefik_traefik --follow`
+-   Frontend: `docker service logs <stack-name>_frontend --follow`
+-   Backend: `ocker service logs <stack-name>_backend --follow`
+-   Database: `ocker service logs <stack-name>_db --follow`
 
 ## Automating Deployment with GitHub Actions
 
@@ -130,15 +135,6 @@ Add secrets in the `Secrets` section of your environment. Refer to the table bel
 | DEPLOY_SSH  | Content of {file}`devops/etc/keys/plone_prod_deploy_rsa` | The private SSH key for connection.                       |
 | ENV_FILE    | Content of {file}`devops/.env_file_gha`                  | File containing environment variables for the stack file. |
 
-#### Adding Repository Variables
-
-Navigate to {menuselection}`Settings --> Secrets and Variables --> Actions`. Under {guilabel}`Variables`, add the repository variable:
-
-| Name     | Value |
-|----------|-------|
-| LIVE_ENV | The name of the earlier created environment |
-
-This variable is referenced in {file}`.github/workflows/manual_deploy.yml`.
 
 ## Initiating Manual Deployment
 
