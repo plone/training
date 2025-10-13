@@ -371,16 +371,14 @@ export default Edit;
 }
 ```
 
-6. **Register the Block:** In your Volto project, locate the "components/index.js" file and add an the entries for your "Weather Block"
+6. **Register the Block:** In your Volto project, add "components/Blocks/Weather/index.js" file and add an the entries for your "Weather Block" files and export them.
 
 ```js
 ...
 import WeatherEdit from './components/Blocks/Weather/Edit';
 import WeatherView from './components/Blocks/Weather/View';
 
-...
 export { WeatherView, WeatherEdit };
-
 ```
 
 We need to configure the project to make it aware of a new block by adding it to the object configuration that is located in {file}`src/config/blocks.ts`.
