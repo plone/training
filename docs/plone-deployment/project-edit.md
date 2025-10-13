@@ -11,6 +11,15 @@ myst:
 
 Plone offers a wealth of features right out of the box. You can extend these capabilities using {term}`TTW` modifications, such as creating new content types, altering the default workflow, or configuring the top-level navigation. For additional functionalities not covered by Plone, you can either develop your own solutions or integrate existing add-ons.
 
+## Project packages
+
+A Plone project is composed by, at least, a backend Python package and a frontend ReactJS package. These packages, generated for you during the creation of the codebase, are responsible for configuring the project and integrating third-party add-ons.
+
+The packages for this training are:
+
+- **ploneconf2025.core**: Package metadata located at `backend/pyproject.toml` and code at `backend/src/ploneconf2025/core`.
+- **volto-ploneconf2025-core**: Package metadata located at `frontend/packages/volto-ploneconf2025-core/package.json` and code at `frontend/packages/volto-ploneconf2025-core/src`.
+
 ## Integrating Add-ons
 
 Both Plone Frontend and Backend in your project support add-on integration. Add-ons can be specific to either the Frontend or Backend, or they can be collaborative packages enhancing both components.
@@ -20,9 +29,18 @@ Both Plone Frontend and Backend in your project support add-on integration. Add-
 
 ### Changing the default theme
 
-We'll illustrate the process of integrating a Frontend add-on, `@kitconcept/volto-light-theme`, which provides a new theme for Volto. We'll centralize all modifications within our project's add-on, `volto-ploneconf2025`, to streamline future Volto version upgrades.
+We'll illustrate the process of integrating an add-on named `Volto Light Theme`, which provides a new theme for Volto. This add-on is composed by a frontend component, named `@kitconcept/volto-light-theme`, and a backend component named `kitconcept.voltolighttheme`.
 
-#### Incorporating a New Dependency
+#### Backend: Incorporating a New Dependency
+
+First, we need to add the package as a dependency on the Python project by editing {file}`backend/pyproject.toml` and append `kitconcept.voltolighttheme` to the `dependencies` section. This will ensure the add-on will be available to Python.
+
+Then we tell Zope to load the add-on run-time configurations by editing {file}`backend/src/ploneconf2025/core/dependencies.zcml` and append `kitconcept.voltolighttheme`
+
+And, if we want to have this add-on installed when we create a new website, edit {file}`backend/src/ploneconf2025/core/profiles/default/metadata.xml` and append `kitconcept.voltolighttheme`
+
+
+#### Frontend: Incorporating a New Dependency
 
 Edit {file}`frontend/packages/volto-ploneconf2025/package.json` and append `@kitconcept/volto-light-theme` to the `addons` and `dependencies` sections, as shown below:
 
@@ -51,124 +69,46 @@ module.exports = {
 
 #### Reinstalling the Project
 
-Execute `make frontend-install` from the repository root to install the new add-on and update {file}`frontend/pnpm-lock.yaml`.
+Execute `make install` from the repository root to install the new add-on and update both the {file}`backend/uv.lock` and {file}`frontend/pnpm-lock.yaml`.
 
 #### Restarting the Project
 
 Start your project with `make backend-start` and `make frontend-start` in different shells.
 Navigate to http://localhost:3000.
-After authentication, the new block becomes available on the content edit page.
+
+You should see the new theme applied to your project
 
 #### Committing Changes
 
 Format your codebase with `make check`, then commit and push the changes:
 
 ```shell
-git add frontend/packages/volto-ploneconf2025/package.json frontend/pnpm-lock.yaml
-git commit -m "Add @kitconcept/volto-light-theme"
+git add backend frontend
+git commit -m "Add Volto Light Theme"
 git push
 ```
 
-## Implementing OAuth Support with GitHub
+## Modifying the default content
 
-We'll now add GitHub OAuth authentication, involving both Backend and Frontend add-ons and GitHub OAuth application creation.
+As you can see, the default content available just after the site creation is generic, but we can change that as well.
 
-### Creating a GitHub OAuth Application
+Feel free to edit the content of the site, upload images, design the frontpage with new blocks. When the content pleases you, stop the backend process and then run the following commands:
 
-Follow GitHub's guide on [Creating an OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app), using the following configurations:
-
--   {guilabel}`Application Name`: `plone-conference-local`
--   {guilabel}`Homepage URL`: `http://ploneconf2025.localhost`
--   {guilabel}`Application Description`: `Plone Conference 2024`
--   {guilabel}`Authorization Callback URL`: `http://ploneconf2025.localhost/`
-
-### Backend: Installing `pas.plugins.authomatic`
-
-Modify {file}`backend/setup.py` to include `pas.plugins.authomatic` in `install_requires`. Also, update {file}`backend/src/ploneconf2025/dependencies.zcml` to load the package configuration during Plone Backend startup.
-
-### Frontend: Installing `volto-authomatic`
-
-Add `@plone-collective/volto-authomatic` to the `addons` and `dependencies` sections of {file}`frontend/packages/volto-ploneconf2025/package.json`. Run `make frontend-install` to update the dependencies.
-
-### Activating and Configuring the Add-on
-
-````{note}
-To ensure the name `ploneconf2025.localhost` points to the address `127.0.0.1`, we need to edit the file located at {file}`C:\Windows\System32\Drivers\etc\hosts`.
-
-1.  Open the {guilabel}`Start Menu` and search for "Notepad".
-    Right-click on it and choose {guilabel}`Run as administrator`.
-    If Windows asks if you want the application to make changes to the system, click {guilabel}`Yes`.
-    (If you don't open Notepad as an administrator, you won't be able to modify the `hosts` file.)
-
-2.  In Notepad, click {menuselection}`File --> Open`.
-    Then navigate to the folder {file}`C:\Windows\System32\Drivers\etc`.
-
-3.  In the file dialog, change the filter from {guilabel}`Text Documents (*.txt)` to {guilabel}`All Files (*.*)`.
-    You should now see the `hosts` file.
-    Select it and click {guilabel}`Open`.
-
-4.  At the end of the file, add the following line:
-
-    ```text
-    127.0.0.1 ploneconf2025.localhost
-    ```
-
-5.  Save the file.
-
-6.  Open PowerShell and confirm that the name resolution is working correctly by typing:
-
-    ```shell
-    ping ploneconf2025.localhost
-    ```
-````
-
-Start the Docker Compose stack with `make stack-start`. Navigate to http://ploneconf2025.localhost/ClassicUI/login.
-
-Install `pas.plugins.authomatic` from the {guilabel}`Add-ons` control panel and configure it with the following JSON configuration, replacing `KEYHERE` and `SECRETHERE` with your GitHub OAuth application's client ID and secret.
-
-```json
-{
-  "github": {
-    "display": {
-      "title": "Github",
-      "cssclasses": {
-        "button": "btn btn-default",
-        "icon": "glypicon glyphicon-github"
-      },
-      "as_form": false
-    },
-    "propertymap": {
-      "email": "email",
-      "link": "home_page",
-      "location": "location",
-      "name": "fullname",
-      "picture": "avatar_url"
-    },
-    "class_": "authomatic.providers.oauth2.GitHub",
-    "consumer_key": "KEYHERE",
-    "consumer_secret": "SECRETHERE",
-    "access_headers": {
-      "User-Agent": "Plone (pas.plugins.authomatic)"
-    }
-  }
-}
+```shell
+cd backend
+make update-example-content
 ```
 
-### Authenticating with GitHub
+Now, if you run `git status` you should see changes to files under `backend/src/ploneconf2025/core/setuphandlers/examplecontent`. This is location where `plone.exportimport` will look for the content to be to your Plone site upon creation.
 
-Visit http://ploneconf2025.localhost/login and log in using GitHub.
+Now we are going to add these changes to our repository by running:
 
-### Configure the OAuth user permissions
-
-By default, `pas.plugins.authomatic` will not assign any role or group to an user authenticated with GitHub, but you can, using an existing user such as `admin`, assign the OAuthed user to groups and grant permissions.
-
-Back in the tab you are using to access the `ClassicUI`, visit the control panel {menuselection}`Users --> Users`.
-For the {guilabel}`User name` row, check appropriate permissions.
-For the purpose of this training, check {guilabel}`Manager`, then click {guilabel}`Apply changes`.
-
-```{warning}
-If you need to authenticate bypassing OAuth, there are fallback login forms:
--   Backend: Available at http://ploneconf2025.localhost/ClassicUI/failsafe_login.
--   Frontend: Available at http://ploneconf2025.localhost/fallback_login.
-
+```shell
+cd ../
+make check
+git add backend
+git commit -m "Update example content"
+git push
 ```
+
+Which will trigger a run of the GitHub actions CI workflow, and if no error occurs, producing a new version of the backend container image.

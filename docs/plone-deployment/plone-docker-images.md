@@ -9,7 +9,7 @@ myst:
 
 # Plone Docker Images
 
-Since the release of Plone 6, the community has a new set of public Docker images offering most base options, and documenting the configuration. They are meant as a way to quickly start a project, and provide inspiration for your own projects advanced requirements. 
+Since the release of Plone 6, the community has a new set of public Docker images offering most base options, and documenting the configuration. They are meant as a way to quickly start a project, and provide inspiration for your own projects advanced requirements.
 
 ## `plone/plone-frontend`
 
@@ -188,4 +188,4 @@ EOT
 
 Repository available at https://github.com/plone/plone-zeo/.
 
-Provides a ZEO database server for your container based Plone CMS Stack. This allows you to scale to multiple backends without a relational Database like PostgreSQL or MySQL to store the content data. 
+Provides a ZEO database server for your container based Plone CMS Stack. This allows you to scale to multiple backends without a relational Database like PostgreSQL or MySQL to store the content data.

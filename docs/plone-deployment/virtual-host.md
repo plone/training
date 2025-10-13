@@ -7,7 +7,7 @@ myst:
     "keywords": "Plone, Deployment, Stack, Configuration, Guide, Virtual Host Monster, VHM"
 ---
 
-# Virtual Hosting Services
+# Virtual Hosting and URL Rewrite
 
 Zope comes with one object that helps you do virtual hosting: *Virtual Host Monster* (VHM). Virtual hosting is a way to serve many websites with one backend server.
 

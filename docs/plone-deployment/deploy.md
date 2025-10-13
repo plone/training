@@ -94,10 +94,10 @@ docker exec $(docker ps -qf 'name=_backend'|head -n1) ./docker-entrypoint.sh cre
 
 Monitor the logs of each service with these commands:
 
--   Traefik: `make stack-logs-webserver`
--   Frontend: `make stack-logs-frontend`
--   Backend: `make stack-logs-backend`
--   Database: `make stack-logs-db`
+-   Traefik: `docker service logs traefik_traefik --follow`
+-   Frontend: `docker service logs <stack-name>_frontend --follow`
+-   Backend: `ocker service logs <stack-name>_backend --follow`
+-   Database: `ocker service logs <stack-name>_db --follow`
 
 ## Automating Deployment with GitHub Actions
 
@@ -135,15 +135,6 @@ Add secrets in the `Secrets` section of your environment. Refer to the table bel
 | DEPLOY_SSH  | Content of {file}`devops/etc/keys/plone_prod_deploy_rsa` | The private SSH key for connection.                       |
 | ENV_FILE    | Content of {file}`devops/.env_file_gha`                  | File containing environment variables for the stack file. |
 
-#### Adding Repository Variables
-
-Navigate to {menuselection}`Settings --> Secrets and Variables --> Actions`. Under {guilabel}`Variables`, add the repository variable:
-
-| Name     | Value |
-|----------|-------|
-| LIVE_ENV | The name of the earlier created environment |
-
-This variable is referenced in {file}`.github/workflows/manual_deploy.yml`.
 
 ## Initiating Manual Deployment
 
