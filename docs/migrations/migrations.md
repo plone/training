@@ -13,9 +13,13 @@ myst:
 
 ## Intro
 
+* Who are you (name/country/company)
 * What do you want to learn?
 * What are your experiences with migrations so far?
-* What are your next use cases?
+* If you have brought a migration for the practive-part of the training:
+    * What are the source- and target-versions?
+    * Will you migrate to Volto?
+    * What it special about it (e.g. content-types, size, features, design)?
 
 
 ## What are Migrations?
