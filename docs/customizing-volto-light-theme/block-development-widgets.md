@@ -285,7 +285,7 @@ Create `src/theme/blocks/_hero.scss`:
 .block.hero {
   position: relative;
   display: flex;
-  width: var(--default-container-width);
+  width: 100%;
   max-width: var(--block-width) !important;
   align-items: center;
   justify-content: center;
