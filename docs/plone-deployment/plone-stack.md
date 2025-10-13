@@ -77,10 +77,10 @@ Web server → Web Accelerator → Plone Frontend → Plone Backend → Database
 
 In a multi-server environment, load distribution and redundancy are achieved through various configurations, enabling horizontal scaling.
 
-```{figure} _static/request_flow.png
-:alt: Flow of a request to `https://example.com`
+```{figure} _static/request_flow.svg
+:alt: Flow of a request to `https://plone.example.com`
 
-Flow of a request to https://example.com
+Flow of a request to https://plone.example.com
 ```
 
 #### Web server and Web Accelerator Layer
