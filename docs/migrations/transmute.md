@@ -13,7 +13,7 @@ myst:
 
 Instead of using collective.exportimport for the import of exported data you can also use [`collective.transmute`](https://github.com/collective/collective.transmute)
 
-`collective.transmute` transforms data extracted by `collective.exportimport` into data to be loaded by `plone.exportimport`.
+`collective.transmute` transforms data extracted by `collective.exportimport` into data to be importable by `plone.exportimport`.
 
 ```{important}
 A requirement for `collective.transmute` to work properly is to export each item as a separate file on the server and include the blob-data as base64 in the json-files.
@@ -85,9 +85,13 @@ class ExportAll(BrowserView):
         return self.request.response.redirect(self.context.absolute_url())
 ```
 
-With `collective.transmute` you can first create a nice report about the exported data regarding content types, views, review states and creators.
+With `collective.transmute` you can first create a report about the exported data regarding content types, views, review states and creators.
 
-With `collective.transmute` you can configure a migration-pipeline that includes steps to migrate to Volto (e.g. transform html to Volto-blocks, integrate default-pages and transform collections to listing blocks).
+With `collective.transmute` you need to an configure a migration-pipeline of steps that are applied to each item. A step is basically the same as a `item_hook` in `collective.exportimport`.
+
+There are some steps that come with `collective.transmute` that help to migrate to Volto (e.g. transform html to Volto-blocks, integrate default-pages and transform collections to listing blocks).
+
+`collective.transmute` does not do the import (thats delegated to `plone.exportimport`), so there are no `obj_hooks` like in `plone.exportimport`, you would need to add them to `plone.exportimport` if required.
 
 Since `collective.transmute` is still in alpha and is undergoing development we will refer to the documentation:
 
