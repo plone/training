@@ -1,17 +1,17 @@
 ---
 myst:
   html_meta:
-    "description": "Step-by-step guide to setting up a Plone deployment server."
-    "property=og:description": "Easily set up a Plone deployment server with Ansible, Docker, and Docker Swarm."
-    "property=og:title": "Efficient Plone Deployment Server Setup"
-    "keywords": "Plone, Deployment, Server, Setup, Ansible, Docker, Docker Swarm"
+    "description": "Set up a Plone deployment server with Ansible, Docker, and Docker Swarm"
+    "property=og:description": "Set up a Plone deployment server with Ansible, Docker, and Docker Swarm"
+    "property=og:title": "Set up your Plone deployment server"
+    "keywords": "Plone, deployment, server, setup, Ansible, Docker, Docker Swarm"
 ---
 
-# Setting Up Your Plone Deployment Server
+# Set up your Plone deployment server
 
-Your Plone project's generated codebase includes a {file}`/devops/ansible` folder, equipped with tools for provisioning and setting up a basic server installation. We'll utilize **Ansible** for automation, **Docker** for containerization, and **Docker Swarm** for enhanced scalability and availability.
+Your Plone project's generated code base includes a {file}`/devops/ansible` folder, equipped with tools for provisioning and setting up a basic server installation. We'll utilize **Ansible** for automation, **Docker** for containerization, and **Docker Swarm** for enhanced scalability and availability.
 
-## Navigating to Devops
+## Navigating to `devops`
 
 Start by changing your directory to {file}`devops/ansible`:
 
@@ -19,7 +19,7 @@ Start by changing your directory to {file}`devops/ansible`:
 cd devops/ansible
 ```
 
-## Configuring the Environment
+## Configure the environment
 
 Create a new {file}`.env` file by copying the content from the existing `.env_dist` file:
 
@@ -42,7 +42,7 @@ STACK_NAME=ploneconf2025-<your-github-username>-tangrama-com-br
 The {file}`.env` file is listed in {file}`.gitignore` to prevent pushing environment-specific configurations to the repository.
 ```
 
-## Installing Ansible
+## Install Ansible
 
 Run the following command to create a Python 3 virtual environment and install Ansible with its dependencies:
 
@@ -50,9 +50,9 @@ Run the following command to create a Python 3 virtual environment and install A
 make install
 ```
 
-## Configuring the Inventory
+## Configure the inventory
 
-Update the {file}`devops/ansible/inventory/hosts.ym` file with the appropriate server details:
+Update the {file}`devops/ansible/inventory/hosts.yml` file with the appropriate server details:
 
 ```yaml
 ---
@@ -70,8 +70,7 @@ cluster:
 ```
 
 
-
-## Initiating Server Setup
+## Initiate server setup
 
 With the correct information in {file}`devops/ansible/inventory/hosts.yml`, test the connection to the server with:
 
@@ -87,7 +86,7 @@ uv run ansible-playbook playbooks/setup.yml
 
 This command executes the Ansible playbook {file}`devops/playbooks/setup.yml` performing tasks like installing base packages, creating a user, setting up SSH, and initializing Docker Swarm on the remote server:
 
-## Verifying Remote Server Access
+## Verify remote server access
 
 You should now be able to SSH into the remote server as both **root** and **plone** users:
 
