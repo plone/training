@@ -9,6 +9,8 @@ myst:
 
 # Customize Your Project
 
+[Please fill this form](https://forms.gle/npDRESAud4ntDnUz7)
+
 Plone offers a wealth of features right out of the box. You can extend these capabilities using {term}`TTW` modifications, such as creating new content types, altering the default workflow, or configuring the top-level navigation. For additional functionalities not covered by Plone, you can either develop your own solutions or integrate existing add-ons.
 
 ## Project packages
