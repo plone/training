@@ -4,18 +4,18 @@ myst:
     "description": "Create a project for Plone deployment with Ansible and Docker"
     "property=og:description": "Create a project for Plone deployment with Ansible and Docker"
     "property=og:title": "Create a project for Plone deployment with Ansible and Docker"
-    "keywords": "Plone, Deployment, Ansible, Docker, Project Creation, GitHub"
+    "keywords": "Plone, deployment, Ansible, Docker, project creation, GitHub"
 ---
 
-# Create a new Project
+# Create a new project
 
 As highlighted in the {doc}`intro`'s {ref}`deployment-training-choices`, GitHub is essential for building Docker images automatically in this training.
-The steps can be adapted for other providers like GitLab.
+The steps can be adapted for other providers, including GitLab.
 
-## Generating the Codebase
+## Generate the codebase
 
 ```{note}
-This training session (as of October 2025) will use a still experimental branch of `cookieplone-templates`.
+This training session as of October 2025 will use an experimental branch of `cookieplone-templates`.
 ```
 
 Execute `cookieplone` to generate a Plone project skeleton with the command below.
@@ -27,7 +27,7 @@ COOKIEPLONE_REPOSITORY_TAG=project-profiles uvx cookieplone project
 Answer the prompts as they appear. You can either accept the default values or enter your own.
 
 ```{warning}
-For participants in the **Plone Conference 2025 Training sessions in Jyväskylä Finland**, please use at least the following settings:
+For participants in the **Plone Conference 2025 Training sessions in Jyväskylä, Finland**, please use at least the following settings:
 
 -   {guilabel}`Project Title`: **Plone Conference Training**
 -   {guilabel}`Project Slug`: **ploneconf2025**
@@ -35,28 +35,30 @@ For participants in the **Plone Conference 2025 Training sessions in Jyväskylä
 -   {guilabel}`Should we use prerelease versions?`: **Y(es)**
 -   {guilabel}`Volto Version`: **19.0.0-alpha.6**
 -   {guilabel}`Python Package Name`: **ploneconf2025.core**
--   {guilabel}`GitHub Username or Organization`: **\<your-github-username\>**
+-   {guilabel}`Language`: **1**
+-   {guilabel}`GitHub or GitLab username or organization slug from URL`: **\<your-github-username\>**
 -   {guilabel}`URL to the repository`: **https:\/\/github.com\/<your-github-username\>/ploneconf2025**
--   {guilabel}`Container Registry`: **1 - GitHub Container Registry**
--   {guilabel}`Which persistent storage `: **1 - RelStorage with PostgreSQL**
+-   {guilabel}`GitHub Container Registry`: **1 - GitHub Container Registry**
+-   {guilabel}`Which persistent storage to use in the deployment stack?`: **1 - RelStorage with PostgreSQL**
 -   {guilabel}`Should we setup a caching server`: **Y(es)**
 -   {guilabel}`Add Ansible playbooks?`: **Y(es)**
 -   {guilabel}`Add GitHub Action to Deploy this project?`: **Y(es)**
+-   {guilabel}`Would you like to add a documentation scaffold to your project?`: **Y(es)**
 ```
 
 An example interaction with the `Cookieplone` wizard is shown below:
 
 ```{code-block} console
-:emphasize-lines: 1,3,4,9,10,13,22,25,30,35,39,43,47
+:emphasize-lines: 1,3,4,7,9,10,13,22,23,25,30,35,39,43,47
   [1/20] Project Title (Project Title): Plone Conference Training
   [2/20] Project Description (A new project using Plone 6.):
   [3/20] Project Slug (Used for repository id) (plone-conference-training): ploneconf2025
-  [4/20] Project URL (without protocol) (ploneconf2025.example.com): ploneconf2025-<your-github-username\>.tangrama.com.br
+  [4/20] Project URL (without protocol) (ploneconf2025.example.com): ploneconf2025-<your-github-username>.tangrama.com.br
   [5/20] Author (Plone):
   [6/20] Author E-mail (collective@plone.org):
-  [7/20] Should we use prerelease versions? (No):
+  [7/20] Should we use prerelease versions? (No): Yes
   [8/20] Plone Version (6.1.3):
-  [9/20] Volto Version (18.28.2): 19.0.0-alpha.6
+  [9/20] Volto Version (19.0.0-alpha.6):
   [10/20] Python Package Name (ploneconf2025): ploneconf2025.core
   [11/20] Volto Addon Name (volto-ploneconf2025-core):
   [12/20] Language
@@ -68,9 +70,9 @@ An example interaction with the `Cookieplone` wizard is shown below:
     6 - Suomi
     7 - Italiano
     8 - Svenska
-    Choose from [1/2/3/4/5/6/7/8] (1): 1
+    Choose from [1/2/3/4/5/6/7/8] (1):
   [13/20] GitHub or GitLab username or organization slug from URL (collective): <your-github-username>
-  [14/20] repository_url (https://github.com/<your-github-username>/ploneconf2025):
+  [14/20] URL to the repository (https://github.com/<your-github-username>/ploneconf2025):
   [15/20] Container Registry
     1 - GitHub Container Registry
     2 - Docker Hub
@@ -105,13 +107,13 @@ Navigate to your project directory:
 cd ploneconf2025
 ```
 
-### Understanding the Codebase
+### Understanding the code base
 
 - {file}`/.github/workflows`: Contains GitHub Actions workflows for code testing and container image release.
-- {file}`/backend`: Holds the backend (API) solution with Python codebase located in {file}`src/plone_conference`.
+- {file}`/backend`: Holds the backend (API) solution with Python code base located in {file}`src/plone_conference`.
 - {file}`/frontend`: Contains the frontend (Volto) solution generated by `@plone/generator-volto`.
-- {file}`/devops`: Stores Ansible and Docker Stacks.
-- {file}`/Makefile`: Defines tasks for codebase management.
+- {file}`/devops`: Stores Ansible and Docker stacks.
+- {file}`/Makefile`: Defines tasks for code base management.
 
 We employ [make](https://www.gnu.org/software/make/) for its reliability, widespread availability, and maturity. Future plans include enhancing make's dependency management and capabilities.
 
@@ -121,7 +123,7 @@ View all available commands and descriptions with:
 make help
 ```
 
-## Installing the Codebase and Dependencies
+## Installing the code base and dependencies
 
 Install both the Plone backend and frontend with:
 
@@ -129,13 +131,14 @@ Install both the Plone backend and frontend with:
 make install
 ```
 
-This process will take a few minutes. Once completed, a success message will appear.  Both the frontend and backend in their respective directories will be built. 
+This process will take a few minutes. Once completed, a success message will appear. Both the frontend and backend in their respective directories will be built. 
 
-For the frontend, the node version will be used that you activated in the previous chapter with 'nvm use 22'. For the backend its Python version, uv will check a 'requires-python' in the pyproject.toml file. Or you can create a .python-version in the backend.
+For the frontend, the Node.js version will be used that you activated in the previous chapter with `nvm use --lts`. For the backend Python version, uv will check a `requires-python` key in the {file}`pyproject.toml` file. Or you can create a {file}`.python-version` file in the {file}`backend` folder.
 
-Putting too specific node and python versions in the scaffolded project setup can cause other issues, that's why the project generator hints the versions with ranges or 'LTS'. But it is your own choice and responsibility to check for the correct major versions of both programming language are active and available before you run `make install` in the project root or frontend/backend subdirectories for the first time. 
+Putting too specific Node.js and Python versions in the scaffolded project setup can cause other issues.
+That's why the project generator gives hints for versions with ranges or `LTS`. But it is your own choice and responsibility to check for the correct major versions of both programming languages are active and available before you run `make install` in the project root or frontend and backend subdirectories for the first time. 
 
-### Code Formatting and i18n
+### Code formatting and i18n
 
 Ensure all tests pass on GitHub Actions after pushing the repository by running:
 
@@ -149,10 +152,10 @@ Also update all the translation files by running:
 make i18n
 ```
 
-## Create a Repository on GitHub
+## Create a repository on GitHub
 
 ```{warning}
-You must either have a public repository or a [GitHub Team plan](https://github.com/pricing#compare-features) or a [GitHub Pro plan](https://docs.github.com/en/get-started/learning-about-github/githubs-plans) for a private repository.
+You must either have a public repository, or a [GitHub Team plan](https://github.com/pricing#compare-features) or a [GitHub Pro plan](https://docs.github.com/en/get-started/learning-about-github/githubs-plans) for a private repository.
 Otherwise you will not see the {guilabel}`Environment` option in {guilabel}`Settings`, which is required for setting up the secrets and variables for the GitHub Actions.`
 ```
 
@@ -160,44 +163,47 @@ Otherwise you will not see the {guilabel}`Environment` option in {guilabel}`Sett
 
 Visit [GitHub](https://github.com) and log in.
 
-### 2. Create a New Repository
+### 2. Create a new repository
 
-Click the '+' icon in the upper right corner, select 'New repository', and fill in the details:
+Click the `+` icon in the upper right corner, select `New repository`, and fill in the details:
 
 -   {guilabel}`Repository name`: `ploneconf2025`
 -   {guilabel}`Description`: `Plone Conference 2025 Training`
 -   {guilabel}`Visibility`: `Public`
 
-Click 'Create repository'.
+Click {guilabel}`Create repository`.
 
-## Initialize and Push to the Git Repository
+## Initialize and push to the Git repository
 
 ### 1. Initialize your project
 
-Cookieplone already initializes a Git repository for you, just make sure you did run `make check` and `make i18n`.
+Cookieplone already initializes a Git repository for you.
+Make sure that you ran `make check` and `make i18n`.
 
-### 2. Add Files
+### 2. Add files
 
-stages changes for commit, meaning it tracks the new files (in this case, all files in the directory with `.`). Staging lets you select which changes you want to commit.
+Stage changes to commit in the current directory.
+Staging lets you select which changes you want to commit.
 
 ```shell
 git add .
 ```
 
-### 3. Initial Commit
+### 3. Initial commit
 
-Saves the staged changes along with a brief log message describing the changes.
-Replace "`Initial commit`" with a descriptive message if needed. It's the first commit,
-so we typically label it as the "Initial commit."
+Save the staged changes, along with a brief log message describing the changes.
+Replace `Initial commit` with a descriptive message, if needed.
+For the first commit, we typically label it as `Initial commit`.
 
 ```shell
 git commit -m "Initial commit"
 ```
 
-### 4. Link Local Repository to Remote Repository
+### 4. Link local repository to remote repository
 
 Connect your local repository to the remote server. First replace `<your-github-username>` with your actual GitHub username.
-`origin` is the default name given to the remote repository, and we also set the default branch to be `main`.
+`origin` is the default name given to the remote repository.
+Also set the default branch to `main`.
 
 ```shell
 git remote add origin git@github.com:<your-github-username>/ploneconf2025.git
@@ -206,8 +212,8 @@ git branch -M main
 
 ### 5. Push to GitHub
 
-Push your commits to the remote repository hosted on GitHub. This command will trigger the GitHub Actions that test the codebase and
-generate Docker images for the Backend and for the Frontend.
+Push your commits to the remote repository hosted on GitHub.
+This command will trigger the GitHub Actions that test the codebase and generate Docker images for the backend and for the frontend.
 
 ```shell
 git push -u origin main
