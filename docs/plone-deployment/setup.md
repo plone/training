@@ -111,7 +111,7 @@ The latest version of {term}`Cookieplone` will be used, and it doesn't require a
 
 ### Make
 
-{term}`Make` is pre-installed on most Linux distributions. For macOS, install Xcode and its command-line tools. Windows users are advised to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) that includes `make`.
+See the Plone 6 documentation for how to install {ref}`plone6docs:prerequisites-for-installation-make-label`.
 
 ## Troubleshooting
 
