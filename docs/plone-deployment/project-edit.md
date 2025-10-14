@@ -9,8 +9,6 @@ myst:
 
 # Customize Your Project
 
-[Please fill this form](https://forms.gle/npDRESAud4ntDnUz7)
-
 Plone offers a wealth of features right out of the box. You can extend these capabilities using {term}`TTW` modifications, such as creating new content types, altering the default workflow, or configuring the top-level navigation. For additional functionalities not covered by Plone, you can either develop your own solutions or integrate existing add-ons.
 
 ## Project packages
@@ -88,6 +86,33 @@ Format your codebase with `make check`, then commit and push the changes:
 git add backend frontend
 git commit -m "Add Volto Light Theme"
 git push
+```
+
+## Updating the behaviors for the Plone Site
+
+To ensure the behaviors manually applied to the Plone Site persist after the site is re-created, we need to add them via Generic Setup.
+
+Create a new file {file}`backend/src/ploneconf2025/core/profiles/default/types/Plone_Site.xml` with the following content:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        meta_type="Dexterity FTI"
+        name="Plone Site"
+>
+
+  <!-- Enabled behaviors -->
+  <property name="behaviors"
+            purge="false"
+  >
+    <element value="voltolighttheme.header" />
+    <element value="voltolighttheme.theme" />
+    <element value="voltolighttheme.footer" />
+    <element value="kitconcept.footer" />
+  </property>
+
+
+</object>
 ```
 
 ## Modifying the default content
