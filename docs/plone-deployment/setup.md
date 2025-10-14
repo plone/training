@@ -13,58 +13,50 @@ Ensure a seamless learning experience by preparing your computer with the necess
 
 ## Prerequisites
 
-### 1. Operating system
+### Operating system
 
-Linux/macOS
-:   A recent version is preferred. macOS users should have [Homebrew](https://brew.sh/) installed.
+See the Plone 6 documentation for {ref}`plone6docs:create-project-cookieplone-prerequisites-for-installation-label`.
 
-Windows
-:   Consider using [WSL2 with Ubuntu](https://documentation.ubuntu.com/wsl/en/latest/).
+macOS users should have [Homebrew](https://brew.sh/) installed to install missing prerequisites.
 
-```{warning}
-If you will be following this training in a WSL2 environment, do not use the `root` user.
-Create a specific user, for example `plone`, and give this user the proper permissions.
-```
+### jq
 
-### 2. Git
-
-Ensure you have a recent Git installed and configured on your system.
-
-We do recommend you have the three following settings for Git set before the training starts.
-
-```shell
-git config --global user.name "John Doe"
-git config --global user.email doe@plone.org
-git config --global init.defaultBranch main
-```
-
-### 3. Code Editor
-
-Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, vi, or Emacs.
-
-### 4. uv
-Carefully read the console output for further instructions, and follow them, if needed.
+Use your package manager to install [jq](https://jqlang.org/).
 
 `````{tab-set}
-
-````{tab-item} macOS, Linux, and Windows with WSL
+````{tab-item} macOS
 ```shell
-curl -LsSf https://astral.sh/uv/install.sh | sh
+brew install jq
 ```
 ````
 
-````{tab-item} Windows
+````{tab-item} Unbuntu
 ```shell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+apt install -y jq
+```
+````
+
+````{tab-item} Debian
+```shell
+apt-get install jq
 ```
 ````
 `````
 
-```{seealso}
--   [Other {term}`uv` installation methods](https://docs.astral.sh/uv/getting-started/installation/)
-```
 
-### 5. Docker
+### Git
+
+See the Plone 6 documentation for how to install {ref}`plone6docs:prerequisites-for-installation-git-label`.
+
+### Code editor
+
+Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, vi, or Emacs.
+
+### uv
+
+See the Plone 6 documentation for how to install uv {ref}`plone6docs:prerequisites-for-installation-uv-label`.
+
+### Docker
 
 Ensure Docker version 27.2.0 or above is installed. Verify with:
 
@@ -78,21 +70,9 @@ Ensure Docker is running. Verify with:
 docker ps
 ```
 
-### 6. Node.js and Node.js tools
+### Node.js and its tools
 
-Install the latest Node.js LTS version using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
-
-```shell
-nvm install "lts/*"
-```
-
-```{warning}
-Ensure to use the Node.js LTS Version (22) that is officially supported by Volto.
-```
-
-```shell
-nvm install "22"
-```
+See the Plone 6 documentation for how to install {ref}`plone6docs:prerequisites-for-installation-nodejs-label`.
 
 ````{todo}
 In future versions of the cookiecutter template, a `.nvmrc` file will be included to simplify Node.js version management. The commands below will be applicable then.
@@ -103,7 +83,7 @@ nvm use
 ```
 ````
 
-### 7. External services
+### External services
 
 #### GitHub account
 
@@ -125,13 +105,13 @@ We'll use the GitHub Container Registry during the training. The concepts are al
   docker login
   ```
 
-### 8. Cookieplone
+### Cookieplone
 
 The latest version of {term}`Cookieplone` will be used, and it doesn't require a separate installation as we'll use `uvx`.
 
-### 9. Make
+### Make
 
-{term}`Make` is pre-installed on most Linux distributions. For macOS, install Xcode and its command-line tools. Windows users are advised to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) that includes `make`.
+See the Plone 6 documentation for how to install {ref}`plone6docs:prerequisites-for-installation-make-label`.
 
 ## Troubleshooting
 
