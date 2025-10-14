@@ -15,54 +15,19 @@ Ensure a seamless learning experience by preparing your computer with the necess
 
 ### 1. Operating system
 
-Linux/macOS
-:   A recent version is preferred. macOS users should have [Homebrew](https://brew.sh/) installed.
-
-Windows
-:   Consider using [WSL2 with Ubuntu](https://documentation.ubuntu.com/wsl/en/latest/).
-
-```{warning}
-If you will be following this training in a WSL2 environment, do not use the `root` user.
-Create a specific user, for example `plone`, and give this user the proper permissions.
-```
+See the Plone 6 documentation for {ref}`plone6docs:create-project-cookieplone-prerequisites-for-installation-label`.
 
 ### 2. Git
 
-Ensure you have a recent Git installed and configured on your system.
+See the Plone 6 documentation for how to install {ref}`plone6docs:prerequisites-for-installation-git-label`.
 
-We do recommend you have the three following settings for Git set before the training starts.
-
-```shell
-git config --global user.name "John Doe"
-git config --global user.email doe@plone.org
-git config --global init.defaultBranch main
-```
-
-### 3. Code Editor
+### 3. Code editor
 
 Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, vi, or Emacs.
 
 ### 4. uv
-Carefully read the console output for further instructions, and follow them, if needed.
 
-`````{tab-set}
-
-````{tab-item} macOS, Linux, and Windows with WSL
-```shell
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-````
-
-````{tab-item} Windows
-```shell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-````
-`````
-
-```{seealso}
--   [Other {term}`uv` installation methods](https://docs.astral.sh/uv/getting-started/installation/)
-```
+See the Plone 6 documentation for how to install uv {ref}`plone6docs:prerequisites-for-installation-uv-label`.
 
 ### 5. Docker
 
@@ -78,21 +43,9 @@ Ensure Docker is running. Verify with:
 docker ps
 ```
 
-### 6. Node.js and Node.js tools
+### 6. Node.js and its tools
 
-Install the latest Node.js LTS version using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
-
-```shell
-nvm install "lts/*"
-```
-
-```{warning}
-Ensure to use the Node.js LTS Version (22) that is officially supported by Volto.
-```
-
-```shell
-nvm install "22"
-```
+See the Plone 6 documentation for how to install {ref}`plone6docs:prerequisites-for-installation-nodejs-label`.
 
 ````{todo}
 In future versions of the cookiecutter template, a `.nvmrc` file will be included to simplify Node.js version management. The commands below will be applicable then.
