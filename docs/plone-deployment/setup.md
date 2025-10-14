@@ -13,11 +13,10 @@ Ensure a seamless learning experience by preparing your computer with the necess
 
 ## Prerequisites
 
-### 1. Operating system
+### Operating system
 
 See the Plone 6 documentation for {ref}`plone6docs:create-project-cookieplone-prerequisites-for-installation-label`.
 
-### 2. Git
 macOS users should have [Homebrew](https://brew.sh/) installed to install missing prerequisites.
 
 ### jq
@@ -45,18 +44,19 @@ apt-get install jq
 `````
 
 
+### Git
 
 See the Plone 6 documentation for how to install {ref}`plone6docs:prerequisites-for-installation-git-label`.
 
-### 3. Code editor
+### Code editor
 
 Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, vi, or Emacs.
 
-### 4. uv
+### uv
 
 See the Plone 6 documentation for how to install uv {ref}`plone6docs:prerequisites-for-installation-uv-label`.
 
-### 5. Docker
+### Docker
 
 Ensure Docker version 27.2.0 or above is installed. Verify with:
 
@@ -70,7 +70,7 @@ Ensure Docker is running. Verify with:
 docker ps
 ```
 
-### 6. Node.js and its tools
+### Node.js and its tools
 
 See the Plone 6 documentation for how to install {ref}`plone6docs:prerequisites-for-installation-nodejs-label`.
 
@@ -83,7 +83,7 @@ nvm use
 ```
 ````
 
-### 7. External services
+### External services
 
 #### GitHub account
 
@@ -105,11 +105,11 @@ We'll use the GitHub Container Registry during the training. The concepts are al
   docker login
   ```
 
-### 8. Cookieplone
+### Cookieplone
 
 The latest version of {term}`Cookieplone` will be used, and it doesn't require a separate installation as we'll use `uvx`.
 
-### 9. Make
+### Make
 
 {term}`Make` is pre-installed on most Linux distributions. For macOS, install Xcode and its command-line tools. Windows users are advised to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) that includes `make`.
 
