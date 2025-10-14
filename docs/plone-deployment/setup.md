@@ -7,13 +7,13 @@ myst:
     "keywords": "Plone, Deployment, Training, Setup, Installation"
 ---
 
-# Training Setup
+# Training setup
 
 Ensure a seamless learning experience by preparing your computer with the necessary software before the training commences.
 
 ## Prerequisites
 
-### 1. Operating System
+### 1. Operating system
 
 Linux/macOS
 :   A recent version is preferred. macOS users should have [Homebrew](https://brew.sh/) installed.
@@ -40,7 +40,7 @@ git config --global init.defaultBranch main
 
 ### 3. Code Editor
 
-Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, VI, or Emacs.
+Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, vi, or Emacs.
 
 ### 4. uv
 Carefully read the console output for further instructions, and follow them, if needed.
@@ -78,16 +78,16 @@ Ensure Docker is running. Verify with:
 docker ps
 ```
 
-### 6. Node and Node Tools
+### 6. Node.js and Node.js tools
 
-Install the latest Node LTS version using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
+Install the latest Node.js LTS version using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md).
 
 ```shell
 nvm install "lts/*"
 ```
 
 ```{warning}
-Ensure to use the Node LTS Version (22) that is officially supported by Volto.
+Ensure to use the Node.js LTS Version (22) that is officially supported by Volto.
 ```
 
 ```shell
@@ -95,7 +95,7 @@ nvm install "22"
 ```
 
 ````{todo}
-In future versions of the cookiecutter template, a `.nvmrc` file will be included to simplify Node version management. The commands below will be applicable then.
+In future versions of the cookiecutter template, a `.nvmrc` file will be included to simplify Node.js version management. The commands below will be applicable then.
 
 ```shell
 nvm install
@@ -103,18 +103,18 @@ nvm use
 ```
 ````
 
-### 7. External Services
+### 7. External services
 
-#### GitHub Account
+#### GitHub account
 
 Make sure your computer is set up with the appropriate keys to access your GitHub account,
 as we will be utilizing GitHub extensively throughout this training.
 
 If you are not sure about the keys you have on GitHub, you can check it by accessing the following URL:
 
-* **https://github.com/<your-github-username>.keys**
+`https://github.com/<your-github-username>.keys`
 
-#### Container Registry: GitHub or Docker Hub
+#### Container registry: GitHub or Docker Hub
 
 We'll use the GitHub Container Registry during the training. The concepts are also applicable to Docker Hub. If you prefer Docker Hub:
 
