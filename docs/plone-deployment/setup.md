@@ -42,7 +42,7 @@ git config --global init.defaultBranch main
 
 Choose a code editor you're comfortable with, such as VSCode, PyCharm, Sublime, VI, or Emacs.
 
-### 4. UV
+### 4. uv
 Carefully read the console output for further instructions, and follow them, if needed.
 
 `````{tab-set}
