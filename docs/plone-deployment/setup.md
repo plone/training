@@ -18,6 +18,33 @@ Ensure a seamless learning experience by preparing your computer with the necess
 See the Plone 6 documentation for {ref}`plone6docs:create-project-cookieplone-prerequisites-for-installation-label`.
 
 ### 2. Git
+macOS users should have [Homebrew](https://brew.sh/) installed to install missing prerequisites.
+
+### jq
+
+Use your package manager to install [jq](https://jqlang.org/).
+
+`````{tab-set}
+````{tab-item} macOS
+```shell
+brew install jq
+```
+````
+
+````{tab-item} Unbuntu
+```shell
+apt install -y jq
+```
+````
+
+````{tab-item} Debian
+```shell
+apt-get install jq
+```
+````
+`````
+
+
 
 See the Plone 6 documentation for how to install {ref}`plone6docs:prerequisites-for-installation-git-label`.
 
