@@ -45,9 +45,51 @@ We'll illustrate the process of integrating an add-on named `Volto Light Theme`,
 
 First, we need to add the package as a dependency on the Python project by editing {file}`backend/pyproject.toml` and append `kitconcept.voltolighttheme` to the `dependencies` section. This will ensure the add-on will be available to Python.
 
+```{code-block} toml
+:emphasize-lines: 6
+:caption: {file}`backend/pyproject.toml`
+
+dependencies = [
+    "Products.CMFPlone==6.1.3",
+    "plone.api",
+    "plone.restapi",
+    "plone.volto",
+    "kitconcept.voltolighttheme",
+]
+```
+
 Then we tell Zope to load the add-on run-time configurations by editing {file}`backend/src/ploneconf2025/core/dependencies.zcml` and append `kitconcept.voltolighttheme`.
 
-And, if we want to have this add-on installed when we create a new website, edit {file}`backend/src/ploneconf2025/core/profiles/default/metadata.xml` and append `kitconcept.voltolighttheme`
+```{code-block} xml
+:emphasize-lines: 6
+:caption: {file}`backend/src/ploneconf2025/core/dependencies.zcml`
+
+<?xml version="1.0" encoding="utf-8"?>
+<configure xmlns="http://namespaces.zope.org/zope">
+  <include package="plone.restapi" />
+  <include package="plone.volto" />
+  <include package="plone.app.caching" />
+  <include package="kitconcept.voltolighttheme" />
+</configure>
+```
+
+And, if we want to have this add-on installed when we create a new website, edit {file}`backend/src/ploneconf2025/core/profiles/default/metadata.xml` and append `profile-kitconcept.voltolighttheme:default`.
+
+```{code-block} xml
+:emphasize-lines: 8
+:caption: {file}`backend/src/ploneconf2025/core/profiles/default/metadata.xml`
+
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <version>1000</version>
+  <dependencies>
+    <dependency>profile-plone.volto:default</dependency>
+    <dependency>profile-plone.app.caching:default</dependency>
+    <dependency>profile-plone.app.caching:with-caching-proxy</dependency>
+    <dependency>profile-kitconcept.voltolighttheme:default</dependency>
+  </dependencies>
+</metadata>
+```
 
 
 #### Frontend: incorporate a new dependency
