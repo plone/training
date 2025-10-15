@@ -1,46 +1,98 @@
 ---
 myst:
   html_meta:
-    "description": "A comprehensive guide on customizing and enhancing your Plone project for deployment."
-    "property=og:description": "Learn how to edit, customize, and enhance your Plone project for optimal deployment."
-    "property=og:title": "Customizing Your Plone Project for Deployment"
-    "keywords": "Edit, Plone, Project, Add-ons, Volto, OAuth, GitHub"
+    "description": "How to edit, customize, and enhance your Plone project for optimal deployment"
+    "property=og:description": "How to edit, customize, and enhance your Plone project for optimal deployment"
+    "property=og:title": "Customize your Plone project for deployment"
+    "keywords": "edit, Plone, project, add-ons, Volto, OAuth, GitHub"
 ---
 
-# Customize Your Project
+# Customize your project
+
+[Please fill this form](https://forms.gle/npDRESAud4ntDnUz7).
 
 Plone offers a wealth of features right out of the box. You can extend these capabilities using {term}`TTW` modifications, such as creating new content types, altering the default workflow, or configuring the top-level navigation. For additional functionalities not covered by Plone, you can either develop your own solutions or integrate existing add-ons.
 
 ## Project packages
 
-A Plone project is composed by, at least, a backend Python package and a frontend ReactJS package. These packages, generated for you during the creation of the codebase, are responsible for configuring the project and integrating third-party add-ons.
+A Plone project is composed by, at least, a backend Python package and a frontend React package. These packages, generated for you during the creation of the code base, are responsible for configuring the project and integrating third-party add-ons.
 
 The packages for this training are:
 
-- **ploneconf2025.core**: Package metadata located at `backend/pyproject.toml` and code at `backend/src/ploneconf2025/core`.
-- **volto-ploneconf2025-core**: Package metadata located at `frontend/packages/volto-ploneconf2025-core/package.json` and code at `frontend/packages/volto-ploneconf2025-core/src`.
+`ploneconf2025.core`
+:   Package metadata located at {file}`backend/pyproject.toml` and code at {file}`backend/src/ploneconf2025/core`.
 
-## Integrating Add-ons
+`volto-ploneconf2025-core`
+:   Package metadata located at {file}`frontend/packages/volto-ploneconf2025-core/package.json` and code at {file}`frontend/packages/volto-ploneconf2025-core/src`.
 
-Both Plone Frontend and Backend in your project support add-on integration. Add-ons can be specific to either the Frontend or Backend, or they can be collaborative packages enhancing both components.
+## Integrate add-ons
 
-- **Plone Backend Add-ons**: These are Python packages available on PyPI. [Awesome Plone](https://github.com/collective/awesome-plone) offers a curated list of these add-ons.
-- **Plone Frontend Add-ons**: Written in JavaScript or TypeScript, these are released as NPM packages. Check out [Awesome Volto](https://github.com/collective/awesome-volto) for a collection of Frontend add-ons.
+Both Plone frontend and backend in your project support add-on integration. Add-ons can be specific to either the frontend or backend, or they can be collaborative packages enhancing both components.
 
-### Changing the default theme
+Plone backend add-ons
+:   These are Python packages available on PyPI.
+    [Awesome Plone](https://github.com/collective/awesome-plone) offers a curated list of these add-ons.
+
+Plone frontend add-ons
+:   Written in JavaScript or TypeScript, these are released as npm packages.
+    Check out [Awesome Volto](https://github.com/collective/awesome-volto) for a collection of frontend add-ons.
+
+### Change the default theme
 
 We'll illustrate the process of integrating an add-on named `Volto Light Theme`, which provides a new theme for Volto. This add-on is composed by a frontend component, named `@kitconcept/volto-light-theme`, and a backend component named `kitconcept.voltolighttheme`.
 
-#### Backend: Incorporating a New Dependency
+#### Backend: incorporate a new dependency
 
 First, we need to add the package as a dependency on the Python project by editing {file}`backend/pyproject.toml` and append `kitconcept.voltolighttheme` to the `dependencies` section. This will ensure the add-on will be available to Python.
 
-Then we tell Zope to load the add-on run-time configurations by editing {file}`backend/src/ploneconf2025/core/dependencies.zcml` and append `kitconcept.voltolighttheme`
+```{code-block} toml
+:emphasize-lines: 6
+:caption: {file}`backend/pyproject.toml`
 
-And, if we want to have this add-on installed when we create a new website, edit {file}`backend/src/ploneconf2025/core/profiles/default/metadata.xml` and append `kitconcept.voltolighttheme`
+dependencies = [
+    "Products.CMFPlone==6.1.3",
+    "plone.api",
+    "plone.restapi",
+    "plone.volto",
+    "kitconcept.voltolighttheme",
+]
+```
+
+Then we tell Zope to load the add-on run-time configurations by editing {file}`backend/src/ploneconf2025/core/dependencies.zcml` and append `kitconcept.voltolighttheme`.
+
+```{code-block} xml
+:emphasize-lines: 6
+:caption: {file}`backend/src/ploneconf2025/core/dependencies.zcml`
+
+<?xml version="1.0" encoding="utf-8"?>
+<configure xmlns="http://namespaces.zope.org/zope">
+  <include package="plone.restapi" />
+  <include package="plone.volto" />
+  <include package="plone.app.caching" />
+  <include package="kitconcept.voltolighttheme" />
+</configure>
+```
+
+And, if we want to have this add-on installed when we create a new website, edit {file}`backend/src/ploneconf2025/core/profiles/default/metadata.xml` and append `profile-kitconcept.voltolighttheme:default`.
+
+```{code-block} xml
+:emphasize-lines: 8
+:caption: {file}`backend/src/ploneconf2025/core/profiles/default/metadata.xml`
+
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <version>1000</version>
+  <dependencies>
+    <dependency>profile-plone.volto:default</dependency>
+    <dependency>profile-plone.app.caching:default</dependency>
+    <dependency>profile-plone.app.caching:with-caching-proxy</dependency>
+    <dependency>profile-kitconcept.voltolighttheme:default</dependency>
+  </dependencies>
+</metadata>
+```
 
 
-#### Frontend: Incorporating a New Dependency
+#### Frontend: incorporate a new dependency
 
 Edit {file}`frontend/packages/volto-ploneconf2025/package.json` and append `@kitconcept/volto-light-theme` to the `addons` and `dependencies` sections, as shown below:
 
@@ -88,7 +140,7 @@ git commit -m "Add Volto Light Theme"
 git push
 ```
 
-## Updating the behaviors for the Plone Site
+## Update behaviors for the Plone site
 
 To ensure the behaviors manually applied to the Plone Site persist after the site is re-created, we need to add them via Generic Setup.
 
@@ -115,7 +167,7 @@ Create a new file {file}`backend/src/ploneconf2025/core/profiles/default/types/P
 </object>
 ```
 
-## Modifying the default content
+## Modify the default content
 
 As you can see, the default content available just after the site creation is generic, but we can change that as well.
 
@@ -126,7 +178,7 @@ cd backend
 make update-example-content
 ```
 
-Now, if you run `git status` you should see changes to files under `backend/src/ploneconf2025/core/setuphandlers/examplecontent`. This is location where `plone.exportimport` will look for the content to be to your Plone site upon creation.
+Now, if you run `git status` you should see changes to files under {file}`backend/src/ploneconf2025/core/setuphandlers/examplecontent`. This is the location where `plone.exportimport` will look for the content to be for your Plone site upon creation.
 
 Now we are going to add these changes to our repository by running:
 

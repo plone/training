@@ -133,7 +133,7 @@ make install
 
 This process will take a few minutes. Once completed, a success message will appear. Both the frontend and backend in their respective directories will be built. 
 
-For the frontend, the Node.js version will be used that you activated in the previous chapter with `nvm use --lts`. For the backend Python version, uv will check a `requires-python` key in the {file}`pyproject.toml` file. Or you can create a {file}`.python-version` file in the {file}`backend` folder.
+For the frontend, the Node.js version will be used that you activated in the previous chapter with `nvm use --lts`. For the backend Python version, uv will check a `requires-python` key in the {file}`pyproject.toml` file.
 
 Putting too specific Node.js and Python versions in the scaffolded project setup can cause other issues.
 That's why the project generator gives hints for versions with ranges or `LTS`. But it is your own choice and responsibility to check for the correct major versions of both programming languages are active and available before you run `make install` in the project root or frontend and backend subdirectories for the first time. 
