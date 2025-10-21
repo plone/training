@@ -31,11 +31,11 @@ Customize the {file}`.env` file to match your specific deployment environment. H
 
 ```shell
 DEPLOY_ENV=prod
-DEPLOY_HOST=ploneconf2025-<your-github-username>.tangrama.com.br
+DEPLOY_HOST=pybr25-<your-github-username>.tangrama.com.br
 DEPLOY_PORT=22
 DEPLOY_USER=plone
 DOCKER_CONFIG=.docker
-STACK_NAME=ploneconf2025-<your-github-username>-tangrama-com-br
+STACK_NAME=pybr25-<your-github-username>-tangrama-com-br
 ```
 
 ```{note}
@@ -58,11 +58,11 @@ Update the {file}`devops/ansible/inventory/hosts.yml` file with the appropriate 
 ---
 cluster:
   hosts:
-    ploneconf2025-<your-github-username>.tangrama.com.br:
+    pybr25-<your-github-username>.tangrama.com.br:
       ansible_user: root
-      ansible_host: ploneconf2025-<your-github-username>.tangrama.com.br
-      host: ploneconf2025-<your-github-username>
-      hostname: ploneconf2025-<your-github-username>.tangrama.com.br
+      ansible_host: pybr25-<your-github-username>.tangrama.com.br
+      host: pybr25-<your-github-username>
+      hostname: pybr25-<your-github-username>.tangrama.com.br
       swarm_node:
         labels:
           type: manager
@@ -91,8 +91,8 @@ This command executes the Ansible playbook {file}`devops/playbooks/setup.yml` pe
 You should now be able to SSH into the remote server as both **root** and **plone** users:
 
 ```shell
-ssh root@ploneconf2025-<your-github-username>.tangrama.com.br
-ssh plone@ploneconf2025-<your-github-username>.tangrama.com.br
+ssh root@pybr25-<your-github-username>.tangrama.com.br
+ssh plone@pybr25-<your-github-username>.tangrama.com.br
 ```
 
 # Review

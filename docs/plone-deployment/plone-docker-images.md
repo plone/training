@@ -94,8 +94,8 @@ EOT
 FROM plone/server-prod-config:${PLONE_VERSION}
 
 LABEL maintainer="Plone Community <collective@plone.org>" \
-      org.label-schema.name="ploneconf2025-training-backend" \
-      org.label-schema.description="Plone Conference Training Backend." \
+      org.label-schema.name="pybr25-training-backend" \
+      org.label-schema.description="Tutorial Python Brasil Backend." \
       org.label-schema.vendor="Plone Community"
 
 # Copy /app from builder
@@ -169,8 +169,8 @@ EOT
 FROM plone/server-prod-config:uv-${PYTHON_VERSION}
 
 LABEL maintainer="Plone Community <collective@plone.org>" \
-      org.label-schema.name="ploneconf2025-training-backend" \
-      org.label-schema.description="Plone Conference Training Backend." \
+      org.label-schema.name="pybr25-training-backend" \
+      org.label-schema.description="Tutorial Python Brasil Backend." \
       org.label-schema.vendor="Plone Community"
 
 # Copy the pre-built `/app` directory to the runtime container

@@ -27,17 +27,17 @@ COOKIEPLONE_REPOSITORY_TAG=project-profiles uvx cookieplone project
 Answer the prompts as they appear. You can either accept the default values or enter your own.
 
 ```{warning}
-For participants in the **Plone Conference 2025 Training sessions in Jyväskylä, Finland**, please use at least the following settings:
+For participants in the **Tutorial Python Brasil 2025, in São Paulo, Brazil**, please use at least the following settings:
 
--   {guilabel}`Project Title`: **Plone Conference Training**
--   {guilabel}`Project Slug`: **ploneconf2025**
--   {guilabel}`Project URL`: **ploneconf2025-\<your-github-username\>.tangrama.com.br**
+-   {guilabel}`Project Title`: **Tutorial Python Brasil**
+-   {guilabel}`Project Slug`: **pybr25**
+-   {guilabel}`Project URL`: **pybr25-\<your-github-username\>.tangrama.com.br**
 -   {guilabel}`Should we use prerelease versions?`: **Y(es)**
 -   {guilabel}`Volto Version`: **19.0.0-alpha.6**
--   {guilabel}`Python Package Name`: **ploneconf2025.core**
+-   {guilabel}`Python Package Name`: **pybr25.core**
 -   {guilabel}`Language`: **1**
 -   {guilabel}`GitHub or GitLab username or organization slug from URL`: **\<your-github-username\>**
--   {guilabel}`URL to the repository`: **https:\/\/github.com\/<your-github-username\>/ploneconf2025**
+-   {guilabel}`URL to the repository`: **https:\/\/github.com\/<your-github-username\>/pybr25**
 -   {guilabel}`GitHub Container Registry`: **1 - GitHub Container Registry**
 -   {guilabel}`Which persistent storage to use in the deployment stack?`: **1 - RelStorage with PostgreSQL**
 -   {guilabel}`Should we setup a caching server`: **Y(es)**
@@ -50,17 +50,17 @@ An example interaction with the `Cookieplone` wizard is shown below:
 
 ```{code-block} console
 :emphasize-lines: 1,3,4,7,9,10,13,22,23,25,30,35,39,43,47
-  [1/20] Project Title (Project Title): Plone Conference Training
+  [1/20] Project Title (Project Title): Tutorial Python Brasil
   [2/20] Project Description (A new project using Plone 6.):
-  [3/20] Project Slug (Used for repository id) (plone-conference-training): ploneconf2025
-  [4/20] Project URL (without protocol) (ploneconf2025.example.com): ploneconf2025-<your-github-username>.tangrama.com.br
+  [3/20] Project Slug (Used for repository id) (plone-conference-training): pybr25
+  [4/20] Project URL (without protocol) (pybr25.example.com): pybr25-<your-github-username>.tangrama.com.br
   [5/20] Author (Plone):
   [6/20] Author E-mail (collective@plone.org):
   [7/20] Should we use prerelease versions? (No): Yes
   [8/20] Plone Version (6.1.3):
   [9/20] Volto Version (19.0.0-alpha.6):
-  [10/20] Python Package Name (ploneconf2025): ploneconf2025.core
-  [11/20] Volto Addon Name (volto-ploneconf2025-core):
+  [10/20] Python Package Name (pybr25): pybr25.core
+  [11/20] Volto Addon Name (volto-pybr25-core):
   [12/20] Language
     1 - English
     2 - Deutsch
@@ -72,7 +72,7 @@ An example interaction with the `Cookieplone` wizard is shown below:
     8 - Svenska
     Choose from [1/2/3/4/5/6/7/8] (1):
   [13/20] GitHub or GitLab username or organization slug from URL (collective): <your-github-username>
-  [14/20] URL to the repository (https://github.com/<your-github-username>/ploneconf2025):
+  [14/20] URL to the repository (https://github.com/<your-github-username>/pybr25):
   [15/20] Container Registry
     1 - GitHub Container Registry
     2 - Docker Hub
@@ -104,7 +104,7 @@ An example interaction with the `Cookieplone` wizard is shown below:
 Navigate to your project directory:
 
 ```shell
-cd ploneconf2025
+cd pybr25
 ```
 
 ### Understanding the code base
@@ -131,12 +131,12 @@ Install both the Plone backend and frontend with:
 make install
 ```
 
-This process will take a few minutes. Once completed, a success message will appear. Both the frontend and backend in their respective directories will be built. 
+This process will take a few minutes. Once completed, a success message will appear. Both the frontend and backend in their respective directories will be built.
 
 For the frontend, the Node.js version will be used that you activated in the previous chapter with `nvm use --lts`. For the backend Python version, uv will check a `requires-python` key in the {file}`pyproject.toml` file.
 
 Putting too specific Node.js and Python versions in the scaffolded project setup can cause other issues.
-That's why the project generator gives hints for versions with ranges or `LTS`. But it is your own choice and responsibility to check for the correct major versions of both programming languages are active and available before you run `make install` in the project root or frontend and backend subdirectories for the first time. 
+That's why the project generator gives hints for versions with ranges or `LTS`. But it is your own choice and responsibility to check for the correct major versions of both programming languages are active and available before you run `make install` in the project root or frontend and backend subdirectories for the first time.
 
 ### Code formatting and i18n
 
@@ -167,7 +167,7 @@ Visit [GitHub](https://github.com) and log in.
 
 Click the `+` icon in the upper right corner, select `New repository`, and fill in the details:
 
--   {guilabel}`Repository name`: `ploneconf2025`
+-   {guilabel}`Repository name`: `pybr25`
 -   {guilabel}`Description`: `Plone Conference 2025 Training`
 -   {guilabel}`Visibility`: `Public`
 
@@ -206,7 +206,7 @@ Connect your local repository to the remote server. First replace `<your-github-
 Also set the default branch to `main`.
 
 ```shell
-git remote add origin git@github.com:<your-github-username>/ploneconf2025.git
+git remote add origin git@github.com:<your-github-username>/pybr25.git
 git branch -M main
 ```
 

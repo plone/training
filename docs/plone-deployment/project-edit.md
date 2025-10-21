@@ -9,7 +9,7 @@ myst:
 
 # Customize your project
 
-[Please fill this form](https://forms.gle/npDRESAud4ntDnUz7).
+[Please fill this form](https://forms.gle/ihYVZxmnypwBnZk39).
 
 Plone offers a wealth of features right out of the box. You can extend these capabilities using {term}`TTW` modifications, such as creating new content types, altering the default workflow, or configuring the top-level navigation. For additional functionalities not covered by Plone, you can either develop your own solutions or integrate existing add-ons.
 
@@ -19,11 +19,11 @@ A Plone project is composed by, at least, a backend Python package and a fronten
 
 The packages for this training are:
 
-`ploneconf2025.core`
-:   Package metadata located at {file}`backend/pyproject.toml` and code at {file}`backend/src/ploneconf2025/core`.
+`pybr25.core`
+:   Package metadata located at {file}`backend/pyproject.toml` and code at {file}`backend/src/pybr25/core`.
 
-`volto-ploneconf2025-core`
-:   Package metadata located at {file}`frontend/packages/volto-ploneconf2025-core/package.json` and code at {file}`frontend/packages/volto-ploneconf2025-core/src`.
+`volto-pybr25-core`
+:   Package metadata located at {file}`frontend/packages/volto-pybr25-core/package.json` and code at {file}`frontend/packages/volto-pybr25-core/src`.
 
 ## Integrate add-ons
 
@@ -58,11 +58,11 @@ dependencies = [
 ]
 ```
 
-Then we tell Zope to load the add-on run-time configurations by editing {file}`backend/src/ploneconf2025/core/dependencies.zcml` and append `kitconcept.voltolighttheme`.
+Then we tell Zope to load the add-on run-time configurations by editing {file}`backend/src/pybr25/core/dependencies.zcml` and append `kitconcept.voltolighttheme`.
 
 ```{code-block} xml
 :emphasize-lines: 6
-:caption: {file}`backend/src/ploneconf2025/core/dependencies.zcml`
+:caption: {file}`backend/src/pybr25/core/dependencies.zcml`
 
 <?xml version="1.0" encoding="utf-8"?>
 <configure xmlns="http://namespaces.zope.org/zope">
@@ -73,11 +73,11 @@ Then we tell Zope to load the add-on run-time configurations by editing {file}`b
 </configure>
 ```
 
-And, if we want to have this add-on installed when we create a new website, edit {file}`backend/src/ploneconf2025/core/profiles/default/metadata.xml` and append `profile-kitconcept.voltolighttheme:default`.
+And, if we want to have this add-on installed when we create a new website, edit {file}`backend/src/pybr25/core/profiles/default/metadata.xml` and append `profile-kitconcept.voltolighttheme:default`.
 
 ```{code-block} xml
 :emphasize-lines: 8
-:caption: {file}`backend/src/ploneconf2025/core/profiles/default/metadata.xml`
+:caption: {file}`backend/src/pybr25/core/profiles/default/metadata.xml`
 
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
@@ -92,25 +92,27 @@ And, if we want to have this add-on installed when we create a new website, edit
 ```
 
 
-#### Frontend: incorporate a new dependency
+#### Frontend: incorporate two new dependencies
 
-Edit {file}`frontend/packages/volto-ploneconf2025/package.json` and append `@kitconcept/volto-light-theme` to the `addons` and `dependencies` sections, as shown below:
+Edit {file}`frontend/packages/volto-pybr25/package.json`, add `@kitconcept/volto-light-theme` and `@plone-collective/volto-image-editor` to the `addons` and `dependencies` sections, as shown below:
 
 ```json
 "addons": [
   "...more add-ons",
+  "@plone-collective/volto-image-editor",
   "@kitconcept/volto-light-theme"
 ],
 "dependencies": {
   "...more dependencies": "*",
-  "@kitconcept/volto-light-theme": "7.3.1"
+  "@kitconcept/volto-light-theme": "7.3.1",
+  "@plone-collective/volto-image-editor": "1.0.0-alpha.1"
 }
 ```
 
 Also, edit the {file}`frontend/volto.config.js` and change the theme to be `@kitconcept/volto-light-theme`:
 
 ```js
-const addons = ['volto-ploneconf2025'];
+const addons = ['volto-pybr25'];
 const theme = '@kitconcept/volto-light-theme';
 
 module.exports = {
@@ -144,7 +146,7 @@ git push
 
 To ensure the behaviors manually applied to the Plone Site persist after the site is re-created, we need to add them via Generic Setup.
 
-Create a new file {file}`backend/src/ploneconf2025/core/profiles/default/types/Plone_Site.xml` with the following content:
+Create a new file {file}`backend/src/pybr25/core/profiles/default/types/Plone_Site.xml` with the following content:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -178,7 +180,7 @@ cd backend
 make update-example-content
 ```
 
-Now, if you run `git status` you should see changes to files under {file}`backend/src/ploneconf2025/core/setuphandlers/examplecontent`. This is the location where `plone.exportimport` will look for the content to be for your Plone site upon creation.
+Now, if you run `git status` you should see changes to files under {file}`backend/src/pybr25/core/setuphandlers/examplecontent`. This is the location where `plone.exportimport` will look for the content to be for your Plone site upon creation.
 
 Now we are going to add these changes to our repository by running:
 
