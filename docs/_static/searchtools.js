@@ -326,7 +326,7 @@ const Search = {
       // maybe skip this "word"
       // stopwords array is from language_data.js
       if (
-        (stopwords || []).indexOf(queryTermLower) !== -1 ||
+        stopwords.has(queryTermLower) ||
         queryTerm.match(/^\d+$/)
       )
         return;
