@@ -43,7 +43,7 @@ Zope instance is up and running, ready to create a Plone instance.
 
 We now have a running Zope with a database, but no content.
 
-Push the button {guilabel}`Create a new Plone site`.
+Push the button {guilabel}`Create` in Plone Site (Volto).
 Log in with `admin` and password `admin`.
 The initial login is defined in file `instance.yaml`.
 You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
