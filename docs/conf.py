@@ -197,7 +197,7 @@ html_theme_options = {
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_use_opensearch
 html_use_opensearch = "https://6.docs.plone.org"
 
-html_css_files = ["custom.css", ("print.css", {"media": "print"})]
+html_css_files = ["search.css", "custom.css", ("print.css", {"media": "print"})]
 html_extra_path = [
     "robots.txt",
 ]
