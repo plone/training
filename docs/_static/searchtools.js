@@ -114,7 +114,7 @@ function _getBreadcrumbs(item, linkUrl) {
 
 const _displayItem = (item, searchTerms) => {
   const docBuilder = DOCUMENTATION_OPTIONS.BUILDER;
-  const docUrlRoot = DOCUMENTATION_OPTIONS.URL_ROOT;
+  const docUrlRoot = DOCUMENTATION_OPTIONS.URL_ROOT || "";
   const docFileSuffix = DOCUMENTATION_OPTIONS.FILE_SUFFIX;
   const docLinkSuffix = DOCUMENTATION_OPTIONS.LINK_SUFFIX;
   const showSearchSummary = DOCUMENTATION_OPTIONS.SHOW_SEARCH_SUMMARY;
@@ -326,7 +326,7 @@ const Search = {
       // maybe skip this "word"
       // stopwords array is from language_data.js
       if (
-        stopwords.indexOf(queryTermLower) !== -1 ||
+        stopwords.has(queryTermLower) ||
         queryTerm.match(/^\d+$/)
       )
         return;
