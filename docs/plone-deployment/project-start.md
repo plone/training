@@ -84,7 +84,7 @@ Ensure port 80 is free, then initiate the stack with:
 make stack-start
 ```
 
-Docker will download necessary images, build Frontend and Backend images, and initiate all services. Upon completion, a message prompts you to visit [http://ploneconf2025.localhost](http://ploneconf2025.localhost).
+Docker will download necessary images, build Frontend and Backend images, and initiate all services. Upon completion, a message prompts you to visit [http://pybr25.localhost](http://pybr25.localhost).
 
 ### Checking the Stack Status
 
@@ -108,12 +108,12 @@ Re-run `make stack-status`, and both backend and frontend should now display a *
 
 ### Accessing the site
 
-Your website is accessible at http://ploneconf2025.localhost.
+Your website is accessible at http://pybr25.localhost.
 
 ```{figure} _static/start_stack_localhost.png
-:alt: Accessing the site at `http://ploneconf2025.localhost`
+:alt: Accessing the site at `http://pybr25.localhost`
 
-Accessing the site at `http://ploneconf2025.localhost`
+Accessing the site at `http://pybr25.localhost`
 ```
 
 ### Updating the code base
