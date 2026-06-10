@@ -315,7 +315,7 @@ With the subscription `sponsors` we can now show a nested list.
 ```{code-block} jsx
 :linenos:
 
-{keys(sponsors).map((level) => {
+{Object.keys(sponsors).map((level) => {
   return (
     <div key={level} className={'sponsorlevel ' + level}>
       <h3>{level.toUpperCase()}</h3>
@@ -349,7 +349,6 @@ With the subscription `sponsors` we can now show a nested list.
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Segment, Grid } from 'semantic-ui-react';
-import { keys, isEmpty } from 'lodash';
 
 import { ConditionalLink, Component } from '@plone/volto/components';
 import { searchContent } from '@plone/volto/actions';
@@ -382,12 +381,12 @@ const Sponsors = () => {
     );
   }, [dispatch]);
 
-  return !isEmpty(sponsors) ? (
+  return sponsors && Object.keys(sponsors).length > 0 ? (
     <Segment basic textAlign="center" className="sponsors">
       <div className="sponsorheader">
         <h2 className="subheadline">SPONSORS</h2>
       </div>
-      {keys(sponsors).map((level) => {
+      {Object.keys(sponsors).map((level) => {
         return (
           <div key={level} className={'sponsorlevel ' + level}>
             <h3>{level.toUpperCase()}</h3>
