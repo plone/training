@@ -119,7 +119,7 @@ Both the old site (the one with the 4.3 database) and the new site (without a da
 Since `plone.restapi` is not shipped with Plone 4.3, you need to add it to the buildout and pin the latest version that supports Python 2 and Archetypes.
 
 I recommend using custom configuration files for that.
-Here is an example `export.cfg`:
+Here is an example `export.cfg` that contains the correct packages needed for exportimport to work:
 
 ```ini
 [buildout]
@@ -129,13 +129,165 @@ eggs +=
     collective.exportimport
 
 [versions]
-# always use the newest version!
-collective.exportimport = 1.15
-# Use the latest 7.x version for py2 and at support
-plone.restapi = 7.8.3
-pyrsistent = 0.15.7
-hurry.filesize = 0.9
+archetypes.referencebrowserwidget = 2.4.21
+argcomplete = 1.9.4
+cached-property = 1.4.0
+collective.blueprint.translationlinker = 1.0.1
+collective.jsonmigrator = 0.2
+collective.lastmodifier = 1.0.1
+collective.recipe.shelloutput = 0.1
+collective.transmogrifier = 1.5.2
+collective.z3cinspector = 1.1
+configparser = 3.5.0
+cssselect = 1.0.3
+enum34 = 1.1.6
+errbit = 1.1.3
+futures = 3.2.0
+gdata = 2.0.18
+html = 1.16
+icalendar = 3.6.1
+idna = 2.5
+inflection = 0.3.1
+isort = 4.3.4
+MySQL-python = 1.2.5
+path.py = 11.0
+pathlib = 1.0.1
+plone.api = 1.11.1
+plone.app.jquery = 1.8.3
+plone.app.portlets = 2.5.6
+plone.app.querystring = 1.2.2
+plone.app.transmogrifier = 1.4.1
+plone.app.vocabularies = 2.1.13
+plone.app.widgets = 1.4.0
+plone.multilingual = 1.2.1
+plone.multilingualbehavior = 1.2.1
+plone.recipe.zope2instance = 4.4.1
+Products.RedirectionTool = 1.4.1
+pudb = 2013.5.1
+pycodestyle = 2.3.1
+pydocstyle = 2.1.1
+pyflakes = 1.6.0
+pygments = 1.6
+pyScss = 1.3.5
+requests = 2.18.0
+setuptools = 44.1.1
+simplelayout.base = 4.0.3
+simplelayout.types.common = 3.1.0
+simplelayout.types.flowplayerblock = 1.1.0
+simplelayout.ui.base = 3.0.1
+simplelayout.ui.dragndrop = 3.1.0
+snowballstemmer = 1.2.1
+SQLAlchemy = 0.8.3
+stdlib-list = 0.4.0
+toml = 0.9.4
+transmogrify.dexterity = 1.6.3
+urllib3 = 1.21.1
+urwid = 1.1.2
+xlrd = 0.9.2
+xlutils = 1.7.0
+xlwt = 0.7.5
+xmlbuilder = 1.0
+z3c.dependencychecker = 2.1.1
+zc.buildout = 3.3
+zc.recipe.egg = 2.0.7
+zptlint = 0.2.4
+
+# Versions for migration
+Pillow = 5.4.1
+archetypes.multilingual = 1.2
+cachetools = 3.1.1
+collective.geo.contentlocations = 3.1
+collective.geo.geographer = 2.0
+collective.geo.kml = 3.2
+collective.geo.mapwidget = 2.3
+collective.geo.openlayers = 3.1
+collective.geo.settings = 3.1
+collective.js.ui.multiselect = 1.0.1
+collective.polls = 1.6.2
+collective.recipe.supervisor = 1.0.0
+collective.taskqueue = 1.0
+collective.warmup = 1.2
+collective.z3cform.colorpicker = 1.4
+collective.z3cform.datagridfield = 1.3.3
+collective.z3cform.mapwidget = 2.1
+forbiddenfruit = 0.1.3
+geopy = 1.10.0
+google-api-core = 1.30.0
+google-api-python-client = 2.10.0
+google-auth = 1.32.0
+google-auth-httplib2 = 0.1.0
+google-auth-oauthlib = 0.4.4
+googleapis-common-protos = 1.53.0
+httplib2 = 0.19.1
+meld3 = 2.0.1
+oauthlib = 3.0.0
+packaging = 20.9
+plone.app.event = 1.1
+plone.app.multilingual = 1.2.4
+plone.event = 1.1
+plone.formwidget.recaptcha = 2.2.0
+plone.recipe.command = 1.1
+plone.recipe.precompiler = 0.7.2
+protobuf = 3.17.3
+pyasn1 = 0.4.8
+pyasn1-modules = 0.2.8
+pyparsing = 2.4.7
+requests-oauthlib = 1.3.0
+rsa = 4.5
+simplelayout.base = 4.0.5
+simplelayout.portlet.dropzone = 1.2.2
+simplelayout.types.common = 3.1.0
+simplelayout.types.flowplayerblock = 1.2.0
+simplelayout.types.news = 1.2.3
+simplelayout.ui.base = 3.0.5
+simplelayout.ui.dragndrop = 3.1.0
+six = 1.13.0
+superlance = 1.0.0
+supervisor = 3.3.5
+uritemplate = 3.0.1
+zc.beforestorage = 0.5.1
+collective.quickupload = 1.11.1
+wcs.adminauth = 1.0.1
+Products.PloneKeywordManager = 2.2.2
+
+# collective.exportimport
+attrs = 19.3.0
+backports.functools-lru-cache = 1.6.6
+beautifulsoup4 = 4.9.3
+collective.exportimport = 1.14
 ijson = 3.2.3
+jsonschema = 3.2.0
+plone.rest = 3.0.0
+plone.restapi = 7.9.0
+plone.schema = 1.4.0
+PyJWT = 1.7.1
+pyrsistent = 0.15.7
+soupsieve = 1.9.6
+
+# Required by:
+# jsonschema==3.2.0
+functools32 = 3.2.3.post2
+
+# Required by:
+# collective.exportimport==1.14
+hurry.filesize = 0.9
+
+# Required by:
+# collective.exportimport==1.14
+pathlib2 = 2.3.7.post1
+
+# Required by:
+# pathlib2==2.3.7.post1
+scandir = 1.10.0
+
+# Required by:
+# pathlib2==2.3.7.post1
+typing = 3.10.0.0
+
+# PFG -> easyform migration
+collective.easyform = 1.1.1
+plone.schemaeditor = 2.0.7
+plone.app.contenttypes = 1.1.9
 ```
 
 
