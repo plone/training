@@ -28,9 +28,8 @@ This training is best suited for developers who have prior experience with Volto
 :numbered:
 
 concepts
-creating-new-project
-installing-vlt
-integrate-new-block
-theming
+design-system-implementation
+block-development-widgets
+advanced-components-bm3
 question-answer
 ```
