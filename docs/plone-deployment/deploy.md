@@ -25,7 +25,7 @@ Plone backend
 Postgres 14 database
 :   Handles data persistence.
 
-You can find this stack at {file}`devops/stacks/ploneconf2025-<your-github-username>.tangrama.com.br.yml`. It's modular, allowing integration of additional services, such as {term}`Varnish`, `Solr`, or `ElasticSearch`.
+You can find this stack at {file}`devops/stacks/pybr25-<your-github-username>.tangrama.com.br.yml`. It's modular, allowing integration of additional services, such as {term}`Varnish`, `Solr`, or `ElasticSearch`.
 
 ```{seealso}
 [Traefik Proxy with HTTPS](https://dockerswarm.rocks/traefik/)
@@ -69,7 +69,7 @@ Utilize the {file}`Makefile` at {file}`devops/Makefile` for manual deployment.
 
 ### Deploy the stack
 
-Execute the following command from your project's {file}`devops/ansible` directory to deploy the stack defined in {file}`devops/stacks/ploneconf2025-<your-github-username>.tangrama.com.br.yml` to the remote server.
+Execute the following command from your project's {file}`devops/ansible` directory to deploy the stack defined in {file}`devops/stacks/pybr25-<your-github-username>.tangrama.com.br.yml` to the remote server.
 
 ```shell
 uv run ansible-playbook playbooks/deploy.yml --tags project
@@ -80,13 +80,13 @@ uv run ansible-playbook playbooks/deploy.yml --tags project
 To check the status of all services in your stack, access the remote server:
 
 ```shell
-ssh root@ploneconf2025-<your-github-username>.tangrama.com.br
+ssh root@pybr25-<your-github-username>.tangrama.com.br
 ```
 
 And then run the command:
 
 ```shell
-docker stack ps ploneconf2025-<your-github-username>-tangrama-com-br
+docker stack ps pybr25-<your-github-username>-tangrama-com-br
 ```
 
 ### Create Plone site
@@ -108,7 +108,7 @@ docker service logs traefik_traefik --follow`
 ```
 
 ```{code-block} shell
-:caption: frontend 
+:caption: frontend
 
 docker service logs <stack-name>_frontend --follow`
 ```
@@ -162,7 +162,7 @@ Ensure both backend and frontend tests are successful, and images for both serve
 
 1.  Go to the project's repository on GitHub.
 1.  Click the {guilabel}`Actions` tab.
-1.  Find {guilabel}`Manual Deployment of ploneconf2025-<your-github-username>.tangrama.com.br.yml` and click {guilabel}`Run workflow`.
+1.  Find {guilabel}`Manual Deployment of pybr25-<your-github-username>.tangrama.com.br.yml` and click {guilabel}`Run workflow`.
 1.  For {guilabel}`Use workflow from`, select {guilabel}`Branch: main`.
 1.  Click {guilabel}`Run workflow`.
 
