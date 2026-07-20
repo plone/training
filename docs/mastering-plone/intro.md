@@ -32,7 +32,7 @@ Tell us about yourselves:
 - Take notes.
 - If you have questions later on, https://community.plone.org is the Plone forum with many experienced developers.
 - For coaching, please contact us.  
-  See {ref}`trainers<about-trainers-label>` section below.
+  See {ref}`trainers<about-trainers-label>` in the previous chapter.
 
 
 (intro-docs-label)=
