@@ -11,37 +11,36 @@ myst:
 
 # About Mastering Plone development
 
-The *Mastering Plone Development* training is both: an online training and a handout for on-site trainings.  
+The *Mastering Plone Development* training is both an online training and a handout for on-site trainings.  
 We address developers.
 You are interested in best practice guides and want to learn the why and where, so read on!
 
 ## The beginning and the continuation
 
-This training was initially started as a Plone Classic training and evolved now to a roundtrip on both: Plone backend, React frontend and the interplay between backend and frontend.
+This training was initially started as a Plone Classic training and evolved now to a roundtrip including the Plone backend, the Plone Volto frontend, and the interplay between backend and frontend.
 
 This training is published on [training.plone.org](https://training.plone.org/).
 
-We update the training ongoing to teach the best practices.
+We update the training over time to teach the best practices.
 You are welcome to contribute and give feedback on [GitHub issues](https://github.com/plone/training/issues).
 
-Thank you for reading and your charity with non-native English speakers / writers.
+Thank you for reading and your charity with non-native English speakers and writers.
 
 
 (about-upcoming-label)=
 
 ## Upcoming trainings
 
-Next Plone Conference, usually in October.
-Announced on [plone.org](https://plone.org)
+The Mastering Plone training will be offered September 21-22, 2026 as part of the [2026 Plone Conference](https://2026.ploneconf.org) in Maastricht.
 
-If you want to have an on-site training or want to attend a public training, please ask for trainings on [community.plone.org](https://community.plone.org) or one of the {ref}`trainers<about-trainers-label>`.
+If you want to have an on-site training or want to attend a public training, please ask for trainings on [community.plone.org](https://community.plone.org) or contact one of the {ref}`trainers<about-trainers-label>`.
 
 
 (video-label)=
 
 ## Watch the training video
 
-At Ploneconf 2021 the Mastering Plone Development training has been recorded.
+At Ploneconf 2021 the Mastering Plone Development training was recorded.
 It's a shortened version of the training, given by Philip Bauer and Katja Süss.
 
 [Part 1 – Mastering Plone Development Training](https://www.youtube-nocookie.com/embed/Jzuw3uWtzzI?privacy_mode=1)  

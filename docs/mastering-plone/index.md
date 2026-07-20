@@ -12,7 +12,7 @@ myst:
 # Mastering Plone 6 development
 
 *Mastering Plone Development* is intended as a training to learn proven practices of Plone development.
-It's both an online course and a sketch for an in-person training.
+It's both an online course and a sketch for an on-site training.
 
 The story of a conference platform provides a training of several development topics that can be split into two trainings:
 
