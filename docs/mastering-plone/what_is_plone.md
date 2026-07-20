@@ -11,22 +11,23 @@ myst:
 
 # What is Plone?
 
-Plone is an Open Source Content Management System (CMS) built in Python.
+Plone is an Open Source Content Management System (CMS).
 A CMS lets non-technical people create and maintain content for a public website or an intranet in a web browser.
 
 - Open Source
-- Written and extensible in `Python`
+- 25 years of experience
+- Written and extensible in Python and JavaScript
 - {doc}`Plone REST API<plone6docs:plone.restapi/docs/source/index>`
-- `Volto`: `React` based frontend and editor
+- Volto: React-based frontend and editor
 - Based on the web framework {term}`Zope`
-- Database: `Zope object database` {term}`ZODB` or relational database
+- Database: Zope Object Database ({term}`ZODB`) or relational database
 - Runs on Linux-based systems
 - Docker images available
 
 Plone has a multitude of powerful features, is easily accessible to editors, but also fun for developers.
 
 - Workflow-driven, collaborative management of content
-- Industrial strength security and access control
+- Industrial-strength security and access control
 - Limitless extensibility and huge ecosystem of add-ons
 
 The modular and open component architecture of Plone allows you to change or extend Plone in every aspect!
@@ -93,8 +94,8 @@ Values of these fields are attributes on content objects.
 b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x01,\x01,...'
 ```
 
-Objects can have multiple schemata.
-Additional schemata are called `behaviors`.
+Objects can have multiple schemas.
+Additional schemas are called `behaviors`.
 They are meant to be used across content types to add shared functionality.
 
 ```python
@@ -111,9 +112,9 @@ They are meant to be used across content types to add shared functionality.
  <SchemaClass plone.app.versioningbehavior.behaviors.IVersionable>]
 ```
 
-Each `behavior` schema can define fields.
+Each behavior schema can define fields.
 The values of these fields are again attributes on content objects.
-Plone creates forms for all these schemata to add and edit content.
+Plone creates forms for all these schemas to add and edit content.
 
 
 (what-is-plone-component-architecture-label)=
@@ -121,7 +122,7 @@ Plone creates forms for all these schemata to add and edit content.
 ### Component Architecture
 
 - Plone logic is wired together by a component architecture.
-- The Zope Component Architecture (ZCA) is a Python framework for supporting component based design and programming.
+- The Zope Component Architecture (ZCA) is a Python framework for supporting component-based design and programming.
 - It allows component pluggability and complex dispatching based on objects which implement an interface.
 
 ```{seealso}
@@ -162,21 +163,13 @@ It ranks consistently as one of the most popular programming languages.
 
 ### Database (ZODB)
 
-Data is stored in an object oriented database called `ZODB`: Zope object data base.
-
-- Key features of ZODB https://zodb.org/en/latest/introduction.html
-- ZEO is a client-server storage for ZODB for sharing a single storage among many clients.
-- Storing data in a relational database: RelStorage leverages RDBMS servers to provide a client-server storage.
-
----
-
-
-- [ZODB](https://zodb.org/en/latest/): A native object database for Python
+Data is stored in an object-oriented database called [ZODB](https://zodb.org/en/latest/): Zope Object Database.
 
   - There is no separate language for database operations like SQL
   - There is very little impact on code to make objects persistent
   - Object database != ORM
   - There is almost no seam between code and database.
+  - "NoSQL"
 
 ```python
 import persistent
@@ -194,22 +187,22 @@ class Account(persistent.Persistent):
         self.balance -= amount
 ```
 
-- "NoSQL"
+```{seealso}
 - [ZEO](https://github.com/zopefoundation/ZEO): Server + many clients
-- [ZRS](https://github.com/zopefoundation/zc.zrs): DB-Replication
-- [RelStorage](https://relstorage.readthedocs.io/en/latest/) (store pickles in a relational database) for Postgres, MySQL etc.
+- [RelStorage](https://relstorage.readthedocs.io/en/latest/) stores ZODB objects in PostgreSQL, MySQL, etc.
 - `blobstorage` (binary large objects) in filesystem
+```
 
 
 (what-is-plone-traversal-architecture-zope-label)=
 
 ### Zope
 
-- Zope is a web application framework that Plone runs on top of.
-- Zope is written in Python, some performance-critical things are implemented in C.
-- It serves applications that communicate with users via `http`.
-- Plone 6 uses Zope 5.x
+[Zope](https://www.zope.dev/) is a web application framework that Plone runs on top of.
 
+Zope is mostly written in Python (some performance-critical things are implemented in C).
+It serves applications that communicate with users via `HTTP`.
+Plone 6.2 uses Zope 6.1.
 
 ````{only} not presentation
 Before Zope, web applications were often realized using plain [CGI](https://en.wikipedia.org/wiki/Common_Gateway_Interface).
@@ -285,46 +278,45 @@ The Zope community expresses this with the Python (Monty) maxim: Beware the `Spa
 This is the backend of the CMS.
 Indeed it is a collection of Python packages extending a Zope application.
 
-Plone adds to a Zope application: workflows, a framework to define content types, the feature to maintain multi language content, a catalog indexing content, and many more features.
+Plone adds to a Zope application: workflows, a framework to define content types, the feature to maintain multi-language content, a catalog indexing content, and many more features.
 
 
 (what-is-plone-traversal-architecture-rest-api-label)=
 
+
 ### REST API
 
-{doc}`plone6docs:plone.restapi/docs/source/index`
+The Plone {doc}`plone6docs:plone.restapi/docs/source/index`
 is a hypermedia API to access Plone content using REST (Representational State Transfer).
 
-It is used to connect the Volto frontend with Plone backend.
+It is used to connect the Volto frontend with the Plone backend.
 
 
 (volto-basics-label)=
 
-### Volto Frontend
+### Volto frontend
 
-[Volto](https://github.com/plone/volto) is the default frontend for Plone 6 written in ReactJS.
+[Volto](https://github.com/plone/volto) is the default frontend for Plone 6, built using the React library.
 It uses the REST API to communicate with the backend and offers a modern editing experience.
 
 Here are some basics that you need to understand if you are new to Volto:
 
-- All data is stored in Plone backend.
-  The Volto frontend comes in to display and edit the content.
-- Volto is built in [ReactJS](https://www.reactjs.dev), a modern Javascript Framework.
-- Volto uses {doc}`plone6docs:plone.restapi/docs/source/index` to communicate with the Plone backend.
+- All data is stored in the Plone backend.
+  The Volto frontend provides the user interface to display and edit the content.
+- Volto is built in [React](https://www.react.dev), a Javascript library for creating web components.
+- Volto uses the Plone {doc}`plone6docs:plone.restapi/docs/source/index` to communicate with the Plone backend.
 - Volto is installed separately from the Plone backend.
   See chapter {ref}`installation-install-frontend-label` for instructions.
 - Volto runs in a different process than the Plone backend.
   By default Volto runs on port 3000. If you start Volto with `make start` you can see the frontend on <http://localhost:3000>.
   The Plone backend runs by default on <http://localhost:8080>
-- You create a new Plone instance in an already set up Zope environment via the backend.
-  This is by now not possible in Volto.
-- Volto takes advantage of [Semantic UI React components](https://react.semantic-ui.com/) to compose most of the views.
+- Volto uses [Semantic UI React components](https://react.semantic-ui.com/) to compose most of the views.
 - The Volto default theme is based on Semantic UI theme and is called [Pastanaga](https://www.youtube-nocookie.com/embed/wW9mTl1Tavc?t=133s&privacy_mode=1).
-- Same as Plone Classic, Volto is highly extendable with add-ons for further features.
-- Existing Volto components are customizable with a technology similar to `z3c.jbot` called {ref}`volto-overrides-componentshadowing-label`.
-- Volto provides server side rendering (SSR), important for SEO-purposes.
+- Same as Plone Blicca, Volto is highly extendable with add-ons for further features.
+- Existing Volto components are customizable with a technique called {ref}`volto-overrides-componentshadowing-label`.
+- Volto provides server-side rendering (SSR), important for SEO-purposes.
 - Volto aims to provide 100% of the features of the current Plone backend.
-  Not all features of Plone are implemented in Volto yet.
+  However, a few features of Plone are not implemented in Volto yet.
 - Volto provides additional functionality that Plone does not have.
 - For example Volto features the Pastanaga Editor, allowing you to visually compose a page using blocks.
   This feature is enabled for content types that have the behavior `volto.blocks` enabled.
@@ -332,28 +324,34 @@ Here are some basics that you need to understand if you are new to Volto:
   Additionally you can edit all fields of the content type schema in a sidebar.
 - If you do not use the behavior `volto.blocks`, the fields from a content-type schema are edited and stored exactly like previously in Plone Classic.
 
+```{note}
+There is a new React-based Plone frontend under development, called [Aurora](https://github.com/plone/aurora).
 
-### Classic Frontend
+Aurora intends to replace Volto using updated technologies including TypeScript, Vite, React Router 8, and a new Plone-specific component library.
+However, it is not yet feature complete enough to use for this training.
+```
 
-A stable alternative to the `React` frontend Volto is the classic frontend of Plone that uses server-side rendered HTML.
-Plone ships with a default theme called Barceloneta.
-Since Plone 6 it uses [Bootstrap 5](https://getbootstrap.com/).
-The Plone Classic frontend uses the template-engine [Chameleon](https://chameleon.readthedocs.io/en/latest/) to create html.
+### Blicca frontend
+
+The Plone Blicca frontend is a stable alternative to the Volto frontend that uses server-side rendered HTML.
+
+* It is similar to the frontend used in Plone 5, and is also sometimes called the "Classic UI."
+* Blicca includes a default theme called Barceloneta.
+  Since Plone 6 it uses [Bootstrap 5](https://getbootstrap.com/).
+* Blicca uses the template engine [Chameleon](https://chameleon.readthedocs.io/en/latest/) to create HTML.
+* Interactivity is implemented using [Patternslib](https://patternslib.com/), a JavaScript library that can attach functionality to HTML using special classes and data attributes.
 
 
 ```{note} Choosing the right frontend
 
 Here are some pointers that may help you decide:
 
-- The new Plone 6 frontend is recommended for new projects.
+- The Volto frontend is recommended for new projects, especially for developers who are more familiar with JavaScript than Python.
+  It is also the frontend we will focus on in this training.
 - Existing projects that are updated to Plone 6 can decide which frontend to use.
-  If a lot of customizations were done and you don't want to reimplement a lot of custom templates and features in Volto, it is a good idea to use Plone Classic.
-- For a selection of awesome Volto add-ons see <https://github.com/collective/awesome-volto/>
-- There is a growing ecosystem of add-ons for the React frontend.
-  Be aware that a Plone Classic add-on may not have value for your project, if it has a theming component or anything that concerns the UI.
-  That could be for example a backend add-on that implements the logic and storage of bookmarks.
-  The UI needs to be implemented in React, be it an open source add-on or your custom add-on.
-  Both, frontend and backend, communicate via REST API.
-- Most existing add-ons for Plone will have to be adapted to Volto if they touch the UI (e.g. templates for content types, control panels or viewlets).
+  If a lot of customizations were done and you don't want to reimplement a lot of custom templates and features in Volto, it is a good idea to use the Blicca frontend.
+- If you plan to use add-ons, pay attention to which frontend they support.
+  Some add-ons support both Volto and Blicca, but others only support one specific frontend.
+  For a selection of awesome Volto add-ons see <https://github.com/collective/awesome-volto/>
 - Ask the community for advice if you are not certain what to choose: https://community.plone.org/
 ```

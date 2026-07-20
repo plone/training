@@ -31,7 +31,7 @@ Thank you for reading and your charity with non-native English speakers and writ
 
 ## Upcoming trainings
 
-The Mastering Plone training will be offered September 21-22, 2026 as part of the [2026 Plone Conference](https://2026.ploneconf.org) in Maastricht.
+The Mastering Plone Development training will be offered September 21-22, 2026 as part of the [2026 Plone Conference](https://2026.ploneconf.org) in Maastricht.
 
 If you want to have an on-site training or want to attend a public training, please ask for trainings on [community.plone.org](https://community.plone.org) or contact one of the {ref}`trainers<about-trainers-label>`.
 
