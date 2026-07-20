@@ -12,9 +12,9 @@ myst:
 # Mastering Plone 6 development
 
 *Mastering Plone Development* is intended as a training to learn proven practices of Plone development.
-It's both, an online course and a sketch for an on-the-spot training.
+It's both an online course and a sketch for an in-person training.
 
-The story of a conference platform provides a training of several development topics that can be split in two trainings:
+The story of a conference platform provides a training of several development topics that can be split into two trainings:
 
 - A beginner training (2 to 3 days) covering the essentials of Plone development.
 - An advanced training (3 to 5 days) with additional advanced topics concerning the Plone backend.
@@ -25,9 +25,9 @@ The story of a conference platform provides a training of several development to
 We do not deal with pure Volto topics here.
 For Volto development see training {doc}`training2024:effective-volto/index`.
 
-We expect you to work with the Plone React frontend called Volto.
-Therefore we do not deal with Plone Classic topics here.
-For Plone Classic see training {doc}`training2024:theming/index`, training {doc}`training2023:mastering-plone-5/index` and documentation {doc}`plone6docs:classic-ui/index`
+We expect you to work with the Plone frontend called Volto.
+Therefore we do not deal with Plone Blicca (Classic) topics here.
+For Plone Blicca see training {doc}`training2024:theming/index`, training {doc}`training2023:mastering-plone-5/index` and documentation {doc}`plone6docs:classic-ui/index`
 ```
 
 ```{toctree}
@@ -76,4 +76,5 @@ trainer
 
 Please note that this document is *not complete* without the spoken word of a trainer.
 
-We attempt to include the most important parts of what we teach in the training. But reading it here can not be considered equal to attending a training.
+We attempt to include the most important parts of what we teach in the training.
+But reading it here can not be considered equal to attending a training.
