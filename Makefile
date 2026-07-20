@@ -36,7 +36,7 @@ distclean:  ## Clean docs build directory and Python virtual environment
 	cd $(DOCS_DIR) && rm -rf $(BUILDDIR)/
 
 venv/bin/python:  ## Set up training: Install requirements
-	python3 -m venv venv
+	uv venv --seed venv
 	venv/bin/python -m pip install --upgrade pip
 	venv/bin/pip install -r requirements.txt
 	@echo
