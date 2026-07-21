@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "Our training story"
     "property=og:description": "Our training story"
-    "property=og:title": "The Case Study"
+    "property=og:title": "The case study"
     "keywords": "Plone, training"
 ---
 
 (case-label)=
 
-# The Case Study
+# The case study
 
 (case-background-label)=
 

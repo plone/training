@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "What to expect. Trainings on site. Training videos."
     "property=og:description": "What to expect. Trainings on site. Training videos."
-    "property=og:title": "About Mastering Plone development"
+    "property=og:title": "About Mastering Plone Development"
     "keywords": "Plone, training, develop"
 ---
 
 (about-mastering-label)=
 
-# About Mastering Plone development
+# About Mastering Plone Development
 
 The *Mastering Plone Development* training is both an online training and a handout for on-site trainings.  
 We address developers.

@@ -3,137 +3,36 @@ myst:
   html_meta:
     "description": "Plone from an integrators view"
     "property=og:description": "Plone from an integrators view"
-    "property=og:title": "The Features of Plone"
+    "property=og:title": "Features of Plone"
     "keywords": "Plone, content type, user, group, workflow, content rule, history"
 ---
 
 (features-label)=
 
-# The Features of Plone
+# Features of Plone
 
-Now we create a Plone instance and take a look at all the features you can use as an integrator.
-Developers get a glimpse on the features that can be modified easily.
-
-(features-start-stop-label)=
-
-## Starting and stopping Zope
-
-We control Plone with `make`. Start your Zope instance with:
-
-```shell
-cd training/backend/
-make start
-```
-
-The Zope instance starts up with the message `Ready to handle requests`.
-Later on the instance can be stopped by {kbd}`ctrl c`.
-
-A standard installation listens on port 8080, so let's have a look at <http://localhost:8080>
-
-```{figure} _static/features_plone_running.png
-:alt: Zope instance is up and running, ready to create a Plone instance.
-
-Zope instance is up and running, ready to create a Plone instance.
-```
+Now let's take a look at all the features you can use as an integrator.
+Developers get a glimpse of the features that can be modified easily.
 
 
-(features-create-plonesite-label)=
+(features-start-plone)=
 
-## Creating a Plone site
+## Start Plone
 
-We now have a running Zope with a database, but no content.
+First make sure that Plone is running and that you're logged in.
+You can refer to these instructions from the previous chapter:
 
-Push the button {guilabel}`Create` in Plone Site (Volto).
-Log in with `admin` and password `admin`.
-The initial login is defined in file `instance.yaml`.
-You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
-
-If you ever have the need to create an emergency user, create one with:
-
-```shell
-venv/bin/addzopeuser masterofdesaster mypassworD£xyz2 -c ./instance/etc/zope.conf
-```
-
-```{figure} _static/features_create_site_form.png
-:alt: Create a Plone site
-
-Create a Plone site
-```
-
-You will be automatically redirected to the new site.
-
-This is how the front page should look like:
-
-```{figure} _static/frontpage_plone.png
-:alt: The front page of your site
-
-The front page of your site
-```
-
-
-## Starting and stopping the frontend
-
-Start the frontend of your new Plone site by switching to directory `frontend` and enter:
-
-```shell
-make start
-```
-
-Opening `http://localhost:3000`, you are facing the front page of your Plone site.
-
-```{figure} _static/frontpage_volto.png
-```
-
-You can stop the frontend any time using {kbd}`ctrl c`.
-
-While developing it's not necessary to restart the frontend unless you're adding a new file.
-
-Login to your new site with `admin` and password `admin`.
-
-```{figure} _static/frontpage_volto_logged_in.png
-```
-
-
-### Change ports
-
-#### backend
-
-If you want Plone to listen on port 9080 instead of the default 8080, open the file {file}`backend/instance.yml` in your favorite editor.
-
-```yaml
-wsgi_listen: localhost:8080
-```
-
-Change the address to `localhost:9080` and restart your instance.
-
-You will also have to tell the frontend that the backend is now running on a different port!
-
-You need to change the environment variable `RAZZLE_DEV_PROXY_API_PATH` to the base URL of the backend:
-
-```shell
-RAZZLE_DEV_PROXY_API_PATH=http://localhost:9080/Plone pnpm start
-```
-
-When your Plone instance isn't called `Plone` you can use the same approach:
-
-```shell
-RAZZLE_DEV_PROXY_API_PATH=http://localhost:8080/mysite pnpm start
-```
-
-#### frontend
-
-Change the port of the frontend to 1234
-
-By default the frontend will start on port 3000. You can change the port and/or host name for the frontend by specifying the environment variables `PORT` and/or `HOST`:
-
-```shell
-HOST=localhost PORT=1234 pnpm start
-```
+* {ref}`installation-start-backend-label`
+* {ref}`installation-start-frontend-label`
+* {ref}`installation-log-in-label`
 
 
 (features-walkthrough-label)=
 
 ## Walk through the user interface
+
+```{figure} _static/frontpage_volto_logged_in.png
+```
 
 These are the main elements of the user interface:
 
@@ -170,32 +69,6 @@ At the bottom of the toolbar is a silhouette-icon that holds a menu with the fol
 
 Some toolbar options only show when appropriate.
 For example, {guilabel}`edit` is only shown if the current user has the permission to edit the current page.
-
-
-(features-mailserver-label)=
-
-## Configure a mail server
-
-```{only} not presentation
-For production level deployments you have to configure a mail server.
-Later in the training we will create some content rules that send emails when new content is put on our site.
-
-For the training you don't have to configure a working mailserver since the Plone add-on `Products.PrintingMailHost` is installed which will redirect all emails to the console.
-```
-
-Head over to the mail control panel http://localhost:8080/Plone/@@mail-controlpanel and apply the following configuration:
-
-- Server: {samp}`localhost`
-- Username: leave blank
-- Password: leave blank
-- Site 'From' name: Your name
-- Site 'From' address: Your email address
-
-
-Click on {guilabel}`Save and send test e-mail`.
-You will see the mail content in the console output of your instance.
-Plone will not actually send the email to the receiver's address unless you remove or deactivate [Products.PrintingMailHost](https://pypi.org/project/Products.PrintingMailHost/).
-
 
 
 ## The site structure
@@ -247,7 +120,7 @@ Create a site structure:
 The view of the newly created site structure
 ```
 
-Additional to these conference pages we also want some news and events.
+In addition to these conference pages, we also want some news and events.
 We want a registration page and a protected section for the conference team.
 
 - Add a page "News"
@@ -263,14 +136,14 @@ We want a registration page and a protected section for the conference team.
 
 ## Default content types
 
-The most used default Plone content types are Page, News item, and Event.
+The most used default Plone content types are Page, News Item, and Event.
 
 ### Page
 
-A Page is the most flexible content type.
+A page is the most flexible content type.
 You can use the editor to create, edit and arrange blocks on a page.
 You can choose from blocks for text, an image, a video, a list of existing content and many more.
-Pages are folderish, they can contain other content.
+Pages are folderish (they can contain other content items).
 This means you can use pages to structure your site.
 
 ```{figure} _static/features_add_a_page.png
@@ -278,42 +151,42 @@ This means you can use pages to structure your site.
 
 ### News Item
 
-Basically a page with an image and an image caption to be used for press releases and such.
+A news item is basically a page with an image and an image caption to be used for press releases and such.
 
 ```{figure} _static/features_add_a_news_item.png
 ```
 
 ### Event
 
-Basically a page with start and end dates and some additional fields for whole day or recurring events.
+An event is basically a page with start and end dates and some additional fields for whole day or recurring events.
 
 ```{figure} _static/features_add_a_event.png
 ```
 
 ### Other available content types
 
-There are more content types per default available: file, image, link.
+There are more content types available by default: File, Image, Link.
 
-### Content editing
+### Editing content
 
 For more information on how to edit content, see the training {doc}`/content-editing/index`.
 
 
 (features-containers-label)=
 
-## folderish content
+## Folderish content
 
 Go to "News".
 
-Earlier we created this page with its title "News".
-Therefore this page has the id "news" which we can see as part of its url `http://localhost:3000/news`.
+Earlier we created this page with the title "News".
+Therefore this page has the id `news` which we can see as part of its URL: `http://localhost:3000/news`.
 
 A page is folderish.
 To inspect its contained items, we change to `/contents` by clicking the folder icon.
 
 We can change the order of the two contained items by dragging and dropping.
 
-We can modify their title and id, publish them, etc.. in one step by selecting them and applying a bulk action.
+We can modify their title and id, publish them, etc. in one step by selecting them and applying a bulk action.
 
 ```{figure} _static/contents.png
 :alt: page contents
@@ -321,12 +194,12 @@ We can modify their title and id, publish them, etc.. in one step by selecting t
 `/contents`
 ```
 
-A page has per default the view displaying the blocks of the page.
+By default, a page has the view displaying the blocks of the page.
 As for all content types, you as a developer can provide multiple views or replace the default view.
 This is useful for adding components that should be shown, regardless of how an editor assembles a page with blocks.
 
 By default, the page doesn't show its contained items but only the title and blocks created by an editor.
-To reveal contained items, you can create a listing block.
+To reveal contained items, you can create a listing block or a search block.
 If you use a listing block without any specific criteria, it lists all contained items.
 
 
@@ -334,63 +207,6 @@ If you use a listing block without any specific criteria, it lists all contained
 :alt: listing block
 
 listing contained content items with a listing block
-```
-
-
-(features-content-rules-label)=
-
-## Content Rules
-
-Content rules allow to subscribe actions to events.
-We can access the UI by switching to the site setup.
-Select the menu in the left bottom of your page.
-In the site setup we select the content rules panel.
-
-Each content rule created here is a contract on the site as a whole or just a section to apply an event subscriber to.
-The content rule therefore defines an action that subscribes to an event.
-
-### Exercise
-
-The goal of this exercise is to implement a content rule that will notify a moderator of a new news item.
-
-From within the site setup menu, click "Content Rules". This will open a window containing the content rules and several options to filter the rules by event trigger. For now, there are no rules yet, but we will create one now.
-Click the button "Add content rule" and enter the title "Notify moderators on new news items".
-Select the triggering event "Object added to this container". Later on, we will apply the rule to a specific container.
-Enable the "Enabled" check box to make sure the rule will run when applied.
-Click Save to save the new content rule and return to the content rules overview.
-
-At this point, we have to configure the rule and tell it to send an e-mail to a moderator when a news item has been added to the container.
-Click "Configure" and start by selecting the "Content type" condition.
-Click the "Add" button below the content type, select "News Item" and click the right arrow.
-Select "Send email" in the Action selection field.
-Click the "Add" button below the action selection field and fill out the form. Make sure the mandatory fields (subject, Email recipients, Message) have content and click the right arrow to save the changes.
-
-The rule has been created, but has not been applied to a container yet. Let's do that now.
-Click the left arrow button in the top left corner three times to return to the site.
-If you want to apply the rule to all news items globally for your site, go to your home page, click the context menu button (three dots in the sidebar) and click "Rules".
-From the "Available content rules" dropdown list, select the rule you created earlier and click "Add".
-
-Verify that your rule works by creating a new news item.
-See your backend log or your mail for a notification.
-Did you receive a notification?
-
-
-```{figure} _static/features_add_rule_1.png
-:alt: Create a new content rule for an event.
-
-Create a new content rule for an event.
-```
-
-```{figure} _static/features_add_rule_2.png
-:alt: Configure the content rule with conditions and actions.
-
-Configure the content rule with conditions and actions.
-```
-
-```{figure} _static/features_add_rule_3.png
-:alt: Assign your rule to a page (with or without sub pages) or globally.
-
-Assign your rule to a page (with or without sub pages) or globally.
 ```
 
 
@@ -568,11 +384,65 @@ You can find the UI for adding alternative URLs following the context menu {guil
 
 (features-wc-label)=
 
-## Working copy
 
-```{warning}
-The working copy feature is not yet implemented in Volto UI.
+(features-content-rules-label)=
+
+## Content rules
+
+Content rules automatically perform actions triggered by events.
+We can access the UI by switching to {guilabel}`Site Setup`.
+Select the menu in the bottom left of your page.
+In Site Setup we select the content rules panel.
+
+Each content rule created here is a contract on the site as a whole or just a section to apply an event subscriber to.
+The content rule therefore defines an action that subscribes to an event.
+
+### Exercise
+
+The goal of this exercise is to implement a content rule that will notify a moderator of a new news item.
+
+From within the site setup menu, click "Content Rules". This will open a window containing the content rules and several options to filter the rules by event trigger. For now, there are no rules yet, but we will create one now.
+Click the button "Add content rule" and enter the title "Notify moderators on new news items".
+Select the triggering event "Object added to this container". Later on, we will apply the rule to a specific container.
+Enable the "Enabled" check box to make sure the rule will run when applied.
+Click Save to save the new content rule and return to the content rules overview.
+
+At this point, we have to configure the rule and tell it to send an e-mail to a moderator when a news item has been added to the container.
+Click "Configure" and start by selecting the "Content type" condition.
+Click the "Add" button below the content type, select "News Item" and click the right arrow.
+Select "Send email" in the Action selection field.
+Click the "Add" button below the action selection field and fill out the form. Make sure the mandatory fields (subject, Email recipients, Message) have content and click the right arrow to save the changes.
+
+The rule has been created, but has not been applied to a container yet. Let's do that now.
+Click the left arrow button in the top left corner three times to return to the site.
+If you want to apply the rule to all news items globally for your site, go to your home page, click the context menu button (three dots in the sidebar) and click "Rules".
+From the "Available content rules" dropdown list, select the rule you created earlier and click "Add".
+
+Verify that your rule works by creating a new news item.
+See your backend log or your mail for a notification.
+Did you receive a notification?
+
+
+```{figure} _static/features_add_rule_1.png
+:alt: Create a new content rule for an event.
+
+Create a new content rule for an event.
 ```
+
+```{figure} _static/features_add_rule_2.png
+:alt: Configure the content rule with conditions and actions.
+
+Configure the content rule with conditions and actions.
+```
+
+```{figure} _static/features_add_rule_3.png
+:alt: Assign your rule to a page (with or without sub pages) or globally.
+
+Assign your rule to a page (with or without sub pages) or globally.
+```
+
+
+## Working copy
 
 Published content, even in an intranet setting, can pose a special problem for editing.
 It may need to be reviewed before changes are made available.

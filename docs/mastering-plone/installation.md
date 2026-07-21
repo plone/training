@@ -89,7 +89,7 @@ The build generates **Zope configuration** files with Cookiecutter `cookiecutter
 The file we will modify to update our Zope / Plone configuration is {file}`backend/instance.yaml`.
 In this file we will add add-ons that are installed as Python packages and shall be loaded in our instance.
 `instance.yaml` is the one configuration file for our Zope / Plone instance.
-The documentation of [`cookiecutter-zope-instance`](https://github.com/plone/cookiecutter-zope-instance) explains a lot more that can be configured like the port or another storage. 
+The [documentation of `cookiecutter-zope-instance`](https://plone.github.io/cookiecutter-zope-instance/) explains a lot more that can be configured like the port or another storage. 
 
 The specification of which Node.js packages to install comes from {file}`frontend/package.json` and {file}`frontend/mrs.developer.json`.
 
@@ -154,6 +154,98 @@ Open a second terminal and start it with:
 make frontend-start
 ```
 
-Point your browser to <http://localhost:3000> and see that the app is up and running.
+Point your browser to <http://localhost:3000> and see that the site is up and running.
 
 You can stop the frontend anytime using {kbd}`ctrl c`.
+
+
+(installation-log-in-label)=
+
+## Log in
+
+Log in to your new site with Login Name `admin` and Password `admin`.
+
+````{tip}
+The initial password for the admin user is defined in {file}`backend/instance.yaml`.
+You should change your password in production sites via `http://localhost:8080/acl_users/users/manage_users`.
+
+If you ever have the need to create an emergency user, create one with:
+
+```shell
+backend/.venv/bin/addzopeuser masterofdisaster mypassworD£xyz2 -c backend/instance/etc/zope.conf
+```
+
+````
+
+After logging in, the site should look like this:
+
+```{figure} _static/frontpage_volto_logged_in.png
+```
+
+
+(installation-change-ports-label)=
+
+## Change ports
+
+If you want the Plone backend to listen on port 9080 instead of the default 8080, open the file {file}`backend/instance.yml` in your favorite editor.
+
+Add the `wsgi_listen` option.
+
+```yaml
+default_context:
+    initial_user_password: 'admin'
+    zcml_package_includes: 'ploneconf.site'
+    wsgi_listen: localhost:9080
+```
+
+Now restart your backend.
+
+```shell
+make backend-start
+```
+
+You will also have to tell the frontend that the backend is now running on a different port!
+
+You need to change the environment variable `RAZZLE_INTERNAL_API_PATH` to the base URL of the backend:
+
+```shell
+RAZZLE_INTERNAL_API_PATH=http://localhost:9080/Plone make frontend-start
+```
+
+If your Plone instance isn't called `Plone`, you can use the same approach:
+
+```shell
+RAZZLE_INTERNAL_API_PATH=http://localhost:8080/mysite make frontend-start
+```
+
+By default the frontend will listen on port 3000.
+You can change the port for the frontend by specifying the environment variable `PORT`:
+
+```shell
+PORT=1234 make frontend-start
+```
+
+
+(installation-mailserver-label)=
+
+## Configure a mail server
+
+````{only} not presentation
+For production-level deployments you have to configure a mail server.
+Later in the training we will create some content rules that send emails when new content is put on our site.
+
+For the training you don't have to configure a working mail server.
+The Plone add-on `Products.PrintingMailHost` is installed, which will print all outgoing emails to the console instead of sending them.
+````
+
+Head over to the mail control panel http://localhost:8080/Plone/@@mail-controlpanel and apply the following configuration:
+
+- Server: {samp}`localhost`
+- Username: leave blank
+- Password: leave blank
+- Site 'From' name: Your name
+- Site 'From' address: Your email address
+
+Click on {guilabel}`Save and send test e-mail`.
+You will see the mail content in the console output of your instance.
+Plone will not actually send the email to the receiver's address unless you remove or deactivate [Products.PrintingMailHost](https://pypi.org/project/Products.PrintingMailHost/).
