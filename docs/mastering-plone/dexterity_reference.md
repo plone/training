@@ -12,14 +12,18 @@ myst:
 # Content types reference
 
 This chapter documents common fields, widgets, directives that you can use with content types.
-Content types are often called dexterity types which refers to the rework of the content type concept by dexterity and abandoning the Archetypes system.
+
+```{note}
+You might see references to "Dexterity" which is the internal name of Plone's content type system.
+```
 
 
 ## Fields included in Plone
 
-This is a schema with examples for all field-types that are shipped with Plone by default. They are arranged in fieldsets:
+This is a schema with examples for all field types that are shipped with Plone by default.
+They are arranged in fieldsets:
 
-Text, boolean, email
+Text, Boolean, Email
 
 : Textline, RichText, Boolean, Email, URI
 
@@ -68,63 +72,8 @@ from zope.interface import implementer
 
 
 class IExample(model.Schema):
-    """Dexterity-Schema with common field-types."""
+    """Dexterity schema with common field types."""
 
-    # fieldset(
-    #     "default",
-    #     label="Text, Boolean, Email",
-    #     fields=(
-    #         "title",
-    #         "description",
-    #         "richtext_field",
-    #         "bool_field",
-    #         "email_field",
-    #         "uri_field",
-    #     ),
-    # )
-
-    fieldset(
-        "numberfields",
-        label="Number",
-        fields=("int_field", "float_field"),
-    )
-
-    fieldset(
-        "datetimefields",
-        label="Date and time",
-        fields=(
-            "datetime_field",
-            "date_field",
-        ),
-    )
-
-    fieldset(
-        "choicefields",
-        label="Choice",
-        fields=(
-            "choice_field",
-            "list_field",
-            "tuple_field",
-            "set_field",
-        ),
-    )
-
-    fieldset(
-        "relationfields_volto",
-        label="Relation fields – Volto",
-        fields=(
-            "relationchoice_field_named_staticcatalogvocabulary",
-            "relationlist_field_named_staticcatalogvocabulary",
-        ),
-    )
-
-    fieldset(
-        "filefields",
-        label="File",
-        fields=("file_field", "image_field"),
-    )
-
-    # Default fields
     primary("title")
     title = schema.TextLine(
         title="Primary Field (Textline)",
@@ -137,20 +86,6 @@ class IExample(model.Schema):
         description="zope.schema.TextLine",
         required=False,
     )
-
-    # text_field = schema.Text(
-    #     title="Text Field",
-    #     description="zope.schema.Text",
-    #     required=False,
-    #     missing_value="",
-    #     default="",
-    # )
-
-    # textline_field = schema.TextLine(
-    #     title="Textline field",
-    #     description="A simple input field (zope.schema.TextLine)",
-    #     required=False,
-    # )
 
     richtext_field = RichText(
         title="RichText field",
@@ -177,7 +112,59 @@ class IExample(model.Schema):
         required=False,
     )
 
+    # Number fields
+    fieldset(
+        "numberfields",
+        label="Number",
+        fields=("int_field", "float_field"),
+    )
+
+    int_field = schema.Int(
+        title="Integer Field (e.g. 12)",
+        description="zope.schema.Int",
+        required=False,
+    )
+
+    float_field = schema.Float(
+        title="Float field, e.g. 12.7",
+        description="zope.schema.Float",
+        required=False,
+    )
+
+    # Date and Time fields
+    fieldset(
+        "datetimefields",
+        label="Date and time",
+        fields=(
+            "datetime_field",
+            "date_field",
+        ),
+    )
+
+    datetime_field = schema.Datetime(
+        title="Datetime field",
+        description="Uses a date and time picker (zope.schema.Datetime)",
+        required=False,
+    )
+
+    date_field = schema.Date(
+        title="Date field",
+        description="Uses a date picker (zope.schema.Date)",
+        required=False,
+    )
+
     # Choice fields
+    fieldset(
+        "choicefields",
+        label="Choice",
+        fields=(
+            "choice_field",
+            "list_field",
+            "tuple_field",
+            "set_field",
+        ),
+    )
+
     choice_field = schema.Choice(
         title="Choice field",
         description="zope.schema.Choice",
@@ -218,32 +205,6 @@ class IExample(model.Schema):
         default=set(),
     )
 
-    # File and image fields
-    image_field = NamedBlobImage(
-        title="Image field",
-        description="A upload field for images (plone.namedfile.field.NamedBlobImage)",
-        required=False,
-    )
-
-    file_field = NamedBlobFile(
-        title="File field",
-        description="A upload field for files (plone.namedfile.field.NamedBlobFile)",
-        required=False,
-    )
-
-    # Date and Time fields
-    datetime_field = schema.Datetime(
-        title="Datetime field",
-        description="Uses a date and time picker (zope.schema.Datetime)",
-        required=False,
-    )
-
-    date_field = schema.Date(
-        title="Date field",
-        description="Uses a date picker (zope.schema.Date)",
-        required=False,
-    )
-
     """Relation fields like Volto likes it
 
     RelationChoice and RelationList with named StaticCatalogVocabulary
@@ -251,6 +212,14 @@ class IExample(model.Schema):
     StaticCatalogVocabulary registered with same name as field/relation.
     This allowes Volto relations control panel to restrict potential targets.
     """
+    fieldset(
+        "relationfields_volto",
+        label="Relation fields – Volto",
+        fields=(
+            "relationchoice_field_named_staticcatalogvocabulary",
+            "relationlist_field_named_staticcatalogvocabulary",
+        ),
+    )
 
     relationchoice_field_named_staticcatalogvocabulary = RelationChoice(
         title="RelationChoice – named StaticCatalogVocabulary – Select widget",
@@ -282,16 +251,22 @@ class IExample(model.Schema):
         },
     )
 
-    # Number fields
-    int_field = schema.Int(
-        title="Integer Field (e.g. 12)",
-        description="zope.schema.Int",
+    # File and image fields
+    fieldset(
+        "filefields",
+        label="File",
+        fields=("file_field", "image_field"),
+    )
+
+    image_field = NamedBlobImage(
+        title="Image field",
+        description="A upload field for images (plone.namedfile.field.NamedBlobImage)",
         required=False,
     )
 
-    float_field = schema.Float(
-        title="Float field, e.g. 12.7",
-        description="zope.schema.Float",
+    file_field = NamedBlobFile(
+        title="File field",
+        description="A upload field for files (plone.namedfile.field.NamedBlobFile)",
         required=False,
     )
 
@@ -588,7 +563,7 @@ directives.widget(
 specialfield = schema.TextLine(title="Field with special frontend widget")
 ```
 
-Then register your frontend widget in your apps configuration.
+Then register your frontend widget in your Volto configuration.
 
 ```jsx
 import { MySpecialWidget } from './components';
@@ -616,7 +591,8 @@ The props will be injected into the corresponding widget component, configuring 
 
 ## Directives
 
-Directives can be placed anywhere in the class body (annotations are made directly on the class). By convention they are kept next to the fields they apply to.
+Directives can be placed anywhere in the class body (annotations are made directly on the class).
+By convention, they are kept next to the fields they apply to.
 
 For example, here is a schema that omits a field:
 
@@ -646,7 +622,8 @@ With the directive "mode" you can set fields to 'input', 'display' or 'hidden'.
 directives.mode(additionalInfo='hidden')
 ```
 
-You can apply directives to certain forms only. Here we drop a field from the add-form, it will still show up in the edit-form.
+You can apply directives to certain forms only.
+Here we drop a field from the add form, but it will still show up in the edit form.
 
 ```python
 from z3c.form.interfaces import IAddForm
@@ -664,7 +641,10 @@ class ITask(model.Schema):
 
 The same works for custom forms.
 
-With the directive {py:meth}`widget` you can not only change the widget used for a field. With {py:data}`pattern_options` you can pass additional parameters to the widget. Here, we configure the datetime widget powered by the JavaScript library [pickadate](https://amsul.ca/pickadate.js/) by adding options that are used by it. Plone passes the options to the library.
+With the directive {py:meth}`widget` you can not only change the widget used for a field.
+With {py:data}`pattern_options` you can pass additional parameters to the widget.
+Here, we configure the datetime widget powered by the JavaScript library [pickadate](https://amsul.ca/pickadate.js/) by adding options that are used by it.
+Plone passes the options to the library.
 
 ```python
 class IMeeting(model.Schema):
@@ -712,7 +692,8 @@ class IMeeting(model.Schema):
 
 Validators and defaults can also be made aware of the context (i.e. to check against the values of other fields).
 
-For context aware defaults you need to use a {py:class}`IContextAwareDefaultFactory`. It will be passed the container for which the add form is being displayed:
+For context-aware defaults you need to use a {py:class}`IContextAwareDefaultFactory`.
+It will be passed the container for which the add form is being displayed:
 
 ```python
 from zope.interface import provider
