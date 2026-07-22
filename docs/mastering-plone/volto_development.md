@@ -3,18 +3,18 @@ myst:
   html_meta:
     "description": "Plone development tools"
     "property=og:description": "Plone development tools"
-    "property=og:title": "Plone development"
+    "property=og:title": "Development tools"
     "keywords": "Plone, Volto, development, React, Redux"
 ---
 
 (volto-development-label)=
 
-# Develop
+# Development tools
 
 
 (editors)=
 
-## IDE: Integrated development environment
+## Integrated development environment (IDE)
 
 You are about to write code in Python and React / JavaScript.
 An appropriate integrated development environment supports both writing code and accessing our coding base: Plone Python code and JavaScript / React code.
@@ -22,8 +22,8 @@ An appropriate integrated development environment supports both writing code and
 Some of the most used editors in the Plone community are listed here.
 
 - [VSCode](https://code.visualstudio.com/)
-- [Sublime](https://www.sublimetext.com/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
+- [Sublime](https://www.sublimetext.com/)
 - [Wing IDE](https://wingware.com/)
 
 Some features that most editors have in one form or another, are essential when developing with Plone.
@@ -38,8 +38,7 @@ Some features that most editors have in one form or another, are essential when 
 | git diff | sidebar tab 'source control' |
 | file diff | select via sidebar tab 'explorer' |
 
-The capability of performing a _full text search_ through the complete Plone frontend code is invaluable.
-Thanks to `omelette` mapping the Volto code in your project, you can search through the complete Plone frontend code base quickly.
+The capability of performing a _full text search_ through the complete Plone codebase is invaluable.
 
 IDEs nowadays have plenty of features.
 Beyond the existing features, many extensions offer multiple practical features.
@@ -48,33 +47,38 @@ Here are some extensions we recommend when using VSCode:
 - `Easy Snippet`: Turn your selection into a snippet.
 - `autoDocstring`: Generates python docstrings.
 - JSON Crack: Seamlessly visualize JSON data instantly into graphs.
-- MyST-Markdown:Oofficial markdown syntax extension for MyST (Markedly Structured Text)
+- MyST-Markdown: Official markdown syntax extension for MyST (Markedly Structured Text)
 - Plone Snippets
 - `EsLint`: Statically analyzes your code to find problems.
 
 Editor support for `ReactJS` development is explained in {doc}`Effective Volto training: VSCode extensions and helpers <training2024:effective-volto/development/vscode>`.
 
-Checkout VSCode documentation for topics like [code navigation](https://code.visualstudio.com/docs/editing/editingevolved), [Keyboard shortcuts and Multiple selections](https://code.visualstudio.com/docs/editing/codebasics) and many more that makes your everyday work easier.
+Check VSCode documentation for topics like [code navigation](https://code.visualstudio.com/docs/editing/editingevolved), [Keyboard shortcuts and Multiple selections](https://code.visualstudio.com/docs/editing/codebasics) and many more that make your everyday work easier.
 
 
 (volto-development-tools-label)=
 
-## Tools
+## Browser development tools
 
-### Browser Development Tools
+Most browsers have built-in developer tools which can be used to:
 
-React components can be inspected with `React Developer Tools`: props, hierarchy, and a lot more.
+- explore the document object model (DOM)
+- debug JavaScript code
+- inspect styles
+- inspect network requests
+
+The **React Developer Tools** add a tab to inspect React components: props, hierarchy, and a lot more.
 
 - [React Developer Tools Chrome](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 - [React Developer Tools Firefox](https://addons.mozilla.org/de/firefox/addon/react-devtools/)
 
-The Redux store and actions can be inspected with `Redux Developer Tools`.
+The **Redux Developer Tools** add a tab to inspect the Redux store and actions.
 
 - [Redux Developer Tools Chrome](https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 - [Redux Developer Tools Firefox](https://addons.mozilla.org/de/firefox/addon/reduxdevtools/)
 
 
-### Postman
+## Postman
 
 [Postman](https://www.postman.com/) is an app that lets you execute and save requests.
 We will request REST API endpoints of the backend later with actions.
@@ -98,5 +102,4 @@ Just include `{JSON.stringify(var_name_object)}` in your components `html` code.
 
 Select the Python of your project `backend/venv/bin/python`.
 
-In VSCode this can be done by following the menu on selecting the current Python in the bottom of the IDE.
-
+In VSCode this can be done by opening the Python menu at the bottom of the IDE.
