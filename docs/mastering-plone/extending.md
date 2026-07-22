@@ -3,54 +3,30 @@ myst:
   html_meta:
     "description": "Plone architecture and concepts"
     "property=og:description": "Plone architecture and concepts"
-    "property=og:title": "Extending Plone"
+    "property=og:title": "Extend and customize Plone"
     "keywords": "Plone, architecture, zcml, Generic Setup"
 ---
 
 (extending-label)=
 
-# Extending Plone
+# Extend and customize Plone
 
 ```{card} Backend chapter
 
-In this part you will:
-
-- Get an overview over the technologies used to extend Plone
+In this part you will get an overview over the technologies used to extend the Plone backend.
 
 Topics covered:
 
-- Overriding Python components
+- Extension packages
 - Component architecture
 - ZCML
 - GenericSetup
 ```
 
-As a developer you want to go further than simply configuring Plone, you want to extend and customize it.
+As a developer you want to go further than simply configuring Plone.
+You want to extend and customize it.
 Plone is built to be extended.
 Extendability is not an afterthought but is the core of Plone and the systems it is based on.
-Instead it is the core of its architecture.
-
-> Plone consists of a Python backend and a React frontend.
-> They are connected via the REST API.
-> Thus you have two different layers that you can customize.
-
-Therefore we create two different extension packages to customize and extend Plone:
-
-1. One is a Python package that holds for example content types, behaviors and configuration.
-2. The other is a JavaScript package that hold views, styling and customization of the frontend.
-
-Sometimes it is easy to know, which layer needs to be customized to achieve a certain result.
-
-- All styling and JavaScript-based interaction is customized on the Volto side of Plone.
-- Content types and other persistent data is customized or created in a Python package.
-
-For more complex use cases you will need to add code to both parts of our customization story.
-For example a content type is defined in the Python package and its visualization is defined in the JavaScript package.
-
-
-(extending-technologies-label)=
-
-## Extension technologies
 
 How do you extend Plone?
 
@@ -64,6 +40,32 @@ This depends on what type of extension you want to create.
 For most projects you combine multiple kinds of methods to extend Plone.
 
 
+(extending-packages-label)=
+
+## Extension packages
+
+Plone consists of a Python backend and a React frontend.
+They are connected via the REST API.
+Thus you have two different layers that you can customize.
+
+Therefore we create two different extension packages to customize and extend Plone.
+(These are similar to add-ons, but they are located in the project repository.)
+
+1. One is a Python package that holds for example content types, behaviors and configuration.
+   (For the training project, this is located in {file}`backend/src/ploneconf/site`.)
+2. The other is a JavaScript package that hold views, styling and customization of the frontend.
+   (For the training project, this is located in {file}`frontend/packages/volto-ploneconf-site`.)
+
+Sometimes it is easy to know which layer needs to be customized to achieve a certain result.
+
+- All styling and JavaScript-based interaction is customized on the frontend side of Plone.
+- Content types and other persistent data are customized or created in a Python package.
+
+For more complex use cases you will need to add code to both parts of our customization story.
+For example a content type is defined in the Python package and its visualization is defined in the JavaScript package.
+
+
+
 (extending-technologies-component-architecture-label)=
 
 ## Component Architecture
@@ -75,61 +77,81 @@ For most projects you combine multiple kinds of methods to extend Plone.
 - Powerful and flexible
 ```
 
-```{only} not presentation
-The best way to extend Plone is via *Components*.
+````{only} not presentation
 
-A bit of history is in order.
+Plone uses a component architecture to provide loose coupling between different parts of the system.
 
-When Zope started, object-oriented design was **the** silver bullet.
+What does that mean?
+There is a central registry of components that can fulfill predefined contracts, called interfaces.
+If some code wants to make a call to another part of Plone, it should not do so directly.
+Instead, it should ask the registry for a component that can provide the interface it is designed to use.
 
-Object-oriented design is good at modeling inheritance, but breaks down when an object has multiple aspects that are part of multiple taxonomies.
+There are several kinds of components:
 
-Some object-oriented programming languages like Python handle this through multiple inheritance. But it's not a good way to do it. Zope objects have more than 10 base classes. Too many namespaces makes code that's hard to maintain. Where did that method/attribute come from?
+* *Utilities* provide a standalone service.
+* *Adapters* provide a new way to access an existing object.
+* *Subscribers* execute actions in response to events triggered on a different object.
 
-After a while, XML and Components became the next silver bullet (Does anybody remember J2EE?).
+For example, there is an interface `INameFromTitle` which defines how to get the title for a content item.
+(Get an adapter which is registered for the `INameFromTitle` interface, and get its `title` attribute.)
+If you as a developer want to change how the title is calculated for a specific content type, you can register an `INameFromTitle` adapter for that content type.
 
-Based on their experiences with Zope in the past, Zope developers thought that a component system configured via XML might be the way to go to keep the code more maintainable.
+This is the basis for Plone's extensibility.
+Add-on packages can easily change core Plone functionality by adding or replacing components in the registry, without needing to directly change the code that uses those components.
 
-Before Zope Components functionality was often extended by a practice called Monkey Patching: Changing code in other modules by importing and then modifying it at runtime.
+```{tip}
+Many of the interfaces used by Plone core are defined in the `plone.base` package.
+You can explore them here: https://github.com/plone/plone.base/tree/main/src/plone/base/interfaces
 
-Monkey Patching, like subclassing via multiple inheritance, does not scale. Multiple plugins might overwrite each other, you would explain to people that they have to reorder the imports, and then, suddenly, you will be forced to import feature A before B, B before C and C before A, or else your application won't work.
-
-As the new concepts were radically different from the old Zope concepts, the Zope developers renamed the new project to Zope 3.
-But it did not gain traction, was eventually renamed to Bluebream and then died out.
-
-But the component architecture itself is quite successful and the Zope developers extracted it into the Zope Toolkit. The Zope toolkit is part of Zope, and Plone developers use it extensively.
-
-This is what you want to use.
+However, Plone is made up of many packages, so there are also a lot of interfaces defined elsewhere.
 ```
+
+```{note}
+Earlier versions of Zope and Plone relied more on other ways of composing software, such as object-oriented inheritance.
+But this led to very complicated objects that were difficult to reason about and override.
+
+Over time, many parts have been updated to use the component architecture.
+But there are still some inner parts which use inheritance.
+Sometimes it is necessary to use more invasive techniques like monkey-patching to override core Plone functionality.
+```
+
+````
+
 
 (extending-components-label)=
 
-## Configuring Zope Components with ZCML
+## Configure Zope Components with ZCML
 
 ```{only} presentation
 - zcml (Zope Component Markup Language) is used to register components
 - components are distingushed by interfaces (contracts) that they require or provide
 ```
 
-```{only} not presentation
-ZCML, the Zope Configuration Mark-up Language is an XML based language used to configure Zope Components. With ZCML you declare utilities, adapters and browser views.
+````{only} not presentation
+The Zope Configuration Markup Language (ZCML) is an XML-based language used to configure Zope components.
+With ZCML you register utilities, adapters and browser views using ZCML.
 
 Components are distinguished from one another by the interfaces (formal definitions of functionality) that they require or provide.
 
-During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components and registers everything. All components are registered by interfaces required and provided. Components with the same interfaces may optionally also be named.
+During startup, Zope reads all these ZCML statements, validates that there are not two declarations trying to register the same components, and registers everything.
+All components are registered by interfaces required and provided.
+Components with the same interfaces may optionally also be named.
 
-It may seem a little cumbersome that you have to register all components. But thanks to ZCML, you hardly ever have a hard time to find what and where extensions or customizations are defined. ZCML files are like a phone book.
+```{tip}
+ZCML is only processed at startup time.
+If you make changes to a `.zcml` file, you have to restart the backend in order for the changes to take effect.
 ```
 
-```{eval-rst}
-.. epigraph::
+It may seem a little cumbersome that you have to register all components.
+But thanks to ZCML, you hardly ever have a hard time to find what and where extensions or customizations are defined.
+ZCML files are like a phone book.
+````
 
-    Explicit is better than implicit
-
-    -- The Zen of Python
-
+```{epigraph}
+   Explicit is better than implicit
+   
+   -- The Zen of Python
 ```
-
 
 (extending-technologies-generic-setup-label)=
 
@@ -141,15 +163,24 @@ It may seem a little cumbersome that you have to register all components. But th
 ```
 
 ```{only} not presentation
-The next thing is {py:mod}`Products.GenericSetup`.
+Another tool for configuring Plone using XML files is {term}`GenericSetup`.
 
-*GenericSetup* lets you define persistent configuration in XML files. *GenericSetup* parses the XML files and updates the persistent configuration according to the configuration. This is a step you have to run on your own!
+GenericSetup organizes XML configuration files in a _profile_.
+When the profile is applied, it will update persistent settings stored in the database.
 
-You will see many objects in Zope or the ZMI that you can customize through the web. If they are well behaving, they can export their configuration via *GenericSetup* and import it again.
+Unlike ZCML, GenericSetup profiles are not read automatically.
+You have to apply the profile on your own, usually by installing or upgrading an add-on.
+When you do this, GenericSetup reads the XML files and updates the persistent configuration accordingly.
 
-Typically you use *GenericSetup* to change workflows or add new content type definitions.
+GenericSetup profiles are a useful way to programmatically configure the same things that can be changed through the web in a control panel.
+You will see many objects in Zope or the ZMI that you can customize through the web.
+If they are well behaving, they can export their configuration via GenericSetup and import it again.
 
-GenericSetup profiles may also be built into Python packages. Every package that is listed on the add-on package list inside a Plone installation has a GS profile that details how it fits into Plone. Packages that are part of Plone itself may have GS profiles, but are excluded from the active/inactive listing.
+For example, you can use GenericSetup to change workflows or add new content type definitions.
+
+GenericSetup profiles may also be built into Python packages.
+Every package that is listed in the Add-ons control panel in Site Setup has a GenericSetup profile that defines how it fits into Plone.
+(Packages that are part of Plone itself may also have GenericSetup profiles, but are not shown in the Add-ons control panel unless they are optional.)
 ```
 
 Examples of a profile of an add-on in `profile/default/`
@@ -168,7 +199,8 @@ Examples of a profile of an add-on in `profile/default/`
 </metadata>
 ```
 
-Most settings are stored in a tool called `portal_registry`. Since it has great import/export handlers for GenericSetup it can be configured with {file}`registry/main.xml`:
+Most settings are stored in a tool called `portal_registry`.
+Since it has great import/export handlers for GenericSetup, it can be configured with {file}`registry/main.xml`:
 
 {file}`registry/main.xml`:
 

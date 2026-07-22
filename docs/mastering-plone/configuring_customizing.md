@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "What you can do through the web without touching the code"
     "property=og:description": "What you can do through the web without touching the code"
-    "property=og:title": "Configuring Plone 'through the web'"
+    "property=og:title": "Configure Plone 'through the web'"
     "keywords": "Plone, configuration"
 ---
 
 (configuring-customizing-label)=
 
-# Configuring Plone "through the web"
+# Configure Plone "through the web"
 
 (customizing-controlpanel-label)=
 
