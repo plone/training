@@ -20,7 +20,7 @@ Topics covered:
 - Extension packages
 - Component architecture
 - ZCML
-- GenericSetup
+- Generic Setup
 ```
 
 As a developer you want to go further than simply configuring Plone.
@@ -155,7 +155,7 @@ ZCML files are like a phone book.
 
 (extending-technologies-generic-setup-label)=
 
-## GenericSetup
+## Generic Setup
 
 ```{only} presentation
 - Old style
@@ -163,24 +163,24 @@ ZCML files are like a phone book.
 ```
 
 ```{only} not presentation
-Another tool for configuring Plone using XML files is {term}`GenericSetup`.
+Another tool for configuring Plone using XML files is {term}`Generic Setup`.
 
-GenericSetup organizes XML configuration files in a _profile_.
+Generic Setup organizes XML configuration files in a _profile_.
 When the profile is applied, it will update persistent settings stored in the database.
 
-Unlike ZCML, GenericSetup profiles are not read automatically.
+Unlike ZCML, Generic Setup profiles are not read automatically.
 You have to apply the profile on your own, usually by installing or upgrading an add-on.
-When you do this, GenericSetup reads the XML files and updates the persistent configuration accordingly.
+When you do this, Generic Setup reads the XML files and updates the persistent configuration accordingly.
 
-GenericSetup profiles are a useful way to programmatically configure the same things that can be changed through the web in a control panel.
+Generic Setup profiles are a useful way to programmatically configure the same things that can be changed through the web in a control panel.
 You will see many objects in Zope or the ZMI that you can customize through the web.
-If they are well behaving, they can export their configuration via GenericSetup and import it again.
+If they are well behaving, they can export their configuration via Generic Setup and import it again.
 
-For example, you can use GenericSetup to change workflows or add new content type definitions.
+For example, you can use Generic Setup to change workflows or add new content type definitions.
 
-GenericSetup profiles may also be built into Python packages.
-Every package that is listed in the Add-ons control panel in Site Setup has a GenericSetup profile that defines how it fits into Plone.
-(Packages that are part of Plone itself may also have GenericSetup profiles, but are not shown in the Add-ons control panel unless they are optional.)
+Generic Setup profiles may also be built into Python packages.
+Every package that is listed in the Add-ons control panel in Site Setup has a Generic Setup profile that defines how it fits into Plone.
+(Packages that are part of Plone itself may also have Generic Setup profiles, but are not shown in the Add-ons control panel unless they are optional.)
 ```
 
 Examples of a profile of an add-on in `profile/default/`
@@ -200,7 +200,7 @@ Examples of a profile of an add-on in `profile/default/`
 ```
 
 Most settings are stored in a tool called `portal_registry`.
-Since it has great import/export handlers for GenericSetup, it can be configured with {file}`registry/main.xml`:
+Since it has great import/export handlers for Generic Setup, it can be configured with {file}`registry/main.xml`:
 
 {file}`registry/main.xml`:
 

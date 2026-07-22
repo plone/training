@@ -12,9 +12,7 @@ myst:
 # Content types II: Talk
 
 ```{card}
-In this part you will:
-
-Create a content type 'talk' to store all the data required for a talk.
+In this part you will create a content type "Talk" to store all the data required for a talk.
 
 Tools and techniques covered:
 
@@ -26,7 +24,7 @@ Tools and techniques covered:
 
 ````{card} Backend chapter
 
-Checkout `ploneconf.site` at tag "initial":
+Check out `mastering-plone-project` at tag `initial`:
 
 ```shell
 git checkout initial
@@ -43,78 +41,109 @@ More info in {doc}`code`
 
 ## The type registration
 
-Add a new file {file}`types.xml` to your add-on package in {file}`profiles/default/`.
-
-The following lines will tell Plone that there is a new content type defined.
+Edit the file {file}`backend/src/ploneconf/site/profiles/default/types.xml` and add the `talk` object.
 
 ```xml
-<?xml version="1.0"?>
-<object name="portal_types" meta_type="Plone Types Tool">
-  <object name="talk" meta_type="Dexterity FTI"/>
+<?xml version="1.0" encoding="utf-8"?>
+<object meta_type="Plone Types Tool"
+        name="portal_types"
+>
+  <object meta_type="Dexterity FTI"
+          name="talk"
+  />
 </object>
 ```
 
-Plone will now expect a file {file}`profiles/default/types/talk.xml` and will register that as a new content type.
+Plone will now expect a file {file}`backend/src/ploneconf/site/profiles/default/types/talk.xml` and will register that as a new content type.
 
 ## The FTI
 
-Add the file `profiles/default/types/talk.xml`.
-Note there is a file _types_ and a folder _types_.
+Add the file `backend/src/ploneconf/site/profiles/default/types/talk.xml`.
+Note there is a file `types.xml` and a folder `types`.
 
-This is the **Factory Type Information** that holds the configuration for the content type **talk**.
+This is the **Factory Type Information** that holds the configuration for the content type **Talk**.
 
 ```{code-block} xml
 :linenos:
 
-<?xml version="1.0"?>
-<object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Talk</property>
- <property name="description" i18n:translate=""></property>
- <property name="icon_expr">string:${portal_url}/document_icon.png</property>
- <property name="factory">talk</property>
- <property name="add_view_expr">string:${folder_url}/++add++talk</property>
- <property name="link_target"></property>
- <property name="immediate_view">view</property>
- <property name="global_allow">True</property>
- <property name="filter_content_types">True</property>
- <property name="allowed_content_types"/>
- <property name="allow_discussion">False</property>
- <property name="default_view">view</property>
- <property name="view_methods">
-  <element value="view"/>
- </property>
- <property name="default_view_fallback">False</property>
- <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">ploneconf.site.content.talk.Talk</property>
- <property name="schema">ploneconf.site.content.talk.ITalk</property>
- <property name="behaviors">
-  <element value="plone.dublincore"/>
-  <element value="plone.namefromtitle"/>
-  <element value="plone.versioning" />
- </property>
- <property name="model_source"></property>
- <property name="model_file"></property>
- <property name="schema_policy">dexterity</property>
- <alias from="(Default)" to="(dynamic view)"/>
- <alias from="edit" to="@@edit"/>
- <alias from="sharing" to="@@sharing"/>
- <alias from="view" to="(selected layout)"/>
- <action title="View" action_id="view" category="object" condition_expr=""
-    description="" icon_expr="" link_target="" url_expr="string:${object_url}"
-    visible="True">
-  <permission value="View"/>
- </action>
- <action title="Edit" action_id="edit" category="object" condition_expr=""
-    description="" icon_expr="" link_target=""
-    url_expr="string:${object_url}/edit" visible="True">
-  <permission value="Modify portal content"/>
- </action>
+<?xml version="1.0" encoding="utf-8"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        meta_type="Dexterity FTI"
+        name="talk"
+        i18n:domain="plone"
+>
+  <property name="title"
+            i18n:translate=""
+  >Talk</property>
+  <property name="description"
+            i18n:translate=""
+  />
+  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+  <property name="factory">talk</property>
+  <property name="add_view_expr">string:${folder_url}/++add++talk</property>
+  <property name="link_target" />
+  <property name="immediate_view">view</property>
+  <property name="global_allow">True</property>
+  <property name="filter_content_types">True</property>
+  <property name="allowed_content_types" />
+  <property name="allow_discussion">False</property>
+  <property name="default_view">view</property>
+  <property name="view_methods">
+    <element value="view" />
+  </property>
+  <property name="default_view_fallback">False</property>
+  <property name="add_permission">cmf.AddPortalContent</property>
+  <property name="klass">ploneconf.site.content.talk.Talk</property>
+  <property name="schema">ploneconf.site.content.talk.ITalk</property>
+  <property name="behaviors">
+    <element value="plone.dublincore" />
+    <element value="plone.namefromtitle" />
+    <element value="plone.versioning" />
+  </property>
+  <property name="model_source" />
+  <property name="model_file" />
+  <property name="schema_policy">dexterity</property>
+  <alias from="(Default)"
+         to="(dynamic view)"
+  />
+  <alias from="edit"
+         to="@@edit"
+  />
+  <alias from="sharing"
+         to="@@sharing"
+  />
+  <alias from="view"
+         to="(selected layout)"
+  />
+  <action action_id="view"
+          category="object"
+          condition_expr=""
+          description=""
+          icon_expr=""
+          link_target=""
+          title="View"
+          url_expr="string:${object_url}"
+          visible="True"
+  >
+    <permission value="View" />
+  </action>
+  <action action_id="edit"
+          category="object"
+          condition_expr=""
+          description=""
+          icon_expr=""
+          link_target=""
+          title="Edit"
+          url_expr="string:${object_url}/edit"
+          visible="True"
+  >
+    <permission value="Modify portal content" />
+  </action>
 </object>
 ```
 
 Now our package has a new configuration for Generic Setup.
-Generic Setup loads a lot of different types of configuration for the site from folder {file}`profiles/`.
+Generic Setup loads a lot of different types of configuration for the site from the folder {file}`profiles/`.
 This configuration is applied to your site upon installing the package.
 This also means that you will need to re-install the package once we are finished with the talk.
 
@@ -128,11 +157,10 @@ It is also the place where you would add widget options per field to control the
 
 In the FTI we referenced the Python path `ploneconf.site.content.talk.ITalk`.
 
-The module {py:mod}`content` does not exist.
-Create a folder {file}`content` and add an empty {file}`__init__.py` in it.
-From the training root that is {file}`backend/sources/ploneconf.site/src/ploneconf/site/content/__init__.py`.
+The package {py:mod}`ploneconf.site.content` already exists.
+Find it in at this path: {file}`backend/src/ploneconf/site/content`.
 
-In this new folder add a file {file}`talk.py` with the following content:
+In this folder add a new file {file}`talk.py` with the following content:
 
 ```{code-block} python
 :linenos:
@@ -147,17 +175,15 @@ from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from z3c.form.browser.radio import RadioFieldWidget
 from zope.interface import implementer
-from zope.schema.vocabulary import SimpleTerm
-from zope.schema.vocabulary import SimpleVocabulary
 
 
 class ITalk(model.Schema):
-    """Dexterity-Schema for Talks"""
+    """Dexterity schema for Talks"""
 
     directives.widget(type_of_talk=RadioFieldWidget)
     type_of_talk = schema.Choice(
         title="Type of talk",
-        values=["talk", "training", "keynote"],
+        values=["Talk", "Training", "Keynote"],
         required=True,
     )
 
@@ -172,7 +198,7 @@ class ITalk(model.Schema):
     audience = schema.Set(
         title="Audience",
         value_type=schema.Choice(
-            values=['beginner', 'advanced', 'professional'],
+            values=["Beginner", "Advanced", "Professional"],
         ),
         required=False,
     )
@@ -190,17 +216,12 @@ class ITalk(model.Schema):
 
     email = Email(
         title="Email",
-        description="Email adress of the speaker",
+        description="Email address of the speaker",
         required=False,
     )
 
     website = schema.TextLine(
         title="Website",
-        required=False,
-    )
-
-    twitter = schema.TextLine(
-        title="Twitter name",
         required=False,
     )
 
@@ -231,10 +252,10 @@ The first class {py:class}`ITalk` is the schema for talks and defines quite a lo
 
 - The fields in the schema are mostly from {py:mod}`zope.schema`.
 - The most basic field is `schema.TextLine` which can store text.
-- In the next chapter you will find a reference of all field-types available in Plone.
-- The widget directives can be ignored by now, as we are implementing for a frontend app.
-    The widget directives like above do control the rendering of the fields in Plone Classic.
-    In the rare case that you need to tweak the rendering of a field in frontend, this can be done like described in {doc}`plone6docs:volto/development/widget`
+- In the next chapter you will find a reference of all field types available in Plone.
+- The widget directives can be ignored by now, as we are implementing for a Volto frontend.
+  The widget directives do control the rendering of the fields in Plone Blicca.
+  In the rare case that you need to tweak the rendering of a field in the frontend, this can be done as described in {doc}`plone6docs:volto/development/widget`.
 
 
 ## The instance class
@@ -242,16 +263,22 @@ The first class {py:class}`ITalk` is the schema for talks and defines quite a lo
 The second class {py:class}`Talk` in {file}`talk.py` will be the class of instances for each talk.
 It inherits from {py:class}`Container` which is one of the default classes of dexterity.
 {py:class}`Container` is used for items that can contain other items.
-It does nothing so far but it can be useful later when we want to add methods or properties to it that can be used directly from a talk instance.
+It does nothing special so far, but it can be useful later when we want to add methods or properties to it that can be used directly from a talk instance.
+
 
 ## Try the new type
 
-Now all pieces should be in place and you can enable the new type `Talk`.
+Now all pieces should be in place and you can enable the new type `talk`.
 
-- Restart Plone (to load the new Python code and the changed ZCML)
-- You do not need to restart the Volto frontend since we did not do any changes there.
-- Re-install the package ploneconf.site (deactivate and activate) to load the type registration and type configuration:
-    Follow the link "SITE SETUP" in the bottom of the toolbar and switch to "Add-Ons".
+1. Restart Plone (to load the new Python code).
+   You do not need to restart the Volto frontend, since we did not do any changes there.
+2. Reinstall the package ploneconf.site to apply the updated profile.
+
+   1. Go to {guilabel}`Site Setup`.
+   2. Open the {guilabel}`Add-Ons` control panel.
+   3. Find `PLONECONF SITE: INSTALL` in the list of installed add-ons and click to open its details.
+   4. Click the {guilabel}`Uninstall` button.
+   5. Find it again and click the {guilabel}`Install` button.
 
 Now instances of the new type can be added.
 Please check that you can add a talk to your site.
@@ -260,17 +287,16 @@ Please check that you can add a talk to your site.
 Adding a talk in the frontend
 ```
 
-- Test the type by adding a talk. Add some values in the fields, save it, look at the view and edit it again.
+- Test the type by adding a talk. Add some values in the fields, save it, look at the view, and edit it again.
 - Compare all the fields you see to the code in the schema.
-- You can also make changes in the schema. After restarting the backend these changes are effective immediately.
-- Find the tool `portal_types` in the ZMI http://localhost:8080/manage.
+- You can also make changes in the schema. After restarting the backend, these changes are effective immediately.
+- Find the tool `portal_types` in the ZMI: <http://localhost:8080/manage>.
   Look at the FTI for type `talk` and inspect the configuration taken from the FTI.
-  
-  You can make changes to the FTI here. 
-- A part of the configuration is also available in Plone control panels (SITE SETUP).
-  For example the content types control panel `http://localhost:3000/controlpanel/dexterity-types` allows to add behaviors to content types.
-  Please be aware that these changes are done on your site instance.
-  You can use the browser UI, but it's the add-on package where you configure your content types.
+  You can make changes to the FTI here.
+- A part of the configuration is also available in Site Setup.
+  For example the [Content Types control panel](http://localhost:3000/controlpanel/dexterity-types) allows to add behaviors to content types.
+  Please be aware that these changes are done in your site database, but not on the filesystem.
+  You can use the browser UI, but then the configuration can get out of sync with your filesystem add-on package.
 
 The field values of your talk instance are listed.
 In one of the next chapters we will create a custom view for the new type.
@@ -280,12 +306,15 @@ In one of the next chapters we will create a custom view for the new type.
 
 - You created a custom content type.
 - You can now control the data that will be stored for talks.
-- You can reuse and adapt these examples to model data for your own use-cases.
+- You can reuse and adapt these examples to model data for your own use cases.
 - Next up: After looking at even more fields that are available in Plone, you will learn to change how talks are displayed.
 
 
 ```{seealso}
-- Documentation {doc}`plone6docs:backend/fields`
-- [Example content type](https://github.com/collective/example.contenttype/tree/training-mastering-plone-development)
-A Plone content type with all available fields
+- Plone documentation about
+  - {doc}`plone6docs:backend/content-types/index`
+  - {doc}`plone6docs:backend/schemas`
+  - {doc}`plone6docs:backend/fields`
+  - {doc}`plone6docs:backend/behaviors`
+- [Example content type](https://github.com/collective/example.contenttype) - A Plone content type with all available fields
 ```

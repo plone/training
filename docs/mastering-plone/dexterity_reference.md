@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "Fields and widgets"
     "property=og:description": "Fields and widgets"
-    "property=og:title": "Content types: Reference"
+    "property=og:title": "Content types reference"
     "keywords": "field, widget, schema"
 ---
 
 (dexterity-reference-label)=
 
-# Content types: Reference
+# Content types reference
 
 This chapter documents common fields, widgets, directives that you can use with content types.
 Content types are often called dexterity types which refers to the rework of the content type concept by dexterity and abandoning the Archetypes system.
