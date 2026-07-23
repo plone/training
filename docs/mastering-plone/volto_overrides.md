@@ -83,7 +83,7 @@ But let's first have a look how these attributes are used in a Volto component.
 
 ```{seealso}
 We had a look at schemas in {doc}`dexterity` and {doc}`dexterity_2_talk`.
-Behaviors were described in {doc}`behaviors_1`.
+We will add a behavior later in {doc}`behaviors_1`.
 ```
 
 The Volto view component to render a News Item is in {file}`frontend/core/packages/volto/src/components/theme/View/NewsItemView.jsx`.
