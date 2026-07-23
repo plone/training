@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "Display content type"
     "property=og:description": "Display content type"
-    "property=og:title": "Content views"
+    "property=og:title": "Add a custom view"
     "keywords": "view, content type"
 ---
 
 (volto-talkview-label)=
 
-# Content views
+# Add a custom view
 
 ```{card}
 In this part we will:
@@ -334,9 +334,9 @@ import { Container as SemanticContainer } from 'semantic-ui-react';
 import config from '@plone/volto/registry';
 
 const colorMapping = {
-  Beginner: 'green',
-  Advanced: 'yellow',
-  Professional: 'purple',
+  beginner: 'green',
+  advanced: 'yellow',
+  professional: 'purple',
 };
 
 const TalkView = (props) => {
@@ -405,9 +405,9 @@ import { Container as SemanticContainer } from 'semantic-ui-react';
 import config from '@plone/volto/registry';
 
 const colorMapping = {
-  Beginner: 'green',
-  Advanced: 'yellow',
-  Professional: 'purple',
+  beginner: 'green',
+  advanced: 'yellow',
+  professional: 'purple',
 };
 
 const TalkView = (props) => {

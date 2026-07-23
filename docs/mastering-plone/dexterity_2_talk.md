@@ -183,7 +183,7 @@ class ITalk(model.Schema):
     directives.widget(type_of_talk=RadioFieldWidget)
     type_of_talk = schema.Choice(
         title="Type of talk",
-        values=["Talk", "Training", "Keynote"],
+        values=["talk", "training", "keynote"],
         required=True,
     )
 
@@ -198,7 +198,7 @@ class ITalk(model.Schema):
     audience = schema.Set(
         title="Audience",
         value_type=schema.Choice(
-            values=["Beginner", "Advanced", "Professional"],
+            values=["beginner", "advanced", "professional"],
         ),
         required=False,
     )
