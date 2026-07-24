@@ -28,21 +28,25 @@ Tools and techniques covered:
 
 (api-api-label)=
 
-## plone.api
+## `plone.api`
 
-The most important tool nowadays for plone developers is the add-on {doc}`plone6docs:plone.api/index` that covers 20% of the tasks any Plone developer does 80% of the time. If you are not sure how to handle a certain task, be sure to first check if `plone.api` has a solution for you.
+The most important tool nowadays for backend Plone developers is the add-on {doc}`plone6docs:plone.api/index` that covers 20% of the tasks any Plone developer does 80% of the time.
+If you are not sure how to handle a certain task, be sure to first check if `plone.api` has a solution for you.
 
-The API is divided in five sections. Here is one example from each:
+The API is divided in a number of sections. Here is one example from each:
 
-- `Content:` {ref}`plone6docs:content-create-example`
-- `Portal:` {ref}`plone6docs:portal-send-email-example`
-- `Groups:` {ref}`plone6docs:group-grant-roles-example`
-- `Users:` {ref}`plone6docs:user-get-roles-example`
-- `Environment:` {ref}`plone6docs:env-adopt-roles-example`
+- Content: {ref}`plone6docs:content-create-example`
+- Portal: {ref}`plone6docs:portal-send-email-example`
+- Groups: {ref}`plone6docs:group-grant-roles-example`
+- Users: {ref}`plone6docs:user-get-roles-example`
+- Environment: {ref}`plone6docs:env-adopt-roles-example`
+- Add-ons: {ref}`plone6docs:addons-get-addons`
+- Relations: {ref}`plone6docs:relation-get-example`
 
-{py:mod}`plone.api` is a great tool for integrators and developers that is included when you install Plone, though for technical reasons it is not used by the code of Plone itself.
+{py:mod}`plone.api` is a great tool for integrators and developers that is included when you install Plone, though for technical reasons it is not used by the internal code of Plone itself.
 
-In existing code you'll often encounter methods that don't mean anything to you. You'll have to use the source to find out what they do.
+In existing code you'll often encounter methods that don't mean anything to you.
+You'll have to use the source to find out what they do.
 
 Some of these methods are replaced by {py:mod}`plone.api`:
 
@@ -51,28 +55,29 @@ Some of these methods are replaced by {py:mod}`plone.api`:
 
 (api-portal-tools-label)=
 
-## portal tools
+## Portal tools
 
-Some parts of Plone are very complex modules in themselves (e.g. the versioning machinery of {py:mod}`Products.CMFEditions`).
+Some parts of Plone are very complex modules in themselves (for example, the versioning machinery of {py:mod}`Products.CMFEditions`).
 Most of them have an API of themselves that you will have to look up when you need to implement a feature that is not covered by {py:mod}`plone.api`.
 
 Here are a few examples:
 
-portal_catalog
+`portal_catalog`
 
 : {py:meth}`unrestrictedSearchResults()` returns search results without checking if the current user has the permission to access the objects.
 
 : {py:meth}`uniqueValuesFor()` returns all entries in an index
 
-portal_setup
+`portal_setup`
 
 : {py:meth}`runAllExportSteps()` generates a tarball containing artifacts from all export steps.
 
-Products.CMFPlone.utils
+`Products.CMFPlone.utils`
 
 : {py:meth}`is_product_installed()` checks if a product is installed.
 
-Usually the best way to learn about the API of a tool is to look in the {file}`interfaces.py` in the respective package and read the `docstrings`. But sometimes the only way to figure out which features a tool offers is to read its code.
+Usually the best way to learn about the API of a tool is to look in the {file}`interfaces.py` in the respective package and read the docstrings.
+But sometimes the only way to figure out which features a tool offers is to read its code.
 
 To use a tool, you usually first get the tool with {py:mod}`plone.api` and then invoke the method.
 
@@ -84,7 +89,11 @@ mt.logoutUser(request)
 ```
 
 ```{note}
-The code for {py:meth}`logoutUser()` is in {py:meth}`Products.PlonePAS.tools.membership.MembershipTool.logoutUser`. Many tools that are used in Plone are actually subclasses of tools from the package {py:mod}`Products.CMFCore`. For example `portal_membership` is subclassing and extending the same tool from {py:class}`Products.CMFCore.MembershipTool.MembershipTool`. That can make it hard to know which options a tool has. There is an ongoing effort by the Plone Community to consolidate tools to make it easier to work with them as a developer.
+The code for {py:meth}`logoutUser()` is in {py:meth}`Products.PlonePAS.tools.membership.MembershipTool.logoutUser`.
+Many tools that are used in Plone are actually subclasses of tools from the package {py:mod}`Products.CMFCore`.
+For example `portal_membership` is subclassing and extending the same tool from {py:class}`Products.CMFCore.MembershipTool.MembershipTool`.
+That can make it hard to know which options a tool has.
+There is an ongoing effort by the Plone Community to consolidate tools to make it easier to work with them as a developer.
 ```
 
 (api-debugging-label)=
@@ -97,7 +106,7 @@ We use some of them in various situations during the training.
 tracebacks and the log
 
 : The log (and the console when running in foreground) collects all log messages Plone prints.
-When an exception occurs, Plone throws a traceback.
+When an exception occurs, Plone logs a traceback.
 Most of the time the traceback is everything you need to find out what is going wrong.
 Also adding your own information to the log is very simple.
 : ```python
@@ -112,8 +121,8 @@ Also adding your own information to the log is very simple.
 pdb
 
 : The `Python` debugger `pdb` is the single most important tool for us when programming.
-Just add `import pdb; pdb.set_trace()` in your code and debug away!
-The code execution stops at the line you added `import pdb; pdb.set_trace()`.
+Just add `breakpoint()` in your code and debug away!
+The code execution stops at the line you added `breakpoint()`.
 Switch to your terminal and step through your code.
 
 
@@ -123,13 +132,16 @@ pdbpp
 
 ipdb
 
-: Another enhanced pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection. It also works nicely with {py:mod}`Products.PDBDebugMode`. Needs to be invoked with `import ipdb; ipdb.set_trace()`.
+: Another enhanced pdb with the power of IPython, e.g. tab completion, syntax highlighting, better tracebacks and introspection.
+It also works nicely with {py:mod}`Products.PDBDebugMode`.
+Needs to be invoked with `import ipdb; ipdb.set_trace()`.
 
 Products.PDBDebugMode
 
 : An add-on that has two killer features.
 
-  **Post-mortem debugging**: throws you in a pdb whenever an exception occurs. This way you can find out what is going wrong.
+  **Post-mortem debugging**: throws you in a pdb whenever an exception occurs.
+  This way you can find out what is going wrong.
 
   **pdb view**: simply adding `/pdb` to a url drops you in a pdb session with the current context as {py:obj}`self.context`. From there you can do just about anything.
 
@@ -137,16 +149,17 @@ Interactive debugger
 
 : Start your instance in debug mode with  
   ```shell
-  venv/bin/zconsole debug instance/etc/zope.conf
+  cd backend
+  make console
   ```
   You have an interactive debugger at your fingertips.
   `app.Plone` is your Plone instance object which you can inspect on the command line.
-: To list the ids of the objects in a folderish object:
+: To list the ids of the objects inside a container:
   ```shell
   >>> app.Plone.talks.keys()
   ['whats-new-in-python-3.10', 'plone-7', 'zope', 'betty-white', 'new-years-day', 'journey-band']
   ```
-: To list the items of a folderish object:
+: To list the items of a container:
   ```shell
   >>> from zope.component.hooks import setSite
   >>> setSite(app.Plone)
@@ -161,7 +174,8 @@ The component registry is needed for methods like `contentItems` which look up u
 
 plone.app.debugtoolbar
 
-: An add-on that allows you to inspect nearly everything. It even has an interactive console, a tester for TALES-expressions and includs a reload-feature like {py:mod}`plone.reload`.
+: An add-on that allows you to inspect nearly everything.
+It even has an interactive console, a tester for TALES-expressions and includes a reload-feature like {py:mod}`plone.reload`.
 
 plone.reload
 
@@ -180,7 +194,7 @@ Products.PrintingMailHost
 Sentry
 
 : [Sentry](https://github.com/getsentry/sentry) is an error logging application you can host yourself.
-It aggregates tracebacks from many sources and (here comes the killer feature) even the values of variables in the traceback. We use it in all our production sites.
+It aggregates tracebacks from many sources and (here comes the killer feature) even the values of variables in the traceback.
 
 
 ```{seealso}
@@ -191,26 +205,27 @@ It aggregates tracebacks from many sources and (here comes the killer feature) e
 
 ## Exercise 1
 
-Knowing that `venv/bin/zconsole debug instance/etc/zope.conf` basically offers you a Python prompt to inspect your Plone instance, how would you start to explore Plone?
+Knowing that `make console` basically offers you a Python prompt to inspect your Plone instance, how would you start to explore Plone?
 
 ```{admonition} Solution
 :class: toggle
 
 Use `locals()` or `locals().keys()` to see Python objects available in Plone
 
-You will get notified that `app` is automatically bound to your Zope application, so you can use dictionary-access or attribute-access as explained in {doc}`what_is_plone` to inspect the application:
+You will get notified that `app` is automatically bound to your Zope application, so you can use dictionary access or attribute access as explained in {doc}`what_is_plone` to inspect the application.
 ```
 
 ## Exercise 2
 
-The `app` object you encountered in the previous exercise can be seen as the root of Plone. Once again using Python, can you find your newly created Plone site?
+The `app` object you encountered in the previous exercise can be seen as the root of Plone.
+Once again using Python, can you find your newly created Plone site?
 
 `````{admonition} Solution
 :class: toggle
 
 `app.keys()` will show `app`'s attribute names - there is one called `Plone`, this is your Plone site object. Use `app.Plone` to access and further explore it.
 
-```pycon
+```python
 >>> app
 <Application at >
 >>> app.keys()
@@ -262,7 +277,9 @@ You have been warned.
   Use the documentation at {doc}`plone6docs:backend/global-utils` to find an overview of `plone_view` helpers.
 
 ```{note}
-- Do not try everything at once, work in small iterations, restart your Plone instance to check your results frequently.
+- Do not try everything at once.
+  Work in small iterations.
+  Restart your Plone instance to check your results frequently.
 - Use `pdb` during development to experiment.
 ```
 
@@ -334,7 +351,7 @@ class DemoContent(BrowserView):
 
 Some notes:
 
-- Since calling view is a GET and not a POST we need {py:meth}`alsoProvides(self.request, IDisableCSRFProtection)` to allow write-on-read without Plone complaining.
+- Since requesting the view is a GET and not a POST we need {py:meth}`alsoProvides(self.request, IDisableCSRFProtection)` to allow write-on-read without Plone complaining.
   Alternatively we could create a simple form and create the content on submit.
 
 - {ref}`plone6docs:content-transition-example` has two modes of operation:
