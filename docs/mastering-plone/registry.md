@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "How to make your Plone add-on configurable"
     "property=og:description": "How to make your Plone add-on configurable"
-    "property=og:title": "Registry, control panels and vocabularies"
+    "property=og:title": "Registry, control panels, and vocabularies"
     "keywords": "registry, control panel, vocabulary, select, options, configuration, settings"
 ---
 
 (registry-label)=
 
-# Registry, control panels and vocabularies
+# Registry, control panels, and vocabularies
 
 ```{card} 
 In this part you will:
@@ -28,7 +28,7 @@ Topics covered:
 
 ````{card} Backend chapter
 
-Checkout `ploneconf.site` at tag "events":
+Check out `mastering-plone-project` at tag "events":
 
 ```shell
 git checkout events
@@ -63,12 +63,11 @@ To achieve this you first need to get to know the registry.
 
 The registry stores and retrieves values in records.
 Each record consists of the actual value, along with a field that describes the record in more detail.
-You can interact with the registry using Python dictionary-style operations to get and set values.
+You can interact with the registry in Python using dictionary-style operations to get and set values.
 
-Since Plone 5 the registry stores all global settings.
 Plone provides the registry through [plone.registry](https://pypi.org/project/plone.registry) and offers a user interface for interaction via [plone.app.registry](https://pypi.org/project/plone.app.registry).
 
-Most settings in {guilabel}`Site Setup` reside in the registry.
+Most settings in Site Setup reside in the registry.
 You can modify them directly through its UI.
 
 Open http://localhost:8080/Plone/portal_registry and filter for `displayed_types`.
@@ -81,7 +80,7 @@ This UI for the registry is not yet available in the frontend.
 
 ## Registry records
 
-In {doc}`volto_frontpage` you already added a criterion usable for listing blocks in {file}`profiles/default/registry/querystring.xml`.
+In {doc}`volto_frontpage` you already added a criterion usable for listing blocks in {file}`backend/src/ploneconf/site/profiles/default/registry/querystring.xml`.
 This setting is stored in the registry.
 
 Examine the existing values in the registry.
@@ -91,7 +90,7 @@ Talks in the root will now show up in the navigation.
 This setting is stored in the registry record `plone.displayed_types`.
 
 
-## Accessing and modifying records in the registry
+## Access and modify records in the registry
 
 In Python you can access the registry record with the key `plone.displayed_types` via `plone.api.portal`.
 It holds convenience functions to get and set a record:
@@ -106,7 +105,9 @@ api.portal.set_registry_record('plone.smtp_host', 'my.mail.server')
 
 For more information see `plone.api.portal` documentation: {ref}`plone6docs:portal-get-registry-record-example`.
 
-The access of the registry by `zope.component.getUtility` is often seen in code from before the time of `plone.api`.
+````{note}
+
+Code that cannot use `plone.api`, such as in Plone core, can access records via the `IRegistry` utility.
 
 ```{code-block} python
 
@@ -117,7 +118,10 @@ registry = getUtility(IRegistry)
 displayed_types = registry.get('plone.displayed_types')
 ```
 
+````
+
 The value of the record `displayed_types` is the tuple `('Image', 'File', 'Link', 'News Item', 'Folder', 'Document', 'Event', 'talk')`.
+
 
 ## Custom registry records
 
@@ -130,7 +134,7 @@ Additionally, new settings `types_of_talk` and `audiences` can be added for use 
 
 To define custom records, you write the same type of schema as you already did for content types or for behaviors:
 
-Add a file {file}`controlpanel/controlpanel.py`:
+Add a file {file}`backend/src/ploneconf/site/controlpanels/controlpanel.py`:
 
 ```{code-block} python
 :linenos:
@@ -319,7 +323,7 @@ If the name `Lightning-Talk` needs to be updated to `Short talks`, the talks cat
 This is because the value stored in the talks is the token `lightning-talk`, which remains unchanged.
 
 A new field `JSONField` has been introduced.
-This field is used to store JSON data for the content.
+This field is used to store structured JSON data for the content.
 A schema defines the valid structure of the field values.
 
 ```python
@@ -332,29 +336,28 @@ A schema defines the valid structure of the field values.
 ```
 
 The `frontendOptions` forces Volto to display on editing the field with a widget prepared for vocabulary terms.
-More correct, it forces Volto to lookup the widget in `Volto's` widget mapping to find the corresponding widget.
-
+It tells Volto to look up the widget named `vocabularyterms` in `Volto's` widget mapping to find the corresponding widget.
 
 The schema `IPloneconfSettings` is now registered for the registry.
-Add the following to {file}`profiles/default/registry/main.xml`.
+Add the following to {file}`backend/src/ploneconf/site/profiles/default/registry/main.xml`.
 Each field in the `IPloneconfSettings` schema adds a corresponding record to the registry.
 
 ```xml
-<?xml version="1.0"?>
-<registry
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    i18n:domain="ploneconf.site">
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="ploneconf.site"
+>
 
-  <records
-      interface="ploneconf.site.controlpanel.controlpanel.IPloneconfSettings"
-      prefix="ploneconf" />
+  <records interface="ploneconf.site.controlpanels.controlpanel.IPloneconfSettings"
+           prefix="ploneconf"
+  />
 
 </registry>
 ```
 
 ```{note}
 The `prefix` allows you to access these records with a shortcut:
-You can use `ploneconf.rooms` instead of `ploneconf.site.controlpanel.controlpanel.IPloneconfSettings.rooms`.
+You can use `ploneconf.rooms` instead of `ploneconf.site.controlpanels.controlpanel.IPloneconfSettings.rooms`.
 ```
 
 After reinstalling the package to apply the registry changes, you can access and modify these registry records as described before.
@@ -367,7 +370,7 @@ api.portal.get_registry_record('ploneconf.rooms')
 ```
 
 `````{note}
-In training code `ploneconf.site`, we use Python to define the registry records.
+In the training project `mastering-plone-project`, we use Python to define the registry records.
 Alternatively you could add these registry entries with Generic Setup.
 
 The following creates a new entry `ploneconf.talk_submission_open` with Generic Setup:
@@ -396,7 +399,7 @@ See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/pro
 
 Now you'll add a custom control panel to edit all settings related to the package with a user-friendly interface.
 
-To register a control panel for the frontend, add the following `RegistryConfigletPanel` to {file}`controlpanel/controlpanel.py`.
+To register a control panel for the frontend, add the following `RegistryConfigletPanel` to {file}`backend/src/ploneconf/site/controlpanels/controlpanel.py`.
 The `RegistryConfigletPanel` uses the schema and will serve as a factory for a control panel configlet.
 
 ```{code-block} python
@@ -431,24 +434,26 @@ class PloneConfRegistryConfigletPanel(RegistryConfigletPanel):
 ```
 
 
-If you want to use this control panel in Classic UI as well, see https://2022.training.plone.org/mastering-plone/registry.html#add-a-custom-control-panel, which also handles the Classic UI version.
+```{tip}
 
-The factory is used in {file}`controlpanel/configure.zcml` for a named adapter:
+If you want to use this control panel in Blicca as well, see https://2022.training.plone.org/mastering-plone/registry.html#add-a-custom-control-panel, which also shows the Blicca version.
+```
+
+Update {file}`backend/src/ploneconf/site/controlpanels/configure.zcml` to register `PloneConfRegistryConfigletPanel` as a named adapter:
 
 ```{code-block} xml
 :linenos:
 
   <adapter
-    factory="ploneconf.site.controlpanel.controlpanel.PloneConfRegistryConfigletPanel"
-    name="ploneconf-controlpanel" />
+      factory=".controlpanel.PloneConfRegistryConfigletPanel"
+      name="ploneconf-controlpanel"
+      />
 ```
 
-Finally register in {file}`profiles/default/controlpanel.xml` the configlet with Generic Setup so that it gets listed in the {guilabel}`Site Setups` panels list (often called 'control panel').
-Therefore the named adapter "ploneconf-controlpanel" provides the schema for the form of the control panel configlet.
+Finally, in {file}`backend/src/ploneconf/site/profiles/default/controlpanel.xml`, register the configlet with Generic Setup so that it gets listed in Site Setup.
 
 ```{code-block} xml
 :linenos:
-:emphasize-lines: 9
 
 <?xml version="1.0" encoding="utf-8"?>
 <object name="portal_controlpanel">
@@ -464,7 +469,7 @@ Therefore the named adapter "ploneconf-controlpanel" provides the schema for the
 
 ```
 
-After applying the profile (for example, by reinstalling the package), your control panel configlet shows up on http://localhost:3000/controlpanel/controlpanel
+After applying the profile (for example, by reinstalling the package), your control panel shows up on http://localhost:3000/controlpanel.
 
 ```{figure} _static/volto_ploneconf_controlpanel_overview.png
 ```
@@ -473,15 +478,15 @@ After applying the profile (for example, by reinstalling the package), your cont
 ```{figure} _static/volto_ploneconf_controlpanel.png
 ```
 
-As you can see in the control panel configlet for the `ploneconf.site` package, the entries can be modified and reordered.
-Changes are reflected in the registry because the configlet is registered with the schema of the registry fields.
+As you can see in the control panel for the `ploneconf.site` package, the entries can be modified and reordered.
+Changes are stored in the registry because the configlet is registered with the schema of the registry fields.
 
 ````{note}
 **Frontend widgets**
 
 A short remark on the frontend widget.
 We want the `VocabularyTermsWidget` to be applied.
-Thus we specify a hint, using a so-called "tagged value", the name of the frontend widget to be applied for the three control panel fields in our backend schema.
+Thus we use the widget "directive" to specify the name of the frontend widget to be used for the three control panel fields in our backend schema.
 Thus no widget registration in the frontend app is needed.
 
 ```python
@@ -497,7 +502,7 @@ This is also the way you would configure a content type schema, where you may wa
 
 A widget component in your frontend package would be mapped to a key "mywidget".
 In your content type schema you would add a widget directive with
-`frontendOptions={"widget": "mywidget"}`
+`frontendOptions={"widget": "mywidget"}`.
 ````
 
 (vocabularies-label)=
@@ -517,11 +522,10 @@ They have many benefits:
 - Developers can set vocabularies dynamically.
   The available options may vary based on existing content, the user's role, or even the time of day.
 
-Create a file {file}`vocabularies/talk.py` and write code that generates vocabularies from these settings:
+Create a file {file}`backend/src/ploneconf/site/vocabularies/talk.py` and write code that generates vocabularies from these settings:
 
 ```{code-block} python
 :linenos:
-:emphasize-lines: 13-15
 
 from plone import api
 from zope.interface import provider
@@ -586,22 +590,24 @@ The `SimpleVocabulary.fromItems()` is a method that takes the list of dictionari
 and creates a Zope vocabulary.
 This `SimpleVocabulary` instance has methods that Plone uses to display select widgets, display the rendered content type instance according the user language, etc..
 
-You can now register these vocabularies as named utilities in {file}`vocabularies/configure.zcml`:
+You can now register these vocabularies as named utilities in {file}`backend/src/ploneconf/site/vocabularies/configure.zcml`:
 
 ```xml
-
-<utility
-    name="ploneconf.types_of_talk"
-    component="ploneconf.site.vocabularies.talk.TalkTypesVocabulary" />
-<utility
-    name="ploneconf.audiences"
-    component="ploneconf.site.vocabularies.talk.AudiencesVocabulary" />
-<utility
-    name="ploneconf.rooms"
-    component="ploneconf.site.vocabularies.talk.RoomsVocabularyFactory" />
+  <utility
+      name="ploneconf.types_of_talk"
+      component="ploneconf.site.vocabularies.talk.TalkTypesVocabulary"
+      />
+  <utility
+      name="ploneconf.audiences"
+      component="ploneconf.site.vocabularies.talk.AudiencesVocabulary"
+      />
+  <utility
+      name="ploneconf.rooms"
+      component="ploneconf.site.vocabularies.talk.RoomsVocabularyFactory"
+      />
 ```
 
-From now on you can use these vocabulary by referring to their name, for example, `ploneconf.rooms`.
+From now on you can use these vocabularies by referring to their name, for example, `ploneconf.rooms`.
 
 ```{note}
 - Plone comes with many useful named vocabularies that you can use in your own projects, for example `plone.app.vocabularies.Users` or `plone.app.vocabularies.PortalTypes`.
@@ -614,10 +620,10 @@ From now on you can use these vocabulary by referring to their name, for example
 ```
 
 ```{seealso}
-Plone documentation [Vocabularies](https://5.docs.plone.org/external/plone.app.dexterity/docs/advanced/vocabularies.html).
+Plone documentation: {doc}`plone6docs:backend/vocabularies`
 ```
 
-## Using vocabularies in a schema
+## Use vocabularies in a schema
 
 To use a vocabulary in a schema field, replace the attribute `values` with `vocabulary`, and point to a vocabulary by its name:
 
@@ -632,12 +638,10 @@ type_of_talk = schema.Choice(
 )
 ```
 
-Don't forget to add the new field `room`.
-
-Edit {file}`content/talk.py`:
+Edit {file}`backend/src/ploneconf/site/content/talk.py`. Don't forget to add the new field `room`.
 
 ```{code-block} python
-:emphasize-lines: 19, 33, 81-85
+:emphasize-lines: 19, 34, 78-82
 :linenos:
 
 from plone.app.textfield import RichText
@@ -700,11 +704,6 @@ class ITalk(model.Schema):
         required=False,
     )
 
-    twitter = schema.TextLine(
-        title="Twitter name",
-        required=False,
-    )
-
     github = schema.TextLine(
         title="Github username",
         required=False,
@@ -734,36 +733,37 @@ class Talk(Container):
     """Talk instance class"""
 ```
 
+Now, after restarting, these fields on the talk content type should show the options that are configured in the control panel.
+
+
 ## Adjust frontend according schema changes
 
-With the new key value pairs (token/title) we adjust the component accordingly:
+Now that we have vocabulary terms with a title that can be different from the token, we adjust {file}`frontend/packages/volto-ploneconf-site/src/components/views/TalkView.jsx` to show the title:
 
-```jsx
-      {content.audience?.map((item) => {
-        let color = color_mapping[item.token] || 'green';
-        return (
-          <Label key={item.token} color={color}>
-            {item.title}
-          </Label>
-        );
-      })}
+```{code-block} jsx
+:emphasize-lines: 6
+
+        {content.audience?.map((item) => {
+          const audience = item.token;
+          const color = colorMapping[audience] || 'green';
+          return (
+            <div className={`ui label ${color}`} key={audience}>
+              {item.title}
+            </div>
+          );
+        })}
 ```
 
 One tiny thing is still missing: We should display the room.
+In the same file, add this after the `When` component:
 
-Modify {file}`frontend/src/components/Views/Talk.jsx` an add this after the `When` component:
-
-```{code-block}
-:emphasize-lines: 6
-
-    {content.room && (
-      <>
-        <Header dividing sub>
-          Where
-        </Header>
-        <p>{content.room.title}</p>
-      </>
-    )}
+```{code-block} jsx
+        {content.room && (
+          <>
+            <div className="ui dividing sub header">Where</div>
+            <p>{content.room.title}</p>
+          </>
+        )}
 ```
 
 ````{dropdown} The complete TalkView
@@ -771,41 +771,34 @@ Modify {file}`frontend/src/components/Views/Talk.jsx` an add this after the `Whe
 :icon: question
 
 ```jsx
-import {
-  Container as SemanticContainer,
-  Header,
-  Image,
-  Label,
-  Segment,
-} from 'semantic-ui-react';
-import { flattenToAppURL } from '@plone/volto/helpers';
-import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
+import { Container as SemanticContainer } from 'semantic-ui-react';
 import config from '@plone/volto/registry';
+import { When } from '@plone/volto/components/theme/View/EventDatesInfo';
+
+const colorMapping = {
+  beginner: 'green',
+  advanced: 'yellow',
+  professional: 'purple',
+};
 
 const TalkView = (props) => {
   const { content } = props;
   const Container =
     config.getComponent({ name: 'Container' }).component || SemanticContainer;
-  const color_mapping = {
-    beginner: 'green',
-    advanced: 'yellow',
-    professional: 'purple',
-  };
+  const Image = config.getComponent({ name: 'Image' }).component;
   return (
     <Container id="view-wrapper talk-view">
       <h1 className="documentFirstHeading">
-        <span className="type_of_talk">{content.type_of_talk.title}: </span>
+        <span className="type_of_talk">{content.type_of_talk.token}: </span>
         {content.title}
       </h1>
       {content.description && (
         <p className="documentDescription">{content.description}</p>
       )}
-      <Segment floated="right">
+      <div className="ui right floated segment">
         {content.start && !content.hide_date && (
           <>
-            <Header dividing sub>
-              When
-            </Header>
+            <div className="ui dividing sub header">When</div>
             <When
               start={content.start}
               end={content.end}
@@ -816,31 +809,28 @@ const TalkView = (props) => {
         )}
         {content.room && (
           <>
-            <Header dividing sub>
-              Where
-            </Header>
+            <div className="ui dividing sub header">Where</div>
             <p>{content.room.title}</p>
           </>
         )}
         {content.audience && (
-          <>
-            <Header dividing sub>
-              Audience
-            </Header>
-            {content.audience?.map((item) => {
-              let color = color_mapping[item.token] || 'green';
-              return (
-                <Label key={item.token} color={color}>
-                  {item.title}
-                </Label>
-              );
-            })}
-          </>
+          <div className="ui dividing sub header">Audience</div>
         )}
-      </Segment>
+        {content.audience?.map((item) => {
+          const audience = item.token;
+          const color = colorMapping[audience] || 'green';
+          return (
+            <div className={`ui label ${color}`} key={audience}>
+              {item.title}
+            </div>
+          );
+        })}
+      </div>
       <div dangerouslySetInnerHTML={{ __html: content.details.data }} />
-      <Segment clearing>
-        {content.speaker && <Header dividing>{content.speaker}</Header>}
+      <div className="ui clearing segment">
+        {content.speaker && (
+          <div className="ui dividing header">{content.speaker}</div>
+        )}
         {content.website ? (
           <p>
             <a href={content.website}>{content.company || content.website}</a>
@@ -853,16 +843,6 @@ const TalkView = (props) => {
             Email: <a href={`mailto:${content.email}`}>{content.email}</a>
           </p>
         )}
-        {content.twitter && (
-          <p>
-            X:{' '}
-            <a href={`https://x.com/${content.twitter}`}>
-              {content.twitter.startsWith('@')
-                ? content.twitter
-                : '@' + content.twitter}
-            </a>
-          </p>
-        )}
         {content.github && (
           <p>
             Github:{' '}
@@ -872,11 +852,9 @@ const TalkView = (props) => {
           </p>
         )}
         <Image
-          src={flattenToAppURL(content.image?.scales?.preview?.download)}
-          size="small"
-          floated="right"
+          item={content}
           alt={content.speaker}
-          avatar
+          className="ui small right floated image"
         />
         {content.speaker_biography && (
           <div
@@ -885,7 +863,7 @@ const TalkView = (props) => {
             }}
           />
         )}
-      </Segment>
+      </div>
     </Container>
   );
 };
