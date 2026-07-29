@@ -28,7 +28,7 @@ Topics covered:
 
 ````{card} Backend chapter
 
-Check out `mastering-plone-project` at tag "events":
+Check out `mastering-plone-project` at tag `events`:
 
 ```shell
 git checkout events

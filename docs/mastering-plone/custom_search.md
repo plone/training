@@ -9,9 +9,27 @@ myst:
 
 (custom-search-label)=
 
-# Custom Search
+# Custom search
 
 Volto has a search block that allows you to build custom searches without additional add-ons.
+
+````{card} Backend chapter
+
+Check out `mastering-plone-project` at tag `vocabularies`:
+
+```shell
+git checkout vocabularies
+```
+
+The code at the end of the chapter:
+
+```shell
+git checkout search
+```
+
+More info in {doc}`code`
+````
+
 
 ## Exercise
 
@@ -44,32 +62,39 @@ Check the entries by switching to the "Browse" tab.
 :animate: fade-in-slide-down
 :icon: question
 
-{file}`catalog.xml`
+{file}`backend/src/ploneconf/site/profiles/default/catalog.xml`
 ```xml
 
-  <index name="type_of_talk" meta_type="KeywordIndex">
-    <indexed_attr value="type_of_talk"/>
+  <index meta_type="KeywordIndex"
+         name="type_of_talk"
+  >
+    <indexed_attr value="type_of_talk" />
   </index>
-  <column value="type_of_talk"/>
+  <column value="type_of_talk" />
 ```
 
-{file}`querystring.xml`
+{file}`backend/src/ploneconf/site/profiles/default/querystring.xml`
 ```xml
 
   <records interface="plone.app.querystring.interfaces.IQueryField"
-           prefix="plone.app.querystring.field.type_of_talk">
-      <value key="title" i18n:translate="">Type of Talk</value>
-      <value key="enabled">True</value>
-      <value key="sortable">False</value>
-      <value key="operations">
-        <element>plone.app.querystring.operation.selection.any</element>
-        <element>plone.app.querystring.operation.selection.all</element>
-        <element>plone.app.querystring.operation.selection.none</element>
-      </value>
-     <value key="group" i18n:translate="">Metadata</value>
-     <value key="vocabulary">ploneconf.types_of_talk</value>
+           prefix="plone.app.querystring.field.type_of_talk"
+  >
+    <value key="title"
+           i18n:translate=""
+    >Type of Talk</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.any</element>
+      <element>plone.app.querystring.operation.selection.all</element>
+      <element>plone.app.querystring.operation.selection.none</element>
+    </value>
+    <value key="group"
+           i18n:translate=""
+    >Metadata</value>
+    <value key="vocabulary">ploneconf.types_of_talk</value>
   </records>
 ```
 
-Checkout `ploneconf.site` at tag "search" to see the updated code.
+Check out `mastering-plone-project` at tag `search` to see the updated code.
 ````
