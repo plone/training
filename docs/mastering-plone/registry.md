@@ -789,7 +789,7 @@ const TalkView = (props) => {
   return (
     <Container id="view-wrapper talk-view">
       <h1 className="documentFirstHeading">
-        <span className="type_of_talk">{content.type_of_talk.token}: </span>
+        <span className="type_of_talk">{content.type_of_talk.title}: </span>
         {content.title}
       </h1>
       {content.description && (

@@ -3,7 +3,7 @@ myst:
   html_meta:
     "description": "testing basics"
     "property=og:description": "testing basics"
-    "property=og:title": "Testing Volto add-on"
+    "property=og:title": "Testing"
     "keywords": "testing, Volto"
 ---
 
@@ -24,10 +24,10 @@ For information on testing **backend** code, see the separate training: {ref}`te
 
 ````{card}
 
-Checkout `volto-ploneconf` at tag "vocabularies":
+Check out `mastering-plone-project` at tag `search`:
 
 ```shell
-git checkout vocabularies
+git checkout search
 ```
 
 The code at the end of the chapter:
@@ -40,26 +40,26 @@ More info in {doc}`code`
 ````
 
 
-(testing-jest)=
+(testing-vitest)=
 
-## Testing the rendering of a component
+## Test the rendering of a component
 
-With `jest` you can create snapshots of components.
+With `vitest` you can create snapshots of components.
 
-Does this snapshot change after a change in the code, you can check if this snapshot change is intentionally caused, and if not, rethink your changes.
+If the snapshot changes after a change in the code, you can check if the snapshot change was intentionally caused, and if not, rethink your changes.
 
-- Create a {file}`Talk.test.js` file as a sibling of {file}`Talk.jsx`
-- You are testing the component `Talk`.
-  The test is rendering the component with some props:
+- Create a {file}`TalkView.test.js` file as a sibling of {file}`frontend/packages/volto-ploneconf-site/src/components/Views/TalkView.jsx`
+- You are testing the component `TalkView`.
+  The test renders the component with some props:
 
 ```{code-block} jsx
 :emphasize-lines: 17-28
 :linenos:
 
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-intl-redux';
 import configureStore from 'redux-mock-store';
-import Talk from './Talk';
+import TalkView from './TalkView';
 const mockStore = configureStore();
 
 const store = mockStore({
@@ -70,9 +70,9 @@ const store = mockStore({
 });
 
 test('renders a talk view component with only required props', () => {
-  const component = renderer.create(
+  const { container } = render(
     <Provider store={store}>
-      <Talk
+      <TalkView
         content={{
           title: 'Security of Plone',
           description: 'What makes Plone secure?',
@@ -86,15 +86,14 @@ test('renders a talk view component with only required props', () => {
       />
     </Provider>,
   );
-  const json = component.toJSON();
-  expect(json).toMatchSnapshot();
+  expect(container).toMatchSnapshot();
 });
 ```
 
 Create a snapshot by running the tests:
 
 ```shell
-make test
+make frontend-test
 ```
 
 See the snapshot in folder `__snapshots__`.
@@ -104,46 +103,50 @@ For example you see that the heading is the talk title with preceding type of ta
 {file}`packages/volto-ploneconf/src/components/Views/__snapshots__/Talk.test.js.snap`
 
 ```js
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders a talk view component with only required props 1`] = `
-<div
-  className="ui container"
-  id="view-wrapper talk-view"
->
-  <h1
-    className="documentFirstHeading"
+<div>
+  <div
+    class="ui container"
+    id="view-wrapper talk-view"
   >
-    <span
-      className="type_of_talk"
+    <h1
+      class="documentFirstHeading"
     >
-      Talk
-      : 
-    </span>
-    Security of Plone
-  </h1>
-  <p
-    className="documentDescription"
-  >
-    What makes Plone secure?
-  </p>
-  <div
-    className="ui right floated segment"
-  />
-  <div
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "<p>some details about this <strong>talk</strong>.</p>",
-      }
-    }
-  />
-  <div
-    className="ui clearing segment"
-  >
+      <span
+        class="type_of_talk"
+      >
+        talk
+        : 
+      </span>
+      Security of Plone
+    </h1>
+    <p
+      class="documentDescription"
+    >
+      What makes Plone secure?
+    </p>
     <div
-      className="ui dividing header"
+      class="ui right floated segment"
+    />
+    <div>
+      <p>
+        some details about this 
+        <strong>
+          talk
+        </strong>
+        .
+      </p>
+    </div>
+    <div
+      class="ui clearing segment"
     >
-      Speaker
+      <p />
+      <img
+        class="ui small right floated image"
+        item="[object Object]"
+      />
     </div>
   </div>
 </div>
@@ -156,15 +159,15 @@ exports[`renders a talk view component with only required props 1`] = `
 
 (testing-cypress)=
 
-## Testing permissions, features and user interface topics
+## Test end-to-end in a real browser
 
-With `Cypress` you can run browser-based acceptance tests.
+With **Cypress** you can run browser-based acceptance tests.
 
 The following simple test checks if an editor can add an instance of the custom content type `talk`.
 
 The test mimics the editor visiting her site and adding a talk via the appropriate menu action.
 
-Create a test file {file}`cypress/tests/content.cy.js`
+Create a test file {file}`frontend/cypress/tests/content.cy.js`
 
 ```{code-block} js
 :emphasize-lines: 4, 18, 23, 40
@@ -217,32 +220,11 @@ describe('content type tests', () => {
 });
 ```
 
-With a frontend package NOT relying on a backend package, you could proceed with next step {ref}`testing-cypress-run`.
-
-### Preparing acceptance backend with add-ons
-
-For a test like above, with talks, the acceptance backend needs the backend package with content type talk to be installed.
-
-Have a look at `/frontend/backend/`, where a backend with the add-on `ploneconf-site` is configured.
-The configuration instructs to install the package from its repository and editable.
-So you can proceed developing the backend package while working on the frontend package.
-Necessary changes of the backend package while developing the couple of backend add-on and frontend add-on can be committed right out of `/frontend/backend/sources/ploneconf.site`.
-
-
-(testing-cypress-run)=
-
-### Run cypress tests
-
-Go to your frontend folder, start the test backend and the test frontend.
-Then run the acceptance tests:
-
-It's recommended to start three individual terminal sessions, one each for running the Plone backend, the Volto frontend, and the acceptance tests.
-All sessions should start from the `frontend` directory.
+To run the acceptance tests, it's recommended to start three individual terminal sessions, one each for running the backend, the frontend, and the tests themselves.
 
 1.  In the first session, start the backend server.
 
     ```shell
-    make backend-install
     make acceptance-backend-start
     ```
 
@@ -252,23 +234,20 @@ All sessions should start from the `frontend` directory.
     make acceptance-frontend-dev-start
     ```
 
-1.  In the third session, start the Cypress tests runner.
+1.  In the third session, start the Cypress test runner.
 
     ```shell
     make acceptance-test
     ```
 
-1.  In the Cypress pop-up test style, choose `E2E Testing`, since Volto's tests are end-to-end tests.
+1.  In the Cypress window, choose `E2E Testing`, since Volto's tests are end-to-end tests.
 
 1.  In the next section, select the browser you want Cypress to run in.
-    Although the core tests use `headless Electron` by default, you can choose your preferred browser for the tests development.
+    Although the core tests use Electron by default, you can choose your preferred browser for the tests development.
 
 1.  In the main Cypress runner section, you will see all test specs.
 
-1.  To run a test, interact with the file based tree that displays all possible tests to run, and click on the test spec you want to run.
-
-Have a look in the code of `volto-ploneconf` to see that the continuous integration includes these cypress tests: `.github/workflows/acceptance.yml`.
-Commits to pull requests trigger a run of the tests.
+1.  To run a test, click on the test spec you want to run.
 
 ```{seealso}
 Helper functions for an auto login, creating content, etc. from [Volto](https://github.com/plone/volto/tree/main/packages/volto/cypress/support).
