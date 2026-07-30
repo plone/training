@@ -3,34 +3,35 @@ myst:
   html_meta:
     "description": "Organize and protect fields of content types"
     "property=og:description": "Organize and protect fields of content types"
-    "property=og:title": "Content types III: Sponsors"
+    "property=og:title": "Content types III: Sponsor"
     "keywords": "schema, permission"
 ---
 
 (dexterity-3-label)=
 
-# Content types III: Sponsors
+# Content types III: Sponsor
 
-Without sponsors, a conference would be hard to finance! Plus it is a good opportunity for Plone companies to advertise their services.
+Without sponsors, a conference would be hard to finance!
+Plus it is a good opportunity for Plone companies to advertise their services.
 
 ```{card}
 In this part we will:
 
-- Create a sponsor contenttype to manage sponsors
-- Store non-visible information about the sponsor in the sponsor-type
+- Create a sponsor content type to manage sponsors
+- Store non-visible information about the sponsor in the sponsor type
 
 Tools and techniques covered:
 
-- Schema hint and directives
+- Schema hints and directives
 - Field permissions
 ```
 
 ````{card} Backend chapter
 
-Checkout `ploneconf.site` at tag "search":
+Check out `mastering-plone-project` at tag `testing`:
 
 ```shell
-git checkout search
+git checkout testing
 ```
 
 The code at the end of the chapter:
@@ -47,7 +48,7 @@ More info in {doc}`code`
 
 First we create the schema for the new content type.
 
-Add a new file {file}`content/sponsor.py`.
+Add a new file {file}`backend/src/ploneconf/site/content/sponsor.py`.
 
 ```{code-block} python
 :linenos:
@@ -87,7 +88,7 @@ class ISponsor(model.Schema):
     directives.read_permission(notes="plone.app.controlpanel.Site")
     directives.write_permission(notes="plone.app.controlpanel.Site")
     notes = RichText(
-        title="Secret Notes (only for site-administrators and managers)", required=False
+        title="Secret Notes (only for site administrators and managers)", required=False
     )
 
 
@@ -105,12 +106,11 @@ Some things are notable here:
 See the {doc}`dexterity_reference` for a reference of all field-types and directives you can use in dexterity.
 ```
 
-## The Factory Type Information, or FTI
+## The Factory Type Information (FTI)
 
-Next, we create the factory type information ("FTI") for the new type in {file}`profiles/default/types/sponsor.xml`
+Next, we create the factory type information ("FTI") for the new type in {file}`backend/src/ploneconf/site/profiles/default/types/sponsor.xml`
 
 ```{code-block} xml
-:emphasize-lines: 21
 :linenos:
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -189,16 +189,22 @@ Next, we create the factory type information ("FTI") for the new type in {file}`
 </object>
 ```
 
-Then we register the FTI in {file}`profiles/default/types.xml`
+Then we register the FTI in {file}`backend/src/ploneconf/site/profiles/default/types.xml`
 
 ```{code-block} xml
-:emphasize-lines: 4
+:emphasize-lines: 8-10
 :linenos:
 
-<?xml version="1.0"?>
-<object name="portal_types" meta_type="Plone Types Tool">
- <object name="talk" meta_type="Dexterity FTI"/>
- <object name="sponsor" meta_type="Dexterity FTI"/>
+<?xml version="1.0" encoding="utf-8"?>
+<object meta_type="Plone Types Tool"
+        name="portal_types"
+>
+  <object meta_type="Dexterity FTI"
+          name="talk"
+  />
+  <object meta_type="Dexterity FTI"
+          name="sponsor"
+  />
 </object>
 ```
 
@@ -210,6 +216,6 @@ See the next chapter.
 
 ## Summary
 
-- You created a new content type to store information on sponsors
-- You learned how to protect individual fields from being edited with permissions
-- Next you will learn how to display the sponsors at the bottom of every page
+- You created a new content type to store information on sponsors.
+- You learned how to protect individual fields from being edited with permissions.
+- Next you will learn how to apply updates without completely reinstalling the add-on.

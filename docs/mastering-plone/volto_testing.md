@@ -159,7 +159,7 @@ exports[`renders a talk view component with only required props 1`] = `
 
 (testing-cypress)=
 
-## Test end-to-end in a real browser
+## Run an end-to-end acceptance test
 
 With **Cypress** you can run browser-based acceptance tests.
 
