@@ -30,7 +30,7 @@ Topics covered:
 - Style component with Semantic UI
 ```
 
-````{card} Frontend chapter
+````{card}
 
 Checkout `volto-ploneconf` at tag "listing_variation":
 

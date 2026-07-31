@@ -17,7 +17,7 @@ A path towards implementation is emerging.
 
 This chapter is a starting point for testing in Volto.
 
-````{card} Frontend chapter
+````{card}
 
 For information on testing **backend** code, see the separate training: {ref}`testing-plone-label`
 ````

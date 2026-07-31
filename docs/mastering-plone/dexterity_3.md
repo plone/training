@@ -26,7 +26,7 @@ Tools and techniques covered:
 - Field permissions
 ```
 
-````{card} Backend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag `testing`:
 

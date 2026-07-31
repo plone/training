@@ -11,7 +11,7 @@ myst:
 
 # Extending Volto with a custom add-on package
 
-````{card} Frontend chapter
+````{card}
 
 See {ref}`voting-story-backend-package-label` for extending Plone with backend add-ons.
 ````

@@ -11,7 +11,7 @@ myst:
 
 # Extend and customize Plone
 
-```{card} Backend chapter
+```{card}
 
 In this part you will get an overview over the technologies used to extend the Plone backend.
 

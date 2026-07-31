@@ -24,7 +24,7 @@ Topics covered:
 - block variation
 ```
 
-````{card} Frontend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag `upgrade_steps`:
 

@@ -11,7 +11,7 @@ myst:
 
 # Creating a custom block 
 
-````{card} Frontend chapter
+````{card}
 
 Creating a new block type
 ````

@@ -13,7 +13,7 @@ myst:
 
 Volto has a search block that allows you to build custom searches without additional add-ons.
 
-````{card} Backend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag `vocabularies`:
 

@@ -22,7 +22,7 @@ Tools and techniques covered:
 - upgrade steps
 ```
 
-````{card} Backend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag `schema`:
 

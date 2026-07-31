@@ -11,7 +11,7 @@ myst:
 
 # Programming Plone
 
-```{card} Backend chapter
+```{card}
 
 In this part you will:
 

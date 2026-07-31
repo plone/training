@@ -22,7 +22,7 @@ Tools and techniques covered:
 - listing criterion
 ```
 
-````{card} Frontend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag `behaviors_1`:
 

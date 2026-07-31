@@ -11,7 +11,7 @@ myst:
 
 # REST API endpoints [voting story]
 
-```{card} Backend chapter
+```{card}
 
 To be solved task in this part:
 

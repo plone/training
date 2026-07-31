@@ -11,7 +11,7 @@ myst:
 
 # Volto Actions and component state [voting story]
 
-````{card} Frontend chapter
+````{card}
 
 ````
 

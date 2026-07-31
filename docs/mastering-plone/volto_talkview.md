@@ -25,7 +25,7 @@ Tools and techniques covered:
 - React basics
 ```
 
-````{card} Frontend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag "overrides":
 

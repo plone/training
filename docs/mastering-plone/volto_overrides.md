@@ -20,7 +20,7 @@ Tools and techniques covered:
 - Content type views
 ```
 
-````{card} Frontend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag `talks`:
 

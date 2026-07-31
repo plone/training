@@ -14,7 +14,7 @@ myst:
 
 A group of jury members vote on talks to be accepted for the conference.
 
-```{card} Backend chapter
+```{card}
 
 In this part you will:
 

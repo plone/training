@@ -22,7 +22,7 @@ Tools and techniques covered:
 - Widgets
 ```
 
-````{card} Backend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag `initial`:
 

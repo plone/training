@@ -29,7 +29,7 @@ Tools and techniques covered:
 - local roles
 ```
 
-````{card} Backend chapter
+````{card}
 
 Checkout `ploneconf.site` at tag "searchable":
 

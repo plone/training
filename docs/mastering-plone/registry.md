@@ -26,7 +26,7 @@ Topics covered:
 - Control panels
 ```
 
-````{card} Backend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag `events`:
 

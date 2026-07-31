@@ -22,7 +22,7 @@ That field simply says `a` is somehow related to `b`.
 By using custom relations you can model your data in a much more meaningful way.
 
 
-````{card} Backend and frontend chapter
+````{card}
 
 Check out the code at the relevant tags!
 

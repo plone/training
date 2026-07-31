@@ -23,7 +23,7 @@ Tools and techniques covered:
 - Catalog indexes and catalog metadata columns
 ```
 
-````{card} Backend chapter
+````{card}
 
 Check out `mastering-plone-project` at tag `talkview`:
 
