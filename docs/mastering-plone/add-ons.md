@@ -11,13 +11,29 @@ myst:
 
 # Extend Plone with add-on packages
 
-```{card} Backend chapter
+```{card}
 
-For frontend add-ons see chapter {ref}`volto-addon-label`.
+In this chapter you will learn how to select and install Plone add-ons.
 
-The creation of a custom backend add-on is explained in {doc}`voting-story/index`
+The creation of a custom add-on is explained in {doc}`voting-story/index`
 ```
 
+````{card}
+
+Check out `mastering-plone-project` at tag `initial`:
+
+```shell
+git checkout initial
+```
+
+The code at the end of the chapter:
+
+```shell
+git checkout addons
+```
+
+More info in {doc}`code`
+````
 
 Plone add-ons enrich the CMS by
 
@@ -28,7 +44,7 @@ Plone add-ons enrich the CMS by
 - customizing the editor experience
 - adding content assembling features for overview pages
 
-Plone 6 knows two groups of add-ons: add-ons for Plone and such for the frontend Volto.
+Plone has two groups of add-ons: add-ons for the Plone backend and add-ons for the frontend Volto.
 
 Plone backend add-ons provide
 
@@ -36,20 +52,14 @@ Plone backend add-ons provide
 - behaviors to enrich content types
 
 Plone frontend add-ons provide
+
 - new blocks
 - variations and enhancements of blocks
 - a theme to design the layout of a site
 - components independent of blocks like a dropdown navigation
 
-Both can be coupled, if a frontend feature depends on a new content type, a new behavior or any other change needed in data structure.
-For example an add-on that has the goal to provide a bookmarking feature depends on a backend add-on that handles the storing of the bookmarks.
-
-Have a look at the curated lists of add-ons:  
-
-
-[Awesome Plone: backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)  
-[Awesome Volto: frontend add-ons](https://github.com/collective/awesome-volto/blob/main/README.md)
-
+Both can be coupled, if a frontend feature depends on a new content type, a new behavior, or any other change needed in data structure.
+For example, an add-on that has the goal to provide a bookmarking feature depends on a backend add-on that handles the storing of the bookmarks.
 
 
 (add-ons-find-label)=
@@ -63,8 +73,8 @@ Here are some tips.
 
 - Find candidates on PyPI, npm  or GitHub:
 
-  - curated list of [backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)
-  - curated list of [frontend add-ons](https://github.com/collective/awesome-volto#readme)
+  - curated list of [awesome backend add-ons](https://github.com/collective/awesome-plone/blob/main/README.md)
+  - curated list of [awesome frontend add-ons](https://github.com/collective/awesome-volto#readme)
   - Python packages on PyPI: <https://pypi.org/search/?c=Framework+%3A%3A+Plone>
   - Plone add-ons on GitHub: <https://github.com/collective>
   - Plone core packages on GitHub: <https://github.com/plone>
@@ -92,93 +102,104 @@ Here are some tips.
 - Either extend an existing add-on to ﬁt your needs or create a new add-on that does exactly what you need.
 
 
-(add-ons-installing-label)=
+(add-ons-install-form-block-label)=
 
-## Installing Plone add-ons
+## Example: the form block add-on
 
-We have two groups of add-ons: backend and frontend.
+For our case study, it would be nice to have a contact form to send questions to the conference organizers.
+We can use the [Plone form block add-on](https://github.com/plone/form-block) for this.
 
-The training setup starts without any frontend add-on.
-Later on we will add features via a frontend add-on.
-See chapter {doc}`volto_addon` how to install a frontend add-on.
+It is released in two packages:
 
-The training setup starts with one backend add-on `ploneconf.site`.
-Let's see how it is installed.
+- [`plone.formblock`](https://pypi.org/project/plone.formblock/) is the backend add-on
+- [`@plone/volto-form-block`](https://www.npmjs.com/package/@plone/volto-form-block) is the frontend add-on
 
+We have to add both of these to our project.
 
-### Making a backend add-on package available to Zope
+## Install the backend add-on
 
-First, we must make the add-on package available to Zope.
-This means that Zope can import the code.
+First, we must add the backend add-on as a dependency, so that its code will be available.
 
-A backend add-on is a Python package.
-Therefore we install it with pip.
+Edit the file {file}`backend/pyproject.toml` and add `plone.formblock` to the `dependencies`:
 
-Look at the {file}`requirements.txt` file. 
-You add a package to the configuration by adding a new line containing the package name.
+```{code-block} toml
+:linenos:
+:emphasize-lines: 6
 
-If the add-on is not released on [PyPI](https://pypi.org/), we tell Zope where to find the package on `Github` or another repository platform by including the necessary information in {file}`mx.ini`.
-
-```ini
-[training.votable]
-url=git@github.com:collective/training.votable.git
-branch=main
-; tag=volto
+dependencies = [
+    "Products.CMFPlone==6.2.1",
+    "plone.api",
+    "plone.restapi",
+    "plone.volto",
+    "plone.formblock==1.0.0a3",
+]
 ```
 
-Adding the package to {file}`instance.yaml` causes the generation of the Zope configuration to make the package available in a Zope app.
+It's a good idea to "pin" the add-on to a specific version, to make sure that it won't get accidentally upgraded when you don't expect it, if there is a new release of the add-on in the future.
 
-```yaml
-zcml_package_includes: training.votable, ploneconf.site
+Now re-install the project with the new dependencies:
+
+```shell
+make backend-install
 ```
 
-Running `make build` has three effects:
-- The build installs the python package with `pip`.
-- The build generates in `instance/` a Zope instance configuration that makes the package available in our Zope app.
-- As soon as the Zope app is started via `make start`, the add-on can be enabled per Plone instance.
-  A Zope app can include multiple Plone instances.
-  So an add-on can be enabled per Plone instance.
+This runs `uv sync` which updates the Python virtual environment with the dependencies listed in `pyproject.toml`.
+Now when the backend is restarted, the code for the add-on is available.
+
+Backend add-ons usually also need to be installed in a specific Plone site.
+
+In your browser, go to `Site Setup` at `http://localhost:3000/controlpanel`, and open the `Add-ons` control panel.
+You will see a list of available add-ons.
+Click to install the form block add-on.
+
+````{card}
+```{image} _static/addons.png
+:alt: Plone `Add-ons` control panel, showing available configuration options
+```
++++
+_Add-ons control panel, showing available configuration options._
+````
 
 ```{seealso}
 Documentation {doc}`plone6docs:admin-guide/add-ons`
 ```
 
+## Install the frontend add-on
 
-### Enabling add-ons in your Plone site
+We also need to install the code for the frontend add-on.
+Update the `addons` and `dependencies` in {file}`frontend/packages/volto-ploneconf-site/package.json`:
 
-An add-on can be enabled per Plone instance.
+```{code-block} json
+:emphasize-lines: 2, 5
 
-In your browser, go to `Site Setup` at `http://localhost:3000/controlpanel`, and open the `Add-ons` control panel. You will see a list of available add-ons.
-
-````{card}
-```{image} ../_static/site_setup.png
-:alt: Plone `Add-ons` control panel, showing available configuration options
-:target: ../_static/site_setup.png
+"addons": [
+  "@plone/volto-form-block"
+],
+"dependencies": {
+  "@plone/volto-form-block": "^1.0.0-alpha.0",
+},
 ```
-+++
-_Plone `Add-ons` control panel, showing available configuration options._
-````
 
-Enable `ploneconf.site` now if you haven't done already.
+```{tip}
+`dependencies` tells the package manager `pnpm` to install the code.
+`addons` tells Volto to load the add-on's configuration.
+```
 
-This is what happens: The GenericSetup profile of the product gets loaded. This does things like:
+Now re-install the frontend with the new dependencies:
 
-- Registering new content types
-- Registering behaviors
-- Configuring new actions
-- Create catalog indexes
+```shell
+make frontend-install
+```
 
-All this is configured in the default GenericSetup profile, which can be found in `backend/sources/<package name>/src/<package name>/profiles/default`.
-In the next chapters we will add here our content type `talk`, configure a catalog index, and some more.
+After you restart the frontend, you should be able to add a form block.
 
+```{tip}
+To confirm that the frontend add-on is installed, go to http://localhost:3000/controlpanel and look at the list of Add-ons at the bottom.
+```
 
 (add-ons-summary-label)=
 
 ## Summary
 
 We have seen in short how to extend a vanilla Plone website with third party add-ons to add new functionality.
-Even if you do not use many of these, they are nonetheless an inspiration on how to implement features in Plone.
-
-
-
-For frontend add-ons see chapter {ref}`volto-addon-label`
+Even if you do not use many of these, they can be useful examples of how to implement features in Plone.

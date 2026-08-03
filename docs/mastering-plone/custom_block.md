@@ -18,8 +18,6 @@ Creating a new block type
 
 We want to provide some information for speakers of the conference: Which topics are possible? What do I have to consider speaking at an online conference? FAQ section would come in handy. This could be done by creating a block type that offers a form for question and answer pairs and displays an accordion.
 
-Let's start with our fresh add-on we created in the last chapter {doc}`volto_custom_addon`.
-
 ```{figure} _static/volto_addon_accordion_display.png
 :alt: Volto add-on volto-accordion-block
 ```

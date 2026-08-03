@@ -63,9 +63,7 @@ upgrade_steps
 volto_listing_variation
 searchable
 volto_components_sponsors
-volto_addon
-volto_custom_addon
-volto_custom_addon2
+custom_block
 user_generated_content
 relations
 voting-story/index

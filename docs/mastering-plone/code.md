@@ -133,9 +133,7 @@ These are the tags of the backend add-on 'ploneconf.site' and frontend add-on 'v
 | {doc}`volto_listing_variation` | listing_variation | volto-ploneconf |
 | {doc}`searchable` | searchable | ploneconf.site |
 | {doc}`volto_components_sponsors` | sponsors | volto-ploneconf |
-| {doc}`volto_addon` | |
-| {doc}`volto_custom_addon` | |
-| {doc}`volto_custom_addon2` | |
+| {doc}`custom_block` | |
 | {doc}`user_generated_content` | user_generated_content | ploneconf.site |
 | {doc}`relations` | relations | ploneconf.site and volto-ploneconf |
 | {doc}`voting-story/index` | | training.votable, volto-training-votable |

@@ -62,6 +62,7 @@ During the course of the training you will solve the following tasks.
 - Create users and organize them
 - Configure some basic settings of the website
 - Create content with info about the conference using the default features
+- Create a contact form using the form block add-on
 - Create a Plone add-on to hold our own python code in a backend add-on
 - Create a content type 'talk' to store all the data required for a talk
 - Create a view to display a talk in a nice way
