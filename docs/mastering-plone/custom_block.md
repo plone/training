@@ -3,20 +3,41 @@ myst:
   html_meta:
     "description": "Simple block architecture"
     "property=og:description": "Simple block architecture"
-    "property=og:title": "Creating a custom block"
+    "property=og:title": "Create a custom block"
     "keywords": "Plone, Volto, block, add-on"
 ---
 
-(volto-custom-addon2-label)=
+(volto-custom-block-label)=
 
-# Creating a custom block 
+# Create a custom block 
 
 ````{card}
 
-Creating a new block type
+In this part you will create a new block for the Volto frontend.
 ````
 
-We want to provide some information for speakers of the conference: Which topics are possible? What do I have to consider speaking at an online conference? FAQ section would come in handy. This could be done by creating a block type that offers a form for question and answer pairs and displays an accordion.
+````{card}
+
+Check out `mastering-plone-project` at tag `sponsors`:
+
+```shell
+git checkout sponsors
+```
+
+The code at the end of the chapter:
+
+```shell
+git checkout block
+```
+
+More info in {doc}`code`
+````
+
+We want to provide some information for speakers of the conference:
+Which topics are possible?
+What do I have to consider for speaking at an online conference?
+A FAQ section would come in handy.
+This could be done by creating a block type that offers a form for question and answer pairs and displays an accordion.
 
 ```{figure} _static/volto_addon_accordion_display.png
 :alt: Volto add-on volto-accordion-block
@@ -26,14 +47,86 @@ We want to provide some information for speakers of the conference: Which topics
 :alt: Editing Volto add-on volto-accordion-block
 ```
 
-We need a view and an edit form for the block. Create a {file}`src/FAQ/BlockView.jsx` and {file}`src/FAQ/BlockEdit.jsx`.
+## The block schema
 
-The BlockView is a simple function component that displays a FAQ component with the data stored on the block.
+Let's first define the schema for the data that will be stored for this block.
+We want to store a list of question and answer pairs, like this:
+
+```json
+[
+  {
+    "question": "What is Plone?",
+    "answer": "Plone is a CMS..."
+  },
+  {
+    "question": "Where is the conference?",
+    "answer": "Maastricht"
+  }
+]
+```
+
+Create a folder {file}`src/frontend/volto-ploneconf-site/src/components/Blocks/FAQ` containing {file}`schema.js`.
 
 ```{code-block} jsx
 :linenos:
 
-import React from 'react';
+export const QuestionAnswerPairSchema = {
+  title: 'Question and Answer Pair',
+  fieldsets: [
+    {
+      id: 'default',
+      title: 'QA pair',
+      fields: ['question', 'answer'],
+    },
+  ],
+  properties: {
+    question: {
+      title: 'Question',
+      type: 'string',
+      widget: 'textarea',
+    },
+    answer: {
+      title: 'Answer',
+      type: 'string',
+      widget: 'richtext',
+    },
+  },
+  required: ['question', 'answer'],
+};
+
+export const FAQBlockSchema = {
+  title: 'FAQ',
+  fieldsets: [
+    {
+      id: 'default',
+      title: 'Default',
+      fields: ['faqs'],
+    },
+  ],
+  properties: {
+    faqs: {
+      title: 'Question and Answers',
+      type: 'array',
+      widget: 'object_list',
+      schema: QuestionAnswerPairSchema,
+    },
+  },
+  required: [],
+};
+```
+
+`QuestionAnswerPairSchema` is the schema for a single question-answer pair, and `FAQBlockSchema` is the schema for the entire block, with a list of those pairs.
+
+## Block view
+
+We need a view for the block.
+The BlockView is a simple function component that displays a FAQ component with the data stored in the block.
+
+Create the file {file}`src/frontend/volto-ploneconf-site/src/components/Blocks/FAQ/BlockView.jsx`.
+
+```{code-block} jsx
+:linenos:
+
 import FAQ from './FAQ';
 
 const View = ({ data }) => {
@@ -47,30 +140,14 @@ const View = ({ data }) => {
 export default View;
 ```
 
-We outsource the FAQ component to file {file}`srch/FAQ/FAQ.jsx` and make heavy use of Semantic UI components especially of an accordion with its respective behavior of expanding and collapsing.
+We outsource the FAQ component to file {file}`src/packages/volto-ploneconf-site/src/components/Blocks/FAQ/FAQ.jsx` and make heavy use of Semantic UI components, especially the accordion with its behavior of expanding and collapsing.
 
 ```{code-block} jsx
 :linenos:
 
-const FAQ = ({ data }) => {
-  const [activeIndex, setActiveIndex] = useState(new Set());
+import { useState } from 'react';
 
-  return data.faq_list?.faqs ? (
-    {data.faq_list.faqs.map((id_qa) => (
-```
-
-We primarily loop over the accordion elements and we remember the extended (not collapsed) elements.
-
-````{dropdown} Complete code of the FAQ component
-:animate: fade-in-slide-down
-:icon: question
-
-```{code-block} jsx
-:linenos:
-
-import React, { useState } from 'react';
-
-import { Icon } from '@plone/volto/components';
+import Icon from '@plone/volto/components/theme/Icon/Icon';
 import rightSVG from '@plone/volto/icons/right-key.svg';
 import downSVG from '@plone/volto/icons/down-key.svg';
 import AnimateHeight from 'react-animate-height';
@@ -80,32 +157,32 @@ import { Accordion, Grid, Divider, Header } from 'semantic-ui-react';
 const FAQ = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(new Set());
 
-  return data.faq_list?.faqs ? (
+  return data.faqs ? (
     <>
       <Divider section />
-      {data.faq_list.faqs.map((id_qa) => (
-        <Accordion key={id_qa} fluid exclusive={false}>
+      {data.faqs.map(({ '@id': id, question, answer }) => (
+        <Accordion key={id} fluid exclusive={false}>
           <Accordion.Title
-            index={id_qa}
+            index={id}
             className="stretched row"
-            active={activeIndex.has(id_qa)}
+            active={activeIndex.has(id)}
             onClick={() => {
               const newSet = new Set(activeIndex);
-              activeIndex.has(id_qa) ? newSet.delete(id_qa) : newSet.add(id_qa);
+              activeIndex.has(id) ? newSet.delete(id) : newSet.add(id);
               setActiveIndex(newSet);
             }}
           >
             <Grid>
               <Grid.Row>
                 <Grid.Column width="1">
-                  {activeIndex.has(id_qa) ? (
+                  {activeIndex.has(id) ? (
                     <Icon name={downSVG} size="20px" />
                   ) : (
                     <Icon name={rightSVG} size="20px" />
                   )}
                 </Grid.Column>
                 <Grid.Column width="11">
-                  <Header as="h3">{data.faq_list.faqs_layout[id_qa][0]}</Header>
+                  <Header as="h3">{question}</Header>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -113,7 +190,7 @@ const FAQ = ({ data }) => {
           <div>
             <Accordion.Content
               className="stretched row"
-              active={activeIndex.has(id_qa)}
+              active={activeIndex.has(id)}
             >
               <Grid>
                 <Grid.Row>
@@ -121,13 +198,13 @@ const FAQ = ({ data }) => {
                   <Grid.Column width="11">
                     <div>
                       <AnimateHeight
-                        key={id_qa}
+                        key={id}
                         duration={300}
-                        height={activeIndex.has(id_qa) ? 'auto' : 0}
+                        height={activeIndex.has(id) ? 'auto' : 0}
                       >
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: data.faq_list.faqs_layout[id_qa][1].data,
+                            __html: answer.data,
                           }}
                         />
                       </AnimateHeight>
@@ -150,13 +227,17 @@ export default FAQ;
 ```
 ````
 
-Let's see how the data is stored on the block. Open your BlockEdit. See the helper component `SidebarPortal`. Everything inside is displayed in the Sidebar.
+## Edit form
+
+We also need an edit form.
+The edit form also uses the same `FAQ` component to show the current data, along with the `FAQSidebar` with the form for editing the data.
+
+Create the file {file}`frontend/packages/volto-ploneconf-site/src/components/Block/FAQ/BlockEdit.jsx`.
 
 ```{code-block} jsx
 :linenos:
 
-import React from 'react';
-import { SidebarPortal } from '@plone/volto/components';
+import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal';
 
 import FAQSidebar from './FAQSidebar';
 import FAQ from './FAQ';
@@ -176,20 +257,24 @@ const Edit = ({ data, onChangeBlock, block, selected }) => {
 export default Edit;
 ```
 
-We outsource the edit form in a file {file}`FAQSidebar.jsx` which displays the form according a schema of question and answers. The _onChangeBlock_ event handler is inherited, it stores the value on the block.
+```{tip}
+Everything inside the `SidebarPortal` is rendered in the sidebar instead of inside the block.
+```
+
+We outsource the edit form to {file}`FAQSidebar.jsx` which displays a form using the block schema.
+The _onChangeBlock_ prop is a function we can use to store changes to the block data.
 
 ```{code-block} jsx
 :linenos:
 
-import React from 'react';
-import { FAQSchema } from './schema';
+import { FAQBlockSchema } from './schema';
 import InlineForm from '@plone/volto/components/manage/Form/InlineForm';
 
 const FAQSidebar = ({ data, block, onChangeBlock }) => {
   return (
     <InlineForm
-      schema={FAQSchema}
-      title={FAQSchema.title}
+      schema={FAQBlockSchema}
+      title={FAQBlockSchema.title}
       onChangeField={(id, value) => {
         onChangeBlock(block, {
           ...data,
@@ -204,313 +289,30 @@ const FAQSidebar = ({ data, block, onChangeBlock }) => {
 export default FAQSidebar;
 ```
 
-We define the schema in {file}`schema.js`.
-
-```{code-block} jsx
-:emphasize-lines: 11-14
-:linenos:
-
-export const FAQSchema = {
-  title: 'FAQ',
-  fieldsets: [
-    {
-      id: 'default',
-      title: 'Default',
-      fields: ['faq_list'],
-    },
-  ],
-  properties: {
-    faq_list: {
-      title: 'Question and Answers',
-      type: 'faqlist',
-    },
-  },
-  required: [],
-};
-```
-
-The field _faq_list_ has a type _'faqlist'_. This has to be registered as a _widget_ in {file}`src/index.js`. This configuration is the central place where your add-on can customize the hosting Volto app. It's the place where we later also register our new block type with information about its view and edit form.
-
-```{code-block} jsx
-:linenos:
-
-import FAQListEditWidget from './FAQ/FAQListEditWidget';
-
-export default function applyConfig(config) {
-  config.widgets.type.faqlist = FAQListEditWidget;
-
-  return config;
-}
-```
-
-Now we will code the important part of the whole block type: the widget `FAQListEditWidget`.
-We need a form that consists of a list of existing questions and answers.
-The text should be editable.
-Additional pairs of questions and answers should be addable.
-Next step will be to let the list be drag- and droppable to reorder the items.
-Also should an item be deletable.
-That's a lot. Let's start with the list of fields displaying the existing values.
-
-Create a {file}`FAQListEditWidget.jsx`.
-
-```{code-block} jsx
-:linenos:
-
-import { Form as VoltoForm } from '@plone/volto/components';
-
-const FAQListEditWidget = (props) => {
-  const { value = {}, id, onChange } = props;
-  // id is the field name: faq_list
-  // value is the form data (see example in schema.js)
-
-  // qaList: array of [id_question, [question, answer]]
-  const qaList = (value.faqs || []).map((key) => [key, value.faqs_layout[key]]);
-
-  return (
-    // loop over question answer pairs *qaList*
-      <VoltoForm
-        onSubmit={({ question, answer }) => {
-          onSubmitQAPair(childId, question, answer);
-        }}
-        formData={{
-          question: value.faqs_layout[childId][0],
-          answer: value.faqs_layout[childId][1],
-        }}
-        schema={QuestionAnswerPairSchema(
-          props.intl.formatMessage(messages.question),
-          props.intl.formatMessage(messages.answer),
-        )}
-      />
-```
-
-You see the Volto `Form` component with its onSubmit event, the form data and the schema to be used.
-
-````{dropdown} Complete code of the FAQListEditWidget component
-:animate: fade-in-slide-down
-:icon: question
-
-```{code-block} jsx
-:emphasize-lines: 112-124
-:linenos:
-
-import React from 'react';
-import { defineMessages, injectIntl } from 'react-intl';
-import { v4 as uuid } from 'uuid';
-import { omit, without } from 'lodash';
-import move from 'lodash-move';
-import { FormFieldWrapper, DragDropList, Icon } from '@plone/volto/components';
-import { Form as VoltoForm } from '@plone/volto/components';
-
-import dragSVG from '@plone/volto/icons/drag.svg';
-import trashSVG from '@plone/volto/icons/delete.svg';
-import plusSVG from '@plone/volto/icons/circle-plus.svg';
-
-import { QuestionAnswerPairSchema } from './schema.js';
-
-const messages = defineMessages({
-  question: {
-    id: 'Question',
-    defaultMessage: 'Question',
-  },
-  answer: {
-    id: 'Answer',
-    defaultMessage: 'Answer',
-  },
-  add: {
-    id: 'add',
-    defaultMessage: 'add',
-  },
-});
-
-export function moveQuestionAnswerPair(formData, source, destination) {
-  return {
-    ...formData,
-    faqs: move(formData.faqs, source, destination),
-  };
-}
-
-const empty = () => {
-  return [uuid(), ['', {}]];
-};
-
-const FAQListEditWidget = (props) => {
-  const { value = {}, id, onChange } = props;
-  // id is the field name: faq_list
-  // value is the form data (see example in schema.js)
-
-  const onSubmitQAPair = (id_qa, question, answer) => {
-    onChange(id, {
-      ...value,
-      faqs_layout: {
-        ...(value.faqs_layout || {}),
-        [id_qa]: [question, answer],
-      },
-    });
-  };
-
-  const addQA = () => {
-    const [newId, newData] = empty();
-    onChange(id, {
-      ...value,
-      faqs: [...(value.faqs || []), newId],
-      faqs_layout: {
-        ...(value.faqs_layout || {}),
-        [newId]: newData,
-      },
-    });
-  };
-
-  // qaList array of [id_question, [question, answer]]
-  const qaList = (value.faqs || []).map((key) => [key, value.faqs_layout[key]]);
-
-  const showAdd = true;
-  return (
-    <FormFieldWrapper
-      {...props}
-      draggable={false}
-      columns={1}
-      className="drag-drop-list-widget"
-    >
-      <div className="columns-area">
-        <DragDropList
-          childList={qaList}
-          onMoveItem={(result) => {
-            const { source, destination } = result;
-            if (!destination) {
-              return;
-            }
-            const newFormData = moveQuestionAnswerPair(
-              value,
-              source.index,
-              destination.index,
-            );
-            onChange(id, newFormData);
-            return true;
-          }}
-        >
-          {(dragProps) => {
-            const { childId, draginfo } = dragProps;
-            return (
-              <div ref={draginfo.innerRef} {...draginfo.draggableProps}>
-                <div style={{ position: 'relative' }}>
-                  <div
-                    style={{
-                      visibility: 'visible',
-                      display: 'inline-block',
-                    }}
-                    {...draginfo.dragHandleProps}
-                    className="drag handle wrapper"
-                  >
-                    <Icon name={dragSVG} size="18px" />
-                  </div>
-                  <div className="column-area">
-                    <VoltoForm
-                      onSubmit={({ question, answer }) => {
-                        onSubmitQAPair(childId, question, answer);
-                      }}
-                      formData={{
-                        question: value.faqs_layout[childId][0],
-                        answer: value.faqs_layout[childId][1],
-                      }}
-                      schema={QuestionAnswerPairSchema(
-                        props.intl.formatMessage(messages.question),
-                        props.intl.formatMessage(messages.answer),
-                      )}
-                    />
-                    {qaList?.length > 1 ? (
-                      <button
-                        onClick={() => {
-                          onChange(id, {
-                            faqs: without(value.faqs, childId),
-                            faqs_layout: omit(value.faqs_layout, [childId]),
-                          });
-                        }}
-                      >
-                        <Icon name={trashSVG} size="18px" />
-                      </button>
-                    ) : (
-                      ''
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          }}
-        </DragDropList>
-        {showAdd ? (
-          <button
-            aria-label={props.intl.formatMessage(messages.add)}
-            onClick={addQA}
-          >
-            <Icon name={plusSVG} size="18px" />
-          </button>
-        ) : (
-          ''
-        )}
-      </div>
-    </FormFieldWrapper>
-  );
-};
-
-export default injectIntl(FAQListEditWidget);
-```
-
-````
-
-The form is fructified by the schema QuestionAnswerPairSchema. It's simple, just a string field with a TextArea widget for the question and a such for the answer, but with a RichText widget to have some editing and styling tools available.
-
-{file}`src/FAQ/schema.js`
-
-```{code-block} jsx
-:emphasize-lines: 12,17
-:linenos:
-
-export const QuestionAnswerPairSchema = (title_question, title_answer) => {
-  return {
-    title: 'Question and Answer Pair',
-    fieldsets: [
-      {
-        id: 'default',
-        title: 'QA pair',
-        fields: ['question', 'answer'],
-      },
-    ],
-    properties: {
-      question: {
-        title: title_question,
-        type: 'string',
-        widget: 'textarea',
-      },
-      answer: {
-        title: title_answer,
-        type: 'string',
-        widget: 'richtext',
-      },
-    },
-    required: ['question', 'answer'],
-  };
-};
-```
+## Register the block in Volto config
 
 What's left to do?
-You created a block type with view and edit form and even a nice widget for the editor to fill in questions and answers. Register the block type and you are good to start your app and create an FAQ for the conference speakers.
+You created a block type with view and edit form and even a nice widget for the editor to fill in questions and answers. 
+We still need to register the block type in the Volto configuration so that Volto knows it exists.
 
-Go to {file}`src/index.js` and register your block type.
+Add the file {file}`frontend/volto-ploneconf-site/src/config/blocks.ts`.
 
-```{code-block} jsx
-:emphasize-lines: 8-22
+```{code-block} tsx
 :linenos:
 
 import icon from '@plone/volto/icons/list-bullet.svg';
 
-import FAQBlockEdit from './FAQ/BlockEdit';
-import FAQBlockView from './FAQ/BlockView';
-import FAQListEditWidget from './FAQ/FAQListEditWidget';
+import FAQBlockEdit from '../components/Blocks/FAQ/BlockEdit';
+import FAQBlockView from '../components/Blocks/FAQ/BlockView';
+import { FAQBlockSchema } from '../components/Blocks/FAQ/schema';
 
-export default function applyConfig(config) {
-  config.blocks.blocksConfig.faq_viewer = {
-    id: 'faq_viewer',
+import type { ConfigType } from '@plone/registry';
+
+export default function install(config: ConfigType) {
+  config.blocks.blocksConfig.faq = {
+    id: 'faq',
     title: 'FAQ',
+    blockSchema: FAQBlockSchema,
     edit: FAQBlockEdit,
     view: FAQBlockView,
     icon: icon,
@@ -518,37 +320,38 @@ export default function applyConfig(config) {
     restricted: false,
     mostUsed: false,
     sidebarTab: 1,
-    security: {
-      addPermission: [],
-      view: [],
-    },
   };
-
-  config.widgets.type.faqlist = FAQListEditWidget;
-
   return config;
 }
 ```
 
-As we now apply our configuration of the new block type, the app is enriched with an accordion block.
+Update {file}`frontend/src/volto-ploneconf-site/src/index.ts` to include the block configuration.
 
-Run
+```{code-block} tsx
+:linenos:
+:emphasize-lines: 3, 7
 
-```shell
-make start
+import type { ConfigType } from '@plone/registry';
+import installSettings from './config/settings';
+import installBlocks from './config/blocks';
+
+function applyConfig(config: ConfigType) {
+  installSettings(config);
+  installBlocks(config);
+
+  return config;
+}
+
+export default applyConfig;
 ```
+
+Restart the frontend, and now the FAQ block should be available.
 
 ```{figure} _static/volto_addon_accordion_add.png
 :alt: "@rohberg/volto-accordion-block"
 ```
 
-See the complete add-on code @rohberg/volto-accordion-block [^id3]
+```{seealso}
 
-## Save your work to Github
-
-Your add-on is ready to use. As by now your repository is on GitHub. As soon as it is published, you can share it with others.
-
-An official release is done on npm. Switch to section {ref}`Release a Volto add-on <volto-custom-addon-final-label>`.
-
-[^id3]: [Volto accordion block](https://www.npmjs.com/package/@rohberg/volto-accordion-block)
-    Started as an example for the training it is ready to use for creating a questions and answer sections.
+[@rohberg/volto-accordion-block](https://www.npmjs.com/package/@rohberg/volto-accordion-block) is a released add-on similar to the one from this chapter.
+```
