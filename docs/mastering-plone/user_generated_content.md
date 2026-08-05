@@ -3,38 +3,35 @@ myst:
   html_meta:
     "description": "Configure who can edit what"
     "property=og:description": "Configure who can edit what"
-    "property=og:title": "Workflow, Roles and Permissions"
+    "property=og:title": "Workflow, roles and permissions"
     "keywords": "Plone, Volto, workflow, role, local role, permission"
 ---
 
 (user-content-label)=
 
-# Workflow, Roles and Permissions
-
-How do prospective speakers submit talks?
-We let them register on the site and grant right to create talks.
-For this we go back to changing the site through-the-web.
+# Workflow, roles and permissions
 
 ```{card}
 In this part you will:
 
 - Allow self-registration
-- Constrain which content types can be added to the (folderish) talk page
+- Constrain which content types can be added to the schedule folder
 - Grant local roles
 - Create a custom workflow for talks
 
 Tools and techniques covered:
 
-- workflow
+- folder constraints
 - local roles
+- workflow
 ```
 
 ````{card}
 
-Checkout `ploneconf.site` at tag "searchable":
+Check out `mastering-plone-project` at tag `block`:
 
 ```shell
-git checkout searchable
+git checkout block
 ```
 
 The code at the end of the chapter:
@@ -46,22 +43,26 @@ git checkout user_generated_content
 More info in {doc}`code`
 ````
 
+How do prospective speakers submit talks?
+We let them register on the site and grant the right to create talks.
+For this we go back to changing the site through the web.
+
 
 (user-content-self-reg-label)=
 
 ## Self-registration
 
-- Go to the control panel {guilabel}`security`  at <http://localhost:3000/controlpanel/security> and enable self-registration.
-- Leave "Enable User Folders" off unless you want a community site, in which users can create any content they want in their home folder.
-- Select the option 'Use email address as login name'.
+- Go to the {guilabel}`Security` control panel at <http://localhost:3000/controlpanel/security> and enable self-registration.
+- Leave {guilabel}`Enable User Folders` off unless you want a community site, in which users can create any content they want in their home folder.
+- Select the option {guilabel}`Use email address as login name`.
 
 
 (user-content-constrain-types-label)=
 
 ## Constrain types to be addable
 
-On the page `schedule` select {guilabel}`Restrictions…` <http://localhost:8080/Plone/schedule/folder_constraintypes_form> from the {guilabel}`Add new_` menu. 
-Restrict to adding only talks.
+On the schedule page, select {guilabel}`Restrictions…` <http://localhost:8080/Plone/schedule/folder_constraintypes_form> from the {guilabel}`Add new` menu. 
+Restrict to only allow adding talks.
 
 ```{note}
 This action is only available in Plone's Classic UI frontend, and not its Volto frontend.
@@ -72,10 +73,13 @@ This action is only available in Plone's Classic UI frontend, and not its Volto 
 
 ## Grant local roles
 
-- Go to {guilabel}`Sharing` and grant the role _Can add_ to the group _logged-in users_. 
-  Now every logged-in user can add content in this folder (and only this folder).
+On the schedule page, go to {guilabel}`Sharing`.
+Check the box for {guilabel}`Can add` for the group {guilabel}`Logged-in users`, and save.
+Now every logged-in user can add content in this folder (and only this folder).
 
-By combining the constrain types and the local roles on this folder, we have achieved, that only logged-in users can create and submit talks in this folderish page.
+The {guilabel}`Can add` column grants the `Contributor` role to this group within this folder.
+
+By combining the type constraints and the local roles on this folder, we have made it so that non-admin users can create and submit talks inside the schedule.
 
 
 (user-content-custom-workflow-label)=
@@ -86,45 +90,50 @@ We still need to fix a problem: Authenticated users can see all talks, including
 Since we do not want this, we will create a modified workflow for talks.
 The new workflow will only let them see and edit talks they created themselves and not the ones of other users.
 
-- Go to the {menuselection}`ZMI --> portal_workflow`
+- Go to the {menuselection}`ZMI --> portal_workflow`: http://localhost:8080/Plone/portal_workflow/manage
 - See how talks have the same workflow as most content, namely {guilabel}`(Default)`
 - Go to the tab {guilabel}`Contents`, check the box next to {guilabel}`simple_publication_workflow`, click {guilabel}`copy` and {guilabel}`paste`.
-- Rename the new workflow from _copy_of_simple_publication_workflow_ to _talks_workflow_.
-- Edit the workflow by clicking on it: Change the Title to _Talks Workflow_.
-- Click on the tab {guilabel}`States` and click on {guilabel}`private` to edit this state. In the next view select the tab {guilabel}`Permissions`.
-- Find the table column for the role {guilabel}`Contributor` and remove the permissions for {guilabel}`Access contents information` and {guilabel}`View`. Note that the {guilabel}`Owner` (that's the creator) still has some permissions.
+- Rename the new workflow from `copy_of_simple_publication_workflow` to `talks_workflow`.
+- Edit the workflow by clicking on it: Change the Title to `Talks Workflow`.
+- Click on the tab {guilabel}`States` and click on {guilabel}`private` to edit this state.
+  In the next view select the tab {guilabel}`Permissions`.
+- Find the table column for the role {guilabel}`Contributor` and remove the permissions for {guilabel}`Access contents information` and {guilabel}`View`. Note that the {guilabel}`Owner` role (that's the creator) still has some permissions.
 - Do the same for the state {guilabel}`pending`
-- Go back to {file}`portal_workflow` and set the new workflow {file}`talks_workflow` for talks. Click {file}`Change` and then {file}`Update security settings`.
+- Go back to {guilabel}`portal_workflow` and set the new workflow {file}`talks_workflow` for talks.
+  Click {file}`Change` and then {file}`Update security settings`.
 
-The new workflow allows contributors to see and edit talks they created themselves but not the ones of other contributors.
+The new workflow allows contributors to see and edit talks they created themselves, but not talks submitted by other contributors until they are published.
 
 
 (user-content-fs-label)=
 
 ## Move the changes to the file system
 
-We don't want to do these steps for every new conference by hand so we move the changes into our package.
+We don't want to do these steps for every new conference by hand so we move the changes into our Generic Setup profile.
 
-### Export and import the workflow
+### Export the workflow
 
-- Export the GenericSetup step _Workflow Tool_ in <http://localhost:8080/Plone/portal_setup/manage_exportSteps>.
+- Export the Generic Setup step _Workflow Tool_ in <http://localhost:8080/Plone/portal_setup/manage_exportSteps>.
 
-- Drop the file {file}`workflows.xml` into {file}`src/ploneconf/site/profiles/default` an clean out everything that is not related to talks.
+- Copy the file {file}`workflows.xml` into {file}`backend/src/ploneconf/site/profiles/default` and clean out everything that is not related to talks.
 
   ```xml
-  <?xml version="1.0"?>
-  <object name="portal_workflow" meta_type="Plone Workflow Tool">
-   <object name="talks_workflow" meta_type="Workflow"/>
-   <bindings>
+<?xml version="1.0"?><object meta_type="Plone Workflow Tool"
+        name="portal_workflow"
+>
+  <object meta_type="Workflow"
+          name="talks_workflow"
+  />
+  <bindings>
     <type type_id="talk">
-     <bound-workflow workflow_id="talks_workflow"/>
+      <bound-workflow workflow_id="talks_workflow" />
     </type>
-   </bindings>
-  </object>
-  ```
+  </bindings>
+</object>
+```
 
-- Drop {file}`workflows/talks_workflow/definition.xml` in {file}`src/ploneconf/site/profiles/default/workflows/talks_workflow/definition.xml`.
-  The other files are just definitions of the default-workflows and we only want things in our package that changes Plone.
+- Copy {file}`workflows/talks_workflow/definition.xml` into {file}`backend/src/ploneconf/site/profiles/default/workflows/talks_workflow/definition.xml`.
+  (The other files are just definitions of the default workflows, and we only want things in our package that changes Plone.)
 
 ### Enable self-registration
 
@@ -139,18 +148,63 @@ Most global setting are stored in the registry. You can modify it by adding the 
 
 ### Grant local roles and constrain types to be addable
 
-Since the granting of local roles applies only to a certain folder in the site we would not always write code for it but do it by hand.
-But for testability and repeatability (there is a conference every year!) we should create the initial content structure automatically and also apply needed local roles.
+Since the granting of local roles applies only to a certain folder in the site, we could easily do it by hand instead of writing code for it.
+But for testability and repeatability (there is a conference every year!), we should create the initial content structure automatically and also apply needed local roles.
 
-We are setting up the initial content of a conference site in an upgrade step explained in {ref}`upgrade step code <upgrade-steps-pycode-label>`.
-Let's enhance this by setting local roles and constrain types.
-Add the following lines to `cleanup_site_structure`.
+Let's add an upgrade step to do this as well as importing the workflow and new registry setting.
+
+Update the profile version in {file}`backend/src/ploneconf/site/profiles/default/metadata.xml`:
+
+```{code-block} xml
+:linenos:
+:emphasize-lines: 3
+
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <version>1004</version>
+  <dependencies>
+    <dependency>profile-plone.volto:default</dependency>
+    <dependency>profile-plone.app.caching:default</dependency>
+    <dependency>profile-plone.app.caching:with-caching-proxy</dependency>
+  </dependencies>
+</metadata>
+```
+
+Register the new upgrade step in {file}`backend/src/ploneconf/site/upgrades/configure.zcml`:
+
+```{code-block} xml
+  <genericsetup:upgradeSteps
+      profile="ploneconf.site:default"
+      source="1003"
+      destination="1004"
+      >
+    <genericsetup:upgradeDepends
+        title="Add talks workflow"
+        description="Run workflow and plone.app.registry import steps"
+        import_steps="plone.app.registry workflow"
+        />
+    <genericsetup:upgradeStep
+        title="Configure talk permissions"
+        description="Configure local roles and type constraints for talk schedule"
+        handler="ploneconf.site.upgrades.v1004.configure_talk_permissions"
+        />
+  </genericsetup:upgradeSteps>
+```
+
+Create the file {file}`backend/src/ploneconf/site/upgrades/v1004.py`:
 
 ```{code-block} python
 :linenos:
 
+from plone import api
 from Products.CMFPlone.interfaces import constrains
+import logging
 
+logger = logging.getLogger(__name__)
+
+
+def configure_talk_permissions(context):
+    talks_folder = api.content.get("/schedule")
 
     # Allow logged-in users to create content
     api.group.grant_roles(
@@ -164,21 +218,23 @@ from Products.CMFPlone.interfaces import constrains
     behavior.setLocallyAllowedTypes(['talk'])
     behavior.setImmediatelyAddableTypes(['talk'])
     logger.info(f'Added and configured {talks_folder.absolute_url()}')
-
 ```
 
-Once we apply the upgrade step or reinstall our package a page {file}`talks` is created with the appropriate local roles and constraints.
+Once we apply the upgrade step, the schedule page is updated with the appropriate local roles and constraints.
 
 
 ## Exercise
 
-We wrote similar code to create the pages in {doc}`upgrade_steps`.
-We need it to make sure a sane structure gets created when we create a new site by hand or in tests.
+In {doc}`upgrade_steps` we wrote an upgrade step to create the basic page structure of the site.
+But we want that to be created not only during an upgrade, but also when a new site is created by hand or in tests.
 
-You would usually create a list of dictionaries containing the type, parent and title plus optionally workflow state etc. to create an initial structure.
-In some projects it could also make sense to have a separate profile besides `default` which might be called `demo` or `content` that creates an initial structure and maybe another `testing` that creates dummy content (talks, speakers etc) for tests.
+One way to do this is to create a list of dictionaries containing the type, parent and title plus optionally workflow state etc. to create an initial structure.
+In some projects it could also make sense to have additional profiles besides `default`:
 
-> Create an optional GenericSetup profile `content` that creates the content, grants local roles and sets constraints.
+- a `demo` or `content` profile that creates the initial structure
+- a `testing` profile that creates dummy content (talks, speakers etc) for tests
+
+Create an optional Generic Setup profile `content` that creates the content, grants local roles and sets constraints.
 
 ````{dropdown} Solution
 :animate: fade-in-slide-down
