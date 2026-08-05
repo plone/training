@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "The power of the Plone backend – best practice"
     "property=og:description": "The power of the Plone backend – best practice"
-    "property=og:title": "Mastering Plone 6 Development"
+    "property=og:title": "Mastering Plone Development"
     "keywords": "Plone, backend"
 ---
 
 (mastering-plone-label)=
 
-# Mastering Plone 6 development
+# Mastering Plone Development
 
 *Mastering Plone Development* is intended as a training to learn proven practices of Plone development.
 It's both an online course and a sketch for an on-site training.
@@ -20,7 +20,7 @@ The story of a conference platform provides a training of several development to
 - An advanced training (3 to 5 days) with additional advanced topics concerning the Plone backend.
 
 ```{note}
-*Mastering Plone 6 Development Training* focuses on Plone backend architecture and topics of Volto development as long as the backend is involved.
+*Mastering Plone Development* focuses on Plone backend architecture and topics of Volto development as long as the backend is involved.
 
 We do not deal with pure Volto topics here.
 For Volto development see training {doc}`training2024:effective-volto/index`.
@@ -31,7 +31,7 @@ For Plone Blicca see training {doc}`training2024:theming/index`, training {doc}`
 ```
 
 ```{toctree}
-:caption: Mastering Plone 6 Development
+:caption: Mastering Plone Development
 :name: toc-mastering
 :maxdepth: 3
 :numbered: 2
