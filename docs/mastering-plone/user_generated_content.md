@@ -118,7 +118,8 @@ We don't want to do these steps for every new conference by hand so we move the 
 - Copy the file {file}`workflows.xml` into {file}`backend/src/ploneconf/site/profiles/default` and clean out everything that is not related to talks.
 
   ```xml
-<?xml version="1.0"?><object meta_type="Plone Workflow Tool"
+<?xml version="1.0"?>
+<object meta_type="Plone Workflow Tool"
         name="portal_workflow"
 >
   <object meta_type="Workflow"

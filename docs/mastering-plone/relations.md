@@ -12,41 +12,25 @@ myst:
 
 # Relations
 
-You can model relationships between content items by placing them in a hierarchy (for example a (folderish) page _speakers_ containing the (folderish) speakers and within each speaker the talks) or by linking them to each other in blocks.
-But where would you then store a talk that two speakers give together?
+```{card}
+In this part you will use relations to connect talks to other content items.
 
-Relations allow developers to model relationships between objects without using links or a hierarchy.
-The behavior {py:class}`plone.app.relationfield.behavior.IRelatedItems` provides the field {guilabel}`Related Items` in the section {guilabel}`Categorization`.
-That field simply says `a` is somehow related to `b`.
+Tools and techniques covered:
 
-By using custom relations you can model your data in a much more meaningful way.
-
+- relation fields
+```
 
 ````{card}
 
-Check out the code at the relevant tags!
-
-Code for the beginning of this chapter:
+Check out `mastering-plone-project` at tag `user_generated_content`:
 
 ```shell
-# frontend
-git checkout sponsors
-```
-
-```shell
-# backend
 git checkout user_generated_content
 ```
 
-Code for the end of this chapter:
+The code at the end of the chapter:
 
 ```shell
-# frontend
-git checkout relations
-```
-
-```shell
-# backend
 git checkout relations
 ```
 
@@ -54,15 +38,23 @@ More info in {doc}`code`
 ````
 
 
-## Creating and configuring relations in a schema
+You can model relationships between content items by placing them in a hierarchy — for example a (folderish) page _speakers_ containing the speakers and within each speaker their talks — or by linking them to each other in blocks.
+But where would you then store a talk that two speakers give together?
 
-Relate to **one** item only with `RelationChoice`.
+Relations allow developers to model relationships between objects without using links or a hierarchy.
+The behavior `plone.relateditems` provides the field {guilabel}`Related Items` in the section {guilabel}`Categorization`.
+That field simply says `a` is somehow related to `b`.
+
+By using custom relations you can model your data in a much more meaningful way.
+
+
+## Use relation fields in a schema
+
+Relate to **one** item only with a `RelationChoice` field.
 
 ```{code-block} python
-:linenos:
 
 from z3c.relationfield.schema import RelationChoice
-
 
     speaker = RelationChoice(
         title="Speaker",
@@ -72,16 +64,15 @@ from z3c.relationfield.schema import RelationChoice
     )
 ```
 
-Relate to **multiple** items with `RelationList`.
+Relate to **multiple** items with a `RelationList` field.
 
 ```{code-block} python
-:linenos:
 
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 
 
-    speaker = RelationList(
+    speakers = RelationList(
         title="Speaker",
         description="Speakers of the talk",
         value_type=RelationChoice(
@@ -93,19 +84,16 @@ from z3c.relationfield.schema import RelationList
 ```
 
 ```{seealso}
-[Relation fields in docs.plone.org](https://6.docs.plone.org/volto/development/widget.html?highlight=staticcatalogvocabulary#relation-fields)
+Plone documentation {ref}`widget-relation-field-label`
 ```
 
-
-### Controlling what to relate to
-
-The vocabulary controls which content instances can be related to from the field.
+The vocabulary controls which content items can be the target of the relation.
 
 ```{code-block} python
 :linenos:
 :emphasize-lines: 5
 
-    speaker = RelationList(
+    speakers = RelationList(
         title="Speaker",
         description="Speakers of the talk",
         value_type=RelationChoice(
@@ -119,7 +107,7 @@ The vocabulary controls which content instances can be related to from the field
 We want to relate to content instances of type 'speaker'.
 So we define a vocabulary of speakers.
 
-{file}`src/ploneconf/site/vocabularies/configure.zcml`
+{file}`backend/src/ploneconf/site/vocabularies/configure.zcml`
 
 ```{code-block} xml
 :linenos:
@@ -130,7 +118,7 @@ So we define a vocabulary of speakers.
         />
 ```
 
-{file}`src/ploneconf/site/vocabularies/speaker.py`
+{file}`backend/src/ploneconf/site/vocabularies/speaker.py`
 
 
 ```{code-block} python
@@ -157,26 +145,25 @@ def SpeakerVocabularyFactory(context=None):
 
 The widget allows the editor to edit the relations.
 
-The default and only widget by now in Volto is the `select` widget.
-It opens the tree of content to be selected by the editor.
+The default widget for relation fields in Volto is the object browser widget, which opens the tree of content for the editor to browse and select.
 On saving the talk, the selection is validated according the vocabulary.
 
 For a more sophisticated widget see the explanation on how to write a custom widget in {doc}`plone6docs:volto/development/widget`.
 
 
-## Accessing and displaying related items
+## Access and display related items
 
 The values of a relation 'speaker' can be displayed in 'TalkView' by iterating over the values.
 
 ```{code-block} jsx
 
-{content.speaker?.length > 0 &&
-    content.speaker.map((el) => (
+{content.speakers?.length > 0 &&
+    content.speakers.map((el) => (
     <UniversalLink href={el['@id']}>{el.title} </UniversalLink>
     ))}
 ```
 
-Available attributes of the speakers are:
+The target items of the relation are serialized with the "summary serialization" which includes a limited number of fields:
 
 ```{code-block} js
 
@@ -254,9 +241,9 @@ Available attributes of the speakers are:
 ```
 
 
-## Inspecting relations
+## Inspect relations
 
-In Plone 6 Volto you can inspect all relations and inverse relations in your site using the control panel `relations` <http://localhost:3000/controlpanel/relations>.
+You can inspect all relations and inverse relations in your site using the Relations control panel at <http://localhost:3000/controlpanel/relations>.
 You can even edit the relations.
 
 ```{figure} _static/inspect-relations_volto_annotations.png
@@ -284,7 +271,7 @@ Links and references
 
 ## Programming with relations
 
-Since Plone 6 `plone.api` has methods to create, read, and delete relations and inverse relations.
+`plone.api` has methods to create, read, and delete relations.
 
 ```{code-block} python
 :linenos:
@@ -320,31 +307,29 @@ List all relations of name "speaker":
 See the chapter {ref}`plone6docs:chapter-relation` of the docs for `plone.api`  for more details.
 
 
-### Plone 5.2 and older
-
-In older Plone versions you can use [collective.relationhelpers](https://pypi.org/project/collective.relationhelpers) to create and read relations and inverse relations in a very similar way.
-
-
 ## Exercise 1
 
-Add a content type speaker and modify the content type talk to relate to speakers.
-Write an upgrade step for the change of the field 'speaker'.
-
-The code can be found in backend add-on `ploneconf.site` at tag `relations`.
-
-
-## Exercise 2
-
-The speaker is now a relation on talk.
-Available on the TalkView is a subset of attributes of the speaker.
-How would you achieve to show the GitHub handle of the speaker?
-It is by now not included in the available attributes.
-
+Add a Speaker content type and modify the Talk content type to relate to speakers.
+Write an upgrade step for the change of the field `speaker`.
 
 ```{dropdown} Solution
 :animate: fade-in-slide-down
 :icon: question
 
-Add the name of the field to the relevant serializer implementing `IJSONSummarySerializerMetadata` in `src/ploneconf/site/serializers/summary.py`
+The code can be found in the `mastering-plone-project` repository at tag `relations`.
 ```
 
+
+## Exercise 2
+
+The speaker is now a relation on talk.
+The TalkView includes a subset of attributes of the speaker.
+How would you achieve showing the GitHub handle of the speaker?
+So far, it is not included in the available attributes.
+
+```{dropdown} Solution
+:animate: fade-in-slide-down
+:icon: question
+
+Add the name of the field to the relevant serializer implementing `IJSONSummarySerializerMetadata` in `backend/src/ploneconf/site/serializers/summary.py`
+```
