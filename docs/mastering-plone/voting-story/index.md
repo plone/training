@@ -3,51 +3,31 @@ myst:
   html_meta:
     "description": "Introduction of the voting story – REST API services and React components"
     "property=og:description": "Introduction of the voting story – REST API services and React components"
-    "property=og:title": "Reusable features packaged in add-ons – the voting story"
+    "property=og:title": "Create an add-on [The voting story]"
     "keywords": "Plone, Volto, React, add-on, development, developer, women in IT, REST API"
 ---
 
 
 (voting-story-label)=
 
-# Roundtrip [The voting story] frontend, backend, and REST
+# Create an add-on [The voting story]
 
-You will enhance the Plone Conference site with the following behavior:
-
-Talks have been submitted.
-The jury votes for talks to be accepted or rejected.
+This chapter is a multi-part case study in which you will create an add-on to allow members of the conference program committee to vote for talk proposals.
 
 ````{card}
   In this part you will:
   
-  - build your own Plone add-ons for backend and frontend.
+  - create your own Plone add-on with a backend and frontend
+  - install the add-on in the main project in development mode
   
   Topics covered:
   
-  - Storing data in annotations
-  - Custom REST API service
-  - Backend package creation with {term}`Cookieplone`
-  - Frontend package creation with {term}`Cookieplone`
-  - Create React components to display voting behavior in frontend
-  - Permissions
-  
-  The **voting story** spreads about the next chapters:
-  
-  ```{toctree}
-  ---
-  name: toc-voting-story
-  maxdepth: 2
-  ---
-
-  behaviors_2
-  endpoints
-  volto_actions
-  permissions
-  ```
+  - Add-on creation with {term}`Cookieplone`
 ````
 
+## The add-on concept
 
-Jury members shall vote for talks to be accepted or rejected.
+Program committee members shall vote for talks to be accepted or rejected.
 
 For this we need:
 
@@ -55,100 +35,90 @@ For this we need:
 - A REST service for the frontend to communicate with
 - A frontend component that displays votes and provides the ability to vote
 
+Implementing this as a behavior in an add-on will make it possible to reuse the voting feature with other projects in the future.
+
 ```{note}
-It is recommended to follow the training by building step by step a new backend add-on and a new frontend add-on.
+We recommend to follow the training step by step.
 
-The complete working code can be found here:
-https://github.com/collective/training.votable
-https://github.com/collective/volto-training-votable
+You can refer to the complete working add-on here:
+https://github.com/collective/mastering-plone-votable-add-on
 ```
 
 
-(voting-story-backend-package-label)=
+(voting-story-boilerplate-label)=
 
-## Create a backend package
+## Create the add-on
 
-We use [Cookieplone](https://github.com/plone/cookieplone) to create a new backend add-on.
-
-Install `Cookieplone`:
+Use {term}`Cookieplone` to create the boilerplate for a new monorepo add-on.
+Do this in the folder that contains the `mastering-plone-project`, not in the project folder.
+The new add-on will go in its own git repository.
 
 ```shell
-pipx install cookieplone
+uvx cookieplone monorepo_addon
 ```
 
-We use `Cookieplone` to create a new package.
-Go to directory `sources` of your backend and run:
+For {guilabel}`Add-on Title` enter `Mastering Plone Votable Add-on`.
+For {guilabel}`Python Package Name` enter `ploneconf.votable`.
+You can accept the defaults for the other questions.
+
+When Cookieplone is finished, you should have a new folder `mastering-plone-add-on` that has its own `backend` and `frontend` subfolders.
+
+```{tip}
+The add-on template is similar to the project template, but adjusted for the add-on use case:
+- It includes configuration to run continuous integration with multiple versions of Plone and Python.
+- It includes commands to release the add-on on PyPI and npm.
+```
+
+
+(voting-story-install-add-on-label)=
+
+## Install the development add-on in the project
+
+The `mastering-plone-project` doesn't know about the new add-on.
+We have to install it.
+
+In {file}`mastering-plone-project/backend`, add the path to the backend add-on as an editable dependency.
 
 ```shell
-cd backend/sources
-pipx run cookieplone
+uv add --editable ../../mastering-plone-votable-add-on/backend
 ```
 
-In the following chapters we assume the package is named `training.votable`.
+"Editable" means that the add-on is installed as a link to the other folder you created.
+Any changes made there will be immediately available without re-installing the add-on.
 
+In {file}`mastering-plone-project/frontend/package.json`, add the frontend add-on to the dependencies.
 
-## Integrate backend package in training setup
+```{code-block} json
+:emphasize-lines: 5
 
-Before we implement our features, we integrate the add-on by
-
-- installing the add-on as a Python package
-- updating the Zope configuration to load the add-on
-- restarting the backend
-
-Open `requirements.txt` and add your add-on to be installed as Python package.
-
-```ini
--e sources/training.votable
+  "dependencies": {
+    "@plone/volto": "workspace:*",
+    "@plone/registry": "workspace:*",
+    "volto-ploneconf-site": "workspace:*",
+    "volto-ploneconf-votable": "workspace:*"
+  },
 ```
 
-Open `instance.yml` and add the add-on to tell Plone to load your add-on.
-With this the site administrator can activate the add-on per site.
+In {file}`mastering-plone-project/frontend/pnpm-workspace.yaml`, add the frontend add-on's path to the pnpm workspace.
 
-```yaml
-zcml_package_includes: training.votable, ploneconf.site
+```{code-block} yaml
+:emphasize-lines: 6
+
+packages:
+  # all packages in direct subdirs of packages/
+  - 'core/packages/*'
+  - 'packages/*'
+  - 'packages/**/packages/*'
+  - '../../mastering-plone-votable-add-on/frontend/packages/*'
 ```
 
-To apply the changes of the configuration, please build and restart the backend with:
+In {file}`mastering-plone-project/frontend/volto.config.js`, add the frontend add-on to the list of active add-ons.
 
-```shell
-make build
-make start
-```
+```{code-block} js
+:linenos:
+:emphasize-lines: 1
 
-The add-on can now be activated for our site `Plone`.
-Please head over to http://localhost:8080/Plone/prefs_install_products_form and activate / install the new add-on.
-
-
-(voting-story-frontend-package-label)=
-
-## Create a Volto add-on
-
-We will use `Cookieplone` to create an add-on.
-
-If not already done or needs to be updated, install/update `Cookieplone` with:
-
-```shell
-pipx install cookieplone
-```
-
-Now the frontend add-on can be generated.
-We call it 'volto-training-votable' to indicate that it is the corresponding part to our recently created backend package `training.votable`.
-
-We generate the package in our frontend and integrate it for development.
-
-```shell
-cd frontend/packages
-pipx run cookieplone
-```
-
-Choose "volto-training-votable" as name for your add-on.
-
-## Integrate frontend add-on in training setup
-
-Check {file}`volto.config.js` to include the add-on in your app:
-
-```shell
-const addons = ['volto-training-votable', 'volto-ploneconf'];
+const addons = ['volto-ploneconf-votable', 'volto-ploneconf-site'];
 const theme = '';
 
 module.exports = {
@@ -157,36 +127,76 @@ module.exports = {
 };
 ```
 
+```{tip}
 Be sure keep the main (project policy) package at the end of the array `addons`.
-By this the main package can override add-ons configurations.
+This way the main package can override add-on configurations.
+```
 
-Check {file}`packages.json` to include the add-on in your app:
+Then run `make frontend-install`.
+
+Finally, start the backend and frontend of the project.
+Then go to the Add-ons control panel in Site Setup and install the Mastering Plone Votable Add-on.
+
+````{tip}
+Using local paths as the source for the add-ons only works if everyone working on your project has checked out the add-on repository in the same location.
+
+If the add-on repository is on GitHub, you can add it from there.
+
+For the backend:
 
 ```shell
+uv add git+https://github.com/collective/mastering-plone-votable-add-on#subdirectory=backend
+```
 
-  "dependencies": {
-    "@plone/volto": "workspace:*",
-    "@plone/registry": "workspace:*",
-    "volto-training-votable": "workspace:*",
-    "volto-ploneconf": "workspace:*"
+(However, in this case it cannot be installed in editable mode.)
+
+For the frontend, edit {file}`mastering-plone-project/frontend/mrs.developer.json`.
+
+```{code-block} json
+:linenos:
+:emphasize-lines: 10-19
+
+{
+  "core": {
+    "output": "./",
+    "package": "@plone/volto",
+    "url": "git@github.com:plone/volto.git",
+    "https": "https://github.com/plone/volto.git",
+    "tag": "19.2.0",
+    "filterBlobs": true
   },
+  "volto-ploneconf-votable": {
+    "develop": true,
+    "output": "./packages",
+    "package": "volto-ploneconf-votable",
+    "path": "frontend/packages/volto-ploneconf-votable",
+    "url": "git@github.com:collective/mastering-plone-votable-add-on.git",
+    "https": "https://github.com/collective/mastering-plone-votable-add-on.git",
+    "branch": "main",
+    "filterBlobs": true
+  }
+}
 ```
 
-Check `pnpm-workspace.yaml` to let "volto-training-votable" be present in the pnpm workspace.
+Then run `make frontend-install`.
 
-```xml
-packages:
-  # all packages in direct subdirs of packages/
-  - 'core/packages/*'
-  - 'packages/*'
-  - 'packages/volto-training-votable/packages/volto-training-votable'
+In this case you do not need a new entry in {file}`pnpm-workspace.yaml`, because mrs-developer clones the add-on repository in {file}`mastering-plone-project/frontend/packages`.
+````
+
+# Next steps
+
+You are now ready to implement your voting behavior in the new add-on repository.
+
+The **voting story** continues in the next chapters:
+
+```{toctree}
+---
+name: toc-voting-story
+maxdepth: 2
+---
+
+behaviors_2
+endpoints
+volto_actions
+permissions
 ```
-
-Install and start
-
-```shell
-make install
-make start
-```
-
-You are now ready to implement your voting behavior in your new frontend add-on created in `frontend/packages/volto-training-votable/`.
