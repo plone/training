@@ -16,8 +16,11 @@ from datetime import datetime
 
 
 # -- Project information -----------------------------------------------------
+archive_year = "2025"  # When archiving, add the year to archive
+archive_year_space = " " + archive_year
+archive_year_dot = archive_year + "."
 
-project = "Plone Training 2025"
+project = f"Plone Training{archive_year_space}"
 copyright = "Plone Foundation"
 author = "Plone community"
 trademark_name = "Plone"
@@ -29,9 +32,9 @@ year = str(now.year)
 # built documents.
 #
 # The short X.Y version.
-version = "2025"
+version = archive_year
 # The full version, including alpha/beta/rc tags.
-release = "2025"
+release = archive_year
 
 
 # -- General configuration ----------------------------------------------------
@@ -123,7 +126,7 @@ html_sidebars = {
 }
 
 html_theme_options = {
-    "announcement": "⚠️ You are viewing the 2025 version of Plone Training. <a href='https://training.plone.org/'>View the latest version</a>. ⚠️",
+    "announcement": f"⚠️ You are viewing the {archive_year} version of Plone Training. <a href='https://training.plone.org/'>View the latest version</a>. ⚠️",
     "article_header_start": ["toggle-primary-sidebar", "chapter-title"],
     "extra_footer": """<p>The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license. Plone and the Plone® logo are registered trademarks of the Plone Foundation, registered in the United States and other countries. For guidelines on the permitted uses of the Plone trademarks, see <a href="https://plone.org/foundation/logo">https://plone.org/foundation/logo</a>. All other trademarks are owned by their respective owners.</p>
     <p>Pull request previews by <a href="https://readthedocs.org/">Read the Docs</a>.</p>""",
@@ -181,7 +184,7 @@ html_theme_options = {
         },
     ],
     "logo": {
-        "text": "Plone Training 2025",
+        "text": f"Plone Training{archive_year_space}",
     },
     "navigation_with_keys": True,
     "path_to_docs": "docs",
@@ -253,10 +256,10 @@ graphviz_output_format = "svg"
 
 # -- OpenGraph configuration ----------------------------------
 
-ogp_site_url = "https://2025.training.plone.org/"
+ogp_site_url = f"https://{archive_year_dot}training.plone.org/"
 ogp_description_length = 200
-ogp_image = "https://2025.training.plone.org/_static/Plone_logo_square.png"
-ogp_site_name = "Plone Training 2025"
+ogp_image = f"https://{archive_year_dot}training.plone.org/_static/Plone_logo_square.png"
+ogp_site_name = f"Plone Training{archive_year_space}"
 ogp_type = "website"
 ogp_custom_meta_tags = [
     '<meta property="og:locale" content="en_US" />',
@@ -278,7 +281,7 @@ notfound_template = "404.html"
 # -- Options for sphinx_sitemap to HTML -----------------------------
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://2025.training.plone.org/"
+html_baseurl = f"https://{archive_year_dot}training.plone.org/"
 # https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#customizing-the-url-scheme
 sitemap_url_scheme = "{link}"
 
