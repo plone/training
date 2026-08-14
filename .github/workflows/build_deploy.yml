@@ -1,25 +1,25 @@
-name: build/deploy training.plone.org
+name: build/deploy 2025.training.plone.org
 
 on:
   push:
     branches:
-      - "main"
+      - "2025"
     workflow_dispatch:
 
 jobs:
   build_deploy:
     runs-on: ubuntu-latest
     environment: 
-      name: training.plone.org
-      url: https://training.plone.org
+      name: 2025
+      url: https://2025.training.plone.org
     steps:
       - uses: actions/checkout@v7
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v7
         with:
-          python-version: "3.12"
-          cache: 'pip'
+          python-version: "3.14"
+          cache: "pip"
 
       - name: Install dependencies
         run: |
