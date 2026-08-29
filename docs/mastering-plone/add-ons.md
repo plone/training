@@ -127,10 +127,10 @@ branch=main
 ; tag=volto
 ```
 
-Adding the package to `instance.yaml` causes the generation of the Zope configuration to make the package available in a Zope app.
+Adding the package to {file}`instance.yaml` causes the generation of the Zope configuration to make the package available in a Zope app.
 
 ```yaml
-  zcml_package_includes: training.votable, ploneconf.site
+zcml_package_includes: training.votable, ploneconf.site
 ```
 
 Running `make build` has three effects:
@@ -144,17 +144,21 @@ Running `make build` has three effects:
 Documentation {doc}`plone6docs:admin-guide/add-ons`
 ```
 
+
 ### Enabling add-ons in your Plone site
 
 An add-on can be enabled per Plone instance.
 
-In your browser, go to `Site Setup` at `http://localhost:3000/controlpanel`, and open the `Add-ons` Panel. You will see a list of available add-ons.
+In your browser, go to `Site Setup` at `http://localhost:3000/controlpanel`, and open the `Add-ons` control panel. You will see a list of available add-ons.
 
-```{figure} _static/site_setup.png
-:alt: Link to Site Setup
-
-Link to Site Setup
+````{card}
+```{image} ../_static/site_setup.png
+:alt: Plone `Add-ons` control panel, showing available configuration options
+:target: ../_static/site_setup.png
 ```
++++
+_Plone `Add-ons` control panel, showing available configuration options._
+````
 
 Enable `ploneconf.site` now if you haven't done already.
 
@@ -167,7 +171,6 @@ This is what happens: The GenericSetup profile of the product gets loaded. This 
 
 All this is configured in the default GenericSetup profile, which can be found in `backend/sources/<package name>/src/<package name>/profiles/default`.
 In the next chapters we will add here our content type `talk`, configure a catalog index, and some more.
-
 
 
 (add-ons-summary-label)=

@@ -7,7 +7,7 @@ myst:
     "keywords": "Plone, deployment, Docker, images"
 ---
 
-# Plone Docker Images
+# Plone Docker images
 
 Since the release of Plone 6, the community has a new set of public Docker images offering most base options, and documenting the configuration. They are meant as a way to quickly start a project, and provide inspiration for your own projects advanced requirements.
 
@@ -15,9 +15,9 @@ Since the release of Plone 6, the community has a new set of public Docker image
 
 Repository is available at https://github.com/plone/plone-frontend/.
 
-Installs the Plone 6 user-experience using the React-powered frontend, Volto.
+Installs the Plone 6 user experience using the React-powered frontend, Volto.
 
-Should be used to showcase the Plone 6 experience, and how to build images in multiple stages to reduce image size. New projects will probably implement their own Docker images (with a similar Dockerfile), like the one below:
+Should be used to showcase the Plone 6 experience, and how to build images in multiple stages to reduce image size. New projects will probably implement their own Docker images with a similar Dockerfile, like the one below:
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
@@ -60,9 +60,9 @@ Repository available at https://github.com/plone/plone-backend/.
 
 Installs the Plone 6 backend using a package-based installation.
 
-There are currently two distinct approaches to use the backend base images in your project:
+There are currently two distinct approaches to use the backend base images in your project, as described in the following sections.
 
-### Usage with `pip` + `mxdev`
+### Usage with pip and mxdev
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
@@ -107,9 +107,9 @@ RUN <<EOT
 EOT
 ```
 
-### Usage with `uv` (Experimental)
+### Usage with uv (experimental)
 
-To use these images, your project should be already using `uv` and have a `pyproject.toml` section with additional dependencies to be installed inside a container:
+To use these images, your project should already use uv and have a {file}`pyproject.toml` section with additional dependencies to be installed inside a container:
 
 ```toml
 [dependency-groups]
@@ -188,4 +188,4 @@ EOT
 
 Repository available at https://github.com/plone/plone-zeo/.
 
-Provides a ZEO database server for your container based Plone CMS Stack. This allows you to scale to multiple backends without a relational Database like PostgreSQL or MySQL to store the content data.
+Provides a ZEO database server for your container based Plone CMS stack. This allows you to scale to multiple backends without a relational database, such as PostgreSQL or MySQL, to store the content data.

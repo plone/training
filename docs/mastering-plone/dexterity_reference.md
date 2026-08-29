@@ -521,7 +521,7 @@ import { Container, Table } from 'semantic-ui-react';
 
 const MyHistory = ({ history }) => {
     return (
-        _CLIENT__ && (
+        __CLIENT__ && (
         <Table celled className="history_list">
             <Table.Header>
             <Table.Row>

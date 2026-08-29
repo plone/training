@@ -11,8 +11,7 @@ myst:
 
 This chapter provides instructions on how to install **Plone with the training code**.
 
-For installation, deployment and hosting of Plone in general, see {doc}`plone6docs:admin-guide/index` on `docs.plone.org`.
-
+For general Plone installation, deployment, and hosting instructions, refer to the authoritative Plone 6 documentation in {doc}`plone6docs:install/index`.
 
 (installation-tools-label)=
 

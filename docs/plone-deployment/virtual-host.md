@@ -1,21 +1,21 @@
 ---
 myst:
   html_meta:
-    "description": "Virtual Hosting Services"
-    "property=og:description": "Understand how to use Zope infrastructure to rewrite URLs in run time."
-    "property=og:title": "Virtual Hosting Services"
-    "keywords": "Plone, Deployment, Stack, Configuration, Guide, Virtual Host Monster, VHM"
+    "description": "How to use Zope infrastructure to rewrite URLs in run time"
+    "property=og:description": "How to use Zope infrastructure to rewrite URLs in run time"
+    "property=og:title": "Virtual hosting services"
+    "keywords": "Plone, deployment, stack, configuration, guide, Virtual Host Monster, VHM"
 ---
 
-# Virtual Hosting and URL Rewrite
+# Virtual hosting and URL rewrite
 
 Zope comes with one object that helps you do virtual hosting: *Virtual Host Monster* (VHM). Virtual hosting is a way to serve many websites with one backend server.
 
 ## Virtual Host Monster
 
-Zope objects need to generate their own URLs from time to time. For instance, when a Zope object has its "absolute_url" method called, it needs to return a URL which is appropriate for itself. This URL typically contains a hostname, a port, and a path. In a "default" Zope installation, this hostname, port, and path is typically what you want. But when it comes time to serve multiple websites out of a single Zope instance, each with their own "top-level" domain name, or when it comes time to integrate a Zope Folder within an existing website using Apache or another web server, the URLs that Zope objects generate need to change to suit your configuration.
+Zope objects need to generate their own URLs from time to time. For instance, when a Zope object has its `absolute_url` method called, it needs to return a URL which is appropriate for itself. This URL typically contains a hostname, a port, and a path. In a "default" Zope installation, this hostname, port, and path is typically what you want. But when it comes time to serve multiple websites out of a single Zope instance, each with their own "top-level" domain name, or when it comes time to integrate a Zope folder within an existing website using Apache or another web server, the URLs that Zope objects generate need to change to suit your configuration.
 
-A Virtual Host Monster's only job is to change the URLs which your Zope objects generate. This allows you to customize the URLs that are displayed within your Zope application, allowing an object to have a different URL when accessed in a different way. This is most typically useful, for example, when you wish to "publish" the contents of a single Zope Folder (e.g. `/FooFolder`) as a URL that does not actually contain this Folder's name (for example, as the hostname `www.foofolder.com`).
+A Virtual Host Monster's only job is to change the URLs which your Zope objects generate. This allows you to customize the URLs that are displayed within your Zope application, allowing an object to have a different URL when accessed in a different way. This is most typically useful when you wish to "publish" the contents of a single Zope folder—for example, {file}`/FooFolder`—as a URL that does not actually contain this folder's name, for example, as the hostname `www.foofolder.com`.
 
 The Virtual Host Monster performs this job by intercepting and deciphering information passed to Zope within special path elements encoded in the URLs of requests which come into Zope. If these special path elements are absent in the URLs of requests to the backend server, the Virtual Host Monster does nothing. If they are present, however, the Virtual Host Monster deciphers the information passed in via these path elements and causes your Zope objects to generate a URL that is different from their "default" URL.
 
@@ -30,7 +30,7 @@ The default mode for configuring the Virtual Host Monster is not to do any confi
 
 If you *do* choose to change the settings of your VHM, the easiest method to do so is to use the VHM`s ZMI interface.
 
-### Special VHM Path Elements `VirtualHostBase` and `VirtualHostRoot`
+### Special VHM path elements `VirtualHostBase` and `VirtualHostRoot`
 
 A Virtual Host Monster doesn't do anything unless it sees one of the following special path elements in a URL.
 
@@ -40,84 +40,104 @@ If a Virtual Host Monster "sees" this name in the incoming URL, it causes {term}
 
 #### `VirtualHostRoot`
 
-If a Virtual Host Monster "sees" this name in the incoming URL, it causes Zope objects to generate URLs that have a potentially different "path root."
+If a Virtual Host Monster "sees" this name in the incoming URL, it causes Zope objects to generate URLs that have a potentially different "path root".
 
 ### `VirtualHostBase`
 
 The `VirtualHostBase` declaration is typically found at the beginning of an incoming URL. A Virtual Host Monster will intercept two path elements following this name and will use them to compose a new protocol, hostname, and port number.
 
-The two path elements which must follow a `VirtualHostBase` declaration are `protocol` and `hostname:portnumber`. They must be separated by a single slash. The colon and portnumber parts of the second element are optional, and if they don't exist, the Virtual Host Monster will not change the port number of Zope-generated URLs.
+The two path elements which must follow a `VirtualHostBase` declaration are `protocol` and `hostname:portnumber`. They must be separated by a single slash. The colon and port number parts of the second element are optional, and if they don't exist, the Virtual Host Monster will not change the port number of Zope-generated URLs.
 
 Examples:
 
 -   If a VHM is installed and a request comes into your server with the following URL.
 
-    `http://backend:8080/VirtualHostBase/http/example.com`
+    ```text
+    http://backend:8080/VirtualHostBase/http/example.com
+    ```
 
     URLs generated by Zope objects will start with `http://example.com:8080`.
 
 -   If a VHM is installed in the root folder, and a request comes into your server with the following URL.
 
-    `http://backend:8080/VirtualHostBase/http/example.com:80`
+    ```text
+    http://backend:8080/VirtualHostBase/http/example.com:80
+    ```
 
-    URLs generated by Zope objects will start with `http://example.com` (port 80 is the default port number, so it is left out).
+    URLs generated by Zope objects will start with `http://example.com`. Port 80 is the default port number, so it is left out.
 
 -   If a VHM is installed in the root folder, and a request comes into your Zope with the following URL.
 
-    `http://backend:8080/VirtualHostBase/https/example.com:443`
+    ```text
+    http://backend:8080/VirtualHostBase/https/example.com:443
+    ```
 
-    URLs generated by Zope objects will start with `https://example.com/` (port 443 is the default https port number, so it is left off).
+    URLs generated by Zope objects will start with `https://example.com/`. Port 443 is the default HTTPS port number, so it is left off.
 
-One thing to note when reading the examples above is that if your Zope is running on a port number like 8080, and you want generated URLs to not include this port number and instead be served on the standard HTTP port (80), you must specifically include the default port 80 within the VirtualHostBase declaration, for exemple, `/VirtualHostBase/http/example.com:80`. If you don't specify the `:80`, your Zope's HTTP port number will be used (which is likely not what you want).
+One thing to note when reading the examples above is that if your Zope is running on a port number like 8080, and you want generated URLs to not include this port number and instead be served on the standard HTTP port 80, you must specifically include the default port 80 within the `VirtualHostBase` declaration, for example, `/VirtualHostBase/http/example.com:80`. If you don't specify `:80`, your Zope's HTTP port number will be used, which is likely not what you want.
 
 ### `VirtualHostRoot`
 
-The `VirtualHostRoot` declaration is typically found near the end of an incoming URL. A Virtual Host Monster will gather up all path elements that *precede* and *follow* the `VirtualHostRoot` name, traverse the Zope object hierarchy with these elements, and publish the object it finds with the path rewritten to the path element(s) that *follow* the `VirtualHostRoot` name.
+The `VirtualHostRoot` declaration is typically found near the end of an incoming URL. A Virtual Host Monster will collect all path elements that *precede* and *follow* the `VirtualHostRoot` name, traverse the Zope object hierarchy with these elements, and publish the object it finds with the path rewritten to the path elements that *follow* the `VirtualHostRoot` name.
 
-This is easier to understand by example. For a URL `/a/b/c/VirtualHostRoot/d`, the Virtual Host Monster will traverse `a/b/c/d` and then generate a URL with path `/d`.
+This is easier to understand by example. For a URL `/a/b/c/VirtualHostRoot/d`, the Virtual Host Monster will traverse `a/b/c/d`, then generate a URL with path `/d`.
 
 Examples:
 
 -   If a VHM is installed in the root folder, and a request comes into your Zope with the following URL.
 
-    `http://backend:8080/Folder/VirtualHostRoot/`
+    ```text
+    http://backend:8080/Folder/VirtualHostRoot/
+    ```
 
     The object `Folder` will be traversed to and published, and URLs generated by Zope will start with `http://backend:8080/`, and when they are visited, they will be considered relative to `Folder`.
 
 -   If a VHM is installed in the root folder, and a request comes into your Zope with the following URL.
 
-    `http://backend:8080/HomeFolder/VirtualHostRoot/Chris`
+    ```text
+    http://backend:8080/HomeFolder/VirtualHostRoot/Chris
+    ```
 
     The object `/Folder/Chris` will be traversed to and published, URLs generated by Zope will start with `http://backend:8080/Chris`, and when they are visited, they will be considered relative to `/HomeFolder/Chris`.
 
-### Using `VirtualHostRoot` and `VirtualHostBase` Together
+### Using `VirtualHostRoot` and `VirtualHostBase` together
 
-The most common sort of virtual hosting setup is one in which you create a Folder in your Zope root for each domain that you want to serve. For instance, the site `https://example.com` is served from a Plone Site in the Zope root named /Plone while the site `https://example.org` is served from another Plone Site in the Zope root named `/OrgSite`. In order to do this, you need to generate URLs that have both `VirtualHostBase` and `VirtualHostRoot` in them.
+The most common sort of virtual hosting setup is one in which you create a folder in your Zope root for each domain that you want to serve. For instance, the site `https://example.com` is served from a Plone site in the Zope root named `/Plone` while the site `https://example.org` is served from another Plone site in the Zope root named `/OrgSite`. To do this, you need to generate URLs that have both `VirtualHostBase` and `VirtualHostRoot` in them.
 
 To access `/OrgSite` as `https://example.org`, you would cause Zope to be visited via the following URL.
 
-`/VirtualHostBase/https://example.org/OrgSite/VirtualHostRoot/`
+```text
+/VirtualHostBase/https://example.org/OrgSite/VirtualHostRoot/
+```
 
 In the same Zope instance, to access `/Plone` as `https://example.com/`, you would cause Zope to be visited via the following URL.
 
-`/VirtualHostBase/https/example.com/Plone/VirtualHostRoot/`
+```text
+/VirtualHostBase/https/example.com/Plone/VirtualHostRoot/
+```
 
 ### Rewriting sub-paths
 
 Consider the following.
 
--   `https://example.com` should have the object at `/Plone` (A Plone Site) as root.
--   `https://example.org` should have the object at `/Plone/org` (A content with id `org` inside the Plone Site) as root.
--   `https://example.com/ClassicUI` should point to the root object on Zope .
+-   `https://example.com` should have the object at `/Plone`, a Plone site, as root.
+-   `https://example.org` should have the object at `/Plone/org`, a content with ID `org` inside the Plone Site as root.
+-   `https://example.com/ClassicUI` should point to the root object on Zope.
 
 The rewrite rule for `example.com` will be the following.
 
-`/VirtualHostBase/https/example.com/Plone/VirtualHostRoot/`
+```text
+/VirtualHostBase/https/example.com/Plone/VirtualHostRoot/
+```
 
 The rewrite rule for `example.org` will be the following.
 
-`/VirtualHostBase/https/example.org/Plone/org/VirtualHostRoot/`
+```text
+/VirtualHostBase/https/example.org/Plone/org/VirtualHostRoot/
+```
 
 The rewrite rule for `example.com/ClassicUI` will be the following.
 
-`/VirtualHostBase/https/example.com/VirtualHostRoot/_vh_ClassicUI/`
+```text
+/VirtualHostBase/https/example.com/VirtualHostRoot/_vh_ClassicUI/
+```

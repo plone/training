@@ -381,7 +381,7 @@ import WeatherView from './components/Blocks/Weather/View';
 export { WeatherView, WeatherEdit };
 ```
 
-We need to configure the project to make it aware of a new block by adding it to the object configuration that is located in {file}`src/config/blocks.ts`.
+We need to configure the project to make it aware of a new block by adding it to the object configuration that is located in {file}`src/index.js`.
 For that we need the two blocks components we created and a SVG icon that will be displayed in the blocks chooser.
 
 ```ts
