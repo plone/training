@@ -225,7 +225,7 @@ Let's build a hero block step by step, starting with a basic implementation and 
 
 Create `src/components/blocks/myHero/schema.ts`:
 
-```javascript
+```typescript
 import { defineMessages } from "react-intl";
 
 const messages = defineMessages({
@@ -460,9 +460,9 @@ Create `src/theme/blocks/_hero.scss`:
     width: 100%;
     height: 100%;
     flex-direction: column;
-    align-items: var(--align--block-alignment);
+    align-items: var(--block-alignment);
     gap: 1rem;
-    text-align: var(--align--block-alignment);
+    text-align: var(--block-alignment);
 
     .hero-title {
       margin-bottom: $spacing-small;
@@ -522,7 +522,7 @@ Now let's add VLT's powerful widgets to control block width and alignment. Updat
 
 Update `src/components/blocks/myHero/schema.ts`:
 
-```javascript
+```typescript
 import { defineMessages } from "react-intl";
 
 const messages = defineMessages({
@@ -685,7 +685,7 @@ Update `src/theme/blocks/_hero.scss` to use the CSS custom properties set by the
       position: absolute;
       display: flex;
       flex-direction: column;
-      align-items: var(--align--block-alignment);
+      align-items: var(--block-alignment);
       width: 100%;
       height: 100%;
       padding: 4rem;
@@ -713,7 +713,7 @@ Let's learn how to integrate the `@plone-collective/volto-relateditems-block` in
 
 ### Install the Block
 
-To install the related items block, make sure you are in the `frontend/packages/volto-my-project` folder, and use the following command:
+To install the related items block, make sure you are in the `frontend/packages/my-vlt-project` folder, and use the following command:
 
 ```bash
 pnpm install @plone-collective/volto-relateditems-block@latest
@@ -724,12 +724,18 @@ Add it to your `package.json` addons (before VLT):
 ```json
 "addons": [
   "@eeacms/volto-accordion-block",
+  "@kitconcept/volto-banner-block",
+  "@kitconcept/volto-bm3-compat",
   "@kitconcept/volto-button-block",
+  "@kitconcept/volto-carousel-block",
+  "@kitconcept/volto-dsgvo-banner",
   "@kitconcept/volto-heading-block",
   "@kitconcept/volto-highlight-block",
   "@kitconcept/volto-introduction-block",
+  "@kitconcept/volto-logos-block",
   "@kitconcept/volto-separator-block",
   "@kitconcept/volto-slider-block",
+  "@plonegovbr/volto-social-media",
   "@plone-collective/volto-relateditems-block",
   "@kitconcept/volto-light-theme"
 ],
