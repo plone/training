@@ -37,6 +37,52 @@ Controls content alignment within blocks:
 }
 ```
 
+### ColorSwatch Widget
+
+Lets editors pick from a curated palette instead of entering free-form values.
+Each entry follows the `StyleDefinition` type from `@plone/types`, and you should always provide a `default` option so the field has a predictable fallback:
+
+```javascript
+{
+  widget: 'colorSwatch',
+  title: 'Background color',
+  default: 'default',
+  colors: [
+    {
+      name: 'default',
+      label: 'Default',
+      style: {
+        '--theme-color': '#fff',
+        '--theme-foreground-color': '#000',
+      },
+    },
+    {
+      name: 'grey',
+      label: 'Grey',
+      style: {
+        '--theme-color': '#ecebeb',
+        '--theme-foreground-color': '#000',
+      },
+    },
+  ],
+}
+```
+
+The widget stores the chosen color's `name` token, and the StyleWrapper adds that token as a CSS class on the block, so you can target it in your stylesheets.
+If you also want the CSS custom properties injected inline, register a `styleFieldDefinition` utility for the field name used in the schema:
+
+```javascript
+config.registerUtility({
+  name: "myColorField",
+  type: "styleFieldDefinition",
+  method: (props) => colors,
+});
+```
+
+```{note}
+This is the recommended way to use this widget, since it decouples the styles from the CSS and keeps a single source of truth for the color definitions.
+```
+
 ### ThemeColorSwatch Widget
 
 Allows selection from configured themes stored in `config.blocks.themes`:
@@ -61,6 +107,116 @@ Allows introducing a list of ordered objects with drag and drop:
 }
 ```
 
+### ColorPicker Widget
+
+A real color picker, with an RGB visual color chooser and a `hex` color field:
+
+```javascript
+{
+  widget: 'colorPicker',
+  title: 'Custom color',
+}
+```
+
+### color_picker Widget
+
+A Semantic UI-free drop-in replacement that overrides Volto's `color_picker` widget.
+Given an array of color definitions, it displays the colors that editors can choose:
+
+```javascript
+{
+  widget: 'color_picker',
+  title: 'Color',
+  colors: [
+    { name: 'default', label: 'Default' },
+    { name: 'grey', label: 'Grey' },
+  ],
+}
+```
+
+### Size Widget
+
+Selects the block size from a default list of values, one of either `small`, `medium`, or `large`:
+
+```javascript
+{
+  widget: 'size',
+  title: 'Size',
+  default: 'medium',
+}
+```
+
+Like the BlockAlignment widget, it is based on the Buttons component under the hood, so its actions and the styles they apply are configurable.
+
+### SoftText and SoftTextarea Widgets
+
+`softTextWidget` and `softTextareaWidget` behave like the `text` and `textarea` widgets, but they display a real-time character count while typing.
+When the count exceeds the limit set in `softMaxLength`, a notification appears, but the editor is still allowed to save the content.
+
+These widgets are configured from the backend, with `directives.widget` and its `frontendOptions`:
+
+```python
+directives.widget(
+    "seo_title",
+    frontendOptions={
+        "widget": "softTextWidget",
+        "widgetProps": {"softMaxLength": "55"},
+    },
+)
+seo_title = schema.TextLine(
+    title="SEO Title",
+    description="Override the meta title. Use maximum 55 characters.",
+    required=False,
+)
+```
+
+### ColorContrastChecker Component
+
+Not a widget itself, but a component that calculates the contrast ratio between two colors following the WCAG accessibility guidelines.
+Add it after a color input field in your own widget to warn the editor in real time about insufficient contrast:
+
+```jsx
+import ContrastChecker from "./ContrastChecker";
+
+const MyColorWidget = (props) => {
+  return (
+    <>
+      <FormFieldWrapper {...props} />
+      <ContrastChecker {...props} />
+    </>
+  );
+};
+
+export default MyColorWidget;
+```
+
+It accepts hex color codes, and compares the value of the field against its paired color.
+The pairings and their defaults are defined in `config.settings.colorMap`:
+
+```javascript
+config.settings.colorMap = {
+  primary_color: {
+    colorPair: "primary_foreground_color",
+    default: "#ffffff",
+  },
+  primary_foreground_color: {
+    colorPair: "primary_color",
+    default: "#000000",
+  },
+};
+```
+
+### Buttons Component
+
+Another helper rather than a widget, used to build widgets that show a list of buttons where a single value can be toggled.
+The BlockAlignment and Size widgets are built on top of it.
+You can pass it a configurable list of `actions`, along with the icon and the i18n message used for each one in `actionsInfoMap`, and filter out the default actions you don't want with `filterActions`.
+
+```{note}
+As of VLT 8.0.0-alpha.5 these components were moved to the Volto core package.
+If you are on Volto 19.0.0-alpha.12 or later, use the ones from Volto core instead of the ones provided by VLT.
+```
+
 ## Creating a Custom Hero Block
 
 Let's build a hero block step by step, starting with a basic implementation and then enhancing it with VLT widgets.
@@ -70,24 +226,24 @@ Let's build a hero block step by step, starting with a basic implementation and 
 Create `src/components/blocks/myHero/schema.ts`:
 
 ```javascript
-import { defineMessages } from 'react-intl';
+import { defineMessages } from "react-intl";
 
 const messages = defineMessages({
   hero: {
-    id: 'Hero',
-    defaultMessage: 'Hero',
+    id: "Hero",
+    defaultMessage: "Hero",
   },
   title: {
-    id: 'Title',
-    defaultMessage: 'Title',
+    id: "Title",
+    defaultMessage: "Title",
   },
   subtitle: {
-    id: 'Subtitle',
-    defaultMessage: 'Subtitle',
+    id: "Subtitle",
+    defaultMessage: "Subtitle",
   },
   backgroundImage: {
-    id: 'Background Image',
-    defaultMessage: 'Background Image',
+    id: "Background Image",
+    defaultMessage: "Background Image",
   },
 });
 
@@ -98,29 +254,29 @@ const heroBlockSchema = (props) => {
     title: intl.formatMessage(messages.hero),
     fieldsets: [
       {
-        id: 'default',
-        title: 'Default',
-        fields: ['title', 'subtitle'],
+        id: "default",
+        title: "Default",
+        fields: ["title", "subtitle"],
       },
       {
-        id: 'design',
-        title: 'Design',
-        fields: ['backgroundImage'],
+        id: "design",
+        title: "Design",
+        fields: ["backgroundImage"],
       },
     ],
     properties: {
       title: {
         title: intl.formatMessage(messages.title),
-        type: 'string',
+        type: "string",
       },
       subtitle: {
         title: intl.formatMessage(messages.subtitle),
-        type: 'string',
+        type: "string",
       },
       backgroundImage: {
         title: intl.formatMessage(messages.backgroundImage),
-        widget: 'object_browser',
-        mode: 'image',
+        widget: "object_browser",
+        mode: "image",
         allowExternals: false,
       },
     },
@@ -136,28 +292,28 @@ export { heroBlockSchema };
 Create `src/components/blocks/myHero/View.tsx`:
 
 ```tsx
-import React from 'react';
-import cx from 'classnames';
-import config from '@plone/volto/registry';
-import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers/Url/Url';
-import type { BlockViewProps } from '@plone/types';
+import React from "react";
+import cx from "classnames";
+import config from "@plone/volto/registry";
+import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers/Url/Url";
+import type { BlockViewProps } from "@plone/types";
 
 const HeroView = (props: BlockViewProps) => {
   const { className, style } = props;
   const { title, subtitle, backgroundImage, url } = props?.data || {};
 
-  const hasImage = backgroundImage?.[0]?.['@id'];
+  const hasImage = backgroundImage?.[0]?.["@id"];
 
   let renderedImage = null;
   if (hasImage) {
-    const Image = config.getComponent('Image').component;
+    const Image = config.getComponent("Image").component;
     const imageItem = backgroundImage[0];
 
     if (Image) {
       renderedImage = (
         <Image
           item={{
-            '@id': imageItem['@id'],
+            "@id": imageItem["@id"],
             image_field: imageItem.image_field,
             image_scales: imageItem.image_scales,
           }}
@@ -170,9 +326,9 @@ const HeroView = (props: BlockViewProps) => {
       renderedImage = (
         <img
           src={
-            isInternalURL(url?.['@id'])
-              ? `${flattenToAppURL(url['@id'])}/@@images/image`
-              : url?.['@id']
+            isInternalURL(url?.["@id"])
+              ? `${flattenToAppURL(url["@id"])}/@@images/image`
+              : url?.["@id"]
           }
           alt=""
           loading="lazy"
@@ -183,7 +339,7 @@ const HeroView = (props: BlockViewProps) => {
 
   return (
     <div
-      className={cx('block hero', className, { 'has-image': hasImage })}
+      className={cx("block hero", className, { "has-image": hasImage })}
       style={style}
     >
       {hasImage && <div className="hero-image-wrapper">{renderedImage}</div>}
@@ -206,13 +362,13 @@ export default HeroView;
 Create `src/components/blocks/myHero/Edit.tsx`:
 
 ```tsx
-import React from 'react';
-import { useIntl } from 'react-intl';
-import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal';
-import { BlockDataForm } from '@plone/volto/components/manage/Form';
-import { heroBlockSchema } from './schema';
-import HeroView from './View';
-import type { BlockEditProps } from '@plone/types';
+import React from "react";
+import { useIntl } from "react-intl";
+import SidebarPortal from "@plone/volto/components/manage/Sidebar/SidebarPortal";
+import { BlockDataForm } from "@plone/volto/components/manage/Form";
+import { heroBlockSchema } from "./schema";
+import HeroView from "./View";
+import type { BlockEditProps } from "@plone/types";
 
 const HeroEdit = (props: BlockEditProps) => {
   const { selected, onChangeBlock, block, data } = props;
@@ -249,28 +405,28 @@ export default HeroEdit;
 Update `src/config/blocks.ts`:
 
 ```typescript
-import type { ConfigType } from '@plone/registry';
-import HeroView from '../components/blocks/myHero/View';
-import HeroEdit from '../components/blocks/myHero/Edit';
-import { heroBlockSchema } from '../components/blocks/myHero/schema';
-import heroSVG from '@plone/volto/icons/hero.svg';
+import type { ConfigType } from "@plone/registry";
+import HeroView from "../components/blocks/myHero/View";
+import HeroEdit from "../components/blocks/myHero/Edit";
+import { heroBlockSchema } from "../components/blocks/myHero/schema";
+import heroSVG from "@plone/volto/icons/hero.svg";
 
 export default function install(config: ConfigType) {
   // ... block themes configuration ...
 
   // Register Hero Block
   config.blocks.blocksConfig.hero = {
-    id: 'hero',
-    title: 'Hero',
+    id: "hero",
+    title: "Hero",
     icon: heroSVG,
-    group: 'common',
+    group: "common",
     view: HeroView,
     edit: HeroEdit,
     restricted: false,
     mostUsed: true,
     blockSchema: heroBlockSchema,
     sidebarTab: 1,
-    category: 'hero',
+    category: "hero",
   };
 
   return config;
@@ -340,7 +496,7 @@ Create `src/theme/blocks/_hero.scss`:
       &::after {
         position: absolute;
         background: rgba(0, 0, 0, 0.4);
-        content: '';
+        content: "";
         inset: 0;
       }
     }
@@ -356,8 +512,8 @@ Create `src/theme/blocks/_hero.scss`:
 Import in `src/theme/_main.scss`:
 
 ```scss
-@import './blocks/hero';
-@import './site';
+@import "./blocks/hero";
+@import "./site";
 ```
 
 ### Step 6: Enhance with VLT Widgets
@@ -367,32 +523,32 @@ Now let's add VLT's powerful widgets to control block width and alignment. Updat
 Update `src/components/blocks/myHero/schema.ts`:
 
 ```javascript
-import { defineMessages } from 'react-intl';
+import { defineMessages } from "react-intl";
 
 const messages = defineMessages({
   hero: {
-    id: 'Hero',
-    defaultMessage: 'Hero',
+    id: "Hero",
+    defaultMessage: "Hero",
   },
   title: {
-    id: 'Title',
-    defaultMessage: 'Title',
+    id: "Title",
+    defaultMessage: "Title",
   },
   subtitle: {
-    id: 'Subtitle',
-    defaultMessage: 'Subtitle',
+    id: "Subtitle",
+    defaultMessage: "Subtitle",
   },
   backgroundImage: {
-    id: 'Background Image',
-    defaultMessage: 'Background Image',
+    id: "Background Image",
+    defaultMessage: "Background Image",
   },
   blockWidth: {
-    id: 'Block Width',
-    defaultMessage: 'Block Width',
+    id: "Block Width",
+    defaultMessage: "Block Width",
   },
   textAlignment: {
-    id: 'Text Alignment',
-    defaultMessage: 'Text Alignment',
+    id: "Text Alignment",
+    defaultMessage: "Text Alignment",
   },
 });
 
@@ -403,29 +559,29 @@ const heroBlockSchema = (props) => {
     title: intl.formatMessage(messages.hero),
     fieldsets: [
       {
-        id: 'default',
-        title: 'Default',
-        fields: ['title', 'subtitle'],
+        id: "default",
+        title: "Default",
+        fields: ["title", "subtitle"],
       },
       {
-        id: 'design',
-        title: 'Design',
-        fields: ['backgroundImage'],
+        id: "design",
+        title: "Design",
+        fields: ["backgroundImage"],
       },
     ],
     properties: {
       title: {
         title: intl.formatMessage(messages.title),
-        type: 'string',
+        type: "string",
       },
       subtitle: {
         title: intl.formatMessage(messages.subtitle),
-        type: 'string',
+        type: "string",
       },
       backgroundImage: {
         title: intl.formatMessage(messages.backgroundImage),
-        widget: 'object_browser',
-        mode: 'image',
+        widget: "object_browser",
+        mode: "image",
         allowExternals: false,
       },
     },
@@ -437,21 +593,21 @@ const heroBlockSchema = (props) => {
 const heroSchemaEnhancer = ({ formData, schema, intl }) => {
   // Add custom fields to the styling schema at the beginning
   schema.properties.styles.schema.fieldsets[0].fields = [
-    'blockWidth:noprefix',
-    'align',
+    "blockWidth:noprefix",
+    "align",
     ...schema.properties.styles.schema.fieldsets[0].fields,
   ];
 
-  schema.properties.styles.schema.properties['blockWidth:noprefix'] = {
-    widget: 'blockWidth',
+  schema.properties.styles.schema.properties["blockWidth:noprefix"] = {
+    widget: "blockWidth",
     title: intl.formatMessage(messages.blockWidth),
-    default: 'default',
+    default: "default",
   };
 
   schema.properties.styles.schema.properties.align = {
-    widget: 'blockAlignment',
+    widget: "blockAlignment",
     title: intl.formatMessage(messages.textAlignment),
-    default: 'center',
+    default: "center",
   };
 
   return schema;
@@ -465,26 +621,26 @@ export { heroBlockSchema, heroSchemaEnhancer };
 Update `src/config/blocks.ts` to include the schema enhancer:
 
 ```typescript
-import type { ConfigType } from '@plone/registry';
-import HeroView from '../components/blocks/myHero/View';
-import HeroEdit from '../components/blocks/myHero/Edit';
+import type { ConfigType } from "@plone/registry";
+import HeroView from "../components/blocks/myHero/View";
+import HeroEdit from "../components/blocks/myHero/Edit";
 import {
   heroBlockSchema,
   heroSchemaEnhancer,
-} from '../components/blocks/myHero/schema';
-import { composeSchema } from '@plone/volto/helpers/Extensions';
-import { defaultStylingSchema } from '@kitconcept/volto-light-theme/components/Blocks/schema';
-import heroSVG from '@plone/volto/icons/hero.svg';
+} from "../components/blocks/myHero/schema";
+import { composeSchema } from "@plone/volto/helpers/Extensions";
+import { defaultStylingSchema } from "@kitconcept/volto-light-theme/components/Blocks/schema";
+import heroSVG from "@plone/volto/icons/hero.svg";
 
 export default function install(config: ConfigType) {
   // ... block themes configuration ...
 
   // Register Hero Block
   config.blocks.blocksConfig.hero = {
-    id: 'hero',
-    title: 'Hero',
+    id: "hero",
+    title: "Hero",
     icon: heroSVG,
-    group: 'common',
+    group: "common",
     view: HeroView,
     edit: HeroEdit,
     restricted: false,
@@ -492,7 +648,7 @@ export default function install(config: ConfigType) {
     blockSchema: heroBlockSchema,
     schemaEnhancer: composeSchema(defaultStylingSchema, heroSchemaEnhancer),
     sidebarTab: 1,
-    category: 'hero',
+    category: "hero",
   };
 
   return config;
@@ -619,13 +775,12 @@ Create `src/theme/blocks/_relatedItems.scss`:
     }
   }
 }
-
 ```
 
 Import it in `_main.scss`:
 
 ```scss
-@import './blocks/hero';
-@import './blocks/relatedItems';
-@import './site';
+@import "./blocks/hero";
+@import "./blocks/relatedItems";
+@import "./site";
 ```
