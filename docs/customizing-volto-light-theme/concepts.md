@@ -6,6 +6,7 @@ myst:
     "property=og:title": "Foundation, Concepts & Project Setup"
     "keywords": "Plone, Volto, Training, Volto Light Theme"
 ---
+
 # Foundation, Concepts & Project Setup
 
 ## Volto Light Theme Core Concepts
@@ -15,6 +16,7 @@ Volto Light Theme (VLT) is a customizable theme built for the Volto frontend of 
 ### Base Styling
 
 VLT is designed with simplicity and a minimal aesthetic in mind. The three core principles are:
+
 - **Consistency**: Predictable design patterns across all components
 - **Accessibility**: WCAG compliant with contrast checkers and semantic HTML
 - **Intuitiveness**: Clear visual hierarchy and user-friendly interfaces
@@ -22,6 +24,7 @@ VLT is designed with simplicity and a minimal aesthetic in mind. The three core 
 ### Customizable Variables
 
 VLT offers a set of CSS custom properties (variables) that allow developers to customize various design elements:
+
 - **Colors**: Using paired foreground/background color system
 - **Spatial relationships**: Container widths and spacing scales
 - **Layouts**: Three-width container system
@@ -93,23 +96,23 @@ While the system can be extended with non-color CSS properties, the default four
 config.blocks.themes = [
   {
     style: {
-      '--theme-color': '#fff',
-      '--theme-high-contrast-color': '#ecebeb',
-      '--theme-foreground-color': '#000',
-      '--theme-low-contrast-foreground-color': '#555555',
+      "--theme-color": "#fff",
+      "--theme-high-contrast-color": "#ecebeb",
+      "--theme-foreground-color": "#000",
+      "--theme-low-contrast-foreground-color": "#555555",
     },
-    name: 'default',
-    label: 'Default',
+    name: "default",
+    label: "Default",
   },
   {
     style: {
-      '--theme-color': '#ecebeb',
-      '--theme-high-contrast-color': '#fff',
-      '--theme-foreground-color': '#000',
-      '--theme-low-contrast-foreground-color': '#555555',
+      "--theme-color": "#ecebeb",
+      "--theme-high-contrast-color": "#fff",
+      "--theme-foreground-color": "#000",
+      "--theme-low-contrast-foreground-color": "#555555",
     },
-    name: 'grey',
-    label: 'Grey',
+    name: "grey",
+    label: "Grey",
   },
 ];
 ```
@@ -122,9 +125,9 @@ VLT uses three types of container widths:
 
 ```scss
 // Three-width layout system
---layout-container-width: 1440px;  // for major elements like headers & large Blocks
---default-container-width: 940px;  // balanced content presentation for most Blocks
---narrow-container-width: 620px;   // optimal readability for text
+--layout-container-width: 1440px; // for major elements like headers & large Blocks
+--default-container-width: 940px; // balanced content presentation for most Blocks
+--narrow-container-width: 620px; // optimal readability for text
 ```
 
 The VLT `BlockWidthWidget` stores the value of the custom property `--block-width` so that it can be used by the StyleWrapper when injecting styles into the markup.
@@ -145,58 +148,115 @@ We recommend creating your Plone project with **Cookieplone**. Our comprehensive
 
 ## Installing Volto Light Theme
 
+VLT is shipped as two add-ons that you must install together:
+
+- the frontend Volto add-on `@kitconcept/volto-light-theme`, which is also a theme add-on,
+- the backend Plone add-on `kitconcept.voltolighttheme`, which provides the site customization behaviors.
+
+```{note}
+This training targets the VLT 8 line, which is currently released as alpha (`8.0.0-alpha.x` on npm, `8.0.0a.x` on PyPI), and is the version documented in the [official VLT install guide](https://volto-light-theme.readthedocs.io/how-to-guides/install.html).
+If you need a stable release instead, use the latest 7.x version of both packages and skip the "install the recommended add-ons as dependencies" step, since 7.x still ships them as `peerDependencies`.
+```
+
 ### Step 1: Install VLT and Recommended Block Add-ons
 
-Navigate to the `frontend/packages/my-vlt-project` folder and install VLT:
-
-```bash
-pnpm install @kitconcept/volto-light-theme@latest
-```
-
-Volto Light Theme comes with several pre-configured add-ons that provide basic blocks for your website. If you'd like to include them, you can add them in the `addons` section in your {file}`package.json`, but this is not required.
-
-Here is the list of recommended addons to install, including VLT, which should be the last element:
-
-```json
-"addons": [
-  "@eeacms/volto-accordion-block",
-  "@kitconcept/volto-button-block",
-  "@kitconcept/volto-heading-block",
-  "@kitconcept/volto-highlight-block",
-  "@kitconcept/volto-introduction-block",
-  "@kitconcept/volto-separator-block",
-  "@kitconcept/volto-slider-block",
-  "@kitconcept/volto-light-theme"
-],
-```
-
-While in your project package folder, add VLT and the block addons to the `addons` list in your `package.json`:
+VLT is installed like any other Volto add-on, as a dependency of your project add-on in {file}`frontend/packages/my-vlt-project/package.json`:
 
 ```json
 {
-  "name": "my-vlt-project",
+  "dependencies": {
+    "@kitconcept/volto-light-theme": "^8.0.0-alpha.31"
+  }
+}
+```
+
+From the root of your project, you can let pnpm add it to the workspace package for you:
+
+```bash
+pnpm --filter my-vlt-project add @kitconcept/volto-light-theme@alpha
+```
+
+Volto Light Theme supports all core blocks, and it also supports blocks coming from a set of recommended add-ons that provide the basic blocks for your website.
+Including them is not required, and you can pick only the ones you want to use.
+
+Since VLT 8.0.0, these recommended add-ons are no longer declared as `peerDependencies` of VLT, so you have to install them yourself as dependencies of your project add-on in {file}`frontend/packages/my-vlt-project/package.json`:
+
+```json
+{
+  "dependencies": {
+    "@eeacms/volto-accordion-block": "^12.0.0",
+    "@kitconcept/volto-banner-block": "^1.2.0",
+    "@kitconcept/volto-bm3-compat": "^1.0.0-alpha.1",
+    "@kitconcept/volto-button-block": "5.0.0-alpha.2",
+    "@kitconcept/volto-calendar-block": "^1.0.0-alpha.9",
+    "@kitconcept/volto-carousel-block": "^3.0.0-alpha.1",
+    "@kitconcept/volto-dsgvo-banner": "^4.0.0-alpha.2",
+    "@kitconcept/volto-heading-block": "^2.5.0",
+    "@kitconcept/volto-highlight-block": "^5.0.0-alpha.2",
+    "@kitconcept/volto-introduction-block": "^1.4.1",
+    "@kitconcept/volto-logos-block": "^4.0.0-alpha.1",
+    "@kitconcept/volto-separator-block": "^5.0.0-alpha.0",
+    "@kitconcept/volto-slider-block": "^7.0.0-alpha.1",
+    "@plonegovbr/volto-social-media": "^3.0.0-alpha.0",
+    "@kitconcept/volto-light-theme": "^8.0.0-alpha.31"
+  }
+}
+```
+
+```{note}
+The versions above are the known good versions at the time of writing.
+The source of truth, up-to-date list lives in the [recommended add-ons reference](https://volto-light-theme.readthedocs.io/reference/recommended-addons.html) of the VLT documentation.
+```
+
+Installing a package is not enough: it also has to be declared as a Volto add-on in the `addons` key of the same {file}`package.json`, with VLT as the last element of the list:
+
+```json
+{
   "addons": [
     "@eeacms/volto-accordion-block",
+    "@kitconcept/volto-banner-block",
+    "@kitconcept/volto-bm3-compat",
     "@kitconcept/volto-button-block",
+    "@kitconcept/volto-carousel-block",
+    "@kitconcept/volto-dsgvo-banner",
     "@kitconcept/volto-heading-block",
     "@kitconcept/volto-highlight-block",
     "@kitconcept/volto-introduction-block",
+    "@kitconcept/volto-logos-block",
     "@kitconcept/volto-separator-block",
     "@kitconcept/volto-slider-block",
+    "@plonegovbr/volto-social-media",
     "@kitconcept/volto-light-theme"
   ]
 }
 ```
 
-**Important:** VLT must be the last addon in the list to ensure proper style cascade. Your project addon will still be the last applied if defined in `volto.config.js`.
+-**Important:** VLT must be the last addon in the list to ensure proper style cascade. Your project addon will still be the last applied if defined in `volto.config.js`.
+
+Run `pnpm install` from the project root after editing {file}`package.json` by hand, so that the workspace picks up the new dependencies.
 
 ### Step 2: Configure VLT as the Theme Provider
 
-Open the `volto.config.js` file in your `frontend` folder and modify it as shown below:
+VLT is not only a regular add-on, it is also a theme add-on, so it has to be declared as the theme of your project.
+How you do that depends on your Volto version.
+
+For Volto 18.29.1 or later, and 19.0.0-alpha.10 or later, declare it with the `theme` key of your project add-on {file}`frontend/packages/my-vlt-project/package.json`, next to the `addons` key:
+
+```json
+{
+  "addons": [
+    ...,
+    "@kitconcept/volto-light-theme"
+  ],
+  "theme": "@kitconcept/volto-light-theme"
+}
+```
+
+For older Volto versions, open the {file}`volto.config.js` file in your `frontend` folder and declare the theme there:
 
 ```javascript
-const addons = ['my-vlt-project'];
-const theme = '@kitconcept/volto-light-theme';
+const addons = ["my-vlt-project"];
+const theme = "@kitconcept/volto-light-theme";
 
 module.exports = {
   addons,
@@ -214,14 +274,20 @@ In your backend folder, install the Python package for site customization behavi
 
 Edit `backend/pyproject.toml` and add to the dependencies array:
 
-```
+```toml
 dependencies = [
-    "Products.CMFPlone==6.1.3",
+    "Products.CMFPlone==6.2.1",
     "plone.api",
     "plone.restapi",
     "plone.volto",
-    "kitconcept.voltolighttheme==7.3.1",
+    "kitconcept.voltolighttheme==8.0.0a31",
 ]
+```
+
+Then install the dependency from your backend folder:
+
+```bash
+make install
 ```
 
 ### Step 4: Install the Backend Add-on
@@ -250,6 +316,9 @@ To enable site customization through the UI:
 2. In the "Behaviors" tab, activate the desired behaviors
 3. Click "Save"
 
+These behaviors let you customize the header, footer, and theme of your Plone site with knobs on the content type they are applied to, either the Plone site or a subsite.
+See the [site customization guide](https://volto-light-theme.readthedocs.io/conceptual-guides/site-customization.html) for the details of each behavior.
+
 Now your project should have the VLT Site configurations available.
 
 ## File Structure Setup
@@ -270,7 +339,7 @@ src/
     └── _site.scss
 ```
 
-Create the files:
+Create the files in `frontend/paackages/my-vlt-project` :
 
 ```bash
 cd src
