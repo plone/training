@@ -12,8 +12,6 @@ myst:
 
 # Complex behaviors [voting story]
 
-A group of jury members vote on talks to be accepted for the conference.
-
 ```{card}
 
 In this part you will:
@@ -28,35 +26,54 @@ Topics covered:
 - Using annotations as storage layer
 ```
 
+````{card}
+
+Check out `mastering-plone-votable-add-on` at tag `initial`:
+
+```shell
+git checkout initial
+```
+
+The code at the end of the chapter:
+
+```shell
+git checkout behaviors
+```
+
+More info in {doc}`code`
+````
+
+Members of the conference program committee will vote on talks to be accepted for the conference.
 
 (behaviors2-schema-label)=
 
-## Schema and annotation
+## Schema design
 
-The talks are being voted.
-So we provide an additional field with our behavior to store the votes on a talk.
+We will create a behavior with an additional field to store the votes on a talk.
 Therefore the behavior will have a schema with a field `votes`.
 
-We mark the field "votes" as an omitted field as this field should not be edited directly.
+We mark the field `votes` as an omitted field as this field should not be edited directly.
 
-We are going to store the information about "votes" in an `annotation`.
-Imagine an add-on that uses the same field name "votes" like we do for another purpose.
+We are going to store the information about votes in an _annotation_.
+Imagine an add-on that uses the same field name `votes` like we do for another purpose.
 Here the AnnotationStorage comes in.
-The content type instance is equipped by a storage where behaviors do store values with a key unique per behavior.
+The content type instance is equipped with a storage where behaviors can store values with a key unique per behavior.
 
 
 (behaviors2-code-label)=
 
-## The code
+## Add the behavior
 
-Open your backend add-on you have been creating in the last chapter in your editor.
+In your editor, open the `mastering-plone-votable-add-on` add-on that you created in the previous chapter.
 
-Later in your daily work you will use {term}`plonecli` to generate a behavior.
+```{tip}
+Later in your daily work you can use {term}`plonecli` to generate a behavior.
 In this training we go step by step through the code to understand a behavior and its capabilities.
+```
 
-To start, we create a directory {file}`behaviors` with an empty {file}`behaviors/__init__.py` file.
+To start, we create a directory {file}`backend/src/ploneconf/votable/behaviors` with an empty {file}`__init__.py` file.
 
-To let Plone know about the behavior we are writing, we include the behavior module:
+To let Plone know about the behavior we are writing, we include the `behaviors` module in {file}`backend/src/ploneconf/votable/configure.zcml`:
 
 ```{code-block} xml
 :linenos:
@@ -70,39 +87,42 @@ To let Plone know about the behavior we are writing, we include the behavior mod
 </configure>
 ```
 
-Next, create a {file}`behaviors/configure.zcml` where we register our to be written behavior.
+Next, create a {file}`backend/src/ploneconf/votable/behaviors/configure.zcml` where we register our to-be-written behavior.
 
 ```{code-block} xml
 :linenos:
-:emphasize-lines: 15-16
 
 <configure
-  xmlns="http://namespaces.zope.org/zope"
-  xmlns:browser="http://namespaces.zope.org/browser"
-  xmlns:plone="http://namespaces.plone.org/plone"
-  xmlns:zcml="http://namespaces.zope.org/zcml"
-  i18n_domain="plone">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="plone"
+    >
 
-    <include package="plone.behavior" file="meta.zcml"/>
+  <include
+      package="plone.behavior"
+      file="meta.zcml"
+      />
 
-    <plone:behavior
-        name="training.votable.votable"
-        title="Votable"
-        description="Support liking and disliking of content"
-        provides=".votable.IVotable"
-        factory=".votable.Votable"
-        marker=".votable.IVotableMarker"
-        />
+  <plone:behavior
+      name="ploneconf.votable.votable"
+      title="Votable"
+      description="Support liking and disliking of content"
+      factory=".votable.Votable"
+      provides=".votable.IVotable"
+      marker=".votable.IVotableMarker"
+      />
 
 </configure>
 ```
 
-There are important differences to the first simple behavior in {ref}`behaviors1-label`:
+There are important differences compared to the first simple behavior in {ref}`behaviors1-label`:
 
-- There is a marker interface
-- There is a factory
+- There is a `marker` interface.
+- There is a `factory`.
 
-The first simple behavior discussed in {ref}`behaviors1-label` has been registered only with the `provides` attributes:
+The first simple behavior discussed in {ref}`behaviors1-label` was registered only with the `provides` attribute:
 
 ```xml
 <plone:behavior
@@ -113,23 +133,35 @@ The first simple behavior discussed in {ref}`behaviors1-label` has been register
     />
 ```
 
-The `factory` is a class that provides the behavior logic and gives access to the attributes we provide.
-A factory in Plone/Zope is an `adapter`, that means a function that adapts an object to provide an interface.
-We can use the following short form to access the features of a behavior of an object with `votable = IVotable(object)`.
-The expression `IVotable(object)` is short for "Get the appropriate adapter for interface `IVotable` and apply it to my object!".
-The result is an adopted object with the behavior features.
-You can for example get the value of votes by `IVotable(object).votes`.
-But you can not get the votes by `object.votes`, as the object does not know about votes.
-Only the adapted object `IVotable(object)` does know about votes.
+The `factory` is a class that provides the behavior logic and controls how the attributes from the behavior schema are accessed.
+A factory in Plone/Zope is an `adapter`, which means a function or class that adapts an object to provide an interface.
 
-The `marker` is introduced to register REST API endpoints for objects that adapts the behavior.
+We can use the following short form to access the features of a behavior of an object: `votable = IVotable(object)`.
+The expression `IVotable(object)` is short for "Get the appropriate adapter for interface `IVotable` that is compatible with my object!".
+The result is an adapted object with the behavior features.
+You can for example get the value of votes with `IVotable(object).votes`.
+But you can not get the votes with `object.votes`, as the object itself does not know about votes.
+Only the adapted object `IVotable(object)` supports voting.
 
+Since the `provides` interface is now provided by the adapter rather than the object itself,
+the `marker` is introduced as a marker interface on the object.
+This lets us register additional adapters only for objects that have the behavior.
 
 We now implement what we registered.
-Therefore we create a file {file}`/behaviors/votable.py` with the schema, marker interface, and the factory.
+Therefore we create a file {file}`backend/src/ploneconf/votable/behaviors/votable.py` with the schema, marker interface, and the factory.
 
 ```{code-block} python
 :linenos:
+
+from plone import api
+from plone.autoform.directives import omitted
+from plone.autoform.interfaces import IFormFieldProvider
+from plone.supermodel import model
+from plone.supermodel.directives import fieldset
+from zope import schema
+from zope.interface import Interface
+from zope.interface import provider
+
 
 class IVotableMarker(Interface):
     """Marker interface for content types or instances that should be votable"""
@@ -139,7 +171,7 @@ class IVotableMarker(Interface):
 
 @provider(IFormFieldProvider)
 class IVotable(model.Schema):
-    """Behavior interface for the votable behavior
+    """Schema for the votable behavior
 
     IVotable(object) returns the adapted object with votable behavior
     """
@@ -161,16 +193,16 @@ class IVotable(model.Schema):
     )
 
     if not api.env.debug_mode():
-        form.omitted("votes")
-        form.omitted("voted")
+        omitted("votes")
+        omitted("voted")
 
-    directives.fieldset(
+    fieldset(
         "debug",
         label="debug",
         fields=("votes", "voted"),
     )
 
-    def vote(request):
+    def vote():
         """
         Store the vote information and store the user(name)
         to ensure that the user does not vote twice.
@@ -186,7 +218,7 @@ class IVotable(model.Schema):
         Return whether anybody ever voted for this item.
         """
 
-    def already_voted(request):
+    def already_voted():
         """
         Return the information wether a person already voted.
         """
@@ -210,17 +242,17 @@ Whenever some code wants all schemas of an object, it receives the schema define
 Additional schemata are compiled by looking for behaviors and whether they provide the `IFormFieldProvider` functionality.
 Only then the fields are used as form fields.
 
-We create two schema fields for our internal data structure.
-A dictionary to hold the votes given and a list to remember which jury members already voted and should not vote twice.
+We create two schema fields for our internal data structure:
+a dictionary to hold the votes given and a list to remember which jury members already voted and should not vote twice.
 
-The directives `form.omitted` from `plone.autoform` allow us to hide the fields.
+The `omitted` directive from `plone.autoform` allows us to hide the fields.
 The fields are there to save the data but should not be edited directly.
 
 Then we define the API that we are going to use in the frontend.
 ```
 
-Now the only thing that is missing is the behavior implementation, the factory, which we add to {file}`behaviors/votable.py`.
-The factory is an adapter that adapts a talk to the behavior interface `IVotable`.
+Now the only thing that is missing is the behavior implementation (the factory), which we add to {file}`backend/src/ploneconf/votable/behaviors/votable.py`.
+The factory is an adapter that adapts a content item to the behavior interface `IVotable`.
 
 
 ```{code-block} python
@@ -228,12 +260,26 @@ The factory is an adapter that adapts a talk to the behavior interface `IVotable
 
 from persistent.mapping import PersistentMapping
 from persistent.list import PersistentList
+from plone import api
+from plone.autoform.directives import omitted
+from plone.autoform.interfaces import IFormFieldProvider
+from plone.supermodel import model
+from plone.supermodel.directives import fieldset
+from zope import schema
+from zope.annotation.interfaces import IAnnotations
+from zope.component import adapter
+from zope.interface import implementer
+from zope.interface import Interface
+from zope.interface import provider
 
-KEY = "training.votable.behaviors.votable.Votable"
+# ...
+
+KEY = "ploneconf.votable.behaviors.votable.Votable"
+
 
 @implementer(IVotable)
 @adapter(IVotableMarker)
-class Votable(object):
+class Votable:
     """Adapter implementing the votable behavior"""
 
     def __init__(self, context):
@@ -241,9 +287,10 @@ class Votable(object):
         annotations = IAnnotations(context)
         if KEY not in annotations.keys():
             # You know what happens if we don't use persistent classes here?
-            annotations[KEY] = PersistentMapping(
-                {"voted": PersistentList(), "votes": PersistentMapping()}
-            )
+            annotations[KEY] = PersistentMapping({
+                "voted": PersistentList(),
+                "votes": PersistentMapping(),
+            })
         self.annotations = annotations[KEY]
 
     # getter
@@ -266,9 +313,28 @@ class Votable(object):
     # setter
     # def voted(self, value):
     #     self.annotations["voted"] = value
+```
 
-    def vote(self, vote, request):
-        if self.already_voted(request):
+In our `__init__` method we get *annotations* from the object.
+We look for data with a key unique for this behavior.
+
+If the annotation with this key does not exist, because no one has voted on this object yet, we create it.
+We work with `PersistentMapping` and `PersistentList`.
+A PersistentMapping is simply an implementation of the Python dict type (via the standard library UserDict base class) which ensures that changes are detected to store in the ZODB.
+
+Next we provide the internal fields via properties.
+Using this form of property makes them read-only properties, as we do not define setters/mutators.
+
+As you have seen in the schema declaration, if you run your site in debug mode, you will see an edit field for these fields.
+But trying to change these fields will throw an exception.
+
+Let's continue with the behavior adapter:
+
+```{code-block} python
+:linenos:
+
+    def vote(self, vote):
+        if self.already_voted():
             raise KeyError("You may not vote twice.")
         vote = int(vote)
         current_user = api.user.get_current()
@@ -286,120 +352,58 @@ class Votable(object):
         total_votes = sum(self.annotations.get("votes", {}).values())
         if total_votes == 0:
             return 0
-        total_points = sum(
-            [
-                vote * count
-                for (vote, count) in self.annotations.get("votes", {}).items()
-            ]
-        )
+        total_points = sum([
+            vote * count for (vote, count) in self.annotations.get("votes", {}).items()
+        ])
         return float(total_points) / total_votes
 
     def has_votes(self):
         return len(self.annotations.get("votes", {})) != 0
 
-    def already_voted(self, request):
+    def already_voted(self):
         current_user = api.user.get_current()
         return current_user.id in self.annotations["voted"]
 
     def clear(self):
         annotations = IAnnotations(self.context)
-        annotations[KEY] = PersistentMapping(
-            {"voted": PersistentList(), "votes": PersistentMapping()}
-        )
-        self.annotations = annotations[KEY]
-
-```
-
-In our `__init__` method we get *annotations* from the object.
-We look for data with a key unique for this behavior.
-
-If the annotation with this key does not exist, cause the object is not already voted, we create it.
-We work with `PersistentMapping` and `PersistentList`. A PersistentMapping is simply an implementation of the Python dict type (via the standard library UserDict base class) adjusted for the persistence semantics of the ZODB.
-
-Next we provide the internal fields via properties.
-Using this form of property makes them read-only properties, as we do not define write handlers.
-
-As you have seen in the Schema declaration, if you run your site in debug mode, you will see an edit field for these fields.
-But trying to change these fields will throw an exception.
-
-
-Let's continue with the behavior adapter:
-
-```{code-block} python
-:linenos:
-
-    def vote(self, vote, request):
-        if self.already_voted(request):
-            raise KeyError("You may not vote twice")
-        vote = int(vote)
-        current_user = api.user.get_current()
-        self.annotations["voted"].append(current_user.id)
-        votes = self.annotations.get("votes", {})
-        if vote not in votes:
-            votes[vote] = 1
-        else:
-            votes[vote] += 1
-
-    def total_votes(self):
-        return sum(self.annotations.get("votes", {}).values())
-
-    def average_vote(self):
-        total_votes = sum(self.annotations.get("votes", {}).values())
-        if total_votes == 0:
-            return 0
-        total_points = sum(
-            [
-                vote * count
-                for (vote, count) in self.annotations.get("votes", {}).items()
-            ]
-        )
-        return float(total_points) / total_votes
-
-    def has_votes(self):
-        return len(self.annotations.get("votes", {})) != 0
-
-    def already_voted(self, request):
-        current_user = api.user.get_current()
-        return current_user.id in self.annotations["voted"]
-
-    def clear(self):
-        annotations = IAnnotations(self.context)
-        annotations[KEY] = PersistentMapping(
-            {"voted": PersistentList(), "votes": PersistentMapping()}
-        )
+        annotations[KEY] = PersistentMapping({
+            "voted": PersistentList(),
+            "votes": PersistentMapping(),
+        })
         self.annotations = annotations[KEY]
 ```
 
 The `voted` method stores names of users that already voted.
-Whereas the `already_voted` method checks if the user name is saved in annotation value `voted`.
+The `already_voted` method checks if the current user is saved in annotation value `voted`.
 
-The `vote` method requires a vote and a request.
-We check the precondition that the user did not already vote, then we save that the user did vote and save his vote in `votes` annotation value.
+The `vote` method checks that the user did not already vote, then saves that the user did vote and saves the vote in the `votes` annotation value.
 
 The methods `total_votes` and `average_votes` are self-explaining.
 They calculate values that we want to use in a REST API endpoint.
-The logic belongs to the behavior not the service.
+The logic belongs to the behavior, not the service.
 
-The method `clear` allows to reset votes.
-Therefore the annotation of the context is set to an empty value like the `__init__`method does.
+The method `clear` resets all votes.
+The annotation of the context is set to an empty value like the `__init__` method does.
 
 
 ## Enable the behavior
 
-Enable the behavior 'training.votable.votable' on content type 'talk':
+Enable the behavior 'ploneconf.votable.votable' on content type 'talk':
 
-Add the behavior in `src/ploneconf/site/profiles/default/types/talk.xml`.
+Back in `mastering-plone-project`, add the behavior in {file}`backend/src/ploneconf/site/profiles/default/types/talk.xml`.
 
-```xml
+```{code-block} xml
+:linenos:
+:emphasize-lines: 8
 
   <property name="behaviors">
     <element value="plone.dublincore" />
     <element value="plone.namefromtitle" />
-    <element value="plone.versioning" />
     <element value="ploneconf.featured" />
+    <element value="plone.versioning" />
     <element value="plone.eventbasic" />
     <element value="plone.textindexer" />
-    <element value="training.votable.votable" />
+    <element value="ploneconf.votable.votable" />
   </property>
 ```
 
