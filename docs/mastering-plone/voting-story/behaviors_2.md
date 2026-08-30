@@ -40,7 +40,7 @@ The code at the end of the chapter:
 git checkout behaviors
 ```
 
-More info in {doc}`code`
+More info in {doc}`../code`
 ````
 
 Members of the conference program committee will vote on talks to be accepted for the conference.
