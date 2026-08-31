@@ -49,15 +49,12 @@ Members of the conference program committee will vote on talks to be accepted fo
 
 ## Schema design
 
-We will create a behavior with an additional field to store the votes on a talk.
-Therefore the behavior will have a schema with a field `votes`.
+We will create a behavior to store the votes on a talk.
+Basically, this field will add a field `votes` to store a cumulative count of different vote categories.
 
-We mark the field `votes` as an omitted field as this field should not be edited directly.
-
-We are going to store the information about votes in an _annotation_.
-Imagine an add-on that uses the same field name `votes` like we do for another purpose.
-Here the AnnotationStorage comes in.
-The content type instance is equipped with a storage where behaviors can store values with a key unique per behavior.
+We will not add the field `votes` to the schema, because this field should not be edited directly.
+Instead we are going to store the information about votes in an _annotation_.
+The behavior will use an adapter that controls how data is stored and retrieved.
 
 
 (behaviors2-code-label)=
@@ -153,11 +150,8 @@ Therefore we create a file {file}`backend/src/ploneconf/votable/behaviors/votabl
 ```{code-block} python
 :linenos:
 
-from plone import api
-from plone.autoform.directives import omitted
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
-from plone.supermodel.directives import fieldset
 from zope import schema
 from zope.interface import Interface
 from zope.interface import provider
@@ -165,7 +159,6 @@ from zope.interface import provider
 
 class IVotableMarker(Interface):
     """Marker interface for content types or instances that should be votable"""
-
     pass
 
 
@@ -176,33 +169,12 @@ class IVotable(model.Schema):
     IVotable(object) returns the adapted object with votable behavior
     """
 
-    votes = schema.Dict(
-        title="Vote info",
-        key_type=schema.TextLine(title="Voted number"),
-        value_type=schema.Int(title="Voted so often"),
-        default={},
-        missing_value={},
-        required=False,
-    )
-    voted = schema.List(
-        title="List of users who voted",
-        value_type=schema.TextLine(),
-        default=[],
-        missing_value=[],
-        required=False,
+    can_vote = schema.Bool(
+        title="Can vote?",
+        readonly=True,
     )
 
-    if not api.env.debug_mode():
-        omitted("votes")
-        omitted("voted")
-
-    fieldset(
-        "debug",
-        label="debug",
-        fields=("votes", "voted"),
-    )
-
-    def vote():
+    def vote(vote):
         """
         Store the vote information and store the user(name)
         to ensure that the user does not vote twice.
@@ -242,11 +214,9 @@ Whenever some code wants all schemas of an object, it receives the schema define
 Additional schemata are compiled by looking for behaviors and whether they provide the `IFormFieldProvider` functionality.
 Only then the fields are used as form fields.
 
-We create two schema fields for our internal data structure:
-a dictionary to hold the votes given and a list to remember which jury members already voted and should not vote twice.
-
-The `omitted` directive from `plone.autoform` allows us to hide the fields.
-The fields are there to save the data but should not be edited directly.
+We add one actual field: `can_vote`.
+It is read only, so it will not appear in the edit form.
+This field will be used to detect content items that have the votable behavior enabled, so that we know when to display the frontend component for voting.
 
 Then we define the API that we are going to use in the frontend.
 ```
@@ -258,13 +228,11 @@ The factory is an adapter that adapts a content item to the behavior interface `
 ```{code-block} python
 :linenos:
 
-from persistent.mapping import PersistentMapping
 from persistent.list import PersistentList
+from persistent.mapping import PersistentMapping
 from plone import api
-from plone.autoform.directives import omitted
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
-from plone.supermodel.directives import fieldset
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import adapter
@@ -276,7 +244,6 @@ from zope.interface import provider
 
 KEY = "ploneconf.votable.behaviors.votable.Votable"
 
-
 @implementer(IVotable)
 @adapter(IVotableMarker)
 class Votable:
@@ -285,13 +252,19 @@ class Votable:
     def __init__(self, context):
         self.context = context
         annotations = IAnnotations(context)
-        if KEY not in annotations.keys():
+        if KEY not in annotations:
             # You know what happens if we don't use persistent classes here?
             annotations[KEY] = PersistentMapping({
                 "voted": PersistentList(),
                 "votes": PersistentMapping(),
             })
         self.annotations = annotations[KEY]
+
+    @property
+    def can_vote(self):
+        return api.user.has_permission(
+            "ploneconf.votable: Can vote", obj=self.context
+        )
 
     # getter
     @property
@@ -325,10 +298,11 @@ A PersistentMapping is simply an implementation of the Python dict type (via the
 Next we provide the internal fields via properties.
 Using this form of property makes them read-only properties, as we do not define setters/mutators.
 
-As you have seen in the schema declaration, if you run your site in debug mode, you will see an edit field for these fields.
-But trying to change these fields will throw an exception.
+The `can_vote` property checks whether the current user has permission to vote.
+The `votes` property returns the current vote totals.
+The `voted` property returns a list of users who have voted.
 
-Let's continue with the behavior adapter:
+Let's continue with the implementation of the methods for the behavior adapter:
 
 ```{code-block} python
 :linenos:
@@ -373,7 +347,6 @@ Let's continue with the behavior adapter:
         self.annotations = annotations[KEY]
 ```
 
-The `voted` method stores names of users that already voted.
 The `already_voted` method checks if the current user is saved in annotation value `voted`.
 
 The `vote` method checks that the user did not already vote, then saves that the user did vote and saves the vote in the `votes` annotation value.
