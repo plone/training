@@ -146,9 +146,32 @@ def SpeakerVocabularyFactory(context=None):
 The widget allows the editor to edit the relations.
 
 The default widget for relation fields in Volto is the object browser widget, which opens the tree of content for the editor to browse and select.
-On saving the talk, the selection is validated according the vocabulary.
+On saving the talk, the selection is validated againts the vocabulary.
+That also means that of you select anything that is not a published speaker you will get an error-message.
 
-For a more sophisticated widget see the explanation on how to write a custom widget in {doc}`plone6docs:volto/development/widget`.
+One way to work around this is to use a widget that only allows you to choose from published speakers.
+
+```{code-block} python
+:linenos:
+:emphasize-lines: 9-14
+    textindexer.searchable("speakers")
+    speakers = RelationList(
+        title="Speakers",
+        description="Speakers of the talk",
+        value_type=RelationChoice(vocabulary="ploneconf.speakers"),
+        required=False,
+        default=[],
+    )
+    directives.widget(
+        "speakers",
+        frontendOptions={
+            "widget": "select",
+        },
+    )
+
+```
+
+For more info on widgets see {doc}`plone6docs:volto/development/widget`.
 
 
 ## Access and display related items
@@ -299,7 +322,7 @@ List all relations of name "speaker":
 ```{code-block} python
 
 >>> for rel in api.relation.get(relationship="speaker"): rel.from_object, rel.to_object, rel.from_attribute
-... 
+...
 (<Talk at /Plone/schedule/talkli>, <Speaker at /Plone/speakers/urs-herbst>, 'speaker')
 (<Talk at /Plone/schedule/advanced-relations>, <Speaker at /Plone/speakers/katja-i-e-suss>, 'speaker')
 ```
