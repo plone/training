@@ -146,10 +146,10 @@ def SpeakerVocabularyFactory(context=None):
 The widget allows the editor to edit the relations.
 
 The default widget for relation fields in Volto is the object browser widget, which opens the tree of content for the editor to browse and select.
-On saving the talk, the selection is validated againts the vocabulary.
-That also means that of you select anything that is not a published speaker you will get an error-message.
+On saving the talk, the selection is validated against the vocabulary.
+That also means that if you select anything that is not a published speaker, you will get an error message.
 
-One way to work around this is to use a widget that only allows you to choose from published speakers.
+One way to work around this is to use a select widget that only allows you to choose from the field's vocabulary.
 
 ```{code-block} python
 :linenos:
