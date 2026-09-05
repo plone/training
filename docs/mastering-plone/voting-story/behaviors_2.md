@@ -169,8 +169,8 @@ class IVotable(model.Schema):
     IVotable(object) returns the adapted object with votable behavior
     """
 
-    can_vote = schema.Bool(
-        title="Can vote?",
+    voting_enabled = schema.Bool(
+        title="Voting enabled?",
         readonly=True,
     )
 
@@ -214,7 +214,7 @@ Whenever some code wants all schemas of an object, it receives the schema define
 Additional schemata are compiled by looking for behaviors and whether they provide the `IFormFieldProvider` functionality.
 Only then the fields are used as form fields.
 
-We add one actual field: `can_vote`.
+We add one actual field: `voting_enabled`.
 It is read only, so it will not appear in the edit form.
 This field will be used to detect content items that have the votable behavior enabled, so that we know when to display the frontend component for voting.
 
@@ -261,10 +261,8 @@ class Votable:
         self.annotations = annotations[KEY]
 
     @property
-    def can_vote(self):
-        return api.user.has_permission(
-            "ploneconf.votable: Can vote", obj=self.context
-        )
+    def voting_enabled(self):
+        return True
 
     # getter
     @property
@@ -298,7 +296,7 @@ A PersistentMapping is simply an implementation of the Python dict type (via the
 Next we provide the internal fields via properties.
 Using this form of property makes them read-only properties, as we do not define setters/mutators.
 
-The `can_vote` property checks whether the current user has permission to vote.
+The `voting_enabled` property returns True to indicate that the voting behavior is active.
 The `votes` property returns the current vote totals.
 The `voted` property returns a list of users who have voted.
 

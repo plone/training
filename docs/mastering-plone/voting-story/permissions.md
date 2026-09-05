@@ -11,161 +11,221 @@ myst:
 
 # Permissions [voting story]
 
+```{card}
+
 In this part you will:
 
-- Add and use permissions
+- Add custom permissions
+- Protect the voting service using permissions
+- Configure which roles get the permissions
 
 Topics covered:
 
-- permissions, roles
+- Permissions
+- The rolemap
+```
 
+````{card}
+
+Check out `mastering-plone-votable-add-on` at tag `actions`:
+
+```shell
+git checkout actions
+```
+
+The code at the end of the chapter:
+
+```shell
+git checkout permissions
+```
+
+More info in {doc}`../code`
+````
+
+We have a working voting add-on, but it currently allows too many people to vote.
+Currently, anyone who can view the talks can vote.
+We should add custom permissions so that we can make sure only the conference program committee can vote.
 
 (permissions-adding-label)=
 
-## Adding permissions
+## Add custom permissions
 
+Plone has lots of built-in permissions like `View` and `Modify portal content`.
+We can also add our own custom permissions in our add-on.
 
-````{only} not presentation
-Permissions have a long history, there are two types of permissions.
-
-In Zope2, a permission was just a string.
-
-In ZTK, a permission is an object that gets registered as a Utility.
-
-We must support both, in some cases we have to reference the permission by their Zope2 version, in some by their ZTK Version.
-
-Luckily, there is a zcml statement to register a permission both ways in one step.
-
-```{seealso}
-The configuration registry was meant to solve a problem, but we will now stumble over a problem that did not get resolved properly.
-
-Our permission is a utility. Our browser views declare this permission as a requirement for viewing them.
-
-When our browser views get registered, the permissions must exist already. If you try to register the permissions after the views, Zope won't start because it doesn't know about the permissions.
-```
-````
-
-Let's add a file {file}`permissions.zcml` and define three permissions for viewing, editing and clearing votes.
+Edit the file {file}`backend/src/ploneconf/votable/permissions.zcml`:
 
 ```{code-block} xml
 :linenos:
 
 <configure
-  xmlns="http://namespaces.zope.org/zope"
-  xmlns:zcml="http://namespaces.zope.org/zcml"
-  i18n_domain="plone">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="plone"
+    >
 
-  <configure zcml:condition="installed AccessControl.security">
+  <permission
+      id="ploneconf.votable.view_vote"
+      title="ploneconf.votable: View votes"
+      />
 
-    <permission
-        id="training.votable.view_vote"
-        title="training.votable: View Votes"
-        />
+  <permission
+      id="ploneconf.votable.can_vote"
+      title="ploneconf.votable: Can vote"
+      />
 
-    <permission
-        id="training.votable.can_vote"
-        title="training.votable: Can Vote"
-        />
-
-    <permission
-        id="training.votable.clear_votes"
-        title="training.votable: Clear Votes"
-        />
-
-  </configure>
+  <permission
+      id="ploneconf.votable.clear_votes"
+      title="ploneconf.votable: Clear votes"
+      />
 
 </configure>
 ```
 
-In some places we have to reference the Zope 2 permission strings. It is best practice to provide a static variable for this.
+We are adding three permissions:
+- `View votes` will give access to view the voting results
+- `Can vote` will give access to add a vote
+- `Clear votes` will give access to reset the votes
 
-We provide this in {file}`__init__.py`
+We use the add-on name `ploneconf.votable` as a prefix for the permission names, to make sure they don't conflict with other add-ons.
 
-```{code-block} python
-:linenos:
-
-ViewVotesPermission = "training.votable: View Votes"
-CanVotePermission = "training.votable: Can Vote"
-ClearVotesPermission = "training.votable: Clear Votes"
-```
+Each permission has an `id` and a `title`.
+They are used in different places.
+The `id` is used when referring to permissions in ZCML, such as in a view declaration.
+The `title` is used when checking permissions with `plone.api`.
 
 (permissions-using-label)=
 
-## Using our permissions
+## Check permissions
 
-We can add now restriction on accessing the `@votes` endpoint POST service in {file}`/src/training/votable/api/configure.zcml`
+Now we can update the `@votes` services to check these permissions.
 
-```{code-block} xml
-:emphasize-lines: 11
-:linenos:
-
-<configure
-  xmlns="http://namespaces.zope.org/zope"
-  xmlns:browser="http://namespaces.zope.org/browser"
-  i18n_domain="training.votable">
-
-  <plone:service
-    method="POST"
-    for="training.votable.behaviors.votable.IVotableMarker"
-    factory=".voting.VotingPost"
-    name="@votes"
-    permission="training.votable.can_vote"
-    />
-
-</configure>
-```
-
-And we can add a permission check inside Python code on the current user on the context by
+Update {file}`backend/src/ploneconf/votable/services/votes.py:
 
 ```{code-block} python
-:emphasize-lines: 6-10
 :linenos:
+:emphasize-lines: 1, 14-17, 27-28, 41-44, 58-61
 
-class VotingDelete(Service):
-    """Unlock an object"""
+from plone import api
+from plone.protect.interfaces import IDisableCSRFProtection
+from plone.restapi.deserializer import json_body
+from plone.restapi.services import Service
+from ploneconf.votable.behaviors.votable import IVotable
+from zExceptions import Unauthorized
+from zope.interface import alsoProvides
+
+
+class VotingGet(Service):
+    """Get voting information about the current object"""
+
+    def reply(self):
+        if not api.user.has_permission(
+            "ploneconf.votable: View votes", obj=self.context
+        ):
+            raise Unauthorized("User not authorized to view votes.")
+        return vote_info(self.context)
+
+
+class VotingPost(Service):
+    """Vote for an object"""
 
     def reply(self):
         alsoProvides(self.request, IDisableCSRFProtection)
-        can_clear_votes = api.user.has_permission(
-            ClearVotesPermission, obj=self.context
-        )
-        if not can_clear_votes:
+        voting = IVotable(self.context)
+        if not api.user.has_permission("ploneconf.votable: Can vote", obj=self.context):
+            raise Unauthorized("User not authorized to vote.")
+        data = json_body(self.request)
+        vote = data["rating"]
+        voting.vote(vote)
+
+        return vote_info(self.context)
+
+
+class VotingDelete(Service):
+    """Clear votes for an object"""
+
+    def reply(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        if not api.user.has_permission(
+            "ploneconf.votable: Clear votes", obj=self.context
+        ):
             raise Unauthorized("User not authorized to clear votes.")
         voting = IVotable(self.context)
         voting.clear()
-        return vote_info(self.context, self.request)
+        return vote_info(self.context)
+
+
+def vote_info(obj):
+    """Returns voting information about the given object."""
+    voting = IVotable(obj)
+    info = {
+        "average_vote": voting.average_vote(),
+        "total_votes": voting.total_votes(),
+        "has_votes": voting.has_votes(),
+        "already_voted": voting.already_voted(),
+        "can_vote": api.user.has_permission("ploneconf.votable: Can vote", obj=obj),
+        "can_clear_votes": api.user.has_permission(
+            "ploneconf.votable: Clear votes", obj=obj
+        ),
+    }
+    return info
 ```
+
+Raising the `Unauthorized` exception returns an HTTP response with status 401.
+
+```{tip}
+We could also update the `permission` for the services in {file}`configure.zcml`.
+But doing the check in Python lets us return a more informative error response.
+```
+
+We're also returning `can_vote` and `can_clear_votes` in the `vote_info` data,
+so that the frontend component can check what the user is allowed to do.
 
 
 (permissions-defaults-label)=
 
-## Provide defaults
+## Configure the rolemap
 
-After protecting services we do now want to assign the permissions to roles.
-For example the users with role "Reviewer" should be able to vote.
+Permissions are designed to provide flexibility about who actually gets the permission.
+We need to configure the rolemap to define which roles get the permissions.
 
-The persistent configuration is managed in {file}`profiles/default/rolemap.xml`
+Update the file {file}`backend/src/ploneconf/votable/profiles/default/rolemap.xml`.
 
 ```{code-block} xml
 :linenos:
 
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <rolemap>
   <permissions>
 
-    <permission name="training.votable: View Votes" acquire="True">
-      <role name="Authenticated"/>
-      <role name="Site Administrator"/>
-      <role name="Manager"/>
+    <permission acquire="True"
+                name="ploneconf.votable: View votes"
+    >
+      <role name="Authenticated" />
+      <role name="Site Administrator" />
+      <role name="Manager" />
     </permission>
-    <permission name="training.votable: Can Vote" acquire="True">
-      <role name="Reviewer"/>
+    <permission acquire="True"
+                name="ploneconf.votable: Can vote"
+    >
+      <role name="Reviewer" />
     </permission>
-    <permission name="training.votable: Clear Votes" acquire="True">
-      <role name="Site Administrator"/>
-      <role name="Manager"/>
+    <permission acquire="True"
+                name="ploneconf.votable: Clear votes"
+    >
+      <role name="Site Administrator" />
+      <role name="Manager" />
     </permission>
-    
+
   </permissions>
 </rolemap>
 ```
+
+Any authenticated user is allowed to view the voting results.
+
+Only users with the Reviewer role are allowed to add votes.
+(For the conference site, it would make sense to put the Program Committee members in a group, and assign the Reviewer role to that group.)
+
+Only users with the Site Administrator or Manager roles are allowed to reset the votes.
+
+After reinstalling the add-on, the updated rolemap takes effect.

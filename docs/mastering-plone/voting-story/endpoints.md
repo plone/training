@@ -76,7 +76,6 @@ Now let's implement the services for the endpoint `@votes` in {file}`backend/src
 :emphasize-lines: 10-17
 :linenos:
 
-from plone import api
 from plone.protect.interfaces import IDisableCSRFProtection
 from plone.restapi.deserializer import json_body
 from plone.restapi.services import Service
@@ -89,9 +88,6 @@ class VotingGet(Service):
     """Get voting information about the current object"""
 
     def reply(self):
-        voting = IVotable(self.context)
-        if not voting.can_vote:
-            raise Unauthorized("User not authorized to view votes.")
         return vote_info(self.context)
 
 
@@ -101,8 +97,6 @@ class VotingPost(Service):
     def reply(self):
         alsoProvides(self.request, IDisableCSRFProtection)
         voting = IVotable(self.context)
-        if not voting.can_vote:
-            raise Unauthorized("User not authorized to vote.")
         data = json_body(self.request)
         vote = data["rating"]
         voting.vote(vote)
@@ -115,11 +109,6 @@ class VotingDelete(Service):
 
     def reply(self):
         alsoProvides(self.request, IDisableCSRFProtection)
-        can_clear_votes = api.user.has_permission(
-            "ploneconf.votable: Clear votes", obj=self.context
-        )
-        if not can_clear_votes:
-            raise Unauthorized("User not authorized to clear votes.")
         voting = IVotable(self.context)
         voting.clear()
         return vote_info(self.context)
@@ -133,10 +122,8 @@ def vote_info(obj):
         "total_votes": voting.total_votes(),
         "has_votes": voting.has_votes(),
         "already_voted": voting.already_voted(),
-        "can_vote": voting.can_vote,
-        "can_clear_votes": api.user.has_permission(
-            "ploneconf.votable: Clear votes", obj=obj
-        ),
+        "can_vote": True,
+        "can_clear_votes": True,
     }
     return info
 ```
@@ -145,7 +132,7 @@ The GET service is highlighted.
 If we look at the code, we see that the service inherits necessary properties from `plone.restapi.services.Service` by subclassing.
 
 The `reply` method implements what should be returned on a GET request to endpoint `@votes`.
-It checks the permission to vote, and accesses the behavior logic to return the votes.
+It uses the `vote_info` function to get the vote data from the behavior adapter.
 
 ## Register the service
 
@@ -195,9 +182,11 @@ Note that all three services have the same name `@votes`, but will provide diffe
 This is not required but is a convention many REST endpoints follow.
 We could also give them different names based on their functionality.
 
-In our example, the permission checks are delegated to the services themselves and we use `zope2.View` as permission to access the service.
-
 The services are all only available on content that provides the behavior's marker interface, `ploneconf.votable.behaviors.votable.IVotableMarker`, which we explained in the previous chapter.
+
+At this point we are not enforcing permissions for who can vote.
+Voting is available to anyone who has permission to view the content.
+We will add better permission checks in {doc}`permissions`.
 
 ## Test the service
 

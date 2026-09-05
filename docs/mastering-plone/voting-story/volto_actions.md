@@ -307,7 +307,7 @@ export default function install(config: ConfigType) {
     slot: 'aboveContent',
     name: 'voting',
     component: Voting,
-    predicates: [FieldCondition('can_vote')],
+    predicates: [FieldCondition('voting_enabled')],
   });
 
   return config;
@@ -316,7 +316,7 @@ export default function install(config: ConfigType) {
 
 We are registering the `Voting` component in the `aboveContent` slot.
 It has a _predicate_ which is a condition for when to show the component.
-The `FieldCondition` here will show the component only for content items that have the `can_vote` field (because they have our behavior enabled and the current user has permission to vote).
+The `FieldCondition` here will show the component only for content items that have the `voting_enabled` field (because they have our behavior enabled).
 
 ```{figure} ../_static/volto_voting3.png
 :alt: 'Volto Voting: displaying votes'
