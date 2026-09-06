@@ -68,8 +68,7 @@ user_generated_content
 relations
 voting-story/index
 deployment_code
-code
-trainer
+appendix
 ```
 
 Please note that this document is *not complete* without the spoken word of a trainer.
