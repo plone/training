@@ -269,7 +269,7 @@ votes: {
 
 This data written by the reducer is the response of the request to `http://localhost:3000/++api++/talks/python-in-arts/@votes` which is proxied to `http://localhost:8080/Plone/talks/python-in-arts/@votes`.
 
-The response is the data that the adapter `training.votable.behaviors.votable.Votable` provides and exposes via the REST API endpoint `@votes`.
+The response is the data that the adapter `ploneconf.votable.behaviors.votable.Votable` provides and exposes via the REST API endpoint `@votes`.
 
 The component gets access to this data by subscribing to the store with `const votes = useSelector((state) => state.votes);`
 
