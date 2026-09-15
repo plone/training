@@ -220,6 +220,7 @@ viewlet
 Virtualbox
 virtualenv
 VMWare
+VLT
 Volto
 von
 VSCode

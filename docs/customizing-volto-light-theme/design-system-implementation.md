@@ -9,6 +9,10 @@ myst:
 
 # Design System Implementation & Theming
 
+The Robotarium has a look: workshop teal, a technical typeface, and surfaces that read like painted metal. This chapter turns that into a working theme.
+
+Nothing here is specific to robots. The steps are the ones you follow for any design handed to you—pull the decisions out of it, express them as tokens, and let VLT's components pick them up.
+
 ## Extracting Design Tokens
 
 When working with a given design, systematically extract design decisions. Identify:
@@ -44,25 +48,55 @@ VLT has migrated to use standardized color definitions. These use CSS properties
 
 ### Step 1: Add Font Files
 
-If you're using custom fonts, add the font files to your theme directory. Create a `fonts` folder in your theme directory and place your font files there:
+If you're using custom fonts, add the font files to your theme directory.
+The Robotarium uses [Chakra Petch](https://fonts.google.com/specimen/Chakra+Petch); from {file}`frontend/packages/robotarium/src/theme`:
+
+```bash
+mkdir -p fonts/Chakra_Petch
+```
+
+at the end, it should look like:
 
 ```
 src/theme/fonts/Chakra_Petch/
   ├── ChakraPetch-Regular.ttf
-  ├── ChakraPetch-Bold.ttf
-  └── ... (other font weights/styles)
+  └── ChakraPetch-Bold.ttf
 ```
 
 This ensures the font files are bundled with your theme and can be referenced in your SCSS files.
 
-### Step 2: Create _site.scss
+### Step 2: Override SCSS Variables
 
-In `src/theme/_site.scss`, define your color variables, custom properties and block-specific styles:
+Some of VLT's design decisions are SCSS variables rather than CSS custom properties. Those belong in {file}`src/theme/_variables.scss`:
+
+```scss
+// src/theme/_variables.scss
+$default-container-width: 1120px;
+$spacing-large: 80px;
+```
+
+VLT declares its variables with `!default`, so whatever you assign here wins.
+It also derives the matching CSS custom properties from them, which means setting `$default-container-width` here updates `--default-container-width` too. You do not need to set both.
+
+### Step 3: Define Your Design Tokens
+
+In {file}`src/theme/_main.scss`, declare the fonts and the CSS custom properties that carry your design:
 
 ```scss
 @font-face {
   font-family: 'Chakra Petch';
   src: url('./fonts/Chakra_Petch/ChakraPetch-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Chakra Petch';
+  src: url('./fonts/Chakra_Petch/ChakraPetch-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -71,12 +105,18 @@ In `src/theme/_site.scss`, define your color variables, custom properties and bl
   --accent-foreground-color: #fff;
   --secondary-color: #afcac8;
 
-  // Typography
-  --text-base: 1.15rem;
+  // Typography. VLT reads the font through
+  // `$page-font: var(--custom-main-font, $page-font-template)`.
   --custom-main-font: 'Chakra Petch', sans-serif;
-  --line-height-factor: 1.5;
 
-  // Gradients for header/footer
+  // Give links a color of their own instead of the theme foreground color
+  --link-foreground-color: #157a7a;
+
+  // Breadcrumbs
+  --breadcrumbs-background: var(--background, #fff);
+  --breadcrumbs-foreground: var(--secondary-foreground-color, #3b5759);
+
+  // Gradients for header and footer
   --header-background: linear-gradient(
     -3deg,
     var(--background, #fff) 0%,
@@ -104,106 +144,120 @@ In `src/theme/_site.scss`, define your color variables, custom properties and bl
   );
 
   --fatmenu-foreground: #fff;
-
-  // Container widths (customized)
-  --default-container-width: 1440px;
-  --layout-container-width: 90%;
-
-  // Link color
-  --link-foreground-color: #157a7a;
-
-  // Breadcrumbs
-  --breadcrumbs-background: var(--background, #fff);
-  --breadcrumbs-foreground: var(--secondary-foreground-color, #3b5759);
-
-  .breadcrumbs {
-    border-bottom: 1px solid #afcac8;
-  }
-
-  // Block-specific styles
-  #page-document,
-  #page-edit,
-  #page-add {
-    .blocks-group-wrapper:first-child {
-      padding-top: 0;
-
-    }
-    .block {
-
-      &.__button {
-        .button {
-          button {
-            padding: 1rem;
-          }
-        }
-      }
-
-      &.__button {
-        .ui.button:hover {
-          --theme-color: #fff;
-        }
-      }
-
-      &.slider {
-        .teaser-item-title {
-          background: rgba(255, 255, 255, 0.1);
-          color: var(--theme-foreground-color) !important;
-          backdrop-filter: blur(20px) saturate(110%);
-          -webkit-backdrop-filter: blur(20px) saturate(180%);
-          box-shadow:
-            0 8px 32px 0 rgba(31, 135, 125, 0.1),
-            inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-        }
-      }
-
-      &.gridBlock {
-        .four {
-          .slate:not(.inner) {
-            padding: 2.5rem;
-            padding-top: 4rem !important;
-            backdrop-filter: blur(20px) saturate(110%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            box-shadow:
-              0 8px 32px 0 rgba(31, 135, 125, 0.1),
-              inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-          }
-        }
-      }
-
-      &.teaser {
-        .card {
-          .card-inner {
-            .card-summary {
-              padding: $spacing-large;
-            }
-          }
-        }
-      }
-    }
-
-
-  }
-}
-
-#sidebar {
- .color-swatch-widget {
-      .buttons button.teal {
-        background: linear-gradient(135deg, var(--secondary-color) 0%, #fff 100%);
-      }
-    }
 }
 ```
 
-### Step 3: Configure Block Themes
+Notice that the header and footer gradients are assigned to the same `--header-background` and `--footer-background` properties you saw in the previous chapter.
+Because VLT reads those properties rather than hard-coded colors, a gradient works everywhere a flat color would, with no component changes.
 
-In `src/config/blocks.ts`, define block themes:
+Setting a font is a good example of the "prefer custom properties" rule from the previous chapter: you do not shadow VLT's typography stylesheets, you set the one property they already read.
+
+Site-wide rules that are not tokens go in the same file, outside `:root`:
+
+```scss
+.breadcrumbs {
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+// Let the first block sit flush with the header
+#page-document,
+#page-edit,
+#page-add {
+  .blocks-group-wrapper:first-child {
+    padding-top: 0;
+  }
+}
+
+// Match the theme swatch in the sidebar to the custom "charging bay" theme
+#sidebar {
+  .color-swatch-widget .color-swatch-option-handler.charging-bay {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #fff 100%);
+  }
+}
+```
+
+```{warning}
+Declare custom properties inside `:root`, but keep normal rules outside it.
+Nesting a selector such as `#page-document` inside `:root` compiles to `:root #page-document`, which adds specificity you will have to fight later.
+```
+
+### Step 4: Add Block-Specific Styles
+
+Keep per-block styles in their own partials under {file}`src/theme/blocks/`, one file per block.
+This keeps them easy to find and stops {file}`_main.scss` from turning too complex.
+
+
+```scss
+// src/theme/blocks/_button.scss
+body .block.__button {
+  > .button.container,
+  > .block-inner-container {
+    a,
+    button {
+      padding: 1rem;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: var(--accent-color);
+        color: var(--accent-foreground-color);
+      }
+    }
+  }
+}
+```
+
+```scss
+// src/theme/blocks/_slider.scss
+.block.slider .teaser-item .teaser-item-title {
+  background: rgb(255 255 255 / 10%);
+  backdrop-filter: blur(20px) saturate(110%);
+  box-shadow:
+    0 8px 32px 0 rgb(31 135 125 / 10%),
+    inset 0 0 0 1px rgb(255 255 255 / 10%);
+  color: var(--theme-foreground-color);
+}
+```
+
+```scss
+// src/theme/blocks/_grid.scss
+.block.gridBlock .four .slate:not(.inner) {
+  padding: 2.5rem;
+  padding-top: 4rem;
+  backdrop-filter: blur(20px) saturate(110%);
+  box-shadow:
+    0 8px 32px 0 rgb(31 135 125 / 10%),
+    inset 0 0 0 1px rgb(255 255 255 / 10%);
+}
+```
+
+```scss
+// src/theme/blocks/_teaser.scss
+.block.teaser .card .card-inner .card-summary {
+  padding: $spacing-large;
+}
+```
+
+The teaser rule uses `$spacing-large`, one of VLT's SCSS variables.
+Those are in scope for your stylesheets because {file}`_main.scss` is compiled after VLT's variables and mixins, so you can reuse the theme's spacing scale, breakpoints, and typography mixins instead of inventing new values.
+
+(charging-bay-label)=
+
+### Step 5: Configure Block Themes
+
+Block themes are the palettes an editor can choose between on any block. The Robotarium gets two: the plain default, and **Charging Bay**, a soft teal wash for sections that should feel like the lit alcove where the robots dock.
+
+In `src/config/blocks.ts`, define them:
 
 ```typescript
 import type { ConfigType } from '@plone/registry';
 
 export default function install(config: ConfigType) {
   // Block palettes
-    config.blocks.themes = [
+  config.blocks.themes = [
     {
       style: {
         '--theme-color': 'white',
@@ -227,18 +281,60 @@ export default function install(config: ConfigType) {
         '--theme-foreground-color': 'black',
         '--theme-low-contrast-foreground-color': '#555555',
       },
-      name: 'teal',
-      label: 'Teal',
+      name: 'charging-bay',
+      label: 'Charging Bay',
     },
   ];
+
+  // Re-point the Grid block at the new palettes. See below.
+  config.blocks.blocksConfig.gridBlock.themes = config.blocks.themes;
 
   return config;
 }
 ```
 
-### Step 4: Main Index Configuration
+```{note}
+The Grid block is the only block in VLT—or in any of the recommended add-ons—that keeps its own copy of the palettes, so this is the only place the extra line is needed.
+```
 
-In `src/index.ts`:
+### Step 6: Keep the Layout Settings in Sync
+
+Widening the container in SCSS is only half the change.
+VLT also reads the container width from configuration, in {file}`src/config/settings.ts`.
+Add the `layout` block to the file Cookieplone generated—do not replace it, or you will drop your language settings:
+
+```typescript
+import type { ConfigType } from '@plone/registry';
+
+export default function install(config: ConfigType) {
+  // Language settings (generated — keep these)
+  config.settings.isMultilingual = false;
+  config.settings.supportedLanguages = ['en'];
+  config.settings.defaultLanguage = 'en';
+
+  // Added in this step
+  config.settings.layout = {
+    ...config.settings.layout,
+    defaultContainerWidth: 1120,
+  };
+
+  return config;
+}
+```
+
+This value is not used for layout—the CSS custom property does that. It is used to compute the `sizes` attribute of responsive images in teasers and listings, which tells the browser how wide an image will actually be so it can pick the right scale to download.
+
+If the two disagree, nothing breaks visibly, but the browser makes its choice from the wrong number and downloads scales that are too small, so images look soft.
+Whenever you change `$default-container-width`, change `defaultContainerWidth` to match.
+
+```{note}
+`config.settings.layout` also carries `tabletBreakpoint`, used in the same calculation.
+Keep it in sync with `$tablet-breakpoint` for the same reason.
+```
+
+### Step 7: Main Index Configuration
+
+The generated {file}`src/index.ts` already calls `installSettings`. Add the two lines that wire up your block configuration:
 
 ```typescript
 import type { ConfigType } from '@plone/registry';
@@ -254,10 +350,32 @@ function applyConfig(config: ConfigType) {
 export default applyConfig;
 ```
 
-### Step 5: Import SCSS Files
+### Step 8: Import Your Stylesheets
 
-In `src/theme/_main.scss`:
+{file}`_main.scss` is the entry point Volto injects after all of VLT's styles. Import your partials there, in the order you want them applied:
 
 ```scss
-@import './site';
+// src/theme/_main.scss
+// ... your @font-face rules, :root tokens, and site-wide rules above ...
+
+@import './blocks/button';
+@import './blocks/grid';
+@import './blocks/slider';
+@import './blocks/teaser';
 ```
+
+{file}`_variables.scss` needs no import. Volto picks it up on its own and injects it ahead of VLT's variables.
+
+## Checkpoint
+
+Restart the frontend and confirm the following before moving on:
+
+- The site renders in your custom font, and the header and footer show their gradients.
+- Links use `--link-foreground-color` rather than the surrounding text color.
+- Opening a page in edit mode and selecting a block shows **Default** and **Charging Bay** in the block's color theme selector.
+
+## Further Reading
+
+- [Color system](https://volto-light-theme.readthedocs.io/conceptual-guides/color-system.html)
+- [Colors reference](https://volto-light-theme.readthedocs.io/reference/colors.html)
+- [Layout](https://volto-light-theme.readthedocs.io/conceptual-guides/layout.html)

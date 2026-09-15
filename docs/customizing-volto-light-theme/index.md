@@ -20,6 +20,8 @@ The goal of this training is to guide developers in understanding and effectivel
 
 Participants will explore essential aspects of Volto Light Theme such as setting up theme providers, customizing styles, and understanding how Volto's theming system functions. The training also covers advanced tips, best practices, and lesser-known features to extend Volto Light Theme and create more tailored solutions.
 
+The chapters build one site together: **the Robotarium**, a workshop that lends robots the way a library lends books. Each feature is introduced where that site needs it, so the theming concepts arrive attached to a concrete problem rather than in the abstract.
+
 This training is best suited for developers who have prior experience with Volto and want to deepen their theming knowledge.
 
 ```{toctree}

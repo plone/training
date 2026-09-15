@@ -73,26 +73,14 @@ If you also want the CSS custom properties injected inline, register a `styleFie
 
 ```javascript
 config.registerUtility({
-  name: "myColorField",
-  type: "styleFieldDefinition",
+  name: 'myColorField',
+  type: 'styleFieldDefinition',
   method: (props) => colors,
 });
 ```
 
 ```{note}
 This is the recommended way to use this widget, since it decouples the styles from the CSS and keeps a single source of truth for the color definitions.
-```
-
-### ThemeColorSwatch Widget
-
-Allows selection from configured themes stored in `config.blocks.themes`:
-
-```javascript
-{
-  widget: 'themeColorSwatch',
-  title: 'Color Theme',
-  colors: config.blocks.themes,
-}
 ```
 
 ### ObjectList Widget
@@ -136,14 +124,25 @@ Given an array of color definitions, it displays the colors that editors can cho
 
 ### Size Widget
 
-Selects the block size from a default list of values, one of either `small`, `medium`, or `large`:
+Selects the block size from a default list of three values.
+The stored values are the tokens `s`, `m`, and `l`. The names Small, Medium, and Large are only their labels, so a `default` must be one of the tokens:
 
 ```javascript
 {
   widget: 'size',
   title: 'Size',
-  default: 'medium',
+  default: 'm',
 }
+```
+
+VLT maps each token to the `--media-size` custom property through `config.blocks.sizes`, resolved by the `size:noprefix` style field:
+
+```typescript
+config.blocks.sizes = [
+  { style: { '--media-size': 'var(--size-small)' }, name: 's', label: 'Small' },
+  { style: { '--media-size': 'var(--size-medium)' }, name: 'm', label: 'Medium' },
+  { style: { '--media-size': 'var(--size-large)' }, name: 'l', label: 'Large' },
+];
 ```
 
 Like the BlockAlignment widget, it is based on the Buttons component under the hood, so its actions and the styles they apply are configurable.
@@ -173,10 +172,11 @@ seo_title = schema.TextLine(
 ### ColorContrastChecker Component
 
 Not a widget itself, but a component that calculates the contrast ratio between two colors following the WCAG accessibility guidelines.
+It is provided by VLT, at `@kitconcept/volto-light-theme/components/Widgets/ColorContrastChecker`.
 Add it after a color input field in your own widget to warn the editor in real time about insufficient contrast:
 
 ```jsx
-import ContrastChecker from "./ContrastChecker";
+import ContrastChecker from '@kitconcept/volto-light-theme/components/Widgets/ColorContrastChecker';
 
 const MyColorWidget = (props) => {
   return (
@@ -196,12 +196,12 @@ The pairings and their defaults are defined in `config.settings.colorMap`:
 ```javascript
 config.settings.colorMap = {
   primary_color: {
-    colorPair: "primary_foreground_color",
-    default: "#ffffff",
+    colorPair: 'primary_foreground_color',
+    default: '#ffffff',
   },
   primary_foreground_color: {
-    colorPair: "primary_color",
-    default: "#000000",
+    colorPair: 'primary_color',
+    default: '#000000',
   },
 };
 ```
@@ -213,70 +213,74 @@ The BlockAlignment and Size widgets are built on top of it.
 You can pass it a configurable list of `actions`, along with the icon and the i18n message used for each one in `actionsInfoMap`, and filter out the default actions you don't want with `filterActions`.
 
 ```{note}
-As of VLT 8.0.0-alpha.5 these components were moved to the Volto core package.
-If you are on Volto 19.0.0-alpha.12 or later, use the ones from Volto core instead of the ones provided by VLT.
+As of VLT 8.0.0-alpha.5, four of these components live in Volto core rather than in VLT: `ButtonsWidget`, `BlockAlignment`, `BlockWidth`, and `Size`.
+If you are on Volto 19.0.0-alpha.12 or later, import them from `@plone/volto/components/manage/Widgets/` instead of from VLT.
+
+`ColorContrastChecker` was not part of that move and is still provided by VLT.
 ```
 
-## Creating a Custom Hero Block
+(cover-block-label)=
 
-Let's build a hero block step by step, starting with a basic implementation and then enhancing it with VLT widgets.
+## Creating a Custom Cover Block
+
+Let's build a cover block step by step, starting with a basic implementation and then enhancing it with VLT widgets.
 
 ### Step 1: Create Basic Block Schema
 
-Create `src/components/blocks/myHero/schema.ts`:
+Create `src/components/blocks/Cover/schema.ts`:
 
 ```typescript
-import { defineMessages } from "react-intl";
+import { defineMessages } from 'react-intl';
 
 const messages = defineMessages({
-  hero: {
-    id: "Hero",
-    defaultMessage: "Hero",
+  cover: {
+    id: 'Cover',
+    defaultMessage: 'Cover',
   },
   title: {
-    id: "Title",
-    defaultMessage: "Title",
+    id: 'Title',
+    defaultMessage: 'Title',
   },
   subtitle: {
-    id: "Subtitle",
-    defaultMessage: "Subtitle",
+    id: 'Subtitle',
+    defaultMessage: 'Subtitle',
   },
   backgroundImage: {
-    id: "Background Image",
-    defaultMessage: "Background Image",
+    id: 'Background Image',
+    defaultMessage: 'Background Image',
   },
 });
 
-const heroBlockSchema = (props) => {
+const coverBlockSchema = (props) => {
   const { intl } = props;
 
   return {
-    title: intl.formatMessage(messages.hero),
+    title: intl.formatMessage(messages.cover),
     fieldsets: [
       {
-        id: "default",
-        title: "Default",
-        fields: ["title", "subtitle"],
+        id: 'default',
+        title: 'Default',
+        fields: ['title', 'subtitle'],
       },
       {
-        id: "design",
-        title: "Design",
-        fields: ["backgroundImage"],
+        id: 'design',
+        title: 'Design',
+        fields: ['backgroundImage'],
       },
     ],
     properties: {
       title: {
         title: intl.formatMessage(messages.title),
-        type: "string",
+        type: 'string',
       },
       subtitle: {
         title: intl.formatMessage(messages.subtitle),
-        type: "string",
+        type: 'string',
       },
       backgroundImage: {
         title: intl.formatMessage(messages.backgroundImage),
-        widget: "object_browser",
-        mode: "image",
+        widget: 'object_browser',
+        mode: 'image',
         allowExternals: false,
       },
     },
@@ -284,36 +288,58 @@ const heroBlockSchema = (props) => {
   };
 };
 
-export { heroBlockSchema };
+export { coverBlockSchema };
 ```
 
 ### Step 2: Create View Component
 
-Create `src/components/blocks/myHero/View.tsx`:
+Before writing any markup, note what the block view is **not** responsible for.
+Volto already wraps every block, and under Block Model v3 it wraps it twice:
+
+```html
+<div class="block cover">              <!-- rendered for you -->
+  <div class="block-inner-container">  <!-- rendered for you under BM3 -->
+    ...your markup starts here...
+```
+
+The outer `.block` carries the block's identity and its theme; the inner container carries the width and the alignment.
+This split is what lets a block have a background that behaves independently of its content width, and it is described in full in {ref}`the two-container system <bm3-two-container-label>`.
+
+A block view that renders its own `.block` wrapper therefore produces a duplicate.
+The way to stay correct under both block models is `BlockWrapper` from `@kitconcept/volto-bm3-compat`, which renders the wrappers under Block Model v2 and steps aside under v3, where Volto renders them itself.
+
+Create `src/components/blocks/Cover/View.tsx`:
 
 ```tsx
-import React from "react";
-import cx from "classnames";
-import config from "@plone/volto/registry";
-import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers/Url/Url";
-import type { BlockViewProps } from "@plone/types";
+import config from '@plone/volto/registry';
+import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers/Url/Url';
+import { BlockWrapper } from '@kitconcept/volto-bm3-compat';
+import type { BlockViewProps } from '@plone/types';
+import type { ReactNode } from 'react';
 
-const HeroView = (props: BlockViewProps) => {
-  const { className, style } = props;
-  const { title, subtitle, backgroundImage, url } = props?.data || {};
+// Under block model 2, BlockWrapper renders `.block.cover` and then this
+// ExtraWrapper. Under block model 3 it renders neither, because Volto already
+// emits both. Either way the result is
+// `.block.cover > .block-inner-container > ...`.
+const InnerContainer = (props: { children: ReactNode }) => (
+  <div className="block-inner-container">{props.children}</div>
+);
 
-  const hasImage = backgroundImage?.[0]?.["@id"];
+const CoverView = (props: BlockViewProps) => {
+  const { title, subtitle, backgroundImage } = props?.data || {};
+
+  const hasImage = backgroundImage?.[0]?.['@id'];
 
   let renderedImage = null;
   if (hasImage) {
-    const Image = config.getComponent("Image").component;
+    const Image = config.getComponent('Image').component;
     const imageItem = backgroundImage[0];
 
     if (Image) {
       renderedImage = (
         <Image
           item={{
-            "@id": imageItem["@id"],
+            '@id': imageItem['@id'],
             image_field: imageItem.image_field,
             image_scales: imageItem.image_scales,
           }}
@@ -323,12 +349,11 @@ const HeroView = (props: BlockViewProps) => {
         />
       );
     } else {
+      const src = imageItem['@id'];
       renderedImage = (
         <img
           src={
-            isInternalURL(url?.["@id"])
-              ? `${flattenToAppURL(url["@id"])}/@@images/image`
-              : url?.["@id"]
+            isInternalURL(src) ? `${flattenToAppURL(src)}/@@images/image` : src
           }
           alt=""
           loading="lazy"
@@ -338,51 +363,46 @@ const HeroView = (props: BlockViewProps) => {
   }
 
   return (
-    <div
-      className={cx("block hero", className, { "has-image": hasImage })}
-      style={style}
-    >
-      {hasImage && <div className="hero-image-wrapper">{renderedImage}</div>}
+    <BlockWrapper {...props} ExtraWrapper={InnerContainer}>
+      {hasImage && <div className="cover-image-wrapper">{renderedImage}</div>}
 
-      <div className="hero-content">
-        <div className="hero-text">
-          {title && <h1 className="hero-title">{title}</h1>}
-          {subtitle && <p className="hero-subtitle">{subtitle}</p>}
-        </div>
+      <div className="cover-text">
+        {title && <h2 className="cover-title">{title}</h2>}
+        {subtitle && <p className="cover-subtitle">{subtitle}</p>}
       </div>
-    </div>
+    </BlockWrapper>
   );
 };
 
-export default HeroView;
+export default CoverView;
 ```
 
 ### Step 3: Create Edit Component
 
-Create `src/components/blocks/myHero/Edit.tsx`:
+Create `src/components/blocks/Cover/Edit.tsx`:
 
 ```tsx
-import React from "react";
-import { useIntl } from "react-intl";
-import SidebarPortal from "@plone/volto/components/manage/Sidebar/SidebarPortal";
-import { BlockDataForm } from "@plone/volto/components/manage/Form";
-import { heroBlockSchema } from "./schema";
-import HeroView from "./View";
-import type { BlockEditProps } from "@plone/types";
+import React from 'react';
+import { useIntl } from 'react-intl';
+import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal';
+import { BlockDataForm } from '@plone/volto/components/manage/Form';
+import { coverBlockSchema } from './schema';
+import CoverView from './View';
+import type { BlockEditProps } from '@plone/types';
 
-const HeroEdit = (props: BlockEditProps) => {
+const CoverEdit = (props: BlockEditProps) => {
   const { selected, onChangeBlock, block, data } = props;
   const intl = useIntl();
 
   return (
     <>
-      <HeroView {...props} />
+      <CoverView {...props} />
       <SidebarPortal selected={selected}>
         <BlockDataForm
           {...props}
           data={data}
           block={block}
-          schema={heroBlockSchema({ props, intl })}
+          schema={coverBlockSchema({ props, intl })}
           onChangeBlock={onChangeBlock}
           formData={data}
           onChangeField={(id: string, value: any) => {
@@ -397,80 +417,84 @@ const HeroEdit = (props: BlockEditProps) => {
   );
 };
 
-export default HeroEdit;
+export default CoverEdit;
 ```
 
 ### Step 4: Register the Basic Block
 
-Update `src/config/blocks.ts`:
+Edit `src/config/blocks.ts`. Do not replace the file: it already holds the block themes from the previous chapter.
+Add the imports at the top of the file, and the registration inside the existing `install` function:
 
 ```typescript
-import type { ConfigType } from "@plone/registry";
-import HeroView from "../components/blocks/myHero/View";
-import HeroEdit from "../components/blocks/myHero/Edit";
-import { heroBlockSchema } from "../components/blocks/myHero/schema";
-import heroSVG from "@plone/volto/icons/hero.svg";
+import type { ConfigType } from '@plone/registry';
+import CoverView from '../components/blocks/Cover/View';
+import CoverEdit from '../components/blocks/Cover/Edit';
+import { coverBlockSchema } from '../components/blocks/Cover/schema';
+import coverSVG from '@plone/volto/icons/hero.svg';
 
 export default function install(config: ConfigType) {
   // ... block themes configuration ...
 
-  // Register Hero Block
-  config.blocks.blocksConfig.hero = {
-    id: "hero",
-    title: "Hero",
-    icon: heroSVG,
-    group: "common",
-    view: HeroView,
-    edit: HeroEdit,
+  // Register Cover Block
+  config.blocks.blocksConfig.cover = {
+    id: 'cover',
+    title: 'Cover',
+    icon: coverSVG,
+    group: 'common',
+    view: CoverView,
+    edit: CoverEdit,
     restricted: false,
     mostUsed: true,
-    blockSchema: heroBlockSchema,
+    blockSchema: coverBlockSchema,
     sidebarTab: 1,
-    category: "hero",
   };
 
   return config;
 }
 ```
 
+```{note}
+Give project blocks their own key, and follow the convention every other block in the registry uses: a lowercase single word such as `teaser`, `banner`, or `slider`, reserving camelCase for genuinely multi-word names like `gridBlock`.
+
+The icon is a separate matter. Icon assets are not tied to block names, and {file}`hero.svg` is the one that depicts this layout, so it we will use it in this example.
+```
+
 ### Step 5: Add Basic Block Styles
 
-Create `src/theme/blocks/_hero.scss`:
+The block has no styling fields yet, so this step sets up **structure only**.
+Everything that depends on a widget—the width, the alignment, the theme color—arrives in Step 8, once the fields that produce those properties exist.
+
+Create `src/theme/blocks/_cover.scss`:
 
 ```scss
-.block.hero {
-  position: relative;
-  display: flex;
-  width: 100%;
-  max-width: var(--block-width) !important;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--theme-color);
-  color: var(--theme-foreground-color);
-  margin-inline: auto;
-
-  .hero-content {
+.block.cover {
+  .block-inner-container {
     position: relative;
-    z-index: 1;
-    width: 100%;
+    display: flex;
+    overflow: hidden;
+    min-height: 60vh;
+    max-width: var(--default-container-width);
+    align-items: center;
+    padding: 4rem 2rem;
+    margin-inline: auto;
   }
 
-  .hero-text {
+  .cover-text {
+    // Above the background image.
+    position: relative;
+    z-index: 1;
     display: flex;
     width: 100%;
-    height: 100%;
     flex-direction: column;
-    align-items: var(--block-alignment);
     gap: 1rem;
-    text-align: var(--block-alignment);
 
-    .hero-title {
+    .cover-title {
       margin-bottom: $spacing-small;
       font-size: 5rem;
       line-height: 1.1;
     }
 
-    .hero-subtitle {
+    .cover-subtitle {
       margin-bottom: $spacing-small;
       font-size: 2rem;
       line-height: 1.3;
@@ -478,110 +502,127 @@ Create `src/theme/blocks/_hero.scss`:
     }
   }
 
-  &.has-image {
+  &:has(.cover-image-wrapper) {
     color: #fff;
+  }
 
-    .hero-image-wrapper {
-      position: absolute;
-      z-index: 0;
-      inset: 0;
+  .cover-image-wrapper {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.7;
-      }
-
-      &::after {
-        position: absolute;
-        background: rgba(0, 0, 0, 0.4);
-        content: "";
-        inset: 0;
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
+    &::after {
+      position: absolute;
+      background: rgb(0 0 0 / 40%);
+      content: '';
+      inset: 0;
     }
   }
 }
 ```
 
-Import in `src/theme/_main.scss`:
+Two decisions worth calling out.
+
+**The width goes on `.block-inner-container`, not on `.block`.**
+That is the two-container split: the outer element is the block's full extent, the inner one is where content is constrained. Putting `max-width` on the outer element instead fights VLT, which already constrains inner containers, and it makes a full-width block impossible.
+
+**`min-height` is load-bearing.**
+The image sits in an absolutely positioned wrapper and contributes no height, so without it a cover with an image collapses to nothing—at which point the alignment control in Step 8 will appear to do nothing, because there is no space to align within.
+
+Import it in `src/theme/_main.scss`:
 
 ```scss
-@import "./blocks/hero";
-@import "./site";
+@import './blocks/button';
+@import './blocks/cover';
+@import './blocks/grid';
+@import './blocks/slider';
+@import './blocks/teaser';
 ```
 
 ### Step 6: Enhance with VLT Widgets
 
-Now let's add VLT's powerful widgets to control block width and alignment. Update the schema file to add the schema enhancer.
+Now let's add VLT's widgets for block width and alignment, by adding a schema enhancer alongside the block schema.
 
-Update `src/components/blocks/myHero/schema.ts`:
+```{important}
+The enhancer below **extends** the styling fieldset; it does not create one.
+`schema.properties.styles` only exists once VLT's `defaultStylingSchema` has run, so this enhancer is meaningful only when composed after it—which is what Step 7 does:
+
+    schemaEnhancer: composeSchema(defaultStylingSchema, coverSchemaEnhancer)
+
+Registered on its own, it throws, because `schema.properties.styles` is `undefined`.
+This is also why the block gets its **Background color** control for free: that field comes from `defaultStylingSchema`, not from anything you write here.
+```
+
+Replace the whole of `src/components/blocks/Cover/schema.ts` with the following. It repeats the schema from Step 1, adds two messages, and exports the new enhancer:
 
 ```typescript
-import { defineMessages } from "react-intl";
+import { defineMessages } from 'react-intl';
+import config from '@plone/volto/registry';
 
 const messages = defineMessages({
-  hero: {
-    id: "Hero",
-    defaultMessage: "Hero",
+  cover: {
+    id: 'Cover',
+    defaultMessage: 'Cover',
   },
   title: {
-    id: "Title",
-    defaultMessage: "Title",
+    id: 'Title',
+    defaultMessage: 'Title',
   },
   subtitle: {
-    id: "Subtitle",
-    defaultMessage: "Subtitle",
+    id: 'Subtitle',
+    defaultMessage: 'Subtitle',
   },
   backgroundImage: {
-    id: "Background Image",
-    defaultMessage: "Background Image",
+    id: 'Background Image',
+    defaultMessage: 'Background Image',
   },
   blockWidth: {
-    id: "Block Width",
-    defaultMessage: "Block Width",
+    id: 'Block Width',
+    defaultMessage: 'Block Width',
   },
   textAlignment: {
-    id: "Text Alignment",
-    defaultMessage: "Text Alignment",
+    id: 'Text Alignment',
+    defaultMessage: 'Text Alignment',
   },
 });
 
-const heroBlockSchema = (props) => {
+const coverBlockSchema = (props) => {
   const { intl } = props;
 
   return {
-    title: intl.formatMessage(messages.hero),
+    title: intl.formatMessage(messages.cover),
     fieldsets: [
       {
-        id: "default",
-        title: "Default",
-        fields: ["title", "subtitle"],
+        id: 'default',
+        title: 'Default',
+        fields: ['title', 'subtitle'],
       },
       {
-        id: "design",
-        title: "Design",
-        fields: ["backgroundImage"],
+        id: 'design',
+        title: 'Design',
+        fields: ['backgroundImage'],
       },
     ],
     properties: {
       title: {
         title: intl.formatMessage(messages.title),
-        type: "string",
+        type: 'string',
       },
       subtitle: {
         title: intl.formatMessage(messages.subtitle),
-        type: "string",
+        type: 'string',
       },
       backgroundImage: {
         title: intl.formatMessage(messages.backgroundImage),
-        widget: "object_browser",
-        mode: "image",
+        widget: 'object_browser',
+        mode: 'image',
         allowExternals: false,
       },
     },
@@ -589,204 +630,172 @@ const heroBlockSchema = (props) => {
   };
 };
 
-// Schema enhancer to add VLT widget styling fields
-const heroSchemaEnhancer = ({ formData, schema, intl }) => {
+// Schema enhancer to add VLT widget styling fields.
+// Only meaningful when composed *after* VLT's `defaultStylingSchema`, which is
+// what creates `schema.properties.styles`.
+const coverSchemaEnhancer = ({ formData, schema, intl }) => {
   // Add custom fields to the styling schema at the beginning
   schema.properties.styles.schema.fieldsets[0].fields = [
-    "blockWidth:noprefix",
-    "align",
+    'align:noprefix',
+    'blockWidth:noprefix',
     ...schema.properties.styles.schema.fieldsets[0].fields,
   ];
 
-  schema.properties.styles.schema.properties["blockWidth:noprefix"] = {
-    widget: "blockWidth",
-    title: intl.formatMessage(messages.blockWidth),
-    default: "default",
+  schema.properties.styles.schema.properties['align:noprefix'] = {
+    widget: 'blockAlignment',
+    title: intl.formatMessage(messages.textAlignment),
+    default: 'center',
+    actions: config.blocks.alignments.map((alignment) => alignment.name),
   };
 
-  schema.properties.styles.schema.properties.align = {
-    widget: "blockAlignment",
-    title: intl.formatMessage(messages.textAlignment),
-    default: "center",
+  schema.properties.styles.schema.properties['blockWidth:noprefix'] = {
+    widget: 'blockWidth',
+    title: intl.formatMessage(messages.blockWidth),
+    default: 'default',
+    actions: config.blocks.widths.map((width) => width.name),
   };
 
   return schema;
 };
 
-export { heroBlockSchema, heroSchemaEnhancer };
+export { coverBlockSchema, coverSchemaEnhancer };
 ```
+
+Two details in that enhancer decide whether it works at all.
+
+**The field names must end in `:noprefix`.**
+As covered in the previous chapter, `align:noprefix` and `align` are different field names.
+VLT registers its style definitions under the literal names `align:noprefix` and `blockWidth:noprefix`, so a field called `align` matches nothing: the `--block-alignment` property is never injected, and the styles in Step 8 that read it silently do nothing.
+The failure is quiet—the buttons still appear in the sidebar, they just have no effect.
+
+Match the names VLT registers, and you inherit its behavior. What the suffix suppresses is the generated `has--align--center` class, and the more your styling is driven by custom properties—as the Cover block's is—the less those classes matter.
+
+**Pass `actions` from `config.blocks`.**
+Both widgets fall back to a built-in list when `actions` is omitted, and those built-in defaults are close to VLT's but not identical—Volto's `full` width resolves to `unset` where VLT's resolves to `100%`.
+Deriving the actions from `config.blocks.alignments` and `config.blocks.widths` keeps the block in step with the theme, and with any width or alignment your project adds.
 
 ### Step 7: Update Block Registration with Schema Enhancer
 
-Update `src/config/blocks.ts` to include the schema enhancer:
+Back in `src/config/blocks.ts`, add the two new imports and the `schemaEnhancer` key to the registration you wrote in Step 4:
 
 ```typescript
-import type { ConfigType } from "@plone/registry";
-import HeroView from "../components/blocks/myHero/View";
-import HeroEdit from "../components/blocks/myHero/Edit";
+import type { ConfigType } from '@plone/registry';
+import CoverView from '../components/blocks/Cover/View';
+import CoverEdit from '../components/blocks/Cover/Edit';
 import {
-  heroBlockSchema,
-  heroSchemaEnhancer,
-} from "../components/blocks/myHero/schema";
-import { composeSchema } from "@plone/volto/helpers/Extensions";
-import { defaultStylingSchema } from "@kitconcept/volto-light-theme/components/Blocks/schema";
-import heroSVG from "@plone/volto/icons/hero.svg";
+  coverBlockSchema,
+  coverSchemaEnhancer,
+} from '../components/blocks/Cover/schema';
+import { composeSchema } from '@plone/volto/helpers/Extensions';
+import { defaultStylingSchema } from '@kitconcept/volto-light-theme/components/Blocks/schema';
+import coverSVG from '@plone/volto/icons/hero.svg';
 
 export default function install(config: ConfigType) {
   // ... block themes configuration ...
 
-  // Register Hero Block
-  config.blocks.blocksConfig.hero = {
-    id: "hero",
-    title: "Hero",
-    icon: heroSVG,
-    group: "common",
-    view: HeroView,
-    edit: HeroEdit,
+  // Register Cover Block
+  config.blocks.blocksConfig.cover = {
+    id: 'cover',
+    title: 'Cover',
+    icon: coverSVG,
+    group: 'common',
+    view: CoverView,
+    edit: CoverEdit,
     restricted: false,
     mostUsed: true,
-    blockSchema: heroBlockSchema,
-    schemaEnhancer: composeSchema(defaultStylingSchema, heroSchemaEnhancer),
+    blockSchema: coverBlockSchema,
+    schemaEnhancer: composeSchema(defaultStylingSchema, coverSchemaEnhancer),
     sidebarTab: 1,
-    category: "hero",
   };
 
   return config;
 }
+```
+
+`composeSchema` runs its arguments in order, so `defaultStylingSchema` creates the styling fieldset and `coverSchemaEnhancer` then extends it. Reverse them and the second enhancer runs against a schema that has no `styles` property yet.
+
+```{tip}
+The same technique adds VLT's theming to a block **you did not write**—one from a third-party add-on, or a core Volto block. The only difference is that such a block may already have a `schemaEnhancer` of its own, which you must preserve:
+
+    config.blocks.blocksConfig.<blockId> = {
+      ...config.blocks.blocksConfig.<blockId>,
+      schemaEnhancer: composeSchema(
+        config.blocks.blocksConfig.<blockId>.schemaEnhancer,
+        defaultStylingSchema,
+      ),
+    };
+
 ```
 
 ### Step 8: Update Styles to Use Widget Values
 
-Update `src/theme/blocks/_hero.scss` to use the CSS custom properties set by the widgets:
+The structure from Step 5 stays as it is. This step connects it to the three custom properties that now exist, because the schema enhancers from Steps 6 and 7 are in place: `--block-width`, `--block-alignment`, and `--theme-color`.
+
+Make these four changes in `src/theme/blocks/_cover.scss`:
 
 ```scss
-.block.hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--theme-color);
+// 1. Lift VLT's layout-width cap. See the explanation below.
+#page-document .blocks-group-wrapper > .block.cover {
+  max-width: 100%;
+}
+
+.block.cover {
+  // 2. The theme's foreground color, set by the Background color control.
   color: var(--theme-foreground-color);
-  max-width: var(--block-width) !important;
-  margin-left: auto;
-  margin-right: auto;
 
-  .hero-content {
-    .hero-image-wrapper {
-      img {
-        aspect-ratio: var(--image-aspect-ratio, 16/9);
-        opacity: 0.8;
-      }
-    }
+  .block-inner-container {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    min-height: 60vh;
 
-    .hero-text {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: var(--block-alignment);
-      width: 100%;
-      height: 100%;
-      padding: 4rem;
-      z-index: 2;
+    // 3. Driven by the Block Width control, with the site default as a
+    //    fallback so the block stays sane if the field is ever removed.
+    max-width: var(--block-width, var(--default-container-width));
+    align-items: center;
+    padding: 4rem 2rem;
+    margin-inline: auto;
 
-      .hero-title {
-        font-size: 5rem;
-        margin-bottom: $spacing-small;
-        line-height: 1;
-      }
+    // The theme's background. `background`, never `background-color` — see the
+    // warning below.
+    background: var(--theme-color);
+  }
 
-      .hero-subtitle {
-        font-size: 3rem;
-        opacity: 0.95;
-        line-height: 1;
-      }
-    }
+  .cover-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    // 4. Driven by the Text Alignment control.
+    align-items: var(--block-alignment, start);
+    gap: 1rem;
+    text-align: var(--block-alignment, start);
+
+    // ... the rest is unchanged from Step 5 ...
   }
 }
 ```
 
-## Integrating Third-Party Blocks
+Because the width and the background both sit on `.block-inner-container`, the Block Width control now resizes the whole visual unit—color, image, and text together—rather than only the text.
 
-Let's learn how to integrate the `@plone-collective/volto-relateditems-block` into VLT.
+## Checkpoint
 
-### Install the Block
+Restart the frontend, then add a Cover block to the Robotarium landing page. Give it the title **Book a robot. Build something.**, a subtitle such as *Twelve units, one afternoon at a time*, and a workshop photo as the background image. Confirm that:
 
-To install the related items block, make sure you are in the `frontend/packages/my-vlt-project` folder, and use the following command:
+- The block appears in the block chooser, listed as **Cover**.
+- The **Styling** tab of the sidebar shows **Alignment** and **Block Width** controls.
+- Changing the alignment moves the title and subtitle, and changing the width resizes the block. If the controls appear but nothing moves, check that the field names end in `:noprefix`.
+- Setting the width to **Full Width** takes the block edge to edge, background image included.
 
-```bash
-pnpm install @plone-collective/volto-relateditems-block@latest
+```{seealso}
+A block can also offer more than one rendering of the same data, as the Listing block does with its variations.
+That is covered in the next chapter, where the Robotarium gets a **Robot Fleet** listing variation with its own card layout and per-item actions.
 ```
 
-Add it to your `package.json` addons (before VLT):
+## Further Reading
 
-```json
-"addons": [
-  "@eeacms/volto-accordion-block",
-  "@kitconcept/volto-banner-block",
-  "@kitconcept/volto-bm3-compat",
-  "@kitconcept/volto-button-block",
-  "@kitconcept/volto-carousel-block",
-  "@kitconcept/volto-dsgvo-banner",
-  "@kitconcept/volto-heading-block",
-  "@kitconcept/volto-highlight-block",
-  "@kitconcept/volto-introduction-block",
-  "@kitconcept/volto-logos-block",
-  "@kitconcept/volto-separator-block",
-  "@kitconcept/volto-slider-block",
-  "@plonegovbr/volto-social-media",
-  "@plone-collective/volto-relateditems-block",
-  "@kitconcept/volto-light-theme"
-],
-```
-
-### Enhance the Block Schema
-
-To add the theme feature to the Related Items block, update `src/config/blocks.ts` to register the `defaultStylingSchema` enhancer:
-
-```typescript
-export default function install(config: ConfigType) {
-  // ... previous configuration ...
-
-  config.blocks.blocksConfig.relatedItems = {
-    ...config.blocks.blocksConfig.relatedItems,
-    schemaEnhancer: defaultStylingSchema,
-  };
-
-  return config;
-}
-```
-
-### Add Custom Styles
-
-Create `src/theme/blocks/_relatedItems.scss`:
-
-```scss
-.block.relatedItems {
-  .inner-container {
-    background: var(--theme-high-contrast-color);
-    padding: 3rem;
-    width: var(--narrow-container-width);
-
-    h2.headline {
-      color: var(--theme-foreground-color);
-    }
-
-    ul {
-      color: var(--theme-foreground-color);
-      li a {
-        color: var(--link-foreground-color);
-      }
-    }
-  }
-}
-```
-
-Import it in `_main.scss`:
-
-```scss
-@import "./blocks/hero";
-@import "./blocks/relatedItems";
-@import "./site";
-```
+- [Widgets reference](https://volto-light-theme.readthedocs.io/reference/widgets.html)
+- [Develop add-ons for VLT](https://volto-light-theme.readthedocs.io/how-to-guides/develop-add-ons.html)
+- [Image aspect ratio](https://volto-light-theme.readthedocs.io/reference/image-aspect-ratio.html)
