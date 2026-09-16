@@ -180,7 +180,7 @@ html_theme_options = {
         },
     ],
     "logo": {
-        "text": "Plone Training 2025",
+        "text": "Plone Training 2026",
     },
     "navigation_with_keys": True,
     "path_to_docs": "docs",
