@@ -9,7 +9,8 @@ myst:
 
 # Questions and Answers
 
-This chapter collects the questions that come up most often while working through the training, together with the answers you would otherwise have to dig out of the source.
+This chapter collects the questions that come up most often while working through the training.
+Each answer is short, and links to the section that explains it in full.
 
 ## Setup
 
@@ -17,19 +18,17 @@ This chapter collects the questions that come up most often while working throug
 
 Check three things, in order:
 
-1. VLT is declared as the `theme`, not only as an add-on. It is both, and the `addons` entry alone does not apply the theme.
-2. Your project add-on is applied after VLT. VLT must be the last entry in your add-on's `addons` list.
-3. Your stylesheet is reachable from {file}`src/theme/_main.scss`. Volto only picks up that exact filename.
+1. VLT is declared as the `theme` in your add-on's {file}`package.json`, not only listed in `addons`. It needs both entries.
+2. Your stylesheet is {file}`src/theme/_main.scss`, or is imported from it. Volto only picks up that exact filename.
+3. You restarted the frontend after adding the file. Hot reload does not pick up new files.
 
-Restart the frontend after any of these. Adding files is not picked up by hot reload.
-
-### Why is `theme/_main.scss` special?
-
-Volto scans every add-on for {file}`theme/_variables.scss` and {file}`theme/_main.scss` and injects whichever it finds into two fixed points in the theme's stylesheet—variables before VLT's own, main after all of VLT's styles. The filenames are the contract; renaming them silently disables the hook.
+See {ref}`light-theme-insertion-points-label`.
 
 ### Where do I override `$spacing-large` or a breakpoint?
 
-In {file}`src/theme/_variables.scss`. VLT declares its SCSS variables with `!default`, and that file is injected first, so your value wins. Assigning them from {file}`_main.scss` has no effect, because VLT's stylesheets have already been compiled by then.
+In {file}`src/theme/_variables.scss`.
+Assigning SCSS variables in {file}`_main.scss` has no effect, because VLT has already used their values by then.
+See {ref}`light-theme-custom-properties-label`.
 
 ## Styling
 
@@ -39,45 +38,55 @@ In {file}`src/theme/_variables.scss`. VLT declares its SCSS variables with `!def
 
 ### My links are the same color as the surrounding text
 
-That is the default. Links inherit `--theme-foreground-color` so they stay legible against any block theme. Define `--link-foreground-color` in your project to give them a color of their own.
+That is the default: links use the foreground color of the block theme they sit in.
+Set `--link-foreground-color` in your project to give them a color of their own.
+
+### An editor changed a color in the Theming tab, but the site ignores it
+
+Your stylesheet probably sets the same property.
+See {ref}`light-theme-behavior-colors-label` for how to decide who owns each color.
+
+### My gradient palette shows an empty swatch, or unreadable buttons
+
+Some VLT styles read `--theme-color` with `background-color` or `color`, which ignore a gradient.
+See {ref}`the warning about gradient palettes <light-theme-gradient-themes-label>`.
 
 ### Where do the `next--is--...` classes in VLT's CSS come from?
 
-From `config.settings.styleClassNameExtenders`. They describe each block's relationship to its neighbors—same type, same background, first or last of a run—so that vertical spacing can be expressed in CSS instead of in the components. The full list is in the first chapter.
+From functions that VLT adds to `config.settings.styleClassNameExtenders`.
+They describe each block's relationship to its neighbors, so that vertical spacing can be expressed in CSS instead of in the components.
+See {ref}`light-theme-generated-classes-label` for the full list.
 
-## Blocks and widgets
+## Blocks and Widgets
 
 ### My alignment or width buttons appear but do nothing
 
-The field name is almost certainly missing its `:noprefix` suffix. `align` and `align:noprefix` are two different fields, and only the second matches the style definition that injects `--block-alignment`. The same applies to `blockWidth:noprefix` and `size:noprefix`.
+Check two things in the field definition:
 
-### What does `:noprefix` actually do?
+- The field name must end in `:noprefix`, as in `align:noprefix` and `blockWidth:noprefix`. Only those names match the style definitions that inject `--block-alignment` and `--block-width`.
+- The `actions` must be the token names from `config.blocks`. Otherwise the widget stores a style object instead of a token.
 
-It stops the StyleWrapper prefixing the generated CSS class with the field name. A field `align` with value `center` produces `has--align--center`; `align:noprefix` produces `center`. VLT registers its style definitions under the suffixed names, so the suffix is also what makes the lookup match.
+See {ref}`light-theme-style-fields-label` and {ref}`Step 6 of the Cover block <light-theme-cover-actions-label>`.
 
 ### Can I reuse a Volto block id for my own block?
 
-Avoid it. VLT restricts some core blocks—the legacy `hero` among them—and registering under the same key overwrites a core block rather than adding yours, which makes the result depend on add-on ordering. Give project blocks their own key.
+Avoid it.
+Registering under an existing key replaces that block's configuration instead of adding a new block, and the result then depends on the order in which the add-ons are applied.
+Give project blocks their own key.
 
 ### How do I add the background color control to a third-party block?
 
-Register VLT's `defaultStylingSchema` as the block's `schemaEnhancer`, composing it with any enhancer the block already has:
-
-```typescript
-config.blocks.blocksConfig.<blockId> = {
-  ...config.blocks.blocksConfig.<blockId>,
-  schemaEnhancer: composeSchema(
-    config.blocks.blocksConfig.<blockId>.schemaEnhancer,
-    defaultStylingSchema,
-  ),
-};
-```
+Compose VLT's `defaultStylingSchema` with the block's existing `schemaEnhancer`.
+See {ref}`the tip at the end of Step 7 of the Cover block <light-theme-third-party-styling-label>`.
 
 ## Components
 
 ### Should I shadow VLT's header, or swap it?
 
-Swap it. VLT 8 resolves its structural components through the registry, so registering your own and naming it in `config.settings.vlt.components` replaces it without shadowing. Shadowing still works, but it binds you to an internal module path and hides which component is actually active.
+Swap it.
+VLT 8 resolves its structural components through the registry, so registering your own and naming it in `config.settings.vlt.components` replaces it without shadowing.
+Shadowing still works, but it binds you to an internal module path and hides which component is actually active.
+See {ref}`light-theme-swap-components-label`.
 
 ### Slot or component swap?
 
@@ -87,8 +96,10 @@ Use a slot to add something to the layout. Swap a structural component to replac
 
 ### Should I enable it?
 
-Only once every block in your registry is v3-compatible. Block repositories advertise this with a "BMv3 ready" banner. A block left on the older model still renders, but it will not share the container structure of the surrounding page, and the difference shows.
+Only once every block that your site uses supports it.
+See {ref}`light-theme-block-model-v3-label`.
 
 ### Do I need to set categories on VLT's blocks?
 
-No. VLT already assigns them to the blocks it has migrated. Set `category` on your own blocks, and remember that a category only means something if your stylesheets act on the `category-*` class it produces.
+No. VLT already assigns them to the blocks it has migrated.
+For your own blocks, reuse a category only when its rules fit the block, or add a category of your own, as explained in {ref}`light-theme-block-categories-label`.

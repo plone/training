@@ -9,65 +9,46 @@ myst:
 
 # Design System Implementation & Theming
 
-The Robotarium has a look: workshop teal, a technical typeface, and surfaces that read like painted metal. This chapter turns that into a working theme.
+The Robotarium has a look: workshop teal, a technical font, and surfaces that read like painted metal. This chapter turns that into a working theme.
 
 Nothing here is specific to robots. The steps are the ones you follow for any design handed to you—pull the decisions out of it, express them as tokens, and let VLT's components pick them up.
 
 ## Extracting Design Tokens
 
-When working with a given design, systematically extract design decisions. Identify:
+Before writing any code, list the decisions that the design makes:
 
-### Color Extraction Checklist
+- **Color pairs**: the primary, secondary, and accent background colors, and the text color used on each.
+- **Link color**, if links should stand out from the surrounding text.
+- **Typography**: the font families, and any line heights or font weights that differ from VLT's.
+- **Block palettes**: the backgrounds that editors should be able to choose for a section of a page.
 
-1. **Primary Colors**
-   - Background color
-   - Text color on primary
-
-2. **Secondary Colors**
-   - Background color
-   - Text color on secondary
-
-3. **Accent Colors**
-   - Highlight color
-   - Text color on accent
-
-4. **Semantic Colors**
-   - Link colors
-
-### Typography Extraction
-
-Look for:
-- Font families
-- Line heights
-- Font weights
-
+For the Robotarium, that list comes down to a dark teal accent with white text, a pale teal secondary color, a teal link color, the Chakra Petch font, and one extra block palette.
 
 ## Implementing Your Design System
-
-VLT has migrated to use standardized color definitions. These use CSS properties that are injected at runtime in the right places, so your CSS can adapt to use them generically. The resulting CSS is simpler, and there's no need to define class names for each color definition.
 
 ### Step 1: Add Font Files
 
 If you're using custom fonts, add the font files to your theme directory.
-The Robotarium uses [Chakra Petch](https://fonts.google.com/specimen/Chakra+Petch); from {file}`frontend/packages/robotarium/src/theme`:
+The Robotarium uses [Chakra Petch](https://fonts.google.com/specimen/Chakra+Petch).
+From {file}`frontend/packages/volto-robotarium/src/theme`, create a folder for it:
 
-```bash
+```shell
 mkdir -p fonts/Chakra_Petch
 ```
 
-at the end, it should look like:
+Download the font family from Google Fonts, and copy its regular and bold files into that folder:
 
-```
+```console
 src/theme/fonts/Chakra_Petch/
-  ├── ChakraPetch-Regular.ttf
-  └── ChakraPetch-Bold.ttf
+├── ChakraPetch-Regular.ttf
+└── ChakraPetch-Bold.ttf
 ```
 
-This ensures the font files are bundled with your theme and can be referenced in your SCSS files.
+Keeping the files inside your theme bundles them with it, so your stylesheets can refer to them with relative paths.
 
 ### Step 2: Override SCSS Variables
 
-Some of VLT's design decisions are SCSS variables rather than CSS custom properties. Those belong in {file}`src/theme/_variables.scss`:
+Set the build-time values in {file}`src/theme/_variables.scss`, as described in {ref}`light-theme-custom-properties-label`:
 
 ```scss
 // src/theme/_variables.scss
@@ -75,8 +56,8 @@ $default-container-width: 1120px;
 $spacing-large: 80px;
 ```
 
-VLT declares its variables with `!default`, so whatever you assign here wins.
-It also derives the matching CSS custom properties from them, which means setting `$default-container-width` here updates `--default-container-width` too. You do not need to set both.
+The Robotarium widens the default container from 940px to 1120px, and increases VLT's large spacing step from 60px to 80px.
+Setting `$default-container-width` also updates `--default-container-width`, so you do not need to set both.
 
 ### Step 3: Define Your Design Tokens
 
@@ -112,20 +93,21 @@ In {file}`src/theme/_main.scss`, declare the fonts and the CSS custom properties
   // Give links a color of their own instead of the theme foreground color
   --link-foreground-color: #157a7a;
 
-  // Breadcrumbs
-  --breadcrumbs-background: var(--background, #fff);
-  --breadcrumbs-foreground: var(--secondary-foreground-color, #3b5759);
+  // Breadcrumbs: a white bar, with text in the footer text color
+  --breadcrumbs-background: var(--background);
+  --breadcrumbs-foreground: var(--secondary-foreground-color);
 
-  // Gradients for header and footer
+  // Gradients for header and footer.
+  // `--background` is VLT's base color, white by default.
   --header-background: linear-gradient(
     -3deg,
-    var(--background, #fff) 0%,
-    color-mix(in oklab, var(--secondary-color) 1%, var(--background, #fff)) 20%,
-    color-mix(in oklab, var(--secondary-color) 3%, var(--background, #fff)) 35%,
-    color-mix(in oklab, var(--secondary-color) 10%, var(--background, #fff)) 50%,
-    color-mix(in oklab, var(--secondary-color) 30%, var(--background, #fff)) 65%,
-    color-mix(in oklab, var(--secondary-color) 65%, var(--background, #fff)) 80%,
-    color-mix(in oklab, var(--secondary-color) 90%, var(--background, #fff)) 92%,
+    var(--background) 0%,
+    color-mix(in oklab, var(--secondary-color) 1%, var(--background)) 20%,
+    color-mix(in oklab, var(--secondary-color) 3%, var(--background)) 35%,
+    color-mix(in oklab, var(--secondary-color) 10%, var(--background)) 50%,
+    color-mix(in oklab, var(--secondary-color) 30%, var(--background)) 65%,
+    color-mix(in oklab, var(--secondary-color) 65%, var(--background)) 80%,
+    color-mix(in oklab, var(--secondary-color) 90%, var(--background)) 92%,
     var(--secondary-color) 100%
   );
 
@@ -133,24 +115,26 @@ In {file}`src/theme/_main.scss`, declare the fonts and the CSS custom properties
     ellipse 100% 100% at 50% 100%,
     var(--secondary-color) 0%,
     var(--secondary-color) 20%,
-    color-mix(in oklab, var(--secondary-color) 85%, var(--background, #fff)) 30%,
-    color-mix(in oklab, var(--secondary-color) 65%, var(--background, #fff)) 40%,
-    color-mix(in oklab, var(--secondary-color) 45%, var(--background, #fff)) 50%,
-    color-mix(in oklab, var(--secondary-color) 30%, var(--background, #fff)) 60%,
-    color-mix(in oklab, var(--secondary-color) 18%, var(--background, #fff)) 70%,
-    color-mix(in oklab, var(--secondary-color) 10%, var(--background, #fff)) 80%,
-    color-mix(in oklab, var(--secondary-color) 4%, var(--background, #fff)) 90%,
-    var(--background, #fff) 100%
+    color-mix(in oklab, var(--secondary-color) 85%, var(--background)) 30%,
+    color-mix(in oklab, var(--secondary-color) 65%, var(--background)) 40%,
+    color-mix(in oklab, var(--secondary-color) 45%, var(--background)) 50%,
+    color-mix(in oklab, var(--secondary-color) 30%, var(--background)) 60%,
+    color-mix(in oklab, var(--secondary-color) 18%, var(--background)) 70%,
+    color-mix(in oklab, var(--secondary-color) 10%, var(--background)) 80%,
+    color-mix(in oklab, var(--secondary-color) 4%, var(--background)) 90%,
+    var(--background) 100%
   );
-
-  --fatmenu-foreground: #fff;
 }
 ```
 
-Notice that the header and footer gradients are assigned to the same `--header-background` and `--footer-background` properties you saw in the previous chapter.
-Because VLT reads those properties rather than hard-coded colors, a gradient works everywhere a flat color would, with no component changes.
+The breadcrumbs tokens replace VLT's defaults, which use the accent colors.
+The Robotarium's accent text color is white, for the teal fat menu, and it would disappear on the white breadcrumbs bar, so the breadcrumbs take the text color of the footer instead.
+As a result, the Footer Font Color field of the theme behavior also changes the color of the breadcrumbs.
 
-Setting a font is a good example of the "prefer custom properties" rule from the previous chapter: you do not shadow VLT's typography stylesheets, you set the one property they already read.
+The header and footer gradients are assigned to the same `--header-background` and `--footer-background` properties you saw in the previous chapter.
+VLT paints the header and the footer with `background`, not `background-color`, so a gradient works there as well as a flat color, with no component changes.
+
+Setting a font is a good example of the {ref}`prefer custom properties <light-theme-custom-properties-label>` rule from the previous chapter: you do not shadow VLT's typography stylesheets, you set the one property they already read.
 
 Site-wide rules that are not tokens go in the same file, outside `:root`:
 
@@ -167,13 +151,6 @@ Site-wide rules that are not tokens go in the same file, outside `:root`:
     padding-top: 0;
   }
 }
-
-// Match the theme swatch in the sidebar to the custom "charging bay" theme
-#sidebar {
-  .color-swatch-widget .color-swatch-option-handler.charging-bay {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #fff 100%);
-  }
-}
 ```
 
 ```{warning}
@@ -184,8 +161,10 @@ Nesting a selector such as `#page-document` inside `:root` compiles to `:root #p
 ### Step 4: Add Block-Specific Styles
 
 Keep per-block styles in their own partials under {file}`src/theme/blocks/`, one file per block.
-This keeps them easy to find and stops {file}`_main.scss` from turning too complex.
+This keeps them easy to find, and stops {file}`_main.scss` from growing too large.
+The Robotarium adds four of them.
 
+The button partial replaces the colors of buttons on hover and focus with the accent colors:
 
 ```scss
 // src/theme/blocks/_button.scss
@@ -209,6 +188,16 @@ body .block.__button {
   }
 }
 ```
+
+VLT colors buttons inside themed blocks with rules that start with `body`.
+Starting your rule with `body` as well gives it the same specificity, and it wins because your stylesheet loads after VLT's.
+
+The hover colors also matter for the gradient palette that you add in Step 5.
+VLT's own hover state uses `--theme-color` as the text color.
+A gradient is not a valid text color, so in a section with a gradient palette, the button text would inherit the dark foreground color and disappear against the dark hover background.
+The accent colors avoid that.
+
+The slider and grid partials give text a frosted-glass panel, on the slide titles and in four-column grids:
 
 ```scss
 // src/theme/blocks/_slider.scss
@@ -234,6 +223,8 @@ body .block.__button {
 }
 ```
 
+The teaser partial adds space around the text of Teaser blocks:
+
 ```scss
 // src/theme/blocks/_teaser.scss
 .block.teaser .card .card-inner .card-summary {
@@ -241,8 +232,8 @@ body .block.__button {
 }
 ```
 
-The teaser rule uses `$spacing-large`, one of VLT's SCSS variables.
-Those are in scope for your stylesheets because {file}`_main.scss` is compiled after VLT's variables and mixins, so you can reuse the theme's spacing scale, breakpoints, and typography mixins instead of inventing new values.
+The teaser rule uses `$spacing-large`, one of VLT's SCSS variables, which you set to 80px in Step 2.
+VLT's variables and mixins are in scope for your stylesheets because {file}`_main.scss` is compiled after them, so you can reuse the theme's spacing scale, breakpoints, and typography mixins instead of inventing new values.
 
 (charging-bay-label)=
 
@@ -250,7 +241,7 @@ Those are in scope for your stylesheets because {file}`_main.scss` is compiled a
 
 Block themes are the palettes an editor can choose between on any block. The Robotarium gets two: the plain default, and **Charging Bay**, a soft teal wash for sections that should feel like the lit alcove where the robots dock.
 
-In `src/config/blocks.ts`, define them:
+In {file}`src/config/blocks.ts`, define them:
 
 ```typescript
 import type { ConfigType } from '@plone/registry';
@@ -294,23 +285,47 @@ export default function install(config: ConfigType) {
 ```
 
 ```{note}
-The Grid block is the only block in VLT—or in any of the recommended add-ons—that keeps its own copy of the palettes, so this is the only place the extra line is needed.
+VLT copies the default palettes to the Grid block when its own configuration runs, which is before yours.
+The Grid block is the only block in VLT, or in any of the recommended add-ons, that keeps its own copy of the palettes, so this is the only place where the extra line is needed.
+```
+
+(light-theme-gradient-themes-label)=
+
+```{warning}
+`--theme-color` is usually a flat color, but Charging Bay sets it to a gradient.
+A gradient only works where a stylesheet reads the property with `background`, as VLT does for block backgrounds.
+Where a stylesheet reads it with `background-color` or `color`, the browser ignores the declaration:
+
+- The Charging Bay swatch in the block settings would look empty, which the rule below fixes.
+- The Button block would lose its hover text color, which the button partial from Step 4 fixes.
+
+In your own styles, read `--theme-color` with `background`, never with `background-color`.
+```
+
+VLT styles the swatches in the **Background color** control with `background-color: var(--theme-color)`.
+Add this rule to {file}`src/theme/_main.scss`, next to the other site-wide rules, to give the Charging Bay swatch a gradient of its own:
+
+```scss
+// Match the theme swatch in the sidebar to the custom "charging bay" theme
+#sidebar {
+  .color-swatch-widget .color-swatch-option-handler.charging-bay {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #fff 100%);
+  }
+}
 ```
 
 ### Step 6: Keep the Layout Settings in Sync
 
 Widening the container in SCSS is only half the change.
 VLT also reads the container width from configuration, in {file}`src/config/settings.ts`.
-Add the `layout` block to the file Cookieplone generated—do not replace it, or you will drop your language settings:
+Add the `layout` block to the file that Cookieplone generated.
+Do not replace the file, or you will drop your language settings:
 
 ```typescript
 import type { ConfigType } from '@plone/registry';
 
 export default function install(config: ConfigType) {
-  // Language settings (generated — keep these)
-  config.settings.isMultilingual = false;
-  config.settings.supportedLanguages = ['en'];
-  config.settings.defaultLanguage = 'en';
+  // ... the language settings generated by Cookieplone ...
 
   // Added in this step
   config.settings.layout = {
@@ -322,14 +337,16 @@ export default function install(config: ConfigType) {
 }
 ```
 
-This value is not used for layout—the CSS custom property does that. It is used to compute the `sizes` attribute of responsive images in teasers and listings, which tells the browser how wide an image will actually be so it can pick the right scale to download.
+This value is not used for layout—the CSS custom property does that.
+It is used to compute the `sizes` attribute of responsive images in teasers and listings, which tells the browser how wide an image will actually be, so that it can pick the right scale to download.
 
-If the two disagree, nothing breaks visibly, but the browser makes its choice from the wrong number and downloads scales that are too small, so images look soft.
+If the two values disagree, nothing breaks visibly, but the browser picks image scales for the wrong width.
+When the configured width is too small, images look soft; when it is too large, pages download bigger images than they need.
 Whenever you change `$default-container-width`, change `defaultContainerWidth` to match.
 
 ```{note}
-`config.settings.layout` also carries `tabletBreakpoint`, used in the same calculation.
-Keep it in sync with `$tablet-breakpoint` for the same reason.
+`config.settings.layout` also carries `tabletBreakpoint`, 768 by default, which is used in the same calculation.
+It matches VLT's `$largest-mobile-screen` SCSS variable, so if you change VLT's breakpoints, update it as well.
 ```
 
 ### Step 7: Main Index Configuration
@@ -352,7 +369,8 @@ export default applyConfig;
 
 ### Step 8: Import Your Stylesheets
 
-{file}`_main.scss` is the entry point Volto injects after all of VLT's styles. Import your partials there, in the order you want them applied:
+{file}`_main.scss` is the entry point that Volto injects after all of VLT's styles.
+Import your partials there, in the order you want them applied:
 
 ```scss
 // src/theme/_main.scss
@@ -364,15 +382,16 @@ export default applyConfig;
 @import './blocks/teaser';
 ```
 
-{file}`_variables.scss` needs no import. Volto picks it up on its own and injects it ahead of VLT's variables.
+{file}`_variables.scss` needs no import, because Volto injects it on its own.
 
 ## Checkpoint
 
 Restart the frontend and confirm the following before moving on:
 
-- The site renders in your custom font, and the header and footer show their gradients.
-- Links use `--link-foreground-color` rather than the surrounding text color.
-- Opening a page in edit mode and selecting a block shows **Default** and **Charging Bay** in the block's color theme selector.
+- The site renders in Chakra Petch, and the header and footer show their gradients.
+- Links in body text are teal, rather than the color of the surrounding text.
+- Opening a page in edit mode and selecting a Text block shows **Default** and **Charging Bay** in the **Background color** control, and the Charging Bay swatch shows a gradient.
+- Choosing **Charging Bay** for a block gives it the teal wash.
 
 ## Further Reading
 

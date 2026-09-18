@@ -1,13 +1,13 @@
 ---
 myst:
   html_meta:
-    "description": "Advanced Components, Site Customization & Block Model v3"
-    "property=og:description": "Advanced Components, Site Customization & Block Model v3"
-    "property=og:title": "Advanced Components, Site Customization & Block Model v3"
+    "description": "Advanced Components, Slots & Block Model v3"
+    "property=og:description": "Advanced Components, Slots & Block Model v3"
+    "property=og:title": "Advanced Components, Slots & Block Model v3"
     "keywords": "Plone, Volto, Training, Volto Light Theme, Integrate, block"
 ---
 
-# Advanced Components, Site Customization & Block Model v3
+# Advanced Components, Slots & Block Model v3
 
 ## Understanding the Card Primitive
 
@@ -37,18 +37,23 @@ A card becomes a link when you give it either an `item` or an `href`. The two ar
 <Card href="/workshop/hours">...</Card>  // for arbitrary destinations
 ```
 
-Passing `item` lets the underlying `UniversalLink` inspect the content type, so a File links to its download URL and an Image to its view, rather than to the object's default page.
-Passing `href={item['@id']}` skips that, and those types end up linking to the wrong place.
+The link wraps the title inside the summary, and a CSS overlay stretches its clickable area across the whole card.
+
+Passing `item` lets the underlying link inspect the content type.
+For visitors who are not logged in, a File links to its download URL, and a Link item links to its target URL.
+Passing `href={item['@id']}` skips that, and those items link to their own page instead.
 Use `href` when you genuinely have only a URL.
 
 Pass `null` to make the card non-interactive, which is what listing templates do in edit mode.
 
 ### Card Variations
 
-- **Vertical layout** (default): Image on top
-- **Horizontal layout**: Image on left or right
-- **Contained**: With background color from theme
-- **Listing**: Image displayed on left with specific size (controlled by `--card-listing-image-size`, default 220px)
+The layout of a card depends on where it is rendered:
+
+- **Vertical** (default): the image is on top.
+- **Horizontal**: the image is on the left or on the right, when the surrounding block is aligned left or right, as a Teaser block can be.
+- **Contained**: inside a container block, such as a Grid, the summary gets side padding, and the card takes its background color from the current theme.
+- **Listing**: inside a `.card-listing` wrapper, the image is on the left, with a fixed width set by `--card-listing-image-size`, 220px by default.
 
 ### Card.Image Slot
 
@@ -72,6 +77,7 @@ A `src` prop works too, for an image that is not a content object. To control ho
 Recommended structure using VLT's Summary component:
 
 ```tsx
+import config from '@plone/volto/registry';
 import DefaultSummary from '@kitconcept/volto-light-theme/components/Summary/DefaultSummary';
 
 const Summary = config.getComponent({
@@ -85,18 +91,19 @@ const Summary = config.getComponent({
 ```
 
 `Card` generates an id for the card's accessible name and builds a link component for the item, then passes both down to its slots as the `a11yLabelId` and `LinkToItem` props.
-Slots forward them to their children, so a Summary rendered inside `Card.Summary` receives them without you wiring anything up.
+`Card.Summary` forwards them to its children, so a Summary rendered inside it receives them without you wiring anything up.
 Using them is what gives the card an accessible name and a real link—see the next section.
 
 ## Creating Custom Summary Components
 
-The Summary component displays content metadata in listings, teasers, and cards. VLT includes built-in implementations:
+The Summary component displays content metadata in listings, teasers, and cards.
+VLT includes these implementations, and registers all but the first for their content types:
 
-- `DefaultSummary`: Kicker, title, and description
-- `NewsItemSummary`: Publication date, kicker, title, description
-- `EventSummary`: Start/end date, kicker, title, description
-- `FileSummary`: File size and type
-- `PersonSummary`: Contact details for the Person content type
+- `DefaultSummary`: the kicker, title, and description. It is the fallback for all other types.
+- `NewsItemSummary`, for News Items: the publication date and the kicker, then the title and description.
+- `EventSummary`, for Events: the start and end dates and the kicker, then the title and description.
+- `FileSummary`, for Files: the file size, file type, and kicker, then the title and description.
+- `PersonSummary`, for the Person type: the kicker, title, and description, plus the email address, phone number, and room.
 
 ### The Summary Contract
 
@@ -145,29 +152,31 @@ A Summary that omits them renders a card that looks right but cannot be navigate
 
 The Robotarium lends robots, so it needs a content type for them. Create it through the Plone UI:
 
-1. Go to http://localhost:3000/controlpanel/dexterity-types
-2. Click "Add New Content Type"
-3. Fill in:
-   - **Type Name**: Robot
+1. Go to http://localhost:3000/controlpanel/dexterity-types.
+2. Select the **Add** button in the toolbar.
+3. In the **Add new content type** form, fill in:
+   - **Title**: Robot
    - **Description**: A robot available for booking
-4. Click "Add"
-5. In the "Behaviors" tab, enable:
-   - **Kicker field**, which adds `head_title`. We will use it to store the robot's charge level.
-   - **Preview Image**, so robots can show a photo in listings.
-   - Any other behaviors you want, such as Dublin Core metadata.
-6. Click "Save"
+4. Select **Save**.
+5. Select **Robot** in the list of content types.
+6. In the **Behaviors** tab, enable:
+   - **Kicker field**, which adds a field named `head_title`. The Robotarium uses it to store the robot's charge level.
+   - **Preview Image**, so that robots can show a photo in listings.
+   - Any other behaviors you want.
+7. Select **Save**.
 
 ```{note}
-The form asks only for a name and a description. Plone derives the type's id from the name by normalizing it, so **Robot** becomes `robot`, and a name like **Charging Station** would become `charging_station`.
+The form asks only for a title and a description. Plone derives the type's id from the title by normalizing it, so **Robot** becomes `robot`, and a title like **Charging Station** would become `charging_station`.
 
-That id is what the REST API returns as the content's `@type`, and it is the value you register components against later in this chapter. It is worth confirming rather than assuming: open a robot you created and check the `@type` in `http://localhost:8080/Plone/<path>`, or look at the URL of the type you just added in the control panel.
+That id is what the REST API returns as the content's `@type`, and it is the value you register components against later in this chapter.
+It is worth confirming rather than assuming: open http://localhost:3000/++api++/ followed by the path of a robot you created, and check its `@type`.
 
 Plone's built-in types predate this rule and keep their historical ids, which is why VLT registers its news summary against `News Item`, with a space and capitals, rather than `news_item`.
 ```
 
 ### Step 2: Create a Custom Summary Component
 
-Create `src/components/Summary/RobotSummary.tsx`:
+Create {file}`src/components/Summary/RobotSummary.tsx`:
 
 ```tsx
 import * as React from 'react';
@@ -218,13 +227,16 @@ export default RobotSummary;
 
 The `HeadingTag` default is `'div'` rather than a fixed heading level. The caller decides the level, because the right one depends on where the listing sits in the page's heading outline.
 
-**Note**: We are reusing the kicker (`head_title`) to hold the charge level, so that the example needs no new field. A real Robotarium would add a proper numeric field to the Robot type instead, and reserve the kicker for what it is meant for: a line of text above the title.
+```{note}
+The example reuses the kicker (`head_title`) to hold the charge level, so that it needs no new field.
+A real Robotarium would add a proper numeric field to the Robot type instead, and reserve the kicker for what it is meant for: a line of text above the title.
+```
 
 ### Step 3: Add Styles for the Robot Summary
 
 The charge is the one thing VLT has no styling for, so it is the one thing this partial has to describe: a labelled row above a slim track whose fill is as wide as the charge.
 
-Create `src/theme/_robotSummary.scss`:
+Create {file}`src/theme/_robotSummary.scss`:
 
 ```scss
 .robot-charge {
@@ -270,22 +282,21 @@ Create `src/theme/_robotSummary.scss`:
 
 Three decisions here are worth carrying to your own work.
 
-**Nothing is scoped to the listing.** A Summary is rendered in listings, in teasers, and in bare cards, and the same component should look the same in all of them. Scoping these rules to the fleet listing—`.robots .card .card-summary .robot-charge`—would style the listing and leave the same robot in a teaser looking like a different component. Selecting on what the Summary itself renders keeps the contexts in step.
+**Nothing is scoped to the listing.** A Summary is rendered in listings, in teasers, and in bare cards, and the same component should look the same in all of them. Scoping these rules to the fleet listing, with a selector such as `.robots .card .card-summary .robot-charge`, would style the listing and leave the same robot in a teaser looking like a different component. Selecting on what the Summary itself renders keeps the contexts in step.
 
-Import in `src/theme/_main.scss`:
+**The colors come from tokens.** The track mixes the theme's foreground color with transparency, so it stays visible on any block theme, and the fill follows `--accent-color`, so it changes with the design.
+
+**The typography comes from VLT.** The label uses VLT's `headtitle2()` mixin, one of the theme's text styles for small labels, instead of a font size of its own.
+
+Import the partial at the end of {file}`src/theme/_main.scss`:
 
 ```scss
-@import './blocks/button';
-@import './blocks/cover';
-@import './blocks/grid';
-@import './blocks/slider';
-@import './blocks/teaser';
 @import './robotSummary';
 ```
 
 ### Step 4: Register the Summary Component
 
-In `src/config/settings.ts`:
+In {file}`src/config/settings.ts`:
 
 ```typescript
 import RobotSummary from '../components/Summary/RobotSummary';
@@ -305,31 +316,36 @@ export default function install(config: ConfigType) {
 
 ### Step 5: Test the Robot Summary
 
-1. Add a Robot to your site, for example **ARM-7 Bench Arm**
-2. Fill in the title, a short description, and the kicker with a plain number such as `87`
-3. Add the robot to a Listing or Teaser block
-4. `RobotSummary` renders the title, description, and a charge level of 87%
+1. Add a Robot to your site, for example **ARM-7 Bench Arm**.
+2. Fill in the title, a short description, and the kicker with a plain number such as `87`.
+3. Add the robot to a Listing or Teaser block.
+4. `RobotSummary` renders the title, the description, and a charge level of 87%.
 
 ## Creating Custom Listing Variations with Card Actions
 
-Listing variations customize content display in Listing blocks. Let's build a `RobotsTemplate` that presents the fleet and uses the Card.Actions slot for a booking button.
+Listing variations customize how a Listing block displays its content. This section builds a `RobotsTemplate` that presents the fleet and uses the Card.Actions slot for a booking button.
 
 ### Card.Actions Slot
 
 ```{important}
-`Card.Actions` only renders what a template puts in it, and **none of VLT's built-in listing variations put anything there**. Registering an `Actions` component is not enough on its own: List, List with images, Grid, and the Teaser block all ignore the slot, so a card rendered by any of them shows no actions.
+`Card.Actions` only renders what a template puts in it, and **none of VLT's built-in listing variations put anything there**.
+Registering an `Actions` component is not enough on its own: the List, List with images, and Grid variations, and the Teaser block, all ignore the slot, so a card rendered by any of them shows no actions.
 
 That is why the fleet listing below needs its own template. If you register an Actions component and see nothing, check which variation the listing is using before suspecting the registration.
 ```
 
 The Card.Actions slot provides interactive elements beyond the main card link:
+
 - "Book this unit" for a robot that is available
-- "Download spec sheet" for its documentation
+- "Download specifications" for its documentation
 - "Reserve a slot" for a robot that is currently out
+
+The card's link overlay covers the whole card, so the actions have to sit above it. Otherwise, selecting an action would open the card's link instead.
+The stylesheet in Step 5 takes care of that.
 
 ### Step 1: Create RobotActions Component
 
-Create `src/components/Actions/RobotActions.tsx`:
+Create {file}`src/components/Actions/RobotActions.tsx`:
 
 ```tsx
 const RobotActions = ({ item }) => {
@@ -347,7 +363,7 @@ The button carries `type="button"` so it does not submit a surrounding form, and
 
 ### Step 2: Register RobotActions
 
-Update `src/config/settings.ts`:
+Update {file}`src/config/settings.ts`:
 
 ```typescript
 import RobotActions from '../components/Actions/RobotActions';
@@ -368,7 +384,7 @@ export default function install(config: ConfigType) {
 
 ### Step 3: Create RobotsTemplate Listing Variation
 
-Create `src/components/blocks/Listing/RobotsTemplate.tsx`:
+Create {file}`src/components/blocks/Listing/RobotsTemplate.tsx`:
 
 ```tsx
 import React from 'react';
@@ -422,16 +438,14 @@ const RobotsTemplate = ({ items, linkTitle, linkHref, isEditMode }) => {
               key={item['@id']}
             >
               <Card item={showLink ? item : null}>
-                {(item.image_field !== '' || placeholderSrc) && (
-                  <Card.Image
-                    className="item-image"
-                    item={item}
-                    showPlaceholderImage={true}
-                    placeholderSrc={placeholderSrc}
-                    imageComponent={PreviewImageComponent}
-                    sizes={`(max-width: ${config.settings.layout.tabletBreakpoint}px) 100vw, ${Math.trunc(config.settings.layout.defaultContainerWidth / 2)}px`}
-                  />
-                )}
+                <Card.Image
+                  className="item-image"
+                  item={item}
+                  showPlaceholderImage={true}
+                  placeholderSrc={placeholderSrc}
+                  imageComponent={PreviewImageComponent}
+                  sizes={`(max-width: ${config.settings.layout.tabletBreakpoint}px) 100vw, ${Math.trunc(config.settings.layout.defaultContainerWidth / 2)}px`}
+                />
                 <Card.Summary>
                   <Summary item={item} />
                 </Card.Summary>
@@ -460,25 +474,54 @@ export default RobotsTemplate;
 ```
 
 **Key Features:**
-- Uses `config.getComponent()` to fetch registered Summary/Actions components by content type
-- `showLink` ensures cards are only clickable when appropriate
-- `isEditMode` disables navigation during editing
-- Dynamically renders Actions only for content types that have them registered
-- Renders a `<ul>` of `<li>` elements, matching VLT's own listing templates, so assistive technology announces the item count
-- Passes `item` to `Card` rather than a bare URL, so content types with their own link behavior, such as File, resolve correctly
-- Passes `sizes` and the placeholder props to `Card.Image`, exactly as VLT's own variations do
+
+- Uses `config.getComponent()` to fetch the Summary and Actions components registered for each content type
+- Renders actions only for content types that have an Actions component registered
+- Always renders the image slot, so a robot without a photo shows a placeholder, and every card in a row has the same shape
+- Passes `null` to `Card` in edit mode, or when the Summary sets `hideLink`, so that the card is not a link there
+- Passes `item` to `Card` rather than a bare URL, so that content types with their own link behavior, such as File, resolve correctly
+- Renders a `<ul>` of `<li>` elements, matching VLT's own listing templates, so assistive technology announces the number of items
 
 ```{important}
 Write a variation by starting from the VLT variation closest to what you want—here that is `GridTemplate`, since the fleet is a two-column card grid—and change only what has to change.
 
-The two additions above are a good illustration of why. `sizes` tells the browser how wide the image will actually render, so that it downloads the right scale; omit it and the cards look soft for no visible reason. `showPlaceholderImage` and `placeholderSrc` keep the grid from collapsing on an item that has no image. Neither is obvious from the outside, and both come for free by following the shape of the template you are adapting.
+The image props illustrate why. `sizes` tells the browser how wide the image will actually render, so that it downloads the right scale; omit it and the cards look soft for no visible reason. It is not obvious from the outside, and it comes for free by following the shape of the template you are adapting.
 
-The same applies to the stylesheet in the next step.
+The same applies to the stylesheet in Step 5.
+```
+
+The fleet deviates from `GridTemplate` in one deliberate place.
+`GridTemplate` renders `Card.Image` only when an item has an image, or when a placeholder is registered for its content type.
+`RobotsTemplate` always renders it, with `showPlaceholderImage`, so a robot without a photo shows Volto's default placeholder image instead of an empty space.
+
+To show a robot-specific placeholder instead, add an image to your add-on, for example {file}`src/assets/robot-placeholder.svg`, and register it for the `robot` type in {file}`src/config/settings.ts`:
+
+```typescript
+import robotPlaceholderImage from '../assets/robot-placeholder.svg';
+
+export default function install(config: ConfigType) {
+  // ... previous configuration ...
+
+  config.settings.placeholderImages = {
+    ...config.settings.placeholderImages,
+    robot: robotPlaceholderImage,
+  };
+
+  return config;
+}
+```
+
+The key is the content type id, the same one you registered the Summary and Actions components against.
+VLT's Teaser block and its own listing variations read the same setting, so a robot without a photo shows the same placeholder there.
+
+```{note}
+Do not put the placeholder in a folder named {file}`icons`.
+Volto loads SVG files from {file}`icons` folders as inline icons rather than as image files, so they cannot be used as the source of an image.
 ```
 
 ### Step 4: Register RobotsTemplate
 
-Update `src/config/blocks.ts`:
+Update {file}`src/config/blocks.ts`:
 
 ```typescript
 import RobotsTemplate from '../components/blocks/Listing/RobotsTemplate';
@@ -500,18 +543,18 @@ export default function install(config: ConfigType) {
 }
 ```
 
+The Listing block adds the id of the selected variation to its classes, so the block renders as `.block.listing.robots`, which the stylesheet in the next step targets.
+
 ### Step 5: Add Styles
 
-The fleet is a two-column card grid, which is what VLT's own `grid` variation already is—so the stylesheet is that variation's rules, repeated for `robots`, plus the two things the grid variation has no equivalent for: the card surface, and the actions row.
+The fleet is a two-column card grid, which is what VLT's own `grid` variation already is.
+The stylesheet repeats that variation's rules for `robots`, and adds the two things the grid variation has no equivalent for: the card surface, and the actions row.
 
-Create `src/theme/blocks/_listing.scss`:
+Create {file}`src/theme/blocks/_listing.scss`:
 
 ```scss
-// The Robot Fleet variation is a two-column card grid, which is exactly what
-// VLT's own `grid` variation already is. These rules mirror `.block.listing.grid`
-// in VLT's `theme/blocks/_listing.scss` and `theme/_layout.scss`; the only
-// additions are the card surface and the actions row, which the grid variation
-// has no equivalent for.
+// The rules below mirror `.block.listing.grid` in VLT's
+// `theme/blocks/_listing.scss` and `theme/_layout.scss`.
 
 // VLT constrains most listing variations per item, and the grid variation as a
 // whole. A card grid needs the second treatment, so repeat for `robots` what
@@ -628,10 +671,15 @@ Create `src/theme/blocks/_listing.scss`:
       // The fleet's own addition: the Card.Actions slot, which none of VLT's
       // variations fill.
       .actions-wrapper {
+        // Raise the actions above the card's link overlay, which covers the
+        // whole card, so that the buttons receive clicks. VLT does the same
+        // for additional links inside a card.
+        position: relative;
+        z-index: 1;
         // The last of the stretching boxes: `auto` here is what pins the
         // actions to the bottom of a card that is taller than its content.
         margin-top: auto;
-        padding: $spacing-small $spacing-small 0 $spacing-small;
+        padding: $spacing-medium $spacing-small 0 $spacing-small;
         text-align: right;
 
         .book-unit-button {
@@ -662,67 +710,52 @@ Create `src/theme/blocks/_listing.scss`:
 }
 ```
 
-Import in `src/theme/_main.scss`:
+Import the partial in {file}`src/theme/_main.scss`, next to the other block partials:
 
 ```scss
-@import './blocks/button';
-@import './blocks/cover';
-@import './blocks/grid';
 @import './blocks/listing';
-@import './blocks/slider';
-@import './blocks/teaser';
-@import './robotSummary';
 ```
 
 ### Step 6: Test the Fleet Listing
 
-1. Add a few robots, such as **ARM-7 Bench Arm**, **ROVER-2 Terrain Scout**, **QUAD-4 Walker**, and **DRONE-1 Surveyor**, each with a description, a charge level in the kicker, and an image
-2. Add a Listing block to a page
-3. Select the **Robot Fleet** variation in the block settings
-4. Configure the block to list the Robot content type
-5. Each robot appears with its image, summary, charge level, and a Book button
+1. Add a few robots, such as **ARM-7 Bench Arm**, **ROVER-2 Terrain Scout**, **QUAD-4 Walker**, and **DRONE-1 Surveyor**, each with a description, a charge level in the kicker, and an image.
+2. Add a Listing block to a page.
+3. Select the **Robot Fleet** variation in the block settings.
+4. Configure the block to list the Robot content type.
+5. Each robot appears with its image, summary, charge level, and a Book button, and selecting a Book button does not open the robot's page.
+6. Add a robot without an image. Its card shows the placeholder, and has the same shape as the others.
+
+(light-theme-slots-label)=
 
 ## Working with Slots
 
-VLT provides slots for extending the layout without component shadowing. Let's create a practical example: a sign-up form for **Signal**, the Robotarium's workshop bulletin, in the preFooter slot.
+VLT provides slots for extending the layout without component shadowing. This section adds a practical example: a sign-up form for **Signal**, the Robotarium's workshop bulletin, in the `preFooter` slot.
 
 ### Available Slots
 
-Volto core renders three slots, and VLT's header, footer, and listing add the rest:
+Volto renders four slots itself, and VLT's header and footer add the others.
+Several of them already contain components when you start:
 
-| Slot | Where | Arrives with |
-| --- | --- | --- |
-| `aboveApp` | Outermost, around the whole app | `plone-components-css` |
-| `aboveContent` | Above the content view | — |
-| `belowContent` | Below the content view | **`tags` and `relatedItems`** |
-| `aboveHeader` | Above the header | — |
-| `belowHeader` | Below the header | — |
-| `headerTools` | Header, top right | Anontools |
-| `preFooter` | Before the footer | — |
-| `footer` | Main footer area | VLT's footer |
-| `postFooter` | After the footer | — |
-| `footerLinks` | Footer links section | VLT's footer links |
-| `followUs` | Social media section | — |
-| `aboveListingItems` | Inside a Listing block, above the items | — |
+| Slot | Where it renders | Rendered by | Registered by default |
+| --- | --- | --- | --- |
+| `aboveApp` | Around the whole app | Volto | `plone-components-css`, in the CMS UI only |
+| `aboveContent` | Above the content | Volto | — |
+| `belowContent` | Below the content | Volto | `tags`, `relatedItems` |
+| `aboveListingItems` | Inside a Listing block, above the items | Volto and VLT | — |
+| `aboveHeader` | Above the header | VLT | `Theming`, `StickyMenu` |
+| `belowHeader` | Below the header | VLT | — |
+| `headerTools` | Top right of the header, and in the mobile menu | VLT | `Anontools` |
+| `preFooter` | Top of the footer | VLT | `footerLogos`, `MobileStickyMenu` |
+| `footer` | Main footer area | VLT | `coreFooter`, only with the `kitconcept.footer` behavior |
+| `postFooter` | Bottom of the footer | VLT | `PostFooterFollowUsLogoAndLinks`, `Colophon` |
+| `followUs` | Social media links, inside `postFooter` | VLT | `FollowUs`, from `@plonegovbr/volto-social-media` |
+| `footerLinks` | Footer links, inside `postFooter` | VLT | — |
 
-```{important}
-Most slots start empty, but `belowContent` does not.
-Volto registers `tags` and `relatedItems` into it by default, so every content view already renders a tag list and a related-items list before you add anything.
-
-Because the last registration wins, and add-on configuration runs after core's, you displace a built-in by re-registering its name with a component that renders nothing:
-
-    config.registerSlotComponent({
-      slot: 'belowContent',
-      name: 'relatedItems',
-      component: () => null,
-    });
-
-Check what a slot already contains before you register into it.
-```
+The `followUs` slot only renders when the site has social media links, and `footerLinks` only when it has footer links.
 
 ### Step 1: Create the Signal Sign-up Component
 
-Create `src/components/SignalSignup/SignalSignup.tsx`:
+Create {file}`src/components/SignalSignup/SignalSignup.tsx`:
 
 ```tsx
 import React, { useState } from 'react';
@@ -769,12 +802,14 @@ export default SignalSignup;
 
 ### Step 2: Add Styles
 
-Create `src/theme/_signalSignup.scss`:
+Create {file}`src/theme/_signalSignup.scss`:
 
 ```scss
-// VLT pads the footer's first child with `#footer > :first-child:not(:empty)`
-// (1,1,0). The sign-up band brings its own padding and its own background, so
-// that padding shows up as a gap in the footer's gradient above it.
+// VLT pads every non-empty container in the footer, with
+// `#footer > .container:not(:empty)`. The sign-up band brings its own padding
+// and its own background, so that padding would show up as a gap in the
+// footer's gradient above it. Both selectors have the same specificity, and
+// this one wins because it loads later.
 #footer > .pre-footer:has(.signal-signup) {
   padding: 0;
 }
@@ -846,22 +881,15 @@ Create `src/theme/_signalSignup.scss`:
 }
 ```
 
-Import in `src/theme/_main.scss`:
+Import the partial at the end of {file}`src/theme/_main.scss`:
 
 ```scss
-@import './blocks/button';
-@import './blocks/cover';
-@import './blocks/grid';
-@import './blocks/listing';
-@import './blocks/slider';
-@import './blocks/teaser';
-@import './robotSummary';
 @import './signalSignup';
 ```
 
 ### Step 3: Register the Component to the Slot
 
-In `src/config/settings.ts`:
+In {file}`src/config/settings.ts`:
 
 ```typescript
 import SignalSignup from '../components/SignalSignup/SignalSignup';
@@ -879,7 +907,9 @@ export default function install(config: ConfigType) {
 }
 ```
 
-The Signal sign-up now appears before the footer on every page, demonstrating how slots let you extend the layout without shadowing core components.
+The Signal sign-up now appears at the top of the footer on every page, after any footer logos, which shows how slots let you extend the layout without shadowing core components.
+
+(light-theme-swap-components-label)=
 
 ## Swapping Structural Components
 
@@ -935,7 +965,7 @@ Both implementations now sit in the registry, and nothing renders differently ye
 config.settings.vlt.components.navigation = 'robotarium';
 ```
 
-That is the whole change. VLT's header resolves the navigation through the registry when it renders, so it picks up your component. Every other role keeps its `vlt` default, and VLT's own navigation stays registered under `vlt`—so reverting is a one-line edit, not a file deletion.
+That is the whole change. VLT's header resolves the navigation through the registry when it renders, so it picks up your component. Every other role keeps its `vlt` default, and VLT's own navigation stays registered under `vlt`, so reverting is a one-line edit, not a file deletion.
 
 The same two steps swap any of the nine roles.
 
@@ -948,52 +978,17 @@ The same two steps swap any of the nine roles.
 - **Typed.** The keys of `config.settings.vlt.components` are a fixed set, so a misspelled role is a compile error rather than a silent no-op.
 
 ```{note}
-Your add-on must be applied after `@kitconcept/volto-light-theme` so that `config.settings.vlt` exists when you assign to it.
-Keeping VLT last in your project add-on's `addons` list, as set up in the first chapter, is enough.
+Your add-on's configuration must run after VLT's, so that `config.settings.vlt` exists when you assign to it.
+It does, because VLT is listed in your add-on's `addons`, and Volto applies the add-ons that an add-on declares before the add-on itself.
 ```
 
-## Site Customization Behaviors
-
-VLT provides backend behaviors for site customization that you activated earlier. These behaviors enable fields for customizing the site without code changes.
-
-### Header Customization Options
-
-Through the Plone UI, you can customize:
-- **Site logo**: Main logo in the top left
-- **Complementary logo**: Second logo on the right side
-- **Fat menu**: Enabled by default, can be disabled
-- **Intranet header**: Alternative header for intranet sites
-- **Site flag**: The colored pill at the top left of the header
-- **Actions**: Links at the top right
-
-### Theme Customization Options
-
-- Navigation text color
-- Fat menu and breadcrumbs text color
-- Fat menu background color
-- Footer font color
-- Footer background color
-
-### Footer Customization Options
-
-- **Footer links**: Additional links with title, URL, and new tab option
-- **Footer logos**: List of logos with links and customizable size (small/large) and container width (default/layout)
-- **Footer colophon text**: Customizable last line of footer
+(light-theme-block-model-v3-label)=
 
 ## Block Model v3 (opt-in)
 
-```{note}
-Block Model v3 is a beta feature. It's recommended to only use it when all blocks in your registry are v3-compatible (indicated by banner in block's GitHub repository).
-```
-
-Block Model v3 introduces a unified container architecture that ensures consistent styling and spacing between View and Edit modes. This eliminates the previous issues where Edit mode appeared different from View mode.
-
-### Key Benefits
-
-- Consistent rendering across View and Edit modes
-- Simplified CSS with standardized container structure
-- Improved spacing control through block categories
-- Reduced maintenance overhead
+Block Model v3 gives every block the same two containers in view mode and in edit mode, so a block looks the same while you edit it as it does on the published page.
+VLT 8 ships it as an opt-in.
+The Robotarium keeps the default, Block Model v2, and this section explains what changes when you switch.
 
 (bm3-two-container-label)=
 
@@ -1020,23 +1015,16 @@ Every block in Block Model v3 follows this structure:
 └────────────────────────────────────────────────────────────┘
 ```
 
-**Main/Outer Container:**
-- Spans the full layout width
-- Handles background colors and theme variables
-- Uses padding (not margin) for vertical spacing
-- CSS Classes: `.block.${type}.category-${category}`
-
-**Secondary/Inner Container:**
-- Controls content width constraints
-- Provides consistent inter-block spacing
-- Supports content alignment through CSS Grid
-- CSS Class: `.block-inner-container`
+The outer container uses padding rather than margin for vertical spacing, so that its background has no gaps.
+In edit mode, VLT renders the same two containers, and adds the editing controls after the inner container.
 
 ### Enable Block Model v3
 
-VLT ships with `config.settings.blockModel = 2` and copies that value onto each block it has migrated. Opting in means setting the flag and re-applying it to those blocks, because they read the value at the time VLT was configured—which is before your add-on runs.
+VLT sets `config.settings.blockModel = 2`, and copies that value to each block it has migrated: `slate`, `title`, `gridBlock`, and the Button block, `__button`.
+Those blocks keep the value they had when VLT's configuration ran, which is before your add-on runs.
+To switch, set the flag, and copy it to those blocks again.
 
-In your project's `src/config/settings.ts`:
+In your project's {file}`src/config/settings.ts`:
 
 ```typescript
 export default function install(config: ConfigType) {
@@ -1045,9 +1033,12 @@ export default function install(config: ConfigType) {
   // Enable Block Model v3 globally
   config.settings.blockModel = 3;
 
-  // Re-apply it to the blocks VLT has migrated
-  for (const type of ['slate', 'title', '__button']) {
-    config.blocks.blocksConfig[type].blockModel = config.settings.blockModel;
+  // Re-apply it to the blocks VLT has migrated.
+  // The Button block only exists if its add-on is installed.
+  for (const type of ['slate', 'title', 'gridBlock', '__button']) {
+    if (config.blocks.blocksConfig[type]) {
+      config.blocks.blocksConfig[type].blockModel = config.settings.blockModel;
+    }
   }
 
   return config;
@@ -1055,87 +1046,102 @@ export default function install(config: ConfigType) {
 ```
 
 ```{important}
-Check each block's repository for the "BMv3 ready" banner before you flip it.
+A block that stays on v2 still renders, but without the two containers, so it can look different from its neighbors.
+Enable v3 only when every block your site uses supports it.
+Block repositories that support it show a "BMv3 ready" badge.
 ```
+
+(light-theme-block-categories-label)=
 
 ### Block Categories
 
-Block categories determine spacing relationships between adjacent blocks, through the `category-${category}` class on the outer container. They are set at `config.blocks.blocksConfig.[$type].category`.
+Under v3, VLT's stylesheet sets the width of a block's inner container, and the space before the next block, according to the block's category.
+The category is set at `config.blocks.blocksConfig[type].category`, and it becomes a `category-${category}` class on the outer container.
+Vertical spacing between blocks comes from the **upper** block: its content sits flush with the top of its container, and the bottom padding creates the space before the next block.
 
 VLT already assigns categories to the blocks it has migrated, so you do not need to repeat them:
 
-| Category | Blocks | Spacing behavior |
-| --- | --- | --- |
-| `inline` | `slate` | Flows as body text |
-| `title` | `title` | Opens a section |
-| `action` | `__button` | A call to action |
-| `cards` | `gridBlock` | Self-contained visual units |
+| Category | Assigned to | Width of the inner container | Spacing adjustments, by the category of the neighboring block |
+| --- | --- | --- | --- |
+| `inline` | `slate` | narrow | no space before `separator`, more space before `action` or `heading` |
+| `title` | `title` | default | no top padding on a `cards` block that follows |
+| `action` | `__button` | the width chosen for the block | no space before `separator`, more space before `cards` or `inline` |
+| `cards` | `gridBlock` | default | more space before `action` or `inline` |
 
-Your own blocks need a category too, and the useful instinct is to reach for one of these four before inventing a fifth. The Cover block renders a self-contained visual unit with its own background, which is what `cards` already describes, so it can reuse it.
+VLT's stylesheet also has rules for a few categories that no block in VLT or in the recommended add-ons assigns yet, such as `heading` and `separator`.
 
-These two lines go in {file}`src/config/blocks.ts`, **after** the Cover registration from the previous chapter. They are worth adding even with the flag left at `2`—`blockModel` simply picks up whatever `config.settings.blockModel` currently holds:
+Your own blocks can have a category too.
+Reuse one of the four only if both its width rule and its spacing fit the block.
+The Cover block is a self-contained unit, like the cards in a Grid, but `cards` fixes the inner container at the default width.
+Under v3, that rule is more specific than the Cover's own `max-width`, so the Block Width control would stop working.
+
+When none of the categories fits, add your own.
+Name it for the family of blocks it describes rather than for the block that prompted it, and give it rules, because a category only means something if your stylesheets act on the `category-*` class it produces.
+The Robotarium adds a `showcase` category, for full-width sections that bring their own background and padding, such as the Cover.
+
+Add these two lines to {file}`src/config/blocks.ts`, after the Cover registration from the previous chapter:
 
 ```typescript
-config.blocks.blocksConfig.cover.category = 'cards';
+config.blocks.blocksConfig.cover.category = 'showcase';
 config.blocks.blocksConfig.cover.blockModel = config.settings.blockModel;
 ```
+
+They are worth adding even with the flag left at `2`: the Cover then follows whatever `config.settings.blockModel` holds, and `BlockWrapper` in its view reads the same value.
+Under v2, the category has no effect, because only v3 renders the `category-*` class.
 
 ```{warning}
 The file matters here, and so does the position within it.
 
-{file}`src/index.ts` calls `installSettings` before `installBlocks`, so at the time {file}`config/settings.ts` runs, `config.blocks.blocksConfig.cover` does not exist yet—putting these lines there alongside `config.settings.blockModel = 3` throws. They have to run after the block is registered, and after the flag is set, which {file}`config/blocks.ts` satisfies on both counts.
+{file}`src/index.ts` calls `installSettings` before `installBlocks`, so at the time {file}`config/settings.ts` runs, `config.blocks.blocksConfig.cover` does not exist yet, and the lines above would throw an error there.
+They have to run after the block is registered, and after the flag is set, which {file}`config/blocks.ts` satisfies on both counts.
 ```
 
-Add a category of your own only when a block genuinely spaces differently from all four. When you do, name it for the family it opens rather than for the block that prompted it, and remember that a category only means something if your stylesheets act on the `category-*` class it produces.
+Then give the category its rules.
+Create {file}`src/theme/_categories.scss`:
 
-Vertical spacing between blocks is provided by the **upper block**:
-- Block content should be flush with top of container
-- Bottom padding creates space for following block
-- Different category combinations may have specific spacing adjustments
+```scss
+// Block Model v3 spacing for the `showcase` category: full-width sections
+// with their own background and padding, such as the Cover block.
+// VLT writes its category rules for `:not(.blocks-group-wrapper) > .block`,
+// which matches the blocks that Block Model v3 renders, and these rules
+// follow the same pattern.
+:not(.blocks-group-wrapper) > .block.category-showcase {
+  // A showcase keeps its padding inside its own background, so the space
+  // before the next block goes on the outer container.
+  padding-bottom: $block-vertical-space;
 
-### View Mode Structure
+  // Leave more space before text and buttons, and none before a separator.
+  &:has(+ .category-inline),
+  &:has(+ .category-action) {
+    padding-bottom: $spacing-xlarge;
+  }
 
-```tsx
-<div
-  style="$StyleWrapperStyles"
-  className="block $type category-$category $StyleWrapperClassNames"
->
-  <div className="block-inner-container">
-    {View component}
-  </div>
-</div>
+  &:has(+ .category-separator) {
+    padding-bottom: 0;
+  }
+}
 ```
 
-### Edit Mode Structure
+Import the partial at the end of {file}`src/theme/_main.scss`:
 
-```tsx
-<div
-  style="$StyleWrapperStyles"
-  className="block $type category-$category $StyleWrapperClassNames"
->
-  <div className="block-inner-container">
-    {Edit component}
-  </div>
-  <div className="block-edit-helpers">
-    {/* Delete block button, move block buttons, etc. */}
-  </div>
-</div>
+```scss
+@import './categories';
 ```
 
-Notice how the actual block content remains identical in both modes, while the framework containers handle all the differences in layout and editing functionality.
+Unlike `cards`, `showcase` sets no width, so the Cover's own stylesheet still decides it, and the Block Width control keeps working.
+
 ### The `volto-bm3-compat` add-on
 
-Block Model v3 changes the markup a block renders into, so blocks written against the older model need their styles adapting. `@kitconcept/volto-bm3-compat` bridges that gap, and VLT declares it as an add-on of its own, so it is already in your dependency tree if you followed the install chapter.
-
-Check the block's repository for the "BMv3 ready" banner before enabling the new model on a block you did not write.
+`@kitconcept/volto-bm3-compat` provides the `BlockWrapper` component that you used in the Cover view.
+It lets one view work under both block models, rendering the wrappers that v2 needs and leaving them out under v3.
+VLT depends on it and declares it as an add-on, and you also listed it in your project add-on in the first chapter, because your view imports from it.
 
 ## Checkpoint
 
-- `config.settings.vlt.components` lists the nine swappable roles, each still set to `vlt`. Naming a component that was never registered under one of them falls back to VLT's own rather than rendering nothing.
-- The Signal sign-up form appears above the footer on every page.
-- A Listing block set to the **Robot Fleet** variation shows each charge level as a labelled bar, the Book buttons line up along the bottom of the cards whatever the description lengths, and tabbing through the page reaches every robot title as a link.
+- The Signal sign-up form appears at the top of the footer on every page.
+- A Listing block set to the **Robot Fleet** variation shows each charge level as a labelled bar, the Book buttons line up along the bottom of the cards whatever the description lengths, selecting a Book button does not open the robot's page, a robot without a photo shows a placeholder, and tabbing through the page reaches every robot title as a link.
 - The same robot in a Teaser block renders the same title, description, and charge bar as it does in the fleet listing.
-- If—and only if—you enabled Block Model v3, a Slate block renders inside a `.block-inner-container` and looks the same in edit mode as in view mode. With the flag left at `2`, as the Robotarium leaves it, every block still renders through the v2 path.
+- If—and only if—you enabled Block Model v3, a Text block renders inside a `.block-inner-container` and looks the same in edit mode as in view mode, and the Cover renders with the `category-showcase` class and still follows its Block Width control. With the flag left at `2`, as the Robotarium leaves it, blocks render as before.
 
 ## Further Reading
 
@@ -1143,5 +1149,4 @@ Check the block's repository for the "BMv3 ready" banner before enabling the new
 - [Slots reference](https://volto-light-theme.readthedocs.io/reference/slots.html)
 - [Card primitive reference](https://volto-light-theme.readthedocs.io/reference/card.html)
 - [Summary components](https://volto-light-theme.readthedocs.io/how-to-guides/summary.html)
-- [Site customization](https://volto-light-theme.readthedocs.io/conceptual-guides/site-customization.html)
 - [Block Model v3](https://volto-light-theme.readthedocs.io/conceptual-guides/block-model-v3.html)
