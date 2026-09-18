@@ -11,23 +11,27 @@ myst:
 
 # Content types I
 
+```{card}
 In this part you will:
 
 - Learn about content types
 - Customize existing types
 - Create a content type through the web
-
+```
 
 (dexterity1-what-label)=
 
 ## What is a content type?
 
-A content type instance is a kind of object that can store information and is editable by users.
+A content type is a kind of object that can store information and is editable by users.
 We have different content types to reflect the different kinds of information about which we need to collect and display information.
 
 Pages, events, news items, files (binary) and images are all content types.
 
-See "Features of Plone – {ref}`features-content-types-label`" for an overview.
+```{seealso}
+
+See {ref}`features-content-types-label` for an overview of Plone's built-in content types.
+```
 
 It is common in developing a web site that you'll need customized versions of common content types, or perhaps even entirely new types.
 
@@ -46,28 +50,29 @@ Every Plone content type has the following parts:
 
 Schema
 
-: A definition of fields that comprise a content type, properties of an object.
+: A definition of fields that can be stored and edited for a content item with this type.
 
-FTI
+Factory Type Information (FTI)
 
-: The "Factory Type Information" configures the content type in Plone, assigns it a name, additional features and available views to it.
+: The "Factory Type Information" is a specification stored in the `portal_types` tool which configures the content type in Plone, assigns it a name, additional features and available views to it.
 
 Views
 
 : A view is a representation of the object and the content of its fields that may be rendered in response to a request.
 You may have _one or more_ views for an object.
-Some may be _visual_ — intended for display as web pages — others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
+Some may be _visual_, intended for display as web pages.
+Others may be intended to satisfy AJAX requests and render content in formats like JSON or XML.
 
 ## Schemas, Fields and Values
 
 In a schema you can model fields that are used to store data.
-Plone automatically creates forms bases on the schemata of a content type to add and edit content.
+Plone automatically creates forms to add and edit content based on the schemas of a content type.
 
 Values of these fields are attributes on content objects.
 
-Here is a example that shows how to access and modify these values in python:
+Here is a example that shows how to access and modify these values in Python:
 
-```pycon
+```python
 >>> obj.title
 'A Newsitem'
 >>> obj.description
@@ -83,25 +88,33 @@ b'\x89PNG\r\n\x1a\n\x00\x00\x00\...'
 
 ## Behaviors
 
-Content types can have additional schemata. These are called behaviors.
+Content types can have additional schemas.
+These are called behaviors.
 They are meant to be used across content types to add shared functionality.
 
 One example is the ability of most content types to allow them to be excluded from the navigation.
 The field is available on all types even though it is not defined in their schema.
 Instead it is provided by the behavior `plone.excludefromnavigation` that most content types use.
 
-Each behavior schema can define fields. The values of these fields are again attributes on content objects.
+Each behavior schema can define fields.
+The values of these fields are again attributes on content objects.
 
-The behavior `plone.excludefromnavigation` adds a attribute `exclude_from_nav` to each object. The value is either `True` or `False` because it is a boolean field.
+The behavior `plone.excludefromnavigation` adds a field `exclude_from_nav` to each object.
+The value is either `True` or `False` because it is a boolean field.
+
 
 (dexterity1-modify-label)=
 
-## Modifying existing types
+## Modify an existing content type schema
 
 For now, we will not code anything.
 We will only use the Plone web interface features.
 
-- Go to the {guilabel}`Content Types` control panel at http://localhost:3000/controlpanel/dexterity-types.
+- Go to the {guilabel}`Content Types` control panel at <http://localhost:3000/controlpanel/dexterity-types>.
+
+  ```{note}
+  "Dexterity" is the internal name of Plone's content type system.
+  ```
 
 - Inspect some of the existing default types.
 
@@ -148,32 +161,40 @@ We will only use the Plone web interface features.
 
 (dexterity1-create-ttw-label)=
 
-## Creating content types TTW
+## Create a content type through the web
 
-In this step we will create a content type called `Talk` and try it out. When it's ready we will move the code from the web to the file system and into our own add-on. Later we will extend that content type.
+In this step we will create a content type called `Talk` and try it out.
+When it's ready, we will move the code from the web to the filesystem and into our own add-on.
+Later we will extend that content type.
 
-- Add new content type "Talk" and some fields for it:
+- Go to the {guilabel}`Content Types` control panel: <http://localhost:3000/controlpanel/dexterity-types>.
+- Use the add button at upper left to add a new content type "Talk".
+- Edit the schema of the Talk content type and add some fields to it:
 
-  - {guilabel}`Add new field` "Type of talk", type "Choice". Add options: talk, keynote, training.
-  - {guilabel}`Add new field` "Details", type "Rich Text" with a maximal length of 2000.
-  - {guilabel}`Add new field` "Audience", type "Multiple Choice". Add options: beginner, advanced, pro.
-  - Check the behaviors that are enabled: _Dublin Core metadata_, _Name from title_. Do we need them all?
+  - **Type of talk**, type "Choice". Add possible values: Talk, Training, Keynote.
+  - **Details**, type "Rich Text" with a maximum length of 2000.
+  - **Audience**, type "Multiple Choice". Add possible values: Beginner, Advanced, Professional.
+
+- Save the schema.
+
+- Check the behaviors that are enabled: _Dublin Core metadata_, _Name from title_. Do we need them all?
 
 - Test the content type.
 
-- Return to the control panel <http://localhost:8080/Plone/@@dexterity-types>
+- Return to the control panel: <http://localhost:3000/controlpanel/dexterity-types>.
 
-- Extend the new type: add the following fields:
+- Extend the new type by adding the following fields:
 
-  - "Speaker", type: "Text line"
-  - "Email", type: "Email"
-  - "Image", type: "Image", not required
-  - "Speaker Biography", type: "Rich Text"
+  - **Speaker**, type: "Text line"
+  - **Email**, type: "Email"
+  - **Image**, type: "Image", not required
+  - **Speaker Biography**, type: "Rich Text"
 
 - Test again.
 
 ````{note}
-The schema you created through the web is stored as XML in the database. Here is the complete XML schema created by our actions:
+The schema you created through the web is stored as XML in the database.
+Here is the complete XML schema created by our actions:
 
 ```{code-block} xml
 :linenos:
@@ -215,7 +236,7 @@ The schema you created through the web is stored as XML in the database. Here is
       <title>Speaker</title>
     </field>
     <field name="email" type="plone.schema.email.Email">
-      <description>Adress of the speaker</description>
+      <description>Email of the speaker</description>
       <title>Email</title>
     </field>
     <field name="image" type="plone.namedfile.field.NamedBlobImage">
@@ -234,7 +255,8 @@ The schema you created through the web is stored as XML in the database. Here is
 ```
 ````
 
-It's awesome that we can do so much through the web and great for prototyping or small projects. But it's also a dead end if we want to reuse this content type in other sites.
+It's awesome that we can do so much through the web and great for prototyping or small projects.
+But it's also a dead end if we want to reuse this content type in other sites.
 
 Also, for professional development, we want to be able to use version control for our work, and we'll want to be able to add the kind of business logic that will require programming.
 
@@ -247,26 +269,24 @@ Using Python to define the schema gives us much more control (e.g. for validatio
 
 ### Exercise 1
 
-Modify Pages to allow uploading an image as decoration (like News Items do).
+Modify the Page content type to allow uploading an image as decoration (like News Items do).
 
 ```{dropdown} Solution
 :animate: fade-in-slide-down
 :icon: question
 
-- Go to the dexterity control panel (<http://localhost:8080/Plone/@@dexterity-types>)
-- Click on *Page* (<http://127.0.0.1:8080/Plone/dexterity-types/Document>)
-- Select the tab *Behaviors* (<http://127.0.0.1:8080/Plone/dexterity-types/Document/@@behaviors>)
+- Go to the Content Types control panel (<http://localhost:3000/controlpanel/dexterity-types>)
+- Click on *Page* (<http://localhost:3000/controlpanel/dexterity-types/Document>)
+- Select the tab *Behaviors*
 - Check the box next to {guilabel}`Lead Image` and save.
 
 The images are displayed above the title.
 ```
 
 ## Further reading
-- Documentation {doc}`plone6docs:backend/fields`
-- [Example content type](https://github.com/collective/example.contenttype) A Plone content type with all available fields
-
-Plone 5 documentation
-- [Dexterity Developer Manual](https://5.docs.plone.org/external/plone.app.dexterity/docs/index.html)
-- [The standard behaviors](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html)
-- [Dexterity XML](https://5.docs.plone.org/external/plone.app.dexterity/docs/reference/dexterity-xml.html)
-- [Model-driven types](https://5.docs.plone.org/external/plone.app.dexterity/docs/model-driven-types.html#model-driven-types)
+- Plone documentation about
+  - {doc}`plone6docs:backend/content-types/index`
+  - {doc}`plone6docs:backend/schemas`
+  - {doc}`plone6docs:backend/fields`
+  - {doc}`plone6docs:backend/behaviors`
+- [Example content type](https://github.com/collective/example.contenttype) - A Plone content type with all available fields

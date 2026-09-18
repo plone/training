@@ -1,68 +1,45 @@
 ---
 myst:
   html_meta:
-    "description": "Creating a release of an add-on"
-    "property=og:description": "Creating a release of an add-on"
-    "property=og:title": "Releasing your code"
-    "keywords": "Plone, Volto, release, open source"
+    "description": "How to put your Plone website online"
+    "property=og:description": "How to put your Plone website online"
+    "property=og:title": "Deploy in production"
+    "keywords": "Plone, Volto, deploy, release, production, open source"
 ---
 
-# Releasing your code
+# Deploy in production
 
 We finally have some working code!
-Depending on your policies, you need repeatable deployments and definitive versions of software.
-That means you don't just run your production site with your latest source code from your source repository.
-You want to work with Python wheels/eggs and npm releases.
+But the conference website we've built isn't very useful if no one else can access it.
 
-```{note}
-You may want to move your add-on from your repository to the [Plone collective of add-ons](https://github.com/collective/) if it's relevant for general use cases.
+Production deployments are not the main focus of this training, but let's take a brief look at what can happen next.
 
-Please contact the community on [community.plone.org](https://community.plone.org/) for a release.
+## Release the add-on
+
+Production deployments should ideally use a specific released version of add-ons.
+This avoids accidentally deploying changes when development of the add-on continues.
+
+In this case, we should release the add-on `mastering-plone-votable-add-on` that we've been developing.
+
+The add-on template from Cookieplone comes with tools to release the backend Python package on {term}`PyPI` and the frontend Volto package on {term}`npm`.
+
+It uses _RepoPlone_ which has a single command (`repoplone release`) to release both packages at once.
+See https://github.com/plone/repoplone for details.
+
+```{warning}
+Please don't actually make a release of `mastering-plone-votable-add-on`.
+Once the name has been claimed by one person, other participants in the class would not be able to make a release with the same name.
+You can practice with a different add-on.
 ```
 
+Then update the project's {file}`pyproject.toml` and {file}`mrs.developer.json` to use the released packages instead of the still-being-developed local packages that were used in {doc}`voting-story/index`.
 
-## Releasing your backend add-on
+## Deploy using containers
 
-When you are ready with development and tests are OK, you can release your package.
+The Cookieplone project template comes with tools to build your project as container images that can be run using Docker or container-based hosting providers.
 
-Test your add-on with 
+You may have already noticed the start of this deployment pipeline.
+Whenever you push a change to the project repository in GitHub, an automated workflow builds new container images.
 
-```shell
-make check
-```
-
-We are releasing the Python package on PyPI.
-Go to [pypi.org](https://pypi.org) and create an account as explained in https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#create-an-account.
-
-The package created with cookieplone is prepared for releasing with [`zest.releaser`](https://github.com/zestsoftware/zest.releaser/).
-Run `fullrelease` in the root directory of your add-on.
-
-```shell
-fullrelease
-```
-
-% TODO Finish section on releasing backend add-on. Package is generated with cookieplone.
-
-
-## Releasing your frontend add-on
-
-When you are ready with development and tests are OK, you can release your package.
-
-Frontend add-ons are Node packages and are released on https://www.npmjs.com.
-So, please create an account (https://docs.npmjs.com/getting-started/setting-up-your-npm-user-account) and configure your local environment (https://docs.npmjs.com/getting-started/configuring-your-local-environment).
-
-Have a look at the Makefile of your add-on.
-You'll see that it is already prepared for a release.
-The following command starts a dialog to release the package.
-
-```{code-block} console
-make release
-```
-
-You may want to trigger a test run before with
-
-```{code-block} console
-make release-dry-run
-```
-
-Congratulation!
+The remaining part is to actually run those images somewhere.
+Another training, {doc}`../plone-deployment/index`, shows how to do this on any Linux-based virtual server.

@@ -9,23 +9,14 @@ on:
 jobs:
   build_deploy:
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: training.plone.org
       url: https://training.plone.org
     steps:
       - uses: actions/checkout@v7
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-          cache: 'pip'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -q -r requirements.txt -c constraints.txt
-          pip freeze
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.1.0
 
       - name: Prepare deploy
         run: make deploy
