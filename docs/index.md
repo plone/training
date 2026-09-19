@@ -17,7 +17,6 @@ A collection of trainings developed and created by the Plone community.
 :hidden: true
 
 mastering-plone/index
-volto-customization/index
 customizing-volto-light-theme/index
 plone-deployment/index
 migrations/index
