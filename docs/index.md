@@ -91,9 +91,14 @@ documentation/index
 Beginning in 2022, after every Plone Conference, we take a snapshot and archive trainings conducted at the conference.
 Because we began this practice in 2022, all previous trainings that have documentation were archived.
 
+### 2025
+
+#### Volto, React, and Javascript
+
+-   {doc}`training2025:volto-customization/index`
+
 
 ### 2024
-
 
 #### Development and Customization
 
