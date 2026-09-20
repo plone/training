@@ -59,7 +59,7 @@ The {file}`frontend` folder contains Volto and our custom frontend code and conf
 Clone the [`mastering-plone-project` repository](https://github.com/collective/mastering-plone-project).
 
 ```shell
-git clone git@github.com:collective/mastering-plone-project.git
+git clone -b initial git@github.com:collective/mastering-plone-project.git
 cd mastering-plone-project
 ```
 
