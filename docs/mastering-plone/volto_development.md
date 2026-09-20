@@ -46,9 +46,9 @@ Here are some extensions we recommend when using VSCode:
 
 - `Easy Snippet`: Turn your selection into a snippet.
 - `autoDocstring`: Generates python docstrings.
-- JSON Crack: Seamlessly visualize JSON data instantly into graphs.
-- MyST-Markdown: Official markdown syntax extension for MyST (Markedly Structured Text)
-- Plone Snippets
+- `JSON Crack`: Seamlessly visualize JSON data instantly into graphs.
+- `MyST-Markdown`: Official markdown syntax extension for MyST (Markedly Structured Text)
+- `Plone support for VSCode`: ZCML and TAL language support, snippets for XML, Python, JavaScript and React.
 - `EsLint`: Statically analyzes your code to find problems.
 
 Editor support for `ReactJS` development is explained in {doc}`Effective Volto training: VSCode extensions and helpers <training2024:effective-volto/development/vscode>`.
@@ -91,7 +91,7 @@ We will request REST API endpoints of the backend later with actions.
 A variables value can of course always be printed to the developer tools console with `console.debug("var_name", var_name)`.
 But if you want to see values inside rendered components, than this can be done by including `{var_name}`.
 
-If the value is an `Object`, than this is also possible by stringifying it:
+If the value is an `Object`, then this is also possible by stringifying it:
 Just include `{JSON.stringify(var_name_object)}` in your components `html` code.
 
 **Troubleshooting "Python import cannot be resolved"**

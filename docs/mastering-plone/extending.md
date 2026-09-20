@@ -149,7 +149,7 @@ ZCML files are like a phone book.
 
 ```{epigraph}
    Explicit is better than implicit
-   
+
    -- The Zen of Python
 ```
 
@@ -200,7 +200,8 @@ Examples of a profile of an add-on in `profile/default/`
 ```
 
 Most settings are stored in a tool called `portal_registry`.
-Since it has great import/export handlers for Generic Setup, it can be configured with {file}`registry/main.xml`:
+Since it has great import/export handlers for Generic Setup, it can be configured with xml-files.
+Each profile can have a folder {file}`registry` that can contain many xml-files so you can organize your settings in a sane way.
 
 {file}`registry/main.xml`:
 
