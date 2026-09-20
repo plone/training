@@ -9,7 +9,7 @@ myst:
 
 (volto-custom-block-label)=
 
-# Create a custom block 
+# Create a custom block
 
 ````{card}
 
@@ -225,7 +225,6 @@ const FAQ = ({ data }) => {
 
 export default FAQ;
 ```
-````
 
 ## Edit form
 
@@ -292,7 +291,7 @@ export default FAQSidebar;
 ## Register the block in Volto config
 
 What's left to do?
-You created a block type with view and edit form and even a nice widget for the editor to fill in questions and answers. 
+You created a block type with view and edit form and even a nice widget for the editor to fill in questions and answers.
 We still need to register the block type in the Volto configuration so that Volto knows it exists.
 
 Add the file {file}`frontend/volto-ploneconf-site/src/config/blocks.ts`.
