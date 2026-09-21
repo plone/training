@@ -1,74 +1,62 @@
 ---
 myst:
   html_meta:
-    "description": "Introduction to Plone Deployment with Ansible and Docker"
+    "description": "Introduction to Plone Deployment Training 2026"
     "property=og:description": "Learn how to deploy Plone efficiently and robustly using Ansible and Docker."
-    "property=og:title": "Plone Deployment with Ansible and Docker"
+    "property=og:title": "Plone Deployment Autonomously"
     "keywords": "Plone, Deployment, Ansible, Docker, Training"
 ---
 
 # Introduction
 
 This training provides practical guidance for deploying Plone in production.
-It focuses on automating deployments so you can reliably transform a fresh Linux server into a production-ready Plone instance.
+
+In line with last year's (2025) deployment training, this training still focusses on automating Plone deployments. As opposed to last year, instead of letting participants practise with setting up cookieplone, and use the devops/ansible templates in cookieplone in a single repository to set up a single host, I want to present a possible 'end result', once you start customising and personalising the setup for your own organisation.
 
 ## Target Audience
 
-Whether you are looking to deploy on a newly created cloud server on {term}`AWS`, {term}`Linode`, or {term}`DigitalOcean`,
-or considering a virtual machine on your personal computer for testing, this training is tailored for you.
+This training will show intermediate/experienced developers and system administrators how you can use the available community tooling to set up a more elaborate training setup, with a multi-node cluster. Where we extend the cookieplone generated default scaffolding to customise the setup for use at an integrator or client.
 
 ## Objectives
 
-- Describe the lifecycle of a Plone project.
-- Achieve repeatable deployments.
-- Ensure consistency across multiple deployment instances.
-- Impart knowledge on the tools reflecting the Plone community's preferences.
+- Understand the current cookieplone scaffolding scope, and where you should start to customise the setup for your own purposes
+- Demonstrate a small multi-node cluster, which adds extra deployment config and requirements.
+- Showcase the challenges when you deploy multiple projects with colleagues/friends to a single cluster.
+- Document a setup you could host yourself fully without using any cloud/saas services.
+- Document a full GitLab CI/CD configuration
 
-## Different types of Plone codebases
+## Digital Autonomy / Sovereignty
 
-In the Plone ecosystem there are three common codebase types:
+The main theme of Plone Conference 2026 is "Own your digital future" and autonomy. For training purposes, convenience and exposure, the Plone Community has been using GitHub for many years now. We use GitHub to develop Plone to a large extent, but also host Documentation, training materials, and use GitHub's CI/CD automation, both for Plone deliverables and for educational purposes. We also use GitHub Container Registry to save images, and use the provided cloud hosted runners.
 
-| Type | Definition | Example |
-| --  | -- | -- |
-| Distribution  | An opinionated packaging of Plone, usually focused on a vertical market or specific use case. | kitconcept Intranet, Quaive, ioCommune |
-| Add-On  | A package (or group of packages) that extends Plone with new features. | EEA Accordion, Volto Form Support, Volto Light Theme, Collective Tech Event |
-| Project  | A specific implementation of Plone (or a Plone-based distribution) used to create a site, intranet, or knowledge base. | Plone Conference Site, Plone.org, DLR.de |
+But what if you want to develop, test and deploy a Plone website fully autonomously, from your own managed servers and fully open source software also for the tooling? GitLab is currently the best known source code platform with integrated CI/CD and many other features, distributed under a license that you can install on your own servers. It also has good enough features in the open source edition, where you are not obligated (but still can) extend GitLab with extra paid features, either self-hosted or SaaS.
 
-Add-ons are typically tested against a matrix of supported versions: backend add-ons against multiple Python and Plone versions, and frontend add-ons against Node and Volto version matrices. Distributions are released with a narrower, opinionated set of pinned dependencies to reduce integration complexity.
+There are other existing open source projects where you can host your source code, run automations, run tests and deploy, but you have to integrate them yourself. Forgejo is a promising project that packages the existing projects further in a fully open source GitHub/GitLab replacement, of which I wonder if future trainings could be built on it.
 
-Project codebases generally require strict repeatability and therefore pin exact dependency versions.
-For projects managed with `zc.buildout`, it has been best practice to include a `versions.cfg` file that controls package versions. In this training we follow the same principle: we use a backend lockfile ( `uv.lock`) and `pnpm-lock.yaml` for the frontend.
+## From abstraction to instance, main deliverables
 
-(deployment-training-choices)=
+The 'value' of this training is mainly in two example repositories, which have been generated with Cookieplone, and then extended / customised to cater for real-world scenarios, when you start working together on several Plone projects using containerisation as the deployment strategy.
 
-### Training choices
+This is the part that you don't see in public repositories/setups, as the setup becomes customised for the specific demands of a single organisation or Plone integrator. And we don't share the details of those setups, for security reasons, and because documenting our individual permutation (code control tool X, with CI solution Y, with config/solution Z) is too niche.
 
-#### Linux
+The Plone Community doesn't have the resources to support and maintain 'production grade' fully abstracted scaffolding in cookieplone for all the combinations of these required tooling, CI/CD solution, and Server Deployments. This training is an experiment where we begin with a specific end result in mind: an autonomous training cluster that can lead to a production deployment.
 
-While BSD, macOS, and Windows are viable options, the Plone community predominantly prefers Linux for production servers.
-However, any system capable of running Python should suffice for development purposes.
+## GitLab.com
 
-#### Major Distributions
+We will use gitlab.com as a hosted service so that we have exposure, and don't need to set up a full GitLab locally hosted instance. If time permits, I also want to offer you to experiment in the afternoon with deploying a project to our demo cluster. But you can also host GitLab yourself. From there on everything else (ci/cd, deployment) is running on systems you host and manage yourself.
 
-We recommend Ubuntu LTS for server deployments. Debian and other stable distributions with up-to-date packages are also supported.
+## Kubernetes
 
-#### Platform Packages
+This edition of the training still does not cover Kubernetes. Last year's (2025) deployment training documented our interest in providing Kubernetes examples, but we didn't manage so far as a community. In that regard, this year's training could be a starting point, where we begin with a 'customised' setup, and then swap out the docker swarm containerisation part of the setup for a small kubernetes cluster.
 
-Prefer using distribution-packaged system packages where practical to benefit from automatic security updates and easier maintenance. Favor stability and maintainability over running the absolute latest upstream versions on production systems.
 
-#### Ansible
+## History of this training
 
-Ansible is a natural fit for our automation needs: it's agentless, written in Python, and uses readable YAML playbooks. Its idempotent design and role-based structure make it a good choice for repeatable server provisioning.
+Working at a Plone integrator (kitconcept), we got a request in 2026 to organise and give a full in-house training program for a client. Before this request, I already had the idea of a 'playcluster' at the beginning of 2026 for internal use at kitconcept. A training ground where we can set up a cluster with Ansible, where everything can be done and broken, no customer projects involved, by whoever wants to train and experiment on devops.
 
-#### Docker and Docker Swarm
+A secondary wish was to have a full GitLab CI/CD setup documented. With GitLab's option to self-host, and adding a bit more digital autonomy on the runner, a fully 'stand alone' Plone deployment pipeline was the new goal.
 
-Containers provide consistency and repeatability. Docker (and Docker Compose for local orchestration) is used throughout this training; Docker Swarm is the recommended option for lightweight orchestration in production scenarios covered here.
+Cookieplone has reached traction in the community, has excellent documentation now on both docs.plone.org and on its own documentation at <https://plone.github.io/cookieplone/>, and got a major update this year with interesting new features.
 
-#### GitHub and GitHub Actions
+Combined with the insight that we have a grey area between local development setup and 'serious' deployment setup, the idea was to do a 'show and tell' training instead of trying to provide an interactive training this year.
 
-With Plone's development anchored on GitHub, the community is gravitating towards GitHub Actions for new packages.
-The principles outlined are adaptable to GitLab, Jenkins, and similar platforms.
-
-#### Kubernetes
-
-This edition of the training does not cover Kubernetes, but we expect to include Kubernetes-based deployment patterns in a future update. The Plone community maintains Helm charts that can be used as a starting point: https://github.com/plone/helm-charts
