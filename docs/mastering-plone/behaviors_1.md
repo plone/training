@@ -171,7 +171,7 @@ We will see marker interfaces and behavior adapters in chapter {doc}`./voting-st
 
 (behaviors1-adding-label)=
 
-## Enable the behavior on our talk
+## Enable the behavior on News Item
 
 ````{only} not presentation
 We could add this behavior now via the Content Types control panel in Site Setup.
@@ -184,24 +184,21 @@ It helps keep things consistent between your development copy of the site and a 
 
 ````
 
-We add the behavior to {file}`backend/src/ploneconf/site/profiles/default/types/talk.xml`:
+We add the behavior to {file}`backend/src/ploneconf/site/profiles/default/types/News_Item.xml`:
 
 ```{code-block} xml
-:emphasize-lines: 8
 :linenos:
 
 <?xml version="1.0"?>
-<object name="talk" meta_type="Dexterity FTI" i18n:domain="plone"
+<object name="New Item" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-   ...
- <property name="behaviors">
-  <element value="plone.dublincore"/>
-  <element value="plone.namefromtitle"/>
+ <property name="behaviors" purge="False>
   <element value="ploneconf.featured"/>
  </property>
- ...
 </object>
 ```
+
+`purge="False"` will keep all existing behaviors that are already enabled for News Item.
 
 After a restart and the reinstallation of the product we now have the new field we added through the behavior:
 
