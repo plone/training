@@ -21,6 +21,7 @@ customizing-volto-light-theme/index
 plone-deployment/index
 migrations/index
 content-editing/index
+blicca-customization-training/index
 ```
 
 ```{toctree}
