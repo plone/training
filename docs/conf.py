@@ -14,24 +14,23 @@ from datetime import datetime
 # import sys
 # sys.path.insert(0, os.path.abspath("."))
 
-
 # -- Project information -----------------------------------------------------
 
 project = "Plone Training"
 copyright = "Plone Foundation"
+archive_year = "2026"  # Update on `main` when archiving
+archive_year_dot = archive_year  # Comment when archiving to a `YYYY` branch
+# archive_year_dot = archive_year + "."  # Uncomment when archiving to a `YYYY` branch
+archive_year_space = " " + archive_year
+project = f"Plone Training{archive_year_space}"
 author = "Plone community"
 trademark_name = "Plone"
-now = datetime.now()
-year = str(now.year)
-
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = year
-# The full version, including alpha/beta/rc tags.
-release = year
+release = version = archive_year
 
 
 # -- General configuration ----------------------------------------------------
@@ -254,7 +253,7 @@ graphviz_output_format = "svg"
 
 # -- OpenGraph configuration ----------------------------------
 
-ogp_site_url = "https://training.plone.org/"
+ogp_site_url = f"https://{archive_year_dot}training.plone.org/"
 ogp_description_length = 200
 ogp_image = "https://training.plone.org/_static/Plone_logo_square.png"
 ogp_site_name = "Plone Training"
