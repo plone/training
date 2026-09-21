@@ -7,7 +7,7 @@ myst:
         "keywords": "Plone, Blicca, Classic UI, Mockup, Patternslib, Svelte, JavaScript, training, customization"
 ---
 
-(blicca-label)=
+(blicca-js-stack-insights-label)=
 
 # Blicca JS stack insights — how to customize Mockup
 
