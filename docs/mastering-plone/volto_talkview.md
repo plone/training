@@ -48,7 +48,7 @@ The default visualization for the new content type `talk` lists the field values
 
 We will create a custom view for the talk content type in order to show the talk data in a nice way, display the speaker portrait, and add some components.
 
-In the folder {file}`frontend` you need to add a new file {file}`packages/volto-ploneconf-site/src/components/Views/Talk.jsx`.
+In the folder {file}`frontend` you need to add a new file {file}`packages/volto-ploneconf-site/src/components/Views/TalkView.jsx`.
 Create the folder {file}`Views` first.
 
 As a first step, the file will hold only a placeholder.
