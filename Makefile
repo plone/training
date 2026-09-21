@@ -175,14 +175,14 @@ changes: venv/bin/python
 
 .PHONY: linkcheck
 linkcheck: venv/bin/python  ## Run linkcheck
-	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
+	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck -W $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
 		"or in $(BUILDDIR)/linkcheck/ ."
 
 .PHONY: linkcheckbroken
 linkcheckbroken: venv/bin/python  ## Run linkcheck and show only broken links
-	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck | GREP_COLORS='0;31' grep -wie "broken" --color=auto
+	cd $(DOCS_DIR) && $(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck | GREP_COLORS='0;31' grep -wi "broken\|redirect" --color=auto || test $$? = 1
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
 		"or in $(BUILDDIR)/linkcheck/ ."
@@ -205,7 +205,7 @@ doctest: venv/bin/python
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
 .PHONY: test
-test: clean linkcheckbroken  ## Clean docs build, then run linkcheckbroken
+test: clean linkcheck  ## Clean docs build, then run linkcheck
 
 .PHONY: deploy
 deploy: clean html
