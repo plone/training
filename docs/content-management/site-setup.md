@@ -113,7 +113,7 @@ Settings that affect the overall site behavior and presentation.
 
 **Key Settings:**
 - **SMTP Server** – Address of outgoing mail server
-  - Example: smtp.gmail.com
+  - Example: `smtp.gmail.com`
 - **SMTP Port** – Port number for SMTP connection
   - Default: 25 (standard), 587 (TLS), 465 (SSL)
 - **SMTP Username** – Username for SMTP authentication
