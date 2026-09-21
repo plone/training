@@ -192,13 +192,13 @@ We add the behavior to {file}`backend/src/ploneconf/site/profiles/default/types/
 <?xml version="1.0"?>
 <object name="New Item" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="behaviors" purge="False>
+ <property name="behaviors" purge="false">
   <element value="ploneconf.featured"/>
  </property>
 </object>
 ```
 
-`purge="False"` will keep all existing behaviors that are already enabled for News Item.
+`purge="false"` will keep all existing behaviors that are already enabled for News Item.
 
 After a restart and the reinstallation of the product we now have the new field we added through the behavior:
 
