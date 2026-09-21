@@ -27,7 +27,7 @@ Tools and techniques covered:
 
 ````{card}
 
-Check out `mastering-plone-project` at tag "overrides":
+Check out `mastering-plone-project` at tag `overrides`:
 
 ```shell
 git checkout overrides
