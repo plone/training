@@ -63,30 +63,6 @@ Enable the behavior `plone.eventbasic` for talks in {file}`backend/src/ploneconf
 
 After you activate the behavior by hand or reinstalled the add-on, you will now have some additional fields for `start`, `end`, `open_end` and `whole_day`.
 
-````{note}
-While we're editing behaviors we can also add our own "featured" behavior to News Items.
-
-Add {file}`backend/src/ploneconf/site/profiles/default/types/News_Item.xml`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-        meta_type="Dexterity FTI"
-        name="News Item"
-        i18n:domain="plone"
->
-  <property name="behaviors"
-            purge="false"
-  >
-    <element value="ploneconf.featured" />
-  </property>
-</object>
-```
-
-Because the behaviors are specified with `purge="false"`,
-the new one will be added without removing any existing behaviors.
-
-````
 
 ## Display the dates
 
