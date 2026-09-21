@@ -35,7 +35,7 @@ Vale is a linter for narrative text.
 It checks spelling, English grammar, and style guides.
 Plone documentation uses a custom spelling dictionary, with accepted and rejected spellings in `styles/Vocab/Plone`.
 
-Use your operating system's package manager to [install Vale](https://vale.sh/docs/install).
+Use your operating system's package manager to [install Vale](https://docs.vale.sh/topics/installation).
 
 Vale also has integrations with various IDEs.
 

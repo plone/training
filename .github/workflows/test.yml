@@ -16,7 +16,7 @@ jobs:
         run: |
           sudo snap install --edge vale
 
-      - name: Run tests with make test (includes clean and linkcheckbroken)
+      - name: Run tests with `make test` (clean and linkcheck)
         run: make test
 
       - name: Run Vale
