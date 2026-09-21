@@ -163,7 +163,7 @@ ZCML files are like a phone book.
 ```
 
 ```{only} not presentation
-Another tool for configuring Plone using XML files is {term}`Generic Setup`.
+Another tool for configuring Plone using XML files is {term}`GenericSetup`.
 
 Generic Setup organizes XML configuration files in a _profile_.
 When the profile is applied, it will update persistent settings stored in the database.
