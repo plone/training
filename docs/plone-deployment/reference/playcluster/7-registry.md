@@ -10,7 +10,7 @@ myst:
 
 # 7. The registry in detail
 
-% Exported from training-deployment-playcluster 00fc574 by
+% Exported from training-deployment-playcluster b880f28 by
 % docs/export_to_training.py. Do not edit this copy; edit the repository.
 
 ```{note}
@@ -150,14 +150,21 @@ The second pattern, `**`, matches the cache repositories as well. Which of the
 two policies zot applies to them is the thing to confirm in the dry-run logs
 before you switch deletion on.
 
-It ships with **`dryRun: true`**: zot only logs what it *would* delete. After a
-few pipelines have run, read those log lines and check that each policy matches
-the repositories you expect — overlapping patterns are the part to look at
+The first deployment ran with **`dryRun: true`**: zot then only logs what it
+*would* delete. Its log confirmed that the cache repositories get the `**/cache`
+policy (`retained by mostRecentlyPushedCount:1 policy`), and `dryRun` is now
+`false`. Switch it back on whenever you change the policies, and read the log
+lines before you let it delete — overlapping patterns are the part to look at
 yourself:
 
 ```shell
 ssh root@play4.playcluster.plone.org 'cd /srv/registry && docker compose logs registry | grep -i retention'
 ```
 
-When you are satisfied, set `registry.retention.dryRun: false` and redeploy the
-registry.
+Each line is JSON: `repository`, `tag`, `decision` (`keep` or `delete`) and
+`reason`, the policy that decided. When you are satisfied, set
+`registry.retention.dryRun: false` and redeploy only the registry:
+
+```shell
+uv run ansible-playbook playbooks/setup_ci.yml --limit standalone --tags registry
+```

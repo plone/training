@@ -10,7 +10,7 @@ myst:
 
 # 6. Connecting GitLab
 
-% Exported from training-deployment-playcluster 00fc574 by
+% Exported from training-deployment-playcluster b880f28 by
 % docs/export_to_training.py. Do not edit this copy; edit the repository.
 
 ```{note}
