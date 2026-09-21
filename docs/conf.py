@@ -4,8 +4,6 @@
 
 # -- Path setup --------------------------------------------------------------
 
-from datetime import datetime
-
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -18,9 +16,9 @@ from datetime import datetime
 
 project = "Plone Training"
 copyright = "Plone Foundation"
-archive_year = "2026"  # Update on `main` when archiving
-archive_year_dot = archive_year  # Comment when archiving to a `YYYY` branch
-# archive_year_dot = archive_year + "."  # Uncomment when archiving to a `YYYY` branch
+archive_year = "2026"  # ARCHIVE: Update on `main` when archiving
+archive_year_dot = ""  # ARCHIVE: Delete when archiving to a `YYYY` branch
+# archive_year_dot = archive_year + "."  # ARCHIVE: Uncomment when archiving to a `YYYY` branch
 archive_year_space = " " + archive_year
 project = f"Plone Training{archive_year_space}"
 author = "Plone community"
@@ -123,6 +121,7 @@ html_sidebars = {
 }
 
 html_theme_options = {
+    # "announcement": f"⚠️ You are viewing the {archive_year} version of Plone Training. <a href='https://training.plone.org/'>View the latest version</a>. ⚠️",  # ARCHIVE: Uncomment when archiving to a `YYYY` branch.
     "article_header_start": ["toggle-primary-sidebar", "chapter-title"],
     "extra_footer": """<p>The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license. Plone and the Plone® logo are registered trademarks of the Plone Foundation, registered in the United States and other countries. For guidelines on the permitted uses of the Plone trademarks, see <a href="https://plone.org/foundation/logo">https://plone.org/foundation/logo</a>. All other trademarks are owned by their respective owners.</p>
     <p>Pull request previews by <a href="https://readthedocs.org/">Read the Docs</a>.</p>""",
@@ -180,7 +179,7 @@ html_theme_options = {
         },
     ],
     "logo": {
-        "text": "Plone Training 2026",
+        "text": f"Plone Training{archive_year_space}",
     },
     "navigation_with_keys": True,
     "path_to_docs": "docs",
@@ -255,8 +254,8 @@ graphviz_output_format = "svg"
 
 ogp_site_url = f"https://{archive_year_dot}training.plone.org/"
 ogp_description_length = 200
-ogp_image = "https://training.plone.org/_static/Plone_logo_square.png"
-ogp_site_name = "Plone Training"
+ogp_image = f"https://{archive_year_dot}training.plone.org/_static/Plone_logo_square.png"
+ogp_site_name = f"Plone Training{archive_year_space}"
 ogp_type = "website"
 ogp_custom_meta_tags = [
     '<meta property="og:locale" content="en_US" />',
@@ -278,7 +277,7 @@ notfound_template = "404.html"
 # -- Options for sphinx_sitemap to HTML -----------------------------
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org/"
+html_baseurl = f"https://{archive_year_dot}training.plone.org/"
 # https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#customizing-the-url-scheme
 sitemap_url_scheme = "{link}"
 
