@@ -156,7 +156,7 @@ The result isn't beautiful, because the text sticks to the left border of the pa
 You need to wrap it in a `Container` to get the same styling as the content of `DefaultView`:
 
 ```{code-block} jsx
-:emphasize-lines: 1,6-7,11,13
+:emphasize-lines: 1,3,6-7,11,13
 
 import { Container as SemanticContainer } from 'semantic-ui-react';
 import DefaultView from '@plone/volto/components/theme/View/DefaultView';
