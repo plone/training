@@ -242,7 +242,7 @@ This trick does not yet work in Volto because some CSS classes are still missing
 
 Modify {file}`frontend/theme/extras/custom.overrides` and add:
 
-```less
+```css
 /* Hide date fields from contributors */
 body.userrole-contributor {
   #default-start.field,
