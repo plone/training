@@ -41,7 +41,7 @@ Vale also has integrations with various IDEs.
 
 -   [JetBrains](https://plugins.jetbrains.com/plugin/19613-vale-cli/docs)
 -   [Vim](https://github.com/dense-analysis/ale)
--   [VS Code](https://github.com/errata-ai/vale-vscode)
+-   [VS Code](https://github.com/vale-cli/vale-vscode)
 
 Plone documentation uses a file located at the root of the repository, `.vale.ini`, to configure Vale.
 This file allows overriding rules or changing their severity.
