@@ -67,6 +67,12 @@ documentation/index
 :   How to edit content and manage a Plone site.
 
 
+## Blicca JS stack insights - how to customize mockup
+
+{doc}`blicca-customization-training/index`
+:   How to configure, create and customize mockup patterns and override existing Svelte components in `@plone/registry`.
+
+
 ## Other
 
 {doc}`migrations/index`
