@@ -205,7 +205,7 @@ doctest: venv/bin/python
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
 .PHONY: test
-test: clean linkcheckbroken  ## Clean docs build, then run linkcheckbroken
+test: clean linkcheck  ## Clean docs build, then run linkcheck
 
 .PHONY: deploy
 deploy: clean html
