@@ -24,6 +24,19 @@ This chapter is a multi-part case study in which you will create an add-on to al
   - Add-on creation with {term}`Cookieplone`
 ````
 
+```{toctree}
+---
+name: toc-voting-story
+maxdepth: 1
+hidden:
+---
+
+behaviors_2
+endpoints
+volto_actions
+permissions
+```
+
 ## The add-on concept
 
 Program committee members shall vote for talks to be accepted or rejected.
