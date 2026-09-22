@@ -67,11 +67,17 @@ linkcheck_ignore = [
     r"http://0.0.0.0",
     r"http://127.0.0.1",
     r"http://example.com",
+    r"https://chromewebstore.google.com/",  # Redirects to consent page that requires auth
     r"https://docutils.sourceforge.io/",  # Blocked as crawler
+    r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://github.com/search",  # always rate limited, causes linkcheck to stall
-    r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
+    r"https://www.npmjs.com/",  # tests say 403 Server Error, but manually they work
+    r"https://www.merriam-webster.com/",  # tests say 403 Server Error, but manually they work
     r"https://www.linode.com/.*",  # tests say 500 Server Error, but manually they work
+    # Ignore static file downloads
+    r"^/_static/",
+    r"^/_images/",
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
@@ -203,7 +209,9 @@ html_extra_path = [
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+html_static_path = [
+    "_static",
+]
 
 
 # -- Options for MyST markdown conversion to HTML -----------------------------
