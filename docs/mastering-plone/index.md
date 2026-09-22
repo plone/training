@@ -35,7 +35,6 @@ For Plone Blicca see training {doc}`training2024:theming/index`, training {doc}`
 :name: toc-mastering
 :maxdepth: 3
 :numbered: 2
-:glob:
 
 about_mastering
 intro
