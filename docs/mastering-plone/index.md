@@ -67,7 +67,7 @@ volto_components_sponsors
 custom_block
 user_generated_content
 relations
-voting-story/*
+voting-story/index
 deployment_code
 appendix
 ```

@@ -109,6 +109,9 @@ master_doc = "index"
 exclude_patterns = [
 ]
 
+suppress_warnings = [
+    "toc.secnum",  # Suppress warnings about nested toctree numbering
+]
 
 # -- Options for HTML output -------------------------------------------------
 

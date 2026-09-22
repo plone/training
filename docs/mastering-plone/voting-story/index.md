@@ -24,6 +24,19 @@ This chapter is a multi-part case study in which you will create an add-on to al
   - Add-on creation with {term}`Cookieplone`
 ````
 
+```{toctree}
+---
+name: toc-voting-story
+maxdepth: 1
+hidden:
+---
+
+behaviors_2
+endpoints
+volto_actions
+permissions
+```
+
 ## The add-on concept
 
 Program committee members shall vote for talks to be accepted or rejected.
@@ -182,14 +195,16 @@ Then run `make frontend-install`.
 In this case you do not need a new entry in {file}`pnpm-workspace.yaml`, because mrs-developer clones the add-on repository in {file}`mastering-plone-project/frontend/packages`.
 ````
 
-## Next steps
+# Next steps
 
 You are now ready to implement your voting behavior in the new add-on repository.
 
 The **voting story** continues in the next chapters:
 
 ```{toctree}
-:maxdepth: 1
+---
+maxdepth: 1
+---
 
 behaviors_2
 endpoints
