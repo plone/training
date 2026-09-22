@@ -125,7 +125,7 @@ Next, we create the factory type information ("FTI") for the new type in {file}`
   <property name="description"
             i18n:translate=""
   />
-  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+  <property name="icon_expr">string:file-earmark-text</property>
   <property name="factory">sponsor</property>
   <property name="add_view_expr">string:${folder_url}/++add++sponsor</property>
   <property name="link_target" />
@@ -166,7 +166,7 @@ Next, we create the factory type information ("FTI") for the new type in {file}`
           category="object"
           condition_expr=""
           description=""
-          icon_expr=""
+          icon_expr="string:toolbar-action/view"
           link_target=""
           title="View"
           url_expr="string:${object_url}"
@@ -178,7 +178,7 @@ Next, we create the factory type information ("FTI") for the new type in {file}`
           category="object"
           condition_expr=""
           description=""
-          icon_expr=""
+          icon_expr="string:toolbar-action/edit"
           link_target=""
           title="Edit"
           url_expr="string:${object_url}/edit"

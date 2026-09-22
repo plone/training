@@ -303,7 +303,7 @@ Here are some basics that you need to understand if you are new to Volto:
 
 - All data is stored in the Plone backend.
   The Volto frontend provides the user interface to display and edit the content.
-- Volto is built in [React](https://www.react.dev), a Javascript library for creating web components.
+- Volto is built in [React](https://react.dev), a Javascript library for creating web components.
 - Volto uses the Plone {doc}`plone6docs:plone.restapi/docs/source/index` to communicate with the Plone backend.
 - Volto is installed separately from the Plone backend.
   See chapter {ref}`installation-install-frontend-label` for instructions.

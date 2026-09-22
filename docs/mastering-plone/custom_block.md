@@ -204,7 +204,7 @@ const FAQ = ({ data }) => {
                       >
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: answer.data,
+                            __html: answer?.data,
                           }}
                         />
                       </AnimateHeight>
