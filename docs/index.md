@@ -67,6 +67,8 @@ documentation/index
 :   How to edit content and manage a Plone site.
 
 ## Managing Content for larger Plone sites
+
+{doc}`content-management/index`
 :   How to manage content for larger Plone sites
 
 ## Other
