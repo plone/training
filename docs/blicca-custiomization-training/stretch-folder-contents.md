@@ -16,7 +16,7 @@ The folder contents view, the `pat-structure` pattern, shows an action menu in e
 The customer wants two changes:
 
 - Edit opens in a modal, instead of leaving the folder contents.
-- Images get an additional action that opens the image cropping editor of [plone.app.imagecropping](https://github.com/plone/plone.app.imagecropping), also in a modal.
+- Images get an additional action that opens the image cropping editor of [plone.app.imagecropping](https://github.com/collective/plone.app.imagecropping), also in a modal.
 
 It combines {ref}`blicca-replace-pattern-label` with a look under the hood of a Backbone-based pattern.
 
