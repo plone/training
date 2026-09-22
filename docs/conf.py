@@ -72,6 +72,8 @@ linkcheck_ignore = [
     r"https://github.com/search",  # always rate limited, causes linkcheck to stall
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://www.linode.com/.*",  # tests say 500 Server Error, but manually they work
+    # Ignore static file downloads
+    r"^/_static/",
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
@@ -203,7 +205,9 @@ html_extra_path = [
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+html_static_path = [
+    "_static",
+]
 
 
 # -- Options for MyST markdown conversion to HTML -----------------------------
