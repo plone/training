@@ -19,7 +19,7 @@ Afterwards we look at how the setup could become something you generate instead 
 
 ### What you get for free
 
-Each group gets its own project in the `plone-training1` group on GitLab.com, as a copy of `training-deployment-gitlabdeploy`.
+Each group gets its own project in the `plone-training1` group on `gitlab.com`, as a copy of `training-deployment-gitlabdeploy`.
 A lot comes with the GitLab group, without any setup in the new project:
 
 - **The runner** on `play4` is a group runner, so it picks up the new project's jobs.
