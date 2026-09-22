@@ -7,7 +7,7 @@ myst:
     "keywords": "Site setup"
 ---
 
-# Plone 6.1+ Site Setup (Control Panel) – Training & Documentation
+# Plone Site Setup (Control Panel)
 
 ## Overview
 
@@ -39,6 +39,7 @@ Settings that affect the overall site behavior and presentation.
 **Purpose:** Configure basic site properties and metadata.
 
 **Key Settings:**
+
 - **Site Title** – The name of your Plone site (appears in page titles and headers)
 - **Site Subtitle** – A tagline or short description of the site
 - **Site Logo** – Upload a logo image for the site
@@ -57,6 +58,7 @@ Settings that affect the overall site behavior and presentation.
 **Purpose:** Set timezone, date formats, and time-related settings.
 
 **Key Settings:**
+
 - **Timezone** – Select the default timezone for content creation and display
   - Options: List of available timezones (e.g., UTC, Europe/Brussels, America/New_York)
 - **Date Format** – Define how dates are displayed throughout the site
@@ -69,6 +71,7 @@ Settings that affect the overall site behavior and presentation.
 **Purpose:** Configure language settings and multilingual support.
 
 **Key Settings:**
+
 - **Available Languages** – Choose which languages are available on the site
   - Options: Checkboxes for each supported language (English, German, French, Spanish, etc.)
 - **Default Language** – Set the default language for new content
@@ -83,6 +86,7 @@ Settings that affect the overall site behavior and presentation.
 **Purpose:** Configure site navigation and menu structure.
 
 **Key Settings:**
+
 - **Generate Automatically** – Auto-generate navigation from folder structure
   - Options: Enabled / Disabled
 - **Root Depth** – How many levels to include in automatic navigation
@@ -96,6 +100,7 @@ Settings that affect the overall site behavior and presentation.
 **Purpose:** Configure search functionality and indexing behavior.
 
 **Key Settings:**
+
 - **Enable Live Search** – Show instant search suggestions as user types
   - Options: Enabled / Disabled
 - **Live Search Results Limit** – Number of suggestions to display
@@ -112,6 +117,7 @@ Settings that affect the overall site behavior and presentation.
 **Purpose:** Configure email settings for notifications and messaging.
 
 **Key Settings:**
+
 - **SMTP Server** – Address of outgoing mail server
   - Example: `smtp.gmail.com`
 - **SMTP Port** – Port number for SMTP connection
@@ -121,7 +127,7 @@ Settings that affect the overall site behavior and presentation.
 - **SMTP Connection Security** – Encryption method
   - Options: None / TLS / SSL
 - **Site E-mail Address** – From address for automated emails
-  - Example: noreply@example.com
+  - Example: `noreply@example.com`
 - **Send Password Reset E-mail** – Allow password reset emails
   - Options: Enabled / Disabled
 - **Enable User Folders** – Create personal folders for each user
@@ -132,19 +138,21 @@ Settings that affect the overall site behavior and presentation.
 **Purpose:** Configure URL rewriting and site accessibility settings.
 
 **Key Settings:**
+
 - **Pretty URLs** – Use clean URLs without .html extensions
   - Options: Enabled / Disabled
 - **Assume URL Rewriting** – Assume web server handles URL rewriting
   - Options: Yes / No
 - **Virtual Hosting** – Configure virtual hosting paths
 - **Canonical URL** – Set the preferred domain/protocol for the site
-  - Example: https://example.com
+  - Example: `https://example.com`
 
 ### Database
 
 **Purpose:** View database connection information and status.
 
 **Key Information:**
+
 - **Database Type** – Type of database in use (e.g., FileStorage, RelStorage)
 - **Database Size** – Current size of the database
 - **Connection Status** – Whether database is connected and healthy
@@ -152,11 +160,12 @@ Settings that affect the overall site behavior and presentation.
 - **Pack Database** – Manual database optimization button
   - Use to reclaim space from deleted content
 
-### Undo
+### Undo (Volto only)
 
 **Purpose:** Configure undo/transaction settings.
 
 **Key Settings:**
+
 - **Enable Undo** – Allow users to undo changes
   - Options: Enabled / Disabled
 - **Keep Undo Transactions** – Number of transactions to keep for undo
@@ -164,24 +173,26 @@ Settings that affect the overall site behavior and presentation.
 - **Undo Limit (Days)** – Maximum age of transactions available for undo
   - Default: 7 days
 
-### Volto Settings
+### Volto Settings (Volto only)
 
 **Purpose:** Configure frontend (Volto) specific options when using React-based frontend.
 
 **Key Settings:**
+
 - **Volto Instance URL** – URL of the Volto frontend
-  - Example: http://localhost:3000
+  - Example: `http://localhost:3000`
 - **Edit URL** – Path for edit mode in Volto
 - **API Endpoint** – URL of the API that Volto should use
 - **OAuth Settings** – Configure OAuth for Volto authentication
 - **Allowed CORS Origins** – Domains allowed to access the API
-  - Example: https://example.com, https://www.example.com
+  - Example: `https://example.com`, `https://www.example.com`
 
 ### Add-ons
 
 **Purpose:** Manage and view installed add-on packages.
 
 **Key Settings:**
+
 - **Installed Add-ons** – List of currently installed packages
 - **Available Add-ons** – List of available (but not yet installed) add-ons
 - **Install** – Install a new add-on package
@@ -200,6 +211,7 @@ Settings related to content types, creation, editing, and display.
 **Purpose:** Manage content type definitions and their properties.
 
 **Key Actions:**
+
 - **View Content Types** – List all available content types
 - **Add Content Type** – Create a new custom content type
 - **Edit Content Type** – Modify existing content type definition
@@ -211,6 +223,7 @@ Settings related to content types, creation, editing, and display.
 - **Export/Import** – Export content type definitions for backup/migration
 
 **Content Type Properties:**
+
 - **Title** – Display name of the content type
 - **Description** – Purpose and usage of this content type
 - **Icon** – Image representation in menus
@@ -224,6 +237,7 @@ Settings related to content types, creation, editing, and display.
 **Purpose:** Configure content editing interface and behavior.
 
 **Key Settings:**
+
 - **Enable Inline Editing** – Allow editing content directly on the page
   - Options: Enabled / Disabled
 - **Rich Text Editor** – Choose default HTML editor
@@ -244,6 +258,7 @@ Settings related to content types, creation, editing, and display.
 **Purpose:** Configure image processing and display settings.
 
 **Key Settings:**
+
 - **Allowed Image Types** – File formats users can upload
   - Options: JPEG, PNG, GIF, TIFF, BMP (checkboxes)
 - **Maximum Image Size** – Max file size in bytes
@@ -264,6 +279,7 @@ Settings related to content types, creation, editing, and display.
 **Purpose:** Configure available content blocks in Volto frontend.
 
 **Key Actions:**
+
 - **Available Blocks** – List of block types that can be added
   - Text, Image, Video, Grid, Listing, Search, Maps, etc.
 - **Required Blocks** – Blocks that must appear in certain content types
@@ -276,6 +292,7 @@ Settings related to content types, creation, editing, and display.
 **Purpose:** Configure how content items can be related to each other.
 
 **Key Settings:**
+
 - **Available Relation Types** – Define custom relationship types
   - Example: "Related To", "Requires", "References"
 - **Bidirectional Relations** – Automatically create reverse links
@@ -290,6 +307,7 @@ Settings related to content types, creation, editing, and display.
 **Purpose:** Create automated actions triggered by content events.
 
 **Key Features:**
+
 - **Trigger Events** – What action starts the rule
   - Options: Workflow transition, Content added, Content modified, State changed
 - **Conditions** – Requirements that must be met
@@ -309,6 +327,7 @@ Settings for user management, authentication, and permissions.
 **Purpose:** Manage individual user accounts on the site.
 
 **Key Actions:**
+
 - **Add User** – Create new user account
   - Set username, password, email
 - **Edit User** – Modify existing user properties
@@ -332,6 +351,7 @@ Settings for user management, authentication, and permissions.
 **Purpose:** Organize users into groups for easier permission management.
 
 **Key Actions:**
+
 - **Create Group** – Create new user group
 - **Edit Group** – Modify group properties
   - Name, description, members
@@ -341,6 +361,7 @@ Settings for user management, authentication, and permissions.
   - Example: Make group "Reviewers" → All members get Reviewer role
 
 **Common Group Types:**
+
 - Editors – Can create/edit content
 - Reviewers – Can approve content for publishing
 - Contributors – Can add content but not publish
@@ -351,6 +372,7 @@ Settings for user management, authentication, and permissions.
 **Purpose:** Manage which groups individual users belong to.
 
 **Key Features:**
+
 - **View Group Membership** – See all groups a user is in
 - **Add User to Group** – Make user a member of a group
 - **Remove User from Group** – Remove group membership
@@ -362,6 +384,7 @@ Settings for user management, authentication, and permissions.
 **Purpose:** Configure default user and group behavior.
 
 **Key Settings:**
+
 - **Allow User Folders** – Create personal folders for each user
   - Options: Enabled / Disabled
 - **User Folder Path** – Where user folders are created
@@ -387,6 +410,7 @@ Settings related to access control, authentication, and data protection.
 **Purpose:** Configure security policies and access control.
 
 **Key Settings:**
+
 - **Enable HTTPS/SSL** – Force encrypted connections
   - Options: Enabled / Disabled
 - **Require HTTPS** – Redirect HTTP to HTTPS
@@ -416,6 +440,7 @@ Settings related to access control, authentication, and data protection.
 **Purpose:** Control what different user roles can do.
 
 **Key Concepts:**
+
 - **Global Roles** – Assigned to all content
   - Manager, Owner, Reviewer, Editor, Contributor, Member, Anonymous
 - **Local Roles** – Assigned per content item
@@ -424,6 +449,7 @@ Settings related to access control, authentication, and data protection.
   - Can add/edit content, publish, delete, manage users, etc.
 
 **Key Actions:**
+
 - **View Role Permissions** – See what each role can do
 - **Add Local Role** – Grant role to user/group on specific content
 - **Remove Local Role** – Revoke role from user/group
@@ -435,6 +461,7 @@ Settings related to access control, authentication, and data protection.
 **Purpose:** Control what HTML tags and attributes are allowed in content.
 
 **Key Settings:**
+
 - **Allowed Tags** – HTML elements users can include in content
   - Common: p, div, span, a, img, strong, em, h1-h6, ul, ol, li
   - Restricted by default: script, iframe, form, etc.
@@ -451,6 +478,7 @@ Settings related to access control, authentication, and data protection.
 **Purpose:** Configure error logging and reporting.
 
 **Key Settings:**
+
 - **Error Logging Level** – How verbose to be
   - Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
 - **Log to File** – Write errors to disk
@@ -474,6 +502,7 @@ Configuration options for experienced administrators.
 **Purpose:** Optimize site performance through caching.
 
 **Key Settings:**
+
 - **Enable Page Caching** – Cache generated HTML pages
   - Options: Enabled / Disabled
 - **Cache Duration** – How long to keep cached pages (in seconds)
@@ -492,6 +521,7 @@ Configuration options for experienced administrators.
 **Purpose:** Manage low-level configuration settings via user interface.
 
 **Key Features:**
+
 - **View Registry** – See all registered configuration keys
 - **Edit Registry Values** – Modify settings directly
   - Interface for strings, integers, booleans, lists, objects
@@ -505,6 +535,7 @@ Configuration options for experienced administrators.
 **Purpose:** Manage CSS and JavaScript resources included in site.
 
 **Key Features:**
+
 - **CSS Registry** – View, enable, disable, edit CSS files
   - Bundle/minify options
   - Conditional loading (IE, mobile, etc.)
@@ -569,7 +600,7 @@ Configuration options for experienced administrators.
 - **Feed Image** – Logo to include in feed
 - **Feed ID** – Unique identifier for the feed
 
-### Actions
+### Actions (Blicca only)
 
 **Purpose:** Configure content actions and menu items.
 
@@ -604,14 +635,10 @@ Additional configuration panels provided by installed packages.
 
 **Common Add-ons Include:**
 
-- **plone.app.dexterity** – Custom content type builder
-- **plone.app.workflowstate** – Workflow management
-- **plone.app.relationfield** – Content relations/linking
 - **plone.app.discussion** – Comments on content
 - **plone.app.multilingual** – Multilingual content management
 - **eea.facetednavigation** – Advanced filtering/faceted search
-- **collective.foldercontents** – Enhanced folder view
-- **plone.app.blocks** – Block-based page layout
+- **collective.easyform** – Forms
 
 ---
 
@@ -635,17 +662,15 @@ Located at the bottom of the Site Setup page.
 ### General Guidelines
 
 1. **Document Changes** – Keep notes of what you configure and why
-2. **Test Before Deploying** – Test in development environment first
+2. **Test Before Deploying** – Test in quality environment first
 3. **Backup Regularly** – Create database backups before major changes
 4. **Review Permissions** – Periodically audit user roles and permissions
-5. **Monitor Performance** – Check caching and resource usage regularly
-6. **Update Add-ons** – Keep installed packages up-to-date for security
-7. **Security First** – Use strong passwords, enable HTTPS, update regularly
+5. **Update Add-ons** – Keep installed packages up-to-date for security
+6. **Security First** – Update regularly
 
 ### Common Tasks
 
 - **Creating a new content type** → Content Management > Content Types > Add
-- **Assigning an editor role** → Users & Groups > Users > Edit user > Add role
 - **Allowing comments on articles** → Advanced > Discussion > Enable for content type
 - **Improving performance** → Advanced > Caching > Enable and configure
 - **Creating content rules** → Content Management > Content Rules > Add
@@ -655,11 +680,10 @@ Located at the bottom of the Site Setup page.
 
 ## Related Resources
 
-- You can see a demo at [SIte setup on a demo plone site](https://classic.demo.plone.org/)@@overview-controlpanel (login as Manager)
+- You can see a demo at [Site setup on a demo plone site](https://classic.demo.plone.org/)@@overview-controlpanel (login as Manager)
 - [Plone Training - Content Editing](https://training.plone.org/content-editing/site-setup-and-configuration.html)
 - [Plone Training - Mastering Plone](https://training.plone.org/mastering-plone/configuring_customizing.html)
 - [Plone Official Documentation](https://plone.org/documentation)
-
 
 ---
 
