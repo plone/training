@@ -177,9 +177,9 @@ The following additional criteria allow us to create a search block constrained 
 ```
 
 ```{seealso}
-For a full list of all existing QueryField declarations see https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml#L197.
+For a full list of all existing QueryField declarations see https://github.com/plone/plone.app.querystring/blob/master/src/plone/app/querystring/profiles/default/registry.xml#L403.
 
-For a full list of all existing operations see https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml#L1.
+For a full list of all existing operations see https://github.com/plone/plone.app.querystring/blob/master/src/plone/app/querystring/profiles/default/registry.xml#L1.
 ```
 
 
