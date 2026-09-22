@@ -9,8 +9,6 @@ myst:
 
 # Plone site setup (control panel)
 
-## Overview
-
 The **Site Setup** (also called "Control Panel") is the central administration interface in Plone where site managers and advanced editors can configure and customize the Plone site. It's accessible to users with the **Manager** role through the gear icon at the bottom left of the Plone interface.
 
 > **Note:** Some control panels are available in both Volto (frontend) and Classic UI (backend). This outline focuses on the **Classic UI**, which provides access to all available configuration options.
@@ -19,14 +17,10 @@ Access path: `http://localhost:8080/Plone/@@overview-controlpanel`
 
 ---
 
-## Table of contents
-
-1. [General configuration](#general-configuration)
-2. [Content management](#content-management)
-3. [Users and groups](#users-and-groups)
-4. [Security and permissions](#security-and-permissions)
-5. [Advanced settings](#advanced-settings)
-6. [Add-ons management](#add-ons-management)
+```{contents} Table of contents
+:depth: 1
+:local: 
+```
 
 ---
 
