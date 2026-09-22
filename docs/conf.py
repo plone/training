@@ -67,6 +67,7 @@ linkcheck_ignore = [
     r"http://0.0.0.0",
     r"http://127.0.0.1",
     r"http://example.com",
+    r"https://chromewebstore.google.com/",  # Redirects to consent page that requires auth
     r"https://docutils.sourceforge.io/",  # Blocked as crawler
     r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
