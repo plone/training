@@ -75,6 +75,7 @@ linkcheck_ignore = [
     r"https://www.npmjs.com/",  # tests say 403 Server Error, but manually they work
     r"https://www.merriam-webster.com/",  # tests say 403 Server Error, but manually they work
     r"https://www.linode.com/.*",  # tests say 500 Server Error, but manually they work
+    r"https://(.*.)?playcluster.plone.org.*",  # we don't commit to keeping this running all the time
     # Ignore static file downloads
     r"^/_static/",
     r"^/_images/",

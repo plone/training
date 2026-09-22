@@ -228,7 +228,7 @@ Ansible does the rest: it installs the runner, registers it with that token, and
 
 Register the runner on a GitLab *group*, rather than on a single project.
 A group runner picks up jobs from every project in that group, so a new project can use the cluster without any extra setup.
-For this training that group is [plone-training1](https://gitlab.com/plone-training1) on GitLab.com; any group on your own GitLab instance works the same way.
+For this training that group is [plone-training1](https://gitlab.com/plone-training1) on `gitlab.com`; any group on your own GitLab instance works the same way.
 
 1. In the group, go to {menuselection}`Build --> Runners`, and choose {guilabel}`New group runner`.
 2. Under **Tags**, enter `docker` and `deploy`.

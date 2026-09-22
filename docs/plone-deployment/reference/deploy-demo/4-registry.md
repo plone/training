@@ -101,7 +101,7 @@ through one. That is why credential selection happens in the shell.
 ```
 
 Here, `REGISTRY_IMAGE_PREFIX` is set, to use the cluster's own registry. On
-GitLab.com the built-in registry is always enabled, and that makes one mistake
+`gitlab.com` the built-in registry is always enabled, and that makes one mistake
 quiet: if `REGISTRY_IMAGE_PREFIX` is missing from a pipeline — typically because
 it was marked *Protected* and the pipeline runs on an unprotected branch — the
 `config` job does not fail. It falls back to GitLab's registry, the build pushes
