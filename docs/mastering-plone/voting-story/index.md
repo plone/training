@@ -182,16 +182,14 @@ Then run `make frontend-install`.
 In this case you do not need a new entry in {file}`pnpm-workspace.yaml`, because mrs-developer clones the add-on repository in {file}`mastering-plone-project/frontend/packages`.
 ````
 
-# Next steps
+## Next steps
 
 You are now ready to implement your voting behavior in the new add-on repository.
 
 The **voting story** continues in the next chapters:
 
 ```{toctree}
----
-maxdepth: 1
----
+:maxdepth: 1
 
 behaviors_2
 endpoints
