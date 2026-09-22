@@ -9,15 +9,15 @@ myst:
 
 # Content Management for larger Plone sites
 
+This is the documentation for managing content for larger Plone sites.
 
 ```{toctree}
-:caption: Content Editing for Plone
+:caption: Content Management for Plone
 :hidden: true
 :maxdepth: 3
 
 site-setup
 ```
-
 
 ```{toctree}
 :caption: Plone Trainings

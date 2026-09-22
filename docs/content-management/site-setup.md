@@ -23,12 +23,14 @@ Access path: `http://localhost:8080/Plone/@@overview-controlpanel`
 
 1. [General Configuration](#general-configuration)
 2. [Content Management](#content-management)
-3. [Users & Groups](#users--groups)
-4. [Security & Permissions](#security--permissions)
+3. [Users & Groups](#users-groups)
+4. [Security & Permissions](#security-permissions)
 5. [Advanced Settings](#advanced-settings)
 6. [Add-ons Management](#add-ons-management)
 
 ---
+
+(general-configuration)=
 
 ## General Configuration
 
@@ -201,6 +203,7 @@ Settings that affect the overall site behavior and presentation.
 - **Activate/Deactivate** – Enable or disable add-on features
 
 ---
+(content-management)=
 
 ## Content Management
 
@@ -318,6 +321,8 @@ Settings related to content types, creation, editing, and display.
 
 ---
 
+(users-groups)=
+
 ## Users & Groups
 
 Settings for user management, authentication, and permissions.
@@ -401,7 +406,9 @@ Settings for user management, authentication, and permissions.
 
 ---
 
-## Security & Permissions
+(security-permissions)=
+
+## Security and Permissions
 
 Settings related to access control, authentication, and data protection.
 
@@ -492,6 +499,8 @@ Settings related to access control, authentication, and data protection.
   - Options: Full error details, Generic message, Custom page
 
 ---
+
+(advanced-settings)=
 
 ## Advanced Settings
 
@@ -615,6 +624,7 @@ Configuration options for experienced administrators.
   - Show only for certain content types, user roles, states
 
 ---
+(add-ons-management)=
 
 ## Add-ons Management
 
@@ -680,7 +690,7 @@ Located at the bottom of the Site Setup page.
 
 ## Related Resources
 
-- You can see a demo at [Site setup on a demo plone site](https://classic.demo.plone.org/)@@overview-controlpanel (login as Manager)
+- You can see a demo at [Site setup on a demo plone site](https://classic.demo.plone.org/en)@@overview-controlpanel (login as Manager)
 - [Plone Training - Content Editing](https://training.plone.org/content-editing/site-setup-and-configuration.html)
 - [Plone Training - Mastering Plone](https://training.plone.org/mastering-plone/configuring_customizing.html)
 - [Plone Official Documentation](https://plone.org/documentation)
