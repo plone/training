@@ -389,7 +389,7 @@ The following creates a new entry `ploneconf.talk_submission_open` with Generic 
 ```
 
 When creating a new vanilla Plone instance, a lot of default settings are created that way.
-See https://github.com/plone/Products.CMFPlone/blob/master/Products/CMFPlone/profiles/dependencies/registry.xml to see how {py:mod}`Products.CMFPlone` registers values.
+See https://github.com/plone/Products.CMFPlone/blob/master/src/Products/CMFPlone/profiles/dependencies/registry.xml to see how {py:mod}`Products.CMFPlone` registers values.
 `````
 
 
