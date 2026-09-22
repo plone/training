@@ -68,12 +68,14 @@ linkcheck_ignore = [
     r"http://127.0.0.1",
     r"http://example.com",
     r"https://docutils.sourceforge.io/",  # Blocked as crawler
+    r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://github.com/search",  # always rate limited, causes linkcheck to stall
-    r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
+    r"https://www.npmjs.com/",  # tests say 403 Server Error, but manually they work
     r"https://www.linode.com/.*",  # tests say 500 Server Error, but manually they work
     # Ignore static file downloads
     r"^/_static/",
+    r"^/_images/",
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.

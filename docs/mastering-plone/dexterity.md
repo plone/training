@@ -123,7 +123,7 @@ We will only use the Plone web interface features.
   ````{card}
   ```{image} _static/volto_dexterity_types.png
   :alt: Edit content type schema through the web
-  :target: ../_images/volto_dexterity_types.png
+  :target: /_images/volto_dexterity_types.png
   ```
   +++
   _Edit content type schema through the web_
@@ -134,7 +134,7 @@ We will only use the Plone web interface features.
   ````{card}
   ```{image} _static/volto_edit_schema.png
   :alt: Add field through the web (TTW)
-  :target: ../_images/volto_edit_schema.png
+  :target: /_images/volto_edit_schema.png
   ```
   +++
   _Add field through the web (TTW)_
@@ -146,7 +146,7 @@ We will only use the Plone web interface features.
   ````{card}
   ```{image} _static/volto_add_news_item.png
   :alt: See new additional custom field in a fresh new news item
-  :target: ../_images/volto_add_news_item.png
+  :target: /_images/volto_add_news_item.png
   ```
   +++
   _See new additional custom field in a fresh new news item_
