@@ -21,6 +21,7 @@ customizing-volto-light-theme/index
 plone-deployment/index
 migrations/index
 content-editing/index
+blicca-customization-training/index
 content-management/index
 ```
 
@@ -70,6 +71,12 @@ documentation/index
 
 {doc}`content-management/index`
 :   How to manage content for larger Plone sites
+
+## Blicca JS stack insights
+
+{ref}`blicca-js-stack-insights-label`
+:   How to configure, create and customize mockup patterns and override existing Svelte components in `@plone/registry`.
+
 
 ## Other
 
