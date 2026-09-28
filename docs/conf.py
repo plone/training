@@ -4,10 +4,6 @@
 
 # -- Path setup --------------------------------------------------------------
 
-from datetime import datetime
-
-suppress_warnings = ["misc.highlighting_failure"]
-
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -16,24 +12,23 @@ suppress_warnings = ["misc.highlighting_failure"]
 # import sys
 # sys.path.insert(0, os.path.abspath("."))
 
-
 # -- Project information -----------------------------------------------------
 
 project = "Plone Training"
 copyright = "Plone Foundation"
+archive_year = "2026"  # ARCHIVE: Update on `main` when archiving
+archive_year_dot = ""  # ARCHIVE: Delete when archiving to a `YYYY` branch
+# archive_year_dot = archive_year + "."  # ARCHIVE: Uncomment when archiving to a `YYYY` branch
+archive_year_space = " " + archive_year
+project = f"Plone Training{archive_year_space}"
 author = "Plone community"
 trademark_name = "Plone"
-now = datetime.now()
-year = str(now.year)
-
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = year
-# The full version, including alpha/beta/rc tags.
-release = year
+release = version = archive_year
 
 
 # -- General configuration ----------------------------------------------------
@@ -72,10 +67,17 @@ linkcheck_ignore = [
     r"http://0.0.0.0",
     r"http://127.0.0.1",
     r"http://example.com",
+    r"https://chromewebstore.google.com/",  # Redirects to consent page that requires auth
+    r"https://docutils.sourceforge.io/",  # Blocked as crawler
+    r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
     r"https://github.com/plone/training/issues/new/choose",  # requires auth
     r"https://github.com/search",  # always rate limited, causes linkcheck to stall
-    r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
+    r"https://www.npmjs.com/",  # tests say 403 Server Error, but manually they work
+    r"https://www.merriam-webster.com/",  # tests say 403 Server Error, but manually they work
     r"https://www.linode.com/.*",  # tests say 500 Server Error, but manually they work
+    # Ignore static file downloads
+    r"^/_static/",
+    r"^/_images/",
     # ### Start of list of anchored links
     # Prior to each PloneConf, uncomment these lines to verify that the links work,
     # although the anchor cannot be found.
@@ -125,6 +127,7 @@ html_sidebars = {
 }
 
 html_theme_options = {
+    # "announcement": f"⚠️ You are viewing the {archive_year} version of Plone Training. <a href='https://training.plone.org/'>View the latest version</a>. ⚠️",  # ARCHIVE: Uncomment when archiving to a `YYYY` branch.
     "article_header_start": ["toggle-primary-sidebar", "chapter-title"],
     "extra_footer": """<p>The text and illustrations in this website are licensed by the Plone Foundation under a Creative Commons Attribution 4.0 International license. Plone and the Plone® logo are registered trademarks of the Plone Foundation, registered in the United States and other countries. For guidelines on the permitted uses of the Plone trademarks, see <a href="https://plone.org/foundation/logo">https://plone.org/foundation/logo</a>. All other trademarks are owned by their respective owners.</p>
     <p>Pull request previews by <a href="https://readthedocs.org/">Read the Docs</a>.</p>""",
@@ -182,7 +185,7 @@ html_theme_options = {
         },
     ],
     "logo": {
-        "text": "Plone Training 2026",
+        "text": f"Plone Training{archive_year_space}",
     },
     "navigation_with_keys": True,
     "path_to_docs": "docs",
@@ -206,7 +209,9 @@ html_extra_path = [
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+html_static_path = [
+    "_static",
+]
 
 
 # -- Options for MyST markdown conversion to HTML -----------------------------
@@ -241,6 +246,7 @@ intersphinx_mapping = {
     "plone5docs": ("https://5.docs.plone.org/", None),
     "plone6docs": ("https://6.docs.plone.org/", None),
     "python": ("https://docs.python.org/3/", None),
+    "training2025": ("https://2025.training.plone.org/", None),
     "training2024": ("https://2024.training.plone.org/", None),
     "training2023": ("https://2023.training.plone.org/", None),
     "training2022": ("https://2022.training.plone.org/", None),
@@ -254,10 +260,10 @@ graphviz_output_format = "svg"
 
 # -- OpenGraph configuration ----------------------------------
 
-ogp_site_url = "https://training.plone.org/"
+ogp_site_url = f"https://{archive_year_dot}training.plone.org/"
 ogp_description_length = 200
-ogp_image = "https://training.plone.org/_static/Plone_logo_square.png"
-ogp_site_name = "Plone Training"
+ogp_image = f"https://{archive_year_dot}training.plone.org/_static/Plone_logo_square.png"
+ogp_site_name = f"Plone Training{archive_year_space}"
 ogp_type = "website"
 ogp_custom_meta_tags = [
     '<meta property="og:locale" content="en_US" />',
@@ -279,7 +285,7 @@ notfound_template = "404.html"
 # -- Options for sphinx_sitemap to HTML -----------------------------
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org/"
+html_baseurl = f"https://{archive_year_dot}training.plone.org/"
 # https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#customizing-the-url-scheme
 sitemap_url_scheme = "{link}"
 

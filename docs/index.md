@@ -17,11 +17,11 @@ A collection of trainings developed and created by the Plone community.
 :hidden: true
 
 mastering-plone/index
-volto-customization/index
 customizing-volto-light-theme/index
 plone-deployment/index
 migrations/index
 content-editing/index
+content-management/index
 ```
 
 ```{toctree}
@@ -54,10 +54,6 @@ documentation/index
 {doc}`customizing-volto-light-theme/index`
 :   This training provides comprehensive knowledge and practical skills for theming in Plone 6's Volto frontend by using and extending Volto Light Theme.
 
-{doc}`volto-customization/index`
-:   Are you new to JavaScript development and eager to explore the world of Volto customization?
-    Unlock the power of Volto, the modern React-based CMS framework for Plone, by joining our comprehensive half-day training designed specifically for JavaScript beginners.
-
 
 ## Deployment
 
@@ -70,6 +66,10 @@ documentation/index
 {doc}`content-editing/index`
 :   How to edit content and manage a Plone site.
 
+## Managing Content for larger Plone sites
+
+{doc}`content-management/index`
+:   How to manage content for larger Plone sites
 
 ## Other
 
@@ -91,9 +91,14 @@ documentation/index
 Beginning in 2022, after every Plone Conference, we take a snapshot and archive trainings conducted at the conference.
 Because we began this practice in 2022, all previous trainings that have documentation were archived.
 
+### 2025
+
+#### Volto, React, and Javascript
+
+-   {doc}`training2025:volto-customization/index`
+
 
 ### 2024
-
 
 #### Development and Customization
 

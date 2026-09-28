@@ -27,7 +27,7 @@ Tools and techniques covered:
 
 ````{card}
 
-Check out `mastering-plone-project` at tag "overrides":
+Check out `mastering-plone-project` at tag `overrides`:
 
 ```shell
 git checkout overrides
@@ -48,7 +48,7 @@ The default visualization for the new content type `talk` lists the field values
 
 We will create a custom view for the talk content type in order to show the talk data in a nice way, display the speaker portrait, and add some components.
 
-In the folder {file}`frontend` you need to add a new file {file}`packages/volto-ploneconf-site/src/components/Views/Talk.jsx`.
+In the folder {file}`frontend` you need to add a new file {file}`packages/volto-ploneconf-site/src/components/Views/TalkView.jsx`.
 Create the folder {file}`Views` first.
 
 As a first step, the file will hold only a placeholder.
@@ -156,7 +156,7 @@ The result isn't beautiful, because the text sticks to the left border of the pa
 You need to wrap it in a `Container` to get the same styling as the content of `DefaultView`:
 
 ```{code-block} jsx
-:emphasize-lines: 1,6-7,11,13
+:emphasize-lines: 1,3,6-7,11,13
 
 import { Container as SemanticContainer } from 'semantic-ui-react';
 import DefaultView from '@plone/volto/components/theme/View/DefaultView';

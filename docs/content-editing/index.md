@@ -3,13 +3,13 @@ myst:
   html_meta:
     "description": "How to edit content and manage a Plone site"
     "property=og:description": "How to edit content and manage a Plone site"
-    "property=og:title": "Content Editing for Plone"
+    "property=og:title": "Training for content editing"
     "keywords": "Plone, content, editing, managing"
 ---
 
 (content-editing-label)=
 
-# Content editing for Plone
+# Training for content editing
 
 About
 : How to create and manage content using Plone with Volto as its frontend

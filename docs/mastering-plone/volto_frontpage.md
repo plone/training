@@ -106,7 +106,7 @@ To understand this code snippet, we have to know the information and tags we are
 - The group value defines the group under which the entry shows up in the selection widget, in our case `Metadata`.
 
 ```{tip}
-For a list of Plone's default querystring criteria and declarations and operations, see https://github.com/plone/plone.app.querystring/blob/master/plone/app/querystring/profiles/default/registry.xml
+For a list of Plone's default querystring criteria and declarations and operations, see https://github.com/plone/plone.app.querystring/blob/master/src/plone/app/querystring/profiles/default/registry.xml
 ```
 
 We can now restart the instance and re-install the add-on.

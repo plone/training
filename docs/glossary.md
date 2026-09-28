@@ -304,5 +304,8 @@ nginx
     optimizing resource utilization, and enhancing web performance and security.
 
 Varnish
-    [Varnish](https://varnish-cache.org/intro/) is a high-performance HTTP accelerator and reverse proxy caching server designed to speed up web applications by caching content in memory.
+    [Varnish](https://vinyl-cache.org/intro/index.html) is a high-performance HTTP accelerator and reverse proxy caching server designed to speed up web applications by caching content in memory.
     It serves stored content to users quickly, reducing the load on web servers and enhancing the overall user experience by delivering web pages at high speed.
+
+monorepo
+    In version-control systems, a monorepo or monorepository is a software development strategy in which the code for a number of projects is stored in the same repository.

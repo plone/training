@@ -176,7 +176,7 @@ Update the `addons` and `dependencies` in {file}`frontend/packages/volto-ploneco
   "@plone/volto-form-block"
 ],
 "dependencies": {
-  "@plone/volto-form-block": "^1.0.0-alpha.0",
+  "@plone/volto-form-block": "^1.0.0-alpha.3",
 },
 ```
 

@@ -78,7 +78,7 @@ This is the **Factory Type Information** that holds the configuration for the co
   <property name="description"
             i18n:translate=""
   />
-  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+  <property name="icon_expr">string:file-earmark-text</property>
   <property name="factory">talk</property>
   <property name="add_view_expr">string:${folder_url}/++add++talk</property>
   <property name="link_target" />
@@ -119,7 +119,7 @@ This is the **Factory Type Information** that holds the configuration for the co
           category="object"
           condition_expr=""
           description=""
-          icon_expr=""
+          icon_expr="string:toolbar-action/view"
           link_target=""
           title="View"
           url_expr="string:${object_url}"
@@ -131,7 +131,7 @@ This is the **Factory Type Information** that holds the configuration for the co
           category="object"
           condition_expr=""
           description=""
-          icon_expr=""
+          icon_expr="string:toolbar-action/edit"
           link_target=""
           title="Edit"
           url_expr="string:${object_url}/edit"

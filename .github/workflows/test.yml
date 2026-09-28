@@ -10,13 +10,13 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v10.1.0
+        uses: astral-sh/setup-uv@v10.2.0
 
       - name: Install dependencies
         run: |
           sudo snap install --edge vale
 
-      - name: Run tests with make test (includes clean and linkcheckbroken)
+      - name: Run tests with `make test` (clean and linkcheck)
         run: make test
 
       - name: Run Vale
