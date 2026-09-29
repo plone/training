@@ -1,0 +1,5 @@
+plone-sphinx-theme
+myst-parser
+linkify-it-py
+sphinx-copybutton
+sphinx-design
