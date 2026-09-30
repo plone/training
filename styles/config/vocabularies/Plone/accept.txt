@@ -1,6 +1,5 @@
 accessor
-add-on
-add-ons
+add-ons?
 AJAX
 Ansible
 APIs
