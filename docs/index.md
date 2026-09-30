@@ -1,13 +1,13 @@
 ---
 myst:
   html_meta:
-    "description": "Plone Training"
-    "property=og:description": "Plone Training"
-    "property=og:title": "Plone Training"
-    "keywords": "Plone, Training"
+    "description": "Plone training"
+    "property=og:description": "Plone training"
+    "property=og:title": "Plone training"
+    "keywords": "Plone, training"
 ---
 
-# Plone Training
+# Plone training
 
 A collection of trainings developed and created by the Plone community.
 
@@ -43,13 +43,13 @@ genindex
 documentation/index
 ```
 
-## Development and Customization
+## Development and customization
 
 {ref}`mastering-plone-label`
 :   Best practices of Plone development for both the backend and frontend.
 
 
-## Volto, React, and Javascript
+## Volto, React, and JavaScript
 
 {doc}`customizing-volto-light-theme/index`
 :   This training provides comprehensive knowledge and practical skills for theming in Plone 6's Volto frontend by using and extending Volto Light Theme.
@@ -66,7 +66,7 @@ documentation/index
 {doc}`content-editing/index`
 :   How to edit content and manage a Plone site.
 
-## Managing Content for larger Plone sites
+## Managing content for larger Plone sites
 
 {doc}`content-management/index`
 :   How to manage content for larger Plone sites
@@ -93,20 +93,20 @@ Because we began this practice in 2022, all previous trainings that have documen
 
 ### 2025
 
-#### Volto, React, and Javascript
+#### Volto, React, and JavaScript
 
 -   {doc}`training2025:volto-customization/index`
 
 
 ### 2024
 
-#### Development and Customization
+#### Development and customization
 
 -   {doc}`training2024:mastering-plone/index`
 -   {doc}`training2024:testing/index`
 
 
-#### Volto, React, and Javascript
+#### Volto, React, and JavaScript
 
 -   {doc}`training2024:customizing-volto-light-theme/index`
 -   {doc}`training2024:volto-customization/index`
@@ -133,14 +133,14 @@ Because we began this practice in 2022, all previous trainings that have documen
 
 ### 2023
 
-#### Development and Customization
+#### Development and customization
 
 -   {doc}`training2023:mastering-plone/index`
 -   {doc}`training2023:mastering-plone-5/index`
 -   {doc}`training2023:testing/index`
 
 
-#### Volto, React, and Javascript
+#### Volto, React, and JavaScript
 
 -   {doc}`training2023:voltohandson/index`
 -   {doc}`training2023:voltoaddons/index`
@@ -165,12 +165,12 @@ Because we began this practice in 2022, all previous trainings that have documen
 
 ### 2022
 
-#### Development and Customization
+#### Development and customization
 
 -   {doc}`training2022:ttw/index`
 
 
-#### Volto, React, and Javascript
+#### Volto, React, and JavaScript
 
 -   {doc}`training2022:volto/index`
 -   {doc}`training2022:angular/index`
