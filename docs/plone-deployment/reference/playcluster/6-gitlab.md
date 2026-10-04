@@ -84,9 +84,9 @@ deployment variables per project instead.
 
 **`REGISTRY_IMAGE_PREFIX` must not be protected.** The first job of the pipeline
 runs in every pipeline, including merge requests on unprotected branches, which
-do not receive protected variables. On GitLab.com the pipeline then does not
+do not receive protected variables. On `gitlab.com` the pipeline then does not
 fail: it falls back to GitLab's own container registry, which is always enabled
-there. Images get pushed to GitLab.com while the deploy looks for them in your
+there. Images get pushed to `gitlab.com` while the deploy looks for them in your
 registry.
 
 **`$CI_PROJECT_PATH` is resolved by the pipeline, not by GitLab.** One group

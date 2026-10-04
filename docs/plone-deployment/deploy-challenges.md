@@ -11,9 +11,9 @@ myst:
 
 # Deploy challenges in real life
 
-This is a small chapter to give a bit more background on the 'why show the end result' in this training with 2 repos and deviate from the deployment training on 2025.training.plone.org. It should also help the reader to maybe go to that training instead.
+This is a small chapter to give a bit more background on the 'why show the end result' in this training with 2 repos and deviate from the deployment training at <https://2025.training.plone.org>. It should also help the reader to maybe go to that training instead.
 
-The 2025 training is still better suited to show a clean 'lab setup' for your first deployment to a containerised hosting setup. We could update the training to offer a separate 'get your own VM' instead of using a trainer provided tangrama.com.br setup.  One of the realities of mid 2026 is that a VM with 8 GB RAM costs more than 40 euro/month, compared to 7 euro/month in 2025.
+The 2025 training is still better suited to show a clean 'lab setup' for your first deployment to a containerised hosting setup. We could update the training to offer a separate 'get your own VM' instead of using a trainer provided `tangrama.com.br` setup.  One of the realities of mid 2026 is that a VM with 8 GB RAM costs more than 40 euro/month, compared to 7 euro/month in 2025.
 
 A first source of extra challenges comes from going to a multi-node swarm cluster, where the backend/frontend runs on separate worker nodes, and we should place the postgresql container on a fixed 'storage' node.  These are essential multi-node containerisation skills to teach.
 
