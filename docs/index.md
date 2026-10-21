@@ -18,10 +18,10 @@ A collection of trainings developed and created by the Plone community.
 
 mastering-plone/index
 customizing-volto-light-theme/index
+blicca-customization-training/index
 plone-deployment/index
 migrations/index
 content-editing/index
-blicca-customization-training/index
 content-management/index
 ```
 
@@ -56,6 +56,12 @@ documentation/index
 :   This training provides comprehensive knowledge and practical skills for theming in Plone 6's Volto frontend by using and extending Volto Light Theme.
 
 
+## Blicca and Classic UI
+
+{ref}`blicca-js-stack-insights-label`
+:   How to configure, create, and customize Mockup patterns, and override existing Svelte components in `@plone/registry`.
+
+
 ## Deployment
 
 {doc}`plone-deployment/index`
@@ -71,12 +77,6 @@ documentation/index
 
 {doc}`content-management/index`
 :   How to manage content for larger Plone sites
-
-## Blicca JS stack insights
-
-{ref}`blicca-js-stack-insights-label`
-:   How to configure, create and customize mockup patterns and override existing Svelte components in `@plone/registry`.
-
 
 ## Other
 

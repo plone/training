@@ -16,7 +16,7 @@ At the end, your browser console proves that your first own bundle is loaded.
 
 ## Install the prerequisites
 
-Install the prerequisites from the Plone documentation, {doc}`Create a project with Cookieplone <plone:install/create-project-cookieplone>`: uv, Make, and Git.
+Install the prerequisites from the Plone documentation, {doc}`Create a project with Cookieplone <plone6docs:install/create-project-cookieplone>`: uv, Make, and Git.
 The add-on's JavaScript build additionally needs Node.js 22 or later, and pnpm.
 Enable pnpm with `corepack enable`, as the version is pinned in the add-on's {file}`package.json`.
 

@@ -39,7 +39,7 @@ No Svelte experience is required.
 
 Bring a laptop with the following software installed:
 
-- The prerequisites from the Plone documentation, {doc}`Create a project with Cookieplone <plone:install/create-project-cookieplone>`: uv, Make, and Git
+- The prerequisites from the Plone documentation, {doc}`Create a project with Cookieplone <plone6docs:install/create-project-cookieplone>`: uv, Make, and Git
 - Node.js 22 or later
 - pnpm, where `corepack enable` is all it takes, as the version is pinned in the project's `package.json`
 - A code editor

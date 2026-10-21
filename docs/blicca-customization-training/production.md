@@ -79,4 +79,4 @@ Lazy component registration
 - The [Patternslib documentation](https://patternslib.com/) for the pattern API.
 - The [Mockup source](https://github.com/plone/mockup) as a cookbook of real-world patterns.
 - The [plone.staticresources source](https://github.com/plone/plone.staticresources) for how the core bundle is built and registered.
-- {doc}`Mockup and Patternslib in the Plone documentation <plone:classic-ui/mockup>`.
+- {doc}`Mockup and Patternslib in the Plone documentation <plone6docs:classic-ui/mockup>`.
