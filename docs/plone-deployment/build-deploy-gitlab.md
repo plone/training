@@ -183,7 +183,7 @@ The simplest way: {menuselection}`Deploy --> Environments --> production`, and *
 
 You can also run a pipeline on `main` with the variable `IMAGE_TAG` set to the tag you want.
 The build jobs are skipped in such a pipeline, on purpose: building would push today's code under the old tag.
-On GitLab.com, running a pipeline with variables has to be allowed first, under {menuselection}`Settings --> CI/CD --> Variables`.
+On `gitlab.com`, running a pipeline with variables has to be allowed first, under {menuselection}`Settings --> CI/CD --> Variables`.
 
 ## When it breaks
 

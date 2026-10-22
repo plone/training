@@ -181,7 +181,7 @@ code and push it under the old tag, the "rollback" would deploy today's code,
 and the old image would lose its tag.
 
 ```{note}
-On GitLab.com, new projects do not allow pipeline variables: the form under
+On `gitlab.com`, new projects do not allow pipeline variables: the form under
 {menuselection}`Run pipeline` then shows no variables section at all. To allow
 them, set {menuselection}`Settings --> CI/CD --> Variables --> Minimum role to use pipeline variables`
 to *Maintainer*. The first way, **Re-deploy** from the environment, works

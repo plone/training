@@ -162,7 +162,7 @@ In this section, we introduce how to create and save a content item (a News Item
 
 We edit an existing news item, adding text and an image.
 
-1. Navigate to [https://demo.plone.org/plone-conference-2024](https://demo.plone.org/plone-conference-2024)
+1. Navigate to `https://demo.plone.org/plone-conference-2024`
 
 
 2. Click the {guilabel}`Edit` button.
@@ -341,7 +341,7 @@ Now we show how to publish an item. Items in the "published" state are visible t
 
 ## Publish a News Item
 
-1. Navigate to [https://demo.plone.org/plone-conference-2024](https://demo.plone.org/plone-conference-2024)
+1. Navigate to `https://demo.plone.org/plone-conference-2024`
 
 
 2. Before a news item has been published, you see "No date". This is where the publication date will be shown.

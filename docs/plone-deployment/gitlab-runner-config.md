@@ -84,9 +84,9 @@ In that case, set the deployment variables on each project instead.
 
 **`REGISTRY_IMAGE_PREFIX` must not be protected.**
 The pipeline's first job, `config`, runs in every pipeline, including merge request pipelines on unprotected branches, and they do not receive protected variables.
-On GitLab.com, the job then does not fail.
-It quietly falls back to GitLab.com's own container registry, which is always enabled there.
-The build pushes to GitLab.com, while the deploy looks for the images in your own registry.
+On `gitlab.com`, the job then does not fail.
+It quietly falls back to `gitlab.com`'s own container registry, which is always enabled there.
+The build pushes to `gitlab.com`, while the deploy looks for the images in your own registry.
 
 **`$CI_PROJECT_PATH` is resolved by the pipeline, not by GitLab.**
 The one group variable, `registry.playcluster.plone.org/$CI_PROJECT_PATH`, gives every project its own place in the registry, such as `plone-training1/my-site`.

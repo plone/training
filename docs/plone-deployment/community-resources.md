@@ -66,7 +66,7 @@ new host name.
 
 ## Tools the pipeline reuses
 
-[repoplone](https://pypi.org/project/repoplone/)
+[repoplone](https://pypi.org/project/RepoPlone/)
 : Reads `repository.toml` and reports the project's Python, Plone and Volto versions. The pipeline's
   first job asks it, so no version is written down twice.
 

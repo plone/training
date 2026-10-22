@@ -41,9 +41,9 @@ This is the part that you don't see in public repositories/setups, as the setup 
 
 The Plone Community doesn't have the resources to support and maintain 'production grade' fully abstracted scaffolding in cookieplone for all the combinations of these required tooling, CI/CD solution, and Server Deployments. This training is an experiment where we begin with a specific end result in mind: an autonomous training cluster that can lead to a production deployment.
 
-## GitLab.com
+## `gitlab.com`
 
-We will use gitlab.com as a hosted service so that we have exposure, and don't need to set up a full GitLab locally hosted instance. If time permits, I also want to offer you to experiment in the afternoon with deploying a project to our demo cluster. But you can also host GitLab yourself. From there on everything else (ci/cd, deployment) is running on systems you host and manage yourself.
+We will use `gitlab.com` as a hosted service so that we have exposure, and don't need to set up a full GitLab locally hosted instance. If time permits, I also want to offer you to experiment in the afternoon with deploying a project to our demo cluster. But you can also host GitLab yourself. From there on everything else (ci/cd, deployment) is running on systems you host and manage yourself.
 
 ## Kubernetes
 
@@ -56,7 +56,7 @@ Working at a Plone integrator (kitconcept), we got a request in 2026 to organise
 
 A secondary wish was to have a full GitLab CI/CD setup documented. With GitLab's option to self-host, and adding a bit more digital autonomy on the runner, a fully 'stand alone' Plone deployment pipeline was the new goal.
 
-Cookieplone has reached traction in the community, has excellent documentation now on both docs.plone.org and on its own documentation at <https://plone.github.io/cookieplone/>, and got a major update this year with interesting new features.
+Cookieplone has reached traction in the community, has excellent documentation now at both <https://6.docs.plone.org/> and in its own documentation at <https://plone.github.io/cookieplone/>, and got a major update this year with interesting new features.
 
 Combined with the insight that we have a grey area between local development setup and 'serious' deployment setup, the idea was to do a 'show and tell' training instead of trying to provide an interactive training this year.
 

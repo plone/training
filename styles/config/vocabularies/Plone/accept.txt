@@ -10,6 +10,7 @@ Aspeli's
 async
 backend
 Barceloneta
+Blicca
 Bluebream
 boolean
 Brehault
@@ -94,6 +95,7 @@ mixin
 mixins
 mockup
 monorepo
+mxdev
 Nagios
 namespace
 namespaces
@@ -212,6 +214,7 @@ URL
 URLs
 uuid
 UUIDs
+uv
 Vagrantfile
 validator
 validators
