@@ -18,6 +18,7 @@ Brehault
 buildout
 bundler
 Casali
+Chakra
 CMFCore
 configlet
 Cookiecutter
@@ -119,6 +120,7 @@ pdb
 pdbpp
 PDF
 Pellegrini
+Petch
 PhantomJS
 Philipp
 piwik
@@ -167,6 +169,7 @@ REST
 reusability
 reutilization
 RichText
+Robotarium
 Rohberg
 Rossum
 Runyan
@@ -183,6 +186,8 @@ Steffen
 subclassing
 subcomponent
 subfolders
+subsite
+subsites
 subtemplates
 sudo
 superset
@@ -223,6 +228,7 @@ viewlet
 Virtualbox
 virtualenv
 VMWare
+VLT
 Volto
 von
 VSCode
